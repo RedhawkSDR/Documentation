@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>14 Connections</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch15.html" >next</a>] [<a 
+href="mainch13.html" >prev</a>] [<a 
+href="mainch13.html#tailmainch13.html" >prev-tail</a>] [<a 
+href="#tailmainch14.html">tail</a>] [<a 
+href="main.html#mainch14.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;14</span><br /><a 
+ id="x16-20000014"></a>Connections</h2>
+<h3 class="sectionHead"><span class="titlemark">14.1   </span> <a 
+ id="x16-20100014.1"></a>Introduction</h3>
+<!--l. 6--><p class="noindent" >When discussing connections, there are several terms that are thrown around in REDHAWK: uses,
+provides, <a 
+href="mainli2.html#glo:port">Port</a>, interfaces, <a 
+href="mainap3.html#idl">IDL</a>, among others. This section demystifies connections and presents
+the key concepts that enable a REDHAWK-based system to easily interact with other REDHAWK
+systems and external tools developed outside the scope of REDHAWK.
+<!--l. 9--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">14.2   </span> <a 
+ id="x16-20200014.2"></a>The Connection Process</h3>
+<!--l. 10--><p class="noindent" >All connections take a client-server pattern. All calls are made from the client to the server. It is
+the role of the server to provide a set of functions that can be called by the client. It is the role of
+the client to understand what interfaces the server provides and to invoke (use) them. This is the
+basis for the uses/provides nomenclature for <a 
+href="mainli2.html#glo:port">Ports</a>.
+<!--l. 16--><p class="noindent" >All uses <a 
+href="mainli2.html#glo:port">Ports</a> implement the <span 
+class="cmtt-12">CF::Port </span>interface. <span 
+class="cmtt-12">CF::Port </span>is an interface that is part of
+the REDHAWK Core Framework; it contains only two methods: <span 
+class="cmtt-12">connectPort() </span>and
+<span 
+class="cmtt-12">disconnectPort()</span>. To connect a uses <a 
+href="mainli2.html#glo:port">Port</a> to a provides <a 
+href="mainli2.html#glo:port">Port</a>, an external entity needs to invoke
+the <span 
+class="cmtt-12">connectPort() </span>function on the uses <a 
+href="mainli2.html#glo:port">Port</a>, where the arguments are a <a 
+href="mainap3.html#corba">CORBA</a> pointer to the
+provides <a 
+href="mainli2.html#glo:port">Port</a> and a string that identifies that connection. To sever a connection, an
+external entity needs to invoke the <span 
+class="cmtt-12">disconnectPort() </span>function on the uses <a 
+href="mainli2.html#glo:port">Port</a>, where
+its only argument is the string <a 
+href="mainap3.html#id">ID</a> used to establish the connection. In the case of an
+<a 
+href="mainli2.html#glo:application">Application</a>, the connections are established/destroyed by an object in the <a 
+href="mainli2.html#glo:domainmanager">Domain
+Manager</a> process space based on the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s <a 
+href="mainap3.html#xml">XML</a> file. In the case of the Sandbox, the
+Sandbox will make the correct calls to establish and destroy a connection based on user
+input.
+<!--l. 23--><p class="noindent" >All provides <a 
+href="mainli2.html#glo:port">Ports</a> must implement an interface described in <a 
+href="mainap3.html#idl">IDL</a>. This interface implements the
+methods that the uses <a 
+href="mainli2.html#glo:port">Port</a> will invoke after a connection has been made. When a uses <a 
+href="mainli2.html#glo:port">Port</a> is
+given a pointer to a provides <a 
+href="mainli2.html#glo:port">Port</a>, it essentially casts this generic pointer to the interface that it
+believes the provides <a 
+href="mainli2.html#glo:port">Port</a> to implement. If this casting process fails, an exception is raised during
+the <span 
+class="cmtt-12">connectPort() </span>call.
+                                                                                         
+                                                                                         
+<!--l. 28--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">14.3   </span> <a 
+ id="x16-20300014.3"></a>Why Ports?</h3>
+<!--l. 30--><p class="noindent" >It seems burdensome to connect <a 
+href="mainli2.html#glo:component">Components</a> through <a 
+href="mainli2.html#glo:port">Port</a> objects; this is an additional level of
+indirection that adds another layer of complexity. This approach is taken largely because it allows
+modularizations of interfaces when <a 
+href="mainli2.html#glo:component">Components</a> have more than one input or output <a 
+href="mainli2.html#glo:port">Port</a>.
+However, there are interfaces that are inherent to a <a 
+href="mainli2.html#glo:component">Component</a>, <a 
+href="mainli2.html#glo:device">Device</a>, or any other entity in the
+REDHAWK space that can also be accessed in connections.
+<!--l. 34--><p class="noindent" >A <a 
+href="mainli2.html#glo:component">Component</a> implements the <span 
+class="cmtt-12">CF::Resource </span>interface, which in turn inherits from a set of
+interfaces. The <span 
+class="cmtt-12">CF::Resource </span>interface implements the following functions: <span 
+class="cmtt-12">start()</span>, <span 
+class="cmtt-12">stop()</span>,
+<span 
+class="cmtt-12">initialize()</span>, <span 
+class="cmtt-12">releaseObject()</span>, <span 
+class="cmtt-12">getPort()</span>, and <span 
+class="cmtt-12">runTest()</span>. In REDHAWK, the interface
+inherent to a particular <a 
+href="mainli2.html#glo:domain">Domain</a> object is called the <span 
+class="cmmi-12">&#x003C;</span><span 
+class="cmtt-12">base supported interface</span><span 
+class="cmmi-12">&#x003E;</span>. It is possible
+to create a uses <a 
+href="mainli2.html#glo:port">Port</a> that has an expectation to cast the provides pointer to the <span 
+class="cmtt-12">CF::Resource</span>
+interface. In this case, it is possible to connect a uses <a 
+href="mainli2.html#glo:port">Port</a> to a <a 
+href="mainli2.html#glo:component">Component</a>. This is how the control
+of <a 
+href="mainli2.html#glo:component">Components</a> is possible.
+<!--l. 41--><p class="noindent" >This concept can be extended to all other objects in the REDHAWK space. For example, a
+<a 
+href="mainli2.html#glo:component">Component</a>&#8217;s uses <a 
+href="mainli2.html#glo:port">Port</a> may cast to <span 
+class="cmtt-12">CF::DomainManager</span>. If that connection is made, the
+<a 
+href="mainli2.html#glo:component">Component</a> now has access to the REDHAWK Domain, and it can inspect all deployed objects,
+launch and release <a 
+href="mainli2.html#glo:application">Applications</a>, or do any other kind of management functions.
+<!--l. 45--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">14.4   </span> <a 
+ id="x16-20400014.4"></a>Port Access</h3>
+<!--l. 46--><p class="noindent" >A <a 
+href="mainli2.html#glo:port">Port</a> belongs to a <a 
+href="mainli2.html#glo:component">Component</a> or <a 
+href="mainli2.html#glo:device">Device</a> (<a 
+href="mainli2.html#glo:device">Devices</a> are specialized <a 
+href="mainli2.html#glo:component">Components</a> - more on that in
+<a 
+href="mainch6.html#x8-870006">Chapter 6</a>). To retrieve a <a 
+href="mainli2.html#glo:port">Port</a>, an external entity needs to call <span 
+class="cmtt-12">getPort() </span>on the <a 
+href="mainli2.html#glo:component">Component</a> that
+owns that <a 
+href="mainli2.html#glo:port">Port</a>. The argument to the <span 
+class="cmtt-12">getPort() </span>function is the string name for the <a 
+href="mainli2.html#glo:port">Port</a>, and the
+return value is a <a 
+href="mainap3.html#corba">CORBA</a> pointer to that <a 
+href="mainli2.html#glo:port">Port</a> object. Both uses and provides <a 
+href="mainli2.html#glo:port">Ports</a>
+are retrieved from <a 
+href="mainli2.html#glo:component">Components</a> through this function call. Base supported interfaces
+are not retrieved through the <span 
+class="cmtt-12">getPort()</span>, because they are not <a 
+href="mainli2.html#glo:port">Ports</a>. Instead, these
+references are retrieved directly from an entity like the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> or the <a 
+href="mainli2.html#glo:devicemanager">Device
+Manager</a>.
+<!--l. 54--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">14.5   </span> <a 
+ id="x16-20500014.5"></a>Dynamic Connections</h3>
+<!--l. 56--><p class="noindent" >Unless a <a 
+href="mainli2.html#glo:component">Component</a> is in the process of being terminated, it is valid to retrieve a <a 
+href="mainli2.html#glo:port">Port</a> reference at
+any other point in the <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s life cycle. Anyone may call <span 
+class="cmtt-12">getPort() </span>on the <a 
+href="mainli2.html#glo:component">Component</a> at
+                                                                                         
+                                                                                         
+any time. In the case of a uses <a 
+href="mainli2.html#glo:port">Port</a>, anyone may call <span 
+class="cmtt-12">connectPort() </span>or <span 
+class="cmtt-12">disconnectPort()</span>
+at any time. In the case of a provides <a 
+href="mainli2.html#glo:port">Port</a>, anyone may cast to that <a 
+href="mainli2.html#glo:port">Port</a> reference
+and start making calls on it. It is the task of the <a 
+href="mainli2.html#glo:component">Component</a> developer to make sure
+that the <a 
+href="mainli2.html#glo:component">Component</a> handles changes like this smoothly. The base classes and code
+generators provided with REDHAWK handle the vast majority of the issues arising from this
+change, especially when the provide <a 
+href="mainli2.html#glo:port">Port</a> implements one of the REDHAWK standard
+interfaces.
+<!--l. 63--><p class="noindent" >This dynamic connection behavior provides huge benefits to an <a 
+href="mainli2.html#glo:application">Application</a> developer. For
+example, if one wanted to inspect the data being passed from one <a 
+href="mainli2.html#glo:component">Component</a> to the
+next, a temporary provides-side implementation can be created and a new connection
+established. The standard behavior of a uses <a 
+href="mainli2.html#glo:port">Port</a> is to send the same data to all its existing
+connections. This means of dynamic connecting is essential for REDHAWK&#8217;s plotting
+mechanism.
+<!--l. 68--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">14.6   </span> <a 
+ id="x16-20600014.6"></a>Example</h3>
+<!--l. 70--><p class="noindent" >To exercise connections, create the following <a 
+href="mainli2.html#glo:component">Components</a>:
+      <ul class="itemize1">
+      <li class="itemize">A <a 
+href="mainli2.html#glo:component">Component</a> called <span 
+class="cmti-12">source </span>with a uses (output) <a 
+href="mainli2.html#glo:port">Port</a> of type <span 
+class="cmti-12">dataFloat </span>named <span 
+class="cmti-12">output</span>
+      </li>
+      <li class="itemize">A <a 
+href="mainli2.html#glo:component">Component</a> called <span 
+class="cmti-12">sink </span>with a provides (input) <a 
+href="mainli2.html#glo:port">Port</a> of type <span 
+class="cmti-12">dataFloat </span>named <span 
+class="cmti-12">input</span></li></ul>
+<!--l. 77--><p class="noindent" >The language selected for the <a 
+href="mainli2.html#glo:component">Components</a> is not relevant. Create both <a 
+href="mainli2.html#glo:component">Component</a> projects,
+generate the <a 
+href="mainli2.html#glo:component">Component</a> code, and install the <a 
+href="mainli2.html#glo:component">Components</a> (for a review of how to do this, see
+<a 
+href="mainch4.html#x6-330004">Chapter 4</a>).
+<!--l. 81--><p class="noindent" >In a Python session on a terminal, run the following commands:
+<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ >>> from ossie.utils import sb
+ >>> source = sb.Component('source')
+ >>> sink = sb.Component('sink')
+ >>> uses_port = source.getPort('output')
+ >>> provides_port = sink.getPort('input')
+ >>> uses_port.connectPort(provides_port, 'my_connection')
+                                                                                         
+                                                                                         
+]]></script>
+<!--l. 92--><p class="noindent" >After running the script above, the connection has been established.
+<!--l. 94--><p class="noindent" >To destroy the connection, use the following command:
+<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ >>> uses_port.disconnectPort('my_connection')
+]]></script>
+<!--l. 100--><p class="noindent" >Following these multiple steps every time that one wants to establish a connection can be
+cumbersome. In the Sandbox, the Python <a 
+href="mainap3.html#api">API</a> for <a 
+href="mainli2.html#glo:component">Components</a> has been extended to include
+<span 
+class="cmtt-12">connect() </span>and <span 
+class="cmtt-12">disconnect() </span>members.
+<!--l. 103--><p class="noindent" >If it is possible to create unambiguous <a 
+href="mainli2.html#glo:port">Port</a> type matches between two <a 
+href="mainli2.html#glo:port">Ports</a>, the steps above can
+be reduced to:
+<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ >>> from ossie.utils import sb
+ >>> source = sb.Component('source')
+ >>> sink = sb.Component('sink')
+ >>> source.connect(sink)
+]]></script>
+<!--l. 112--><p class="noindent" >Note that this extension to the Sandbox&#8217;s <a 
+href="mainli2.html#glo:component">Component</a> <a 
+href="mainap3.html#api">API</a> is not an extension of <span 
+class="cmtt-12">CF::Resource</span>,
+so this shortcut does not work outside the context of the Sandbox.
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch15.html" >next</a>] [<a 
+href="mainch13.html" >prev</a>] [<a 
+href="mainch13.html#tailmainch13.html" >prev-tail</a>] [<a 
+href="mainch14.html" >front</a>] [<a 
+href="main.html#mainch14.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch14.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

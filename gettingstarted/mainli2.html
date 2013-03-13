@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>REDHAWK&#8217;s Approach to Process Management and Interaction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="main.html">Getting Started</a></li> 
+<li><a href="../main.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainli3.html" >next</a>] [<a 
+href="mainli1.html" >prev</a>] [<a 
+href="mainli1.html#tailmainli1.html" >prev-tail</a>] [<a 
+href="#tailmainli2.html">tail</a>] [<a 
+href="main.html#mainli2.html" >up</a>] </p></div>
+<h2 class="likechapterHead"><a 
+ id="x3-4000"></a>REDHAWK&#8217;s Approach to Process Management and Interaction</h2>
+<!--l. 3--><p class="noindent" >This chapter addresses the basic level of decomposition and deployment for
+REDHAWK and the middleware used to support communications between
+basic functional units.
+<h3 class="likesectionHead"><a 
+ id="x3-5000"></a>Process Management</h3>
+<!--l. 7--><p class="noindent" >The basic functional unit in REDHAWK is a Component, which represents
+a single process on a host computer. The Component supports the
+interfaces necessary to initialize, configure, query, test, connect to other
+Components, and terminate the Component. It also manages a processing
+thread which contains the Component&#8217;s functionality and the buffering
+of input/output data. Components can be written in C++, Python, or
+Java.
+<!--l. 12--><p class="noindent" >A Waveform is a logical collection of Components that are to be deployed as an
+                                                                          
+
+                                                                          
+Application onto a REDHAWK system and is defined in an XML file. A
+Waveform allows a developer to create algorithms composed of Components.
+The composition of algorithms as separate processes allows REDHAWK to
+appropriately deploy these Components into a network environment.
+REDHAWK supports distributed computing by finding an appropriate host for a
+Component, deploying the Component to that host, and managing that
+Component once it is running.
+<!--l. 17--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x3-6000"></a>Data Transfer</h3>
+<!--l. 19--><p class="noindent" >Data exchange across a network is integral to REDHAWK&#8217;s core functionality.
+Managing the exchange of data is handled through &#8220;middleware&#8221;, which is a
+sophisticated software infrastructure that provides a common language for the
+efficient transfer of data between arbitrary languages over arbitrary media. The
+middleware selected for REDHAWK is omniORB, an implementation of the
+CORBA (Common Object Request Broker Architecture) specification.
+REDHAWK uses omniORB because it provides substantial technical benefits
+over other middleware implementations.
+<!--l. 24--><p class="noindent" >The primary benefits of using omniORB include:
+      <ul class="itemize1">
+      <li class="itemize">omniORB  is  a  small  package  that  is  easy  to  build  and  install.  It
+      supports Python and C++ by default and was easily expandable to
+      support Java.
+      </li>
+      <li class="itemize">omniORB data transfers are very efficient. The pluggable nature of
+      omniORB&#8217;s  communication  mechanism  allows  the  use  of  multiple
+      underlying  transport  protocols  that  can  be  tailored  based  on  the
+      deployment environment. For example, Components that are located
+      on the same host use Linux domain sockets for the transfer of data
+      as an alternative to IP-based communications.
+      </li>
+                                                                          
+
+                                                                          
+      <li class="itemize">CORBA  handles  the  data  translation  between  different  host  types
+      (e.g.,  32-bit  versus  64-bit  systems  and  big  endian  versus  little
+      endian).
+      </li>
+      <li class="itemize">CORBA   supports   the   Any   type,   allowing   generic   compatibility
+      between interfaces.
+      </li>
+      <li class="itemize">omniORB implements the open standard CORBA, allowing system
+      developers  to  use  whatever  other  implementation  of  CORBA  they
+      may want to use for their infrastructure to interact with the underlying
+      REDHAWK system.</li></ul>
+<!--l. 33--><p class="noindent" >The technical benefits of omniORB come at the cost of CORBA&#8217;s awkward
+language mapping. This disadvantage is addressed in REDHAWK by mapping
+CORBA constructs to native language types through code generators and base
+classes, thus alleviating the burden of CORBA&#8217;s complexity from the REDHAWK
+user.
+<!--l. 36--><p class="noindent" >In conclusion, omniORB is a simple and efficient middleware package that
+allows programs in C++, Python, or Java to interact with each other. The
+disadvantages from CORBA are mitigated by the REDHAWK framework, while
+CORBA&#8217;s inherent benefits, such as platform independence, generic type
+support, strongly-typed interfaces, and open standard, bring powerful features
+to REDHAWK.
+                                                                          
+
+                                                                          
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainli3.html" >next</a>] [<a 
+href="mainli1.html" >prev</a>] [<a 
+href="mainli1.html#tailmainli1.html" >prev-tail</a>] [<a 
+href="mainli2.html" >front</a>] [<a 
+href="main.html#mainli2.html" >up</a>] </p></div>
+<!--l. 2--><p class="noindent" ><a 
+ id="tailmainli2.html"></a>  
+ 
+<div class=license> 
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

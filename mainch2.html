@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>2 Installation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch3.html" >next</a>] [<a 
+href="mainch1.html" >prev</a>] [<a 
+href="mainch1.html#tailmainch1.html" >prev-tail</a>] [<a 
+href="#tailmainch2.html">tail</a>] [<a 
+href="main.html#mainch2.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;2</span><br /><a 
+ id="x4-60002"></a>Installation</h2>
+<h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x4-70002.1"></a>Introduction</h3>
+<!--l. 5--><p class="noindent" >Installation of REDHAWK consists of a few basic steps:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x4-7002x1">Installing Dependencies
+      </li>
+      <li 
+  class="enumerate" id="x4-7004x2">Installing the Core Framework
+      </li>
+      <li 
+  class="enumerate" id="x4-7006x3">Installing the <a 
+href="mainap3.html#ide">IDE</a>
+      </li>
+      <li 
+  class="enumerate" id="x4-7008x4">Setting Environment Variables
+      </li>
+      <li 
+  class="enumerate" id="x4-7010x5">Configuring omniORB</li></ol>
+<!--l. 13--><p class="noindent" >Root permissions are necessary for configuring omniORB and may be necessary for
+installing the Core Framework (depending on the permissions of the installation target
+directory).
+<!--l. 15--><p class="noindent" >It is recommended that users install from Red Hat Package Managers (<a 
+href="mainap3.html#rpm">RPM</a>s), but advanced users
+who desire custom functionality may also install from source. If installing from source, consult
+<a 
+href="#x4-140002.5">Section 2.5</a>; if installing from <a 
+href="mainap3.html#rpm">RPM</a>s, skip  <a 
+href="#x4-140002.5">Section 2.5</a>.
+<!--l. 20--><p class="noindent" >REDHAWK installation is supported for Red Hat Enterprise Linux or Community Enterprise
+Operating System (<a 
+href="mainap3.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions. Note that
+<a 
+href="mainap3.html#centos">CentOS</a> version 6.4 is not supported due to a known bug in this version at the time of this
+writing.
+<!--l. 22--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x4-80002.2"></a>Linux Commands</h3>
+<!--l. 24--><p class="noindent" >To extract a compressed tarball file named <span 
+class="cmtt-12">filename.tar.gz </span>or <span 
+class="cmtt-12">filename.tgz</span>, use the following
+command:
+                                                                                         
+                                                                                         
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ tar -xzvf filename.tar.gz
+]]></script>
+<!--l. 30--><p class="noindent" >To do a basic yum installation of an installation file named <span 
+class="cmtt-12">program.rpm</span>, use the following
+command:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo yum localinstall --nogpgcheck program.rpm
+]]></script>
+<!--l. 36--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x4-90002.3"></a>Installing Dependencies</h3>
+<!--l. 37--><p class="noindent" >REDHAWK has several third-party dependencies. The list of dependencies may appear
+daunting; however, installation can be accomplished via a few <span 
+class="cmtt-12">yum </span>commands. Note
+that multiple dependencies may be passed to <span 
+class="cmtt-12">yum </span>in a single command for convenience.
+The lists of dependencies have been formatted so that they can be easily copied into a
+terminal.
+<!--l. 42--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.3.1   </span> <a 
+ id="x4-100002.3.1"></a>Dependencies Packaged with Red Hat Enterprise Linux / CentOS</h4>
+<!--l. 43--><p class="noindent" >The following dependencies must be installed:
+      <ul class="itemize1">
+      <li class="itemize">gcc <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">gcc-c++ <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">apr <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">apr-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">apr-util <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">apr-util-devel <span 
+class="cmsy-10x-x-120">\</span>
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">expat-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">autoconf <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">automake <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">libtool <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">e2fsprogs-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">zip <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">xsd <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">boost <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">boost-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">python-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">python-setuptools</li></ul>
+<!--l. 64--><p class="noindent" >REDHAWK also requires Python 2.4 (default on Redhat/<a 
+href="mainap3.html#centos">CentOS</a> 5) or Python 2.6
+(default on Redhat/<a 
+href="mainap3.html#centos">CentOS</a> 6). These should already be installed with the base Linux
+installation, but it is worth noting that REDHAWK is not compatible with Python
+3.
+<!--l. 67--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.3.2   </span> <a 
+ id="x4-110002.3.2"></a>Dependencies Packaged with REDHAWK</h4>
+<!--l. 69--><p class="noindent" >The following third-party dependencies are packaged with REDHAWK. Note that these
+dependencies can be installed in one step by passing <span 
+class="cmtt-12">*.rpm </span>to either <span 
+class="cmtt-12">yum </span>or <span 
+class="cmtt-12">rpm </span>from the directory
+containing the packages.
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="cmtt-12">apache-log4cxx-0.10.0-2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">apache-log4cxx-debuginfo-0.10.0-2.&#x003C;distribution&#x003E;.rpm</span>
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">apache-log4cxx-devel-0.10.0-2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">atlas-sse-3.8.3-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">atlas-sse-devel-3.8.3-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">atlas-sse2-3.8.3-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">atlas-sse2-devel-3.8.3-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">atlas-sse3-3.8.3-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">atlas-sse3-devel-3.8.3-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">boost-1.41.0-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">boost-devel-1.41.0-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">boost-debuginfo-1.41.0-1.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">jdk-6u35-&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">libomniEvents2-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">libomniEvents2-devel-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">libomniORB4.1-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">libomniORB4.1-devel-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">libomniORBpy3-3.0-0.2.&#x003C;distribution&#x003E;.rpm</span>
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">libomniORBpy3-devel-3.0-0.2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">numpy-1.2.1-2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniEvents-bootscripts-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniEvents-debuginfo-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniEvents-doc-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniEvents-server-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniEvents-utils-2.6.2-4.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORB-bootscripts-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORB-debuginfo-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORB-doc-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORB-servers-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORB-utils-4.1.0-0.3.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORBpy-debuginfo-3.0-0.2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">omniORBpy-doc-3.0-0.2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">python-nose-0.11.3-2.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">xsd-3.3.0-1.&#x003C;distribution&#x003E;.rpm</span></li></ul>
+                                                                                         
+                                                                                         
+<!--l. 109--><p class="noindent" >Where <span 
+class="cmtt-12">&#x003C;distribution&#x003E; </span>corresponds to the Operating System (<a 
+href="mainap3.html#os">OS</a>) version and architecture of the
+installation host.
+<!--l. 111--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.3.3   </span> <a 
+ id="x4-120002.3.3"></a>Optional Dependencies</h4>
+<!--l. 112--><p class="noindent" >The following packages are not required for REDHAWK installation, but are recommended. As
+with the first dependencies list, this list has been formatted to be copied to a single <span 
+class="cmtt-12">yum </span>or <span 
+class="cmtt-12">rpm</span>
+command in the terminal.
+      <ul class="itemize1">
+      <li class="itemize">apache-log4cxx <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">apache-log4cxx-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">libomniEvents <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">libomniEvents-devel <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">omniEvents-server <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">omniEvents-bootscripts <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">omniEvents-utils <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">numpy <span 
+class="cmsy-10x-x-120">\</span>
+      </li>
+      <li class="itemize">valgrind</li></ul>
+<!--l. 127--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
+ id="x4-130002.4"></a>Installing the Framework from RPMs</h3>
+<!--l. 129--><p class="noindent" >The REDHAWK Core Framework can be installed via either the <span 
+class="cmtt-12">rpm </span>or <span 
+class="cmtt-12">yum </span>commands. The
+specific options provided to these commands will vary depending on the configuration of the
+system hosting the installation. As with the included third-party dependencies, these packages may
+be installed conveniently by passing <span 
+class="cmtt-12">*.rpm </span>to either <span 
+class="cmtt-12">yum </span>or <span 
+class="cmtt-12">rpm </span>when in the directory containing
+the packages.
+                                                                                         
+                                                                                         
+<!--l. 133--><p class="noindent" >The following packages are to be installed:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="cmtt-12">bulkioInterfaces-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">redhawk-sdrroot-dev-mgr-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">GPP-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">GPP-profile-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">redhawk-sdrroot-dom-mgr-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">redhawk-sdrroot-dom-profile-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">redhawk-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span></li></ul>
+<!--l. 145--><p class="noindent" >Where <span 
+class="cmtt-12">&#x003C;version&#x003E; </span>corresponds to the particular REDHAWK release being installed, and
+<span 
+class="cmtt-12">&#x003C;distribution&#x003E; </span>corresponds to the <a 
+href="mainap3.html#os">OS</a> version and architecture of the installation
+host.
+<!--l. 147--><p class="noindent" >The installation of the following packages is optional:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="cmtt-12">GPP-&#x003C;version&#x003E;.src.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">redhawk-&#x003C;version&#x003E;.src.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">bulkioInterfaces-&#x003C;version&#x003E;.src.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">redhawk-debuginfo-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span>
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">bulkioInterfaces-debuginfo-&#x003C;version&#x003E;.&#x003C;distribution&#x003E;.rpm</span></li></ul>
+                                                                                         
+                                                                                         
+<!--l. 157--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
+ id="x4-140002.5"></a>Installing the Framework from Source</h3>
+<!--l. 159--><p class="noindent" >In order to install the Core Framework from source, the <span 
+class="cmtt-12">redhawk-src-1.8.2.tar.gz </span>must be
+downloaded.
+<!--l. 161--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
+configuration options, including:
+      <ul class="itemize1">
+      <li class="itemize">Disable log4cxx support
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--disable-log4cxx</span>
+      </li>
+      <li class="itemize">Enable LOG_TRACE statements
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--enable-trace</span>
+      </li>
+      <li class="itemize">Enable persistence support:
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--enable-persistence=&#x003C;persist</span><span 
+class="cmtt-12">_type&#x003E;</span>
+      </li>
+      <li class="itemize"> <span 
+class="cmtt-12">(Support types: bdb, gdbm, sqlite, none)</span>
+      </li>
+      <li class="itemize">Disable framework java support:
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--disable-java</span>
+      </li>
+      <li class="itemize">Change the ossie root directory
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--with-ossie=&#x003C;dir&#x003E;</span>
+      </li>
+      <li class="itemize">Change the SDR root directory
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--with-sdr=&#x003C;dir&#x003E;</span></li></ul>
+<!--l. 179--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
+be used after the <span 
+class="cmtt-12">./configure </span>command):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ tar -xvf redhawk-src-*esc\subMinorVersion*end.tar.gz
+$ cd redhawk-src-*esc\subMinorVersion*end
+$ tar -xvf redhawk-*esc\subMinorVersion*end.tar.gz
+$ cd redhawk-*esc\subMinorVersion*end/src/
+$ ./reconf
+$ ./configure <options>
+$ make
+$ make install
+]]></script>
+<!--l. 192--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
+ id="x4-150002.6"></a>Setting Environment Variables</h3>
+<!--l. 194--><p class="noindent" >The environment variables <span 
+class="cmtt-12">SDRROOT </span>and <span 
+class="cmtt-12">OSSIEHOME </span>must be set in order to run REDHAWK.
+<span 
+class="cmtt-12">OSSIEHOME </span>points to the location of installed libraries, header files, and executables. <span 
+class="cmtt-12">SDRROOT </span>is the
+installation target of user-developed resources (e.g., <a 
+href="mainli2.html#glo:component">Components</a> and <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>), which implies
+that the developer must have write permissions to <span 
+class="cmtt-12">SDRROOT </span>and its subdirectories. For convenience,
+a user may add two lines to their <span 
+class="cmsy-10x-x-120">~</span><span 
+class="cmtt-12">/.bashrc </span>file (default <span 
+class="cmtt-12">SDRROOT </span>and <span 
+class="cmtt-12">OSSIEHOME </span>directories
+used):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+export SDRROOT=/var/redhawk/sdr
+export OSSIEHOME=/usr/local/redhawk/core
+]]></script>
+<!--l. 204--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
+class="cmsy-10x-x-120">~</span><span 
+class="cmtt-12">/.bashrc </span>to take effect.
+                                                                                         
+                                                                                         
+<!--l. 206--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.7   </span> <a 
+ id="x4-160002.7"></a>Installing the IDE</h3>
+<!--l. 209--><p class="noindent" >Installing the REDHAWK <a 
+href="mainap3.html#ide">IDE</a> is a simple matter of unzipping the appropriate installation file.
+Locate the appropriate zip file, and run the following command (where <span 
+class="cmmi-12">&#x003C;</span>version<span 
+class="cmmi-12">&#x003E; </span>is the version of
+the REDHAWK <a 
+href="mainap3.html#ide">IDE</a> and <span 
+class="cmmi-12">&#x003C;</span>architecture<span 
+class="cmmi-12">&#x003E; </span>is either x86 (for 32-bit systems) or x86_64 (for 64-bit
+systems)):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ unzip redhawk-ide-R<version>-linux.gtk.<architecture>.zip
+]]></script>
+<!--l. 216--><p class="noindent" >To run the <a 
+href="mainap3.html#ide">IDE</a>, locate the executable <span 
+class="cmtt-12">eclipse </span>file and execute it:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ ./eclipse
+]]></script>
+<!--l. 222--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.8   </span> <a 
+ id="x4-170002.8"></a>Configuring omniORB</h3>
+<!--l. 223--><p class="noindent" >The omniORB configuration file, <span 
+class="cmtt-12">/etc/omniORB.cfg </span>needs to be edited to provide information
+about how to reach the Common Object Request Broker Architecture (<a 
+href="mainap3.html#corba">CORBA</a>) Naming Service
+and Event Service. Open the file and add the following lines in the <span 
+class="cmtt-12">InitRef </span>section (this may
+require root permissions):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+InitRef = NameService=corbaname::localhost
+InitRef = EventService=corbaloc::localhost:11169/omniEvents
+]]></script>
+<!--l. 231--><p class="noindent" >After the file has been edited, the <span 
+class="cmtt-12">omniNames </span>and <span 
+class="cmtt-12">omniEvents </span>services need to be started (note
+that this requires root permissions):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+# /sbin/service omniNames start
+# /sbin/service omniEvents start
+]]></script>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch3.html" >next</a>] [<a 
+href="mainch1.html" >prev</a>] [<a 
+href="mainch1.html#tailmainch1.html" >prev-tail</a>] [<a 
+href="mainch2.html" >front</a>] [<a 
+href="main.html#mainch2.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch2.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

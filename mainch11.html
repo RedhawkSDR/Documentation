@@ -1,0 +1,931 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>11 The Runtime Environment In Depth</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch12.html" >next</a>] [<a 
+href="mainch10.html" >prev</a>] [<a 
+href="mainch10.html#tailmainch10.html" >prev-tail</a>] [<a 
+href="#tailmainch11.html">tail</a>] [<a 
+href="main.html#mainch11.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;11</span><br /><a 
+ id="x13-15500011"></a>The Runtime Environment In Depth</h2>
+<h3 class="sectionHead"><span class="titlemark">11.1   </span> <a 
+ id="x13-15600011.1"></a>Introduction</h3>
+<!--l. 6--><p class="noindent" >The REDHAWK runtime environment consists of the classes and objects that allow for
+a REDHAWK <a 
+href="mainli2.html#glo:application">Application</a> to be executed. It controls the creation and initialization
+of the resources necessary to deploy a group of <a 
+href="mainli2.html#glo:component">Components</a> in order to accomplish a
+given task. Upon completion, it is in control of the destruction of these resources in
+order to restore the system to the same state that it was in prior to the <a 
+href="mainli2.html#glo:component">Components</a>
+launching.
+<!--l. 10--><p class="noindent" >In order to accomplish this, the REDHAWK runtime environment contains a group of programs
+that control various aspects of the environment. The main two that are responsible for maintaining
+the runtime environment are the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> and the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>. Both of these
+programs are executed from the <span 
+class="cmtt-12">nodeBooter </span>command which serves as launching point.
+<span 
+class="cmtt-12">nodeBooter </span>parses user usage options through command line arguments and determines system
+properties that are used to populate arguments for the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> and <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>.
+Nodebooter is then able to fork off a process for either the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>, the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>
+or both. It should be noted that within a given <a 
+href="mainli2.html#glo:domain">Domain</a>, only one <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> instance can
+run at a time, while multiple different <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> instances (<a 
+href="mainli2.html#glo:node">Nodes</a>) can be running at
+once.
+<!--l. 1--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">11.2   </span> <a 
+ id="x13-15700011.2"></a>The Domain Manager</h3>
+<!--l. 4--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> interface is in charge of the control and configuration of the entire systems
+<a 
+href="mainli2.html#glo:domain">Domain</a>.
+<!--l. 6--><p class="noindent" >Its primary responsibilities can be grouped into three main categories:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x13-157002x1">Registration
+      </li>
+      <li 
+  class="enumerate" id="x13-157004x2">Core Framework administration
+      </li>
+      <li 
+  class="enumerate" id="x13-157006x3">Human Computer Interfacing.</li></ol>
+                                                                                         
+                                                                                         
+<!--l. 13--><p class="noindent" >Each <a 
+href="mainli2.html#glo:domain">Domain</a> has a single <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> that keeps track of a <a 
+href="mainli2.html#glo:filemanager">File Manager</a>, a set of <a 
+href="mainli2.html#glo:devicemanager">Device
+Managers</a>, and a set of <a 
+href="mainli2.html#glo:applicationfactory">Application Factories</a>. The <a 
+href="mainli2.html#glo:domain">Domain</a> Manger maintains information on all
+aspects of the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s implementations contained within its system.
+<!--l. 16--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> is configured from the <a 
+href="mainap3.html#dmd">DMD</a> <a 
+href="mainap3.html#xml">XML</a> file that is located at <span 
+class="cmtt-12">$SDRROOT/dom/Domain</span>.
+This file contains the <a 
+href="mainli2.html#glo:domain">Domain</a>&#8217;s name, an <a 
+href="mainap3.html#id">ID</a> and a description of the <a 
+href="mainli2.html#glo:domain">Domain</a>.
+<!--l. 19--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.2.1   </span> <a 
+ id="x13-15800011.2.1"></a>Launching a Domain Manager from the command line</h4>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ nodeBooter -D
+INFO:DomainManager - Starting Domain Manager
+INFO:DomainManager - Starting ORB!
+]]></script>
+<!--l. 28--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.2.2   </span> <a 
+ id="x13-15900011.2.2"></a>Registration</h4>
+<!--l. 30--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> is able to maintain information about all working parts and interactions in
+the environment through registration. It can be thought of as the <a 
+href="mainli2.html#glo:domainmanager">Domain Managers</a> responsibility
+of bookkeeping for the system.
+<!--l. 33--><p class="noindent" >Any time a <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>, <a 
+href="mainli2.html#glo:device">Device</a>, <a 
+href="mainli2.html#glo:service">Service</a> or <a 
+href="mainli2.html#glo:application">Application</a> is created within the system, it is
+registered through the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>. Likewise, when they are destroyed, they are unregistered
+from the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>. These tasks are handled through a serious of <span 
+class="cmtt-12">register() </span>and
+<span 
+class="cmtt-12">unregister() </span>functions for each of the different modules that the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> is responsible
+for supporting.
+<!--l. 39--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.2.3   </span> <a 
+ id="x13-16000011.2.3"></a>Core Framework administration</h4>
+<!--l. 41--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> has Core Framework administrative duties that are required to provide
+interface access to its registered items. The <a 
+href="mainap3.html#api">API</a> of the <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a>, <a 
+href="mainli2.html#glo:applicationfactory">Application Factories</a>,
+<a 
+href="mainli2.html#glo:application">Applications</a>, and the <a 
+href="mainli2.html#glo:filemanager">File Manager</a> that are registered in the <a 
+href="mainli2.html#glo:domain">Domain</a> are made available to be
+                                                                                         
+                                                                                         
+accessed from an external piece of software.
+<!--l. 44--><p class="noindent" >This is made available so that changes can be made from outside of the running <a 
+href="mainli2.html#glo:domain">Domain</a>. A
+Python module is distributed with REDHAWK that allows for simple interfacing with a running
+<a 
+href="mainli2.html#glo:domain">Domain</a>. This allows for runtime inspection and tweaking of the environment. For more on this, see
+<a 
+href="mainch13.html#x15-19500013">Chapter 13</a>.
+<!--l. 50--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.2.4   </span> <a 
+ id="x13-16100011.2.4"></a>Human Computer Interfacing</h4>
+<!--l. 52--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> is also responsible for providing functionality that allows for
+simple interaction between the user and the system, granting the user control over the
+running <a 
+href="mainli2.html#glo:domain">Domain</a>. Functionality exists that provide the ability to configure the <a 
+href="mainli2.html#glo:domain">Domain</a>,
+get its current <a 
+href="mainli2.html#glo:device">Device</a>, <a 
+href="mainli2.html#glo:service">Service</a> and <a 
+href="mainli2.html#glo:application">Application</a> capabilities and launch maintenance
+functions.
+<!--l. 55--><p class="noindent" >Capabilities are managed through a series of data structure sequences. Lists are maintained for all
+<a 
+href="mainli2.html#glo:service">Services</a>, <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> and <a 
+href="mainli2.html#glo:device">Devices</a> that have been registered with the <a 
+href="mainli2.html#glo:domain">Domain</a>. Each entry in
+the list contains name and identification information as well as a reference to the object that has
+been registered. For any <a 
+href="mainli2.html#glo:application">Application</a> that has been installed, a reference to its <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a>
+is stored in a list along with its name and identification information. Once the <a 
+href="mainli2.html#glo:application">Application</a> has
+started, its reference, along with all relevant identification, <a 
+href="mainli2.html#glo:component">Component</a>, connection and ordering
+information is stored for later retrieval.
+<!--l. 61--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.2.5   </span> <a 
+ id="x13-16200011.2.5"></a>Persistence Store</h4>
+<!--l. 63--><p class="noindent" >A unique feature of the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> is the ability to recover from catastrophic failures
+through <a 
+href="mainli2.html#glo:domain">Domain</a> Persistence. In order to make use of Persistence, a compile-time option
+must be specified. Ensure that the Core Framework has been compiled from source and
+that <span 
+class="cmtt-12">./configure </span>was ran with <span 
+class="cmtt-12">--enable-persistence=persist</span><span 
+class="cmtt-12">_type</span>. (See  <a 
+href="mainch2.html#x4-140002.5">Section
+2.5</a>)
+<!--l. 69--><p class="noindent" >With this feature enabled, all bookkeeping data structures that are used to maintain information
+about <a 
+href="mainli2.html#glo:service">Services</a>, <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a>, <a 
+href="mainli2.html#glo:application">Applications</a> and <a 
+href="mainli2.html#glo:applicationfactory">Application Factories</a> are
+written to a database whenever any change is made to them. This database file needs
+to be specified upon launch of the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> with the <span 
+class="cmtt-12">--dburl &#x003C;file path&#x003E;</span>
+argument:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ nodeBooter -D *esc{-}-*enddburl \$SDRROOT/dom/persistence.sqlite
+                                                                                         
+                                                                                         
+]]></script>
+<!--l. 76--><p class="noindent" >Then, upon failure of the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>, all <a 
+href="mainap3.html#id">ID</a>s and references to objects within it <a 
+href="mainli2.html#glo:domain">Domain</a>
+are stored. Since these objects themselves are actually separate processes, the <a 
+href="mainli2.html#glo:domainmanager">Domain
+Manager</a> can be relaunched with the same arguments, and it will be recovered to the
+previous state. When the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> gets launched, it calls the <span 
+class="cmtt-12">restoreState()</span>
+function with a file path string as an argument. It then opens the given database file and
+attempts to parse out any stored information in order to reconnect those processes with the
+<a 
+href="mainli2.html#glo:domain">Domain</a>. Once this is finished, the <a 
+href="mainli2.html#glo:domain">Domain</a> is rebuilt to the state it was in before it
+died.
+<h3 class="sectionHead"><span class="titlemark">11.3   </span> <a 
+ id="x13-16300011.3"></a>File System</h3>
+<!--l. 3--><p class="noindent" >The File System interface defines <a 
+href="mainap3.html#corba">CORBA</a> operations that exists to provide a runtime abstraction
+of an <a 
+href="mainap3.html#os">OS</a>s real file system. It gives REDHAWK the ability to have a single interface for reading and
+writing individual files within a file system regardless of the underlying implementation in the
+<a 
+href="mainap3.html#os">OS</a>.
+<!--l. 6--><p class="noindent" >Files that are stored on the File System may be either plain files or directories.
+<!--l. 8--><p class="noindent" >Characters and symbols that are valid in directories and file names consist of:
+      <ul class="itemize1">
+      <li class="itemize">Upper and lowercase letters
+      </li>
+      <li class="itemize">Numbers
+      </li>
+      <li class="itemize">&#8220;_&#8221; (underscore)
+      </li>
+      <li class="itemize">&#8220;-&#8221; (hyphen)
+      </li>
+      <li class="itemize">&#8220;.&#8221; (period)
+           <ul class="itemize2">
+           <li class="itemize">(It should be noted that the file names &#8220;.&#8221; and &#8220;..&#8221; are invalid in the context of
+           a File System)</li></ul>
+      </li></ul>
+                                                                                         
+                                                                                         
+<!--l. 21--><p class="noindent" >Path names are structured according to the Portable Operating System Interface (<a 
+href="mainap3.html#posix">POSIX</a>)
+specification where the &#8220;/&#8221; (forward slash) is a valid character that acts as the separator between
+directories.
+<!--l. 23--><p class="noindent" >Additionally, the File System interface provides implementation of many standard functions such
+as:
+      <ul class="itemize1">
+      <li class="itemize">remove()
+      </li>
+      <li class="itemize">copy()
+      </li>
+      <li class="itemize">exists()
+      </li>
+      <li class="itemize">list()
+      </li>
+      <li class="itemize">create()
+      </li>
+      <li class="itemize">open()
+      </li>
+      <li class="itemize">mkdir()
+      </li>
+      <li class="itemize">rmdir()
+      </li>
+      <li class="itemize">query()</li></ul>
+<!--l. 36--><p class="noindent" >File System attached to the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> mounts with <span 
+class="cmtt-12">$SDRROOT/dom </span>as the root. Each <a 
+href="mainli2.html#glo:devicemanager">Device
+Manager</a> mounts a File System with <span 
+class="cmtt-12">$SDRROOT/dev </span>as the root.
+<!--l. 39--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.3.1   </span> <a 
+ id="x13-16400011.3.1"></a>File Manager</h4>
+<!--l. 41--><p class="noindent" >The <a 
+href="mainli2.html#glo:filemanager">File Manager</a> exists to manage multiple distributed file systems. This interface allows
+these file systems to act as a single entity, though they may span multiple physical
+file systems on different pieces of hardware. This provides for a distributed file system
+that functions as a single file system across multiple <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> and the <a 
+href="mainli2.html#glo:domainmanager">Domain
+Manager</a>.
+                                                                                         
+                                                                                         
+<!--l. 45--><p class="noindent" >The <a 
+href="mainli2.html#glo:filemanager">File Manager</a> inherits the <a 
+href="mainap3.html#idl">IDL</a> interface of a File System. It then delegates tasks from the Core
+Framework based off of the path names to the correct mounted File System, depending on where
+that File System is mounted. It is also responsible for copying the appropriate <a 
+href="mainli2.html#glo:component">Component</a>
+files into the specific <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>&#8217;s File System as <a 
+href="mainli2.html#glo:application">Applications</a> are installed and
+launched.
+<h3 class="sectionHead"><span class="titlemark">11.4   </span> <a 
+ id="x13-16500011.4"></a>Applications</h3>
+<!--l. 3--><p class="noindent" ><a 
+href="mainli2.html#glo:application">Applications</a> are running programs representing <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>. They are used to organize a group of
+<a 
+href="mainli2.html#glo:component">Components</a> that are linked together in order to accomplish a useful computational task.
+<a 
+href="mainli2.html#glo:application">Applications</a> provide a convenient way to move data around in order to achieve these different
+tasks by allowing for <a 
+href="mainli2.html#glo:component">Components</a> to easily be interchanged.
+<!--l. 7--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.4.1   </span> <a 
+ id="x13-16600011.4.1"></a>Application Class</h4>
+<!--l. 9--><p class="noindent" >Each <a 
+href="mainli2.html#glo:application">Application</a> contains a unique <a 
+href="mainli2.html#glo:application">Application</a> name and profile which describes the <a 
+href="mainli2.html#glo:application">Applications</a>
+configuration. This profile is a <a 
+href="mainap3.html#sad">SAD</a> file that is referenced by a <a 
+href="mainli2.html#glo:filemanager">File Manager</a>.
+<!--l. 12--><p class="noindent" >An <span 
+class="cmtt-12">Application </span>object is responsible for providing control, configuration and status of any
+<a 
+href="mainli2.html#glo:application">Application</a> that is instantiated in the <a 
+href="mainli2.html#glo:domain">Domain</a>. In order to accomplish this, each <span 
+class="cmtt-12">Application</span>
+object maintains various data structures to monitor all aspects of its execution.
+<!--l. 15--><p class="noindent" >A list of <a 
+href="mainap3.html#spd">SPD</a> implementation <a 
+href="mainap3.html#id">ID</a>s and a list of <a 
+href="mainap3.html#pid">PID</a>s are kept for each <a 
+href="mainli2.html#glo:component">Component</a> that makes up
+the <a 
+href="mainli2.html#glo:application">Application</a> in order to manage their life cycles. Since every <a 
+href="mainli2.html#glo:component">Component</a> has to be associated
+with at least one <a 
+href="mainli2.html#glo:device">Device</a>, each <a 
+href="mainli2.html#glo:component">Component</a> is also stored in a list with the <a 
+href="mainli2.html#glo:device">Device</a> that it uses, is
+loaded on or is executed on.
+<!--l. 18--><p class="noindent" >Upon completion, the <span 
+class="cmtt-12">Application</span>&#8217;s <span 
+class="cmtt-12">releaseObject() </span>function is responsible for various clean
+up tasks. Any task or process allocated on Executable <a 
+href="mainli2.html#glo:device">Devices</a> are stopped using the
+<span 
+class="cmtt-12">terminate() </span>function. All memory allocated by <a 
+href="mainli2.html#glo:component">Component</a> instances on Loadable <a 
+href="mainli2.html#glo:device">Devices</a> is
+freed using the <span 
+class="cmtt-12">unload() </span>function. Finally, any additional capacities or resources that
+were allocated during creation are released using the <a 
+href="mainli2.html#glo:device">Device</a>&#8217;s <span 
+class="cmtt-12">deallocateCapacity()</span>
+method. These changes will return the <a 
+href="mainli2.html#glo:device">Devices</a> to the state they were in before the
+<a 
+href="mainli2.html#glo:application">Application</a> was launched (the state of the <a 
+href="mainli2.html#glo:device">Devices</a> may not have changed during <a 
+href="mainli2.html#glo:application">Application</a>
+execution).
+<!--l. 22--><p class="noindent" >All object references to <a 
+href="mainli2.html#glo:component">Components</a> that make up the <a 
+href="mainli2.html#glo:application">Application</a> are released and all connected
+<a 
+href="mainli2.html#glo:port">Ports</a> are disconnected. Any consumers or producers that were connected to a <a 
+href="mainap3.html#corba">CORBA</a> <a 
+href="mainli2.html#glo:eventchannel">Event
+Channel</a> are removed. Finally, all <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s naming contexts are unbound from the <a 
+href="mainli2.html#glo:namingservice">Naming
+Service</a>.
+                                                                                         
+                                                                                         
+<!--l. 25--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.4.2   </span> <a 
+ id="x13-16700011.4.2"></a>SAD File</h4>
+<!--l. 27--><p class="noindent" >The <a 
+href="mainap3.html#sad">SAD</a> File is where information about a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s composition and configuration is stored. It
+is an <a 
+href="mainap3.html#xml">XML</a> file that contains tags for all of the elements required for the <a 
+href="mainli2.html#glo:application">Application</a> to be
+built and is located at: <span 
+class="cmtt-12">$SDRROOT/dev/waveforms/WAVE</span><span 
+class="cmtt-12">_NAME</span>. This file is parsed by the
+runtime environment and used by an <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> in order to construct the desired
+<a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>.
+<!--l. 31--><p class="noindent" >Individual elements of the file include:
+      <ul class="itemize1">
+      <li class="itemize">References to all required <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s <a 
+href="mainap3.html#spd">SPD</a> and their locations
+      </li>
+      <li class="itemize">Required connections between the <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s <a 
+href="mainli2.html#glo:port">Ports</a> and interfaces
+      </li>
+      <li class="itemize">External <a 
+href="mainli2.html#glo:port">Ports</a>
+      </li>
+      <li class="itemize">Required connections to <a 
+href="mainli2.html#glo:device">Devices</a>
+      </li>
+      <li class="itemize">Name given in <a 
+href="mainli2.html#glo:namingservice">Naming Service</a>
+      </li>
+      <li class="itemize">Co-Location (deployment) dependencies
+      </li>
+      <li class="itemize"><a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>
+      </li>
+      <li class="itemize">Start order of the <a 
+href="mainli2.html#glo:component">Components</a></li></ul>
+<!--l. 43--><p class="noindent" >Within the <a 
+href="mainap3.html#sad">SAD</a> file, each <a 
+href="mainli2.html#glo:component">Component</a> instantiation gets its own unique <a 
+href="mainap3.html#id">ID</a> which allows support
+for multiple instantiations of the same <a 
+href="mainli2.html#glo:component">Component</a>. In this situation, each <a 
+href="mainli2.html#glo:component">Component</a> would have
+the same file reference, a unique <a 
+href="mainap3.html#id">ID</a>s, as well as a unique name in the <a 
+href="mainli2.html#glo:namingservice">Naming Service</a> that is based
+off of the <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s usage name. For multiple instantiations of the same <a 
+href="mainli2.html#glo:component">Component</a>, the
+trailing digit on the usage name is simply incremented.
+                                                                                         
+                                                                                         
+<!--l. 47--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.4.3   </span> <a 
+ id="x13-16800011.4.3"></a>Assembly Controller and Start Order</h4>
+<!--l. 49--><p class="noindent" >Each <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> has only one <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> that serves as the start point for the
+<a 
+href="mainli2.html#glo:application">Application</a>.
+<!--l. 51--><p class="noindent" >The <a 
+href="mainli2.html#glo:component">Component</a> that is marked as the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> is responsible for delegating
+implementations of the inherited CF::Resource functions that include:
+      <ul class="itemize1">
+      <li class="itemize">start()
+      </li>
+      <li class="itemize">stop()
+      </li>
+      <li class="itemize">configure()
+      </li>
+      <li class="itemize">query()</li></ul>
+<!--l. 60--><p class="noindent" >The first <a 
+href="mainli2.html#glo:component">Component</a> that is added to a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> defaults as the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>, but this
+can changed to any <a 
+href="mainli2.html#glo:component">Component</a> in the wave form by right-clicking on the <a 
+href="mainli2.html#glo:component">Component</a> and selecting
+<span 
+class="cmbx-12">Assign </span><a 
+href="mainli2.html#glo:assemblycontroller"><span 
+class="cmbx-12">Assembly Controller</span></a>.
+<!--l. 62--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x13-168001r1"></a>
+                                                                                         
+                                                                                         
+<!--l. 65--><p class="noindent" ><img 
+src="images/RuntimeEnvironmentInDepth/assembly_controller.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.1: </td><td  
+class="content">Assembly Controller Asignment</td></tr></table><!--tex4ht:label?: x13-168001r1 -->
+                                                                                         
+                                                                                         
+<!--l. 67--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 69--><p class="noindent" >The number in the middle of the <a 
+href="mainli2.html#glo:component">Components</a> block in the diagram is its designated start order.
+After the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>, this is the order that the <span 
+class="cmtt-12">start() </span>function will be called on the
+<a 
+href="mainli2.html#glo:component">Components</a> within the wave form.
+<!--l. 72--><p class="noindent" >This order can be adjusted by:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x13-168003x1">Right-clicking on the <a 
+href="mainli2.html#glo:component">Component</a> whose order is to be changed
+      </li>
+      <li 
+  class="enumerate" id="x13-168005x2">Selecting <span 
+class="cmbx-12">Start Order </span>from the list
+      </li>
+      <li 
+  class="enumerate" id="x13-168007x3">Selecting either <span 
+class="cmbx-12">Move Earlier </span>or <span 
+class="cmbx-12">Move Later </span>to change when the <a 
+href="mainli2.html#glo:component">Component</a> gets
+      started <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x13-168008r2"></a> <a 
+ id="x13-1680063"></a><img 
+src="images/RuntimeEnvironmentInDepth/start_order.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.2: </td><td  
+class="content">Start Order Asignment</td></tr></table><!--tex4ht:label?: x13-168008r2 -->
+      <!--l. 83--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li></ol>
+<h4 class="subsectionHead"><span class="titlemark">11.4.4   </span> <a 
+ id="x13-16900011.4.4"></a>Host Collocation</h4>
+<!--l. 88--><p class="noindent" >Host collocation is when multiple <a 
+href="mainli2.html#glo:component">Components</a> are required to be deployed and reside on the same
+piece of hardware. This is provided to address varying performance considerations.
+<!--l. 91--><p class="noindent" >In order to collocate <a 
+href="mainli2.html#glo:component">Components</a> in the <a 
+href="mainap3.html#ide">IDE</a>, follow these steps:
+<!--l. 93--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x13-169002x1">Select <span 
+class="cmbx-12">Host Collocation </span>from the <span 
+class="cmbx-12">Base Types Palette </span><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x13-169003r3"></a> <a 
+ id="x13-1690011"></a><img 
+src="images/RuntimeEnvironmentInDepth/select_host_collocation.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.3: </td><td  
+class="content">Select <span 
+class="cmbx-12">Host Collocation </span>from the <span 
+class="cmbx-12">Base Types Palette</span></td></tr></table><!--tex4ht:label?: x13-169003r3 -->
+      <!--l. 100--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li>
+      <li 
+  class="enumerate" id="x13-169005x2">Create a Collocated area by clicking and dragging the mouse
+      </li>
+      <li 
+  class="enumerate" id="x13-169007x3">Give the collocated area a name <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x13-169008r4"></a> <a 
+ id="x13-1690063"></a><img 
+src="images/RuntimeEnvironmentInDepth/create_collocation.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.4: </td><td  
+class="content">Name Host Collocation</td></tr></table><!--tex4ht:label?: x13-169008r4 -->
+      <!--l. 108--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+                                                                                         
+                                                                                         
+      </li>
+      <li 
+  class="enumerate" id="x13-169010x4">Add desired <a 
+href="mainli2.html#glo:component">Components</a> to the collocated area <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x13-169011r5"></a> <a 
+ id="x13-1690094"></a><img 
+src="images/RuntimeEnvironmentInDepth/add_components.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.5: </td><td  
+class="content">Add Components to Host Collocation</td></tr></table><!--tex4ht:label?: x13-169011r5 -->
+      <!--l. 115--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li>
+      <li 
+  class="enumerate" id="x13-169013x5">Finalize other <a 
+href="mainli2.html#glo:component">Component</a> connections <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x13-169014r6"></a> <a 
+ id="x13-1690125"></a><img 
+src="images/RuntimeEnvironmentInDepth/final_collocation.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.6: </td><td  
+class="content">Finalize other <a 
+href="mainli2.html#glo:component">Component</a> connections</td></tr></table><!--tex4ht:label?: x13-169014r6 -->
+      <!--l. 122--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li></ol>
+<!--l. 125--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.4.5   </span> <a 
+ id="x13-17000011.4.5"></a>External Ports</h4>
+<!--l. 126--><p class="noindent" >In order to make certain <a 
+href="mainli2.html#glo:port">Ports</a> available to other <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> that are deployed simultaneously,
+REDHAWK provides the ability to mark <a 
+href="mainli2.html#glo:port">Ports</a> as external. This will add an <span 
+class="cmtt-12">external </span><a 
+href="mainli2.html#glo:port">Ports</a> tag in
+the <a 
+href="mainap3.html#sad">SAD</a> <a 
+href="mainap3.html#xml">XML</a> file that contains a <a 
+href="mainli2.html#glo:port">Port</a> reference that matches a previous <a 
+href="mainli2.html#glo:port">Port</a> reference in the file.
+Additionally, the color of the <a 
+href="mainli2.html#glo:port">Port</a>&#8217;s block in the diagram will change colors to identify it as
+accessible to other <span 
+class="cmtt-12">Application </span>objects.
+<!--l. 130--><p class="noindent" >In order to make a <a 
+href="mainli2.html#glo:port">Port</a> external:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x13-170002x1">Right click on the <a 
+href="mainli2.html#glo:port">Port</a> that you wish to make external
+      </li>
+      <li 
+  class="enumerate" id="x13-170004x2">Select <span 
+class="cmbx-12">Mark as External </span><a 
+href="mainli2.html#glo:port"><span 
+class="cmbx-12">Port</span></a> from the list <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x13-170005r7"></a> <a 
+ id="x13-1700032"></a><img 
+src="images/RuntimeEnvironmentInDepth/external_port.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.7: </td><td  
+class="content">Mark External Ports</td></tr></table><!--tex4ht:label?: x13-170005r7 -->
+      <!--l. 139--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li></ol>
+<!--l. 1--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">11.5   </span> <a 
+ id="x13-17100011.5"></a>The Application Factory</h3>
+<!--l. 3--><p class="noindent" >The <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> is responsible for the creation of <a 
+href="mainli2.html#glo:application">Applications</a> within a <a 
+href="mainli2.html#glo:domain">Domain</a>. Whenever
+an <a 
+href="mainli2.html#glo:application">Application</a> is installed by the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>, an <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> is created from tags in
+the <a 
+href="mainli2.html#glo:application">Application</a>&#8217;s <a 
+href="mainap3.html#sad">SAD</a> file, in order to deploy <a 
+href="mainli2.html#glo:component">Components</a> of the <a 
+href="mainli2.html#glo:application">Application</a> to <a 
+href="mainli2.html#glo:device">Devices</a> based on
+their implementation dependencies.
+                                                                                         
+                                                                                         
+<!--l. 6--><p class="noindent" >When the <span 
+class="cmtt-12">create() </span>function is called, the <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> uses the <a 
+href="mainap3.html#spd">SPD</a> <span 
+class="cmtt-12">implementation</span>
+element to locate <a 
+href="mainli2.html#glo:device">Devices</a> that are capable of loading and executing the given <a 
+href="mainli2.html#glo:component">Component</a>. The
+<a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> does this by first assembling a list of all of the allocation <a 
+href="mainli2.html#glo:property">Properties</a> required
+by the <a 
+href="mainli2.html#glo:component">Components</a> that make up its <a 
+href="mainli2.html#glo:application">Application</a>. It then searches through each of the candidate
+<a 
+href="mainli2.html#glo:device">Devices</a> for <a 
+href="mainli2.html#glo:property">Properties</a> whose <span 
+class="cmtt-12">kindtype </span>is <span 
+class="cmtt-12">allocation </span>and <span 
+class="cmtt-12">action </span>is not <span 
+class="cmtt-12">external</span>. It will attempt
+to uses that <a 
+href="mainli2.html#glo:device">Devices</a> <span 
+class="cmtt-12">allocateCapacity() </span>function in order to compare the requested capacities
+with the <a 
+href="mainli2.html#glo:device">Devices</a> available resources.
+<!--l. 11--><p class="noindent" >The creation of the <a 
+href="mainli2.html#glo:application">Application</a> will fail if the <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> is unable to deploy all of the
+<a 
+href="mainli2.html#glo:component">Components</a> in compliance with the <a 
+href="mainli2.html#glo:component">Components</a>&#8217; dependencies and host-collocation requirements
+given the available <a 
+href="mainli2.html#glo:device">Devices</a>.
+<!--l. 13--><p class="noindent" >Once the resource marshaling has been successfully completed, the <a 
+href="mainli2.html#glo:filemanager">File Manager</a> copies the
+appropriate <a 
+href="mainli2.html#glo:component">Component</a> files into the specific <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>&#8217;s File System and the <a 
+href="mainli2.html#glo:applicationfactory">Application
+Factory</a> performs the <span 
+class="cmtt-12">load() </span>and <span 
+class="cmtt-12">execute() </span>operations in order to launch the <a 
+href="mainli2.html#glo:component">Component</a> on its
+assigned <a 
+href="mainli2.html#glo:device">Device</a>. It then continues to initialize, connect and configure the <a 
+href="mainli2.html#glo:component">Components</a>. <a 
+href="mainli2.html#glo:property">Properties</a>
+can also be overridden from the <span 
+class="cmtt-12">componentproperties </span>tags in the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s <a 
+href="mainap3.html#sad">SAD</a>
+file.
+<!--l. 3--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">11.6   </span> <a 
+ id="x13-17200011.6"></a>The Device Manager</h3>
+<!--l. 5--><p class="noindent" >The <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> interface is used to manage a set of logical <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:service">Services</a> and a File
+System. The <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> is responsible for parsing the <a 
+href="mainli2.html#glo:node">Node</a>&#8217;s Device Configuration
+Descriptor (<a 
+href="mainap3.html#dcd">DCD</a>) <a 
+href="mainap3.html#xml">XML</a> in order to fork processes for all <a 
+href="mainli2.html#glo:device">Devices</a> and <a 
+href="mainli2.html#glo:service">Services</a> in the <a 
+href="mainli2.html#glo:node">Node</a>. Each
+process gets passed a list of command-line character strings as executable parameters that are
+<a 
+href="mainli2.html#glo:node">Node</a>-specific configuration variables read from the <a 
+href="mainap3.html#dcd">DCD</a> file.
+<!--l. 9--><p class="noindent" >Once a child process has been forked, its reference is added to a pending list in the <a 
+href="mainli2.html#glo:devicemanager">Device
+Manager</a>, while the child process is initialized and configured (possibly with overloaded <a 
+href="mainli2.html#glo:property">Property</a>
+values). After that, it registers itself with the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>, moving its reference from the
+pending list into a registered list. These lists allow the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> to have knowledge of the
+status of all <a 
+href="mainli2.html#glo:device">Devices</a> and <a 
+href="mainli2.html#glo:service">Services</a> contained within its <a 
+href="mainli2.html#glo:node">Node</a>. Once all children have been launched,
+instantiated, and configured, the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> connects the <a 
+href="mainli2.html#glo:device">Devices</a> as described by the <a 
+href="mainap3.html#dcd">DCD</a>
+file.
+<!--l. 14--><p class="noindent" >The <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> also responds to signals from any of its child processes. Upon exit of a
+child, the <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> cleans up the bookkeeping by removing any references to the
+process from the pending or registered lists and unbinding its name from the <a 
+href="mainli2.html#glo:namingservice">Naming
+Service</a>.
+<!--l. 17--><p class="noindent" >The <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> also has a signal handler for <span 
+class="cmtt-12">SIGINT</span>, <span 
+class="cmtt-12">SIGQUIT </span>and <span 
+class="cmtt-12">SIGTERM </span>that triggers a
+shutdown of the <a 
+href="mainli2.html#glo:node">Node</a>. The <a 
+href="mainli2.html#glo:node">Node</a> shutdown process unregisters and calls releaseObject on all
+                                                                                         
+                                                                                         
+<a 
+href="mainli2.html#glo:service">Services</a> and <a 
+href="mainli2.html#glo:device">Devices</a>, kills off all of the child processes, and unbinds any remaining names,
+including itself, from the <a 
+href="mainli2.html#glo:namingservice">Naming Service</a>.
+<!--l. 19--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.6.1   </span> <a 
+ id="x13-17300011.6.1"></a>Launching a Device Manager from the Command Line</h4>
+<!--l. 21--><p class="noindent" >In order to launch a <a 
+href="mainli2.html#glo:device">Device</a> from the command line, a <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> must be up and
+running.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ nodeBooter -d /nodes/DevMgr_localhost.localdomain/DeviceManager.dcd.xml
+INFO:DeviceManager - Starting Device Manager with
+/nodes/DevMgr_localhost.localdomain/DeviceManager.dcd.xml
+INFO:DeviceManager_impl - Connecting to Domain Manager REDHAWK_DEV/REDHAWK_DEV
+INFO:DeviceManager - Starting ORB!
+INFO:DCE:9d9bcc38-d654-43b1-8b74-1dc024318b6f:Registering Device
+INFO:DeviceManager_impl - Registering device GPP_localhost_localdomain on Device
+Manager DevMgr_localhost.localdomain
+INFO:DeviceManager_impl - Initializing device GPP_localhost_localdomain on Device
+Manager DevMgr_localhost.localdomain
+INFO:DeviceManager_impl - Registering device GPP_localhost_localdomain on Domain
+Manager
+]]></script>
+<!--l. 38--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.6.2   </span> <a 
+ id="x13-17400011.6.2"></a>DCD File</h4>
+<!--l. 40--><p class="noindent" >The <a 
+href="mainap3.html#dcd">DCD</a> file is an <a 
+href="mainap3.html#xml">XML</a> file that contains the necessary information to configure a <a 
+href="mainli2.html#glo:node">Node</a>, which is
+a specific instance of a <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>, as well as all <a 
+href="mainli2.html#glo:device">Devices</a> and <a 
+href="mainli2.html#glo:service">Services</a> associated with that
+<a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> instance. The <a 
+href="mainap3.html#dcd">DCD</a> file contains information about the <a 
+href="mainli2.html#glo:device">Devices</a> and <a 
+href="mainli2.html#glo:service">Services</a>
+associated with a <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>, where to look for a <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>, and other configuration
+information for <a 
+href="mainli2.html#glo:device">Devices</a> and <a 
+href="mainli2.html#glo:service">Services</a>. The file is named: <span 
+class="cmtt-12">DeviceManager.dcd.xml </span>and is located
+at: <span 
+class="cmtt-12">$SDRROOT/dev/nodes/NODE</span><span 
+class="cmtt-12">_NAME</span>.
+                                                                                         
+                                                                                         
+<!--l. 44--><p class="noindent" >Information that is covered in this file includes:
+      <ul class="itemize1">
+      <li class="itemize"><a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> name
+      </li>
+      <li class="itemize"><a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> <a 
+href="mainap3.html#id">ID</a>
+      </li>
+      <li class="itemize">References to required <a 
+href="mainli2.html#glo:device">Devices</a> <a 
+href="mainap3.html#spd">SPD</a> files
+      </li>
+      <li class="itemize">References to required <a 
+href="mainli2.html#glo:service">Services</a> <a 
+href="mainap3.html#spd">SPD</a> files
+      </li>
+      <li class="itemize">The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s <a 
+href="mainli2.html#glo:namingservice">Naming Service</a> name
+      </li>
+      <li class="itemize">Any required <a 
+href="mainli2.html#glo:device">Device</a> connections</li></ul>
+<!--l. 55--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.6.3   </span> <a 
+ id="x13-17500011.6.3"></a>Nodes</h4>
+<!--l. 57--><p class="noindent" ><a 
+href="mainli2.html#glo:node">Nodes</a> are the collection of <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:service">Services</a>, and connections associated with a single <a 
+href="mainli2.html#glo:devicemanager">Device
+Manager</a> instance. There is always only one <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> per <a 
+href="mainli2.html#glo:node">Node</a>. <a 
+href="mainli2.html#glo:node">Nodes</a> are deployed on a
+<a 
+href="mainli2.html#glo:domain">Domain</a> to give the <a 
+href="mainli2.html#glo:application">Applications</a> the ability to communicate with the systems hardware. Upon
+creation of an <a 
+href="mainli2.html#glo:application">Application</a>, the <a 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> attempts to place each required <a 
+href="mainli2.html#glo:component">Component</a> on
+a <a 
+href="mainli2.html#glo:device">Device</a> that is deployed in a <a 
+href="mainli2.html#glo:node">Node</a>.
+<!--l. 61--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">11.6.4   </span> <a 
+ id="x13-17600011.6.4"></a>Devices</h4>
+<!--l. 63--><p class="noindent" >In REDHAWK, <a 
+href="mainli2.html#glo:device">Devices</a> are specialized <a 
+href="mainli2.html#glo:component">Components</a> that perform command and control of
+hardware. They are proxies that are able to run in the <a 
+href="mainli2.html#glo:domain">Domain</a> and provide a single point to
+interact with one or more pieces of physical hardware.
+<!--l. 66--><p class="noindent" ><a 
+href="mainli2.html#glo:device">Devices</a> communicate with various pieces of hardware in order to keep track of their capacities.
+When <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> are deployed and the hardware resources are allocated, the <a 
+href="mainli2.html#glo:device">Devices</a> keep track of
+the amount of any specific resource that was used, and what is still currently available. This is a
+import because it keeps <a 
+href="mainli2.html#glo:component">Components</a> from attempting to over-allocate on any one piece of
+hardware.
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch12.html" >next</a>] [<a 
+href="mainch10.html" >prev</a>] [<a 
+href="mainch10.html#tailmainch10.html" >prev-tail</a>] [<a 
+href="mainch11.html" >front</a>] [<a 
+href="main.html#mainch11.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch11.html"></a>   
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

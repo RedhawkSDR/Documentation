@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head> <script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<!--l. 1--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 7--><p class="noindent" ><span 
+class="cmcsc-10x-x-207">REDHAWK M<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">a</span><span 
+class="small-caps">l</span></span><br /><br />
+<span 
+class="cmcsc-10x-x-172">V<span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">s</span><span 
+class="small-caps">i</span><span 
+class="small-caps">o</span><span 
+class="small-caps">n</span> 1.8</span><br /><br />
+<span 
+class="cmcsc-10x-x-172">R<span 
+class="small-caps">e</span><span 
+class="small-caps">v</span><span 
+class="small-caps">i</span><span 
+class="small-caps">s</span><span 
+class="small-caps">i</span><span 
+class="small-caps">o</span><span 
+class="small-caps">n</span> 1.0</span><br /><br />
+<span 
+class="cmcsc-10x-x-120">M<span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">c</span><span 
+class="small-caps">h</span> 12, 2013</span>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+<div class="tableofcontents">
+<span class="likechapterToc" ><a 
+href="mainli1.html#x2-1000" id="QQ2-2-1">Contents</a></span>
+<br /><span class="chapterToc" >1 <a 
+href="mainch1.html#x3-20001" id="QQ2-3-2">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.1 <a 
+href="mainch1.html#x3-30001.1" id="QQ2-3-3">Benefits of Using REDHAWK</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.2 <a 
+href="mainch1.html#x3-40001.2" id="QQ2-3-4">What Systems May Benefit from Using REDHAWK?</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.3 <a 
+href="mainch1.html#x3-50001.3" id="QQ2-3-5">Relationship to the SCA</a></span>
+<br /><span class="chapterToc" >2 <a 
+href="mainch2.html#x4-60002" id="QQ2-4-6">Installation</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.1 <a 
+href="mainch2.html#x4-70002.1" id="QQ2-4-7">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.2 <a 
+href="mainch2.html#x4-80002.2" id="QQ2-4-8">Linux Commands</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.3 <a 
+href="mainch2.html#x4-90002.3" id="QQ2-4-9">Installing Dependencies</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.4 <a 
+href="mainch2.html#x4-130002.4" id="QQ2-4-13">Installing the Framework from RPMs</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.5 <a 
+href="mainch2.html#x4-140002.5" id="QQ2-4-14">Installing the Framework from Source</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.6 <a 
+href="mainch2.html#x4-150002.6" id="QQ2-4-15">Setting Environment Variables</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.7 <a 
+href="mainch2.html#x4-160002.7" id="QQ2-4-16">Installing the IDE</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.8 <a 
+href="mainch2.html#x4-170002.8" id="QQ2-4-17">Configuring omniORB</a></span>
+<br /><span class="chapterToc" >3 <a 
+href="mainch3.html#x5-180003" id="QQ2-5-18">Components in Brief</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.1 <a 
+href="mainch3.html#x5-190003.1" id="QQ2-5-19">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.2 <a 
+href="mainch3.html#x5-200003.2" id="QQ2-5-22">Creating a Component Project</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.3 <a 
+href="mainch3.html#x5-280003.3" id="QQ2-5-31">Running a Component</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.4 <a 
+href="mainch3.html#x5-290003.4" id="QQ2-5-32">Sandbox</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.5 <a 
+href="mainch3.html#x5-320003.5" id="QQ2-5-41">Create and Run a Hello World Component</a></span>
+<br /><span class="chapterToc" >4 <a 
+href="mainch4.html#x6-330004" id="QQ2-6-42">Components in Depth</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.1 <a 
+href="mainch4.html#x6-340004.1" id="QQ2-6-43">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.2 <a 
+href="mainch4.html#x6-350004.2" id="QQ2-6-44">Auto-Generated Component Files</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.3 <a 
+href="mainch4.html#x6-430004.3" id="QQ2-6-52">Auto-Generated Component Methods</a></span>
+                                                                                         
+                                                                                         
+<br />&#x00A0;<span class="sectionToc" >4.4 <a 
+href="mainch4.html#x6-520004.4" id="QQ2-6-61">Component Implementations</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.5 <a 
+href="mainch4.html#x6-530004.5" id="QQ2-6-62">BulkIO Data Queuing</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.6 <a 
+href="mainch4.html#x6-540004.6" id="QQ2-6-63"><span 
+class="cmtt-12">CORBA::Any </span>and SRI Keywords</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.7 <a 
+href="mainch4.html#x6-610004.7" id="QQ2-6-70">Resource Interface: <span 
+class="cmtt-12">configure()</span>/<span 
+class="cmtt-12">query()</span></a></span>
+<br />&#x00A0;<span class="sectionToc" >4.8 <a 
+href="mainch4.html#x6-680004.8" id="QQ2-6-77">Including External Libraries</a></span>
+<br /><span class="chapterToc" >5 <a 
+href="mainch5.html#x7-720005" id="QQ2-7-81">Waveforms</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.1 <a 
+href="mainch5.html#x7-730005.1" id="QQ2-7-82">Waveform Editor</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.2 <a 
+href="mainch5.html#x7-780005.2" id="QQ2-7-88">Create and Deploy a Sample Waveform</a></span>
+<br /><span class="chapterToc" >6 <a 
+href="mainch6.html#x8-870006" id="QQ2-8-98">Devices</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.1 <a 
+href="mainch6.html#x8-880006.1" id="QQ2-8-99">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.2 <a 
+href="mainch6.html#x8-890006.2" id="QQ2-8-100">Device</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.3 <a 
+href="mainch6.html#x8-960006.3" id="QQ2-8-107">Loadable Device</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.4 <a 
+href="mainch6.html#x8-990006.4" id="QQ2-8-110">Executable Device</a></span>
+<br /><span class="chapterToc" >7 <a 
+href="mainch7.html#x9-1020007" id="QQ2-9-113">Services</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.1 <a 
+href="mainch7.html#x9-1030007.1" id="QQ2-9-114">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.2 <a 
+href="mainch7.html#x9-1040007.2" id="QQ2-9-115">Management</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.3 <a 
+href="mainch7.html#x9-1050007.3" id="QQ2-9-116">Files Defining a Service</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.4 <a 
+href="mainch7.html#x9-1060007.4" id="QQ2-9-117">Service API</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.5 <a 
+href="mainch7.html#x9-1070007.5" id="QQ2-9-118">Finding a Service</a></span>
+<br /><span class="chapterToc" >8 <a 
+href="mainch8.html#x10-1130008" id="QQ2-10-124">Nodes</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.1 <a 
+href="mainch8.html#x10-1140008.1" id="QQ2-10-125">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.2 <a 
+href="mainch8.html#x10-1150008.2" id="QQ2-10-126">Running a Node</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.3 <a 
+href="mainch8.html#x10-1210008.3" id="QQ2-10-134">Component Deployment Algorithm</a></span>
+<br /><span class="chapterToc" >9 <a 
+href="mainch9.html#x11-1290009" id="QQ2-11-142">Sandbox</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.1 <a 
+href="mainch9.html#x11-1300009.1" id="QQ2-11-143">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.2 <a 
+href="mainch9.html#x11-1310009.2" id="QQ2-11-144">Setup</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.3 <a 
+href="mainch9.html#x11-1320009.3" id="QQ2-11-145">Starting the Sandbox</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.4 <a 
+href="mainch9.html#x11-1330009.4" id="QQ2-11-146">Working with Components</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.5 <a 
+href="mainch9.html#x11-1360009.5" id="QQ2-11-149">Built-in Sources and Sinks</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.6 <a 
+href="mainch9.html#x11-1480009.6" id="QQ2-11-161">Miscellaneous</a></span>
+                                                                                         
+                                                                                         
+<br /><span class="chapterToc" >10 <a 
+href="mainch10.html#x12-15100010" id="QQ2-12-164">The Runtime Environment in Brief</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.1 <a 
+href="mainch10.html#x12-15200010.1" id="QQ2-12-165">Introduction</a></span>
+<br /><span class="chapterToc" >11 <a 
+href="mainch11.html#x13-15500011" id="QQ2-13-174">The Runtime Environment In Depth</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.1 <a 
+href="mainch11.html#x13-15600011.1" id="QQ2-13-175">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.2 <a 
+href="mainch11.html#x13-15700011.2" id="QQ2-13-176">The Domain Manager</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.3 <a 
+href="mainch11.html#x13-16300011.3" id="QQ2-13-182">File System</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.4 <a 
+href="mainch11.html#x13-16500011.4" id="QQ2-13-184">Applications</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.5 <a 
+href="mainch11.html#x13-17100011.5" id="QQ2-13-197">The Application Factory</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.6 <a 
+href="mainch11.html#x13-17200011.6" id="QQ2-13-198">The Device Manager</a></span>
+<br /><span class="chapterToc" >12 <a 
+href="mainch12.html#x14-17700012" id="QQ2-14-203">Component Control</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.1 <a 
+href="mainch12.html#x14-17800012.1" id="QQ2-14-204">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.2 <a 
+href="mainch12.html#x14-17900012.2" id="QQ2-14-205">Overview of Functionality</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.3 <a 
+href="mainch12.html#x14-18400012.3" id="QQ2-14-210">Examples</a></span>
+<br /><span class="chapterToc" >13 <a 
+href="mainch13.html#x15-19500013" id="QQ2-15-221">Runtime Environment Inspection</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.1 <a 
+href="mainch13.html#x15-19600013.1" id="QQ2-15-222">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.2 <a 
+href="mainch13.html#x15-19700013.2" id="QQ2-15-223">REDHAWK Module</a></span>
+<br /><span class="chapterToc" >14 <a 
+href="mainch14.html#x16-20000014" id="QQ2-16-226">Connections</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.1 <a 
+href="mainch14.html#x16-20100014.1" id="QQ2-16-227">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.2 <a 
+href="mainch14.html#x16-20200014.2" id="QQ2-16-228">The Connection Process</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.3 <a 
+href="mainch14.html#x16-20300014.3" id="QQ2-16-229">Why Ports?</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.4 <a 
+href="mainch14.html#x16-20400014.4" id="QQ2-16-230">Port Access</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.5 <a 
+href="mainch14.html#x16-20500014.5" id="QQ2-16-231">Dynamic Connections</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.6 <a 
+href="mainch14.html#x16-20600014.6" id="QQ2-16-232">Example</a></span>
+<br /><span class="chapterToc" >15 <a 
+href="mainch15.html#x17-20700015" id="QQ2-17-233">Data Flow Management: Bulk IO</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.1 <a 
+href="mainch15.html#x17-20800015.1" id="QQ2-17-234">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.2 <a 
+href="mainch15.html#x17-20900015.2" id="QQ2-17-235">SRI</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.3 <a 
+href="mainch15.html#x17-21000015.3" id="QQ2-17-237"><span 
+class="cmtt-12">BULKIO::PrecisionUTCTime </span>Timestamp</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.4 <a 
+href="mainch15.html#x17-21100015.4" id="QQ2-17-238">Data Transfers</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.5 <a 
+href="mainch15.html#x17-21200015.5" id="QQ2-17-241">Data File Guidance</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.6 <a 
+href="mainch15.html#x17-21300015.6" id="QQ2-17-242">Link Statistics</a></span>
+                                                                                         
+                                                                                         
+<br />&#x00A0;<span class="sectionToc" >15.7 <a 
+href="mainch15.html#x17-21400015.7" id="QQ2-17-244">Examples</a></span>
+<br /><span class="chapterToc" >16 <a 
+href="mainch16.html#x18-21700016" id="QQ2-18-247">Events</a></span>
+<br />&#x00A0;<span class="sectionToc" >16.1 <a 
+href="mainch16.html#x18-21800016.1" id="QQ2-18-248">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >16.2 <a 
+href="mainch16.html#x18-21900016.2" id="QQ2-18-249">Event Definition</a></span>
+<br />&#x00A0;<span class="sectionToc" >16.3 <a 
+href="mainch16.html#x18-22000016.3" id="QQ2-18-250">Standard REDHAWK Events</a></span>
+<br />&#x00A0;<span class="sectionToc" >16.4 <a 
+href="mainch16.html#x18-22900016.4" id="QQ2-18-259">Consuming Events</a></span>
+<br /><span class="chapterToc" >17 <a 
+href="mainch17.html#x19-23100017" id="QQ2-19-261">Messaging</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.1 <a 
+href="mainch17.html#x19-23200017.1" id="QQ2-19-262">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.2 <a 
+href="mainch17.html#x19-23300017.2" id="QQ2-19-263">Message Producer</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.3 <a 
+href="mainch17.html#x19-23700017.3" id="QQ2-19-267">Message Consumer</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.4 <a 
+href="mainch17.html#x19-24100017.4" id="QQ2-19-271">Viewing Messages</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.5 <a 
+href="mainch17.html#x19-24200017.5" id="QQ2-19-272">Connecting Producers and Consumers</a></span>
+<br /><span class="chapterToc" >18 <a 
+href="mainch18.html#x20-24300018" id="QQ2-20-273">Logging</a></span>
+<br />&#x00A0;<span class="sectionToc" >18.1 <a 
+href="mainch18.html#x20-24400018.1" id="QQ2-20-274">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >18.2 <a 
+href="mainch18.html#x20-24500018.2" id="QQ2-20-275">Dependencies</a></span>
+<br />&#x00A0;<span class="sectionToc" >18.3 <a 
+href="mainch18.html#x20-24600018.3" id="QQ2-20-276">Configuration</a></span>
+<br />&#x00A0;<span class="sectionToc" >18.4 <a 
+href="mainch18.html#x20-24700018.4" id="QQ2-20-277">Use Within Resources</a></span>
+<br /><span class="chapterToc" >19 <a 
+href="mainch19.html#x21-25700019" id="QQ2-21-287">Using the REDHAWK IDE</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.1 <a 
+href="mainch19.html#x21-25800019.1" id="QQ2-21-288">Launching the REDHAWK IDE For the First Time</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.2 <a 
+href="mainch19.html#x21-26000019.2" id="QQ2-21-290">The Workbench</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.3 <a 
+href="mainch19.html#x21-26100019.3" id="QQ2-21-291">Changing Perspectives in the Workbench</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.4 <a 
+href="mainch19.html#x21-26400019.4" id="QQ2-21-297">Editors and Views</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.5 <a 
+href="mainch19.html#x21-27200019.5" id="QQ2-21-305">Types of REDHAWK Projects</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.6 <a 
+href="mainch19.html#x21-28000019.6" id="QQ2-21-313">Debugging REDHAWK Components and Devices with Eclipse</a></span>
+<br />&#x00A0;<span class="sectionToc" >19.7 <a 
+href="mainch19.html#x21-28800019.7" id="QQ2-21-321">Deploying Projects to the <span 
+class="cmtt-12">SDRROOT</span></a></span>
+<br /><span class="chapterToc" >20 <a 
+href="mainch20.html#x22-28900020" id="QQ2-22-322">Sharing REDHAWK Projects With Others</a></span>
+<br />&#x00A0;<span class="sectionToc" >20.1 <a 
+href="mainch20.html#x22-29000020.1" id="QQ2-22-323">Exporting Projects as Source Code Archives</a></span>
+<br />&#x00A0;<span class="sectionToc" >20.2 <a 
+href="mainch20.html#x22-29200020.2" id="QQ2-22-325">Importing Source Code Projects</a></span>
+<br />&#x00A0;<span class="sectionToc" >20.3 <a 
+href="mainch20.html#x22-29300020.3" id="QQ2-22-326">Collaborative REDHAWK Development Using a Version Control System</a></span>
+<br />&#x00A0;<span class="sectionToc" >20.4 <a 
+href="mainch20.html#x22-29500020.4" id="QQ2-22-328">Exporting Projects as Deployable SCA</a></span>
+                                                                                         
+                                                                                         
+<br /><span class="chapterToc" >21 <a 
+href="mainch21.html#x23-29600021" id="QQ2-23-329">Exploring <span 
+class="cmtt-12">SDRROOT </span>Using the REDHAWK IDE</a></span>
+<br />&#x00A0;<span class="sectionToc" >21.1 <a 
+href="mainch21.html#x23-29700021.1" id="QQ2-23-330">Browsing Installed SDR Objects</a></span>
+<br />&#x00A0;<span class="sectionToc" >21.2 <a 
+href="mainch21.html#x23-30300021.2" id="QQ2-23-336">Browsing Installed IDL Libraries</a></span>
+<br />&#x00A0;<span class="sectionToc" >21.3 <a 
+href="mainch21.html#x23-30400021.3" id="QQ2-23-337">Getting Details About Error Conditions</a></span>
+<br /><span class="chapterToc" >22 <a 
+href="mainch22.html#x24-30500022" id="QQ2-24-339">Exploring a Running Domain Using the REDHAWK IDE</a></span>
+<br />&#x00A0;<span class="sectionToc" >22.1 <a 
+href="mainch22.html#x24-30600022.1" id="QQ2-24-340">Connecting to a Domain</a></span>
+<br />&#x00A0;<span class="sectionToc" >22.2 <a 
+href="mainch22.html#x24-30900022.2" id="QQ2-24-346">Viewing the Contents of the Domain in the SCA Explorer View</a></span>
+<br />&#x00A0;<span class="sectionToc" >22.3 <a 
+href="mainch22.html#x24-31000022.3" id="QQ2-24-348">Launching an Application</a></span>
+<br />&#x00A0;<span class="sectionToc" >22.4 <a 
+href="mainch22.html#x24-31100022.4" id="QQ2-24-350">Plotting BulkIO Ports</a></span>
+<br />&#x00A0;<span class="sectionToc" >22.5 <a 
+href="mainch22.html#x24-31200022.5" id="QQ2-24-352">Displaying Link Statistics</a></span>
+<br />&#x00A0;<span class="sectionToc" >22.6 <a 
+href="mainch22.html#x24-31300022.6" id="QQ2-24-353">Getting Details About Error Conditions</a></span>
+<br /><span class="chapterToc" >23 <a 
+href="mainch23.html#x25-31400023" id="QQ2-25-356">SCA Explorer</a></span>
+<br />&#x00A0;<span class="sectionToc" >23.1 <a 
+href="mainch23.html#x25-31500023.1" id="QQ2-25-357">Using SCA Explorer</a></span>
+<br />&#x00A0;<span class="sectionToc" >23.2 <a 
+href="mainch23.html#x25-31600023.2" id="QQ2-25-359">Creating a Custom REDHAWK GUI for the SCA Explorer</a></span>
+<br /><span class="chapterToc" >24 <a 
+href="mainch24.html#x26-31700024" id="QQ2-26-361">Creating a REDHAWK Control Panel</a></span>
+<br />&#x00A0;<span class="sectionToc" >24.1 <a 
+href="mainch24.html#x26-31800024.1" id="QQ2-26-362">What is a Control Panel?</a></span>
+<br />&#x00A0;<span class="sectionToc" >24.2 <a 
+href="mainch24.html#x26-32000024.2" id="QQ2-26-364">Creating a New REDHAWK Control Panel</a></span>
+<br />&#x00A0;<span class="sectionToc" >24.3 <a 
+href="mainch24.html#x26-32300024.3" id="QQ2-26-367">Programming with SWT and JFace</a></span>
+<br />&#x00A0;<span class="sectionToc" >24.4 <a 
+href="mainch24.html#x26-32700024.4" id="QQ2-26-371">Using the SCA Model in a Control Panel</a></span>
+<br />&#x00A0;<span class="sectionToc" >24.5 <a 
+href="mainch24.html#x26-32900024.5" id="QQ2-26-373">Testing a Control Panel</a></span>
+<br />&#x00A0;<span class="sectionToc" >24.6 <a 
+href="mainch24.html#x26-33000024.6" id="QQ2-26-374">Building and Installing the Control Panel</a></span>
+<br /><span class="appendixToc" >A <a 
+href="mainap1.html#x27-333000A" id="QQ2-27-377">Eclipse Development</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.1 <a 
+href="mainap1.html#x27-334000A.1" id="QQ2-27-378">Eclipse Integrated Help</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.2 <a 
+href="mainap1.html#x27-335000A.2" id="QQ2-27-379">SWT and JFace</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.3 <a 
+href="mainap1.html#x27-336000A.3" id="QQ2-27-380">RAP</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.4 <a 
+href="mainap1.html#x27-337000A.4" id="QQ2-27-381">Additional Plug-ins</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.5 <a 
+href="mainap1.html#x27-338000A.5" id="QQ2-27-382">Advanced Topics</a></span>
+<br /><span class="appendixToc" >B <a 
+href="mainap2.html#x28-340000B" id="QQ2-28-384">Extending the REDHAWK IDE</a></span>
+<br />&#x00A0;<span class="sectionToc" >B.1 <a 
+href="mainap2.html#x28-341000B.1" id="QQ2-28-385">REDHAWK Extensions</a></span>
+<br />&#x00A0;<span class="sectionToc" >B.2 <a 
+href="mainap2.html#x28-345000B.2" id="QQ2-28-389">Building and installing</a></span>
+                                                                                         
+                                                                                         
+<br />&#x00A0;<span class="sectionToc" >B.3 <a 
+href="mainap2.html#x28-346000B.3" id="QQ2-28-390">Using JacORB</a></span>
+<br /><span class="appendixToc" >C <a 
+href="mainap3.html#x29-347000C" id="QQ2-29-391">List of Acronyms</a></span>
+<br /><span class="chapterToc" > <a 
+href="mainli2.html#x30-348000C" id="QQ2-30-393">Glossary</a></span>
+<br /><span class="chapterToc" > <a 
+href="mainli3.html#x31-349000C" id="QQ2-31-395">List of Figures</a></span>
+<br /><span class="chapterToc" > <a 
+href="mainli4.html#x32-350000C" id="QQ2-32-397">List of Tables</a></span>
+</div>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+<a 
+ id="x1-332043r361"></a>
+                                                                                         
+                                                                                         
+<a 
+ id="x1-339001r361"></a>
+                                                                                         
+                                                                                         
+<a 
+ id="x1-346001r361"></a>
+                                                                                         
+                                                                                         
+
+                                                                                         
+                                                                                         
+
+                                                                                         
+                                                                                         
+
+<!--l. 82--><p class="noindent" ><span class="next">[<a 
+href="mainli1.html" id="tailmain" >next</a>]</span> 
+
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+
+</body></html> 
+
+                                                                                         
+
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>IDE Quickstart</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="main.html">Getting Started</a></li> 
+<li><a href="../main.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainli5.html" >next</a>] [<a 
+href="mainli3.html" >prev</a>] [<a 
+href="mainli3.html#tailmainli3.html" >prev-tail</a>] [<a 
+href="#tailmainli4.html">tail</a>] [<a 
+href="main.html#mainli4.html" >up</a>] </p></div>
+<h2 class="likechapterHead"><a 
+ id="x5-10000"></a>IDE Quickstart</h2> <a 
+ id="x5-10000doc"></a>
+<!--l. 4--><p class="noindent" >This section provides a simple example of the REDHAWK signal processing
+development environment, though it is far from a comprehensive guide to all of
+the features available in the REDHAWK IDE. While this guide assumes the user
+has no prior knowledge of the REDHAWK Core Framework, certain concepts
+and skills are required to fully understand the material.
+<!--l. 7--><p class="noindent" >The minimum technical requirements include:
+      <ul class="itemize1">
+      <li class="itemize">Object-oriented programming experience
+      </li>
+      <li class="itemize">Linux/Unix experience
+      </li>
+      <li class="itemize">Engineering/Computer Science background
+      </li>
+                                                                          
+
+                                                                          
+      <li class="itemize">Understanding of basic communication theory</li></ul>
+<!--l. 16--><p class="noindent" >In addition to the minimum set of technical requirements, the following
+prerequisites must be met before beginning the following procedure:
+      <ul class="itemize1">
+      <li class="itemize">REDHAWK Core Framework and IDE installed
+      </li>
+      <li class="itemize">Example Components installed:
+           <ul class="itemize2">
+           <li class="itemize">Signal Generator
+           </li>
+           <li class="itemize">Hard Limit</li></ul>
+      </li></ul>
+<h3 class="likesectionHead"><a 
+ id="x5-11000"></a>Basic IDE Use</h3>
+<!--l. 29--><p class="noindent" >The following procedure discusses how to launch the REDHAWK IDE, how to
+create a signal generator, and how to test the input/output response of a
+Component.
+<!--l. 31--><p class="noindent" >To launch the REDHAWK IDE:
+<!--l. 33--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x5-11002x1">Assuming  the  REDHAWK  IDE  is  installed  in  <span 
+class="cmsy-10x-x-120">~</span><span 
+class="phvro7t-x-x-120">/redhawk-ide/</span>,  start
+      the IDE with the following commands:
+      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+          $ cd ~/redhawk-ide/eclipse
+        $ ./eclipse
+        ]]></script>
+                                                                          
+
+                                                                          
+      </li>
+      <li 
+  class="enumerate" id="x5-11004x2">If prompted to specify a workspace location, select an appropriate location
+      and select <span 
+class="phvb7t-x-x-120">OK</span>.
+      <!--l. 44--><p class="noindent" >If this is the first time running the IDE using this workspace, the <span 
+class="phvb7t-x-x-120">Welcome</span>
+      screen is presented and prompts you to configure PyDev. If this is the
+      case:
+           <ol  class="enumerate2" >
+           <li 
+  class="enumerate" id="x5-11006x1">Click   <span 
+class="phvb7t-x-x-120">Auto   </span>to   allow   PyDev   to   automatically   detect   your
+           configuration.
+           </li>
+           <li 
+  class="enumerate" id="x5-11008x2">Click <span 
+class="phvb7t-x-x-120">Workbench </span>to close the splash screen and continue into
+           the IDE Workbench.</li></ol>
+      </li>
+      <li 
+  class="enumerate" id="x5-11010x3">From the <span 
+class="phvb7t-x-x-120">SCA Explorer </span>view expand <span 
+class="phvb7t-x-x-120">Sandbox</span>, and double-click
+      <span 
+class="phvb7t-x-x-120">Chalkboard</span>.
+      <!--l. 53--><p class="noindent" ><img 
+src="images/REDHAWK_DoubleClickChalkboard.png" alt="PIC"  
+></li></ol>
+<!--l. 56--><p class="noindent" >To create a signal generator:
+<!--l. 59--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x5-11012x1">From the <span 
+class="phvb7t-x-x-120">Chalkboard Palette</span>, drag the <span 
+class="phvb7t-x-x-120">SigGen </span>Component into the
+      <span 
+class="phvb7t-x-x-120">Chalkboard </span>canvas.
+           <ol  class="enumerate2" >
+           <li 
+  class="enumerate" id="x5-11014x1">If prompted to <span 
+class="phvb7t-x-x-120">Select Implementation</span>, select <span 
+class="phvb7t-x-x-120">Python</span>, and click
+           <span 
+class="phvb7t-x-x-120">OK</span>.</li></ol>
+      </li>
+      <li 
+  class="enumerate" id="x5-11016x2">Right-click the <span 
+class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
+class="phvb7t-x-x-120">Start</span>.
+      </li>
+      <li 
+  class="enumerate" id="x5-11018x3">Right-click the <span 
+class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
+class="phvb7t-x-x-120">Show Properties</span>
+      <span 
+class="phvb7t-x-x-120">View</span>.
+      </li>
+      <li 
+  class="enumerate" id="x5-11020x4">From the <span 
+class="phvb7t-x-x-120">Properties </span>view, change the <span 
+class="phvb7t-x-x-120">frequency </span>to 20Hz.
+                                                                          
+
+                                                                          
+      </li>
+      <li 
+  class="enumerate" id="x5-11022x5">Right-click <span 
+class="phvb7t-x-x-120">SigGen</span>&#8217;s <span 
+class="phvb7t-x-x-120">out </span>Port, and click <span 
+class="phvb7t-x-x-120">Plot Port Data</span>.
+      </li>
+      <li 
+  class="enumerate" id="x5-11024x6">Right-click the <span 
+class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
+class="phvb7t-x-x-120">Stop</span>.
+      </li></ol>
+<!--l. 74--><p class="noindent" >To test the input/output response of a Component:
+<!--l. 76--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x5-11026x1">From the <span 
+class="phvb7t-x-x-120">Chalkboard Palette</span>, drag the <span 
+class="phvb7t-x-x-120">HardLimit </span>Component into the
+      <span 
+class="phvb7t-x-x-120">Chalkboard </span>canvas.
+           <ol  class="enumerate2" >
+           <li 
+  class="enumerate" id="x5-11028x1">If prompted to <span 
+class="phvb7t-x-x-120">Select Implementation</span>, select <span 
+class="phvb7t-x-x-120">Python </span>and click
+           <span 
+class="phvb7t-x-x-120">OK</span>.</li></ol>
+      </li>
+      <li 
+  class="enumerate" id="x5-11030x2">Click-and-drag from <span 
+class="phvb7t-x-x-120">SigGen</span>&#8217;s <span 
+class="phvb7t-x-x-120">out </span>Port to the <span 
+class="phvb7t-x-x-120">HardLimit input</span>
+      Port.
+      </li>
+      <li 
+  class="enumerate" id="x5-11032x3">Right-click the <span 
+class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
+class="phvb7t-x-x-120">Start</span>.
+      </li>
+      <li 
+  class="enumerate" id="x5-11034x4">Right-click the <span 
+class="phvb7t-x-x-120">HardLimit </span>Component, and click <span 
+class="phvb7t-x-x-120">Start</span>.
+      </li>
+      <li 
+  class="enumerate" id="x5-11036x5">Right-click the <span 
+class="phvb7t-x-x-120">HardLimit</span>&#8217;s <span 
+class="phvb7t-x-x-120">output </span>Port, and click <span 
+class="phvb7t-x-x-120">Plot Port Data</span>.
+      <!--l. 87--><p class="noindent" ><div class="hint">
+          <span 
+class="cmtt-12">Note: The \guilabel{Plot Port} view now has two tabs at the bottom left, one for each of the plotted Ports.</span>
+        </div>
+      </li>
+      <li 
+  class="enumerate" id="x5-11038x6">Right-click the <span 
+class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
+class="phvb7t-x-x-120">Show Properties</span>
+      <span 
+class="phvb7t-x-x-120">View</span>.
+                                                                          
+
+                                                                          
+      </li>
+      <li 
+  class="enumerate" id="x5-11040x7">From the <span 
+class="phvb7t-x-x-120">Properties </span>view, change the <span 
+class="phvb7t-x-x-120">magnitude </span>to 5.
+      <!--l. 94--><p class="noindent" >The <span 
+class="phvb7t-x-x-120">Plot Port </span>view for the <span 
+class="phvb7t-x-x-120">HardLimit output </span>Port is now limiting the
+      output to 1.
+      </li></ol>
+                                                                          
+
+                                                                          
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainli5.html" >next</a>] [<a 
+href="mainli3.html" >prev</a>] [<a 
+href="mainli3.html#tailmainli3.html" >prev-tail</a>] [<a 
+href="mainli4.html" >front</a>] [<a 
+href="main.html#mainli4.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainli4.html"></a>  
+ 
+<div class=license> 
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

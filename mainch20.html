@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>20 Sharing REDHAWK Projects With Others</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-12 19:46:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch21.html" >next</a>] [<a 
+href="mainch19.html" >prev</a>] [<a 
+href="mainch19.html#tailmainch19.html" >prev-tail</a>] [<a 
+href="#tailmainch20.html">tail</a>] [<a 
+href="main.html#mainch20.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;20</span><br /><a 
+ id="x22-28900020"></a>Sharing REDHAWK Projects With Others</h2>
+<!--l. 2--><p class="noindent" >The REDHAWK <a 
+href="mainap3.html#ide">IDE</a> provides a set of tools that allow for the collaborative development of
+REDHAWK capabilities. Projects can be exported or imported from the <a 
+href="mainap3.html#ide">IDE</a> or can be shared via
+a source code version-control system. The base REDHAWK <a 
+href="mainap3.html#ide">IDE</a> installation includes support for
+both <a 
+href="mainap3.html#cvs">CVS</a> and <a 
+href="mainap3.html#svn">SVN</a> and can easily be extended to include support for other systems, such as Git
+and Mercurial.
+<h3 class="sectionHead"><span class="titlemark">20.1   </span> <a 
+ id="x22-29000020.1"></a>Exporting Projects as Source Code Archives</h3>
+<!--l. 10--><p class="noindent" >The quickest way to share projects is to export them as an archive file. A single archive may
+contain one or more projects of varying types. This allows easy distribution of an archive that
+includes all of the relevant <a 
+href="mainli2.html#glo:component">Components</a>, libraries, and <a 
+href="mainap3.html#sca">SCA</a> <a 
+href="mainap3.html#xml">XML</a> files that another developer
+would require.
+<!--l. 15--><p class="noindent" >To export a project as an archive:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-290002x1">Select <span 
+class="cmbx-12">File </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Export</span><span 
+class="cmbx-12">&#x2026;</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-290004x2">Expand <span 
+class="cmbx-12">General </span>and select <span 
+class="cmbx-12">Archive File</span>
+      </li>
+      <li 
+  class="enumerate" id="x22-290006x3">Click <span 
+class="cmbx-12">Next</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-290008x4">Select the projects or files to include in the archive. <div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  When selecting a project, all files within
+      the project will be included in the archive by default. To reduce the set of files being
+      exported, click <span 
+class="cmbx-12">Filter Types</span><span 
+class="cmbx-12">&#x2026; </span>and select the desired file extensions that should be included
+      in the archive. </p></div></div>
+      </li>
+      <li 
+  class="enumerate" id="x22-290010x5">Specify the output file in <span 
+class="cmbx-12">To archive file</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-290012x6">To create the archive, click <span 
+class="cmbx-12">Finish</span>.</li></ol>
+                                                                                         
+                                                                                         
+<!--l. 31--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">20.1.1   </span> <a 
+ id="x22-29100020.1.1"></a>REDHAWK Project Metadata Files</h4>
+<!--l. 33--><p class="noindent" >When sharing projects, it is important to include all of the source code, <a 
+href="mainap3.html#sca">SCA</a> <a 
+href="mainap3.html#xml">XML</a>, and the
+project metadata files. The project metadata files contain settings and preferences that allow the
+REDHAWK <a 
+href="mainap3.html#ide">IDE</a> to properly generate, build, and analyze the project.
+<!--l. 38--><p class="noindent" >Project metadata files are typically hidden files (i.e., they start with a &#8217;.&#8217; ) and usually will not
+appear within the <span 
+class="cmbx-12">Project Explorer </span>view. Furthermore, many project views will also display or
+hide additional non-file content.
+<!--l. 43--><p class="noindent" >To view all of the files using the <span 
+class="cmbx-12">Navigator </span>view:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-291002x1">Select <span 
+class="cmbx-12">Window </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Show View </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Other</span><span 
+class="cmbx-12">&#x2026;</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-291004x2">Expand <span 
+class="cmbx-12">General </span>and select <span 
+class="cmbx-12">Navigator</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-291006x3">Click <span 
+class="cmbx-12">OK</span>.</li></ol>
+<!--l. 50--><p class="noindent" >The set of metadata files found in a project will vary depending on the type of project. At a
+minimum, all projects will contain a <span 
+class="cmtt-12">.project </span>file.
+<!--l. 53--><p class="noindent" >Common metadata files are:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="cmtt-12">.project </span>file - Defines the basic Eclipse project settings
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">.library </span>file - Defines the <a 
+href="mainap3.html#idl">IDL</a> search path for the project
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">.PROJECTNAME.wavedev </span>file  -  Defines  REDHAWK  specific  settings  for  the  project
+      related to code generation.
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">.cproject </span>file - Defines settings related to the C/C++ Development Tools
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">.pydevproject </span>file - Defines settings related to the Python Development Tools
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">.classpath </span>file - Defines settings related to the Java Development Tools</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 63--><p class="noindent" >When sharing projects, be sure to include all project metadata files. When in doubt, include all
+files found in the project.
+<!--l. 66--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">20.2   </span> <a 
+ id="x22-29200020.2"></a>Importing Source Code Projects</h3>
+<!--l. 68--><p class="noindent" >Projects that have been exported as a source code archives can be imported into a REDHAWK
+<a 
+href="mainap3.html#ide">IDE</a> workspace.
+<!--l. 71--><p class="noindent" >To import projects:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-292002x1">Select <span 
+class="cmbx-12">File </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Import</span><span 
+class="cmbx-12">&#x2026;</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-292004x2">Expand <span 
+class="cmbx-12">General </span>and select <span 
+class="cmbx-12">Existing Projects into Workspace</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-292006x3">Click <span 
+class="cmbx-12">Next</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-292008x4">Do one of the following:
+           <ul class="itemize1">
+           <li class="itemize">Click <span 
+class="cmbx-12">Select root directory </span>and provide either a project directory or a directory
+           that contains one or more projects underneath it.
+           </li>
+           <li class="itemize">Click <span 
+class="cmbx-12">Select archive file </span>and provide an archive file that includes one or more
+           projects.</li></ul>
+      </li>
+      <li 
+  class="enumerate" id="x22-292010x5">Select one or more projects and click <span 
+class="cmbx-12">Finish</span>.</li></ol>
+<!--l. 85--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> A common error is to attempt to import projects by choosing <span 
+class="cmbx-12">General </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Archive File </span>instead
+of <span 
+class="cmbx-12">General </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Existing Projects into Workspace</span>. </p></div></div>
+<!--l. 90--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> When importing projects from a directory, one may choose to keep the projects source code in its
+original location by clearing <span 
+class="cmbx-12">Copy projects into workspace</span>. </p></div></div>
+                                                                                         
+                                                                                         
+<!--l. 95--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">20.3   </span> <a 
+ id="x22-29300020.3"></a>Collaborative REDHAWK Development Using a Version Control System</h3>
+<!--l. 96--><p class="noindent" >REDHAWK projects can be shared by multiple developers by using a version-control system such
+as <a 
+href="mainap3.html#cvs">CVS</a> or <a 
+href="mainap3.html#svn">SVN</a>. When sharing projects via a version-control system, it is important to &#8220;commit&#8221;
+all of the project metadata files as described in  <a 
+href="#x22-29100020.1.1">Section 20.1.1</a>.
+<!--l. 102--><p class="noindent" >All version-control system integration within the Eclipse <a 
+href="mainap3.html#ide">IDE</a> is performed by the &#8220;Team
+Capabilities&#8221;. Because the REDHAWK <a 
+href="mainap3.html#ide">IDE</a> is built upon the Eclipse platform, one can easily
+install plug-ins that will provide support for additional version-control systems. Details for
+installing these plug-ins can be found on the associated project web pages.
+<!--l. 108--><p class="noindent" >The details for sharing and importing projects will differ for each type of version-control system.
+Documentation for most tools can be found on the Internet or through the built-in Eclipse help
+system.
+<!--l. 112--><p class="noindent" >To view full documentation:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-293002x1">Select <span 
+class="cmbx-12">Help </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Help Contents</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-293004x2">Choose the appropriate topic:
+           <ul class="itemize1">
+           <li class="itemize"><span 
+class="cmbx-12">Workbench User Guide </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Getting Started </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Team </span><a 
+href="mainap3.html#cvs"><span 
+class="cmbx-12">CVS</span></a> <span 
+class="cmbx-12">tutorial</span>.
+           </li>
+           <li class="itemize"><span 
+class="cmbx-12">Subversive User Guide</span>.
+           </li>
+           <li class="itemize">The appropriate topic for the specific tool being used.</li></ul>
+      </li></ol>
+<!--l. 123--><p class="noindent" >To share a project:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-293006x1">Right-click on the project to share and select <span 
+class="cmbx-12">Team </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Share</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-293008x2">Choose the appropriate version-control system (e.g. <a 
+href="mainap3.html#cvs">CVS</a>, <a 
+href="mainap3.html#svn">SVN</a>, etc.)
+      </li>
+      <li 
+  class="enumerate" id="x22-293010x3">Follow the steps for sharing the project as described in the relevant documentation.</li></ol>
+<!--l. 130--><p class="noindent" >To import a project:
+                                                                                         
+                                                                                         
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-293012x1">Select <span 
+class="cmbx-12">File </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Import</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-293014x2">Expand the desired item (e.g. <a 
+href="mainap3.html#cvs">CVS</a>, <a 
+href="mainap3.html#svn">SVN</a>, etc.) and click <span 
+class="cmbx-12">Next</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-293016x3">Follow the steps for importing the project as described in the relevant documentation.</li></ol>
+<!--l. 137--><p class="noindent" >Once a project is being tracked by the Eclipse team system, many additional capabilities will be
+exposed. For example, files that have been modified will be decorated to indicate their
+current status. This provides an &#8220;at-a-glance&#8221; view of which files need to be committed or
+reverted.
+<!--l. 144--><p class="noindent" >Other useful features include:
+      <ul class="itemize1">
+      <li class="itemize">Quick review of outgoing changes using the Eclipse &#8220;diff&#8221; viewer.
+      </li>
+      <li class="itemize">Commit changes from within the <a 
+href="mainap3.html#ide">IDE</a>.
+      </li>
+      <li class="itemize">Update the projects with changes from the source repository.
+      </li>
+      <li class="itemize">Review the logs and commit history for files in the project.
+      </li>
+      <li class="itemize">Create and merge branches.</li></ul>
+<!--l. 153--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">20.3.1   </span> <a 
+ id="x22-29400020.3.1"></a>Managing Projects Outside of the Eclipse Workspace</h4>
+<!--l. 154--><p class="noindent" >An alternate approach is to use the version-control system&#8217;s native tools and then import the
+project directories into the REDHAWK <a 
+href="mainap3.html#ide">IDE</a> (See  <a 
+href="#x22-29200020.2">Section 20.2</a>). It is important to
+ensure that projects <span class="uline">DO NOT</span> select <span 
+class="cmbx-12">Copy projects into workspace </span>when using the
+method.
+                                                                                         
+                                                                                         
+<!--l. 162--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">20.4   </span> <a 
+ id="x22-29500020.4"></a>Exporting Projects as Deployable SCA</h3>
+<!--l. 163--><p class="noindent" >To install a REDHAWK project into the Target <a 
+href="mainap3.html#sdr">SDR</a> or share a &#8220;ready to run&#8221; package, it is
+necessary to export the project as &#8220;Deployable <a 
+href="mainap3.html#sca">SCA</a>&#8221;. Unlike a source code export, a
+deployable export will only include the <a 
+href="mainap3.html#sca">SCA</a> <a 
+href="mainap3.html#xml">XML</a> files and the files identified in the softpkg
+implementation.
+<!--l. 168--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> If the softpkg implementation references a directory, the export will include <span class="uline">all</span> files within the
+directory. </p></div></div>
+<!--l. 173--><p class="noindent" >To export a deployable <a 
+href="mainap3.html#sca">SCA</a> archive:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-295002x1">Select <span 
+class="cmbx-12">File </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="cmbx-12">Export</span><span 
+class="cmbx-12">&#x2026;</span>.
+      </li>
+      <li 
+  class="enumerate" id="x22-295004x2">Expand <a 
+href="mainap3.html#sca"><span 
+class="cmbx-12">SCA</span></a> <span 
+class="cmbx-12">Development </span>and select <span 
+class="cmbx-12">Deployable </span><a 
+href="mainap3.html#sca"><span 
+class="cmbx-12">SCA</span></a>.
+      </li>
+      <li 
+  class="enumerate" id="x22-295006x3">Select the projects to export.
+      </li>
+      <li 
+  class="enumerate" id="x22-295008x4">Provide the archive (zip) file.
+      </li>
+      <li 
+  class="enumerate" id="x22-295010x5">Click <span 
+class="cmbx-12">Finish</span>.</li></ol>
+<!--l. 182--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Deployable <a 
+href="mainap3.html#sca">SCA</a> archives are intended to provide a stop-gap capability to easily install a project
+into a REDHAWK Target <a 
+href="mainap3.html#sdr">SDR</a>. In general, it is recommended to use the <a 
+href="mainap3.html#rpm">RPM</a> format instead of a
+deployable <a 
+href="mainap3.html#sca">SCA</a> archive. </p></div></div>
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch21.html" >next</a>] [<a 
+href="mainch19.html" >prev</a>] [<a 
+href="mainch19.html#tailmainch19.html" >prev-tail</a>] [<a 
+href="mainch20.html" >front</a>] [<a 
+href="main.html#mainch20.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch20.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 
