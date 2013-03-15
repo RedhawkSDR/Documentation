@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-12 19:46:00"> 
+<meta name="date" content="2013-03-15 16:08:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch17.html#tailmainch17.html" >prev-tail</a>] [<a
 href="#tailmainch18.html">tail</a>] [<a 
 href="main.html#mainch18.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;18</span><br /><a 
- id="x20-24300018"></a>Logging</h2>
+ id="x20-24000018"></a>Logging</h2>
 <h3 class="sectionHead"><span class="titlemark">18.1   </span> <a 
- id="x20-24400018.1"></a>Introduction</h3>
+ id="x20-24100018.1"></a>Introduction</h3>
 <!--l. 5--><p class="noindent" >REDHAWK provides a logging interface for use by Resources (e.g., <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:device">Devices</a>). The
@@ -64,7 +64,7 @@ third-party libraries. This chapter addresses the basic use and configuration of
 REDHAWK context.
 <!--l. 9--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">18.2   </span> <a 
- id="x20-24500018.2"></a>Dependencies</h3>
+ id="x20-24200018.2"></a>Dependencies</h3>
 <!--l. 10--><p class="noindent" >REDHAWK utilizes log4cxx, log4j, and log4py for C++, Java, and Python, respectively.
 <!--l. 12--><p class="noindent" >For more information on each of these libraries, consult the following web pages:
       <ul class="itemize1">
@@ -124,7 +124,7 @@ class="cmtt-12">ALL </span>or
 class="cmtt-12">OFF</span>.
 <!--l. 39--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">18.3   </span> <a 
- id="x20-24600018.3"></a>Configuration</h3>
+ id="x20-24300018.3"></a>Configuration</h3>
 <!--l. 41--><p class="noindent" >By default, the logging feature is configured to write log messages of level <span 
 class="cmtt-12">INFO </span>or greater to
 standard out.
@@ -207,23 +207,23 @@ log4j.additivity.Foo_cpp_impl1_i=false
 ]]></script>
 <!--l. 97--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">18.4   </span> <a 
- id="x20-24700018.4"></a>Use Within Resources</h3>
+ id="x20-24400018.4"></a>Use Within Resources</h3>
 <!--l. 98--><p class="noindent" >Code generated using the REDHAWK <a 
-href="mainap3.html#ide">IDE</a> should contain all necessary prerequisites for using log
+href="mainap6.html#ide">IDE</a> should contain all necessary prerequisites for using log
 methods as well as example calls to the log methods. Should auto-generated code not be available,
 this section provides a description of the use of the log modules in C++, Java, and
 Python.
 <h4 class="subsectionHead"><span class="titlemark">18.4.1   </span> <a 
- id="x20-24800018.4.1"></a>C++</h4>
+ id="x20-24500018.4.1"></a>C++</h4>
 <!--l. 102--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-24900018.4.1"></a>Setup</h5>
+ id="x20-24600018.4.1"></a>Setup</h5>
 <!--l. 103--><p class="noindent" >All necessary include statements are inherited from the Resource base class.
 <!--l. 105--><p class="noindent" >
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><a 
- id="x20-25000018.4.1"></a>Use</h5>
+ id="x20-24700018.4.1"></a>Use</h5>
 <!--l. 107--><p class="noindent" >An example logging method call for use in C++ is: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 LOG_DEBUG(complexCpp_i, "serviceFunction() example log message");
 ]]></script>
@@ -232,13 +232,13 @@ class="cmtt-12">DEBUG</span>&#8221; may be replaced with any of the logging leve
 class="cmtt-12">FATAL </span>and
 <span 
 class="cmtt-12">TRACE </span>(see  <a 
-href="#x20-24500018.2">Section 18.2</a>).
+href="#x20-24200018.2">Section 18.2</a>).
 <!--l. 115--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">18.4.2   </span> <a 
- id="x20-25100018.4.2"></a>Java</h4>
+ id="x20-24800018.4.2"></a>Java</h4>
 <!--l. 116--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-25200018.4.2"></a>Setup</h5>
+ id="x20-24900018.4.2"></a>Setup</h5>
 <!--l. 117--><p class="noindent" >The log4j Logger module must be imported for use: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 import org.apache.log4j.Logger;
 ]]></script>
@@ -250,7 +250,7 @@ public final static Logger logger =
 ]]></script>
 <!--l. 129--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-25300018.4.2"></a>Use</h5>
+ id="x20-25000018.4.2"></a>Use</h5>
 <!--l. 130--><p class="noindent" >An example logging method call for Java is: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 logger.debug("run() example log message");
 ]]></script>
@@ -263,17 +263,17 @@ class="cmtt-12">TRACE </span>(lower case).
                                                                                          
 <!--l. 137--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">18.4.3   </span> <a 
- id="x20-25400018.4.3"></a>Python</h4>
+ id="x20-25100018.4.3"></a>Python</h4>
 <!--l. 138--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-25500018.4.3"></a>Setup</h5>
+ id="x20-25200018.4.3"></a>Setup</h5>
 <!--l. 140--><p class="noindent" >A <a 
 href="mainli2.html#glo:component">Component</a> inheriting from the REDHAWK Python Resource class will inherit a <span 
 class="cmtt-12">_log </span>data
 field.
 <!--l. 142--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-25600018.4.3"></a>Use</h5>
+ id="x20-25300018.4.3"></a>Use</h5>
 <!--l. 143--><p class="noindent" >An example logging method call for Python is: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 self._log.debug("process() example log message")
 ]]></script>

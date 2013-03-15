@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>D Building the REDHAWK Framework from Source</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<meta name="date" content="2013-03-15 16:08:00"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="support.html">Support</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap5.html" >next</a>] [<a 
+href="mainap3.html" >prev</a>] [<a 
+href="mainap3.html#tailmainap3.html" >prev-tail</a>] [<a 
+href="#tailmainap4.html">tail</a>] [<a 
+href="main.html#mainap4.html" >up</a>] </p></div>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;D</span><br /><a 
+ id="x30-347000D"></a>Building the REDHAWK Framework from Source</h2>
+<!--l. 3--><p class="noindent" >Installing from source requires additional support packages.
+<h3 class="sectionHead"><span class="titlemark">D.1   </span> <a 
+ id="x30-348000D.1"></a>Additional Dependencies Packaged with Red Hat Enterprise Linux / CentOS</h3>
+<!--l. 6--><p class="noindent" >The following dependency must be installed when building from source:
+      <ul class="itemize1">
+      <li class="itemize">xsd</li></ul>
+<!--l. 11--><p class="noindent" >This dependency is available in the <a 
+href="mainap6.html#epel">EPEL</a> repository for Red Hat/<a 
+href="mainap6.html#centos">CentOS</a> 5 and Red Hat/<a 
+href="mainap6.html#centos">CentOS</a>
+6.
+<!--l. 13--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">D.2   </span> <a 
+ id="x30-349000D.2"></a>Installing the Framework from Source</h3>
+<!--l. 15--><p class="noindent" >In order to install the Core Framework from source, the <span 
+class="cmtt-12">redhawk-src-1.8.3.tar.gz </span>must be
+downloaded.
+<!--l. 17--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
+configuration options, including:
+      <ul class="itemize1">
+      <li class="itemize">Disable log4cxx support
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--disable-log4cxx</span>
+      </li>
+      <li class="itemize">Enable LOG_TRACE statements
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--enable-trace</span>
+      </li>
+      <li class="itemize">Enable persistence support:
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--enable-persistence=&#x003C;persist</span><span 
+class="cmtt-12">_type&#x003E;</span>
+      </li>
+      <li class="itemize"> <span 
+class="cmtt-12">(Support types: bdb, gdbm, sqlite, none)</span>
+      </li>
+      <li class="itemize">Disable framework java support:
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--disable-java</span>
+      </li>
+      <li class="itemize">Change the ossie root directory
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--with-ossie=&#x003C;dir&#x003E;</span>
+      </li>
+      <li class="itemize">Change the SDR root directory
+      </li>
+      <li class="itemize"><span 
+class="cmtt-12">--with-sdr=&#x003C;dir&#x003E;</span></li></ul>
+<!--l. 35--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
+be used after the <span 
+class="cmtt-12">./configure </span>command):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ tar -xvf redhawk-src-1.8.3.tar.gz
+$ cd redhawk-src-1.8.3/redhawk-1.8.3/src
+$ ./reconf
+$ ./configure <options>
+$ make
+$ make install
+]]></script>
+<!--l. 46--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">D.3   </span> <a 
+ id="x30-350000D.3"></a>Setting Environment Variables</h3>
+                                                                                         
+                                                                                         
+<!--l. 48--><p class="noindent" >The environment variables <span 
+class="cmtt-12">SDRROOT </span>and <span 
+class="cmtt-12">OSSIEHOME </span>must be set in order to run REDHAWK.
+<span 
+class="cmtt-12">OSSIEHOME </span>points to the location of installed libraries, header files, and executables. <span 
+class="cmtt-12">SDRROOT </span>is the
+installation target of user-developed resources (e.g., <a 
+href="mainli2.html#glo:component">Components</a> and <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>), which implies
+that the developer must have write permissions to <span 
+class="cmtt-12">SDRROOT </span>and its subdirectories. For convenience,
+a user may add three lines to their <span 
+class="cmsy-10x-x-120">~</span><span 
+class="cmtt-12">/.bashrc </span>file (default <span 
+class="cmtt-12">SDRROOT </span>and <span 
+class="cmtt-12">OSSIEHOME </span>directories
+used):
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+export SDRROOT=/var/redhawk/sdr
+export OSSIEHOME=/usr/local/redhawk/core
+export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
+]]></script>
+<!--l. 59--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
+class="cmsy-10x-x-120">~</span><span 
+class="cmtt-12">/.bashrc </span>to take effect.
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap5.html" >next</a>] [<a 
+href="mainap3.html" >prev</a>] [<a 
+href="mainap3.html#tailmainap3.html" >prev-tail</a>] [<a 
+href="mainap4.html" >front</a>] [<a 
+href="main.html#mainap4.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainap4.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

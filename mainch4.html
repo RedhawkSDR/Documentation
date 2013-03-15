@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-12 19:46:00"> 
+<meta name="date" content="2013-03-15 16:08:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,20 +53,20 @@ href="mainch3.html#tailmainch3.html" >prev-tail</a>] [<a
 href="#tailmainch4.html">tail</a>] [<a 
 href="main.html#mainch4.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;4</span><br /><a 
- id="x6-330004"></a>Components in Depth</h2>
+ id="x6-300004"></a>Components in Depth</h2>
 <h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
- id="x6-340004.1"></a>Introduction</h3>
+ id="x6-310004.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This chapter discusses more advanced topics related to <a 
 href="mainli2.html#glo:component">Component</a> development. Readers should
 familiarize themselves with the <a 
 href="mainli2.html#glo:component">Component</a> chapter prior to reading this chapter. (See  <a 
-href="mainch3.html#x5-180003">Chapter 3</a>
+href="mainch3.html#x5-150003">Chapter 3</a>
 )
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.2   </span> <a 
- id="x6-350004.2"></a>Auto-Generated Component Files</h3>
+ id="x6-320004.2"></a>Auto-Generated Component Files</h3>
 <!--l. 3--><p class="noindent" >The REDHAWK <a 
-href="mainap3.html#ide">IDE</a> provides a tool for auto-generating <a 
+href="mainap6.html#ide">IDE</a> provides a tool for auto-generating <a 
 href="mainli2.html#glo:component">Component</a> code for C++, Python, or
 Java languages. This process takes care of REDHAWK compliance and allows the developer to
 insert their own custom processing algorithm for working with the data sent/received by the
@@ -74,16 +74,16 @@ insert their own custom processing algorithm for working with the data sent/rece
 href="mainli2.html#glo:component">Component</a>. The following section provides a brief description of the generated files. Note that
 some files may be freely modified, while other files should not be modified. More information on
 how to use the REDHAWK <a 
-href="mainap3.html#ide">IDE</a> can be found in the REDHAWK <a 
-href="mainap3.html#ide">IDE</a> chapters of this document
+href="mainap6.html#ide">IDE</a> can be found in the REDHAWK <a 
+href="mainap6.html#ide">IDE</a> chapters of this document
 (Starting at  <a 
-href="mainch19.html#x21-25700019">Chapter 19</a>).
+href="mainch19.html#x21-25400019">Chapter 19</a>).
 <!--l. 10--><p class="noindent" >Modifying particular files is discouraged for two reasons:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x6-35002x1">If a user regenerates the <a 
+  class="enumerate" id="x6-32002x1">If a user regenerates the <a 
 href="mainli2.html#glo:component">Component</a> using the <a 
-href="mainap3.html#ide">IDE</a> (for example, to add a <a 
+href="mainap6.html#ide">IDE</a> (for example, to add a <a 
 href="mainli2.html#glo:port">Port</a>), particular
       files will be overwritten by the code generators. Note:
            <ul class="itemize1">
@@ -92,10 +92,10 @@ class="cmtt-12">componentName.cpp</span>) are not
            impacted by such an action.
            </li>
            <li class="itemize">The REDHAWK <a 
-href="mainap3.html#ide">IDE</a> should provide the option of not rewriting particular files.</li></ul>
+href="mainap6.html#ide">IDE</a> should provide the option of not rewriting particular files.</li></ul>
       </li>
       <li 
-  class="enumerate" id="x6-35004x2">Modification of files implementing REDHAWK interfaces may impact compatibility with
+  class="enumerate" id="x6-32004x2">Modification of files implementing REDHAWK interfaces may impact compatibility with
       other REDHAWK modules.</li></ol>
 <!--l. 20--><p class="noindent" >The word <span 
 class="cmtt-12">componentName </span>will be replaced with the <a 
@@ -106,10 +106,10 @@ creation.
                                                                                          
 <!--l. 22--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.1   </span> <a 
- id="x6-360004.2.1"></a>Files Generated for All Components</h4>
+ id="x6-330004.2.1"></a>Files Generated for All Components</h4>
 <!--l. 23--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-370004.2.1"></a>Build-Related Files</h5>
+ id="x6-340004.2.1"></a>Build-Related Files</h5>
 <!--l. 25--><p class="noindent" >The code generators create the following files for building and installing the <a 
 href="mainli2.html#glo:component">Component</a> using
 Autotools:
@@ -127,7 +127,7 @@ class="cmtt-12">build.sh </span>script in the source directory. If <span
 class="cmtt-12">rpm </span>is passed to the top-level
       <span 
 class="cmtt-12">build.sh </span>script, <a 
-href="mainap3.html#rpm">RPM</a>s will be built for the <a 
+href="mainap6.html#rpm">RPM</a>s will be built for the <a 
 href="mainli2.html#glo:component">Component</a>.
       <!--l. 30--><p class="noindent" >The <span 
 class="cmtt-12">build.sh </span>script in the source directory will run <span 
@@ -146,7 +146,7 @@ class="cmtt-12">Makefile.am  </span>-   A   standard   Automake   configuration 
       </li>
       <li class="itemize"><span 
 class="cmtt-12">Makefile.am.ide </span>- Provides build information for the REDHAWK <a 
-href="mainap3.html#ide">IDE</a>.
+href="mainap6.html#ide">IDE</a>.
       </li>
       <li class="itemize"><span 
 class="cmtt-12">reconf </span>- Script that is used to generate the configure script in the Autotools chain.
@@ -155,14 +155,14 @@ class="cmtt-12">reconf </span>- Script that is used to generate the configure sc
 class="cmtt-12">componentName.spec </span>- Provides <span 
 class="cmtt-12">rpmbuild </span>configuration information for facilitating
       building <a 
-href="mainap3.html#rpm">RPM</a>s for the <a 
+href="mainap6.html#rpm">RPM</a>s for the <a 
 href="mainli2.html#glo:component">Component</a>. See the <a 
-href="mainap3.html#rpm">RPM</a> documentation for more information.</li></ul>
+href="mainap6.html#rpm">RPM</a> documentation for more information.</li></ul>
                                                                                          
                                                                                          
 <!--l. 39--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-380004.2.1"></a>Component SCA XML Files</h5>
+ id="x6-350004.2.1"></a>Component SCA XML Files</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmtt-12">componentName.prf.xml </span>- Describes the <a 
@@ -171,7 +171,7 @@ href="mainli2.html#glo:property">Properties</a>. More information
       on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="cmtt-12">prf.xml </span>file can be found in the <a 
-href="mainap3.html#sca">SCA</a> specification.
+href="mainap6.html#sca">SCA</a> specification.
       </li>
       <li class="itemize"><span 
 class="cmtt-12">componentName.scd.xml </span>-  Describes  the  <a 
@@ -180,21 +180,21 @@ href="mainli2.html#glo:port">Ports</a>  and  interfaces.  More
       information on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="cmtt-12">scd.xml </span>file can be found in the <a 
-href="mainap3.html#sca">SCA</a> specification.
+href="mainap6.html#sca">SCA</a> specification.
       </li>
       <li class="itemize"><span 
 class="cmtt-12">componentName.spd.xml </span>-  Provides  a  top-level  description  of  the  <a 
 href="mainli2.html#glo:component">Component</a>,
       including the names and locations of the <a 
 href="mainli2.html#glo:component">Component</a> executable and <a 
-href="mainap3.html#xml">XML</a> files. More
+href="mainap6.html#xml">XML</a> files. More
       information on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="cmtt-12">spd.xml </span>file can be found in the <a 
-href="mainap3.html#sca">SCA</a> specification.</li></ul>
+href="mainap6.html#sca">SCA</a> specification.</li></ul>
 <!--l. 47--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-390004.2.1"></a>Unit Tests File</h5>
+ id="x6-360004.2.1"></a>Unit Tests File</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmtt-12">test</span><span 
@@ -211,7 +211,7 @@ class="cmtt-12">_componentName.py</span>.
       </li></ul>
 <!--l. 56--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.2   </span> <a 
- id="x6-400004.2.2"></a>Files Generated for C++ Components</h4>
+ id="x6-370004.2.2"></a>Files Generated for C++ Components</h4>
                                                                                          
                                                                                          
       <ul class="itemize1">
@@ -282,7 +282,7 @@ class="cmtt-12">_base.cpp</span>
       is discouraged.</li></ul>
 <!--l. 69--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.3   </span> <a 
- id="x6-410004.2.3"></a>Files Generated for Python Components</h4>
+ id="x6-380004.2.3"></a>Files Generated for Python Components</h4>
                                                                                          
                                                                                          
       <ul class="itemize1">
@@ -300,7 +300,7 @@ href="mainli2.html#glo:port">Ports</a> and <a
 href="mainli2.html#glo:property">Properties</a>. Modification of this file is discouraged.</li></ul>
 <!--l. 76--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.4   </span> <a 
- id="x6-420004.2.4"></a>Files Generated for Java Components</h4>
+ id="x6-390004.2.4"></a>Files Generated for Java Components</h4>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmtt-12">startJava.sh </span>- Script containing the process that is started when the <a 
@@ -312,13 +312,13 @@ class="cmtt-12">componentName.java </span>-  The  appropriate  place  for  devel
       processing behavior.</li></ul>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.3   </span> <a 
- id="x6-430004.3"></a>Auto-Generated Component Methods</h3>
+ id="x6-400004.3"></a>Auto-Generated Component Methods</h3>
 <!--l. 3--><p class="noindent" >This section gives an overview of noteworthy methods provided in the auto-generated <a 
 href="mainli2.html#glo:component">Component</a>
 files. In some cases, the names of the methods vary by language.
 <!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.1   </span> <a 
- id="x6-440004.3.1"></a><span 
+ id="x6-410004.3.1"></a><span 
 class="cmtt-12">serviceFunction()</span></h4>
 <!--l. 7--><p class="noindent" >The core functionality of a <a 
 href="mainli2.html#glo:component">Component</a> resides in the <span 
@@ -330,7 +330,7 @@ class="cmtt-12">run() </span>method in Java.
                                                                                          
 <!--l. 9--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.2   </span> <a 
- id="x6-450004.3.2"></a><span 
+ id="x6-420004.3.2"></a><span 
 class="cmtt-12">construct()</span></h4>
 <!--l. 10--><p class="noindent" >Found within a C++ <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base class, the <span 
@@ -347,7 +347,7 @@ class="cmtt-12">initialize()</span>
 method.
 <!--l. 14--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.3   </span> <a 
- id="x6-460004.3.3"></a><span 
+ id="x6-430004.3.3"></a><span 
 class="cmtt-12">initialize()</span></h4>
 <!--l. 15--><p class="noindent" >Found within Python <a 
 href="mainli2.html#glo:component">Components</a>, the <span 
@@ -365,7 +365,7 @@ class="cmtt-12">Resource </span>base
 class.
 <!--l. 19--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.4   </span> <a 
- id="x6-470004.3.4"></a><span 
+ id="x6-440004.3.4"></a><span 
 class="cmtt-12">start()</span></h4>
 <!--l. 20--><p class="noindent" >Found within both C++ and Python <a 
 href="mainli2.html#glo:component">Components</a>&#8217; base classes, the <span 
@@ -384,7 +384,7 @@ href="mainli2.html#glo:component">Component</a> in the
 href="mainli2.html#glo:application">Application</a>.
 <!--l. 24--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.5   </span> <a 
- id="x6-480004.3.5"></a><span 
+ id="x6-450004.3.5"></a><span 
 class="cmtt-12">run()</span></h4>
 <!--l. 25--><p class="noindent" >Found within a Python <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base class and a C++ <a 
@@ -409,7 +409,7 @@ called.
                                                                                          
 <!--l. 30--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.6   </span> <a 
- id="x6-490004.3.6"></a><span 
+ id="x6-460004.3.6"></a><span 
 class="cmtt-12">pushPacket() </span>and <span 
 class="cmtt-12">pushSRI()</span></h4>
 <!--l. 31--><p class="noindent" >Found within a C++ <a 
@@ -423,9 +423,9 @@ class="cmtt-12">ports </span>package, the <span
 class="cmtt-12">pushPacket() </span>and <span 
 class="cmtt-12">pushSRI() </span>methods are
 <a 
-href="mainap3.html#corba">CORBA</a>-enabled <a 
-href="mainap3.html#rpc">RPC</a>s used for data and metadata transfer between Bulk Input/Output (<a 
-href="mainap3.html#bulkio">BulkIO</a>)
+href="mainap6.html#corba">CORBA</a>-enabled <a 
+href="mainap6.html#rpc">RPC</a>s used for data and metadata transfer between Bulk Input/Output (<a 
+href="mainap6.html#bulkio">BulkIO</a>)
 <a 
 href="mainli2.html#glo:port">Ports</a>.
 <!--l. 33--><p class="noindent" >Both of these methods are called within the <span 
@@ -434,12 +434,12 @@ class="cmtt-12">run() </span>method in
 the case of Java and <span 
 class="cmtt-12">process() </span>in the case of Python) whenever a new data packet
 needs to be sent, or the metadata (Signal Related Information (<a 
-href="mainap3.html#sri">SRI</a>)) is updated by the
+href="mainap6.html#sri">SRI</a>)) is updated by the
 <a 
 href="mainli2.html#glo:component">Component</a>.
 <!--l. 35--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.7   </span> <a 
- id="x6-500004.3.7"></a><span 
+ id="x6-470004.3.7"></a><span 
 class="cmtt-12">stop()</span></h4>
 <!--l. 36--><p class="noindent" >Found within both the C++ and Python <a 
 href="mainli2.html#glo:component">Components</a>&#8217; base classes, the <span 
@@ -461,12 +461,12 @@ class="cmtt-12">stop()</span>
 method.
 <!--l. 41--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.8   </span> <a 
- id="x6-510004.3.8"></a><span 
+ id="x6-480004.3.8"></a><span 
 class="cmtt-12">configure()</span></h4>
 <!--l. 42--><p class="noindent" >The <span 
 class="cmtt-12">configure() </span>method is used by the REDHAWK Core Framework and is discussed in more
 detail in  <a 
-href="#x6-650004.7.3">Section 4.7.3</a>. <a 
+href="#x6-620004.7.3">Section 4.7.3</a>. <a 
 href="mainli2.html#glo:component">Components</a> of all three languages inherit the <span 
 class="cmtt-12">configure() </span>method from
 their respective <span 
@@ -478,7 +478,7 @@ href="mainli2.html#glo:component">Component</a> <a
 href="mainli2.html#glo:property">Properties</a> that have definitions in the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s Software Assembly
 Descriptor (<a 
-href="mainap3.html#sad">SAD</a>) file. At runtime, <span 
+href="mainap6.html#sad">SAD</a>) file. At runtime, <span 
 class="cmtt-12">configure() </span>is called whenever a change to a <a 
 href="mainli2.html#glo:property">Property</a> is
 made.
@@ -486,20 +486,20 @@ made.
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">4.4   </span> <a 
- id="x6-520004.4"></a>Component Implementations</h3>
+ id="x6-490004.4"></a>Component Implementations</h3>
 <!--l. 3--><p class="noindent" ><a 
-href="mainli2.html#glo:component">Components</a> may specify particular dependencies such as <a 
-href="mainap3.html#os">OS</a>, processor architecture, or
-required <a 
+href="mainli2.html#glo:component">Components</a> may specify particular dependencies such as Operating System (<a 
+href="mainap6.html#os">OS</a>), processor
+architecture, or required <a 
 href="mainli2.html#glo:device">Device</a> <a 
-href="mainli2.html#glo:property">Properties</a> (e.g., processor speed or memory capacity). Setting these
-dependencies will ensure that a <a 
+href="mainli2.html#glo:property">Properties</a> (e.g., processor speed or memory capacity). Setting
+these dependencies will ensure that a <a 
 href="mainli2.html#glo:component">Component</a> is deployed to an appropriate <a 
 href="mainli2.html#glo:device">Device</a> at
 runtime.
 <!--l. 2--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.5   </span> <a 
- id="x6-530004.5"></a>BulkIO Data Queuing</h3>
+ id="x6-500004.5"></a>BulkIO Data Queuing</h3>
 <!--l. 4--><p class="noindent" >Generated <a 
 href="mainli2.html#glo:port">Port</a> code implements a design pattern allowing data to be put onto a queue by the uses
 (output) <a 
@@ -521,33 +521,33 @@ changed the <span
 class="cmtt-12">maxQueueDepth</span>, a regeneration of a <a 
 href="mainli2.html#glo:component">Component</a> will overwrite that value. As an
 alternative to setting <span 
-class="cmtt-12">maxQueueDepth </span>directly, consider adding a function to the <a 
-href="mainli2.html#glo:port">Port</a> named
-<span 
+class="cmtt-12">maxQueueDepth </span>directly, consider using the method associated with the <a 
+href="mainli2.html#glo:port">Port</a>
+named <span 
 class="cmtt-12">setMaxQueueDepth() </span>that can be called in the <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s constructor to set the max queue
-size.
+href="mainli2.html#glo:component">Component</a>&#8217;s constructor to set the
+maximum queue size.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.6   </span> <a 
- id="x6-540004.6"></a><span 
+ id="x6-510004.6"></a><span 
 class="cmtt-12">CORBA::Any </span>and SRI Keywords</h3>
 <!--l. 3--><p class="noindent" >Most <a 
-href="mainap3.html#corba">CORBA</a> interaction is abstracted from the developer by the REDHAWK Core Framework;
+href="mainap6.html#corba">CORBA</a> interaction is abstracted from the developer by the REDHAWK Core Framework;
 however, with some knowledge of <a 
-href="mainap3.html#corba">CORBA</a>, a <a 
+href="mainap6.html#corba">CORBA</a>, a <a 
 href="mainli2.html#glo:component">Component</a> developer gains additional freedom in the
 use of REDHAWK. One example of the more direct use of <a 
-href="mainap3.html#corba">CORBA</a> is the manipulation of
+href="mainap6.html#corba">CORBA</a> is the manipulation of
 <span 
 class="cmtt-12">CORBA::Any </span>types for access to <a 
-href="mainap3.html#sri">SRI</a> Keywords.
+href="mainap6.html#sri">SRI</a> Keywords.
 <!--l. 6--><p class="noindent" >This section provides, through example, a brief overview of how to manipulate <span 
 class="cmtt-12">CORBA::Any </span>types
 and how this knowledge can be applied to the manipulation of <a 
-href="mainap3.html#sri">SRI</a>.
+href="mainap6.html#sri">SRI</a>.
 <!--l. 8--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.1   </span> <a 
- id="x6-550004.6.1"></a>Manipulating <span 
+ id="x6-520004.6.1"></a>Manipulating <span 
 class="cmtt-12">CORBA::Any </span>Types</h4>
 <!--l. 10--><p class="noindent" >Below is an example of how to set a value in a <span 
 class="cmtt-12">CORBA::Any </span>in C++:
@@ -568,7 +568,7 @@ anyVar >>= longVar;
 ]]></script>
 <!--l. 27--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.2   </span> <a 
- id="x6-560004.6.2"></a>Working with SRI</h4>
+ id="x6-530004.6.2"></a>Working with SRI</h4>
 <!--l. 29--><p class="noindent" >Below are C++ example functions for adding and modifying keywords (keywords are
 <span 
 class="cmtt-12">CORBA::String</span><span 
@@ -576,7 +576,7 @@ class="cmtt-12">_member </span>and <span
 class="cmtt-12">CORBA::Any pairs</span>).
 <!--l. 31--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-570004.6.2"></a>Adding a Modified SRI Keyword to the SRI</h5>
+ id="x6-540004.6.2"></a>Adding a Modified SRI Keyword to the SRI</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 template <typename CORBAXX> bool addModifyKeyword(
       BULKIO::StreamSRI *sri,
@@ -606,7 +606,7 @@ template <typename CORBAXX> bool addModifyKeyword(
 ]]></script>
 <!--l. 59--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-580004.6.2"></a>Getting a Keyword Position from an ID</h5>
+ id="x6-550004.6.2"></a>Getting a Keyword Position from an ID</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 int getKeywordPos(BULKIO::StreamSRI *sri,
   CORBA::String_member id) {
@@ -623,7 +623,7 @@ int getKeywordPos(BULKIO::StreamSRI *sri,
 ]]></script>
 <!--l. 74--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-590004.6.2"></a>Getting a Keyword Value from an ID</h5>
+ id="x6-560004.6.2"></a>Getting a Keyword Value from an ID</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 template <typename MYTYPE> MYTYPE getKeywordValueByID(
   BULKIO::StreamSRI *sri, CORBA::String_member id) {
@@ -640,7 +640,7 @@ template <typename MYTYPE> MYTYPE getKeywordValueByID(
 ]]></script>
 <!--l. 91--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-600004.6.2"></a>Getting a Keyword Value Given a Position</h5>
+ id="x6-570004.6.2"></a>Getting a Keyword Value Given a Position</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 template <typename MYTYPE> MYTYPE getKeywordValueAtPos(
   BULKIO::StreamSRI *sri, int pos) {
@@ -655,7 +655,7 @@ template <typename MYTYPE> MYTYPE getKeywordValueAtPos(
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.7   </span> <a 
- id="x6-610004.7"></a>Resource Interface: <span 
+ id="x6-580004.7"></a>Resource Interface: <span 
 class="cmtt-12">configure()</span>/<span 
 class="cmtt-12">query()</span></h3>
 <!--l. 3--><p class="noindent" >Each <a 
@@ -685,16 +685,16 @@ href="mainli2.html#glo:property">Properties</a> with read privileges can only be
 using the <span 
 class="cmtt-12">query() </span>method. Additional information on <a 
 href="mainli2.html#glo:property">Properties</a> can be found in  <a 
-href="mainch12.html#x14-18200012.2.3">Section 12.2.3</a>
+href="mainch12.html#x14-17900012.2.3">Section 12.2.3</a>
 with examples in  <a 
-href="mainch12.html#x14-19000012.3.3">Section 12.3.3</a>.
+href="mainch12.html#x14-18700012.3.3">Section 12.3.3</a>.
 <!--l. 13--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.1   </span> <a 
- id="x6-620004.7.1"></a><span 
+ id="x6-590004.7.1"></a><span 
 class="cmtt-12">query()</span></h4>
 <!--l. 14--><p class="noindent" >The <span 
 class="cmtt-12">query() </span>method returns a list of id-value pairs, where each Identifier (<a 
-href="mainap3.html#id">ID</a>) corresponds to a
+href="mainap6.html#id">ID</a>) corresponds to a
 single <a 
 href="mainli2.html#glo:property">Property</a>.
 <!--l. 16--><p class="noindent" >Below is an example of a list returned by <span 
@@ -725,17 +725,17 @@ href="mainli2.html#glo:property">Properties</a> of types boolean, long, long, lo
 respectively. The values of each of these <a 
 href="mainli2.html#glo:property">Properties</a> are set to True, 0, 0, 0, and 0, respectively.
 The 5 <a 
-href="mainap3.html#id">ID</a> values, which happen to be Universally Unique Identifiers (<a 
-href="mainap3.html#uuid">UUID</a>s) in this
+href="mainap6.html#id">ID</a> values, which happen to be Universally Unique Identifiers (<a 
+href="mainap6.html#uuid">UUID</a>s) in this
 case, correspond to the <a 
-href="mainap3.html#id">ID</a>s of the <a 
+href="mainap6.html#id">ID</a>s of the <a 
 href="mainli2.html#glo:property">Properties</a> as dictated by the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="cmtt-12">prf.xml</span>
 file.
 <!--l. 41--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.2   </span> <a 
- id="x6-630004.7.2"></a>Specializing Component Configuration</h4>
+ id="x6-600004.7.2"></a>Specializing Component Configuration</h4>
 <!--l. 43--><p class="noindent" >The <span 
 class="cmtt-12">configure() </span>method accepts a list of <a 
 href="mainli2.html#glo:property">Properties</a> to be configured. The list of <a 
@@ -750,19 +750,19 @@ href="mainli2.html#glo:property">Properties</a>
 href="mainli2.html#glo:property">Properties</a> that should be changed). The
 <span 
 class="cmtt-12">configure() </span>method may throw exceptions as defined in the <a 
-href="mainap3.html#sca">SCA</a> specification in the
+href="mainap6.html#sca">SCA</a> specification in the
 event of a failure (e.g., if attempting to set a <a 
 href="mainli2.html#glo:property">Property</a> to a value of the wrong data
 type).
 <!--l. 47--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.3   </span> <a 
- id="x6-640004.7.3"></a>Customizing the <span 
+ id="x6-610004.7.3"></a>Customizing the <span 
 class="cmtt-12">configure() </span>Method</h4>
 <!--l. 49--><p class="noindent" >
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><a 
- id="x6-650004.7.3"></a>Overriding the <span 
+ id="x6-620004.7.3"></a>Overriding the <span 
 class="cmtt-12">configure() </span>Method</h5>
 <!--l. 53--><p class="noindent" >The code to handle the <span 
 class="cmtt-12">configure() </span>call is automatically generated in the <a 
@@ -810,7 +810,7 @@ void Bar_cpp_impl1_i::configure(const CF::Properties& props)
                                                                                          
 <!--l. 86--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-660004.7.3"></a>Property Change Listeners</h5>
+ id="x6-630004.7.3"></a>Property Change Listeners</h5>
 <!--l. 88--><p class="noindent" >Alternatively, the developer may register the property with a callback method in order to modify
 the configuration behavior of only the individual <a 
 href="mainli2.html#glo:property">Property</a>. In this case, the registered
@@ -824,7 +824,7 @@ the comments section preceding the <span
 class="cmtt-12">serviceFunction()</span>.
 <!--l. 93--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x6-670004.7.3"></a>Python</h5>
+ id="x6-640004.7.3"></a>Python</h5>
 <!--l. 95--><p class="noindent" >When working with Python <a 
 href="mainli2.html#glo:component">Components</a>, custom <span 
 class="cmtt-12">onconfigure() </span>methods may be created for
@@ -845,57 +845,62 @@ def onconfigure_prop_freqMHz(self, oldval, newval):
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.8   </span> <a 
- id="x6-680004.8"></a>Including External Libraries</h3>
-<!--l. 3--><p class="noindent" >When adding libraries to a <a 
+ id="x6-650004.8"></a>Including External Libraries</h3>
+<!--l. 2--><p class="noindent" >It is common to use a <a 
+href="mainli2.html#glo:component">Component</a> as meerly a wrapper to an existing library. When
+adding libraries to a <a 
 href="mainli2.html#glo:component">Component</a>, certain changes must be made to the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s
+                                                                                         
+                                                                                         
 <span 
 class="cmtt-12">Makefile.am </span>and <span 
-class="cmtt-12">configure.ac </span>files.
-                                                                                         
-                                                                                         
-<!--l. 5--><p class="noindent" >
+class="cmtt-12">configure.ac </span>files. This section discusses how to add a library by
+referencing a package config file, how to add a static library, and how to add a dynamic
+library.
+<!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.1   </span> <a 
- id="x6-690004.8.1"></a>Adding a Library by Referencing a Package Config File</h4>
-<!--l. 7--><p class="noindent" >Edit the <span 
-class="cmtt-12">configure.ac </span>file to include the following code segment (where <span 
-class="cmtt-12">fftw </span>can be replaced
-with the new library of interest):
+ id="x6-660004.8.1"></a>Adding a Library by Referencing a Package Config File</h4>
+<!--l. 8--><p class="noindent" >To add a library by referencing a package config file, edit the <span 
+class="cmtt-12">configure.ac </span>file to include
+the following code segment (where <span 
+class="cmtt-12">sharedlib </span>can be replaced with the new library of
+interest):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
  # Add this block
- PKG_CHECK_MODULES(FFTW, fftw3f >= 3.0.0,,exit)
- AC_SUBST(FFTW_CFLAGS)
- AC_SUBST(FFTW_LIBS)
- CXXFLAGS="$CXXFLAGS $FFTW_CFLAGS"
- LIBS="$LIBS $FFTW_LIBS -lfftw3f"
+ PKG_CHECK_MODULES(SHAREDLIB, sharedlib >= 1.0.0,,exit)
+ AC_SUBST(SHAREDLIB_CFLAGS)
+ AC_SUBST(SHAREDLIB_LIBS)
+ CXXFLAGS="$CXXFLAGS $SHAREDLIB_CFLAGS"
+ LIBS="$LIBS $SHAREDLIB_LIBS -lsharedlib"
 ]]></script>
-<!--l. 18--><p class="noindent" >
+<!--l. 19--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.2   </span> <a 
- id="x6-700004.8.2"></a>Adding a Static Library:</h4>
-<!--l. 20--><p class="noindent" >Edit the <span 
-class="cmtt-12">configure.ac </span>file to include the following code segment (where <span 
-class="cmtt-12">touchtone </span>can be
-replaced with the new library of interest):
+ id="x6-670004.8.2"></a>Adding a Static Library:</h4>
+<!--l. 21--><p class="noindent" >To add a static library, edit the <span 
+class="cmtt-12">configure.ac </span>file to include the following code segment (where
+<span 
+class="cmtt-12">sharedlib </span>can be replaced with the new library of interest):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
- LIBS="$LIBS -L. -ltouchtone -ltes"
+ LIBS="$LIBS -L. -lsharedlib"
 ]]></script>
-<!--l. 26--><p class="noindent" >Edit the <span 
+<!--l. 27--><p class="noindent" >Edit the <span 
 class="cmtt-12">Makefile.am </span>file to include the following code segment (where <span 
-class="cmtt-12">StaticLib </span>can be replaced
-with the new library of interest:
+class="cmtt-12">sharedlib </span>can be replaced
+with the new library of interest):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
  [Component_Name]_cpp_impl1_LDADD =
-      $(top_builddir)/[path_to_lib]/libStaticLib.a
+      $(top_builddir)/[path_to_lib]/libsharedlib.a
+                                                                                         
+                                                                                         
 ]]></script>
-                                                                                         
-                                                                                         
-<!--l. 33--><p class="noindent" >
+<!--l. 34--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.3   </span> <a 
- id="x6-710004.8.3"></a>Adding a Shared Library:</h4>
-<!--l. 35--><p class="noindent" >Edit the <span 
-class="cmtt-12">configure.ac </span>file to include the following code segment (where <span 
-class="cmtt-12">sharedlib </span>can be
-replaced with the new library of interest):
+ id="x6-680004.8.3"></a>Adding a Shared Library:</h4>
+<!--l. 36--><p class="noindent" >To add a shared library, edit the <span 
+class="cmtt-12">configure.ac </span>file to include the following code segment (where
+<span 
+class="cmtt-12">sharedlib </span>can be replaced with the new library of interest):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 AC_CHECK_FILES(/opt/intel/Compiler/11.1/064/ipp/include,
 LIBS="$LIBS -L/opt/intel/Compiler/11.1/064/ipp/ia32/lib

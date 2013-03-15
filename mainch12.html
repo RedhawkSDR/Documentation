@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-12 19:46:00"> 
+<meta name="date" content="2013-03-15 16:08:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch11.html#tailmainch11.html" >prev-tail</a>] [<a
 href="#tailmainch12.html">tail</a>] [<a 
 href="main.html#mainch12.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;12</span><br /><a 
- id="x14-17700012"></a>Component Control</h2>
+ id="x14-17400012"></a>Component Control</h2>
 <h3 class="sectionHead"><span class="titlemark">12.1   </span> <a 
- id="x14-17800012.1"></a>Introduction</h3>
+ id="x14-17500012.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >In the execution of <a 
 href="mainli2.html#glo:component">Components</a> it becomes critical to give the user custom access to certain
 aspects of its control and configuration. This allows for the ability to make runtime changes on
@@ -86,10 +86,10 @@ href="mainli2.html#glo:component">Component</a>&#8217;s life
 cycle.
 <!--l. 13--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">12.2   </span> <a 
- id="x14-17900012.2"></a>Overview of Functionality</h3>
+ id="x14-17600012.2"></a>Overview of Functionality</h3>
 <!--l. 15--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.1   </span> <a 
- id="x14-18000012.2.1"></a>Life Cycle</h4>
+ id="x14-17700012.2.1"></a>Life Cycle</h4>
 <!--l. 17--><p class="noindent" >The set up and tear down of resources are handled through the Life Cycle interface. The method
 <span 
 class="cmtt-12">initialize() </span>is used to get a <a 
@@ -107,7 +107,7 @@ href="mainli2.html#glo:component">Component</a>&#8217;s
 respective life cycle.
 <!--l. 23--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.2   </span> <a 
- id="x14-18100012.2.2"></a>Port Supplier</h4>
+ id="x14-17800012.2.2"></a>Port Supplier</h4>
                                                                                          
                                                                                          
 <!--l. 25--><p class="noindent" >Access to <a 
@@ -128,18 +128,18 @@ href="mainli2.html#glo:component">Component</a> can
 have zero to many input and output <a 
 href="mainli2.html#glo:port">Ports</a> which are specified in the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap3.html#scd">SCD</a>
+href="mainap6.html#scd">SCD</a>
 file.
 <!--l. 31--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.3   </span> <a 
- id="x14-18200012.2.3"></a>Property Set</h4>
+ id="x14-17900012.2.3"></a>Property Set</h4>
 <!--l. 34--><p class="noindent" ><a 
 href="mainli2.html#glo:property">Property</a> control is handled through the <span 
 class="cmtt-12">configure() </span>and <span 
 class="cmtt-12">query() </span>methods. The <span 
 class="cmtt-12">configure()</span>
 method takes in a list of <a 
-href="mainap3.html#id">ID</a> and value pairs and attempts to set them. An Invalid Configuration
+href="mainap6.html#id">ID</a> and value pairs and attempts to set them. An Invalid Configuration
 error is thrown if no <a 
 href="mainli2.html#glo:property">Properties</a> in the list are able to be set. A Partial Configuration error is
 thrown if at least one, but not all <a 
@@ -153,16 +153,16 @@ class="cmtt-12">query() </span>method is passed an empty list, it returns all of
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:property">Properties</a>. Otherwise, it will return any valid <a 
 href="mainli2.html#glo:property">Properties</a> based on the <a 
-href="mainap3.html#id">ID</a> and value
+href="mainap6.html#id">ID</a> and value
 pair passed in as a parameter.
 <!--l. 41--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.4   </span> <a 
- id="x14-18300012.2.4"></a>Testable Object</h4>
+ id="x14-18000012.2.4"></a>Testable Object</h4>
 <!--l. 43--><p class="noindent" >In the Testable Object interface, <span 
 class="cmtt-12">runTest() </span>is defined to provide a means to perform stand-alone
 testing of a <a 
 href="mainli2.html#glo:component">Component</a>. Test <a 
-href="mainap3.html#id">ID</a>s and a set of test values are passed in as parameters, with the test
+href="mainap6.html#id">ID</a>s and a set of test values are passed in as parameters, with the test
 results returned in the test values parameter. This method gives the <a 
 href="mainli2.html#glo:component">Component</a> the ability to
 be &#8220;black box&#8221; tested where an input is provided in an attempt to match the actual
@@ -170,18 +170,18 @@ output with the desired output without any knowledge of the <a
 href="mainli2.html#glo:component">Component</a>&#8217;s internal
 structure.
 <h3 class="sectionHead"><span class="titlemark">12.3   </span> <a 
- id="x14-18400012.3"></a>Examples</h3>
+ id="x14-18100012.3"></a>Examples</h3>
 <!--l. 47--><p class="noindent" >This section provides code examples of the methods described above for each of the supported
 programming languages.
                                                                                          
                                                                                          
 <!--l. 49--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.1   </span> <a 
- id="x14-18500012.3.1"></a><span 
+ id="x14-18200012.3.1"></a><span 
 class="cmtt-12">CF::LifeCycle</span></h4>
 <!--l. 51--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18600012.3.1"></a><span 
+ id="x14-18300012.3.1"></a><span 
 class="cmtt-12">initialize()</span></h5>
 <!--l. 53--><p class="noindent" ><span 
 class="cmbx-12">C++</span>
@@ -214,7 +214,7 @@ try {
                                                                                          
 <!--l. 83--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18700012.3.1"></a><span 
+ id="x14-18400012.3.1"></a><span 
 class="cmtt-12">releaseObject()</span></h5>
 <!--l. 85--><p class="noindent" ><span 
 class="cmbx-12">C++</span>
@@ -246,11 +246,11 @@ try {
                                                                                          
 <!--l. 114--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.2   </span> <a 
- id="x14-18800012.3.2"></a><span 
+ id="x14-18500012.3.2"></a><span 
 class="cmtt-12">CF::PortSupplier</span></h4>
 <!--l. 116--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18900012.3.2"></a><span 
+ id="x14-18600012.3.2"></a><span 
 class="cmtt-12">getPort()</span></h5>
 <!--l. 118--><p class="noindent" ><span 
 class="cmbx-12">C++</span>
@@ -282,11 +282,11 @@ try {
                                                                                          
 <!--l. 147--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.3   </span> <a 
- id="x14-19000012.3.3"></a><span 
+ id="x14-18700012.3.3"></a><span 
 class="cmtt-12">CF::PropertySet</span></h4>
 <!--l. 151--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-19100012.3.3"></a><span 
+ id="x14-18800012.3.3"></a><span 
 class="cmtt-12">configure()</span></h5>
 <!--l. 153--><p class="noindent" ><span 
 class="cmbx-12">C++</span>
@@ -342,7 +342,7 @@ try {
 ]]></script>
 <!--l. 206--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-19200012.3.3"></a><span 
+ id="x14-18900012.3.3"></a><span 
 class="cmtt-12">query()</span></h5>
 <!--l. 208--><p class="noindent" ><span 
 class="cmbx-12">C++</span>
@@ -393,11 +393,11 @@ try {
 ]]></script>
 <!--l. 254--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.4   </span> <a 
- id="x14-19300012.3.4"></a><span 
+ id="x14-19000012.3.4"></a><span 
 class="cmtt-12">CF::TestableObject</span></h4>
 <!--l. 256--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-19400012.3.4"></a><span 
+ id="x14-19100012.3.4"></a><span 
 class="cmtt-12">runTest()</span></h5>
 <!--l. 258--><p class="noindent" ><span 
 class="cmbx-12">C++</span>

@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-12 19:46:00"> 
+<meta name="date" content="2013-03-15 16:08:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,7 +53,7 @@ href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a
 href="#tailmainap2.html">tail</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;B</span><br /><a 
- id="x28-340000B"></a>Extending the REDHAWK IDE</h2>
+ id="x28-337000B"></a>Extending the REDHAWK IDE</h2>
 <!--l. 18--><p class="noindent" >Eclipse provides the concept of <a 
 href="mainli2.html#glo:extensionPoint">Extension Points</a> and <a 
 href="mainli2.html#glo:extension">Extensions</a> to allow functionality to be
@@ -66,14 +66,14 @@ which are contributed by the plug-in and select the <span
 class="cmbx-12">Extensions Points </span>tab to see the extension
 points which the plug-in defines.
 <h3 class="sectionHead"><span class="titlemark">B.1   </span> <a 
- id="x28-341000B.1"></a>REDHAWK Extensions</h3>
+ id="x28-338000B.1"></a>REDHAWK Extensions</h3>
 <!--l. 28--><p class="noindent" >REDHAWK provides various extension points to extend its functionality through user
 contributions. For help on extension points and developing in Eclipse see  <a 
-href="mainap1.html#x27-333000A">Appendix
+href="mainap1.html#x27-330000A">Appendix
 A</a>.
 <!--l. 33--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.1   </span> <a 
- id="x28-342000B.1.1"></a>Code Generators</h4>
+ id="x28-339000B.1.1"></a>Code Generators</h4>
 <!--l. 35--><p class="noindent" ><span 
 class="cmbxti-10x-x-120">Identifier: </span>gov.redhawk.ide.codegen.codegens <br 
 class="newline" /><span 
@@ -116,7 +116,7 @@ Specifies a new code generator:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmbx-12">id </span>- Unique <a 
-href="mainap3.html#id">ID</a> for the generator.
+href="mainap6.html#id">ID</a> for the generator.
       </li>
       <li class="itemize"><span 
 class="cmbx-12">name </span>- Human readable label for generator.
@@ -188,15 +188,15 @@ Provide a detailed human readable description of the codegenerator.
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmbx-12">os </span>- Operating System <a 
-href="mainap3.html#id">ID</a>
+href="mainap6.html#id">ID</a>
       </li>
       <li class="itemize"><span 
 class="cmbx-12">default </span>- The default <a 
-href="mainap3.html#os">OS</a> if marked true
+href="mainap6.html#os">OS</a> if marked true
       </li>
       <li class="itemize"><span 
 class="cmbx-12">version </span>- <a 
-href="mainap3.html#os">OS</a> version</li></ul>
+href="mainap6.html#os">OS</a> version</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT processor EMPTY>
 <!ATTLIST processor
@@ -211,7 +211,7 @@ class="cmbx-12">_type </span>- Processor type
       </li>
       <li class="itemize"><span 
 class="cmbx-12">default </span>- The default <a 
-href="mainap3.html#os">OS</a> if marked true</li></ul>
+href="mainap6.html#os">OS</a> if marked true</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT componenttype EMPTY>
 <!ATTLIST componenttype
@@ -265,7 +265,7 @@ class="cmbxti-10x-x-120">Examples: </span>The following is an example of the ext
 ]]></script>
 <!--l. 172--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
- id="x28-343000B.1.2"></a>Port Handlers</h4>
+ id="x28-340000B.1.2"></a>Port Handlers</h4>
 <!--l. 173--><p class="noindent" ><span 
 class="cmbxti-10x-x-120">Identifier: </span>gov.redhawk.ide.codegen.portGenerator<br 
 class="newline" /><span 
@@ -296,7 +296,7 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmbx-12">id </span>- Unique <a 
-href="mainap3.html#id">ID</a> for this port handler.
+href="mainap6.html#id">ID</a> for this port handler.
       </li>
       <li class="itemize"><span 
 class="cmbx-12">class </span>- Java class that implements<br 
@@ -321,7 +321,7 @@ class="cmbx-12">priority </span>- Priority of the generator.</li></ul>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmbx-12">idlInterface </span>- The <a 
-href="mainap3.html#corba">CORBA</a> data type of the port output.</li></ul>
+href="mainap6.html#corba">CORBA</a> data type of the port output.</li></ul>
                                                                                          
                                                                                          
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
@@ -397,7 +397,7 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 ]]></script>
 <!--l. 282--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.3   </span> <a 
- id="x28-344000B.1.3"></a>Codegen Template</h4>
+ id="x28-341000B.1.3"></a>Codegen Template</h4>
 <!--l. 283--><p class="noindent" ><span 
 class="cmbxti-10x-x-120">Identifier: </span>gov.redhawk.ide.codegen.codegenTemplate<br 
 class="newline" /><span 
@@ -435,11 +435,11 @@ class="cmbx-12">class </span>- The name of the class that provides the generated
       </li>
       <li class="itemize"><span 
 class="cmbx-12">codegenId </span>- The <a 
-href="mainap3.html#id">ID</a> of the Code Generator that this template will generate source.
+href="mainap6.html#id">ID</a> of the Code Generator that this template will generate source.
       </li>
       <li class="itemize"><span 
 class="cmbx-12">id </span>- Unique <a 
-href="mainap3.html#id">ID</a> for this template.
+href="mainap6.html#id">ID</a> for this template.
       </li>
       <li class="itemize"><span 
 class="cmbx-12">name </span>- Human readable name of this template.
@@ -462,7 +462,7 @@ class="cmbx-12">templateLocation </span>- Deprecated, do not use.
       </li>
       <li class="itemize"><span 
 class="cmbx-12">portCodegenId </span>- <a 
-href="mainap3.html#id">ID</a> of the port generator to reference.
+href="mainap6.html#id">ID</a> of the port generator to reference.
       </li>
       <li class="itemize"><span 
 class="cmbx-12">usesPortTemplates </span>- This attribute is used to indicate whether or not this template
@@ -583,19 +583,19 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 ]]></script>
 <!--l. 426--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
- id="x28-345000B.2"></a>Building and installing</h3>
+ id="x28-342000B.2"></a>Building and installing</h3>
 <!--l. 427--><p class="noindent" >A code-generator project is an Eclipse Plug-in. Eclipse plug-ins are built into <a 
-href="mainap3.html#jar">JAR</a> files which
+href="mainap6.html#jar">JAR</a> files which
 can be distributed as is or wrapped up in a feature and deployed within an Eclipse
 Update-site.
 <!--l. 429--><p class="noindent" >For more details follow the directions for deploying a Control Panel in Section  <a 
-href="mainch24.html#x26-33000024.6">Section
+href="mainch24.html#x26-32700024.6">Section
 24.6</a>.
 <!--l. 432--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.3   </span> <a 
- id="x28-346000B.3"></a>Using JacORB</h3>
+ id="x28-343000B.3"></a>Using JacORB</h3>
 <!--l. 433--><p class="noindent" >The REDHAWK IDE uses JacORB as its implementation for the <a 
-href="mainap3.html#corba">CORBA</a> standard. To use
+href="mainap6.html#corba">CORBA</a> standard. To use
 JacORB, the <span 
 class="cmtt-12">org.jacorb.systemFragment </span>and <span 
 class="cmtt-12">org.jacorb.systemFragment.feature </span>must be
@@ -608,13 +608,13 @@ class="cmtt-12">eclipse.ini </span>file: <script type="syntaxhighlighter" class=
 ]]></script>
                                                                                          
                                                                                          
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap3.html" >next</a>] [<a 
 href="mainap1.html" >prev</a>] [<a 
 href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a 
 href="mainap2.html" >front</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
-<!--l. 2--><p class="noindent" ><a 
+<!--l. 1--><p class="noindent" ><a 
  id="tailmainap2.html"></a>  
  
 <div class=license>  

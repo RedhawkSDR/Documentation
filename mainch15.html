@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-12 19:46:00"> 
+<meta name="date" content="2013-03-15 16:08:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,18 +53,18 @@ href="mainch14.html#tailmainch14.html" >prev-tail</a>] [<a
 href="#tailmainch15.html">tail</a>] [<a 
 href="main.html#mainch15.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;15</span><br /><a 
- id="x17-20700015"></a>Data Flow Management: Bulk IO</h2>
+ id="x17-20400015"></a>Data Flow Management: Bulk IO</h2>
 <h3 class="sectionHead"><span class="titlemark">15.1   </span> <a 
- id="x17-20800015.1"></a>Introduction</h3>
+ id="x17-20500015.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Data flow through REDHAWK <a 
 href="mainli2.html#glo:component">Components</a> is managed through a module of interfaces called
 <a 
-href="mainap3.html#bulkio">BulkIO</a>. The <a 
-href="mainap3.html#bulkio">BulkIO</a> module is designed to provide a standardized methodology for transferring
+href="mainap6.html#bulkio">BulkIO</a>. The <a 
+href="mainap6.html#bulkio">BulkIO</a> module is designed to provide a standardized methodology for transferring
 data between <a 
 href="mainli2.html#glo:component">Components</a>/<a 
 href="mainli2.html#glo:device">Devices</a>. As the name implies, <a 
-href="mainap3.html#bulkio">BulkIO</a> is designed for bulk data
+href="mainap6.html#bulkio">BulkIO</a> is designed for bulk data
 transfers. The code generators are constructed to provide <a 
 href="mainli2.html#glo:port">Port</a> implementations that maximize the
 efficiency of data throughput while providing network-accessible data ingest/egress and minimizing
@@ -72,25 +72,25 @@ the complexity of the implementation.
 <!--l. 11--><p class="noindent" >Data is transferred either in-band (through the <a 
 href="mainli2.html#glo:port">Port</a> object directly) or out-of-band
 (i.e., User Datagram Protocol (<a 
-href="mainap3.html#udp">UDP</a>) multicast). In the case of out-of-band transfers,
+href="mainap6.html#udp">UDP</a>) multicast). In the case of out-of-band transfers,
 the <a 
 href="mainli2.html#glo:port">Port</a> provides only metadata regarding connections, such as multicast address in a
 Virtual Local Area Network (<a 
-href="mainap3.html#vlan">VLAN</a>). Data transferred in-band is embedded with some
+href="mainap6.html#vlan">VLAN</a>). Data transferred in-band is embedded with some
 fixed-field metadata, like a birth date timestamp, and variable-field metadata in key/value
 pairs.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.2   </span> <a 
- id="x17-20900015.2"></a>SRI</h3>
+ id="x17-20600015.2"></a>SRI</h3>
 <!--l. 3--><p class="noindent" ><a 
-href="mainap3.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload.
+href="mainap6.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload.
 <!--l. 5--><p class="noindent" >The <a 
-href="mainap3.html#sri">SRI</a> data structure contains the following 12 fields:
+href="mainap6.html#sri">SRI</a> data structure contains the following 12 fields:
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 12--><p class="noindent" ><a 
- id="x17-209001r1"></a><hr class="float"><div class="float" 
+ id="x17-206001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -98,7 +98,7 @@ href="mainap3.html#sri">SRI</a> data structure contains the following 12 fields:
  <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.1: </td><td  
 class="content"><a 
-href="mainap3.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-209001r1 -->
+href="mainap6.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-206001r1 -->
 <div class="tabular"> <table id="TBL-1" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-1-1g"><col 
@@ -118,7 +118,7 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> hversion   </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-2-2"  
 class="td11"> <!--l. 16--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-2-3"  
 class="td11"> <!--l. 16--><p class="noindent" >Version of the Stream <a 
-href="mainap3.html#sri">SRI</a> header. This field
+href="mainap6.html#sri">SRI</a> header. This field
   is ignored by the code generators, so a default
   1.0 is adequate.                                       </td>
 </tr><tr 
@@ -138,7 +138,7 @@ class="td11"> <!--l. 18--><p class="noindent" >Delta  between  two  values  in  
   sampling period. In the case of spectral data,
   this is the frequency difference between two
   adjacent Fast Fourier Transform (<a 
-href="mainap3.html#fft">FFT</a>) bins.  </td>
+href="mainap6.html#fft">FFT</a>) bins.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-1"  
@@ -146,7 +146,7 @@ class="td11"> xunits      </td><td  style="white-space:wrap; text-align:left;" i
 class="td11"> <!--l. 19--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-5-3"  
 class="td11"> <!--l. 19--><p class="noindent" >Unit                                            types;
   common codes defined in <a 
-href="mainap3.html#idl">IDL</a> (i.e: 0=None,
+href="mainap6.html#idl">IDL</a> (i.e: 0=None,
   1=time, 2=delay, 3=frequency)                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -177,7 +177,7 @@ class="td11"> yunits      </td><td  style="white-space:wrap; text-align:left;" i
 class="td11"> <!--l. 23--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-9-3"  
 class="td11"> <!--l. 23--><p class="noindent" >Unit                                            types;
   common codes defined in <a 
-href="mainap3.html#idl">IDL</a> (i.e: 0=None,
+href="mainap6.html#idl">IDL</a> (i.e: 0=None,
   1=time, 2=delay, 3=frequency)                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -194,13 +194,13 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> streamID  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-11-2"  
 class="td11"> <!--l. 25--><p class="noindent" >string                </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-11-3"  
 class="td11"> <!--l. 25--><p class="noindent" >Stream <a 
-href="mainap3.html#id">ID</a>. Unique streams can be delivered
+href="mainap6.html#id">ID</a>. Unique streams can be delivered
   over  the  same  <a 
 href="mainli2.html#glo:port">Port</a>,  where  each  stream
   is  identified  by  a  unique  string  (generated
   or  passed  along  by  the  provides  side).
   The   generation   of   this   stream   <a 
-href="mainap3.html#id">ID</a>   is
+href="mainap6.html#id">ID</a>   is
   <a 
 href="mainli2.html#glo:application">Application</a>-specific  and  not  controlled  by
   the REDHAWK Core Framework.               </td>
@@ -226,11 +226,11 @@ class="cmmi-12">&#x003C;</span>CF::DataType<span
 class="cmmi-12">&#x003E;</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-13-3"  
 class="td11"> <!--l. 27--><p class="noindent" >User  defined  keywords.  This  is  a  sequence
   of  structures  that  contain  an  <a 
-href="mainap3.html#id">ID</a>  of  type
+href="mainap6.html#id">ID</a>  of  type
   string and a value of type <a 
-href="mainap3.html#corba">CORBA</a> Any. The
+href="mainap6.html#corba">CORBA</a> Any. The
   content of the <a 
-href="mainap3.html#corba">CORBA</a> Any can be any type.  </td>
+href="mainap6.html#corba">CORBA</a> Any can be any type.  </td>
 </tr></table></div>
                                                                                          
                                                                                          
@@ -239,28 +239,28 @@ href="mainap3.html#corba">CORBA</a> Any can be any type.  </td>
                                                                                          
                                                                                          
 <!--l. 35--><p class="noindent" ><a 
-href="mainap3.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the providesside function
+href="mainap6.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the providesside function
 <span 
 class="cmtt-12">pushSRI()</span>. The <span 
 class="cmtt-12">pushSRI() </span>function contains a single argument, an instance of an <a 
-href="mainap3.html#sri">SRI</a>
+href="mainap6.html#sri">SRI</a>
 object.
 <!--l. 38--><p class="noindent" >Each provides-side <a 
 href="mainli2.html#glo:port">Port</a> that implements a <a 
-href="mainap3.html#bulkio">BulkIO</a> interface expects that <a 
-href="mainap3.html#sri">SRI</a> regarding data being
+href="mainap6.html#bulkio">BulkIO</a> interface expects that <a 
+href="mainap6.html#sri">SRI</a> regarding data being
 received become available before any data is transferred. When using the code generators and base
 classes in the REDHAWK development tools, this behavior is hard-coded into the uses-side <a 
-href="mainap3.html#bulkio">BulkIO</a>
+href="mainap6.html#bulkio">BulkIO</a>
 <a 
 href="mainli2.html#glo:port">Ports</a>. If the user code on the uses-side of a <a 
-href="mainap3.html#bulkio">BulkIO</a> connection does not explicitly invoke a
+href="mainap6.html#bulkio">BulkIO</a> connection does not explicitly invoke a
 <span 
 class="cmtt-12">pushSRI() </span>call before any data is sent out, the auto-generated code will create a trivial <a 
-href="mainap3.html#sri">SRI</a>
+href="mainap6.html#sri">SRI</a>
 message with normalized values.
 <!--l. 42--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
-href="mainap3.html#bulkio">BulkIO</a> <a 
+href="mainap6.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a> is to issue a <span 
 class="cmtt-12">pushSRI() </span>when a new
 connection is made to the newly-connected object. For example, a system is created in which data
@@ -275,12 +275,12 @@ href="mainli2.html#glo:component">Component</a> A to <a
 href="mainli2.html#glo:component">Component</a>
 C.
 <h3 class="sectionHead"><span class="titlemark">15.3   </span> <a 
- id="x17-21000015.3"></a><span 
+ id="x17-20700015.3"></a><span 
 class="cmtt-12">BULKIO::PrecisionUTCTime </span>Timestamp</h3>
 <!--l. 4--><p class="noindent" >The following code segment provides an example of how to construct a <span 
 class="cmtt-12">BULKIO::PrecisionUTCTime</span>
 time stamp to be sent in the <a 
-href="mainap3.html#sri">SRI</a>:
+href="mainap6.html#sri">SRI</a>:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  //To create a PrecisionUTCTime object, use the following
  //code:
@@ -301,9 +301,9 @@ href="mainap3.html#sri">SRI</a>:
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.4   </span> <a 
- id="x17-21100015.4"></a>Data Transfers</h3>
+ id="x17-20800015.4"></a>Data Transfers</h3>
 <!--l. 3--><p class="noindent" >The <a 
-href="mainap3.html#bulkio">BulkIO</a> data transfers happen with the <span 
+href="mainap6.html#bulkio">BulkIO</a> data transfers happen with the <span 
 class="cmtt-12">pushPacket() </span>call. As mentioned earlier, the
 provides-side <a 
 href="mainli2.html#glo:port">Port</a> expects a <span 
@@ -316,12 +316,12 @@ a <span
 class="cmtt-12">pushSRI()</span>.
 <!--l. 8--><p class="noindent" >In the case of in-band data, the <span 
 class="cmtt-12">pushPacket() </span>arguments are shown in  <a 
-href="#x17-21100015.4">Table 15.4</a>.
+href="#x17-20800015.4">Table 15.4</a>.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 11--><p class="noindent" ><a 
- id="x17-211001r2"></a><hr class="float"><div class="float" 
+ id="x17-208001r2"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -350,7 +350,7 @@ class="cmmi-12">&#x003E;  </span></td><td  style="white-space:wrap; text-align:l
 class="td11"> <!--l. 16--><p class="noindent" >A sequence of a particular type,
   where   TYPE   is   some   native
   <a 
-href="mainap3.html#corba">CORBA</a> type (e.g., float, short).
+href="mainap6.html#corba">CORBA</a> type (e.g., float, short).
   The sequence may be zero-length.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -364,7 +364,7 @@ class="td11"> <!--l. 17--><p class="noindent" >The epoch birth date of the first
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
 class="td11"> <a 
-href="mainap3.html#eos">EOS</a>        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
+href="mainap6.html#eos">EOS</a>        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
 class="td11"> boolean                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-4-3"  
 class="td11"> <!--l. 18--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
@@ -379,24 +379,24 @@ class="td11"> <!--l. 19--><p class="noindent" >Stream  ID  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap3.html#sri">SRI</a>
+href="mainap6.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.2: </td><td  
 class="content">In-band data fields for <span 
-class="cmtt-12">pushPacket() </span>call</td></tr></table><!--tex4ht:label?: x17-211001r2 -->
+class="cmtt-12">pushPacket() </span>call</td></tr></table><!--tex4ht:label?: x17-208001r2 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <!--l. 24--><p class="noindent" >In the case of file transfers, the arguments are shown in  <a 
-href="#x17-21100015.4">Table 15.4</a>.
+href="#x17-20800015.4">Table 15.4</a>.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 27--><p class="noindent" ><a 
- id="x17-211002r3"></a><hr class="float"><div class="float" 
+ id="x17-208002r3"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -421,19 +421,19 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> <!--l. 33--><p class="noindent" >Uniform
   Resource
   Locator (<a 
-href="mainap3.html#url">URL</a>)     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-2"  
+href="mainap6.html#url">URL</a>)     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-2"  
 class="td11"> string                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-3-2-3"  
 class="td11"> <!--l. 33--><p class="noindent" >The   <a 
-href="mainap3.html#url">URL</a>   describing   the   file.
+href="mainap6.html#url">URL</a>   describing   the   file.
   Appropriate   schemes   for   the
   <a 
-href="mainap3.html#url">URL</a>s are file:// and <a 
-href="mainap3.html#sca">SCA</a>://. The
+href="mainap6.html#url">URL</a>s are file:// and <a 
+href="mainap6.html#sca">SCA</a>://. The
   file  scheme  applies  to  the  local
   file system, while the <a 
-href="mainap3.html#sca">SCA</a> scheme
+href="mainap6.html#sca">SCA</a> scheme
   applies to the <a 
-href="mainap3.html#sca">SCA</a> <a 
+href="mainap6.html#sca">SCA</a> <a 
 href="mainli2.html#glo:filemanager">File Manager</a>.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -447,7 +447,7 @@ class="td11"> <!--l. 35--><p class="noindent" >The epoch birth date of the first
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-3-4-1"  
 class="td11"> <!--l. 37--><p class="noindent" ><a 
-href="mainap3.html#eos">EOS</a>                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-2"  
+href="mainap6.html#eos">EOS</a>                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-2"  
 class="td11"> boolean                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-3-4-3"  
 class="td11"> <!--l. 37--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
@@ -462,13 +462,13 @@ class="td11"> <!--l. 39--><p class="noindent" >Stream  ID  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap3.html#sri">SRI</a>
+href="mainap6.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.3: </td><td  
 class="content">Data fields for <span 
-class="cmtt-12">pushPacket() </span>call in file transfers</td></tr></table><!--tex4ht:label?: x17-211002r3 -->
+class="cmtt-12">pushPacket() </span>call in file transfers</td></tr></table><!--tex4ht:label?: x17-208002r3 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -482,7 +482,7 @@ value for <span
 class="cmtt-12">giopMaxMsgSize</span>. The default maximum transfer size is set to <span 
 class="cmtt-12">2097152 </span>(2
 Megabyte (<a 
-href="mainap3.html#mb">MB</a>)). For every <span 
+href="mainap6.html#mb">MB</a>)). For every <span 
 class="cmtt-12">pushPacket()</span>, the data+headers must be less than this
 value, otherwise a <span 
 class="cmtt-12">MARSHAL </span>exception will be raise by the middleware. The maximum
@@ -490,23 +490,23 @@ value can be found during run time by using the <span
 class="cmtt-12">omniORB::giopMaxMsgSize() </span>function
 call.
 <h3 class="sectionHead"><span class="titlemark">15.5   </span> <a 
- id="x17-21200015.5"></a>Data File Guidance</h3>
+ id="x17-20900015.5"></a>Data File Guidance</h3>
 <!--l. 3--><p class="noindent" >Data files may be sent via the <a 
-href="mainap3.html#bulkio">BulkIO</a> <span 
+href="mainap6.html#bulkio">BulkIO</a> <span 
 class="cmtt-12">dataFile </span>type. When using the <a 
-href="mainap3.html#bulkio">BulkIO</a> <span 
+href="mainap6.html#bulkio">BulkIO</a> <span 
 class="cmtt-12">dataFile </span>type, a
 filename is passed to the <span 
 class="cmtt-12">pushPacket() </span>method. The location of the file is specified by a Uniform
 Resource Identifier (<a 
-href="mainap3.html#uri">URI</a>) that either points to the local file system or the <a 
-href="mainap3.html#sdr">SDR</a> file system. In
+href="mainap6.html#uri">URI</a>) that either points to the local file system or the <a 
+href="mainap6.html#sdr">SDR</a> file system. In
 order to support portability, use of the <a 
-href="mainap3.html#sdr">SDR</a> file system is recommended.
+href="mainap6.html#sdr">SDR</a> file system is recommended.
                                                                                          
                                                                                          
 <!--l. 9--><p class="noindent" >The following table describes in greater detail the <a 
-href="mainap3.html#uri">URI</a> options.
+href="mainap6.html#uri">URI</a> options.
  <table id="TBL-6" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-6-1g"><col 
@@ -542,7 +542,7 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> sdr           </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-2"  
 class="td11"> <!--l. 20--><p class="noindent" ><span 
 class="cmtt-12">sdr://[</span><a 
-href="mainap3.html#ior"><span 
+href="mainap6.html#ior"><span 
 class="cmtt-12">IOR</span></a><span 
 class="cmtt-12">]/</span><span 
 class="cmmi-12">&#x003C;</span><span 
@@ -551,7 +551,7 @@ class="cmmi-12">&#x003E;</span>             </td><td  style="white-space:wrap; t
 class="td11"> <!--l. 20--><p class="noindent" >A path on the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s
   file system. If the optional <a 
-href="mainap3.html#ior">IOR</a> is
+href="mainap6.html#ior">IOR</a> is
   provided, this path provides the
   reference to the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>.
@@ -566,20 +566,20 @@ href="mainli2.html#glo:service">Service</a>         </td>
 </tr></table>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.6   </span> <a 
- id="x17-21300015.6"></a>Link Statistics</h3>
+ id="x17-21000015.6"></a>Link Statistics</h3>
 <!--l. 3--><p class="noindent" >All <a 
-href="mainap3.html#bulkio">BulkIO</a> <a 
+href="mainap6.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
 <span 
 class="cmtt-12">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
 href="mainli2.html#glo:port">Port</a>.
 <a 
-href="#x17-213001r4">Table 15.4</a> contains a description of a statistics structure
+href="#x17-210001r4">Table 15.4</a> contains a description of a statistics structure
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 8--><p class="noindent" ><a 
- id="x17-213001r4"></a><hr class="float"><div class="float" 
+ id="x17-210001r4"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -638,7 +638,7 @@ class="td11"> <!--l. 16--><p class="noindent" >List  of  all  stream  ids  where
   <span 
 class="cmtt-12">pushSRI() </span>has  occurred  but  no
   <a 
-href="mainap3.html#eos">EOS</a> has been received.              </td>
+href="mainap6.html#eos">EOS</a> has been received.              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-7-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-7-1"  
@@ -670,7 +670,7 @@ href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.4: </td><td  
-class="content">Fields in returned link statistics</td></tr></table><!--tex4ht:label?: x17-213001r4 -->
+class="content">Fields in returned link statistics</td></tr></table><!--tex4ht:label?: x17-210001r4 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -691,13 +691,13 @@ the sequence in the <span
 class="cmtt-12">pushPacket() </span>call) and seeing its effects on the performance of the connection
 is also instructive.
 <h3 class="sectionHead"><span class="titlemark">15.7   </span> <a 
- id="x17-21400015.7"></a>Examples</h3>
+ id="x17-21100015.7"></a>Examples</h3>
 <!--l. 3--><p class="noindent" >These two examples illustrate high-speed data exchange between two C++ <a 
 href="mainli2.html#glo:component">Components</a> and basic
 data manipulation through the Sandbox
 <!--l. 5--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">15.7.1   </span> <a 
- id="x17-21500015.7.1"></a>High-speed data</h4>
+ id="x17-21200015.7.1"></a>High-speed data</h4>
 <!--l. 7--><p class="noindent" >In this example, two C++ <a 
 href="mainli2.html#glo:component">Components</a> are created: a source and a sink. We will then deploy these
 <a 
@@ -706,7 +706,7 @@ them.
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-215002x1">Create  a  C++  <a 
+  class="enumerate" id="x17-212002x1">Create  a  C++  <a 
 href="mainli2.html#glo:component">Component</a>  called  <span 
 class="cmti-12">source  </span>with  a  uses  <a 
 href="mainli2.html#glo:port">Port</a>  called  <span 
@@ -714,7 +714,7 @@ class="cmti-12">output  </span>of  type
       <span 
 class="cmti-12">dataShort</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with <a 
-href="mainap3.html#id">ID</a> <span 
+href="mainap6.html#id">ID</a> <span 
 class="cmti-12">xfer</span><span 
 class="cmti-12">_length</span>, type <span 
 class="cmti-12">ulong</span>, and default value
@@ -723,7 +723,7 @@ class="cmti-12">100000</span>. Generate the <a
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-215004x2">Open the file <span 
+  class="enumerate" id="x17-212004x2">Open the file <span 
 class="cmtt-12">source.h </span>and add the following member to the <span 
 class="cmtt-12">source</span><span 
 class="cmtt-12">_i </span>class: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -731,7 +731,7 @@ class="cmtt-12">_i </span>class: <script type="syntaxhighlighter" class="brush: 
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-215006x3">Open the file <span 
+  class="enumerate" id="x17-212006x3">Open the file <span 
 class="cmtt-12">source.cpp </span>and edit it in the following ways:
                                                                                          
                                                                                          
@@ -740,10 +740,11 @@ class="cmtt-12">source.cpp </span>and edit it in the following ways:
 class="cmtt-12">source</span><span 
 class="cmtt-12">_i </span>constructor:</li></ul>
       <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-           data.resize(0);]]></script>
+           data.resize(0);
+      ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-215008x4">In <span 
+  class="enumerate" id="x17-212008x4">In <span 
 class="cmtt-12">serviceFunction() </span>comment-out the <span 
 class="cmtt-12">LOG</span><span 
 class="cmtt-12">_DEBUG </span>statement and add the following lines: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -776,12 +777,12 @@ class="cmtt-12">_DEBUG </span>statement and add the following lines: <script typ
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x17-215010x5">Compile the <a 
+  class="enumerate" id="x17-212010x5">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="cmtt-12">source </span>and install it on Target SDR.
       </li>
       <li 
-  class="enumerate" id="x17-215012x6">Create a C++ <a 
+  class="enumerate" id="x17-212012x6">Create a C++ <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="cmti-12">sink </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -791,17 +792,17 @@ class="cmti-12">dataShort</span>.
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-215014x7">Open the file <span 
+  class="enumerate" id="x17-212014x7">Open the file <span 
 class="cmtt-12">sink.cpp </span>and edit it in the following ways:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x17-215016x1">In <span 
+  class="enumerate" id="x17-212016x1">In <span 
 class="cmtt-12">serviceFunction()</span>, comment-out the <span 
 class="cmtt-12">LOG</span><span 
 class="cmtt-12">_DEBUG </span>statement
            </li>
            <li 
-  class="enumerate" id="x17-215018x2">Add  the  following  lines:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x17-212018x2">Add  the  following  lines:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
              ::BULKIO_dataShort_In_i::dataTransfer *tmp =
                 this->input->getPacket(-1);
             if (tmp == NULL) {
@@ -814,7 +815,7 @@ class="cmtt-12">_DEBUG </span>statement
            </li></ol>
       </li>
       <li 
-  class="enumerate" id="x17-215020x8">Compile the <a 
+  class="enumerate" id="x17-212020x8">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="cmtt-12">sink </span>and install it on Target SDR.
       <!--l. 72--><p class="noindent" >Start a Python session in a command line terminal and run the following commands:</li></ol>
@@ -830,7 +831,7 @@ class="cmtt-12">sink </span>and install it on Target SDR.
                                                                                          
 <!--l. 84--><p class="noindent" >The output of the print statement is an instance of the <span 
 class="cmtt-12">PortStatistics </span>structure in <a 
-href="mainap3.html#bulkio">BulkIO</a>. This
+href="mainap6.html#bulkio">BulkIO</a>. This
 structure contains the statistics gathered from this connection. A measure of data rate is bits per
 second.
 <!--l. 88--><p class="noindent" >To display the number of Gigabits per second, run the following command:
@@ -861,7 +862,7 @@ class="cmtt-12">_statistics()</span>. The resulting data rate
 should now be different.
 <!--l. 111--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">15.7.2   </span> <a 
- id="x17-21600015.7.2"></a>Data manipulation</h4>
+ id="x17-21300015.7.2"></a>Data manipulation</h4>
 <!--l. 113--><p class="noindent" >In this example, a Python <a 
 href="mainli2.html#glo:component">Component</a> is created that takes vectors of floats as inputs, multiplies
 the vector by some arbitrary number, and then outputs the resulting vector. This example
@@ -871,7 +872,7 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 115--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-216002x1">Create a Python <a 
+  class="enumerate" id="x17-213002x1">Create a Python <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="cmti-12">mult  </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -885,14 +886,14 @@ href="mainli2.html#glo:property">Property</a> with
                                                                                          
                                                                                          
       <a 
-href="mainap3.html#id">ID</a> <span 
+href="mainap6.html#id">ID</a> <span 
 class="cmti-12">factor</span>, type <span 
 class="cmti-12">float</span>, and default value of <span 
 class="cmti-12">1</span>. Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-216004x2">Open the file <span 
+  class="enumerate" id="x17-213004x2">Open the file <span 
 class="cmtt-12">mult.py </span>and add the following lines:
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
         data, T, EOS, streamID, sri, sriChanged, inputQueueFlushed =
@@ -911,12 +912,12 @@ class="cmtt-12">mult.py </span>and add the following lines:
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-216006x3">Save the project and drag the <span 
+  class="enumerate" id="x17-213006x3">Save the project and drag the <span 
 class="cmtt-12">mult </span>project to SCA Explorer<span 
 class="cmmi-12">&#x003E; </span>Target SDR.
       </li>
       <li 
-  class="enumerate" id="x17-216008x4">Start a Python session in a command line terminal and run the following commands:
+  class="enumerate" id="x17-213008x4">Start a Python session in a command line terminal and run the following commands:
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
         >>> from ossie.utils import sb
        >>> mult = sb.Component("mult")
@@ -933,7 +934,7 @@ class="cmmi-12">&#x003E; </span>Target SDR.
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-216010x5">The multiplication factor can be changed while the Sandbox is up.
+  class="enumerate" id="x17-213010x5">The multiplication factor can be changed while the Sandbox is up.
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
         >>> mult.factor = 2
        >>> source.push([1,2,3,4,5])
