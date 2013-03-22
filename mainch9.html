@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-21 11:28:00"> 
+<meta name="date" content="2013-03-22 17:00:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch8.html#tailmainch8.html" >prev-tail</a>] [<a
 href="#tailmainch9.html">tail</a>] [<a 
 href="main.html#mainch9.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;9</span><br /><a 
- id="x11-1260009"></a>Sandbox</h2>
+ id="x11-1240009"></a>Sandbox</h2>
 <h3 class="sectionHead"><span class="titlemark">9.1   </span> <a 
- id="x11-1270009.1"></a>Introduction</h3>
+ id="x11-1250009.1"></a>Introduction</h3>
 <!--l. 7--><p class="noindent" >The REDHAWK Sandbox is a Python package that can be used for testing <a 
 href="mainli2.html#glo:component">Components</a> and for
 inspecting running <a 
@@ -74,12 +74,12 @@ href="mainap6.html#sca">SCA</a> <a
 href="mainli2.html#glo:component">Components</a>.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.2   </span> <a 
- id="x11-1280009.2"></a>Setup</h3>
+ id="x11-1260009.2"></a>Setup</h3>
 <!--l. 2--><p class="noindent" >In order to run the Sandbox, REDHAWK must be installed and the <span 
 class="cmtt-12">OSSIEHOME </span>and <span 
 class="cmtt-12">SDRROOT</span>
 environment variables must be set correctly (see  <a 
-href="mainap4.html#x30-350000D.3">Section D.3</a>).
+href="mainap4.html#x30-348000D.3">Section D.3</a>).
 <!--l. 5--><p class="noindent" >In order to graphically plot data within the Sandbox, the path to the <span 
 class="cmtt-12">eclipse </span>directory of the
 installed REDHAWK <a 
@@ -88,8 +88,8 @@ class="cmtt-12">IDELocation() </span>function
 within the Sandbox or by setting the environment variable <span 
 class="cmtt-12">RH</span><span 
 class="cmtt-12">_IDE </span>prior to use (see  <a 
-href="mainch2.html#x4-120002.5">Section
-2.5</a>).
+href="mainch2.html#x4-100002.4">Section
+2.4</a>).
 <!--l. 8--><p class="noindent" >To use the Sandbox the following programs do <span class="uline">not</span> need to be running:
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -107,7 +107,7 @@ class="cmtt-12">DeviceManager</span></li></ul>
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.3   </span> <a 
- id="x11-1290009.3"></a>Starting the Sandbox</h3>
+ id="x11-1270009.3"></a>Starting the Sandbox</h3>
 <!--l. 2--><p class="noindent" >The REDHAWK Sandbox, like any other Python module, may be used in another Python program
 or run directly within the Python interpreter. The following examples assume that the Sandbox is
 being used within the Python interpreter.
@@ -135,7 +135,7 @@ called:
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.4   </span> <a 
- id="x11-1300009.4"></a>Working with Components</h3>
+ id="x11-1280009.4"></a>Working with Components</h3>
 <!--l. 3--><p class="noindent" >The <span 
 class="cmtt-12">show() </span>command is used in order to display running <a 
 href="mainli2.html#glo:component">Components</a>, connections between
@@ -208,7 +208,7 @@ some_shorts     (ShortSeq)      [None]                  None
 ]]></script>
 <!--l. 67--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1310009.4"></a>Connecting Components</h5>
+ id="x11-1290009.4"></a>Connecting Components</h5>
                                                                                          
                                                                                          
 <!--l. 69--><p class="noindent" >Connecting <a 
@@ -231,7 +231,7 @@ True
 ]]></script>
 <!--l. 79--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1320009.4"></a>Setting Component Log Levels</h5>
+ id="x11-1300009.4"></a>Setting Component Log Levels</h5>
 <!--l. 81--><p class="noindent" >The log level of the <a 
 href="mainli2.html#glo:component">Component</a> may be set using the <span 
 class="cmtt-12">execparams </span>argument in the <a 
@@ -243,14 +243,14 @@ constructor.
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.5   </span> <a 
- id="x11-1330009.5"></a>Built-in Sources and Sinks</h3>
+ id="x11-1310009.5"></a>Built-in Sources and Sinks</h3>
 <!--l. 3--><p class="noindent" >REDHAWK includes a variety of helpers that allow a developer to inject data into or extract data
 from <a 
 href="mainli2.html#glo:component">Components</a> deployed through the Sandbox. The following section describes each of these
 helpers and how they are used.
 <!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.5.1   </span> <a 
- id="x11-1340009.5.1"></a>Data Sources</h4>
+ id="x11-1320009.5.1"></a>Data Sources</h4>
                                                                                          
                                                                                          
 <!--l. 8--><p class="noindent" >The <span 
@@ -295,7 +295,7 @@ class="cmtt-12">FileSource </span>constructor.
 ]]></script>
 <!--l. 36--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1350009.5.1"></a>Adding Keywords in Data Sources</h5>
+ id="x11-1330009.5.1"></a>Adding Keywords in Data Sources</h5>
 <!--l. 38--><p class="noindent" ><a 
 href="mainap6.html#sri">SRI</a> keywords may be generated and sent with data from the <span 
 class="cmtt-12">DataSource </span>module.
@@ -323,7 +323,7 @@ class="cmtt-12">SRIKeyword() </span>constructor takes in the following arguments
       ushort, float, double, long, ulong, longlong, ulonglong, char, octet, string, boolean.</li></ul>
 <!--l. 61--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1360009.5.1"></a>Sending Messages to a Component</h5>
+ id="x11-1340009.5.1"></a>Sending Messages to a Component</h5>
 <!--l. 63--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> can be sent to <a 
 href="mainli2.html#glo:component">Components</a> using the <span 
@@ -350,7 +350,7 @@ class="cmtt-12">_struct</span>:
 ]]></script>
 <!--l. 78--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.5.2   </span> <a 
- id="x11-1370009.5.2"></a>Data Sinks</h4>
+ id="x11-1350009.5.2"></a>Data Sinks</h4>
 <!--l. 80--><p class="noindent" >The Sandbox provides a <span 
 class="cmtt-12">DataSink </span>module, which simply reads data from a uses (output) <a 
 href="mainli2.html#glo:port">Port</a>.
@@ -396,7 +396,7 @@ is received:
                                                                                          
 <!--l. 112--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1380009.5.2"></a>Writing a File</h5>
+ id="x11-1360009.5.2"></a>Writing a File</h5>
 <!--l. 114--><p class="noindent" >Similar to the <span 
 class="cmtt-12">DataSource</span>&#8217;s <span 
 class="cmtt-12">FileSource </span>counterpart, the <span 
@@ -409,7 +409,7 @@ module for writing data to a file:
 ]]></script>
 <!--l. 121--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1390009.5.2"></a>Displaying Messages</h5>
+ id="x11-1370009.5.2"></a>Displaying Messages</h5>
 <!--l. 123--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> may be displayed using the <span 
 class="cmtt-12">MessageSink </span>module. Data sent to a running <span 
@@ -425,12 +425,12 @@ class="cmtt-12">MessageSink </span>usage:
 ]]></script>
 <!--l. 135--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.5.3   </span> <a 
- id="x11-1400009.5.3"></a>Usage Examples</h4>
+ id="x11-1380009.5.3"></a>Usage Examples</h4>
 <!--l. 137--><p class="noindent" >
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><a 
- id="x11-1410009.5.3"></a>Plotting Data Example</h5>
+ id="x11-1390009.5.3"></a>Plotting Data Example</h5>
 <!--l. 139--><p class="noindent" >Note that for plotting data, the REDHAWK <a 
 href="mainap6.html#ide">IDE</a> must be installed and the path to the <span 
 class="cmtt-12">eclipse</span>
@@ -445,7 +445,7 @@ class="cmtt-12">IDELocation() </span>function:
 class="cmtt-12">RH</span><span 
 class="cmtt-12">_IDE </span>environment variable prior to starting the Python
 session. (See  <a 
-href="mainch2.html#x4-120002.5">Section 2.5</a>)
+href="mainch2.html#x4-100002.4">Section 2.4</a>)
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> input_source = sb.DataSource()
 >>> my_data = range(10000)
@@ -455,7 +455,7 @@ href="mainch2.html#x4-120002.5">Section 2.5</a>)
 ]]></script>
 <!--l. 159--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1420009.5.3"></a>Continuous Data Flow Example</h5>
+ id="x11-1400009.5.3"></a>Continuous Data Flow Example</h5>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> input_source.push(my_data,loop=True)
 ]]></script>
@@ -471,7 +471,7 @@ href="mainch2.html#x4-120002.5">Section 2.5</a>)
 ]]></script>
 <!--l. 174--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1430009.5.3"></a>File Data Plotting Example</h5>
+ id="x11-1410009.5.3"></a>File Data Plotting Example</h5>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> input_file = sb.FileSource('~/short_file.tmp',midasFile=True)
 >>> my_plot = sb.Plot()
@@ -480,7 +480,7 @@ href="mainch2.html#x4-120002.5">Section 2.5</a>)
 ]]></script>
 <!--l. 183--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1440009.5.3"></a>Passing a Struct to sendMessage Example</h5>
+ id="x11-1420009.5.3"></a>Passing a Struct to sendMessage Example</h5>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 from ossie.utils import sb
 from ossie.properties import simple_property
@@ -530,10 +530,10 @@ a.sendMessage(testmessage)
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.6   </span> <a 
- id="x11-1450009.6"></a>Miscellaneous</h3>
+ id="x11-1430009.6"></a>Miscellaneous</h3>
 <!--l. 3--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.6.1   </span> <a 
- id="x11-1460009.6.1"></a>Saving and Loading Waveforms</h4>
+ id="x11-1440009.6.1"></a>Saving and Loading Waveforms</h4>
 <!--l. 5--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Components</a> making up a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> can be loaded into the workspace by passing the path
@@ -567,7 +567,7 @@ then be written to a file:
 ]]></script>
 <!--l. 24--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.6.2   </span> <a 
- id="x11-1470009.6.2"></a>Debug Statements and Standard Out</h4>
+ id="x11-1450009.6.2"></a>Debug Statements and Standard Out</h4>
 <!--l. 26--><p class="noindent" >Standard out and standard error can be redirected to a file:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
                                                                                          

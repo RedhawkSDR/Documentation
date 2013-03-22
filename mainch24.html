@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-21 11:28:00"> 
+<meta name="date" content="2013-03-22 17:00:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch23.html#tailmainch23.html" >prev-tail</a>] [<a
 href="#tailmainch24.html">tail</a>] [<a 
 href="main.html#mainch24.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;24</span><br /><a 
- id="x26-31400024"></a>Creating a REDHAWK Control Panel</h2>
+ id="x26-31200024"></a>Creating a REDHAWK Control Panel</h2>
 <h3 class="sectionHead"><span class="titlemark">24.1   </span> <a 
- id="x26-31500024.1"></a>What is a Control Panel?</h3>
+ id="x26-31300024.1"></a>What is a Control Panel?</h3>
 <!--l. 4--><p class="noindent" >A control panel is a contributed <a 
 href="mainap6.html#ui">UI</a> Component for a specific <a 
 href="mainli2.html#glo:domain">Domain</a> object to allow easier
@@ -76,7 +76,7 @@ href="mainli2.html#glo:application">Application</a> developer to create a tailor
 user experience.
 <!--l. 13--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.1.1   </span> <a 
- id="x26-31600024.1.1"></a>Prerequisites</h4>
+ id="x26-31400024.1.1"></a>Prerequisites</h4>
 <!--l. 14--><p class="noindent" >To aid in understanding of the concepts and examples discussed in this chapter, the following
 prerequisites should be met:
       <ul class="itemize1">
@@ -91,20 +91,20 @@ href="mainap6.html#rcp">RCP</a>)
       development is helpful.</li></ul>
 <!--l. 24--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">24.2   </span> <a 
- id="x26-31700024.2"></a>Creating a New REDHAWK Control Panel</h3>
+ id="x26-31500024.2"></a>Creating a New REDHAWK Control Panel</h3>
                                                                                          
                                                                                          
 <!--l. 27--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.2.1   </span> <a 
- id="x26-31800024.2.1"></a>Evoking the Eclipse Plug-in Wizard</h4>
+ id="x26-31600024.2.1"></a>Evoking the Eclipse Plug-in Wizard</h4>
 <!--l. 28--><p class="noindent" >The following steps describe the process for evoking the Eclipse Plug-in Wizard.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x26-318002x1">Open the <span 
+  class="enumerate" id="x26-316002x1">Open the <span 
 class="cmbx-12">New Project Wizard</span>
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x26-318004x1">Click <span 
+  class="enumerate" id="x26-316004x1">Click <span 
 class="cmbx-12">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="cmbx-12">New </span><span 
@@ -112,19 +112,19 @@ class="cmmi-12">&#x003E; </span><span
 class="cmbx-12">Project</span>
            </li>
            <li 
-  class="enumerate" id="x26-318006x2">Expand <span 
+  class="enumerate" id="x26-316006x2">Expand <span 
 class="cmbx-12">Plug-in Development</span>
            </li>
            <li 
-  class="enumerate" id="x26-318008x3">Select <span 
+  class="enumerate" id="x26-316008x3">Select <span 
 class="cmbx-12">Plug-in Project</span></li></ol>
       </li>
       <li 
-  class="enumerate" id="x26-318010x2">Type a name for the plug-in and click <span 
+  class="enumerate" id="x26-316010x2">Type a name for the plug-in and click <span 
 class="cmbx-12">Next</span>
       </li>
       <li 
-  class="enumerate" id="x26-318012x3">Ensure <span 
+  class="enumerate" id="x26-316012x3">Ensure <span 
 class="cmbx-12">This plug-in will make contributions to the </span><a 
 href="mainap6.html#ui"><span 
 class="cmbx-12">UI</span></a> is selected and click
@@ -132,7 +132,7 @@ class="cmbx-12">UI</span></a> is selected and click
 class="cmbx-12">Next</span>
       </li>
       <li 
-  class="enumerate" id="x26-318014x4">Select <a 
+  class="enumerate" id="x26-316014x4">Select <a 
 href="mainap6.html#sca"><span 
 class="cmbx-12">SCA</span></a> <span 
 class="cmbx-12">Plug-in with </span><a 
@@ -144,7 +144,7 @@ href="mainap6.html#corba">CORBA</a>, <a
 href="mainli2.html#glo:device">Device</a>, and Waveform.</p></div></div>
       </li>
       <li 
-  class="enumerate" id="x26-318016x5">Select the <a 
+  class="enumerate" id="x26-316016x5">Select the <a 
 href="mainli2.html#glo:component">Component</a> to create a control panel, and click <span 
 class="cmbx-12">Finish</span></li></ol>
 <!--l. 43--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Control Panels are created within Eclipse plug-in projects. The wizard creates a new plug-in
@@ -155,12 +155,12 @@ href="mainli2.html#glo:component">Component</a> form editor. There are multiple 
 To learn more about Eclipse development, see Eclipse <a 
 href="mainap6.html#ui">UI</a> Development References in Appendix
 <a 
-href="mainap1.html#x27-330000A">Chapter A</a>. </p></div></div>
+href="mainap1.html#x27-328000A">Chapter A</a>. </p></div></div>
 <!--l. 50--><p class="noindent" >Open the new plug-in project and expand the <span 
 class="cmbx-12">src </span>directory.
 <!--l. 52--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.2.2   </span> <a 
- id="x26-31900024.2.2"></a>Control Panel Files</h4>
+ id="x26-31700024.2.2"></a>Control Panel Files</h4>
 <!--l. 53--><p class="noindent" >This section describes the control panel files that are created by the wizard.
                                                                                          
                                                                                          
@@ -208,12 +208,12 @@ class="cmtt-12">plugin.xml</span>: The plug-in manifest file, plugin.xml, descri
       functionality.</li></ul>
 <!--l. 67--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">24.3   </span> <a 
- id="x26-32000024.3"></a>Programming with SWT and JFace</h3>
+ id="x26-31800024.3"></a>Programming with SWT and JFace</h3>
                                                                                          
                                                                                          
 <!--l. 68--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.3.1   </span> <a 
- id="x26-32100024.3.1"></a>SWT</h4>
+ id="x26-31900024.3.1"></a>SWT</h4>
 <!--l. 69--><p class="noindent" >The Standard Widget Toolkit (<a 
 href="mainap6.html#swt">SWT</a>) is a widget toolkit for Java developers that provides a
 portable <a 
@@ -245,7 +245,7 @@ href="http://www.eclipse.org/swt/examples.php" class="url" ><span
 class="cmtt-12">http://www.eclipse.org/swt/examples.php</span></a>.
 <!--l. 80--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x26-32200024.3.1"></a>Examples</h5>
+ id="x26-32000024.3.1"></a>Examples</h5>
 <!--l. 81--><p class="noindent" >To  create  a  label:  <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 Label label = new Label(main, SWT.None);
 label.setText("Hello World");
@@ -275,7 +275,7 @@ public void createPartControl(final Composite main) {
 ]]></script>
 <!--l. 111--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.3.2   </span> <a 
- id="x26-32300024.3.2"></a>JFace</h4>
+ id="x26-32100024.3.2"></a>JFace</h4>
 <!--l. 112--><p class="noindent" >JFace is a <a 
 href="mainap6.html#ui">UI</a> toolkit that provides helper classes for developing <a 
 href="mainap6.html#ui">UI</a> features that can be tedious to
@@ -313,7 +313,7 @@ href="http://wiki.eclipse.org/JFaceSnippets" class="url" ><span
 class="cmtt-12">http://wiki.eclipse.org/JFaceSnippets</span></a>.
 <!--l. 125--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">24.4   </span> <a 
- id="x26-32400024.4"></a>Using the SCA Model in a Control Panel</h3>
+ id="x26-32200024.4"></a>Using the SCA Model in a Control Panel</h3>
 <!--l. 127--><p class="noindent" >The REDHAWK back-end libraries provide implementations of various <a 
 href="mainap6.html#sca">SCA</a> interfaces. To
 facilitate interaction with the provided REDHAWK interface implementations in conjunction with
@@ -365,7 +365,7 @@ href="http://www.eclipse.org/articles/Article-Concurrency/jobs-api.html" class="
 class="cmtt-12">http://www.eclipse.org/articles/Article-Concurrency/jobs-api.html</span></a>
 </p></div></div>
 <h4 class="subsectionHead"><span class="titlemark">24.4.1   </span> <a 
- id="x26-32500024.4.1"></a>Examples</h4>
+ id="x26-32300024.4.1"></a>Examples</h4>
 <!--l. 157--><p class="noindent" >Below is an example of calling a blocking call and refreshing state: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 final ScaComponent component = getInput();
 Job job = new Job("Update Job") {
@@ -477,7 +477,7 @@ job.schedule();
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">24.5   </span> <a 
- id="x26-32600024.5"></a>Testing a Control Panel</h3>
+ id="x26-32400024.5"></a>Testing a Control Panel</h3>
 <!--l. 262--><p class="noindent" >At this stage, all the pieces needed to run the new plug-in are now available. Next, the plug-in
 needs to be built. If the Eclipse workbench is set up to build automatically, then the new
 view class should compile as soon as the new <a 
@@ -536,7 +536,7 @@ class="cmmi-12">&#x003E; </span><span
 class="cmbx-12">Debug Configurations</span>.
 <!--l. 299--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">24.6   </span> <a 
- id="x26-32700024.6"></a>Building and Installing the Control Panel</h3>
+ id="x26-32500024.6"></a>Building and Installing the Control Panel</h3>
                                                                                          
                                                                                          
 <!--l. 301--><p class="noindent" >A control panel project is an Eclipse plug-in. Eclipse plug-ins can either be built into a <a 
@@ -544,22 +544,22 @@ href="mainap6.html#jar">JAR</a> that
 can be dropped-in to the Eclipse environment or be wrapped into an Eclipse feature. Using the
 drop-in approach is simpler to implement, while creating a feature, the preferred method, provides
 a more user-friendly product through the use of p2 repositories (Explained in  <a 
-href="#x26-32900024.6.2">Section
+href="#x26-32700024.6.2">Section
 24.6.2</a>).
 <!--l. 305--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.6.1   </span> <a 
- id="x26-32800024.6.1"></a>Drop-Ins</h4>
+ id="x26-32600024.6.1"></a>Drop-Ins</h4>
 <!--l. 306--><p class="noindent" >Creating a drop-in module is accomplished through the following steps:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x26-328002x1">Export the plug-in. Go to the plug-in manifest editor. On the <span 
+  class="enumerate" id="x26-326002x1">Export the plug-in. Go to the plug-in manifest editor. On the <span 
 class="cmbx-12">Overview </span>page, follow
       the instructions in the <span 
 class="cmbx-12">Exporting </span>section. This will produce a <a 
 href="mainap6.html#jar">JAR</a> file.
       </li>
       <li 
-  class="enumerate" id="x26-328004x2">Copy this <a 
+  class="enumerate" id="x26-326004x2">Copy this <a 
 href="mainap6.html#jar">JAR</a> file to the drop-in folder of the target Eclipse / REDHAWK Application.
       The Application must be restarted for the control panel to be installed.</li></ol>
 <!--l. 313--><p class="noindent" >While by far the easiest approach to implement, creating a drop-in module is not considered the
@@ -570,7 +570,7 @@ diagnose.
 p2.
 <!--l. 317--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.6.2   </span> <a 
- id="x26-32900024.6.2"></a>p2</h4>
+ id="x26-32700024.6.2"></a>p2</h4>
 <!--l. 319--><p class="noindent" >p2 is a component of the Equinox project; it provides a provisioning platform for Eclipse-based
 applications. Eclipse update sites are essentially p2 repositories.
 <!--l. 321--><p class="noindent" >To create an Eclipse update site, a feature must first be created. Features are a way to organize a
@@ -578,13 +578,13 @@ set of plug-ins as one installable unit.
 <!--l. 323--><p class="noindent" >To create a feature:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x26-329002x1">Open the <span 
+  class="enumerate" id="x26-327002x1">Open the <span 
 class="cmbx-12">New Project Wizard</span>
                                                                                          
                                                                                          
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x26-329004x1">Click <span 
+  class="enumerate" id="x26-327004x1">Click <span 
 class="cmbx-12">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="cmbx-12">New </span><span 
@@ -592,58 +592,58 @@ class="cmmi-12">&#x003E; </span><span
 class="cmbx-12">Project</span>
            </li>
            <li 
-  class="enumerate" id="x26-329006x2">Expand <span 
+  class="enumerate" id="x26-327006x2">Expand <span 
 class="cmbx-12">Plug-in Development</span>
            </li>
            <li 
-  class="enumerate" id="x26-329008x3">Select <span 
+  class="enumerate" id="x26-327008x3">Select <span 
 class="cmbx-12">Feature Project</span></li></ol>
       </li>
       <li 
-  class="enumerate" id="x26-329010x2">Type a name, Click <span 
+  class="enumerate" id="x26-327010x2">Type a name, Click <span 
 class="cmbx-12">Finish</span>. A new project will be created and the feature.xml form editor
       will open.
       </li>
       <li 
-  class="enumerate" id="x26-329012x3">Click the <span 
+  class="enumerate" id="x26-327012x3">Click the <span 
 class="cmbx-12">Plug-ins </span>tab
       </li>
       <li 
-  class="enumerate" id="x26-329014x4">Click <span 
+  class="enumerate" id="x26-327014x4">Click <span 
 class="cmbx-12">Add</span>
       </li>
       <li 
-  class="enumerate" id="x26-329016x5">Type the name of the plug-in into the text field, select it, and then click <span 
+  class="enumerate" id="x26-327016x5">Type the name of the plug-in into the text field, select it, and then click <span 
 class="cmbx-12">OK</span>.
       </li>
       <li 
-  class="enumerate" id="x26-329018x6">Save the file</li></ol>
+  class="enumerate" id="x26-327018x6">Save the file</li></ol>
 <!--l. 337--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> The drop-in folder technique may also be used with features. </p></div></div>
 <!--l. 341--><p class="noindent" >To create an update site:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x26-329020x1">Go to the <span 
+  class="enumerate" id="x26-327020x1">Go to the <span 
 class="cmbx-12">Overview </span>tab of the feature.xml editor
       </li>
       <li 
-  class="enumerate" id="x26-329022x2">Within the <span 
+  class="enumerate" id="x26-327022x2">Within the <span 
 class="cmbx-12">Publishing </span>section, click <span 
 class="cmbx-12">Update site project</span>
       </li>
       <li 
-  class="enumerate" id="x26-329024x3">Follow the directions to create an update site. The update site project will be created
+  class="enumerate" id="x26-327024x3">Follow the directions to create an update site. The update site project will be created
       and the site.xml file will be opened.
       </li>
       <li 
-  class="enumerate" id="x26-329026x4">Add the feature to the site and click <span 
+  class="enumerate" id="x26-327026x4">Add the feature to the site and click <span 
 class="cmbx-12">Add Feature</span>
       </li>
       <li 
-  class="enumerate" id="x26-329028x5">Enter the name of the feature and click <span 
+  class="enumerate" id="x26-327028x5">Enter the name of the feature and click <span 
 class="cmbx-12">OK</span>
       </li>
       <li 
-  class="enumerate" id="x26-329030x6">Click <span 
+  class="enumerate" id="x26-327030x6">Click <span 
 class="cmbx-12">Build</span></li></ol>
                                                                                          
                                                                                          
@@ -665,31 +665,31 @@ installation.
 <!--l. 357--><p class="noindent" >To install a plug-in from a p2 archive:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x26-329032x1">Click <span 
+  class="enumerate" id="x26-327032x1">Click <span 
 class="cmbx-12">Help </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="cmbx-12">Install new software</span>
       </li>
       <li 
-  class="enumerate" id="x26-329034x2">Click <span 
+  class="enumerate" id="x26-327034x2">Click <span 
 class="cmbx-12">Add</span>
       </li>
       <li 
-  class="enumerate" id="x26-329036x3">Click <span 
+  class="enumerate" id="x26-327036x3">Click <span 
 class="cmbx-12">Archive</span>
       </li>
       <li 
-  class="enumerate" id="x26-329038x4">Locate the archive on disk and click <span 
+  class="enumerate" id="x26-327038x4">Locate the archive on disk and click <span 
 class="cmbx-12">OK</span>
       </li>
       <li 
-  class="enumerate" id="x26-329040x5">Select  the  feature  to  install.  If  no  features  show  up,  deselect  <span 
+  class="enumerate" id="x26-327040x5">Select  the  feature  to  install.  If  no  features  show  up,  deselect  <span 
 class="cmbx-12">Group  items  by</span>
       <span 
 class="cmbx-12">category</span>
       </li>
       <li 
-  class="enumerate" id="x26-329042x6">Click <span 
+  class="enumerate" id="x26-327042x6">Click <span 
 class="cmbx-12">Finish</span></li></ol>
                                                                                          
                                                                                          

@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-21 11:28:00"> 
+<meta name="date" content="2013-03-22 17:00:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,19 +53,19 @@ href="mainch15.html#tailmainch15.html" >prev-tail</a>] [<a
 href="#tailmainch16.html">tail</a>] [<a 
 href="main.html#mainch16.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;16</span><br /><a 
- id="x18-21400016"></a>Events</h2>
+ id="x18-21200016"></a>Events</h2>
 <h3 class="sectionHead"><span class="titlemark">16.1   </span> <a 
- id="x18-21500016.1"></a>Introduction</h3>
+ id="x18-21300016.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Events are heavily leveraged by REDHAWK to provide system awareness and exchange both
 synchronous and asynchronous data. This chapter describes the mechanics of creating and
 consuming Events as well as standard Event types defined in REDHAWK and how
 they are used. The methodology used to exchange synchronous and asynchronous data,
 although reliant on Events as the communications mechanism, is discussed in  <a 
-href="mainch17.html#x19-22800017">Chapter
+href="mainch17.html#x19-22600017">Chapter
 17</a>.
 <!--l. 11--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">16.2   </span> <a 
- id="x18-21600016.2"></a>Event Definition</h3>
+ id="x18-21400016.2"></a>Event Definition</h3>
 <!--l. 13--><p class="noindent" ><a 
 href="mainap6.html#corba">CORBA</a> defines an interface for the transport of Events as well as an interface for the creation of
 <a 
@@ -131,12 +131,12 @@ enables low-latency messaging between <a
 href="mainli2.html#glo:component">Components</a>. In REDHAWK 1.8, low-latency
 point-to-point Events are used only on <a 
 href="mainli2.html#glo:message">Messages</a>, which are described in  <a 
-href="mainch17.html#x19-22800017">Chapter 17</a>. In
+href="mainch17.html#x19-22600017">Chapter 17</a>. In
 REDHAWK 1.9, low-latency point-to-point Event consumers of other types will be
 supported.
 <!--l. 72--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">16.3   </span> <a 
- id="x18-21700016.3"></a>Standard REDHAWK Events</h3>
+ id="x18-21500016.3"></a>Standard REDHAWK Events</h3>
 <!--l. 74--><p class="noindent" >REDHAWK has defined several standard Event types that can be used to monitor the overall state
 of a <a 
 href="mainli2.html#glo:domain">Domain</a> or individual <a 
@@ -148,7 +148,7 @@ href="mainli2.html#glo:property">Property</a>
 changes.
 <!--l. 78--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">16.3.1   </span> <a 
- id="x18-21800016.3.1"></a>Domain Management</h4>
+ id="x18-21600016.3.1"></a>Domain Management</h4>
 <!--l. 80--><p class="noindent" >REDHAWK defines an Outgoing Domain Management (<a 
 href="mainap6.html#odm">ODM</a>) channel as well as an Incoming
 Domain Management (<a 
@@ -166,7 +166,7 @@ a <a
 href="mainli2.html#glo:device">Device</a>.
 <!--l. 84--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-21900016.3.1"></a>ODM Channel</h5>
+ id="x18-21700016.3.1"></a>ODM Channel</h5>
 <!--l. 86--><p class="noindent" >The <a 
 href="mainap6.html#odm">ODM</a> channel contains either one of the following Event types:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -208,7 +208,7 @@ as:
 ]]></script>
 <!--l. 122--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22000016.3.1"></a>IDM Channel</h5>
+ id="x18-21800016.3.1"></a>IDM Channel</h5>
 <!--l. 124--><p class="noindent" >The <a 
 href="mainap6.html#idm">IDM</a> channel can only contain a <span 
 class="cmtt-12">StateChangeEventType </span>Event, which is defined
@@ -274,7 +274,7 @@ class="cmtt-12">ACTIVE</span>, or <span
 class="cmtt-12">BUSY</span>.
 <!--l. 159--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">16.3.2   </span> <a 
- id="x18-22100016.3.2"></a>Component Events</h4>
+ id="x18-21900016.3.2"></a>Component Events</h4>
 <!--l. 161--><p class="noindent" >The only Event type that is defined for <a 
 href="mainli2.html#glo:component">Components</a> as a fixed type is the Event that can be issued
 when a <a 
@@ -310,7 +310,7 @@ href="mainli2.html#glo:port">Port</a> is
 deployed.
 <!--l. 177--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22200016.3.2"></a>Setting up a monitored property</h5>
+ id="x18-22000016.3.2"></a>Setting up a monitored property</h5>
 <!--l. 179--><p class="noindent" >When adding a <a 
 href="mainli2.html#glo:property">Property</a> to your <a 
 href="mainli2.html#glo:component">Component</a>, simply check the <span 
@@ -336,7 +336,7 @@ different syntax in C++, Java, or Python. The syntax for each language is descri
 below.
 <!--l. 187--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22300016.3.2"></a>C++</h5>
+ id="x18-22100016.3.2"></a>C++</h5>
 <!--l. 189--><p class="noindent" >Below is an example of how to generate a <a 
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 191--><p class="noindent" >This method call is added to the <span 
@@ -347,7 +347,7 @@ href="mainli2.html#glo:component">Component</a>:
 ]]></script>
 <!--l. 197--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22400016.3.2"></a>Java</h5>
+ id="x18-22200016.3.2"></a>Java</h5>
 <!--l. 199--><p class="noindent" >Below is an example of how to generate a <a 
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 201--><p class="noindent" >This method call is added to the <span 
@@ -360,7 +360,7 @@ href="mainli2.html#glo:component">Component</a>:
 ]]></script>
 <!--l. 207--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22500016.3.2"></a>Python</h5>
+ id="x18-22300016.3.2"></a>Python</h5>
 <!--l. 209--><p class="noindent" >Python provides the ability to send a single Event containing multiple <a 
 href="mainli2.html#glo:property">Properties</a> whenever an
 Event needs to be generated,
@@ -384,7 +384,7 @@ href="mainli2.html#glo:component">Component</a>:
 ]]></script>
 <!--l. 229--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">16.4   </span> <a 
- id="x18-22600016.4"></a>Consuming Events</h3>
+ id="x18-22400016.4"></a>Consuming Events</h3>
 <!--l. 231--><p class="noindent" >Event consumption is meant as a system-level monitoring process. Therefore, version 1.8 of
 REDHAWK does not include <a 
 href="mainli2.html#glo:component">Component</a> <a 
@@ -413,13 +413,13 @@ class="cmtt-12">eventviewer </span>is described below:
 <!--l. 240--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x18-226002x1">Start  a  <a 
+  class="enumerate" id="x18-224002x1">Start  a  <a 
 href="mainli2.html#glo:domainmanager">Domain  Manager</a>:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ nodeBooter -D
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-226004x2">In a new terminal, attach the eventviewer to the <a 
+  class="enumerate" id="x18-224004x2">In a new terminal, attach the eventviewer to the <a 
 href="mainli2.html#glo:domain">Domain</a>&#8217;s <a 
 href="mainap6.html#odm">ODM</a> channel: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ eventviewer REDHAWK_DEV ODM_Channel
@@ -427,14 +427,14 @@ href="mainap6.html#odm">ODM</a> channel: <script type="syntaxhighlighter" class=
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-226006x3">In a new terminal, start a <a 
+  class="enumerate" id="x18-224006x3">In a new terminal, start a <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ nodeBooter -d $SDRROOT/dev/nodes/DevMgr_localhost-loca
       ldomain/DeviceManager.dcd.xml
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-226008x4">On the Eventviewer terminal, the DeviceManager and <a 
+  class="enumerate" id="x18-224008x4">On the Eventviewer terminal, the DeviceManager and <a 
 href="mainli2.html#glo:device">Device</a> registration should be shown: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ eventviewer REDHAWK_DEV ODM_Channel
       Receiving events. Press 'enter' key to exit
@@ -453,12 +453,12 @@ href="mainli2.html#glo:device">Device</a> registration should be shown: <script 
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-226010x5">Shutdown the <a 
+  class="enumerate" id="x18-224010x5">Shutdown the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> (ctrl-c on the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> terminal)
       </li>
       <li 
-  class="enumerate" id="x18-226012x6">On the eventviewer terminal, the <a 
+  class="enumerate" id="x18-224012x6">On the eventviewer terminal, the <a 
 href="mainli2.html#glo:device">Device</a> and DeviceManager unregistration should be shown: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ eventviewer REDHAWK_DEV ODM_Channel
       Receiving events. Press 'enter' key to exit
@@ -486,7 +486,7 @@ href="mainli2.html#glo:device">Device</a> and DeviceManager unregistration shoul
                                                                                          
 <!--l. 296--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">16.4.1   </span> <a 
- id="x18-22700016.4.1"></a>Writing Your Own Event Consumer</h4>
+ id="x18-22500016.4.1"></a>Writing Your Own Event Consumer</h4>
 <!--l. 298--><p class="noindent" >In <a 
 href="mainap6.html#corba">CORBA</a>&#8217;s Event <a 
 href="mainap6.html#api">API</a>, <a 
@@ -523,7 +523,7 @@ href="mainli2.html#glo:domainmanager">Domain Manager</a>. In Python,
 the easiest way to access a running <a 
 href="mainli2.html#glo:domain">Domain</a> is to use the REDHAWK runtime package (a thorough
 description of the REDHAWK runtime package is available in  <a 
-href="mainch13.html#x15-19200013">Chapter 13</a>); in the case of a <a 
+href="mainch13.html#x15-19000013">Chapter 13</a>); in the case of a <a 
 href="mainli2.html#glo:domain">Domain</a>
 called <span 
 class="cmtt-12">REDHAWK</span><span 

@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-21 11:28:00"> 
+<meta name="date" content="2013-03-22 17:00:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -90,204 +90,90 @@ directory).
 href="mainap6.html#rpm">RPM</a>s), but advanced users
 who desire custom functionality may also install from source. If installing from source, consult
 <a 
-href="mainap4.html#x30-349000D.2">Section D.2</a>.
+href="mainap4.html#x30-347000D.2">Section D.2</a>.
 <!--l. 25--><p class="noindent" >REDHAWK installation is supported for Red Hat Enterprise Linux or Community Enterprise
 Operating System (<a 
-href="mainap6.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions. A developer
-install of Red Hat Enterprise Linux or <a 
-href="mainap6.html#centos">CentOS</a> is recommended.
-<!--l. 28--><p class="noindent" >Note, that due to a bug in <span 
-class="cmtt-12">boost-1.41</span>, REDHAWK, and REDHAWK C++ projects, will not
-compile when using <span 
-class="cmtt-12">gcc </span>version 4.4.7 (standard in Red Hat and <a 
-href="mainap6.html#centos">CentOS</a> 6.4). In order
+href="mainap6.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions.
                                                                                          
                                                                                          
-to fix this, the <span 
-class="cmtt-12">boost </span>file <span 
-class="cmtt-12">exception</span><span 
-class="cmtt-12">_ptr.hpp </span>must be patched. For standard <span 
-class="cmtt-12">boost</span>
-installations, this file is located in <span 
-class="cmtt-12">/usr/include/boost/ </span>and requires root permissions to
-change.
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo vi /usr/include/boost/exception_ptr.hpp
-]]></script>
-<!--l. 36--><p class="noindent" >Add the following destructor code starting at line 93:
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  ~exception_ptr() throw()
-       {
-       }
-]]></script>
-<!--l. 44--><p class="noindent" >
+<!--l. 27--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
- id="x4-80002.2"></a>Linux Commands</h3>
-<!--l. 46--><p class="noindent" >To extract a compressed tarball file named <span 
-class="cmtt-12">filename.tar.gz </span>or <span 
-class="cmtt-12">filename.tgz</span>, use the following
-command:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ tar -xzvf filename.tar.gz
-]]></script>
-<!--l. 52--><p class="noindent" >To do a basic yum installation of an installation file named <span 
-class="cmtt-12">program.rpm</span>, use the following
-command:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo yum localinstall --nogpgcheck program.rpm
-]]></script>
-<!--l. 58--><p class="noindent" >
-                                                                                         
-                                                                                         
-<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
- id="x4-90002.3"></a>Installing Dependencies</h3>
-<!--l. 59--><p class="noindent" >REDHAWK has several third-party dependencies; installation can be accomplished via a few <span 
+ id="x4-80002.2"></a>Installing Dependencies</h3>
+<!--l. 28--><p class="noindent" >REDHAWK has several third-party dependencies; installation can be accomplished via a few <span 
 class="cmtt-12">yum</span>
-commands. Note that multiple dependencies may be passed to <span 
-class="cmtt-12">yum </span>in a single command for
-convenience.
-<!--l. 62--><p class="noindent" >REDHAWK requires dependencies that are included in the base distribution of Red Hat/<a 
-href="mainap6.html#centos">CentOS</a>
-or are packaged in a dependencies tarball along with the REDHAWK distribution. The
-<a 
-href="mainap6.html#epel">EPEL</a> repository should be added to the list of <span 
-class="cmtt-12">yum </span>repositories that are searched. For
-instructions on how to add <a 
+commands. The list of dependencies that are either required or recommended is included
+in the REDHAWK distribution dependencies tarball is presented in Section <a 
+href="mainap3.html#x29-344000C.2">Section
+C.2</a>.
+<!--l. 30--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In Red Hat/<a 
+href="mainap6.html#centos">CentOS</a> 5, the <a 
+href="mainap6.html#epel">EPEL</a> repository must be added to the list of <span 
+class="cmtt-12">yum </span>repositories that are
+searched. For instructions on how to add <a 
 href="mainap6.html#epel">EPEL</a> to the <span 
 class="cmtt-12">yum </span>search, see <a 
-href="mainap3.html#x29-345000C.1">Section C.1</a>. The following list
-contains the dependencies that must be installed. The lists of dependencies have been
-formatted so that they can be easily copied into a terminal as arguments to a <span 
-class="cmtt-12">yum install</span>
-command.
-<!--l. 67--><p class="noindent" >The following dependencies must be installed:
-      <ul class="itemize1">
-      <li class="itemize">gcc-c++ <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">apr <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">apr-devel <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">apr-util <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">apr-util-devel <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">expat-devel <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">autoconf <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">automake <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">libtool <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">python-devel <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">numpy</li></ul>
-<!--l. 82--><p class="noindent" >The following dependency is required for Red Hat/<a 
-href="mainap6.html#centos">CentOS</a> 5:
-      <ul class="itemize1">
-      <li class="itemize">e2fsprogs-devel</li></ul>
-<!--l. 87--><p class="noindent" >The following dependencies are required for Red Hat/<a 
-href="mainap6.html#centos">CentOS</a> 6:
-                                                                                         
-                                                                                         
-      <ul class="itemize1">
-      <li class="itemize">libuuid-devel <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">boost-1.41.0-1 <span 
-class="cmsy-10x-x-120">\</span>
-      </li>
-      <li class="itemize">boost-devel-1.41.0-1</li></ul>
-<!--l. 94--><p class="noindent" >The following dependency is not required, but is recommended:
-      <ul class="itemize1">
-      <li class="itemize">valgrind</li></ul>
-<!--l. 99--><p class="noindent" >REDHAWK requires Python 2.4 (default on Red Hat/<a 
-href="mainap6.html#centos">CentOS</a> 5) or Python 2.6 (default on Red
-Hat/<a 
-href="mainap6.html#centos">CentOS</a> 6). These should already be installed with the base Linux installation, but it is worth
-noting that REDHAWK is not compatible with Python 3.
-<!--l. 102--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">2.3.1   </span> <a 
- id="x4-100002.3.1"></a>Dependencies Packaged with REDHAWK</h4>
-<!--l. 104--><p class="noindent" >The list of dependencies that are either required or recommended is included in the REDHAWK
-distribution dependencies tarball is presented in Section <a 
-href="mainap3.html#x29-346000C.2">Section C.2</a>.
-<!--l. 106--><p class="noindent" >To install all of the required and recommended packages, use the following commands:
+href="mainap3.html#x29-343000C.1">Section C.1</a>. </p></div></div>
+<!--l. 35--><p class="noindent" >To install all of the required and recommended packages, use the following commands:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ tar -xzvf redhawk-deps-yum-centos-<version>.tar.gz
+$ tar xzvf redhawk-deps-yum-centos-<version>.tar.gz
 $ cd redhawk-deps-yum-centos-<version>
 $ sudo yum localinstall --nogpgcheck *.rpm
 ]]></script>
-<!--l. 114--><p class="noindent" >Where <span 
+<!--l. 43--><p class="noindent" >Where <span 
 class="cmtt-12">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
 architecture. To install a subset of the dependencies, simply list out the desired <span 
 class="cmtt-12">rpm </span>files in place of
 <span 
 class="cmtt-12">*.rpm</span>.
-<!--l. 117--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
- id="x4-110002.4"></a>Installing the Framework from RPMs</h3>
+<!--l. 45--><p class="noindent" >Note, <span 
+class="cmtt-12">boost-1.41 </span>contains a known bug. Due to this bug, REDHAWK and REDHAWK C++
+projects will not compile when using <span 
+class="cmtt-12">gcc </span>version 4.4.7 (standard in Red Hat and <a 
+href="mainap6.html#centos">CentOS</a> 6.4). In
+order to fix this, the <span 
+class="cmtt-12">boost </span>file <span 
+class="cmtt-12">exception</span><span 
+class="cmtt-12">_ptr.hpp </span>must be patched. For standard <span 
+class="cmtt-12">boost</span>
+installations, this file is located at <span 
+class="cmtt-12">/usr/include/boost/exception</span><span 
+class="cmtt-12">_ptr.hpp</span>. Open the file in a
+text editor (this may require root permissions) and add the following destructor code starting at
+line 93:
+<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  ~exception_ptr() throw()
+       {
+       }
+]]></script>
+<!--l. 56--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> On Red Hat Enterprise Linux 6 and CentOS 6, once these packages have been installed, do not
+update Boost, as doing so will update Boost to a version that is incompatible with REDHAWK. </p></div></div>
                                                                                          
                                                                                          
-<!--l. 119--><p class="noindent" >The REDHAWK Core Framework can be installed via either the <span 
-class="cmtt-12">rpm </span>or <span 
-class="cmtt-12">yum </span>commands. The
-specific options provided to these commands will vary depending on the configuration of the
-system hosting the installation. As with the included third-party dependencies, these packages may
-be installed conveniently by passing <span 
-class="cmtt-12">*.rpm </span>to either <span 
-class="cmtt-12">yum </span>or <span 
-class="cmtt-12">rpm </span>when in the directory containing
-the packages.
-<!--l. 123--><p class="noindent" >To install the Core Framework, use the following commands:
+<!--l. 62--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x4-90002.3"></a>Installing the Framework from RPMs</h3>
+<!--l. 64--><p class="noindent" >To install the Core Framework, use the following commands:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ tar -xzvf redhawk-yum-<version>.tar.gz
+$ tar xzvf redhawk-yum-<version>.tar.gz
 $ cd redhawk-<version>
 $ sudo yum localinstall --nogpgcheck *.rpm
+$ source ./bashrc
+$ sudo chown -R <user name>.<user name> $SDRROOT
 ]]></script>
-<!--l. 131--><p class="noindent" >Where <span 
+<!--l. 74--><p class="noindent" >Where <span 
 class="cmtt-12">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
-architecture. For a list of the packages making up the REDHAWK installation, see <a 
-href="mainap5.html#x31-351000E">Appendix
-E</a>.
-<!--l. 135--><p class="noindent" >The <a 
-href="mainap6.html#rpm">RPM</a> install creates environment setup scripts and places them within <span 
-class="cmtt-12">/etc/profile.d </span>so
-that they are run when a new shell is opened. Before using REDHAWK, close and reopen the
-terminal so that the proper environment variables are set.
-<!--l. 140--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
- id="x4-120002.5"></a>Installing the IDE</h3>
-<!--l. 142--><p class="noindent" >The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> requires that the Oracle JDK 1.6 or newer be installed. For
-JDK installation instructions and download links refer to the Oracle website.
-<a 
-href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" class="url" ><span 
-class="cmtt-12">http://www.oracle.com/technetwork/java/javase/downloads/index.html</span></a>
-<!--l. 146--><p class="noindent" >Note that after installing Oracle JDK, the system will need to be configured to use the new version
-instead of OpenJDK:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo alternatives --install /usr/bin/java java /usr/java/jdk<ver>/bin/java 2
-$ sudo alternatives --config java
-]]></script>
-<!--l. 153--><p class="noindent" >Where <span 
-class="cmtt-12">&#x003C;ver&#x003E; </span>corresponds to the newly-installed Oracle JDK version. When prompted to select a
-Java version, select the version of the newly-installed Oracle JDK.
-<!--l. 155--><p class="noindent" >Installing the REDHAWK <a 
+architecture, and <span 
+class="cmtt-12">&#x003C;user name&#x003E; </span>must be replaced with the desired Linux user account name. In
+alternative to using the <span 
+class="cmtt-12">chown </span>command, at the discretion of the system administrator, Linux user
+groups may be used for controlling file ownership. For a list of the packages making up the
+REDHAWK installation, see <a 
+href="mainap5.html#x31-349000E">Appendix E</a>.
+<!--l. 79--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
+ id="x4-100002.4"></a>Installing the IDE</h3>
+<!--l. 81--><p class="noindent" >Installing the REDHAWK <a 
 href="mainap6.html#ide">IDE</a> is a simple matter of unzipping the appropriate installation file.
-                                                                                         
-                                                                                         
 Locate the appropriate zip file, and run the following command (where <span 
 class="cmmi-12">&#x003C;</span>version<span 
 class="cmmi-12">&#x003E; </span>is the version of
@@ -299,26 +185,22 @@ systems)):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ unzip redhawk-R<version>-linux.gtk.<architecture>.zip
 ]]></script>
-<!--l. 165--><p class="noindent" >To run the <a 
-href="mainap6.html#ide">IDE</a>, locate the executable <span 
-class="cmtt-12">eclipse </span>file and execute it:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ ./eclipse
-]]></script>
-<!--l. 171--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
- id="x4-130002.6"></a>Installing the Basic Components</h3>
-<!--l. 173--><p class="noindent" >To install the Basic Components, use the following command:
+<!--l. 91--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
+ id="x4-110002.5"></a>Installing the Basic Components</h3>
+<!--l. 93--><p class="noindent" >To install the Basic Components, use the following command:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ sudo yum localinstall --nogpgcheck redhawk-basic-components-<version>.rpm
 ]]></script>
-<!--l. 179--><p class="noindent" >Where <span 
+<!--l. 99--><p class="noindent" >Where <span 
 class="cmtt-12">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
 architecture.
-<!--l. 182--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.7   </span> <a 
- id="x4-140002.7"></a>Configuring omniORB</h3>
-<!--l. 183--><p class="noindent" >The omniORB configuration file, <span 
+<!--l. 102--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
+ id="x4-120002.6"></a>Configuring omniORB</h3>
+<!--l. 103--><p class="noindent" >The omniORB configuration file, <span 
 class="cmtt-12">/etc/omniORB.cfg </span>needs to be edited to provide information
 about how to reach the Common Object Request Broker Architecture (<a 
 href="mainap6.html#corba">CORBA</a>) Naming Service
@@ -328,10 +210,8 @@ require root permissions):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = NameService=corbaname::127.0.0.1
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
-                                                                                         
-                                                                                         
 ]]></script>
-<!--l. 191--><p class="noindent" >After the file has been edited, the <span 
+<!--l. 111--><p class="noindent" >After the file has been edited, the <span 
 class="cmtt-12">omniNames </span>and <span 
 class="cmtt-12">omniEvents </span>services need to be started (note
 that this requires root permissions):

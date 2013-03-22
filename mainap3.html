@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-21 11:28:00"> 
+<meta name="date" content="2013-03-22 17:00:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,56 +53,56 @@ href="mainap2.html#tailmainap2.html" >prev-tail</a>] [<a
 href="#tailmainap3.html">tail</a>] [<a 
 href="main.html#mainap3.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;C</span><br /><a 
- id="x29-344000C"></a>REDHAWK Dependencies</h2>
+ id="x29-342000C"></a>REDHAWK Dependencies</h2>
 <h3 class="sectionHead"><span class="titlemark">C.1   </span> <a 
- id="x29-345000C.1"></a>Adding the <a 
+ id="x29-343000C.1"></a>Adding the <a 
 href="mainap6.html#epel">EPEL</a> repository to <span 
 class="cmtt-12">yum</span></h3>
 <!--l. 6--><p class="noindent" >Some dependencies are available only through the <a 
-href="mainap6.html#epel">EPEL</a> repository. This repository is added to
-<span 
-class="cmtt-12">yum </span>through an <a 
-href="mainap6.html#rpm">RPM</a> that is distributed through the Fedora project. More information can be
-found at <a 
-href="http://fedoraproject.org/wiki/EPEL" class="url" ><span 
-class="cmtt-12">http://fedoraproject.org/wiki/EPEL</span></a>. The following <a 
-href="mainap6.html#url">URL</a>s provide links to the <a 
-href="mainap6.html#rpm">RPM</a>
-necessary to add <a 
+href="mainap6.html#epel">EPEL</a> repository. The following <a 
+href="mainap6.html#url">URL</a>s provide
+links to the <a 
+href="mainap6.html#rpm">RPM</a> necessary to add <a 
 href="mainap6.html#epel">EPEL</a> to the <span 
-class="cmtt-12">yum </span>search path to whichever version of the supported operating
-system is being used.
+class="cmtt-12">yum </span>search path. Once the package has been
+downloaded, it must be installed:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo yum install --nogpgcheck epel-release-<version>.noarch.rpm
+]]></script>
       <ul class="itemize1">
       <li class="itemize">Red Hat/<a 
 href="mainap6.html#centos">CentOS</a> 5, 32-bit
-      <!--l. 13--><p class="noindent" >&#x00A0;     <a 
+      <!--l. 16--><p class="noindent" >&#x00A0;     <a 
 href="http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm" class="url" ><span 
 class="cmtt-12">http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</span></a>
       </li>
       <li class="itemize">Red Hat/<a 
 href="mainap6.html#centos">CentOS</a> 5, 64-bit
-      <!--l. 15--><p class="noindent" >&#x00A0;     <a 
+      <!--l. 18--><p class="noindent" >&#x00A0;     <a 
 href="http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm" class="url" ><span 
 class="cmtt-12">http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm</span></a>
       </li>
       <li class="itemize">Red Hat/<a 
 href="mainap6.html#centos">CentOS</a> 6, 32-bit
-      <!--l. 17--><p class="noindent" >&#x00A0;     <a 
+      <!--l. 20--><p class="noindent" >&#x00A0;     <a 
 href="http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm" class="url" ><span 
 class="cmtt-12">http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</span></a>
       </li>
       <li class="itemize">Red Hat/<a 
 href="mainap6.html#centos">CentOS</a> 6, 64-bit
-      <!--l. 19--><p class="noindent" >&#x00A0;     <a 
+      <!--l. 22--><p class="noindent" >&#x00A0;     <a 
 href="http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" class="url" ><span 
 class="cmtt-12">http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span></a></li></ul>
-<!--l. 22--><p class="noindent" >
+<!--l. 25--><p class="noindent" >More information on the Fedora project can be found at <a 
+href="http://fedoraproject.org/wiki/EPEL" class="url" ><span 
+class="cmtt-12">http://fedoraproject.org/wiki/EPEL</span></a>.
+<!--l. 28--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">C.2   </span> <a 
- id="x29-346000C.2"></a>Dependencies Packaged with REDHAWK</h3>
-<!--l. 25--><p class="noindent" >The following packages are included in the REDHAWK dependencies tarball and are required for
+ id="x29-344000C.2"></a>Dependencies Packaged with REDHAWK</h3>
+                                                                                         
+                                                                                         
+<!--l. 31--><p class="noindent" >The following packages are included in the REDHAWK dependencies tarball and are required for
 REDHAWK:
-                                                                                         
-                                                                                         
       <ul class="itemize1">
       <li class="itemize">libomniEvents2-2.6.2-4
       </li>
@@ -131,17 +131,17 @@ REDHAWK:
       <li class="itemize">omniORB-debuginfo-4.1.0-0.3
       </li>
       <li class="itemize">omniORB-doc-4.1.0-0.3
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">omniORB-servers-4.1.0-0.3
       </li>
       <li class="itemize">omniORB-utils-4.1.0-0.3
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">omniORBpy-debuginfo-3.0-0.2
       </li>
       <li class="itemize">omniORBpy-doc-3.0-0.2</li></ul>
-<!--l. 48--><p class="noindent" >The following packages are included in the REDHAWK dependencies tarball for Red
+<!--l. 54--><p class="noindent" >The following packages are included in the REDHAWK dependencies tarball for Red
 Hat/<a 
 href="mainap6.html#centos">CentOS</a> 5 and are required for REDHAWK when installing on Red Hat/<a 
 href="mainap6.html#centos">CentOS</a>
@@ -152,7 +152,7 @@ href="mainap6.html#centos">CentOS</a>
       <li class="itemize">boost-devel-1.41.0-1
       </li>
       <li class="itemize">boost-debuginfo-1.41.0-1</li></ul>
-<!--l. 56--><p class="noindent" >The following packages are included in the REDHAWK dependencies tarball but are recommended
+<!--l. 62--><p class="noindent" >The following packages are included in the REDHAWK dependencies tarball but are recommended
 rather than required for REDHAWK:
       <ul class="itemize1">
       <li class="itemize">apache-log4cxx-0.10.0-2
