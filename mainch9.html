@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch8.html#tailmainch8.html" >prev-tail</a>] [<a
 href="#tailmainch9.html">tail</a>] [<a 
 href="main.html#mainch9.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;9</span><br /><a 
- id="x11-1240009"></a>Sandbox</h2>
+ id="x11-1250009"></a>Sandbox</h2>
 <h3 class="sectionHead"><span class="titlemark">9.1   </span> <a 
- id="x11-1250009.1"></a>Introduction</h3>
+ id="x11-1260009.1"></a>Introduction</h3>
 <!--l. 7--><p class="noindent" >The REDHAWK Sandbox is a Python package that can be used for testing <a 
 href="mainli2.html#glo:component">Components</a> and for
 inspecting running <a 
@@ -74,92 +74,91 @@ href="mainap6.html#sca">SCA</a> <a
 href="mainli2.html#glo:component">Components</a>.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.2   </span> <a 
- id="x11-1260009.2"></a>Setup</h3>
+ id="x11-1270009.2"></a>Setup</h3>
 <!--l. 2--><p class="noindent" >In order to run the Sandbox, REDHAWK must be installed and the <span 
-class="cmtt-12">OSSIEHOME </span>and <span 
-class="cmtt-12">SDRROOT</span>
+class="ectt-1200">OSSIEHOME </span>and <span 
+class="ectt-1200">SDRROOT</span>
 environment variables must be set correctly (see  <a 
 href="mainap4.html#x30-349000D.3">Section D.3</a>).
 <!--l. 5--><p class="noindent" >In order to graphically plot data within the Sandbox, the path to the <span 
-class="cmtt-12">eclipse </span>directory of the
+class="ectt-1200">eclipse </span>directory of the
 installed REDHAWK <a 
 href="mainap6.html#ide">IDE</a> must be specified. This can be done with the <span 
-class="cmtt-12">IDELocation() </span>function
+class="ectt-1200">IDELocation() </span>function
 within the Sandbox or by setting the environment variable <span 
-class="cmtt-12">RH</span><span 
-class="cmtt-12">_IDE </span>prior to use (see  <a 
-href="mainch2.html#x4-100002.4">Section
+class="ectt-1200">RH_IDE </span>prior to use (see  <a 
+href="mainch2.html#x4-110002.4">Section
 2.4</a>).
 <!--l. 8--><p class="noindent" >To use the Sandbox the following programs do <span class="uline">not</span> need to be running:
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmtt-12">omniNames</span>
+class="ectt-1200">omniNames</span>
       </li>
       <li class="itemize"><span 
-class="cmtt-12">omniEvents</span>
+class="ectt-1200">omniEvents</span>
       </li>
       <li class="itemize"><span 
-class="cmtt-12">DomainManager</span>
+class="ectt-1200">DomainManager</span>
       </li>
       <li class="itemize"><span 
-class="cmtt-12">DeviceManager</span></li></ul>
+class="ectt-1200">DeviceManager</span></li></ul>
                                                                                          
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.3   </span> <a 
- id="x11-1270009.3"></a>Starting the Sandbox</h3>
+ id="x11-1280009.3"></a>Starting the Sandbox</h3>
 <!--l. 2--><p class="noindent" >The REDHAWK Sandbox, like any other Python module, may be used in another Python program
 or run directly within the Python interpreter. The following examples assume that the Sandbox is
 being used within the Python interpreter.
 <!--l. 5--><p class="noindent" >To begin, start a Python interpreter session and import the Sandbox:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 $ python
->>> from ossie.utils import sb
+> from ossie.utils import sb
 ]]></script>
 <!--l. 12--><p class="noindent" >As with any other Python module, the built-in functions <span 
-class="cmtt-12">dir() </span>and <span 
-class="cmtt-12">help() </span>are useful when
+class="ectt-1200">dir() </span>and <span 
+class="ectt-1200">help() </span>are useful when
 searching for available commands.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> dir(sb)
->>> help(sb)
+> dir(sb)
+> help(sb)
 ]]></script>
 <!--l. 19--><p class="noindent" >Though arguably not part of the startup process, it is worth noting that the <span 
-class="cmtt-12">start() </span>method must
+class="ectt-1200">start() </span>method must
 be called on the Sandbox for processing to begin.
 <!--l. 21--><p class="noindent" >After instatiating the desired <a 
 href="mainli2.html#glo:component">Components</a> and Data Sources/Sinks, the start method should be
 called:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sb.start()
+> sb.start()
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.4   </span> <a 
- id="x11-1280009.4"></a>Working with Components</h3>
+ id="x11-1290009.4"></a>Working with Components</h3>
 <!--l. 3--><p class="noindent" >The <span 
-class="cmtt-12">show() </span>command is used in order to display running <a 
+class="ectt-1200">show() </span>command is used in order to display running <a 
 href="mainli2.html#glo:component">Components</a>, connections between
 <a 
 href="mainli2.html#glo:component">Components</a>, and the <span 
-class="cmtt-12">SDRROOT</span>:
+class="ectt-1200">SDRROOT</span>:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sb.show()
+> sb.show()
                                                                                          
                                                                                          
 ]]></script>
 <!--l. 9--><p class="noindent" >To view which <a 
 href="mainli2.html#glo:component">Components</a> are available in <span 
-class="cmtt-12">SDRROOT</span>:
+class="ectt-1200">SDRROOT</span>:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sb.catalog()
+> sb.catalog()
 ]]></script>
 <!--l. 15--><p class="noindent" >The code below provides an example of <a 
 href="mainli2.html#glo:component">Component</a> interaction in the Sandbox:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> my_comp = sb.Component('<component name>')
->>> my_comp
+> my_comp = sb.Component('<component name>')
+> my_comp
 <ossie.utils.sb.domainless.Component object at 0xb4f898cc>
->>> my_comp.api()
+> my_comp.api()
 Component [example]:
 Provides (Input) Ports ==============
 Port Name       Port Interface
@@ -181,11 +180,11 @@ my_string       (string)        [None]                  None
                                                                                          
                                                                                          
 some_shorts     (ShortSeq)      [None]                  None
->>> my_comp.my_float
->>> my_comp.my_float = 5.0
->>> my_comp.my_float
+> my_comp.my_float
+> my_comp.my_float = 5.0
+> my_comp.my_float
 5.0
->>> my_comp.api()
+> my_comp.api()
 Component [example]:
 Provides (Input) Ports ==============
 Port Name       Port Interface
@@ -208,12 +207,12 @@ some_shorts     (ShortSeq)      [None]                  None
 ]]></script>
 <!--l. 67--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1290009.4"></a>Connecting Components</h5>
+ id="x11-1300009.4"></a>Connecting Components</h5>
                                                                                          
                                                                                          
 <!--l. 69--><p class="noindent" >Connecting <a 
 href="mainli2.html#glo:component">Components</a> is done by invoking a <span 
-class="cmtt-12">connect() </span>function on the uses-side (output-side)
+class="ectt-1200">connect() </span>function on the uses-side (output-side)
 <a 
 href="mainli2.html#glo:component">Component</a> with the provides-side (input-side) <a 
 href="mainli2.html#glo:component">Component</a> as the argument of the call.
@@ -221,99 +220,99 @@ Note that if the connections are ambiguous (more than one <a
 href="mainli2.html#glo:port">Port</a> on either the uses
 or provides side have matching types), an error will occur. To resolve the ambiguity,
 <span 
-class="cmtt-12">usesPortName </span>and/or <span 
-class="cmtt-12">providesPortName </span>needs to be specified as arguments to the
+class="ectt-1200">usesPortName </span>and/or <span 
+class="ectt-1200">providesPortName </span>needs to be specified as arguments to the
 function.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> another_comp = sb.Component('repeater')
->>> my_comp.connect(another_comp)
+> another_comp = sb.Component('repeater')
+> my_comp.connect(another_comp)
 True
 ]]></script>
 <!--l. 79--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1300009.4"></a>Setting Component Log Levels</h5>
+ id="x11-1310009.4"></a>Setting Component Log Levels</h5>
 <!--l. 81--><p class="noindent" >The log level of the <a 
 href="mainli2.html#glo:component">Component</a> may be set using the <span 
-class="cmtt-12">execparams </span>argument in the <a 
+class="ectt-1200">execparams </span>argument in the <a 
 href="mainli2.html#glo:component">Component</a>
 constructor.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->> myComponent = sb.Component("component name",
+ myComponent = sb.Component("component name",
                                    execparams={"DEBUG_LEVEL":1})
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.5   </span> <a 
- id="x11-1310009.5"></a>Built-in Sources and Sinks</h3>
+ id="x11-1320009.5"></a>Built-in Sources and Sinks</h3>
 <!--l. 3--><p class="noindent" >REDHAWK includes a variety of helpers that allow a developer to inject data into or extract data
 from <a 
 href="mainli2.html#glo:component">Components</a> deployed through the Sandbox. The following section describes each of these
 helpers and how they are used.
 <!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.5.1   </span> <a 
- id="x11-1320009.5.1"></a>Data Sources</h4>
+ id="x11-1330009.5.1"></a>Data Sources</h4>
                                                                                          
                                                                                          
 <!--l. 8--><p class="noindent" >The <span 
-class="cmtt-12">DataSource </span>module provides a mechanism for producing <a 
+class="ectt-1200">DataSource </span>module provides a mechanism for producing <a 
 href="mainap6.html#bulkio">BulkIO</a> data to be sent to a
 provides (input) <a 
 href="mainli2.html#glo:port">Port</a>. Once instantiated, a Python vector of data can be pushed to the
 <span 
-class="cmtt-12">DataSource</span>.
+class="ectt-1200">DataSource</span>.
 <!--l. 11--><p class="noindent" >An example instantiation and use of the Data Source module can be seen below:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> input_source = sb.DataSource()
->>> input_source.connect(my_comp)
->>> my_data = range(10000)
->>> input_source.push(my_data)
+> input_source = sb.DataSource()
+> input_source.connect(my_comp)
+> my_data = range(10000)
+> input_source.push(my_data)
 ]]></script>
 <!--l. 20--><p class="noindent" >When the <span 
-class="cmtt-12">DataSource </span>sends data, it will attempt to match the data type to the type of the
+class="ectt-1200">DataSource </span>sends data, it will attempt to match the data type to the type of the
 associated provides (input) <a 
 href="mainli2.html#glo:port">Port</a>. Alternatively, the data type may be set explicitly in the
 <span 
-class="cmtt-12">DataSource </span>constructor. Note that the default type for the <span 
-class="cmtt-12">DataSource </span>is <span 
-class="cmtt-12">short</span>, which implies
+class="ectt-1200">DataSource </span>constructor. Note that the default type for the <span 
+class="ectt-1200">DataSource </span>is <span 
+class="ectt-1200">short</span>, which implies
 that values over 32768 may induce an exception.
 <!--l. 24--><p class="noindent" >The default setting for number of bytes per <span 
-class="cmtt-12">pushPacket() </span>is 512000 bytes. Data is broken up into
+class="ectt-1200">pushPacket() </span>is 512000 bytes. Data is broken up into
 chunks of this size before being sent via the <a 
 href="mainli2.html#glo:port">Port</a>&#8217;s <span 
-class="cmtt-12">pushPacket() </span>method. To change this default
+class="ectt-1200">pushPacket() </span>method. To change this default
 size, set the <span 
-class="cmtt-12">bytesPerPush </span>argument in the <span 
-class="cmtt-12">DataSource </span>constructor.
+class="ectt-1200">bytesPerPush </span>argument in the <span 
+class="ectt-1200">DataSource </span>constructor.
 <!--l. 28--><p class="noindent" >A specific module is provided for reading data from a file. This module, <span 
-class="cmtt-12">FileSource</span>, is used and
+class="ectt-1200">FileSource</span>, is used and
 instantiated much like the <span 
-class="cmtt-12">DataSource </span>module. The most significant difference between the two
+class="ectt-1200">DataSource </span>module. The most significant difference between the two
 modules is the presence of a file name in the <span 
-class="cmtt-12">FileSource </span>constructor.
+class="ectt-1200">FileSource </span>constructor.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> input_file = sb.FileSource('~/short_file.tmp')
+> input_file = sb.FileSource('~/short_file.tmp')
 ]]></script>
 <!--l. 36--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1330009.5.1"></a>Adding Keywords in Data Sources</h5>
+ id="x11-1340009.5.1"></a>Adding Keywords in Data Sources</h5>
 <!--l. 38--><p class="noindent" ><a 
 href="mainap6.html#sri">SRI</a> keywords may be generated and sent with data from the <span 
-class="cmtt-12">DataSource </span>module.
+class="ectt-1200">DataSource </span>module.
 <!--l. 40--><p class="noindent" >An example generate/send can be seen below:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> kw = sb.SRIKeyword("SOME_RF",155000000.0,'double')
->>> kw2 = sb.SRIKeyword("EFFECTIVE_BITS_PER_SAMPLE",16,'long')
->>> keywords = [kw, kw2]
+> kw = sb.SRIKeyword("SOME_RF",155000000.0,'double')
+> kw2 = sb.SRIKeyword("EFFECTIVE_BITS_PER_SAMPLE",16,'long')
+> keywords = [kw, kw2]
                                                                                          
                                                                                          
->>> input_data = sb.DataSource()
->>> data = range(1000)
->>> input_data.connect(my_comp)
->>> sb.start()
->>> input_data.push(data,SRIKeywords=keywords)
+> input_data = sb.DataSource()
+> data = range(1000)
+> input_data.connect(my_comp)
+> sb.start()
+> input_data.push(data,SRIKeywords=keywords)
 ]]></script>
 <!--l. 53--><p class="noindent" >The <span 
-class="cmtt-12">SRIKeyword() </span>constructor takes in the following arguments:
+class="ectt-1200">SRIKeyword() </span>constructor takes in the following arguments:
       <ul class="itemize1">
       <li class="itemize">name - A string representing the name of the keyword being set.
       </li>
@@ -323,142 +322,138 @@ class="cmtt-12">SRIKeyword() </span>constructor takes in the following arguments
       ushort, float, double, long, ulong, longlong, ulonglong, char, octet, string, boolean.</li></ul>
 <!--l. 61--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1340009.5.1"></a>Sending Messages to a Component</h5>
+ id="x11-1350009.5.1"></a>Sending Messages to a Component</h5>
 <!--l. 63--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> can be sent to <a 
 href="mainli2.html#glo:component">Components</a> using the <span 
-class="cmtt-12">MessageSource </span>module. <a 
+class="ectt-1200">MessageSource </span>module. <a 
 href="mainli2.html#glo:message">Messages</a> sent to the
 <span 
-class="cmtt-12">sendMessage() </span>method can be one of four types: struct, dictionary, <a 
+class="ectt-1200">sendMessage() </span>method can be one of four types: struct, dictionary, <a 
 href="mainap6.html#corba">CORBA</a> Any, and data types
 that can be mapped to a <a 
 href="mainap6.html#corba">CORBA</a> Any.
 <!--l. 66--><p class="noindent" >The default <a 
 href="mainli2.html#glo:message">Message</a> id is <span 
-class="cmtt-12">sb</span><span 
-class="cmtt-12">_struct</span>:
+class="ectt-1200">sb_struct</span>:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> mySource = MessageSource()
->>> myComponet = sb.Component("test_message_rx_cpp")
->>> mySource.connect(myComponent)
->>> sb.start()
->>> msg = {"val1":"test string", "val2":123}
->>> mySource.sendMessage(msg)
+> mySource = sb.MessageSource()
+> myComponet = sb.Component("test_message_rx_cpp")
+> mySource.connect(myComponent)
+> sb.start()
+> msg = {"val1":"test string", "val2":123}
+> mySource.sendMessage(msg)
                                                                                          
                                                                                          
 ]]></script>
 <!--l. 78--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.5.2   </span> <a 
- id="x11-1350009.5.2"></a>Data Sinks</h4>
+ id="x11-1360009.5.2"></a>Data Sinks</h4>
 <!--l. 80--><p class="noindent" >The Sandbox provides a <span 
-class="cmtt-12">DataSink </span>module, which simply reads data from a uses (output) <a 
+class="ectt-1200">DataSink </span>module, which simply reads data from a uses (output) <a 
 href="mainli2.html#glo:port">Port</a>.
 Below is an example instantiation and use of the <span 
-class="cmtt-12">DataSink </span>module. In this example, data sent
+class="ectt-1200">DataSink </span>module. In this example, data sent
 from <span 
-class="cmtt-12">myComponet</span>&#8217;s uses (output) <a 
+class="ectt-1200">myComponet</span>&#8217;s uses (output) <a 
 href="mainli2.html#glo:port">Port</a> is written to the <span 
-class="cmtt-12">received</span><span 
-class="cmtt-12">_data </span>variable.
+class="ectt-1200">received_data </span>variable.
 <!--l. 84--><p class="noindent" ><a 
 href="mainap6.html#sri">SRI</a> associated with the packet can be viewed using the <span 
-class="cmtt-12">sri() </span>method:
+class="ectt-1200">sri() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> output_data = sb.OutputData()
->>> myComponent.connect(output_data)
->>> received_data = output_data.getData()
->>> received_sri  = output_data.sri()
+> output_data = sb.DataSink()
+> myComponent.connect(output_data)
+> received_data = output_data.getData()
+> received_sri  = output_data.sri()
 ]]></script>
 <!--l. 93--><p class="noindent" >To block until a certain amount of data is received, specify the data length as an argument to the
 <span 
-class="cmtt-12">getData() </span>method:
+class="ectt-1200">getData() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> received_data = output_data.getData(100)
+> received_data = output_data.getData(100)
 ]]></script>
 <!--l. 99--><p class="noindent" >The <span 
-class="cmtt-12">eos() </span>method will indicate whether or not an <a 
+class="ectt-1200">eos() </span>method will indicate whether or not an <a 
  id="section*.30"></a>End of Stream (<a 
 href="mainap6.html#eos">EOS</a>) was received:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> output_data.eos()
+> output_data.eos()
 False
 ]]></script>
 <!--l. 106--><p class="noindent" >The <span 
-class="cmtt-12">eos</span><span 
-class="cmtt-12">_block </span>argument may be used to configure the <span 
-class="cmtt-12">getData() </span>method to block until an <a 
+class="ectt-1200">eos_block </span>argument may be used to configure the <span 
+class="ectt-1200">getData() </span>method to block until an <a 
 href="mainap6.html#eos">EOS</a>
 is received:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> received_data = output_data.getData(eos_block=True)
+> received_data = output_data.getData(eos_block=True)
 ]]></script>
                                                                                          
                                                                                          
 <!--l. 112--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1360009.5.2"></a>Writing a File</h5>
+ id="x11-1370009.5.2"></a>Writing a File</h5>
 <!--l. 114--><p class="noindent" >Similar to the <span 
-class="cmtt-12">DataSource</span>&#8217;s <span 
-class="cmtt-12">FileSource </span>counterpart, the <span 
-class="cmtt-12">DataSink </span>has an associated <span 
-class="cmtt-12">FileSink</span>
+class="ectt-1200">DataSource</span>&#8217;s <span 
+class="ectt-1200">FileSource </span>counterpart, the <span 
+class="ectt-1200">DataSink </span>has an associated <span 
+class="ectt-1200">FileSink</span>
 module for writing data to a file:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> output_file = sb.FileSink('~/some_file.tmp')
->>> another_comp.connect(output_file)
+> output_file = sb.FileSink('~/some_file.tmp')
+> another_comp.connect(output_file)
 ]]></script>
 <!--l. 121--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1370009.5.2"></a>Displaying Messages</h5>
+ id="x11-1380009.5.2"></a>Displaying Messages</h5>
 <!--l. 123--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> may be displayed using the <span 
-class="cmtt-12">MessageSink </span>module. Data sent to a running <span 
-class="cmtt-12">MessageSink</span>
+class="ectt-1200">MessageSink </span>module. Data sent to a running <span 
+class="ectt-1200">MessageSink</span>
 will be printed in the Python interpreter.
 <!--l. 126--><p class="noindent" >Below is an example of <span 
-class="cmtt-12">MessageSink </span>usage:
+class="ectt-1200">MessageSink </span>usage:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> myComponent = sb.Component("test_message_send_cpp")
->>> myMessageSink = MessageSink()
->>> myComponent.connect(myMessageSink)
->>> sb.start()
+> myComponent = sb.Component("test_message_send_cpp")
+> myMessageSink = MessageSink()
+> myComponent.connect(myMessageSink)
+> sb.start()
 ]]></script>
 <!--l. 135--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.5.3   </span> <a 
- id="x11-1380009.5.3"></a>Usage Examples</h4>
+ id="x11-1390009.5.3"></a>Usage Examples</h4>
 <!--l. 137--><p class="noindent" >
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><a 
- id="x11-1390009.5.3"></a>Plotting Data Example</h5>
+ id="x11-1400009.5.3"></a>Plotting Data Example</h5>
 <!--l. 139--><p class="noindent" >Note that for plotting data, the REDHAWK <a 
 href="mainap6.html#ide">IDE</a> must be installed and the path to the <span 
-class="cmtt-12">eclipse</span>
+class="ectt-1200">eclipse</span>
 directory of the installed <a 
 href="mainap6.html#ide">IDE</a> must be specified to the Sandbox.
 <!--l. 141--><p class="noindent" >This can be done through the <span 
-class="cmtt-12">IDELocation() </span>function:
+class="ectt-1200">IDELocation() </span>function:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sb.IDELocation('/path/to/ide/eclipse')
+> sb.IDELocation('/path/to/ide/eclipse')
 ]]></script>
 <!--l. 147--><p class="noindent" >This can also be done by setting the <span 
-class="cmtt-12">RH</span><span 
-class="cmtt-12">_IDE </span>environment variable prior to starting the Python
+class="ectt-1200">RH_IDE </span>environment variable prior to starting the Python
 session. (See  <a 
-href="mainch2.html#x4-100002.4">Section 2.4</a>)
+href="mainch2.html#x4-110002.4">Section 2.4</a>)
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> input_source = sb.DataSource()
->>> my_data = range(10000)
->>> my_plot = sb.Plot()
->>> input_source.connect(my_plot)
->>> input_source.push(my_data)
+> input_source = sb.DataSource()
+> my_data = range(10000)
+> my_plot = sb.Plot()
+> input_source.connect(my_plot)
+> input_source.push(my_data)
 ]]></script>
 <!--l. 159--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1400009.5.3"></a>Continuous Data Flow Example</h5>
+ id="x11-1410009.5.3"></a>Continuous Data Flow Example</h5>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> input_source.push(my_data,loop=True)
+> input_source.push(my_data,loop=True)
 ]]></script>
       <ul class="itemize1">
       <li class="itemize">To see a falling raster of the data being pushed, click on &#8220;Show Raster&#8221; in the upper
@@ -468,20 +463,20 @@ href="mainch2.html#x4-100002.4">Section 2.4</a>)
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
                                                                                          
                                                                                          
->>> input_source.stop()
+> input_source.stop()
 ]]></script>
 <!--l. 174--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1410009.5.3"></a>File Data Plotting Example</h5>
+ id="x11-1420009.5.3"></a>File Data Plotting Example</h5>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> input_file = sb.FileSource('~/short_file.tmp',midasFile=True)
->>> my_plot = sb.Plot()
->>> input_file.connect(my_plot)
->>> input_file.start()
+> input_file = sb.FileSource('~/short_file.tmp',midasFile=True)
+> my_plot = sb.Plot()
+> input_file.connect(my_plot)
+> input_file.start()
 ]]></script>
 <!--l. 183--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x11-1420009.5.3"></a>Passing a Struct to sendMessage Example</h5>
+ id="x11-1430009.5.3"></a>Passing a Struct to sendMessage Example</h5>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 from ossie.utils import sb
 from ossie.properties import simple_property
@@ -531,10 +526,10 @@ a.sendMessage(testmessage)
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">9.6   </span> <a 
- id="x11-1430009.6"></a>Miscellaneous</h3>
+ id="x11-1440009.6"></a>Miscellaneous</h3>
 <!--l. 3--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.6.1   </span> <a 
- id="x11-1440009.6.1"></a>Saving and Loading Waveforms</h4>
+ id="x11-1450009.6.1"></a>Saving and Loading Waveforms</h4>
 <!--l. 5--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Components</a> making up a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> can be loaded into the workspace by passing the path
@@ -542,53 +537,52 @@ and name of the <a
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s <a 
 href="mainap6.html#sad">SAD</a> <a 
 href="mainap6.html#xml">XML</a> file to the <span 
-class="cmtt-12">loadSadFile() </span>method. Note that <span 
-class="cmtt-12">usesdevice</span>
+class="ectt-1200">loadSadFile() </span>method. Note that <span 
+class="ectt-1200">usesdevice</span>
 relationships are ignored when loading a <a 
 href="mainap6.html#sad">SAD</a> file onto the Sandbox.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sb.loadSadFile("/path/to/sad/file/waveform.sad.xml")
+> sb.loadSADFile("/path/to/sad/file/waveform.sad.xml")
 ]]></script>
 <!--l. 12--><p class="noindent" >The instantiated <a 
 href="mainli2.html#glo:component">Components</a> and their associated connections can also be saved as a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>.
 To perform this operation, pass the desired <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> name to the <span 
-class="cmtt-12">generateSADXML()</span>
+class="ectt-1200">generateSADXML()</span>
 method.
 <!--l. 15--><p class="noindent" >This method will return an <a 
 href="mainap6.html#xml">XML</a> string representing the contents of the <a 
 href="mainap6.html#sad">SAD</a> file; this string may
 then be written to a file:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sadString = sb.generateSADXML("waveform_name")
->>> fp=open("/path/to/sad/file/waveform_name.sad.xml","w")
->>> fp.write(sadString)
->>> fp.close()
+> sadString = sb.generateSADXML("waveform_name")
+> fp=open("/path/to/sad/file/waveform_name.sad.xml","w")
+> fp.write(sadString)
+> fp.close()
 ]]></script>
 <!--l. 24--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">9.6.2   </span> <a 
- id="x11-1450009.6.2"></a>Debug Statements and Standard Out</h4>
+ id="x11-1460009.6.2"></a>Debug Statements and Standard Out</h4>
 <!--l. 26--><p class="noindent" >Standard out and standard error can be redirected to a file:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
                                                                                          
                                                                                          
->>> sb.redirectSTDOUT("/path/to/file/file.txt")
+> sb.redirectSTDOUT("/path/to/file/file.txt")
 ]]></script>
-<!--l. 32--><p class="noindent" >Debug statements can be toggled on or off, or set explicitly.
-<!--l. 34--><p class="noindent" >To toggle the on/off status of the debug statements, call the <span 
-class="cmtt-12">debug() </span>method with no
-arguments:
+<!--l. 32--><p class="noindent" >Debug statements can be set explicitly.
+<!--l. 34--><p class="noindent" >To set the debug output status, pass <span 
+class="ectt-1200">True </span>or <span 
+class="ectt-1200">False </span>to the <span 
+class="ectt-1200">setDEBUG() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sandbox.debug()
+> sb.setDEBUG(True)
 ]]></script>
-<!--l. 40--><p class="noindent" >Alternatively, to set the debug output status explicitly, pass <span 
-class="cmtt-12">True </span>or <span 
-class="cmtt-12">False </span>to the <span 
-class="cmtt-12">debug()</span>
-method:
+<!--l. 40--><p class="noindent" >To get the current state of the debug output, use the <span 
+class="ectt-1200">getDEBUG() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sandbox.debug(True)
+> sb.getDEBUG()
+True
 ]]></script>
                                                                                          
                                                                                          

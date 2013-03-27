@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,7 +53,7 @@ href="mainch4.html#tailmainch4.html" >prev-tail</a>] [<a
 href="#tailmainch5.html">tail</a>] [<a 
 href="main.html#mainch5.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;5</span><br /><a 
- id="x7-670005"></a>Waveforms</h2>
+ id="x7-680005"></a>Waveforms</h2>
 <!--l. 4--><p class="noindent" >This chapter discusses the construction and execution of <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> within REDHAWK. An
 <a 
@@ -71,7 +71,7 @@ href="mainli2.html#glo:application">Application</a> in a
 <a 
 href="mainli2.html#glo:domain">Domain</a>.
 <h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
- id="x7-680005.1"></a>Waveform Editor</h3>
+ id="x7-690005.1"></a>Waveform Editor</h3>
 <!--l. 12--><p class="noindent" >The following sections further describe the definition of the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> as well as its creation and
 manipulation within the <a 
@@ -84,14 +84,14 @@ href="mainli2.html#glo:component">Component</a>, a
 <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is completely represented by its <a 
 href="mainap6.html#sad">SAD</a> file (<span 
-class="cmtt-12">*.sad.xml</span>). The REDHAWK <a 
+class="ectt-1200">*.sad.xml</span>). The REDHAWK <a 
 href="mainap6.html#ide">IDE</a>
 provides a means of modifying the <a 
 href="mainap6.html#xml">XML</a> files without the need to directly edit this file by
 hand.
 <!--l. 15--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.1.1   </span> <a 
- id="x7-690005.1.1"></a>Overview Tab</h4>
+ id="x7-700005.1.1"></a>Overview Tab</h4>
 <!--l. 17--><p class="noindent" >Within the Overview tab, the name, <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>, and external <a 
 href="mainli2.html#glo:port">Ports</a> of a <a 
@@ -104,10 +104,10 @@ href="mainli2.html#glo:waveformapplication">Waveform</a> that is designated as t
 <a 
 href="mainli2.html#glo:component">Component</a> where the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>-level <span 
-class="cmtt-12">start()</span>, <span 
-class="cmtt-12">stop()</span>, <span 
-class="cmtt-12">configure() </span>and <span 
-class="cmtt-12">query() </span>calls are
+class="ectt-1200">start()</span>, <span 
+class="ectt-1200">stop()</span>, <span 
+class="ectt-1200">configure() </span>and <span 
+class="ectt-1200">query() </span>calls are
 delegated. In complex <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a>, the <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> can be used to orchestrate the life cycle
@@ -125,14 +125,11 @@ inter-<a
 href="mainli2.html#glo:application">Application</a> connectivity.
 <!--l. 24--><p class="noindent" >In this tutorial, it is assumed that the following <a 
 href="mainli2.html#glo:component">Components</a> are installed in <span 
-class="cmtt-12">$SDRROOT/dom/components</span>:
+class="ectt-1200">$SDRROOT/dom/components</span>:
 <span 
-class="cmtt-12">SigGen</span>, <span 
-class="cmtt-12">HardLimit</span>, <span 
-class="cmtt-12">FM</span><span 
-class="cmtt-12">_Demod </span>and <span 
-class="cmtt-12">Basic</span><span 
-class="cmtt-12">_AC</span>.
+class="ectt-1200">SigGen</span>, <span 
+class="ectt-1200">HardLimit </span>and <span 
+class="ectt-1200">FM_Demod</span>.
 <!--l. 26--><p class="noindent" >The overview tab allows the developer to set the <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> for the <a 
 href="mainli2.html#glo:waveform">SCA Waveform</a> as
@@ -143,13 +140,13 @@ href="mainli2.html#glo:waveform">SCA Waveform</a>.
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x7-69002x1">Using the <span 
-class="cmbx-12">Controller </span>drop-down menu, ensure that the <span 
-class="cmtt-12">SigGen </span><a 
+  class="enumerate" id="x7-70002x1">Using the <span 
+class="ecbx-1200">Controller </span>drop-down menu, ensure that the <span 
+class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a> is operating as
       the <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>. <div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  In this case, it does not matter which <a 
-href="mainli2.html#glo:device">Device</a> operates as the
+href="mainli2.html#glo:component">Component</a> operates as the
       <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> since there is special life cycle requirements of the <a 
 href="mainli2.html#glo:component">Components</a> in the
@@ -157,14 +154,14 @@ href="mainli2.html#glo:component">Components</a> in the
 href="mainli2.html#glo:waveformapplication">Waveform</a>. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x7-69004x2">Provide a description for the <a 
+  class="enumerate" id="x7-70004x2">Provide a description for the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>.</li></ol>
 <!--l. 37--><p class="noindent" ><hr class="figure"><div class="figure" 
 >
                                                                                          
                                                                                          
 <a 
- id="x7-69005r1"></a>
+ id="x7-70005r1"></a>
                                                                                          
                                                                                          
 <!--l. 40--><p class="noindent" ><img 
@@ -172,22 +169,22 @@ src="images/REDHAWK_Waveform_Overview_Tab.png" alt="PIC"
 >
 <br /> <div class="caption" 
 ><span class="id">Figure&#x00A0;5.1: </span><span  
-class="content">Waveform Overview Tab</span></div><!--tex4ht:label?: x7-69005r1 -->
+class="content">Waveform Overview Tab</span></div><!--tex4ht:label?: x7-70005r1 -->
                                                                                          
                                                                                          
 <!--l. 42--><p class="noindent" ></div><hr class="endfigure">
 <h4 class="subsectionHead"><span class="titlemark">5.1.2   </span> <a 
- id="x7-700005.1.2"></a>Diagram Tab</h4>
+ id="x7-710005.1.2"></a>Diagram Tab</h4>
 <!--l. 46--><p class="noindent" >Most of the work done on <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> takes place within the Diagram tab. The Diagram tab is
 very similar to the Sandbox/Chalkboard. Unlike the Sandbox, only <a 
 href="mainli2.html#glo:component">Components</a> that
 exist within the <span 
-class="cmtt-12">$SDRROOT </span>can be added to the <a 
+class="ectt-1200">$SDRROOT </span>can be added to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>. The palette contains a list of
 <a 
 href="mainli2.html#glo:component">Components</a> which reside within the <span 
-class="cmtt-12">$SDRROOT</span>. From the diagram tab, external <a 
+class="ectt-1200">$SDRROOT</span>. From the diagram tab, external <a 
 href="mainli2.html#glo:port">Ports</a> of the
 <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> can be indicated and the role of <a 
@@ -200,19 +197,19 @@ href="mainli2.html#glo:component">Components</a> can be set. When these <a
 href="mainli2.html#glo:property">Properties</a> are set, they
 become specific to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> and are written to the <span 
-class="cmtt-12">*.sad.xml </span>file which describes this
+class="ectt-1200">*.sad.xml </span>file which describes this
 <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>.
 <!--l. 55--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x7-710005.1.2"></a>Start Order</h5>
+ id="x7-720005.1.2"></a>Start Order</h5>
 <!--l. 57--><p class="noindent" >Each of the <a 
 href="mainli2.html#glo:component">Components</a> within the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> contain a number with a circle around it which
 represents that <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s &#8220;Start Order&#8221;. The Start Order represents the order in which its
 <span 
-class="cmtt-12">start() </span>method is called by the <a 
+class="ectt-1200">start() </span>method is called by the <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>. The only <a 
 href="mainli2.html#glo:component">Component</a> that does not have a
 start order is the <a 
@@ -225,7 +222,7 @@ href="mainli2.html#glo:component">Component</a> and selecting the appropriate me
 item.
 <!--l. 63--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.1.3   </span> <a 
- id="x7-720005.1.3"></a>SAD File Tab</h4>
+ id="x7-730005.1.3"></a>SAD File Tab</h4>
 <!--l. 65--><p class="noindent" >The information put into the Overview and Diagram tabs is represented within the <a 
 href="mainap6.html#xml">XML</a> of the
 <a 
@@ -245,51 +242,51 @@ href="mainap6.html#sad">SAD</a> file are below:
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x7-72002x1">Open the <span 
-class="cmtt-12">myWaveform.sad.xml </span>tab of the <a 
+  class="enumerate" id="x7-73002x1">Open the <span 
+class="ectt-1200">myWaveform.sad.xml </span>tab of the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> Editor.
       </li>
       <li 
-  class="enumerate" id="x7-72004x2">Look through the <a 
+  class="enumerate" id="x7-73004x2">Look through the <a 
 href="mainap6.html#sad">SAD</a> file and identify:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x7-72006x1">The location of the two <a 
+  class="enumerate" id="x7-73006x1">The location of the two <a 
 href="mainap6.html#spd">SPD</a> files used in this <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> (remember that this file
            location is in reference to the <span 
-class="cmtt-12">$SDRROOT</span>)
+class="ectt-1200">$SDRROOT</span>)
            </li>
            <li 
-  class="enumerate" id="x7-72008x2">The <a 
+  class="enumerate" id="x7-73008x2">The <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>
            </li>
            <li 
-  class="enumerate" id="x7-72010x3">The connection between the two <a 
+  class="enumerate" id="x7-73010x3">The connection between the two <a 
 href="mainli2.html#glo:component">Components</a>
            </li>
            <li 
-  class="enumerate" id="x7-72012x4">The external <a 
+  class="enumerate" id="x7-73012x4">The external <a 
 href="mainli2.html#glo:port">Port</a> is set in the Diagram Tab
            </li>
            <li 
-  class="enumerate" id="x7-72014x5">The start order of each <a 
+  class="enumerate" id="x7-73014x5">The start order of each <a 
 href="mainli2.html#glo:component">Component</a>
            </li>
            <li 
-  class="enumerate" id="x7-72016x6">The <a 
+  class="enumerate" id="x7-73016x6">The <a 
 href="mainli2.html#glo:property">Property</a> is changed on the <span 
-class="cmtt-12">SigGen </span><a 
+class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a></li></ol>
       </li>
       <li 
-  class="enumerate" id="x7-72018x3">Before continuing, return to the Diagram tab and change the dataDouble_out <a 
+  class="enumerate" id="x7-73018x3">Before continuing, return to the Diagram tab and change the dataDouble_out <a 
 href="mainli2.html#glo:port">Port</a> so that it
       is no longer marked as an external <a 
 href="mainli2.html#glo:port">Port</a>.</li></ol>
 <!--l. 85--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
- id="x7-730005.2"></a>Create and Deploy a Sample Waveform</h3>
+ id="x7-740005.2"></a>Create and Deploy a Sample Waveform</h3>
 <!--l. 87--><p class="noindent" >This section describes the process of creating a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, deploying this <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> to the staging
@@ -310,7 +307,7 @@ during the creation/destruction of different <a
 href="mainli2.html#glo:application">Applications</a>.
 <!--l. 91--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.2.1   </span> <a 
- id="x7-740005.2.1"></a>Create a Sample Waveform</h4>
+ id="x7-750005.2.1"></a>Create a Sample Waveform</h4>
 <!--l. 93--><p class="noindent" >Below is a description of how to create a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>:
                                                                                          
@@ -318,25 +315,25 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>:
 <!--l. 95--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-74002x1">Select <span 
-class="cmbx-12">File </span><span 
+  class="enumerate" id="x7-75002x1">Select <span 
+class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">New </span><span 
+class="ecbx-1200">New </span><span 
 class="cmmi-12">&#x003E; </span><a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <a 
+class="ecbx-1200">SCA</span></a> <a 
 href="mainli2.html#glo:waveform"><span 
-class="cmbx-12">SCA Waveform</span></a> <span 
-class="cmbx-12">Project</span>
+class="ecbx-1200">SCA Waveform</span></a> <span 
+class="ecbx-1200">Project</span>
       </li>
       <li 
-  class="enumerate" id="x7-74004x2">Set the <span 
-class="cmbx-12">Project name </span>to <span 
-class="cmti-12">demo</span>
+  class="enumerate" id="x7-75004x2">Set the <span 
+class="ecbx-1200">Project name </span>to <span 
+class="ecti-1200">demo</span>
       </li>
       <li 
-  class="enumerate" id="x7-74006x3">Select <span 
-class="cmbx-12">Finish</span></li></ol>
+  class="enumerate" id="x7-75006x3">Select <span 
+class="ecbx-1200">Finish</span></li></ol>
 <!--l. 101--><p class="noindent" >This will open an editor on the demo.sad.xml file.
 <!--l. 103--><p class="noindent" >To add <a 
 href="mainli2.html#glo:component">Components</a> to this <a 
@@ -344,102 +341,98 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>:
 <!--l. 105--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-74008x1">Select the <span 
-class="cmbx-12">Diagram </span>tab
+  class="enumerate" id="x7-75008x1">Select the <span 
+class="ecbx-1200">Diagram </span>tab
       </li>
       <li 
-  class="enumerate" id="x7-74010x2">In the <span 
-class="cmbx-12">Palette</span>, drag the <span 
-class="cmti-12">SigGen </span><a 
+  class="enumerate" id="x7-75010x2">In the <span 
+class="ecbx-1200">Palette</span>, drag the <span 
+class="ecti-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a> onto the diagram
       </li>
       <li 
-  class="enumerate" id="x7-74012x3">In the <span 
-class="cmbx-12">Palette</span>, drag the <span 
-class="cmti-12">HardLimit </span><a 
+  class="enumerate" id="x7-75012x3">In the <span 
+class="ecbx-1200">Palette</span>, drag the <span 
+class="ecti-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a> onto the diagram
       </li>
       <li 
-  class="enumerate" id="x7-74014x4">Drag   a   connection   between   the   <span 
-class="cmti-12">SigGen</span><span 
-class="cmti-12">_1   </span><span 
-class="cmbx-12">out  </span><a 
-href="mainli2.html#glo:port">Port</a>   and   the   <span 
-class="cmti-12">HardLimit</span><span 
-class="cmti-12">_1</span>
+  class="enumerate" id="x7-75014x4">Drag  a  connection  between  the  <span 
+class="ecti-1200">SigGen_1   </span><span 
+class="ecbx-1200">out  </span><a 
+href="mainli2.html#glo:port">Port</a>  and  the  <span 
+class="ecti-1200">HardLimit_1</span>
       <span 
-class="cmbx-12">dataDouble</span><span 
-class="cmbx-12">_in </span><a 
+class="ecbx-1200">dataDouble_in </span><a 
 href="mainli2.html#glo:port">Port</a>
       </li>
       <li 
-  class="enumerate" id="x7-74016x5">The <a 
+  class="enumerate" id="x7-75016x5">The <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> should look like  <a 
-href="#x7-740155">Figure 5</a>: <hr class="figure"><div class="figure" 
+href="#x7-750155">Figure 5</a>: <hr class="figure"><div class="figure" 
 ><a 
- id="x7-74017r2"></a> <img 
+ id="x7-75017r2"></a> <img 
 src="images/Demo_waveform.png" alt="PIC"  
 > <a 
- id="x7-740155"></a>
+ id="x7-750155"></a>
 <br /> <div class="caption" 
 ><span class="id">Figure&#x00A0;5.2: </span><span  
-class="content">Demo Waveform</span></div><!--tex4ht:label?: x7-74017r2 -->
+class="content">Demo Waveform</span></div><!--tex4ht:label?: x7-75017r2 -->
       <!--l. 116--><p class="noindent" ></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x7-74019x6">If <span 
-class="cmti-12">SigGen</span><span 
-class="cmti-12">_1 </span>is not outlined with yellow, right-click on the <a 
+  class="enumerate" id="x7-75019x6">If <span 
+class="ecti-1200">SigGen_1 </span>is not outlined with yellow, right-click on the <a 
 href="mainli2.html#glo:component">Component</a> and select <span 
-class="cmbx-12">Assign</span>
+class="ecbx-1200">Assign</span>
       <a 
 href="mainli2.html#glo:assemblycontroller"><span 
-class="cmbx-12">Assembly Controller</span></a>
+class="ecbx-1200">Assembly Controller</span></a>
       </li>
       <li 
-  class="enumerate" id="x7-74021x7">Press <span 
-class="cmbx-12">Ctrl-S </span>to save or select <span 
-class="cmbx-12">File </span><span 
+  class="enumerate" id="x7-75021x7">Press <span 
+class="ecbx-1200">Ctrl-S </span>to save or select <span 
+class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">Save</span>
+class="ecbx-1200">Save</span>
       </li>
       <li 
-  class="enumerate" id="x7-74023x8">Close the <a 
+  class="enumerate" id="x7-75023x8">Close the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> editor by selecting the <span 
-class="cmbx-12">X </span>or by selecting <span 
-class="cmbx-12">File </span><span 
+class="ecbx-1200">X </span>or by selecting <span 
+class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">Close All</span></li></ol>
+class="ecbx-1200">Close All</span></li></ol>
                                                                                          
                                                                                          
 <!--l. 122--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.2.2   </span> <a 
- id="x7-750005.2.2"></a>Export the Waveform</h4>
+ id="x7-760005.2.2"></a>Export the Waveform</h4>
 <!--l. 124--><p class="noindent" >Below is a description of how to export the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> in the <a 
 href="mainap6.html#ide">IDE</a>:
 <!--l. 126--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-75002x1">In the <span 
-class="cmbx-12">Project Explorer </span>view (typically on the left-side) select the project name to
+  class="enumerate" id="x7-76002x1">In the <span 
+class="ecbx-1200">Project Explorer </span>view (typically on the left-side) select the project name to
       <span 
-class="cmti-12">demo</span>
+class="ecti-1200">demo</span>
       </li>
       <li 
-  class="enumerate" id="x7-75004x2">Drag the <span 
-class="cmti-12">demo </span>project onto the <span 
-class="cmbx-12">Target </span><a 
+  class="enumerate" id="x7-76004x2">Drag the <span 
+class="ecti-1200">demo </span>project onto the <span 
+class="ecbx-1200">Target </span><a 
 href="mainap6.html#sdr"><span 
-class="cmbx-12">SDR</span></a> in the <a 
+class="ecbx-1200">SDR</span></a> in the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view.</li></ol>
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>view.</li></ol>
 <!--l. 131--><p class="noindent" >This will install the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> into <span 
-class="cmtt-12">$SDRROOT/dom/waveforms</span>. If a permissions denied error is
+class="ectt-1200">$SDRROOT/dom/waveforms</span>. If a permissions denied error is
 encountered, ensure that the <span 
-class="cmtt-12">$SDRROOT </span>is set up per the installation instructions in  <a 
+class="ectt-1200">$SDRROOT </span>is set up per the installation instructions in  <a 
 href="mainap4.html#x30-349000D.3">Section
 D.3</a>.
 <!--l. 135--><p class="noindent" >Verify that the <a 
@@ -447,24 +440,24 @@ href="mainli2.html#glo:waveformapplication">Waveform</a> is installed:
 <!--l. 137--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-75006x1">In the <a 
+  class="enumerate" id="x7-76006x1">In the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view expand the <span 
-class="cmbx-12">Target </span><a 
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>view expand the <span 
+class="ecbx-1200">Target </span><a 
 href="mainap6.html#sdr"><span 
-class="cmbx-12">SDR</span></a> item
+class="ecbx-1200">SDR</span></a> item
       </li>
       <li 
-  class="enumerate" id="x7-75008x2">Expand the <span 
-class="cmbx-12">Waveforms </span>item
+  class="enumerate" id="x7-76008x2">Expand the <span 
+class="ecbx-1200">Waveforms </span>item
       </li>
       <li 
-  class="enumerate" id="x7-75010x3">Verify that the demo <a 
+  class="enumerate" id="x7-76010x3">Verify that the demo <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is shown</li></ol>
 <!--l. 143--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.2.3   </span> <a 
- id="x7-760005.2.3"></a>Run the Waveform on the Runtime Environment</h4>
+ id="x7-770005.2.3"></a>Run the Waveform on the Runtime Environment</h4>
 <!--l. 145--><p class="noindent" >This section provides an overview of how to launch a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> as an <a 
 href="mainli2.html#glo:application">Application</a> and release an
@@ -472,116 +465,113 @@ href="mainli2.html#glo:application">Application</a> and release an
 href="mainli2.html#glo:application">Application</a>.
 <!--l. 147--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x7-770005.2.3"></a>Launching a Domain</h5>
+ id="x7-780005.2.3"></a>Launching a Domain</h5>
 <!--l. 149--><p class="noindent" >Begin by starting a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> (see  <a 
-href="mainch10.html#x12-14800010.1.1">Section 10.1.1</a>).
+href="mainch10.html#x12-14900010.1.1">Section 10.1.1</a>).
                                                                                          
                                                                                          
 <!--l. 153--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x7-780005.2.3"></a>Launch the Waveform</h5>
+ id="x7-790005.2.3"></a>Launch the Waveform</h5>
 <!--l. 155--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-78002x1">In the <a 
+  class="enumerate" id="x7-79002x1">In  the  <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view right-click on the <span 
-class="cmbx-12">REDHAWK</span><span 
-class="cmbx-12">_DEV </span><a 
-href="mainli2.html#glo:domain">Domain</a> connection
+class="ecbx-1200">SCA</span></a>  <span 
+class="ecbx-1200">Explorer  </span>view  right-click  on  the  <span 
+class="ecbx-1200">REDHAWK_DEV  </span><a 
+href="mainli2.html#glo:domain">Domain</a>
+      connection
       </li>
       <li 
-  class="enumerate" id="x7-78004x2">Select <span 
-class="cmbx-12">Launch Waveform...</span>
+  class="enumerate" id="x7-79004x2">Select <span 
+class="ecbx-1200">Launch Waveform...</span>
       </li>
       <li 
-  class="enumerate" id="x7-78006x3">Select the <a 
+  class="enumerate" id="x7-79006x3">Select the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, then select <span 
-class="cmbx-12">Finish</span>
+class="ecbx-1200">Finish</span>
       </li>
       <li 
-  class="enumerate" id="x7-78008x4">To start the <a 
+  class="enumerate" id="x7-79008x4">To start the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, select the green <span 
-class="cmbx-12">play </span>button in the toolbar</li></ol>
+class="ecbx-1200">play </span>button in the toolbar</li></ol>
 <!--l. 162--><p class="noindent" >This will open up the <a 
 href="mainli2.html#glo:waveform">SCA Waveform</a> explorer. A <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> should be seen in the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a>
+class="ecbx-1200">SCA</span></a>
 <span 
-class="cmbx-12">Explorer </span>by expanding the <span 
-class="cmbx-12">REDHAWK</span><span 
-class="cmbx-12">_DEV </span><a 
+class="ecbx-1200">Explorer </span>by expanding the <span 
+class="ecbx-1200">REDHAWK_DEV </span><a 
 href="mainli2.html#glo:domain">Domain</a> connection and the <span 
-class="cmbx-12">Waveforms</span>
+class="ecbx-1200">Waveforms</span>
 folder.
 <!--l. 165--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x7-790005.2.3"></a>Open a Plot</h5>
+ id="x7-800005.2.3"></a>Open a Plot</h5>
 <!--l. 167--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-79002x1">In the <a 
+  class="enumerate" id="x7-80002x1">In the <a 
 href="mainli2.html#glo:waveform">SCA Waveform</a> explorer right-click on the <span 
-class="cmti-12">SigGen</span><span 
-class="cmti-12">_1 </span><span 
-class="cmbx-12">out </span><a 
+class="ecti-1200">SigGen_1 </span><span 
+class="ecbx-1200">out </span><a 
 href="mainli2.html#glo:port">Port</a>.
       </li>
       <li 
-  class="enumerate" id="x7-79004x2">Select <span 
-class="cmbx-12">Plot </span><a 
+  class="enumerate" id="x7-80004x2">Select <span 
+class="ecbx-1200">Plot </span><a 
 href="mainli2.html#glo:port"><span 
-class="cmbx-12">Port</span></a> <span 
-class="cmbx-12">Data</span></li></ol>
+class="ecbx-1200">Port</span></a> <span 
+class="ecbx-1200">Data</span></li></ol>
 <!--l. 172--><p class="noindent" >This will open up a plot showing the plot data. To clearly see the sinusoid wave in the plot, reduce
 the frequency produced by SigGen.
 <!--l. 175--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-79006x1">Right-click the <span 
-class="cmti-12">SigGen</span><span 
-class="cmti-12">_1 </span><a 
+  class="enumerate" id="x7-80006x1">Right-click the <span 
+class="ecti-1200">SigGen_1 </span><a 
 href="mainli2.html#glo:component">Component</a> and select <span 
-class="cmbx-12">Show properties view</span>
+class="ecbx-1200">Show properties view</span>
       </li>
       <li 
-  class="enumerate" id="x7-79008x2">In the properties view select the <a 
+  class="enumerate" id="x7-80008x2">In the properties view select the <a 
 href="mainli2.html#glo:component"><span 
-class="cmbx-12">Component</span></a> <a 
+class="ecbx-1200">Component</span></a> <a 
 href="mainli2.html#glo:property"><span 
-class="cmbx-12">Properties</span></a> tab
+class="ecbx-1200">Properties</span></a> tab
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x7-79010x3">Change the frequency <a 
+  class="enumerate" id="x7-80010x3">Change the frequency <a 
 href="mainli2.html#glo:property">Property</a> to a value of <span 
-class="cmti-12">50</span></li></ol>
+class="ecti-1200">50</span></li></ol>
 <!--l. 181--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x7-800005.2.3"></a>Stop and Release the Application</h5>
+ id="x7-810005.2.3"></a>Stop and Release the Application</h5>
 <!--l. 183--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-80002x1">Select the <span 
-class="cmbx-12">Stop </span>button (looks like a stop sign) in the toolbar. The plot should stop
+  class="enumerate" id="x7-81002x1">Select the <span 
+class="ecbx-1200">Stop </span>button (looks like a stop sign) in the toolbar. The plot should stop
       updating.
       </li>
       <li 
-  class="enumerate" id="x7-80004x2">Select the <span 
-class="cmbx-12">Release </span>button (looks like a red <span 
-class="cmbx-12">X</span>) in the toolbar.</li></ol>
+  class="enumerate" id="x7-81004x2">Select the <span 
+class="ecbx-1200">Release </span>button (looks like a red <span 
+class="ecbx-1200">X</span>) in the toolbar.</li></ol>
 <!--l. 188--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x7-810005.2.3"></a>Shutdown the Domain</h5>
+ id="x7-820005.2.3"></a>Shutdown the Domain</h5>
 <!--l. 190--><p class="noindent" >Finally, shutdown the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> (see  <a 
-href="mainch10.html#x12-14900010.1.2">Section 10.1.2</a>).
+href="mainch10.html#x12-15000010.1.2">Section 10.1.2</a>).
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

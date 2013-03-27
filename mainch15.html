@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch14.html#tailmainch14.html" >prev-tail</a>] [<a
 href="#tailmainch15.html">tail</a>] [<a 
 href="main.html#mainch15.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;15</span><br /><a 
- id="x17-20200015"></a>Data Flow Management: Bulk IO</h2>
+ id="x17-20300015"></a>Data Flow Management: Bulk IO</h2>
 <h3 class="sectionHead"><span class="titlemark">15.1   </span> <a 
- id="x17-20300015.1"></a>Introduction</h3>
+ id="x17-20400015.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Data flow through REDHAWK <a 
 href="mainli2.html#glo:component">Components</a> is managed through a module of interfaces called
 <a 
@@ -83,7 +83,7 @@ fixed-field metadata, like a birth date timestamp, and variable-field metadata i
 pairs.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.2   </span> <a 
- id="x17-20400015.2"></a>SRI</h3>
+ id="x17-20500015.2"></a>SRI</h3>
 <!--l. 3--><p class="noindent" ><a 
 href="mainap6.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload.
 <!--l. 5--><p class="noindent" >The <a 
@@ -92,14 +92,14 @@ href="mainap6.html#sri">SRI</a> data structure contains the following 12 fields:
                                                                                          
                                                                                          
 <!--l. 12--><p class="noindent" ><a 
- id="x17-204001r1"></a><hr class="float"><div class="float" 
+ id="x17-205001r1"></a><hr class="float"><div class="float" 
 >
                                                                                          
                                                                                          
  <div class="caption" 
 ><span class="id">Table&#x00A0;15.1: </span><span  
 class="content"><a 
-href="mainap6.html#sri">SRI</a> fields</span></div><!--tex4ht:label?: x17-204001r1 -->
+href="mainap6.html#sri">SRI</a> fields</span></div><!--tex4ht:label?: x17-205001r1 -->
 <div class="tabular"> <table id="TBL-1" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-1-1g"><col 
@@ -108,11 +108,11 @@ id="TBL-1-2"></colgroup><colgroup id="TBL-1-3g"><col
 id="TBL-1-3"></colgroup><tr  
  style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-1-1"  
 class="td11"> <span 
-class="cmbx-12">Name   </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-1-1-2"  
+class="ecbx-1200">Name   </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-1-1-2"  
 class="td11"> <!--l. 15--><p class="noindent" ><span 
-class="cmbx-12">Type</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-1-3"  
+class="ecbx-1200">Type</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-1-3"  
 class="td11"> <!--l. 15--><p class="noindent" ><span 
-class="cmbx-12">Description</span>                                     </td>
+class="ecbx-1200">Description</span>                                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-2-1"  
@@ -128,7 +128,7 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> xstart      </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-3-2"  
 class="td11"> <!--l. 17--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-3-3"  
 class="td11"> <!--l. 17--><p class="noindent" >Start time of the stream. This is epoch time
-  from January 1, 1970 in seconds.                </td>
+  from January 1, 1970 in seconds.                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-4-1"  
@@ -155,8 +155,7 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
  style="vertical-align:baseline;" id="TBL-1-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-6-1"  
 class="td11"> subsize     </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-6-2"  
 class="td11"> <!--l. 20--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-6-3"  
-class="td11"> <!--l. 20--><p class="noindent" >0 if the data is one dimensional; <span 
-class="cmmi-12">&#x003E;</span>0 if two
+class="td11"> <!--l. 20--><p class="noindent" >0 if the data is one dimensional; &#x003E;0 if two
   dimensional.  This  applies  to  framed  data;
   ydelta describes the frame length.               </td>
 </tr><tr 
@@ -217,15 +216,13 @@ href="mainli2.html#glo:port">Port</a>
   and the provides-side queue is full, the data is
   dumped. If this is true and the provides-side
   queue is full, the <span 
-class="cmtt-12">pushPacket() </span>call blocks.  </td>
+class="ectt-1200">pushPacket() </span>call blocks.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-1-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-13-1"  
 class="td11"> keywords  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-13-2"  
 class="td11"> <!--l. 27--><p class="noindent" >sequence
-  <span 
-class="cmmi-12">&#x003C;</span>CF::DataType<span 
-class="cmmi-12">&#x003E;</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-13-3"  
+  &#x003C;CF::DataType&#x003E; </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-13-3"  
 class="td11"> <!--l. 27--><p class="noindent" >User  defined  keywords.  This  is  a  sequence
   of  structures  that  contain  an  <a 
 href="mainap6.html#id">ID</a>  of  type
@@ -243,8 +240,8 @@ href="mainap6.html#corba">CORBA</a> Any can be any type.  </td>
 <!--l. 35--><p class="noindent" ><a 
 href="mainap6.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the providesside function
 <span 
-class="cmtt-12">pushSRI()</span>. The <span 
-class="cmtt-12">pushSRI() </span>function contains a single argument, an instance of an <a 
+class="ectt-1200">pushSRI()</span>. The <span 
+class="ectt-1200">pushSRI() </span>function contains a single argument, an instance of an <a 
 href="mainap6.html#sri">SRI</a>
 object.
 <!--l. 38--><p class="noindent" >Each provides-side <a 
@@ -258,13 +255,13 @@ href="mainap6.html#bulkio">BulkIO</a>
 href="mainli2.html#glo:port">Ports</a>. If the user code on the uses-side of a <a 
 href="mainap6.html#bulkio">BulkIO</a> connection does not explicitly invoke a
 <span 
-class="cmtt-12">pushSRI() </span>call before any data is sent out, the auto-generated code will create a trivial <a 
+class="ectt-1200">pushSRI() </span>call before any data is sent out, the auto-generated code will create a trivial <a 
 href="mainap6.html#sri">SRI</a>
 message with normalized values.
 <!--l. 42--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
 href="mainap6.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a> is to issue a <span 
-class="cmtt-12">pushSRI() </span>when a new
+class="ectt-1200">pushSRI() </span>when a new
 connection is made to the newly-connected object. For example, a system is created in which data
 is flowing between <a 
 href="mainli2.html#glo:component">Components</a> A and B. As data is flowing between these <a 
@@ -272,15 +269,15 @@ href="mainli2.html#glo:component">Components</a>, a new
 connection is established between <a 
 href="mainli2.html#glo:component">Components</a> A and C. When this connection is established, a
 <span 
-class="cmtt-12">pushSRI() </span>method call will automatically be made from <a 
+class="ectt-1200">pushSRI() </span>method call will automatically be made from <a 
 href="mainli2.html#glo:component">Component</a> A to <a 
 href="mainli2.html#glo:component">Component</a>
 C.
 <h3 class="sectionHead"><span class="titlemark">15.3   </span> <a 
- id="x17-20500015.3"></a><span 
-class="cmtt-12">BULKIO::PrecisionUTCTime </span>Timestamp</h3>
+ id="x17-20600015.3"></a><span 
+class="ectt-1200">BULKIO::PrecisionUTCTime </span>Timestamp</h3>
 <!--l. 4--><p class="noindent" >The following code segment provides an example of how to construct a <span 
-class="cmtt-12">BULKIO::PrecisionUTCTime</span>
+class="ectt-1200">BULKIO::PrecisionUTCTime</span>
 time stamp to be sent in the <a 
 href="mainap6.html#sri">SRI</a>:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -290,7 +287,7 @@ href="mainap6.html#sri">SRI</a>:
  struct timezone tmp_tz;
  gettimeofday(&tmp_time, &tmp_tz);
  double wsec = tmp_time.tv_sec;
- double fsec = tmp_time.tv_usec / 1e6;;
+ double fsec = tmp_time.tv_usec / 1e6;
  BULKIO::PrecisionUTCTime tstamp =
      BULKIO::PrecisionUTCTime();
  tstamp.tcmode = BULKIO::TCM_CPU;
@@ -303,27 +300,27 @@ href="mainap6.html#sri">SRI</a>:
 ]]></script>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.4   </span> <a 
- id="x17-20600015.4"></a>Data Transfers</h3>
+ id="x17-20700015.4"></a>Data Transfers</h3>
 <!--l. 3--><p class="noindent" >The <a 
 href="mainap6.html#bulkio">BulkIO</a> data transfers happen with the <span 
-class="cmtt-12">pushPacket() </span>call. As mentioned earlier, the
+class="ectt-1200">pushPacket() </span>call. As mentioned earlier, the
 provides-side <a 
 href="mainli2.html#glo:port">Port</a> expects a <span 
-class="cmtt-12">pushSRI() </span>call before the first <span 
-class="cmtt-12">pushPacket()</span>. The auto-generated
+class="ectt-1200">pushSRI() </span>call before the first <span 
+class="ectt-1200">pushPacket()</span>. The auto-generated
 code in <a 
 href="mainli2.html#glo:component">Components</a> guarantees this behavior. Zero or more <span 
-class="cmtt-12">pushPacket() </span>calls may happen after
+class="ectt-1200">pushPacket() </span>calls may happen after
 a <span 
-class="cmtt-12">pushSRI()</span>.
+class="ectt-1200">pushSRI()</span>.
 <!--l. 8--><p class="noindent" >In the case of in-band data, the <span 
-class="cmtt-12">pushPacket() </span>arguments are shown in  <a 
-href="#x17-20600015.4">Table 15.4</a>.
+class="ectt-1200">pushPacket() </span>arguments are shown in  <a 
+href="#x17-20700015.4">Table 15.4</a>.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 11--><p class="noindent" ><a 
- id="x17-206001r2"></a><hr class="float"><div class="float" 
+ id="x17-207001r2"></a><hr class="float"><div class="float" 
 >
                                                                                          
                                                                                          
@@ -336,18 +333,16 @@ id="TBL-2-3"></colgroup><tr
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-1"  
 class="td11"> <span 
-class="cmbx-12">Name   </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-2"  
+class="ecbx-1200">Name   </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-2"  
 class="td11"> <span 
-class="cmbx-12">Type                 </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-2-1-3"  
+class="ecbx-1200">Type                 </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-2-1-3"  
 class="td11"> <!--l. 15--><p class="noindent" ><span 
-class="cmbx-12">Description</span>                        </td>
+class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-1"  
 class="td11"> data        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-2"  
-class="td11"> sequence<span 
-class="cmmi-12">&#x003C;</span>TYPE<span 
-class="cmmi-12">&#x003E;  </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-2-2-3"  
+class="td11"> sequence&#x003C;TYPE&#x003E;  </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-2-3"  
 class="td11"> <!--l. 16--><p class="noindent" >A sequence of a particular type,
   where   TYPE   is   some   native
   <a 
@@ -370,7 +365,7 @@ class="td11"> boolean                 </td><td  style="white-space:wrap; text-al
 class="td11"> <!--l. 18--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
   <span 
-class="cmtt-12">pushPacket() </span>call.                    </td>
+class="ectt-1200">pushPacket() </span>call.                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-1"  
@@ -386,18 +381,18 @@ href="mainap6.html#sri">SRI</a>
 <br /> <div class="caption" 
 ><span class="id">Table&#x00A0;15.2: </span><span  
 class="content">In-band data fields for <span 
-class="cmtt-12">pushPacket() </span>call</span></div><!--tex4ht:label?: x17-206001r2 -->
+class="ectt-1200">pushPacket() </span>call</span></div><!--tex4ht:label?: x17-207001r2 -->
                                                                                          
                                                                                          
 </div><hr class="endfloat" />
 </div>
 <!--l. 24--><p class="noindent" >In the case of file transfers, the arguments are shown in  <a 
-href="#x17-20600015.4">Table 15.4</a>.
+href="#x17-20700015.4">Table 15.4</a>.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 27--><p class="noindent" ><a 
- id="x17-206002r3"></a><hr class="float"><div class="float" 
+ id="x17-207002r3"></a><hr class="float"><div class="float" 
 >
                                                                                          
                                                                                          
@@ -410,11 +405,11 @@ id="TBL-3-3"></colgroup><tr
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-3-1-1"  
 class="td11"> <!--l. 31--><p class="noindent" ><span 
-class="cmbx-12">Name</span>             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-2"  
+class="ecbx-1200">Name</span>             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-2"  
 class="td11"> <span 
-class="cmbx-12">Type                 </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-3-1-3"  
+class="ecbx-1200">Type                 </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-3-1-3"  
 class="td11"> <!--l. 31--><p class="noindent" ><span 
-class="cmbx-12">Description</span>                        </td>
+class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-3-2-1"  
@@ -453,7 +448,7 @@ class="td11"> boolean                 </td><td  style="white-space:wrap; text-al
 class="td11"> <!--l. 37--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
   <span 
-class="cmtt-12">pushPacket() </span>call.                    </td>
+class="ectt-1200">pushPacket() </span>call.                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-3-5-1"  
@@ -469,37 +464,37 @@ href="mainap6.html#sri">SRI</a>
 <br /> <div class="caption" 
 ><span class="id">Table&#x00A0;15.3: </span><span  
 class="content">Data fields for <span 
-class="cmtt-12">pushPacket() </span>call in file transfers</span></div><!--tex4ht:label?: x17-206002r3 -->
+class="ectt-1200">pushPacket() </span>call in file transfers</span></div><!--tex4ht:label?: x17-207002r3 -->
                                                                                          
                                                                                          
 </div><hr class="endfloat" />
 </div>
 <!--l. 44--><p class="noindent" >As many <span 
-class="cmtt-12">pushPacket() </span>calls can happen as are needed to transfer data from a uses side to a
+class="ectt-1200">pushPacket() </span>calls can happen as are needed to transfer data from a uses side to a
 provides side. If using omniORB (this is the REDHAWK default), there is maximum
 transfer size, which can be is set in the <span 
-class="cmtt-12">/etc/omniORB.cfg </span>file by changing the defined
+class="ectt-1200">/etc/omniORB.cfg </span>file by changing the defined
 value for <span 
-class="cmtt-12">giopMaxMsgSize</span>. The default maximum transfer size is set to <span 
-class="cmtt-12">2097152 </span>(2
+class="ectt-1200">giopMaxMsgSize</span>. The default maximum transfer size is set to <span 
+class="ectt-1200">2097152 </span>(2
 <a 
  id="section*.37"></a>Megabyte (<a 
 href="mainap6.html#mb">MB</a>)). For every <span 
-class="cmtt-12">pushPacket()</span>, the data+headers must be less than this
+class="ectt-1200">pushPacket()</span>, the data+headers must be less than this
 value, otherwise a <span 
-class="cmtt-12">MARSHAL </span>exception will be raise by the middleware. The maximum
+class="ectt-1200">MARSHAL </span>exception will be raise by the middleware. The maximum
 value can be found during run time by using the <span 
-class="cmtt-12">omniORB::giopMaxMsgSize() </span>function
+class="ectt-1200">omniORB::giopMaxMsgSize() </span>function
 call.
 <h3 class="sectionHead"><span class="titlemark">15.5   </span> <a 
- id="x17-20700015.5"></a>Data File Guidance</h3>
+ id="x17-20800015.5"></a>Data File Guidance</h3>
 <!--l. 3--><p class="noindent" >Data files may be sent via the <a 
 href="mainap6.html#bulkio">BulkIO</a> <span 
-class="cmtt-12">dataFile </span>type. When using the <a 
+class="ectt-1200">dataFile </span>type. When using the <a 
 href="mainap6.html#bulkio">BulkIO</a> <span 
-class="cmtt-12">dataFile </span>type, a
+class="ectt-1200">dataFile </span>type, a
 filename is passed to the <span 
-class="cmtt-12">pushPacket() </span>method. The location of the file is specified by a <a 
+class="ectt-1200">pushPacket() </span>method. The location of the file is specified by a <a 
  id="section*.38"></a>Uniform
 Resource Identifier (<a 
 href="mainap6.html#uri">URI</a>) that either points to the local file system or the <a 
@@ -519,20 +514,17 @@ id="TBL-6-3"></colgroup><tr
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-6-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-1-1"  
 class="td11"> <span 
-class="cmbx-12">Protocol </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-2"  
+class="ecbx-1200">Protocol </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-2"  
 class="td11"> <!--l. 20--><p class="noindent" ><span 
-class="cmbx-12">Format</span>                              </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-3"  
+class="ecbx-1200">Format</span>                              </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-3"  
 class="td11"> <!--l. 20--><p class="noindent" ><span 
-class="cmbx-12">Description</span>                        </td>
+class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-6-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-2-1"  
 class="td11"> file            </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-2-2"  
 class="td11"> <!--l. 20--><p class="noindent" ><span 
-class="cmtt-12">file://[localhost]/</span><span 
-class="cmmi-12">&#x003C;</span><span 
-class="cmtt-12">path</span><span 
-class="cmmi-12">&#x003E;</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-2-3"  
+class="ectt-1200">file://[localhost]/&#x003C;path&#x003E;</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-2-3"  
 class="td11"> <!--l. 20--><p class="noindent" >A host specific absolute path of
   the                            deployed
   <a 
@@ -544,13 +536,10 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
  style="vertical-align:baseline;" id="TBL-6-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-3-1"  
 class="td11"> sdr           </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-2"  
 class="td11"> <!--l. 20--><p class="noindent" ><span 
-class="cmtt-12">sdr://[</span><a 
+class="ectt-1200">sdr://[</span><a 
 href="mainap6.html#ior"><span 
-class="cmtt-12">IOR</span></a><span 
-class="cmtt-12">]/</span><span 
-class="cmmi-12">&#x003C;</span><span 
-class="cmtt-12">path</span><span 
-class="cmmi-12">&#x003E;</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-3"  
+class="ectt-1200">IOR</span></a><span 
+class="ectt-1200">]/&#x003C;path&#x003E;</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-3"  
 class="td11"> <!--l. 20--><p class="noindent" >A path on the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s
   file system. If the optional <a 
@@ -569,20 +558,20 @@ href="mainli2.html#glo:service">Service</a>         </td>
 </tr></table>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.6   </span> <a 
- id="x17-20800015.6"></a>Link Statistics</h3>
+ id="x17-20900015.6"></a>Link Statistics</h3>
 <!--l. 3--><p class="noindent" >All <a 
 href="mainap6.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
 <span 
-class="cmtt-12">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
+class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
 href="mainli2.html#glo:port">Port</a>.
 <a 
-href="#x17-208001r4">Table 15.4</a> contains a description of a statistics structure
+href="#x17-209001r4">Table 15.4</a> contains a description of a statistics structure
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 8--><p class="noindent" ><a 
- id="x17-208001r4"></a><hr class="float"><div class="float" 
+ id="x17-209001r4"></a><hr class="float"><div class="float" 
 >
                                                                                          
                                                                                          
@@ -595,11 +584,11 @@ id="TBL-7-3"></colgroup><tr
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-7-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-1-1"  
 class="td11"> <span 
-class="cmbx-12">Name                </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-7-1-2"  
+class="ecbx-1200">Name                </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-7-1-2"  
 class="td11"> <!--l. 11--><p class="noindent" ><span 
-class="cmbx-12">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-1-3"  
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-1-3"  
 class="td11"> <!--l. 11--><p class="noindent" ><span 
-class="cmbx-12">Description</span>                        </td>
+class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-7-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-2-1"  
@@ -629,7 +618,7 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> callsPerSecond        </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-5-2"  
 class="td11"> <!--l. 15--><p class="noindent" >float                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-5-3"  
 class="td11"> <!--l. 15--><p class="noindent" >Number  of  <span 
-class="cmtt-12">pushPacket() </span>calls
+class="ectt-1200">pushPacket() </span>calls
   per second.                              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -638,7 +627,7 @@ class="td11"> streamIDs              </td><td  style="white-space:wrap; text-ali
 class="td11"> <!--l. 16--><p class="noindent" >CF::StringSequence     </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-6-3"  
 class="td11"> <!--l. 16--><p class="noindent" >List  of  all  stream  ids  where  a
   <span 
-class="cmtt-12">pushSRI() </span>has  occurred  but  no
+class="ectt-1200">pushSRI() </span>has  occurred  but  no
   <a 
 href="mainap6.html#eos">EOS</a> has been received.              </td>
 </tr><tr 
@@ -657,32 +646,30 @@ class="td11"> <!--l. 18--><p class="noindent" >The
   elapsed time, in seconds, since the
   last packet was transferred via a
   <span 
-class="cmtt-12">pushPacket() </span>call                     </td>
+class="ectt-1200">pushPacket() </span>call                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-7-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-9-1"  
 class="td11"> keywords                </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-9-2"  
 class="td11"> <!--l. 19--><p class="noindent" >sequence
-  <span 
-class="cmmi-12">&#x003C;</span>CF::DataType<span 
-class="cmmi-12">&#x003E;</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-9-3"  
+  &#x003C;CF::DataType&#x003E;       </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-9-3"  
 class="td11"> <!--l. 19--><p class="noindent" >Additional statistics information
   provided by the <a 
 href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr></table></div>
 <br /> <div class="caption" 
 ><span class="id">Table&#x00A0;15.4: </span><span  
-class="content">Fields in returned link statistics</span></div><!--tex4ht:label?: x17-208001r4 -->
+class="content">Fields in returned link statistics</span></div><!--tex4ht:label?: x17-209001r4 -->
                                                                                          
                                                                                          
 </div><hr class="endfloat" />
 </div>
 <!--l. 25--><p class="noindent" >The provides-side <a 
 href="mainli2.html#glo:port">Port</a> contains a single <span 
-class="cmtt-12">PortStatistics </span>structure. The uses-side <a 
+class="ectt-1200">PortStatistics </span>structure. The uses-side <a 
 href="mainli2.html#glo:port">Port</a>
 contains a sequence of <span 
-class="cmtt-12">PortStatistics </span>structures; each one associated with a single
+class="ectt-1200">PortStatistics </span>structures; each one associated with a single
 connection.
 <!--l. 28--><p class="noindent" >An interesting exercise is to create <a 
 href="mainli2.html#glo:component">Components</a> that generate and consume data in the three
@@ -690,16 +677,16 @@ languages supported by REDHAWK. The data generator and consumer should generate/
 data as fast as possible. The statistics data structure can provide metrics regarding data transfer
 rates, average latency, and other relevant data. Shifting the transfer length (by changing the size of
 the sequence in the <span 
-class="cmtt-12">pushPacket() </span>call) and seeing its effects on the performance of the connection
+class="ectt-1200">pushPacket() </span>call) and seeing its effects on the performance of the connection
 is also instructive.
 <h3 class="sectionHead"><span class="titlemark">15.7   </span> <a 
- id="x17-20900015.7"></a>Examples</h3>
+ id="x17-21000015.7"></a>Examples</h3>
 <!--l. 3--><p class="noindent" >These two examples illustrate high-speed data exchange between two C++ <a 
 href="mainli2.html#glo:component">Components</a> and basic
 data manipulation through the Sandbox
 <!--l. 5--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">15.7.1   </span> <a 
- id="x17-21000015.7.1"></a>High-speed data</h4>
+ id="x17-21100015.7.1"></a>High-speed data</h4>
 <!--l. 7--><p class="noindent" >In this example, two C++ <a 
 href="mainli2.html#glo:component">Components</a> are created: a source and a sink. We will then deploy these
 <a 
@@ -708,48 +695,44 @@ them.
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-210002x1">Create  a  C++  <a 
+  class="enumerate" id="x17-211002x1">Create  a  C++  <a 
 href="mainli2.html#glo:component">Component</a>  called  <span 
-class="cmti-12">source  </span>with  a  uses  <a 
+class="ecti-1200">source  </span>with  a  uses  <a 
 href="mainli2.html#glo:port">Port</a>  called  <span 
-class="cmti-12">output  </span>of  type
+class="ecti-1200">output  </span>of  type
       <span 
-class="cmti-12">dataShort</span>. Add a simple <a 
+class="ecti-1200">dataShort</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with <a 
 href="mainap6.html#id">ID</a> <span 
-class="cmti-12">xfer</span><span 
-class="cmti-12">_length</span>, type <span 
-class="cmti-12">ulong</span>, and default value
+class="ecti-1200">xfer_length</span>, type <span 
+class="ecti-1200">ulong</span>, and default value
       of <span 
-class="cmti-12">100000</span>. Generate the <a 
+class="ecti-1200">100000</span>. Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-210004x2">Open the file <span 
-class="cmtt-12">source.h </span>and add the following member to the <span 
-class="cmtt-12">source</span><span 
-class="cmtt-12">_i </span>class: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x17-211004x2">Open the file <span 
+class="ectt-1200">source.h </span>and add the following member to the <span 
+class="ectt-1200">source_i </span>class: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
             std::vector<short> data;
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-210006x3">Open the file <span 
-class="cmtt-12">source.cpp </span>and edit it in the following ways:
+  class="enumerate" id="x17-211006x3">Open the file <span 
+class="ectt-1200">source.cpp </span>and edit it in the following ways:
                                                                                          
                                                                                          
            <ul class="itemize1">
            <li class="itemize">In  the  <span 
-class="cmtt-12">source</span><span 
-class="cmtt-12">_i </span>constructor:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+class="ectt-1200">source_i </span>constructor:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
                    data.resize(0);
              ]]></script>
            </li></ul>
       </li>
       <li 
-  class="enumerate" id="x17-210008x4">In <span 
-class="cmtt-12">serviceFunction() </span>comment-out the <span 
-class="cmtt-12">LOG</span><span 
-class="cmtt-12">_DEBUG </span>statement and add the following lines: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x17-211008x4">In <span 
+class="ectt-1200">serviceFunction() </span>comment-out the <span 
+class="ectt-1200">LOG_DEBUG </span>statement and add the following lines: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
         if (data.size() != this->xfer_length) {
            data.resize(xfer_length);
            BULKIO::StreamSRI sri = BULKIO::StreamSRI();
@@ -779,32 +762,31 @@ class="cmtt-12">_DEBUG </span>statement and add the following lines: <script typ
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x17-210010x5">Compile the <a 
+  class="enumerate" id="x17-211010x5">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
-class="cmtt-12">source </span>and install it on Target SDR.
+class="ectt-1200">source </span>and install it on Target SDR.
       </li>
       <li 
-  class="enumerate" id="x17-210012x6">Create a C++ <a 
+  class="enumerate" id="x17-211012x6">Create a C++ <a 
 href="mainli2.html#glo:component">Component</a> called <span 
-class="cmti-12">sink </span>with a provides <a 
+class="ecti-1200">sink </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
-class="cmti-12">input </span>of type <span 
-class="cmti-12">dataShort</span>.
+class="ecti-1200">input </span>of type <span 
+class="ecti-1200">dataShort</span>.
       Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-210014x7">Open the file <span 
-class="cmtt-12">sink.cpp </span>and edit it in the following ways:
+  class="enumerate" id="x17-211014x7">Open the file <span 
+class="ectt-1200">sink.cpp </span>and edit it in the following ways:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x17-210016x1">In <span 
-class="cmtt-12">serviceFunction()</span>, comment-out the <span 
-class="cmtt-12">LOG</span><span 
-class="cmtt-12">_DEBUG </span>statement
+  class="enumerate" id="x17-211016x1">In <span 
+class="ectt-1200">serviceFunction()</span>, comment-out the <span 
+class="ectt-1200">LOG_DEBUG </span>statement
            </li>
            <li 
-  class="enumerate" id="x17-210018x2">Add  the  following  lines:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x17-211018x2">Add  the  following  lines:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
              ::BULKIO_dataShort_In_i::dataTransfer *tmp =
                 this->input->getPacket(-1);
             if (tmp == NULL) {
@@ -817,54 +799,52 @@ class="cmtt-12">_DEBUG </span>statement
            </li></ol>
       </li>
       <li 
-  class="enumerate" id="x17-210020x8">Compile the <a 
+  class="enumerate" id="x17-211020x8">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
-class="cmtt-12">sink </span>and install it on Target SDR.
+class="ectt-1200">sink </span>and install it on Target SDR.
       <!--l. 72--><p class="noindent" >Start a Python session in a command line terminal and run the following commands:</li></ol>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- >>> from ossie.utils import sb
- >>> source = sb.Component("source")
- >>> sink = sb.Component("sink")
- >>> source.connect(sink)
- >>> sb.start()
- >>> print source._ports[0]._get_statistics()[0].statistics
+ > from ossie.utils import sb
+ > source = sb.Component("source")
+ > sink = sb.Component("sink")
+ > source.connect(sink)
+ > sb.start()
+ > print source._ports[0]._get_statistics()[0].statistics
 ]]></script>
                                                                                          
                                                                                          
 <!--l. 84--><p class="noindent" >The output of the print statement is an instance of the <span 
-class="cmtt-12">PortStatistics </span>structure in <a 
+class="ectt-1200">PortStatistics </span>structure in <a 
 href="mainap6.html#bulkio">BulkIO</a>. This
 structure contains the statistics gathered from this connection. A measure of data rate is bits per
 second.
 <!--l. 88--><p class="noindent" >To display the number of Gigabits per second, run the following command:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- >>> print source._ports[0]._get_statistics()[0].\
+ > print source._ports[0]._get_statistics()[0].\
  ... statistics.bitsPerSecond/1e9
 ]]></script>
 <!--l. 95--><p class="noindent" >The resulting value is the measured data transfer rate between the two <a 
 href="mainli2.html#glo:component">Components</a>. The current
 <span 
-class="cmtt-12">xfer</span><span 
-class="cmtt-12">_length </span><a 
+class="ectt-1200">xfer_length </span><a 
 href="mainli2.html#glo:property">Property</a> can be viewed by typing the following:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- >>> source.xfer_length
+ > source.xfer_length
 ]]></script>
 <!--l. 102--><p class="noindent" >The default value is <span 
-class="cmtt-12">100000</span>. Update the <a 
+class="ectt-1200">100000</span>. Update the <a 
 href="mainli2.html#glo:property">Property</a> to <span 
-class="cmtt-12">200000 </span>by running the following
+class="ectt-1200">200000 </span>by running the following
 command:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- >>> source.xfer_length = 200000
+ > source.xfer_length = 200000
 ]]></script>
 <!--l. 108--><p class="noindent" >Check the new data rate by repeating the call to <span 
-class="cmtt-12">_get</span><span 
-class="cmtt-12">_statistics()</span>. The resulting data rate
+class="ectt-1200">_get_statistics()</span>. The resulting data rate
 should now be different.
 <!--l. 111--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">15.7.2   </span> <a 
- id="x17-21100015.7.2"></a>Data manipulation</h4>
+ id="x17-21200015.7.2"></a>Data manipulation</h4>
 <!--l. 113--><p class="noindent" >In this example, a Python <a 
 href="mainli2.html#glo:component">Component</a> is created that takes vectors of floats as inputs, multiplies
 the vector by some arbitrary number, and then outputs the resulting vector. This example
@@ -874,29 +854,29 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 115--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-211002x1">Create a Python <a 
+  class="enumerate" id="x17-212002x1">Create a Python <a 
 href="mainli2.html#glo:component">Component</a> called <span 
-class="cmti-12">mult  </span>with a provides <a 
+class="ecti-1200">mult  </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
-class="cmti-12">input  </span>of type
+class="ecti-1200">input  </span>of type
       <span 
-class="cmti-12">dataFloat </span>and a uses <a 
+class="ecti-1200">dataFloat </span>and a uses <a 
 href="mainli2.html#glo:port">Port</a> called <span 
-class="cmti-12">output </span>of type <span 
-class="cmti-12">dataFloat</span>. Add a simple <a 
+class="ecti-1200">output </span>of type <span 
+class="ecti-1200">dataFloat</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with
                                                                                          
                                                                                          
       <a 
 href="mainap6.html#id">ID</a> <span 
-class="cmti-12">factor</span>, type <span 
-class="cmti-12">float</span>, and default value of <span 
-class="cmti-12">1</span>. Generate the <a 
+class="ecti-1200">factor</span>, type <span 
+class="ecti-1200">float</span>, and default value of <span 
+class="ecti-1200">1</span>. Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-211004x2">Open the file <span 
-class="cmtt-12">mult.py </span>and add the following lines:
+  class="enumerate" id="x17-212004x2">Open the file <span 
+class="ectt-1200">mult.py </span>and add the following lines:
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
         data, T, EOS, streamID, sri, sriChanged, inputQueueFlushed =
         self.port_input.getPacket()
@@ -914,33 +894,33 @@ class="cmtt-12">mult.py </span>and add the following lines:
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-211006x3">Save the project and drag the <span 
-class="cmtt-12">mult </span>project to SCA Explorer<span 
+  class="enumerate" id="x17-212006x3">Save the project and drag the <span 
+class="ectt-1200">mult </span>project to SCA Explorer<span 
 class="cmmi-12">&#x003E; </span>Target SDR.
       </li>
       <li 
-  class="enumerate" id="x17-211008x4">Start a Python session in a command line terminal and run the following commands:
+  class="enumerate" id="x17-212008x4">Start a Python session in a command line terminal and run the following commands:
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        >>> from ossie.utils import sb
-       >>> mult = sb.Component("mult")
-       >>> source = sb.DataSource(dataFormat="float")
-       >>> sink = sb.DataSink()
-       >>> source.connect(mult)
-       >>> mult.connect(sink)
-       >>> sb.start()
-       >>> source.push([1,2,3,4,5])
-       >>> sink.getData()
+        > from ossie.utils import sb
+       > mult = sb.Component("mult")
+       > source = sb.DataSource(dataFormat="float")
+       > sink = sb.DataSink()
+       > source.connect(mult)
+       > mult.connect(sink)
+       > sb.start()
+       > source.push([1,2,3,4,5])
+       > sink.getData()
                                                                                          
                                                                                          
        [1.0, 2.0, 3.0, 4.0, 5.0]
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x17-211010x5">The multiplication factor can be changed while the Sandbox is up.
+  class="enumerate" id="x17-212010x5">The multiplication factor can be changed while the Sandbox is up.
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        >>> mult.factor = 2
-       >>> source.push([1,2,3,4,5])
-       >>> sink.getData()
+        > mult.factor = 2
+       > source.push([1,2,3,4,5])
+       > sink.getData()
        [2.0, 4.0, 6.0, 8.0, 10.0]
       ]]></script>
       </li></ol>

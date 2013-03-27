@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,33 +53,33 @@ href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a
 href="#tailmainap2.html">tail</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;B</span><br /><a 
- id="x28-335000B"></a>Extending the REDHAWK IDE</h2>
+ id="x28-336000B"></a>Extending the REDHAWK IDE</h2>
 <!--l. 18--><p class="noindent" >Eclipse provides the concept of <a 
 href="mainli2.html#glo:extensionPoint">Extension Points</a> and <a 
 href="mainli2.html#glo:extension">Extensions</a> to allow functionality to be
 contributed to plug-ins, by several other plug-ins.
 <!--l. 21--><p class="noindent" >Extensions and Extension Points are defined via the <span 
-class="cmtt-12">plugin.xml file</span>. Double-clicking this file in
+class="ectt-1200">plugin.xml file</span>. Double-clicking this file in
 the plug-in project opens it in a special editor. Select the <span 
-class="cmbx-12">Extensions </span>tab to define extensions
+class="ecbx-1200">Extensions </span>tab to define extensions
 which are contributed by the plug-in and select the <span 
-class="cmbx-12">Extensions Points </span>tab to see the extension
+class="ecbx-1200">Extensions Points </span>tab to see the extension
 points which the plug-in defines.
 <h3 class="sectionHead"><span class="titlemark">B.1   </span> <a 
- id="x28-336000B.1"></a>REDHAWK Extensions</h3>
+ id="x28-337000B.1"></a>REDHAWK Extensions</h3>
 <!--l. 28--><p class="noindent" >REDHAWK provides various extension points to extend its functionality through user
 contributions. For help on extension points and developing in Eclipse see  <a 
-href="mainap1.html#x27-328000A">Appendix
+href="mainap1.html#x27-329000A">Appendix
 A</a>.
 <!--l. 33--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.1   </span> <a 
- id="x28-337000B.1.1"></a>Code Generators</h4>
+ id="x28-338000B.1.1"></a>Code Generators</h4>
 <!--l. 35--><p class="noindent" ><span 
-class="cmbxti-10x-x-120">Identifier: </span>gov.redhawk.ide.codegen.codegens <br 
+class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.codegens <br 
 class="newline" /><span 
-class="cmbxti-10x-x-120">Description: </span>Contribute a code generator for various REDHAWK resources.<br 
+class="ecbi-1200">Description: </span>Contribute a code generator for various REDHAWK resources.<br 
 class="newline" /><span 
-class="cmbxti-10x-x-120">Configuration Markup:</span><br 
+class="ecbi-1200">Configuration Markup:</span><br 
 class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT extension (codegen)*>
 <!ATTLIST extension
@@ -115,62 +115,62 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 Specifies a new code generator:
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">id </span>- Unique <a 
+class="ecbx-1200">id </span>- Unique <a 
 href="mainap6.html#id">ID</a> for the generator.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">name </span>- Human readable label for generator.
+class="ecbx-1200">name </span>- Human readable label for generator.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">class </span>- The main generator class.
+class="ecbx-1200">class </span>- The main generator class.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">language </span>- The programming language supported by this codegen plugin.
+class="ecbx-1200">language </span>- The programming language supported by this codegen plugin.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">icon </span>- Icon / graphical representation of the generator.
+class="ecbx-1200">icon </span>- Icon / graphical representation of the generator.
                                                                                          
                                                                                          
       </li>
       <li class="itemize"><span 
-class="cmbx-12">languageVersion </span>- Value to be inserted for the language version.
+class="ecbx-1200">languageVersion </span>- Value to be inserted for the language version.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">compiler </span>- The compiler of the codegenerator.
+class="ecbx-1200">compiler </span>- The compiler of the codegenerator.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">compilerVersion </span>- Version of the compiler.
+class="ecbx-1200">compilerVersion </span>- Version of the compiler.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">runtime </span>- The runtime environment.
+class="ecbx-1200">runtime </span>- The runtime environment.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">runtimeVersion </span>- The runtime environment version.
+class="ecbx-1200">runtimeVersion </span>- The runtime environment version.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">humanLanguage </span>- The human language.
+class="ecbx-1200">humanLanguage </span>- The human language.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">notDefaultable </span>- This should always be set to false if the generator will generate
+class="ecbx-1200">notDefaultable </span>- This should always be set to false if the generator will generate
       code.
       </li>
       <li class="itemize">(<span id="textcolor1"><span 
-class="cmti-12">Deprecated</span></span>) <span 
-class="cmbx-12">hasSettings </span>- This should be set to true if the generator has properties
+class="ecti-1200">Deprecated</span></span>) <span 
+class="ecbx-1200">hasSettings </span>- This should be set to true if the generator has properties
       for determining what code is output. This will require a custom properties page as
       well.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">autoGenerate </span>- Whether or not the code generator should automatically generate
+class="ecbx-1200">autoGenerate </span>- Whether or not the code generator should automatically generate
       code for the implementation. This is intended for manual codegens only.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">associatedPerspectiveId </span>- The perspective id to associate with the code generator.
+class="ecbx-1200">associatedPerspectiveId </span>- The perspective id to associate with the code generator.
       When a new project or implementation is created using this generator, the option to
       open this perspective will be offered.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">priority </span>- Priority of the generator.</li></ul>
+class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT description (#PCDATA)>
 ]]></script>
@@ -187,15 +187,15 @@ Provide a detailed human readable description of the codegenerator.
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">os </span>- Operating System <a 
+class="ecbx-1200">os </span>- Operating System <a 
 href="mainap6.html#id">ID</a>
       </li>
       <li class="itemize"><span 
-class="cmbx-12">default </span>- The default <a 
+class="ecbx-1200">default </span>- The default <a 
 href="mainap6.html#os">OS</a> if marked true
       </li>
       <li class="itemize"><span 
-class="cmbx-12">version </span>- <a 
+class="ecbx-1200">version </span>- <a 
 href="mainap6.html#os">OS</a> version</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT processor EMPTY>
@@ -206,11 +206,10 @@ href="mainap6.html#os">OS</a> version</li></ul>
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">proc</span><span 
-class="cmbx-12">_type </span>- Processor type
+class="ecbx-1200">proc_type </span>- Processor type
       </li>
       <li class="itemize"><span 
-class="cmbx-12">default </span>- The default <a 
+class="ecbx-1200">default </span>- The default <a 
 href="mainap6.html#os">OS</a> if marked true</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT componenttype EMPTY>
@@ -222,10 +221,10 @@ href="mainap6.html#os">OS</a> if marked true</li></ul>
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">type </span>- <a 
+class="ecbx-1200">type </span>- <a 
 href="mainli2.html#glo:component">Component</a> Type to generate.</li></ul>
 <!--l. 133--><p class="noindent" ><span 
-class="cmbxti-10x-x-120">Examples: </span>The following is an example of the extension point: <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="ecbi-1200">Examples: </span>The following is an example of the extension point: <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
  <extension
            point="gov.redhawk.ide.codegen.codegens">
        <codegen
@@ -265,13 +264,13 @@ class="cmbxti-10x-x-120">Examples: </span>The following is an example of the ext
 ]]></script>
 <!--l. 172--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
- id="x28-338000B.1.2"></a>Port Handlers</h4>
+ id="x28-339000B.1.2"></a>Port Handlers</h4>
 <!--l. 173--><p class="noindent" ><span 
-class="cmbxti-10x-x-120">Identifier: </span>gov.redhawk.ide.codegen.portGenerator<br 
+class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.portGenerator<br 
 class="newline" /><span 
-class="cmbxti-10x-x-120">Description: </span>Custom code generators used when generating code for ports <br 
+class="ecbi-1200">Description: </span>Custom code generators used when generating code for ports <br 
 class="newline" /><span 
-class="cmbxti-10x-x-120">Configuration Markup:</span><br 
+class="ecbi-1200">Configuration Markup:</span><br 
 class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT extension (portHandler)+>
 <!ATTLIST extension
@@ -295,23 +294,23 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">id </span>- Unique <a 
+class="ecbx-1200">id </span>- Unique <a 
 href="mainap6.html#id">ID</a> for this port handler.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">class </span>- Java class that implements<br 
+class="ecbx-1200">class </span>- Java class that implements<br 
 class="newline" /><span 
-class="cmtt-12">gov.redhawk.ide.codegen.IScaPortCodegenTemplate</span>
+class="ectt-1200">gov.redhawk.ide.codegen.IScaPortCodegenTemplate</span>
       </li>
       <li class="itemize"><span 
-class="cmbx-12">name </span>- Human readable name.
+class="ecbx-1200">name </span>- Human readable name.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">pullInputData </span>- Set this to true if the generated code requires data from Provides
+class="ecbx-1200">pullInputData </span>- Set this to true if the generated code requires data from Provides
       ports to be pulled.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">priority </span>- Priority of the generator.</li></ul>
+class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT portInterface EMPTY>
 <!ATTLIST portInterface
@@ -320,7 +319,7 @@ class="cmbx-12">priority </span>- Priority of the generator.</li></ul>
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">idlInterface </span>- The <a 
+class="ecbx-1200">idlInterface </span>- The <a 
 href="mainap6.html#corba">CORBA</a> data type of the port output.</li></ul>
                                                                                          
                                                                                          
@@ -335,17 +334,16 @@ href="mainap6.html#corba">CORBA</a> data type of the port output.</li></ul>
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">key </span>- The key/id of the property.
+class="ecbx-1200">key </span>- The key/id of the property.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">default</span><span 
-class="cmbx-12">_value </span>- The default value for the property.
+class="ecbx-1200">default_value </span>- The default value for the property.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">name </span>- A user friendly name for the property.
+class="ecbx-1200">name </span>- A user friendly name for the property.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">required </span>- True if the property is required.</li></ul>
+class="ecbx-1200">required </span>- True if the property is required.</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT description (#PCDATA)>
 ]]></script>
@@ -364,9 +362,9 @@ A user friendly description of the object.
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">name </span>- Name of the programming language to be generated.</li></ul>
+class="ecbx-1200">name </span>- Name of the programming language to be generated.</li></ul>
 <!--l. 254--><p class="noindent" ><span 
-class="cmbxti-10x-x-120">Examples: </span>The following is an example of the Port Handler extension point:<br 
+class="ecbi-1200">Examples: </span>The following is an example of the Port Handler extension point:<br 
 class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <extension point="gov.redhawk.ide.codegen.portGenerator">
        <portHandler
@@ -397,13 +395,13 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 ]]></script>
 <!--l. 282--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.3   </span> <a 
- id="x28-339000B.1.3"></a>Codegen Template</h4>
+ id="x28-340000B.1.3"></a>Codegen Template</h4>
 <!--l. 283--><p class="noindent" ><span 
-class="cmbxti-10x-x-120">Identifier: </span>gov.redhawk.ide.codegen.codegenTemplate<br 
+class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.codegenTemplate<br 
 class="newline" /><span 
-class="cmbxti-10x-x-120">Description: </span>Provide a template for a code generator<br 
+class="ecbi-1200">Description: </span>Provide a template for a code generator<br 
 class="newline" /><span 
-class="cmbxti-10x-x-120">Configuration Markup:</span><br 
+class="ecbi-1200">Configuration Markup:</span><br 
 class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT extension (template)*>
 <!ATTLIST extension
@@ -431,41 +429,41 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">class </span>- The name of the class that provides the generated code.
+class="ecbx-1200">class </span>- The name of the class that provides the generated code.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">codegenId </span>- The <a 
+class="ecbx-1200">codegenId </span>- The <a 
 href="mainap6.html#id">ID</a> of the Code Generator that this template will generate source.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">id </span>- Unique <a 
+class="ecbx-1200">id </span>- Unique <a 
 href="mainap6.html#id">ID</a> for this template.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">name </span>- Human readable name of this template.
+class="ecbx-1200">name </span>- Human readable name of this template.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">hasSettings </span>- This should be set to true if the generator has properties for determining
+class="ecbx-1200">hasSettings </span>- This should be set to true if the generator has properties for determining
       what code is output. This may require a custom properties page as well.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">notDefaultable </span>- Set this to true if the generator will generate code and a user should
+class="ecbx-1200">notDefaultable </span>- Set this to true if the generator will generate code and a user should
       not be able to select it by default.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">selectable </span>- Set this to false if the user should not be able to select the generator in
+class="ecbx-1200">selectable </span>- Set this to false if the user should not be able to select the generator in
       the drop down. This is mainly used to deprecate generators.
       </li>
       <li class="itemize">(<span id="textcolor2"><span 
-class="cmti-12">Deprecated</span></span>) <span 
-class="cmbx-12">templateLocation </span>- Deprecated, do not use.
+class="ecti-1200">Deprecated</span></span>) <span 
+class="ecbx-1200">templateLocation </span>- Deprecated, do not use.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">portCodegenId </span>- <a 
+class="ecbx-1200">portCodegenId </span>- <a 
 href="mainap6.html#id">ID</a> of the port generator to reference.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">usesPortTemplates </span>- This attribute is used to indicate whether or not this template
+class="ecbx-1200">usesPortTemplates </span>- This attribute is used to indicate whether or not this template
       will delegate code generation to port generators if one is specified.</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT property (description)?>
@@ -481,26 +479,25 @@ class="cmbx-12">usesPortTemplates </span>- This attribute is used to indicate wh
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">key </span>- The key/id of the property.
+class="ecbx-1200">key </span>- The key/id of the property.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">default</span><span 
-class="cmbx-12">_value </span>- The default value for the property.
+class="ecbx-1200">default_value </span>- The default value for the property.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">name </span>- A user friendly name for the property.
+class="ecbx-1200">name </span>- A user friendly name for the property.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">required </span>- True if the property is required.
+class="ecbx-1200">required </span>- True if the property is required.
       </li>
       <li class="itemize"><span 
-class="cmbx-12">deprecated </span>- True if the property is now considered deprecated.</li></ul>
+class="ecbx-1200">deprecated </span>- True if the property is now considered deprecated.</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT description (#PCDATA)>
 ]]></script>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">description </span>- A user friendly description of the object.</li></ul>
+class="ecbx-1200">description </span>- A user friendly description of the object.</li></ul>
 <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT componenttype EMPTY>
 <!--l. 354--><p class="noindent" ><!ATTLIST componenttype
@@ -511,9 +508,9 @@ type (resource|device|service)
                                                                                          
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmbx-12">type </span>- Type of resource to contribute.</li></ul>
+class="ecbx-1200">type </span>- Type of resource to contribute.</li></ul>
 <!--l. 360--><p class="noindent" ><span 
-class="cmbxti-10x-x-120">Examples: </span>The following is an example of the Template extension point: <br 
+class="ecbi-1200">Examples: </span>The following is an example of the Template extension point: <br 
 class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <extension
            point="gov.redhawk.ide.codegen.codegenTemplate">
@@ -583,25 +580,25 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 ]]></script>
 <!--l. 426--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
- id="x28-340000B.2"></a>Building and installing</h3>
+ id="x28-341000B.2"></a>Building and installing</h3>
 <!--l. 427--><p class="noindent" >A code-generator project is an Eclipse Plug-in. Eclipse plug-ins are built into <a 
 href="mainap6.html#jar">JAR</a> files which
 can be distributed as is or wrapped up in a feature and deployed within an Eclipse
 Update-site.
 <!--l. 429--><p class="noindent" >For more details follow the directions for deploying a Control Panel in Section  <a 
-href="mainch24.html#x26-32500024.6">Section
+href="mainch24.html#x26-32600024.6">Section
 24.6</a>.
 <!--l. 432--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.3   </span> <a 
- id="x28-341000B.3"></a>Using JacORB</h3>
+ id="x28-342000B.3"></a>Using JacORB</h3>
 <!--l. 433--><p class="noindent" >The REDHAWK IDE uses JacORB as its implementation for the <a 
 href="mainap6.html#corba">CORBA</a> standard. To use
 JacORB, the <span 
-class="cmtt-12">org.jacorb.systemFragment </span>and <span 
-class="cmtt-12">org.jacorb.systemFragment.feature </span>must be
+class="ectt-1200">org.jacorb.systemFragment </span>and <span 
+class="ectt-1200">org.jacorb.systemFragment.feature </span>must be
 included in the product.
 <!--l. 437--><p class="noindent" >In addition, the following VM arguments must be placed in either the run configuration or the <span 
-class="cmtt-12">eclipse.ini </span>file: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+class="ectt-1200">eclipse.ini </span>file: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB
 -Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton
 -Dorg.omg.PortableInterceptor.ORBInitializerClass.standard_init=org.jacorb.orb.standardInterceptors.IORInterceptorInitializer

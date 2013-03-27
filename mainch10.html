@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,16 +53,16 @@ href="mainch9.html#tailmainch9.html" >prev-tail</a>] [<a
 href="#tailmainch10.html">tail</a>] [<a 
 href="main.html#mainch10.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;10</span><br /><a 
- id="x12-14600010"></a>The Runtime Environment in Brief</h2>
+ id="x12-14700010"></a>The Runtime Environment in Brief</h2>
 <h3 class="sectionHead"><span class="titlemark">10.1   </span> <a 
- id="x12-14700010.1"></a>Introduction</h3>
+ id="x12-14800010.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >The REDHAWK runtime environment provides a mechanism for managing the life cycle
 (creation/teardown/initialization) of <a 
 href="mainli2.html#glo:component">Components</a> as well as the interconnection of deployed
 <a 
 href="mainli2.html#glo:component">Components</a>. A full discussion of the REDHAWK runtime environment is outside the scope of this
 introductory tutorial but can be found in  <a 
-href="mainch11.html#x13-15000011">Chapter 11</a>.
+href="mainch11.html#x13-15100011">Chapter 11</a>.
 <!--l. 10--><p class="noindent" >The primary goal of the runtime environment is to support the necessary infrastructure to deploy
 and manage interconnected <a 
 href="mainli2.html#glo:component">Components</a> as a running <a 
@@ -72,14 +72,14 @@ href="mainli2.html#glo:domainmanager">Domain Manager</a> program and a <a
 href="mainli2.html#glo:devicemanager">Device
 Manager</a> program. The <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> program hosts an instance of a <span 
-class="cmtt-12">DomainManager </span>class as
+class="ectt-1200">DomainManager </span>class as
 well as supporting objects (<a 
 href="mainli2.html#glo:applicationfactory">Application Factory</a>, <a 
 href="mainli2.html#glo:application">Application</a>, <a 
 href="mainli2.html#glo:filemanager">File Manager</a>). The <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>
 program hosts an instance of a <span 
-class="cmtt-12">DeviceManager </span>object and an instance of a File System. The only
+class="ectt-1200">DeviceManager </span>object and an instance of a File System. The only
 reason why the major classes making up these programs are imported is because their <a 
 href="mainap6.html#api">API</a> is
 remotely available, so a user can arbitrarily interact with these objects. Irrespective of their <a 
@@ -140,48 +140,47 @@ href="mainli2.html#glo:component">Components</a> over the network.
 href="mainli2.html#glo:application">Applications</a> appropriately.</li></ul>
 <!--l. 35--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">10.1.1   </span> <a 
- id="x12-14800010.1.1"></a>Launching a Domain</h4>
+ id="x12-14900010.1.1"></a>Launching a Domain</h4>
 <!--l. 38--><p class="noindent" >If REDHAWK was installed from <a 
 href="mainap6.html#rpm">RPM</a>, a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> are ready for
 immediate use on the <span 
-class="cmtt-12">localhost</span>. To run using a default <a 
+class="ectt-1200">localhost</span>. To run using a default <a 
 href="mainli2.html#glo:domain">Domain</a> in the <a 
 href="mainap6.html#ide">IDE</a>, follow these
 steps:
 <!--l. 41--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x12-148002x1">In the <a 
+  class="enumerate" id="x12-149002x1">In the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view (by default on the right-side of the window) right-click
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>view (by default on the right-side of the window) right-click
       the <span 
-class="cmbx-12">Target </span><a 
+class="ecbx-1200">Target </span><a 
 href="mainap6.html#sdr"><span 
-class="cmbx-12">SDR</span></a> element and select <span 
-class="cmbx-12">Launch...</span>, as seen in  <a 
-href="#x12-148007r1">Figure 10.1</a>
+class="ecbx-1200">SDR</span></a> element and select <span 
+class="ecbx-1200">Launch...</span>, as seen in  <a 
+href="#x12-149007r1">Figure 10.1</a>
       </li>
       <li 
-  class="enumerate" id="x12-148004x2">In the <a 
+  class="enumerate" id="x12-149004x2">In the <a 
 href="mainli2.html#glo:devicemanager"><span 
-class="cmbx-12">Device Manager</span></a> section, select <span 
-class="cmbx-12">DevMgr</span><span 
-class="cmbx-12">_</span><span 
-class="cmbxti-10x-x-120">hostname</span>, as seen in  <a 
-href="#x12-148008r2">Figure 10.2</a>
+class="ecbx-1200">Device Manager</span></a> section, select <span 
+class="ecbx-1200">DevMgr_</span><span 
+class="ecbi-1200">hostname</span>, as seen in  <a 
+href="#x12-149008r2">Figure 10.2</a>
       </li>
       <li 
-  class="enumerate" id="x12-148006x3">Select <span 
-class="cmbx-12">OK</span></li></ol>
+  class="enumerate" id="x12-149006x3">Select <span 
+class="ecbx-1200">OK</span></li></ol>
 <!--l. 49--><p class="noindent" ><hr class="figure"><div class="figure" 
 >
                                                                                          
                                                                                          
 <a 
- id="x12-148007r1"></a>
+ id="x12-149007r1"></a>
                                                                                          
                                                                                          
 <!--l. 51--><p class="noindent" ><img 
@@ -190,13 +189,13 @@ src="images/NodesAndDevices/StartDomain.png" alt="PIC"
 <br /> <div class="caption" 
 ><span class="id">Figure&#x00A0;10.1: </span><span  
 class="content">Right-click <span 
-class="cmbx-12">Target </span><a 
+class="ecbx-1200">Target </span><a 
 href="mainap6.html#sdr"><span 
-class="cmbx-12">SDR</span></a> from the <a 
+class="ecbx-1200">SDR</span></a> from the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>and select <span 
-class="cmbx-12">Launch...</span></span></div><!--tex4ht:label?: x12-148007r1 -->
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>and select <span 
+class="ecbx-1200">Launch...</span></span></div><!--tex4ht:label?: x12-149007r1 -->
                                                                                          
                                                                                          
 <!--l. 54--><p class="noindent" ></div><hr class="endfigure">
@@ -205,7 +204,7 @@ class="cmbx-12">Launch...</span></span></div><!--tex4ht:label?: x12-148007r1 -->
                                                                                          
                                                                                          
 <a 
- id="x12-148008r2"></a>
+ id="x12-149008r2"></a>
                                                                                          
                                                                                          
 <!--l. 58--><p class="noindent" ><img 
@@ -215,7 +214,7 @@ src="images/NodesAndDevices/SelectDevMgr.png" alt="PIC"
 ><span class="id">Figure&#x00A0;10.2: </span><span  
 class="content">Select <a 
 href="mainli2.html#glo:devicemanager"><span 
-class="cmbx-12">Device Manager</span></a> on the Launch selection</span></div><!--tex4ht:label?: x12-148008r2 -->
+class="ecbx-1200">Device Manager</span></a> on the Launch selection</span></div><!--tex4ht:label?: x12-149008r2 -->
                                                                                          
                                                                                          
 <!--l. 61--><p class="noindent" ></div><hr class="endfigure">
@@ -228,26 +227,26 @@ href="mainli2.html#glo:device">Device</a>. The output from both the <a
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> will be visible in the
 <span 
-class="cmbx-12">Console </span>view. If this view is not visible select <span 
-class="cmbx-12">Window </span><span 
+class="ecbx-1200">Console </span>view. If this view is not visible select <span 
+class="ecbx-1200">Window </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">Show View </span><span 
+class="ecbx-1200">Show View </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">Console</span>. These
+class="ecbx-1200">Console</span>. These
 processes can be stopped using the red square <span 
-class="cmbx-12">stop </span>button. One can switch between
+class="ecbx-1200">stop </span>button. One can switch between
 the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> consoles using the console switcher button
 (it looks like a small computer monitor with an arrow next to it), as seen in  <a 
-href="#x12-148009r3">Figure
+href="#x12-149009r3">Figure
 10.3</a>.
 <!--l. 69--><p class="noindent" ><hr class="figure"><div class="figure" 
 >
                                                                                          
                                                                                          
 <a 
- id="x12-148009r3"></a>
+ id="x12-149009r3"></a>
                                                                                          
                                                                                          
 <!--l. 71--><p class="noindent" ><img 
@@ -255,20 +254,19 @@ src="images/switch_console.png" alt="PIC"
 >
 <br /> <div class="caption" 
 ><span class="id">Figure&#x00A0;10.3: </span><span  
-class="content">Location of console switcher</span></div><!--tex4ht:label?: x12-148009r3 -->
+class="content">Location of console switcher</span></div><!--tex4ht:label?: x12-149009r3 -->
                                                                                          
                                                                                          
 <!--l. 74--><p class="noindent" ></div><hr class="endfigure">
 <!--l. 76--><p class="noindent" >A <a 
 href="mainli2.html#glo:domain">Domain</a> connection called <span 
-class="cmbx-12">REDHAWK</span><span 
-class="cmbx-12">_DEV </span>in the <a 
+class="ecbx-1200">REDHAWK_DEV </span>in the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view should be visible,
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>view should be visible,
 as seen in  <a 
-href="#x12-148010r4">Figure 10.4</a>. Its state should be <span 
-class="cmbx-12">CONNECTED </span>and there should be no errors.
+href="#x12-149010r4">Figure 10.4</a>. Its state should be <span 
+class="ecbx-1200">CONNECTED </span>and there should be no errors.
 A <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> process and a <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> process should now exist on the
@@ -278,7 +276,7 @@ host.
                                                                                          
                                                                                          
 <a 
- id="x12-148010r4"></a>
+ id="x12-149010r4"></a>
                                                                                          
                                                                                          
 <!--l. 82--><p class="noindent" ><img 
@@ -288,12 +286,12 @@ src="images/running_domain.png" alt="PIC"
 ><span class="id">Figure&#x00A0;10.4: </span><span  
 class="content"><a 
 href="mainli2.html#glo:domain">Domain</a> connections shown on <a 
-href="mainap6.html#ide">IDE</a></span></div><!--tex4ht:label?: x12-148010r4 -->
+href="mainap6.html#ide">IDE</a></span></div><!--tex4ht:label?: x12-149010r4 -->
                                                                                          
                                                                                          
 <!--l. 85--><p class="noindent" ></div><hr class="endfigure">
 <h4 class="subsectionHead"><span class="titlemark">10.1.2   </span> <a 
- id="x12-14900010.1.2"></a>Shutting Down the Domain</h4>
+ id="x12-15000010.1.2"></a>Shutting Down the Domain</h4>
 <!--l. 91--><p class="noindent" >Under normal circumstances, the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> would remain running
@@ -302,7 +300,7 @@ different parts of the overall <a
 href="mainli2.html#glo:domain">Domain</a> (e.g., <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a>, <a 
 href="mainli2.html#glo:application">Applications</a>, and files on <span 
-class="cmtt-12">$SDRROOT</span>)
+class="ectt-1200">$SDRROOT</span>)
 come and go. However, for the purpose of this tutorial, the process for shutting down a running
 <a 
 href="mainli2.html#glo:domain">Domain</a> is discussed. To cleanly shutdown, it is best to disconnect the <a 
@@ -311,51 +309,50 @@ processes that have been started.
 <!--l. 95--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x12-149002x1">In the <a 
+  class="enumerate" id="x12-150002x1">In the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view right-click the <span 
-class="cmbx-12">REDHAWK</span><span 
-class="cmbx-12">_DEV </span><a 
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>view right-click the <span 
+class="ecbx-1200">REDHAWK_DEV </span><a 
 href="mainli2.html#glo:domain">Domain</a> and select
       <span 
-class="cmbx-12">Disconnect</span>, as seen in  <a 
-href="#x12-149013r5">Figure 10.5</a>
+class="ecbx-1200">Disconnect</span>, as seen in  <a 
+href="#x12-150013r5">Figure 10.5</a>
       </li>
       <li 
-  class="enumerate" id="x12-149004x2">In the <span 
-class="cmbx-12">Console </span>view, select the <a 
+  class="enumerate" id="x12-150004x2">In the <span 
+class="ecbx-1200">Console </span>view, select the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> Console from the console button
       (looks like a computer monitor), as seen in  <a 
-href="#x12-148009r3">Figure 10.3</a>.
+href="#x12-149009r3">Figure 10.3</a>.
       </li>
       <li 
-  class="enumerate" id="x12-149006x3">Click the red square to stop the <a 
+  class="enumerate" id="x12-150006x3">Click the red square to stop the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>, as seen in  <a 
-href="#x12-149014r6">Figure 10.6</a>.
+href="#x12-150014r6">Figure 10.6</a>.
       </li>
       <li 
-  class="enumerate" id="x12-149008x4">In the <span 
-class="cmbx-12">Console </span>view, select the <a 
+  class="enumerate" id="x12-150008x4">In the <span 
+class="ecbx-1200">Console </span>view, select the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> console from the console button
       (looks like a computer monitor), as seen in  <a 
-href="#x12-148009r3">Figure 10.3</a>.
+href="#x12-149009r3">Figure 10.3</a>.
       </li>
       <li 
-  class="enumerate" id="x12-149010x5">Click the red square to stop the <a 
+  class="enumerate" id="x12-150010x5">Click the red square to stop the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>
       </li>
       <li 
-  class="enumerate" id="x12-149012x6">Select <span 
-class="cmbx-12">File </span><span 
+  class="enumerate" id="x12-150012x6">Select <span 
+class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">Exit</span></li></ol>
+class="ecbx-1200">Exit</span></li></ol>
 <!--l. 104--><p class="noindent" ><hr class="figure"><div class="figure" 
 >
                                                                                          
                                                                                          
 <a 
- id="x12-149013r5"></a>
+ id="x12-150013r5"></a>
                                                                                          
                                                                                          
 <!--l. 106--><p class="noindent" ><img 
@@ -364,13 +361,12 @@ src="images/RuntimeEnvironmentInDepth/domain_disconnect.png" alt="PIC"
 <br />  <div class="caption" 
 ><span class="id">Figure&#x00A0;10.5:  </span><span  
 class="content">Right-click  <span 
-class="cmbx-12">REDHAWK</span><span 
-class="cmbx-12">_DEV  </span>from  the  <a 
+class="ecbx-1200">REDHAWK_DEV  </span>from  the  <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a>  <span 
-class="cmbx-12">Explorer  </span>and  select
+class="ecbx-1200">SCA</span></a>  <span 
+class="ecbx-1200">Explorer  </span>and  select
 <span 
-class="cmbx-12">Disconnect</span></span></div><!--tex4ht:label?: x12-149013r5 -->
+class="ecbx-1200">Disconnect</span></span></div><!--tex4ht:label?: x12-150013r5 -->
                                                                                          
                                                                                          
 <!--l. 109--><p class="noindent" ></div><hr class="endfigure">
@@ -379,7 +375,7 @@ class="cmbx-12">Disconnect</span></span></div><!--tex4ht:label?: x12-149013r5 --
                                                                                          
                                                                                          
 <a 
- id="x12-149014r6"></a>
+ id="x12-150014r6"></a>
                                                                                          
                                                                                          
 <!--l. 113--><p class="noindent" ><img 
@@ -387,7 +383,7 @@ src="images/RuntimeEnvironmentInDepth/stop_doms.png" alt="PIC"
 >
 <br /> <div class="caption" 
 ><span class="id">Figure&#x00A0;10.6: </span><span  
-class="content">Red Square stop button</span></div><!--tex4ht:label?: x12-149014r6 -->
+class="content">Red Square stop button</span></div><!--tex4ht:label?: x12-150014r6 -->
                                                                                          
                                                                                          
 <!--l. 116--><p class="noindent" ></div><hr class="endfigure">
@@ -397,9 +393,9 @@ href="mainli2.html#glo:devicemanager">Device Manager</a> processes should no lon
 <a 
 href="mainli2.html#glo:domain">Domain</a> entry will remain in the <a 
 href="mainap6.html#sca"><span 
-class="cmbx-12">SCA</span></a> <span 
-class="cmbx-12">Explorer </span>view with a <span 
-class="cmbx-12">DISCONNECTED </span>state
+class="ecbx-1200">SCA</span></a> <span 
+class="ecbx-1200">Explorer </span>view with a <span 
+class="ecbx-1200">DISCONNECTED </span>state
 indicating that the <a 
 href="mainli2.html#glo:domain">Domain</a> is no longer visible. This decoupling of the running <a 
 href="mainli2.html#glo:domain">Domain</a> from the

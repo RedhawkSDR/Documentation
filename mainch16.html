@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,32 +53,32 @@ href="mainch15.html#tailmainch15.html" >prev-tail</a>] [<a
 href="#tailmainch16.html">tail</a>] [<a 
 href="main.html#mainch16.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;16</span><br /><a 
- id="x18-21200016"></a>Events</h2>
+ id="x18-21300016"></a>Events</h2>
 <h3 class="sectionHead"><span class="titlemark">16.1   </span> <a 
- id="x18-21300016.1"></a>Introduction</h3>
+ id="x18-21400016.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Events are heavily leveraged by REDHAWK to provide system awareness and exchange both
 synchronous and asynchronous data. This chapter describes the mechanics of creating and
 consuming Events as well as standard Event types defined in REDHAWK and how
 they are used. The methodology used to exchange synchronous and asynchronous data,
 although reliant on Events as the communications mechanism, is discussed in  <a 
-href="mainch17.html#x19-22600017">Chapter
+href="mainch17.html#x19-22700017">Chapter
 17</a>.
 <!--l. 11--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">16.2   </span> <a 
- id="x18-21400016.2"></a>Event Definition</h3>
+ id="x18-21500016.2"></a>Event Definition</h3>
 <!--l. 13--><p class="noindent" ><a 
 href="mainap6.html#corba">CORBA</a> defines an interface for the transport of Events as well as an interface for the creation of
 <a 
 href="mainli2.html#glo:eventchannel">Event Channels</a> that can support a publish/subscribe pattern; within REDHAWK, publishers are
 often described as producers, and subscribers are often described as consumers.
 <!--l. 15--><p class="noindent" >In REDHAWK, an Event is defined as the payload sent on a single call to the <span 
-class="cmtt-12">push() </span>function in
+class="ectt-1200">push() </span>function in
 the <span 
-class="cmtt-12">PushConsumer </span>interface of the <span 
-class="cmtt-12">CosEventComm </span><a 
+class="ectt-1200">PushConsumer </span>interface of the <span 
+class="ectt-1200">CosEventComm </span><a 
 href="mainap6.html#idl">IDL</a> module.
 <!--l. 17--><p class="noindent" >The <span 
-class="cmtt-12">PushConsumer </span>interface is as follows:
+class="ectt-1200">PushConsumer </span>interface is as follows:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  interface PushConsumer {
       void push (in any data) raises(Disconnected);
@@ -91,8 +91,8 @@ for the use of Events in REDHAWK. The main thing to be aware of regarding channe
 they provide a logical association between a plain text string (channel name) and an object
 that implements the interfaces necessary to interconnect producers and consumers,
 <span 
-class="cmtt-12">CosEventChannelAdmin::EventChannel</span>. The <span 
-class="cmtt-12">EventChannel </span>interface allows a producer or
+class="ectt-1200">CosEventChannelAdmin::EventChannel</span>. The <span 
+class="ectt-1200">EventChannel </span>interface allows a producer or
 consumer to register itself with the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>. This registration process gives the producer a
                                                                                          
@@ -108,13 +108,13 @@ interface, also known as an <a
 href="mainli2.html#glo:eventservice">Event Service</a>, to maintain the registration interface as well as the
 different virtual producers and consumers necessary to re-direct all Events to their appropriate
 destinations. The program <span 
-class="cmtt-12">omniEvents </span>implements the <a 
+class="ectt-1200">omniEvents </span>implements the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> interface and enables the
 publish/subscribe pattern as described above; REDHAWK uses omniEvents as its <a 
 href="mainli2.html#glo:eventservice">Event
 Service</a>.
 <!--l. 34--><p class="noindent" >An interesting aspect of the <span 
-class="cmtt-12">EventChannel </span>interface is that there is no reason why
+class="ectt-1200">EventChannel </span>interface is that there is no reason why
 that interface is implemented on a single central Event broker. It is possible to create a
 consumer that implements both a consumer interface and the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> interface. This
@@ -131,12 +131,12 @@ enables low-latency messaging between <a
 href="mainli2.html#glo:component">Components</a>. In REDHAWK 1.8, low-latency
 point-to-point Events are used only on <a 
 href="mainli2.html#glo:message">Messages</a>, which are described in  <a 
-href="mainch17.html#x19-22600017">Chapter 17</a>. In
+href="mainch17.html#x19-22700017">Chapter 17</a>. In
 REDHAWK 1.9, low-latency point-to-point Event consumers of other types will be
 supported.
 <!--l. 72--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">16.3   </span> <a 
- id="x18-21500016.3"></a>Standard REDHAWK Events</h3>
+ id="x18-21600016.3"></a>Standard REDHAWK Events</h3>
 <!--l. 74--><p class="noindent" >REDHAWK has defined several standard Event types that can be used to monitor the overall state
 of a <a 
 href="mainli2.html#glo:domain">Domain</a> or individual <a 
@@ -148,7 +148,7 @@ href="mainli2.html#glo:property">Property</a>
 changes.
 <!--l. 78--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">16.3.1   </span> <a 
- id="x18-21600016.3.1"></a>Domain Management</h4>
+ id="x18-21700016.3.1"></a>Domain Management</h4>
 <!--l. 80--><p class="noindent" >REDHAWK defines an <a 
  id="section*.39"></a>Outgoing Domain Management (<a 
 href="mainap6.html#odm">ODM</a>) channel as well as an <a 
@@ -168,7 +168,7 @@ a <a
 href="mainli2.html#glo:device">Device</a>.
 <!--l. 84--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-21700016.3.1"></a>ODM Channel</h5>
+ id="x18-21800016.3.1"></a>ODM Channel</h5>
 <!--l. 86--><p class="noindent" >The <a 
 href="mainap6.html#odm">ODM</a> channel contains either one of the following Event types:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -195,7 +195,7 @@ category of item that was added/removed. In the case of an added object, the <a
 href="mainap6.html#ior">IOR</a> (stringified
 pointer to the object) is included in the Event.
 <!--l. 110--><p class="noindent" >The category of item that was added or removed is of type <span 
-class="cmtt-12">SourceCategoryType</span>, which is defined
+class="ectt-1200">SourceCategoryType</span>, which is defined
 as:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
                                                                                          
@@ -210,10 +210,10 @@ as:
 ]]></script>
 <!--l. 122--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-21800016.3.1"></a>IDM Channel</h5>
+ id="x18-21900016.3.1"></a>IDM Channel</h5>
 <!--l. 124--><p class="noindent" >The <a 
 href="mainap6.html#idm">IDM</a> channel can only contain a <span 
-class="cmtt-12">StateChangeEventType </span>Event, which is defined
+class="ectt-1200">StateChangeEventType </span>Event, which is defined
 as:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  struct StateChangeEventType {
@@ -225,15 +225,15 @@ as:
  };
 ]]></script>
 <!--l. 136--><p class="noindent" >The <span 
-class="cmtt-12">producerId </span>and <span 
-class="cmtt-12">sourceId </span>of the Event type are redundant; they are both the <a 
+class="ectt-1200">producerId </span>and <span 
+class="ectt-1200">sourceId </span>of the Event type are redundant; they are both the <a 
 href="mainap6.html#id"><span 
-class="cmtt-12">ID</span></a> of the
+class="ectt-1200">ID</span></a> of the
 <a 
 href="mainli2.html#glo:device">Device</a> that is issuing the Event.
 <!--l. 138--><p class="noindent" >The <span 
-class="cmtt-12">StateChangeCategoryType </span>and <span 
-class="cmtt-12">StateChangeType </span>are: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+class="ectt-1200">StateChangeCategoryType </span>and <span 
+class="ectt-1200">StateChangeType </span>are: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  enum StateChangeCategoryType {
   ADMINISTRATIVE_STATE_EVENT,
   OPERATIONAL_STATE_EVENT,
@@ -253,30 +253,23 @@ class="cmtt-12">StateChangeType </span>are: <script type="syntaxhighlighter" cla
  };
 ]]></script>
 <!--l. 157--><p class="noindent" >The two enumerated types are closely linked; an <span 
-class="cmtt-12">ADMINISTRATIVE</span><span 
-class="cmtt-12">_STATE</span><span 
-class="cmtt-12">_EVENT </span>can only contain
+class="ectt-1200">ADMINISTRATIVE_STATE_EVENT </span>can only contain
 states <span 
-class="cmtt-12">LOCKED</span>, <span 
-class="cmtt-12">UNLOCKED</span>, and <span 
-class="cmtt-12">SHUTTING</span><span 
-class="cmtt-12">_DOWN</span>, while an <span 
-class="cmtt-12">OPERATIONAL</span><span 
-class="cmtt-12">_STATE</span><span 
-class="cmtt-12">_EVENT </span>can only
+class="ectt-1200">LOCKED</span>, <span 
+class="ectt-1200">UNLOCKED</span>, and <span 
+class="ectt-1200">SHUTTING_DOWN</span>, while an <span 
+class="ectt-1200">OPERATIONAL_STATE_EVENT </span>can only
 contain states <span 
-class="cmtt-12">ENABLED </span>and <span 
-class="cmtt-12">DISABLED</span>, and a <span 
-class="cmtt-12">USAGE</span><span 
-class="cmtt-12">_STATE</span><span 
-class="cmtt-12">_EVENT </span>can only contain states <span 
-class="cmtt-12">IDLE</span>,
+class="ectt-1200">ENABLED </span>and <span 
+class="ectt-1200">DISABLED</span>, and a <span 
+class="ectt-1200">USAGE_STATE_EVENT </span>can only contain states <span 
+class="ectt-1200">IDLE</span>,
 <span 
-class="cmtt-12">ACTIVE</span>, or <span 
-class="cmtt-12">BUSY</span>.
+class="ectt-1200">ACTIVE</span>, or <span 
+class="ectt-1200">BUSY</span>.
 <!--l. 159--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">16.3.2   </span> <a 
- id="x18-21900016.3.2"></a>Component Events</h4>
+ id="x18-22000016.3.2"></a>Component Events</h4>
 <!--l. 161--><p class="noindent" >The only Event type that is defined for <a 
 href="mainli2.html#glo:component">Components</a> as a fixed type is the Event that can be issued
 when a <a 
@@ -293,13 +286,13 @@ href="mainli2.html#glo:component">Component</a>.
                                                                                          
                                                                                          
 <!--l. 173--><p class="noindent" >There is no standard channel for the distribution of <span 
-class="cmtt-12">PropertySetChangeEventType </span>Events from
+class="ectt-1200">PropertySetChangeEventType </span>Events from
 <a 
 href="mainli2.html#glo:component">Components</a>. When a <a 
 href="mainli2.html#glo:component">Component</a> contains the ability to issue these Events, a <a 
 href="mainli2.html#glo:port">Port</a> called
 <span 
-class="cmtt-12">propEvent </span>is automatically added to the <a 
+class="ectt-1200">propEvent </span>is automatically added to the <a 
 href="mainli2.html#glo:component">Component</a> by the code generators to support the
 issuing of such Events. It is up to the <a 
 href="mainli2.html#glo:application">Application</a> developer to determine what <a 
@@ -307,25 +300,25 @@ href="mainli2.html#glo:eventchannel">Event
 Channel</a> that <a 
 href="mainli2.html#glo:port">Port</a> is to be connected with when a <a 
 href="mainli2.html#glo:component">Component</a> with a <span 
-class="cmtt-12">propEvent </span><a 
+class="ectt-1200">propEvent </span><a 
 href="mainli2.html#glo:port">Port</a> is
 deployed.
 <!--l. 177--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22000016.3.2"></a>Setting up a monitored property</h5>
+ id="x18-22100016.3.2"></a>Setting up a monitored property</h5>
 <!--l. 179--><p class="noindent" >When adding a <a 
 href="mainli2.html#glo:property">Property</a> to your <a 
 href="mainli2.html#glo:component">Component</a>, simply check the <span 
-class="cmbx-12">event </span>type to mark it as an Event
+class="ecbx-1200">event </span>type to mark it as an Event
 type <a 
 href="mainli2.html#glo:property">Property</a>. When you save the <span 
-class="cmtt-12">.prf </span>file inside the <a 
+class="ectt-1200">.prf </span>file inside the <a 
 href="mainap6.html#prf">PRF</a> editor a uses <a 
 href="mainli2.html#glo:port">Port</a> will automatically
 be generated for the named <span 
-class="cmtt-12">propEvent</span>. When a property changes through external action (i.e.,
+class="ectt-1200">propEvent</span>. When a property changes through external action (i.e.,
 someone calls <span 
-class="cmtt-12">configure() </span>on the <a 
+class="ectt-1200">configure() </span>on the <a 
 href="mainli2.html#glo:component">Component</a>) and the <a 
 href="mainli2.html#glo:property">Property</a> value changes, then an Event is
 automatically triggered. However, given that a <a 
@@ -338,22 +331,22 @@ different syntax in C++, Java, or Python. The syntax for each language is descri
 below.
 <!--l. 187--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22100016.3.2"></a>C++</h5>
+ id="x18-22200016.3.2"></a>C++</h5>
 <!--l. 189--><p class="noindent" >Below is an example of how to generate a <a 
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 191--><p class="noindent" >This method call is added to the <span 
-class="cmtt-12">serviceFunction() </span>method of the C++ <a 
+class="ectt-1200">serviceFunction() </span>method of the C++ <a 
 href="mainli2.html#glo:component">Component</a>:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  propEvent->sendPropertyEvent(propid);
 ]]></script>
 <!--l. 197--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22200016.3.2"></a>Java</h5>
+ id="x18-22300016.3.2"></a>Java</h5>
 <!--l. 199--><p class="noindent" >Below is an example of how to generate a <a 
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 201--><p class="noindent" >This method call is added to the <span 
-class="cmtt-12">run() </span>method of the Java <a 
+class="ectt-1200">run() </span>method of the Java <a 
 href="mainli2.html#glo:component">Component</a>:
                                                                                          
                                                                                          
@@ -362,14 +355,14 @@ href="mainli2.html#glo:component">Component</a>:
 ]]></script>
 <!--l. 207--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x18-22300016.3.2"></a>Python</h5>
+ id="x18-22400016.3.2"></a>Python</h5>
 <!--l. 209--><p class="noindent" >Python provides the ability to send a single Event containing multiple <a 
 href="mainli2.html#glo:property">Properties</a> whenever an
 Event needs to be generated,
 <!--l. 211--><p class="noindent" >Below is an example of how to send an Event with a single <a 
 href="mainli2.html#glo:property">Property</a>.
 <!--l. 213--><p class="noindent" >This method call is added to the <span 
-class="cmtt-12">process() </span>method of the Python <a 
+class="ectt-1200">process() </span>method of the Python <a 
 href="mainli2.html#glo:component">Component</a>:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  self.port_propEvent.sendPropertyEvent(propid)
@@ -377,7 +370,7 @@ href="mainli2.html#glo:component">Component</a>:
 <!--l. 219--><p class="noindent" >Below is an example of how to send an Event with multiple <a 
 href="mainli2.html#glo:property">Properties</a>.
 <!--l. 221--><p class="noindent" >This method call is added to the <span 
-class="cmtt-12">process() </span>method of the Python <a 
+class="ectt-1200">process() </span>method of the Python <a 
 href="mainli2.html#glo:component">Component</a>:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  self.port_propEvent.sendPropertiesEvent(propids)
@@ -386,7 +379,7 @@ href="mainli2.html#glo:component">Component</a>:
 ]]></script>
 <!--l. 229--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">16.4   </span> <a 
- id="x18-22400016.4"></a>Consuming Events</h3>
+ id="x18-22500016.4"></a>Consuming Events</h3>
 <!--l. 231--><p class="noindent" >Event consumption is meant as a system-level monitoring process. Therefore, version 1.8 of
 REDHAWK does not include <a 
 href="mainli2.html#glo:component">Component</a> <a 
@@ -397,31 +390,31 @@ over a given channel, a simple <a
 href="mainap6.html#api">API</a> is available. The <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> contains the
 function <span 
-class="cmtt-12">registerWithEventChannel() </span>to register a consumer to a given channel and
+class="ectt-1200">registerWithEventChannel() </span>to register a consumer to a given channel and
 <span 
-class="cmtt-12">unregisterFromEventChannel() </span>to unregister a consumer from an <a 
+class="ectt-1200">unregisterFromEventChannel() </span>to unregister a consumer from an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>.
                                                                                          
                                                                                          
 <!--l. 235--><p class="noindent" >A command-line tool is available that registers with <a 
 href="mainli2.html#glo:eventchannel">Event Channels</a> and displays the contents of
 the channel, <span 
-class="cmtt-12">eventviewer</span>. The arguments to <span 
-class="cmtt-12">eventviewer </span>are the name of the <a 
+class="ectt-1200">eventviewer</span>. The arguments to <span 
+class="ectt-1200">eventviewer </span>are the name of the <a 
 href="mainli2.html#glo:domain">Domain</a> and the
 name of the channel.
 <!--l. 238--><p class="noindent" >An example of the use of <span 
-class="cmtt-12">eventviewer </span>is described below:
+class="ectt-1200">eventviewer </span>is described below:
 <!--l. 240--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x18-224002x1">Start  a  <a 
+  class="enumerate" id="x18-225002x1">Start  a  <a 
 href="mainli2.html#glo:domainmanager">Domain  Manager</a>:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ nodeBooter -D
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-224004x2">In a new terminal, attach the eventviewer to the <a 
+  class="enumerate" id="x18-225004x2">In a new terminal, attach the eventviewer to the <a 
 href="mainli2.html#glo:domain">Domain</a>&#8217;s <a 
 href="mainap6.html#odm">ODM</a> channel: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ eventviewer REDHAWK_DEV ODM_Channel
@@ -429,14 +422,14 @@ href="mainap6.html#odm">ODM</a> channel: <script type="syntaxhighlighter" class=
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-224006x3">In a new terminal, start a <a 
+  class="enumerate" id="x18-225006x3">In a new terminal, start a <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ nodeBooter -d $SDRROOT/dev/nodes/DevMgr_localhost-loca
       ldomain/DeviceManager.dcd.xml
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-224008x4">On the Eventviewer terminal, the DeviceManager and <a 
+  class="enumerate" id="x18-225008x4">On the Eventviewer terminal, the DeviceManager and <a 
 href="mainli2.html#glo:device">Device</a> registration should be shown: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ eventviewer REDHAWK_DEV ODM_Channel
       Receiving events. Press 'enter' key to exit
@@ -455,12 +448,12 @@ href="mainli2.html#glo:device">Device</a> registration should be shown: <script 
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x18-224010x5">Shutdown the <a 
+  class="enumerate" id="x18-225010x5">Shutdown the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> (ctrl-c on the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> terminal)
       </li>
       <li 
-  class="enumerate" id="x18-224012x6">On the eventviewer terminal, the <a 
+  class="enumerate" id="x18-225012x6">On the eventviewer terminal, the <a 
 href="mainli2.html#glo:device">Device</a> and DeviceManager unregistration should be shown: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       $ eventviewer REDHAWK_DEV ODM_Channel
       Receiving events. Press 'enter' key to exit
@@ -488,20 +481,20 @@ href="mainli2.html#glo:device">Device</a> and DeviceManager unregistration shoul
                                                                                          
 <!--l. 296--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">16.4.1   </span> <a 
- id="x18-22500016.4.1"></a>Writing Your Own Event Consumer</h4>
+ id="x18-22600016.4.1"></a>Writing Your Own Event Consumer</h4>
 <!--l. 298--><p class="noindent" >In <a 
 href="mainap6.html#corba">CORBA</a>&#8217;s Event <a 
 href="mainap6.html#api">API</a>, <a 
 href="mainli2.html#glo:message">Messages</a> are passed as an <span 
-class="cmtt-12">CORBA::Any </span>type, so when the Event is
+class="ectt-1200">CORBA::Any </span>type, so when the Event is
 consumed from an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>, it arrives as a <span 
-class="cmtt-12">CORBA::Any </span>type. The <a 
+class="ectt-1200">CORBA::Any </span>type. The <a 
 href="mainli2.html#glo:application">Application</a> <span 
-class="cmtt-12">eventviewer</span>
+class="ectt-1200">eventviewer</span>
 contains an example of how to create an Event consumer.
 <!--l. 301--><p class="noindent" >The consumer object is an object that implements the <span 
-class="cmtt-12">PushConsumer </span>interface.
+class="ectt-1200">PushConsumer </span>interface.
 <!--l. 303--><p class="noindent" >In Python, the definition of such a class is: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 class Consumer_i(CosEventComm__POA.PushConsumer):
   def __init__(self):
@@ -515,21 +508,19 @@ class Consumer_i(CosEventComm__POA.PushConsumer):
      pass
 ]]></script>
 <!--l. 317--><p class="noindent" >In the above example, the call to <span 
-class="cmtt-12">any.from</span><span 
-class="cmtt-12">_any </span>converts from a <span 
-class="cmtt-12">CORBA::Any </span>type to a Python
+class="ectt-1200">any.from_any </span>converts from a <span 
+class="ectt-1200">CORBA::Any </span>type to a Python
 dictionary.
 <!--l. 319--><p class="noindent" >An object of the class <span 
-class="cmtt-12">Consumer </span>needs to be instantiated and given to the <a 
+class="ectt-1200">Consumer </span>needs to be instantiated and given to the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>. In Python,
 the easiest way to access a running <a 
 href="mainli2.html#glo:domain">Domain</a> is to use the REDHAWK runtime package (a thorough
 description of the REDHAWK runtime package is available in  <a 
-href="mainch13.html#x15-19000013">Chapter 13</a>); in the case of a <a 
+href="mainch13.html#x15-19100013">Chapter 13</a>); in the case of a <a 
 href="mainli2.html#glo:domain">Domain</a>
 called <span 
-class="cmtt-12">REDHAWK</span><span 
-class="cmtt-12">_DEV</span>, the process needed to associate this consumer with the <a 
+class="ectt-1200">REDHAWK_DEV</span>, the process needed to associate this consumer with the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> is: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 from ossie.utils import redhawk
 
@@ -543,18 +534,16 @@ channel_name)
                                                                                          
 ]]></script>
 <!--l. 334--><p class="noindent" >In the example shown above, the consumer is attached to the <span 
-class="cmtt-12">ODM</span><span 
-class="cmtt-12">_Channel </span>on the <a 
+class="ectt-1200">ODM_Channel </span>on the <a 
 href="mainli2.html#glo:domain">Domain</a>
 <span 
-class="cmtt-12">REDHAWK</span><span 
-class="cmtt-12">_DEV</span>. The registration <a 
+class="ectt-1200">REDHAWK_DEV</span>. The registration <a 
 href="mainap6.html#id"><span 
-class="cmtt-12">ID</span></a> is some string that can be used to uniquely identify this
+class="ectt-1200">ID</span></a> is some string that can be used to uniquely identify this
 registration.
 <!--l. 336--><p class="noindent" >Using this <a 
 href="mainap6.html#id"><span 
-class="cmtt-12">ID</span></a>, to unregister the code the following method is invoked:
+class="ectt-1200">ID</span></a>, to unregister the code the following method is invoked:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 dom.unregisterFromEventChannel(registration_id, channel_name)
 ]]></script>

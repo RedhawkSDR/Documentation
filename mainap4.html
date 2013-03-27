@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -69,7 +69,7 @@ href="mainap6.html#centos">CentOS</a>
 <h3 class="sectionHead"><span class="titlemark">D.2   </span> <a 
  id="x30-348000D.2"></a>Installing the Framework from Source</h3>
 <!--l. 15--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="cmtt-12">redhawk-src-1.8.3.tar.gz </span>must be
+class="ectt-1200">redhawk-src-1.8.3.tar.gz </span>must be
 downloaded.
 <!--l. 17--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
 configuration options, including:
@@ -77,41 +77,40 @@ configuration options, including:
       <li class="itemize">Disable log4cxx support
       </li>
       <li class="itemize"><span 
-class="cmtt-12">--disable-log4cxx</span>
+class="ectt-1200">&#8211;disable-log4cxx</span>
       </li>
       <li class="itemize">Enable LOG_TRACE statements
       </li>
       <li class="itemize"><span 
-class="cmtt-12">--enable-trace</span>
+class="ectt-1200">&#8211;enable-trace</span>
       </li>
       <li class="itemize">Enable persistence support:
                                                                                          
                                                                                          
       </li>
       <li class="itemize"><span 
-class="cmtt-12">--enable-persistence=&#x003C;persist</span><span 
-class="cmtt-12">_type&#x003E;</span>
+class="ectt-1200">&#8211;enable-persistence=&#x003C;persist_type&#x003E;</span>
       </li>
       <li class="itemize"> <span 
-class="cmtt-12">(Support types: bdb, gdbm, sqlite, none)</span>
+class="ectt-1200">(Support types: bdb, gdbm, sqlite, none)</span>
       </li>
       <li class="itemize">Disable framework java support:
       </li>
       <li class="itemize"><span 
-class="cmtt-12">--disable-java</span>
+class="ectt-1200">&#8211;disable-java</span>
       </li>
       <li class="itemize">Change the ossie root directory
       </li>
       <li class="itemize"><span 
-class="cmtt-12">--with-ossie=&#x003C;dir&#x003E;</span>
+class="ectt-1200">&#8211;with-ossie=&#x003C;dir&#x003E;</span>
       </li>
       <li class="itemize">Change the SDR root directory
       </li>
       <li class="itemize"><span 
-class="cmtt-12">--with-sdr=&#x003C;dir&#x003E;</span></li></ul>
+class="ectt-1200">&#8211;with-sdr=&#x003C;dir&#x003E;</span></li></ul>
 <!--l. 35--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
 be used after the <span 
-class="cmtt-12">./configure </span>command):
+class="ectt-1200">./configure </span>command):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ tar -xvf redhawk-src-1.8.3.tar.gz
 $ cd redhawk-src-1.8.3/redhawk-1.8.3/src
@@ -126,21 +125,21 @@ $ make install
                                                                                          
                                                                                          
 <!--l. 48--><p class="noindent" >The environment variables <span 
-class="cmtt-12">SDRROOT </span>and <span 
-class="cmtt-12">OSSIEHOME </span>must be set in order to run REDHAWK.
+class="ectt-1200">SDRROOT </span>and <span 
+class="ectt-1200">OSSIEHOME </span>must be set in order to run REDHAWK.
 <span 
-class="cmtt-12">OSSIEHOME </span>points to the location of installed libraries, header files, and executables. <span 
-class="cmtt-12">SDRROOT </span>is the
+class="ectt-1200">OSSIEHOME </span>points to the location of installed libraries, header files, and executables. <span 
+class="ectt-1200">SDRROOT </span>is the
 installation target of user-developed resources (e.g., <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a>), which implies
 that the developer must have write permissions to <span 
-class="cmtt-12">SDRROOT </span>and its subdirectories. For convenience,
+class="ectt-1200">SDRROOT </span>and its subdirectories. For convenience,
 a user may add three lines to their <span 
 class="cmsy-10x-x-120">~</span><span 
-class="cmtt-12">/.bashrc </span>file (default <span 
-class="cmtt-12">SDRROOT </span>and <span 
-class="cmtt-12">OSSIEHOME </span>directories
+class="ectt-1200">/.bashrc </span>file (default <span 
+class="ectt-1200">SDRROOT </span>and <span 
+class="ectt-1200">OSSIEHOME </span>directories
 used):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export SDRROOT=/var/redhawk/sdr
@@ -149,7 +148,7 @@ export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
 ]]></script>
 <!--l. 59--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
 class="cmsy-10x-x-120">~</span><span 
-class="cmtt-12">/.bashrc </span>to take effect.
+class="ectt-1200">/.bashrc </span>to take effect.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

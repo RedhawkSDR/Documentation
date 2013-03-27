@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,21 +53,21 @@ href="mainch16.html#tailmainch16.html" >prev-tail</a>] [<a
 href="#tailmainch17.html">tail</a>] [<a 
 href="main.html#mainch17.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;17</span><br /><a 
- id="x19-22600017"></a>Messaging</h2>
+ id="x19-22700017"></a>Messaging</h2>
 <h3 class="sectionHead"><span class="titlemark">17.1   </span> <a 
- id="x19-22700017.1"></a>Introduction</h3>
+ id="x19-22800017.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Messaging relies on <a 
 href="mainap6.html#corba">CORBA</a>&#8217;s event structure as a transport structure. In <a 
 href="mainap6.html#corba">CORBA</a>&#8217;s event <a 
 href="mainap6.html#api">API</a>,
 <a 
 href="mainli2.html#glo:message">Messages</a> are passed as an <span 
-class="cmtt-12">Any </span>type using the function <span 
-class="cmtt-12">push()</span>.
+class="ectt-1200">Any </span>type using the function <span 
+class="ectt-1200">push()</span>.
 <!--l. 9--><p class="noindent" >While <a 
 href="mainap6.html#corba">CORBA</a> manages marshaling and delivery of the data, it does not provide any
 mechanisms inherent to events to describe the contents of the <span 
-class="cmtt-12">Any </span>type. REDHAWK
+class="ectt-1200">Any </span>type. REDHAWK
 decided to leverage an existing payload structure descriptor to describe the payload of
 <a 
 href="mainli2.html#glo:message">Messages</a>, the <a 
@@ -89,14 +89,14 @@ href="mainli2.html#glo:property">Properties</a> descriptor to
 allow a <a 
 href="mainli2.html#glo:property">Property</a> to have the kind <a 
 href="mainli2.html#glo:message"><span 
-class="cmbx-12">Message</span></a>. The only <a 
+class="ecbx-1200">Message</span></a>. The only <a 
 href="mainli2.html#glo:property">Property</a> that can have a valid <a 
 href="mainli2.html#glo:message"><span 
-class="cmbx-12">Message</span></a>
+class="ecbx-1200">Message</span></a>
 kind is a structure.
 <!--l. 17--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.2   </span> <a 
- id="x19-22800017.2"></a>Message Producer</h3>
+ id="x19-22900017.2"></a>Message Producer</h3>
 <!--l. 19--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> producer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
@@ -104,50 +104,47 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 21--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-228002x1">Add a Struct <a 
+  class="enumerate" id="x19-229002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Select the kind for the <a 
 href="mainli2.html#glo:property">Property</a> as only <a 
 href="mainli2.html#glo:message"><span 
-class="cmbx-12">Message</span></a>
+class="ecbx-1200">Message</span></a>
            </li>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x19-228004x2">Add <span 
-class="cmbx-12">uses </span><a 
+  class="enumerate" id="x19-229004x2">Add <span 
+class="ecbx-1200">uses </span><a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap6.html#idl">IDL</a> Interface ExtendedEvent <span 
 class="cmmi-12">&#x003E; </span>MessageEvent
       </li>
       <li 
-  class="enumerate" id="x19-228006x3">Regenerate the <a 
+  class="enumerate" id="x19-229006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
                                                                                          
                                                                                          
 <!--l. 31--><p class="noindent" >For the purposes of the following examples, assume that the structure is as follows:
       <ul class="itemize1">
       <li class="itemize">name: <span 
-class="cmtt-12">foo</span>
+class="ectt-1200">foo</span>
       </li>
       <li class="itemize">Contains two members:
            <ul class="itemize2">
            <li class="itemize">name: <span 
-class="cmtt-12">some</span><span 
-class="cmtt-12">_string</span>, type: <span 
-class="cmtt-12">string</span>
+class="ectt-1200">some_string</span>, type: <span 
+class="ectt-1200">string</span>
            </li>
            <li class="itemize">name: <span 
-class="cmtt-12">some</span><span 
-class="cmtt-12">_float</span>, type: <span 
-class="cmtt-12">float</span></li></ul>
+class="ectt-1200">some_float</span>, type: <span 
+class="ectt-1200">float</span></li></ul>
       </li></ul>
 <!--l. 42--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s uses <a 
 href="mainli2.html#glo:port">Port</a> is called <span 
-class="cmtt-12">message</span><span 
-class="cmtt-12">_out</span>
+class="ectt-1200">message_out</span>
 <!--l. 44--><p class="noindent" >If a connection exists between this <a 
 href="mainli2.html#glo:component">Component</a> and either a <a 
 href="mainli2.html#glo:message">Message</a> consumer or an <a 
@@ -156,10 +153,10 @@ Channel</a>, the following code examples will send a <a
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 46--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.1   </span> <a 
- id="x19-22900017.2.1"></a>C++</h4>
+ id="x19-23000017.2.1"></a>C++</h4>
 <!--l. 48--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
-class="cmtt-12">serviceFunction() </span>method of the
+class="ectt-1200">serviceFunction() </span>method of the
 implementation file):
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  foo_struct my_msg;
@@ -169,12 +166,12 @@ implementation file):
 ]]></script>
 <!--l. 57--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.2   </span> <a 
- id="x19-23000017.2.2"></a>Java</h4>
+ id="x19-23100017.2.2"></a>Java</h4>
                                                                                          
                                                                                          
 <!--l. 59--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
-class="cmtt-12">run() </span>method): <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ectt-1200">run() </span>method): <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 
  foo_struct my_msg = new foo_struct();
  my_msg.some_string.setValue("hello");
@@ -183,10 +180,10 @@ class="cmtt-12">run() </span>method): <script type="syntaxhighlighter" class="br
 ]]></script>
 <!--l. 68--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.3   </span> <a 
- id="x19-23100017.2.3"></a>Python</h4>
+ id="x19-23200017.2.3"></a>Python</h4>
 <!--l. 70--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
-class="cmtt-12">process() </span>method of the implementation
+class="ectt-1200">process() </span>method of the implementation
 file):
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  my_msg = Foo()
@@ -196,37 +193,37 @@ file):
 ]]></script>
 <!--l. 81--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.3   </span> <a 
- id="x19-23200017.3"></a>Message Consumer</h3>
+ id="x19-23300017.3"></a>Message Consumer</h3>
 <!--l. 83--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> consumer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
 href="mainli2.html#glo:component">Component</a>.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-232002x1">Add a Struct <a 
+  class="enumerate" id="x19-233002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Select the kind for the <a 
 href="mainli2.html#glo:property">Property</a> as only <a 
 href="mainli2.html#glo:message"><span 
-class="cmbx-12">Message</span></a>
+class="ecbx-1200">Message</span></a>
            </li>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x19-232004x2">Add <span 
-class="cmbx-12">uses/provides </span>(bidirectional) <a 
+  class="enumerate" id="x19-233004x2">Add <span 
+class="ecbx-1200">uses/provides </span>(bidirectional) <a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap6.html#idl">IDL</a> <br 
 class="newline" /><span 
-class="cmtt-12">Interface ExtendedEvent</span><span 
+class="ectt-1200">Interface ExtendedEvent</span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmtt-12">MessageEvent</span>
+class="ectt-1200">MessageEvent</span>
       </li>
       <li 
-  class="enumerate" id="x19-232006x3">Regenerate the <a 
+  class="enumerate" id="x19-233006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 94--><p class="noindent" >The bidirectional <a 
 href="mainli2.html#glo:port">Port</a> is needed because in point-to-point connections, the <a 
@@ -238,7 +235,7 @@ href="mainli2.html#glo:port">Port</a>.
 This is an artifact of mapping a uses/provides pattern over a producer/consumer pattern. A single
 object is created for the <a 
 href="mainli2.html#glo:port">Port</a>, and a call to <span 
-class="cmtt-12">getPort() </span>returns a pointer to the same object
+class="ectt-1200">getPort() </span>returns a pointer to the same object
 irrespective of whether or not the <a 
 href="mainli2.html#glo:port">Port</a> is to be employed as a Uses or Provides; the object
 implements both sets of interfaces. The <a 
@@ -248,33 +245,29 @@ same name, but one a uses and the other a provides.
 <!--l. 99--><p class="noindent" >For the purposes of the following examples, assume that the structure is as follows:
       <ul class="itemize1">
       <li class="itemize">name: <span 
-class="cmtt-12">foo</span>
+class="ectt-1200">foo</span>
       </li>
       <li class="itemize">Contains two members:
            <ul class="itemize2">
            <li class="itemize">name: <span 
-class="cmtt-12">some</span><span 
-class="cmtt-12">_string</span>, type: <span 
-class="cmtt-12">string</span>
+class="ectt-1200">some_string</span>, type: <span 
+class="ectt-1200">string</span>
            </li>
            <li class="itemize">name: <span 
-class="cmtt-12">some</span><span 
-class="cmtt-12">_float</span>, type: <span 
-class="cmtt-12">float</span></li></ul>
+class="ectt-1200">some_float</span>, type: <span 
+class="ectt-1200">float</span></li></ul>
       </li></ul>
 <!--l. 109--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s uses/provides <a 
 href="mainli2.html#glo:port">Port</a> is called <span 
-class="cmtt-12">message</span><span 
-class="cmtt-12">_in</span>
+class="ectt-1200">message_in</span>
 <!--l. 111--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s callback function for this <a 
 href="mainli2.html#glo:message">Message</a> is <span 
-class="cmtt-12">receivedMessage()</span>
+class="ectt-1200">receivedMessage()</span>
 <!--l. 113--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s name is <span 
-class="cmtt-12">message</span><span 
-class="cmtt-12">_consumer</span>
+class="ectt-1200">message_consumer</span>
 <!--l. 115--><p class="noindent" >If a connection exists between this <a 
 href="mainli2.html#glo:component">Component</a> and either a <a 
 href="mainli2.html#glo:message">Message</a> producer or an <a 
@@ -283,7 +276,7 @@ Channel</a>, the following code examples will process an incoming <a
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 118--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.1   </span> <a 
- id="x19-23300017.3.1"></a>C++</h4>
+ id="x19-23400017.3.1"></a>C++</h4>
 <!--l. 120--><p class="noindent" >Given the asynchronous nature of events, a callback pattern was selected for the consumer.
                                                                                          
                                                                                          
@@ -296,7 +289,7 @@ href="mainli2.html#glo:component">Component</a> header file, declare the followi
 href="mainli2.html#glo:component">Component</a> source file, implement the callback function: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  void message_consumer_i::receivedMessage(const std::string &id,
     const foo_struct &msg) {
-    std::cout<<id<<" "<<msg.some_float<<" "<<msg.some_string<<
+    std::coutid" "msg.some_float" "msg.some_string
       std::endl;
  }
 ]]></script>
@@ -307,19 +300,19 @@ href="mainli2.html#glo:component">Component</a> constructor, register the callba
 ]]></script>
 <!--l. 143--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.2   </span> <a 
- id="x19-23400017.3.2"></a>Java</h4>
+ id="x19-23500017.3.2"></a>Java</h4>
 <!--l. 145--><p class="noindent" >Add  to  the  list  of  import  packages:  <script type="syntaxhighlighter" class="brush: java"><![CDATA[
  import org.omg.CORBA.Any;
 ]]></script>
 <!--l. 150--><p class="noindent" >Add the callback definition to the class after the <span 
-class="cmtt-12">run() </span>method.
+class="ectt-1200">run() </span>method.
 <!--l. 152--><p class="noindent" ><span 
-class="cmbx-12">NOTE: the </span><span 
-class="cmtt-12">message() </span><span 
-class="cmbx-12">method is </span><a 
+class="ecbx-1200">NOTE: the </span><span 
+class="ectt-1200">message() </span><span 
+class="ecbx-1200">method is </span><a 
 href="mainli2.html#glo:message"><span 
-class="cmbx-12">Message</span></a> <span 
-class="cmbx-12">specific and must contain structure-specific code</span>: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ecbx-1200">Message</span></a> <span 
+class="ecbx-1200">specific and must contain structure-specific code</span>: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
  public class callback implements
            EventCallback<message_prop_struct> {
 
@@ -366,44 +359,41 @@ class="cmbx-12">specific and must contain structure-specific code</span>: <scrip
  }
 ]]></script>
 <!--l. 196--><p class="noindent" >Add the <span 
-class="cmtt-12">callbackContainer </span>class variable after the <span 
-class="cmtt-12">MessageConsumerPort </span>declaration: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ectt-1200">callbackContainer </span>class variable after the <span 
+class="ectt-1200">MessageConsumerPort </span>declaration: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
      public callback callbackContainer;
 ]]></script>
 <!--l. 201--><p class="noindent" >In the <span 
-class="cmtt-12">test</span><span 
-class="cmtt-12">_message</span><span 
-class="cmtt-12">_rx</span><span 
-class="cmtt-12">_java() </span>class constructor, create an instance of <span 
-class="cmtt-12">callbackContainer</span>: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ectt-1200">test_message_rx_java() </span>class constructor, create an instance of <span 
+class="ectt-1200">callbackContainer</span>: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
      this.callbackContainer = new callback(this);
 ]]></script>
 <!--l. 206--><p class="noindent" >In the <span 
-class="cmtt-12">initialize() </span>method after <span 
-class="cmtt-12">super.initialize()</span>, register the <a 
+class="ectt-1200">initialize() </span>method after <span 
+class="ectt-1200">super.initialize()</span>, register the <a 
 href="mainli2.html#glo:message">Message</a> with the callback
 method. <span 
-class="cmbx-12">NOTE: This must occur in </span><span 
-class="cmtt-12">initialize() </span><span 
-class="cmbx-12">not the class constructor because the</span>
+class="ecbx-1200">NOTE: This must occur in </span><span 
+class="ectt-1200">initialize() </span><span 
+class="ecbx-1200">not the class constructor because the</span>
 <a 
 href="mainli2.html#glo:message"><span 
-class="cmbx-12">Message</span></a> <span 
-class="cmbx-12">consumer object is not setup yet when the constructor is called. </span><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ecbx-1200">Message</span></a> <span 
+class="ecbx-1200">consumer object is not setup yet when the constructor is called. </span><script type="syntaxhighlighter" class="brush: java"><![CDATA[
      this.port_message_in.registerMessage("message_prop",
          this.callbackContainer);
 ]]></script>
 <!--l. 213--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.3   </span> <a 
- id="x19-23500017.3.3"></a>Python</h4>
+ id="x19-23600017.3.3"></a>Python</h4>
 <!--l. 215--><p class="noindent" >To the <span 
-class="cmtt-12">initialize() </span>method, register the expected <a 
+class="ectt-1200">initialize() </span>method, register the expected <a 
 href="mainli2.html#glo:message">Message</a> with a callback method: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  self.port_message_in.registerMessage("message_prop",
     test_message_rx_python_base.MessageProp, self.messageReceived)
 ]]></script>
 <!--l. 221--><p class="noindent" >In the class, define the callback method. In this example, the method is called <span 
-class="cmtt-12">messageReceived()</span>: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+class="ectt-1200">messageReceived()</span>: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  def messageReceived(self, msgId, msgData):
       self._log.info("messageReceived *************************");
                                                                                          
@@ -413,7 +403,7 @@ class="cmtt-12">messageReceived()</span>: <script type="syntaxhighlighter" class
 ]]></script>
 <!--l. 229--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.4   </span> <a 
- id="x19-23600017.4"></a>Viewing Messages</h3>
+ id="x19-23700017.4"></a>Viewing Messages</h3>
 <!--l. 231--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> are events with their payload definition tied to structures in <a 
 href="mainli2.html#glo:component">Component</a> <a 
@@ -456,22 +446,22 @@ href="mainli2.html#glo:eventchannel">Event Channel</a> in a terminal window: <sc
 ]]></script>
 <!--l. 270--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.5   </span> <a 
- id="x19-23700017.5"></a>Connecting Producers and Consumers</h3>
+ id="x19-23800017.5"></a>Connecting Producers and Consumers</h3>
 <!--l. 272--><p class="noindent" >Producers and consumers can be connected either point-to-point or through an <a 
 href="mainli2.html#glo:eventchannel">Event
 Channel</a>.
 <!--l. 274--><p class="noindent" >Connecting a producer directly to a consumer does not require an <a 
 href="mainli2.html#glo:application">Application</a> and can be done in the Sandbox: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- >>> from ossie.utils import sb
- >>> sb.catalog()
+ > from ossie.utils import sb
+ > sb.catalog()
  ['structs_test', 'm_in', 'prop_changes', 'm_out',
  'pass']
- >>> prod=sb.Component('m_out')
- >>> cons=sb.Component('m_in')
- >>> prod.connect(cons)
+ > prod=sb.Component('m_out')
+ > cons=sb.Component('m_in')
+ > prod.connect(cons)
  True
- >>> sb.start()
- >>> foo 0 hello
+ > sb.start()
+ > foo 0 hello
  foo 1 hello
  foo 2 hello
  foo 3 hello
@@ -490,87 +480,84 @@ href="mainli2.html#glo:application">Application</a> can also support point-to-po
 href="mainli2.html#glo:eventchannel">Event Channel</a>:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-237002x1">Add producer and consumer <a 
+  class="enumerate" id="x19-238002x1">Add producer and consumer <a 
 href="mainli2.html#glo:component">Components</a>
       </li>
       <li 
-  class="enumerate" id="x19-237004x2">For point-to-point messaging, connect output <span 
-class="cmtt-12">MessageEvent </span><a 
+  class="enumerate" id="x19-238004x2">For point-to-point messaging, connect output <span 
+class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> , <span 
-class="cmtt-12">message</span><span 
-class="cmtt-12">_out </span>in
+class="ectt-1200">message_out </span>in
       this example, to the input <span 
-class="cmtt-12">MessageEvent </span><a 
+class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the receive <a 
 href="mainli2.html#glo:component">Component</a>.
       </li>
       <li 
-  class="enumerate" id="x19-237006x3">For messaging via an <a 
+  class="enumerate" id="x19-238006x3">For messaging via an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>, add an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> and connect to
       it
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x19-237008x1">In the <a 
+  class="enumerate" id="x19-238008x1">In the <a 
 href="mainli2.html#glo:waveform">SCA Waveform</a> Diagram, under <span 
-class="cmbx-12">Palette </span><span 
+class="ecbx-1200">Palette </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="cmbx-12">Find By:</span>
+class="ecbx-1200">Find By:</span>
                <ul class="itemize1">
                <li class="itemize">Left-click <span 
-class="cmbx-12">FindBy </span>and drop in diagram. If necessary, the <span 
-class="cmbx-12">FindBy </span>box can
+class="ecbx-1200">FindBy </span>and drop in diagram. If necessary, the <span 
+class="ecbx-1200">FindBy </span>box can
                be expanded by left-click and drag in the diagram.
                </li>
                <li class="itemize">Left-click <span 
-class="cmbx-12">Domain Finder </span>and drag into <span 
-class="cmbx-12">FindBy </span>box dropped previously
+class="ecbx-1200">Domain Finder </span>and drag into <span 
+class="ecbx-1200">FindBy </span>box dropped previously
                into the diagram.
                </li>
                <li class="itemize">From the pull-down in the <span 
-class="cmbx-12">Domain Finder </span>box, select <span 
-class="cmbx-12">eventchannel</span>
+class="ecbx-1200">Domain Finder </span>box, select <span 
+class="ecbx-1200">eventchannel</span>
                </li>
                <li class="itemize">Give the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> a name by left-clicking on the <span 
-class="cmbx-12">Domain Finder </span>box.
+class="ecbx-1200">Domain Finder </span>box.
                If <a 
 href="mainli2.html#glo:property">Properties</a> tab view is not visible, right-click on the box and select <span 
-class="cmbx-12">Show</span>
+class="ecbx-1200">Show</span>
                <span 
-class="cmbx-12">Properties View</span>. Once in the Properties view, enter the <a 
+class="ecbx-1200">Properties View</span>. Once in the Properties view, enter the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>
                name into the <span 
-class="cmbx-12">Value </span>portion next to the <a 
+class="ecbx-1200">Value </span>portion next to the <a 
 href="mainli2.html#glo:property"><span 
-class="cmbx-12">Property</span></a> Name. In my example, I
+class="ecbx-1200">Property</span></a> Name. In my example, I
                have called the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> <span 
-class="cmtt-12">testchan</span>.</li></ul>
+class="ectt-1200">testchan</span>.</li></ul>
            </li>
            <li 
-  class="enumerate" id="x19-237010x2">Connect the Uses (Output) <span 
-class="cmtt-12">MessageEvent </span><a 
+  class="enumerate" id="x19-238010x2">Connect the Uses (Output) <span 
+class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the sending <a 
 href="mainli2.html#glo:component">Component</a>, called
            <span 
-class="cmtt-12">message</span><span 
-class="cmtt-12">_out </span>in my example, to the <a 
+class="ectt-1200">message_out </span>in my example, to the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>.
                                                                                          
                                                                                          
            </li>
            <li 
-  class="enumerate" id="x19-237012x3">Connect the Uses (Output) <span 
-class="cmtt-12">MessageEvent </span><a 
+  class="enumerate" id="x19-238012x3">Connect the Uses (Output) <span 
+class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the receiving <a 
 href="mainli2.html#glo:component">Component</a>, called
            <span 
-class="cmtt-12">message</span><span 
-class="cmtt-12">_in</span>, to the <a 
+class="ectt-1200">message_in</span>, to the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>. Note this is the <span 
-class="cmbx-12">black </span>Output <a 
+class="ecbx-1200">black </span>Output <a 
 href="mainli2.html#glo:port">Port</a> that must be
            connected to the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>.</li></ol>

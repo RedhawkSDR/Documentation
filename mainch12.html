@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,67 +53,67 @@ href="mainch11.html#tailmainch11.html" >prev-tail</a>] [<a
 href="#tailmainch12.html">tail</a>] [<a 
 href="main.html#mainch12.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;12</span><br /><a 
- id="x14-17200012"></a>Component Control</h2>
+ id="x14-17300012"></a>Component Control</h2>
 <h3 class="sectionHead"><span class="titlemark">12.1   </span> <a 
- id="x14-17300012.1"></a>Introduction</h3>
+ id="x14-17400012.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >In the execution of <a 
 href="mainli2.html#glo:component">Components</a> it becomes critical to give the user custom access to certain
 aspects of its control and configuration. This allows for the ability to make runtime changes on
 pieces of software that are deployed.
 <!--l. 9--><p class="noindent" >Control of <a 
 href="mainli2.html#glo:component">Components</a> is handled by inheriting from the <span 
-class="cmtt-12">CF::Resource </span>interface, which in
+class="ectt-1200">CF::Resource </span>interface, which in
 turn inherits from <span 
-class="cmtt-12">CF::LifeCycle</span>, <span 
-class="cmtt-12">CF::PortSupplier</span>, <span 
-class="cmtt-12">CF::PropertySet</span>, and
+class="ectt-1200">CF::LifeCycle</span>, <span 
+class="ectt-1200">CF::PortSupplier</span>, <span 
+class="ectt-1200">CF::PropertySet</span>, and
 <span 
-class="cmtt-12">CF::TestableObject</span>. <span 
-class="cmtt-12">CF::Resource </span>thus implements a wide range of methods including
+class="ectt-1200">CF::TestableObject</span>. <span 
+class="ectt-1200">CF::Resource </span>thus implements a wide range of methods including
 <span 
-class="cmtt-12">initialize()</span>, <span 
-class="cmtt-12">releaseObject()</span>, <span 
-class="cmtt-12">getPort()</span>, <span 
-class="cmtt-12">configure()</span>, <span 
-class="cmtt-12">query()</span>, <span 
-class="cmtt-12">runTest()</span>,
+class="ectt-1200">initialize()</span>, <span 
+class="ectt-1200">releaseObject()</span>, <span 
+class="ectt-1200">getPort()</span>, <span 
+class="ectt-1200">configure()</span>, <span 
+class="ectt-1200">query()</span>, <span 
+class="ectt-1200">runTest()</span>,
 <span 
-class="cmtt-12">start() </span>and <span 
-class="cmtt-12">stop()</span>. These methods allow the user to manipulate and customize their
+class="ectt-1200">start() </span>and <span 
+class="ectt-1200">stop()</span>. These methods allow the user to manipulate and customize their
 <a 
 href="mainli2.html#glo:component">Components</a> to achieve the exact behavior they desire in all phases of the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s life
 cycle.
 <!--l. 13--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">12.2   </span> <a 
- id="x14-17400012.2"></a>Overview of Functionality</h3>
+ id="x14-17500012.2"></a>Overview of Functionality</h3>
 <!--l. 15--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.1   </span> <a 
- id="x14-17500012.2.1"></a>Life Cycle</h4>
+ id="x14-17600012.2.1"></a>Life Cycle</h4>
 <!--l. 17--><p class="noindent" >The set up and tear down of resources are handled through the Life Cycle interface. The method
 <span 
-class="cmtt-12">initialize() </span>is used to get a <a 
+class="ectt-1200">initialize() </span>is used to get a <a 
 href="mainli2.html#glo:component">Component</a> into its known initial state, by allocating data or setting
 structures to their proper initial values. <span 
-class="cmtt-12">releaseObject() </span>is used to tear down a <a 
+class="ectt-1200">releaseObject() </span>is used to tear down a <a 
 href="mainli2.html#glo:component">Component</a> by
 freeing up any resources used by the <a 
 href="mainli2.html#glo:component">Component</a>. <span 
-class="cmtt-12">initialize() </span>can be thought of as a
+class="ectt-1200">initialize() </span>can be thought of as a
 framework-level constructor, while <span 
-class="cmtt-12">releaseObject() </span>can be thought of as a framework level
+class="ectt-1200">releaseObject() </span>can be thought of as a framework level
 destructor. As such, they are generally called at the beginning and end of the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s
 respective life cycle.
 <!--l. 23--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.2   </span> <a 
- id="x14-17600012.2.2"></a>Port Supplier</h4>
+ id="x14-17700012.2.2"></a>Port Supplier</h4>
                                                                                          
                                                                                          
 <!--l. 25--><p class="noindent" >Access to <a 
 href="mainli2.html#glo:port">Ports</a> are controlled through the <a 
 href="mainli2.html#glo:port">Port</a> Supplier interface where <span 
-class="cmtt-12">getPort() </span>is used to
+class="ectt-1200">getPort() </span>is used to
 obtain a specific uses (output) or provides (input) <a 
 href="mainli2.html#glo:port">Port</a>. The method is passed a string containing
 the name of the desired <a 
@@ -121,7 +121,7 @@ href="mainli2.html#glo:port">Port</a>, and then an object reference to that <a
 href="mainli2.html#glo:port">Port</a> is returned. If no <a 
 href="mainli2.html#glo:port">Ports</a> are
 found, an <span 
-class="cmtt-12">UnknownPort </span>exception is thrown. This allows the user to obtain an object that provides
+class="ectt-1200">UnknownPort </span>exception is thrown. This allows the user to obtain an object that provides
 the ability to receive data in and push data out of the <a 
 href="mainli2.html#glo:component">Component</a>. Each <a 
 href="mainli2.html#glo:component">Component</a> can
@@ -132,23 +132,23 @@ href="mainap6.html#scd">SCD</a>
 file.
 <!--l. 31--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.3   </span> <a 
- id="x14-17700012.2.3"></a>Property Set</h4>
+ id="x14-17800012.2.3"></a>Property Set</h4>
 <!--l. 34--><p class="noindent" ><a 
 href="mainli2.html#glo:property">Property</a> control is handled through the <span 
-class="cmtt-12">configure() </span>and <span 
-class="cmtt-12">query() </span>methods. The <span 
-class="cmtt-12">configure()</span>
+class="ectt-1200">configure() </span>and <span 
+class="ectt-1200">query() </span>methods. The <span 
+class="ectt-1200">configure()</span>
 method takes in a list of <a 
 href="mainap6.html#id">ID</a> and value pairs and attempts to set them. An Invalid Configuration
 error is thrown if no <a 
 href="mainli2.html#glo:property">Properties</a> in the list are able to be set. A Partial Configuration error is
 thrown if at least one, but not all <a 
 href="mainli2.html#glo:property">Properties</a> are set. The <span 
-class="cmtt-12">query() </span>method serves as the getter for
+class="ectt-1200">query() </span>method serves as the getter for
 the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:property">Properties</a>. If the <span 
-class="cmtt-12">query() </span>method is passed an empty list, it returns all of the
+class="ectt-1200">query() </span>method is passed an empty list, it returns all of the
 <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:property">Properties</a>. Otherwise, it will return any valid <a 
@@ -157,9 +157,9 @@ href="mainap6.html#id">ID</a> and value
 pair passed in as a parameter.
 <!--l. 41--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.4   </span> <a 
- id="x14-17800012.2.4"></a>Testable Object</h4>
+ id="x14-17900012.2.4"></a>Testable Object</h4>
 <!--l. 43--><p class="noindent" >In the Testable Object interface, <span 
-class="cmtt-12">runTest() </span>is defined to provide a means to perform stand-alone
+class="ectt-1200">runTest() </span>is defined to provide a means to perform stand-alone
 testing of a <a 
 href="mainli2.html#glo:component">Component</a>. Test <a 
 href="mainap6.html#id">ID</a>s and a set of test values are passed in as parameters, with the test
@@ -170,21 +170,21 @@ output with the desired output without any knowledge of the <a
 href="mainli2.html#glo:component">Component</a>&#8217;s internal
 structure.
 <h3 class="sectionHead"><span class="titlemark">12.3   </span> <a 
- id="x14-17900012.3"></a>Examples</h3>
+ id="x14-18000012.3"></a>Examples</h3>
 <!--l. 47--><p class="noindent" >This section provides code examples of the methods described above for each of the supported
 programming languages.
                                                                                          
                                                                                          
 <!--l. 49--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.1   </span> <a 
- id="x14-18000012.3.1"></a><span 
-class="cmtt-12">CF::LifeCycle</span></h4>
+ id="x14-18100012.3.1"></a><span 
+class="ectt-1200">CF::LifeCycle</span></h4>
 <!--l. 51--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18100012.3.1"></a><span 
-class="cmtt-12">initialize()</span></h5>
+ id="x14-18200012.3.1"></a><span 
+class="ectt-1200">initialize()</span></h5>
 <!--l. 53--><p class="noindent" ><span 
-class="cmbx-12">C++</span>
+class="ecbx-1200">C++</span>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 try {
      this->initialize();
@@ -194,7 +194,7 @@ try {
 
 ]]></script>
 <!--l. 64--><p class="noindent" ><span 
-class="cmbx-12">Python</span>
+class="ecbx-1200">Python</span>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
      self.initialize()
@@ -202,7 +202,7 @@ except:
      # error reporting
 ]]></script>
 <!--l. 73--><p class="noindent" ><span 
-class="cmbx-12">Java</span>
+class="ecbx-1200">Java</span>
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 try {
      this.initialize();
@@ -214,10 +214,10 @@ try {
                                                                                          
 <!--l. 83--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18200012.3.1"></a><span 
-class="cmtt-12">releaseObject()</span></h5>
+ id="x14-18300012.3.1"></a><span 
+class="ectt-1200">releaseObject()</span></h5>
 <!--l. 85--><p class="noindent" ><span 
-class="cmbx-12">C++</span>
+class="ecbx-1200">C++</span>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 try {
      this->releaseObject();
@@ -226,7 +226,7 @@ try {
 }
 ]]></script>
 <!--l. 95--><p class="noindent" ><span 
-class="cmbx-12">Python</span>
+class="ecbx-1200">Python</span>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
      self.releaseObject()
@@ -234,7 +234,7 @@ except:
      # error reporting
 ]]></script>
 <!--l. 104--><p class="noindent" ><span 
-class="cmbx-12">Java</span>
+class="ecbx-1200">Java</span>
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 try {
      this.releaseObject();
@@ -246,14 +246,14 @@ try {
                                                                                          
 <!--l. 114--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.2   </span> <a 
- id="x14-18300012.3.2"></a><span 
-class="cmtt-12">CF::PortSupplier</span></h4>
+ id="x14-18400012.3.2"></a><span 
+class="ectt-1200">CF::PortSupplier</span></h4>
 <!--l. 116--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18400012.3.2"></a><span 
-class="cmtt-12">getPort()</span></h5>
+ id="x14-18500012.3.2"></a><span 
+class="ectt-1200">getPort()</span></h5>
 <!--l. 118--><p class="noindent" ><span 
-class="cmbx-12">C++</span>
+class="ecbx-1200">C++</span>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 try {
      CORBA::Object_var port = this->getPort("my_port");
@@ -262,7 +262,7 @@ try {
 }
 ]]></script>
 <!--l. 128--><p class="noindent" ><span 
-class="cmbx-12">Python</span>
+class="ecbx-1200">Python</span>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
      port = self.getPort("my_port")
@@ -270,7 +270,7 @@ except:
      # error reporting
 ]]></script>
 <!--l. 137--><p class="noindent" ><span 
-class="cmbx-12">Java</span>
+class="ecbx-1200">Java</span>
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 try {
      org.omg.CORBA.Object port = this.getPort("my_port");
@@ -282,26 +282,26 @@ try {
                                                                                          
 <!--l. 147--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.3   </span> <a 
- id="x14-18500012.3.3"></a><span 
-class="cmtt-12">CF::PropertySet</span></h4>
+ id="x14-18600012.3.3"></a><span 
+class="ectt-1200">CF::PropertySet</span></h4>
 <!--l. 151--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18600012.3.3"></a><span 
-class="cmtt-12">configure()</span></h5>
+ id="x14-18700012.3.3"></a><span 
+class="ectt-1200">configure()</span></h5>
 <!--l. 153--><p class="noindent" ><span 
-class="cmbx-12">C++</span>
+class="ecbx-1200">C++</span>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CF::Properties props;
 props.length(2);
 
 CF::DataType string_var;
 string_var.id = "string_prop";
-string_var.value <<= "my string prop";
+string_var.value = "my string prop";
 props[0] = string_var;
 
 CF::DataType long_var;
 long_var.id = "long_prop";
-long_var.value <<= 1234;
+long_var.value = 1234;
 props[1] = long_var;
 
 try {
@@ -315,7 +315,7 @@ try {
                                                                                          
                                                                                          
 <!--l. 178--><p class="noindent" ><span 
-class="cmbx-12">Python</span>
+class="ecbx-1200">Python</span>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 prop = CF.DataType(id="prop", value=CORBA.Any(CORBA.TC_long, 1))
 try:
@@ -324,7 +324,7 @@ except:
      # error reporting
 ]]></script>
 <!--l. 188--><p class="noindent" ><span 
-class="cmbx-12">Java</span>
+class="ecbx-1200">Java</span>
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 DataType[] props = new DataType[2];
 props[0] = new DataType("prop",
@@ -342,10 +342,10 @@ try {
 ]]></script>
 <!--l. 206--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18700012.3.3"></a><span 
-class="cmtt-12">query()</span></h5>
+ id="x14-18800012.3.3"></a><span 
+class="ectt-1200">query()</span></h5>
 <!--l. 208--><p class="noindent" ><span 
-class="cmbx-12">C++</span>
+class="ecbx-1200">C++</span>
                                                                                          
                                                                                          
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -355,14 +355,14 @@ try {
   this->query(props);
   for (unsigned int i = 0; i < props.length(); i++){
        // iterates through returned properties and prints ids
-       std::cout << props[i].id << std::endl;
+       std::cout  props[i].id  std::endl;
   }
 } catch (CF::UnknownProperties e) {
   // error reporting
 }
 ]]></script>
 <!--l. 224--><p class="noindent" ><span 
-class="cmbx-12">Python</span>
+class="ecbx-1200">Python</span>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
   # queries all properties
@@ -374,7 +374,7 @@ except:
   # error reporting
 ]]></script>
 <!--l. 237--><p class="noindent" ><span 
-class="cmbx-12">Java</span>
+class="ecbx-1200">Java</span>
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 PropertiesHolder props =
      new PropertiesHolder(new CF.DataType[0]);
@@ -393,21 +393,21 @@ try {
 ]]></script>
 <!--l. 254--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.4   </span> <a 
- id="x14-18800012.3.4"></a><span 
-class="cmtt-12">CF::TestableObject</span></h4>
+ id="x14-18900012.3.4"></a><span 
+class="ectt-1200">CF::TestableObject</span></h4>
 <!--l. 256--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x14-18900012.3.4"></a><span 
-class="cmtt-12">runTest()</span></h5>
+ id="x14-19000012.3.4"></a><span 
+class="ectt-1200">runTest()</span></h5>
 <!--l. 258--><p class="noindent" ><span 
-class="cmbx-12">C++</span>
+class="ecbx-1200">C++</span>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CF::Properties props;
 props.length(1);
 
 CF::DataType test_var;
 test_var.id = "prop";
-test_var.value <<= 1234;
+test_var.value = 1234;
 props[0] = test_var;
 
 try {
@@ -421,7 +421,7 @@ try {
 }
 ]]></script>
 <!--l. 278--><p class="noindent" ><span 
-class="cmbx-12">Python</span>
+class="ecbx-1200">Python</span>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 prop = CF.DataType(id="prop", value=CORBA.Any(CORBA.TC_long, 1))
 try:
@@ -430,7 +430,7 @@ except:
   # error reporting
 ]]></script>
 <!--l. 288--><p class="noindent" ><span 
-class="cmbx-12">Java</span>
+class="ecbx-1200">Java</span>
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 DataType[] props = new DataType[1];
 props[0] = new DataType("prop",

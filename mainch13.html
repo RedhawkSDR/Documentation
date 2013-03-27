@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 00:30:00"> 
+<meta name="date" content="2013-03-26 22:34:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -53,9 +53,9 @@ href="mainch12.html#tailmainch12.html" >prev-tail</a>] [<a
 href="#tailmainch13.html">tail</a>] [<a 
 href="main.html#mainch13.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;13</span><br /><a 
- id="x15-19000013"></a>Runtime Environment Inspection</h2>
+ id="x15-19100013"></a>Runtime Environment Inspection</h2>
 <h3 class="sectionHead"><span class="titlemark">13.1   </span> <a 
- id="x15-19100013.1"></a>Introduction</h3>
+ id="x15-19200013.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >During runtime, there are a large number of operations that are handled under the hood by the
 REDHAWK Core Framework. At times though, it becomes necessary to take a closer look at
 these underlying parts to ensure that they are working properly or to inspect what kind
@@ -63,7 +63,7 @@ of a state they are currently in. REDHAWK provides tools to help accomplish this
 task.
 <!--l. 10--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.2   </span> <a 
- id="x15-19200013.2"></a>REDHAWK Module</h3>
+ id="x15-19300013.2"></a>REDHAWK Module</h3>
 <!--l. 12--><p class="noindent" >A Python module called REDHAWK is provided with the capability to interact with running
 <a 
 href="mainli2.html#glo:domain">Domains</a>, <a 
@@ -79,11 +79,11 @@ the following command:
  [GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
  Type "help", "copyright", "credits" or "license" for more
  information.
- >>> from ossie.utils import redhawk
+ > from ossie.utils import redhawk
 ]]></script>
 <!--l. 26--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.1   </span> <a 
- id="x15-19300013.2.1"></a>Attach</h4>
+ id="x15-19400013.2.1"></a>Attach</h4>
                                                                                          
                                                                                          
 <!--l. 28--><p class="noindent" >The module provides the ability to attach to a running <a 
@@ -94,33 +94,32 @@ href="mainli2.html#glo:domainmanager">Domain Manager</a> in addition to other
 useful functionality:
       <ul class="itemize1">
       <li class="itemize"><span 
-class="cmtt-12">createApplication() </span>- install/create a particular <a 
+class="ectt-1200">createApplication() </span>- install/create a particular <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>
       </li>
       <li class="itemize"><span 
-class="cmtt-12">removeApplication() </span>- release a particular <a 
+class="ectt-1200">removeApplication() </span>- release a particular <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a></li></ul>
 <!--l. 37--><p class="noindent" >To attach to an existing <a 
 href="mainli2.html#glo:domain">Domain</a>, the name must be passed as an argument.
 <!--l. 39--><p class="noindent" >Assuming the <a 
 href="mainli2.html#glo:domain">Domain</a> name is <span 
-class="cmtt-12">MY</span><span 
-class="cmtt-12">_DOMAIN</span>, start a Python script and enter:
+class="ectt-1200">MY_DOMAIN</span>, start a Python script and enter:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- >>> domain = redhawk.attach("MY_DOMAIN")
+ > domain = redhawk.attach("MY_DOMAIN")
 ]]></script>
 <!--l. 45--><p class="noindent" >Once attached to the running <a 
 href="mainli2.html#glo:domain">Domain</a>, <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> that are installed in the <span 
-class="cmtt-12">$SDRROOT </span>can easily be
+class="ectt-1200">$SDRROOT </span>can easily be
 launched using the <span 
-class="cmtt-12">createApplication() </span>function:
+class="ectt-1200">createApplication() </span>function:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> wave =
+> wave =
      domain.createApplication("/waveforms/wave/wave.sad.xml")
 ]]></script>
 <!--l. 52--><p class="noindent" >Upon success, the above call returns an <span 
-class="cmtt-12">Application </span>object which gives access to the external
+class="ectt-1200">Application </span>object which gives access to the external
 resource <a 
 href="mainap6.html#api">API</a>. This allows for manual operation of the <a 
 href="mainli2.html#glo:application">Application</a>. In addition, functions exist to
@@ -134,9 +133,9 @@ href="mainli2.html#glo:component">Components</a>
 that are in the <a 
 href="mainli2.html#glo:application">Application</a>, and their Properties.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> wave
+> wave
 <ossie.utils.redhawk.core.App object at 0x2bfb350>
->>> wave.api()
+> wave.api()
 Waveform [wave_025_090314360_1]
 ---------------------------------------------------
 External Ports ==============
@@ -169,15 +168,15 @@ sample_size      (long/SL/32t)    None              None
 href="mainli2.html#glo:waveformapplication">Waveform</a> needs to be removed from the <a 
 href="mainli2.html#glo:domain">Domain</a> by using the
 <span 
-class="cmtt-12">removeApplication() </span>method:
+class="ectt-1200">removeApplication() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> domain.removeApplication(wave)
+> domain.removeApplication(wave)
 ]]></script>
                                                                                          
                                                                                          
 <!--l. 95--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.2   </span> <a 
- id="x15-19400013.2.2"></a>Kick Start</h4>
+ id="x15-19500013.2.2"></a>Kick Start</h4>
 <!--l. 97--><p class="noindent" >The kick <a 
 href="mainli2.html#glo:domain">Domain</a> feature allows for an easy way to launch <a 
 href="mainli2.html#glo:domain">Domain</a> and <a 
@@ -185,20 +184,20 @@ href="mainli2.html#glo:devicemanager">Device Managers</a> from
 within a Python script. With no arguments, the function will launch and return the <a 
 href="mainli2.html#glo:domainmanager">Domain
 Manager</a> that is installed in <span 
-class="cmtt-12">$SDRROOT</span>. Additionally, all <a 
+class="ectt-1200">$SDRROOT</span>. Additionally, all <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a> in <span 
-class="cmtt-12">$SDRROOT/dev/nodes</span>
+class="ectt-1200">$SDRROOT/dev/nodes</span>
 will be started.
 <!--l. 101--><p class="noindent" >Other arguments to the function exist to control different aspects to how the <a 
 href="mainli2.html#glo:domain">Domain</a> is started. A
 list of specific <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a> to start can be passed if the user does not want to start all
 available. If the <span 
-class="cmtt-12">$SDRROOT </span>that the user wishes to use is not in the standard location, a path can be
+class="ectt-1200">$SDRROOT </span>that the user wishes to use is not in the standard location, a path can be
 supplied to direct the function to the desired place in the file system. Standard out and logging to
 a file can also be set.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> domain = redhawk.kickDomain()
+> domain = redhawk.kickDomain()
 INFO:DomainManager - Starting Domain Manager
 INFO:DeviceManager - Starting Device Manager with
      /nodes/DevMgr_localhost.localdomain/DeviceManager.dcd.xml
@@ -206,7 +205,7 @@ INFO:DomainManager - Starting ORB!
 INFO:DeviceManager_impl - Connecting to Domain Manager
      MY_DOMAIN/MY_DOMAIN
 INFO:DeviceManager - Starting ORB!
->>> INFO:DCE:9d9bcc38-d654-43b1-8b74-1dc024318b6f:Registering
+> INFO:DCE:9d9bcc38-d654-43b1-8b74-1dc024318b6f:Registering
      Device
 INFO:DeviceManager_impl - Registering device GPP_localhost_
      localdomain on
@@ -218,7 +217,7 @@ INFO:DeviceManager_impl - Registering device GPP_localhost_
      localdomain on
      Domain Manager
 
->>> domain
+> domain
                                                                                          
                                                                                          
 <ossie.utils.redhawk.core.Domain object at 0x2da6710>
@@ -230,7 +229,7 @@ href="mainli2.html#glo:domain">Domains</a> is also available through the scan fu
 <a 
 href="mainli2.html#glo:namingservice">Naming Service</a>.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> redhawk.scan()
+> redhawk.scan()
 ['MY_DOMAIN']
 ]]></script>
                                                                                          
