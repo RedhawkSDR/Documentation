@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-26 22:56:00"> 
+<meta name="date" content="2013-03-28 11:11:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -54,25 +54,44 @@ href="#tailmainap4.html">tail</a>] [<a
 href="main.html#mainap4.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;D</span><br /><a 
  id="x30-346000D"></a>Building the REDHAWK Framework from Source</h2>
-<!--l. 3--><p class="noindent" >Installing from source requires additional support packages.
 <h3 class="sectionHead"><span class="titlemark">D.1   </span> <a 
- id="x30-347000D.1"></a>Additional Dependencies Packaged with Red Hat Enterprise Linux / CentOS</h3>
-<!--l. 6--><p class="noindent" >The following dependency must be installed when building from source:
-      <ul class="itemize1">
-      <li class="itemize">xsd</li></ul>
-<!--l. 11--><p class="noindent" >This dependency is available in the <a 
+ id="x30-347000D.1"></a>Installing the XSD Dependency</h3>
+<!--l. 5--><p class="noindent" >The package <span 
+class="ectt-1200">xsd </span>is a dependency for installing the Core Framework from source. This dependency
+is available in the <a 
 href="mainap6.html#epel">EPEL</a> repository for Red Hat/<a 
 href="mainap6.html#centos">CentOS</a> 5 and Red Hat/<a 
-href="mainap6.html#centos">CentOS</a>
-6.
-<!--l. 13--><p class="noindent" >
+href="mainap6.html#centos">CentOS</a> 6. For
+instructions on how to add <a 
+href="mainap6.html#epel">EPEL</a> to the <span 
+class="ectt-1200">yum </span>search, see <a 
+href="mainap3.html#x29-344000C.1">Section C.1</a>.
+<!--l. 9--><p class="noindent" >To  install  <span 
+class="ectt-1200">xsd </span>in  Red  Hat/<a 
+href="mainap6.html#centos">CentOS</a>  5:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ $ cd redhawk-deps-yum-centos-5-<architecture>
+ $ sudo yum remove boost
+ $ sudo yum install xsd
+ $ sudo rpm -ivh install boost-1.41.0-2.el5.<architecture>.rpm \
+      boost-devel-1.41.0-2.el5.<architecture>.rpm
+]]></script>
+<!--l. 18--><p class="noindent" >Where &#x003C;architecture&#x003E; is either i386 (32 bit) or x86_64 (64 bit).
+<!--l. 20--><p class="noindent" >To install <span 
+class="ectt-1200">xsd </span>in Red Hat/<a 
+href="mainap6.html#centos">CentOS</a> 6:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ $ sudo yum install xsd
+]]></script>
+<!--l. 26--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.2   </span> <a 
  id="x30-348000D.2"></a>Installing the Framework from Source</h3>
-<!--l. 15--><p class="noindent" >In order to install the Core Framework from source, the <span 
+<!--l. 27--><p class="noindent" >In order to install the Core Framework from source, the <span 
 class="ectt-1200">redhawk-src-1.8.3.tar.gz </span>must be
 downloaded.
-<!--l. 17--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
+<!--l. 29--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
 configuration options, including:
+                                                                                         
+                                                                                         
       <ul class="itemize1">
       <li class="itemize">Disable log4cxx support
       </li>
@@ -85,8 +104,6 @@ class="ectt-1200">&#8211;disable-log4cxx</span>
 class="ectt-1200">&#8211;enable-trace</span>
       </li>
       <li class="itemize">Enable persistence support:
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">&#8211;enable-persistence=&#x003C;persist_type&#x003E;</span>
@@ -108,23 +125,23 @@ class="ectt-1200">&#8211;with-ossie=&#x003C;dir&#x003E;</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">&#8211;with-sdr=&#x003C;dir&#x003E;</span></li></ul>
-<!--l. 35--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
+<!--l. 47--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
 be used after the <span 
 class="ectt-1200">./configure </span>command):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ tar -xvf redhawk-src-1.8.3.tar.gz
 $ cd redhawk-src-1.8.3/redhawk-1.8.3/src
 $ ./reconf
+                                                                                         
+                                                                                         
 $ ./configure <options>
 $ make
 $ make install
 ]]></script>
-<!--l. 46--><p class="noindent" >
+<!--l. 58--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.3   </span> <a 
  id="x30-349000D.3"></a>Setting Environment Variables</h3>
-                                                                                         
-                                                                                         
-<!--l. 48--><p class="noindent" >The environment variables <span 
+<!--l. 60--><p class="noindent" >The environment variables <span 
 class="ectt-1200">SDRROOT </span>and <span 
 class="ectt-1200">OSSIEHOME </span>must be set in order to run REDHAWK.
 <span 
@@ -146,7 +163,7 @@ export SDRROOT=/var/redhawk/sdr
 export OSSIEHOME=/usr/local/redhawk/core
 export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
 ]]></script>
-<!--l. 59--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
+<!--l. 71--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
 class="cmsy-10x-x-120">~</span><span 
 class="ectt-1200">/.bashrc </span>to take effect.
                                                                                          
