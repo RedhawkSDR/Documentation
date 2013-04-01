@@ -7,7 +7,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- html,2,next,javascript,charset="utf-8" --> 
 <meta name="src" content="main.tex"> 
-<meta name="date" content="2013-03-28 14:34:00"> 
+<meta name="date" content="2013-04-01 15:08:00"> 
 <link rel="stylesheet" type="text/css" href="main.css"> 
 <script type="text/javascript" src="scripts/shCore.js"></script> 
 <script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
@@ -38,7 +38,7 @@ window.attachEvent("onload", f);
 <li><a href="gettingstarted/main.html">Getting Started</a></li> 
 <li><a class="active" href="main.html">Documentation</a></li> 
 <li><a href="download.html">Download</a></li> 
-<li><a href="support.html">Support</a></li> 
+<li><a href="community.html">Community</a></li> 
 </ul> 
 <div class="pattern right"></div> 
 <a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
@@ -71,13 +71,11 @@ efficiency of data throughput while providing network-accessible data ingest/egr
 the complexity of the implementation.
 <!--l. 11--><p class="noindent" >Data is transferred either in-band (through the <a 
 href="mainli2.html#glo:port">Port</a> object directly) or out-of-band
-(i.e., <a 
- id="section*.33"></a>User Datagram Protocol (<a 
+(i.e., User Datagram Protocol (<a 
 href="mainap6.html#udp">UDP</a>) multicast). In the case of out-of-band transfers,
 the <a 
 href="mainli2.html#glo:port">Port</a> provides only metadata regarding connections, such as multicast address in a
-<a 
- id="section*.34"></a>Virtual Local Area Network (<a 
+Virtual Local Area Network (<a 
 href="mainap6.html#vlan">VLAN</a>). Data transferred in-band is embedded with some
 fixed-field metadata, like a birth date timestamp, and variable-field metadata in key/value
 pairs.
@@ -93,13 +91,14 @@ href="mainap6.html#sri">SRI</a> data structure contains the following 12 fields:
                                                                                          
 <!--l. 12--><p class="noindent" ><a 
  id="x17-205001r1"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
- <div class="caption" 
-><span class="id">Table&#x00A0;15.1: </span><span  
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.1: </td><td  
 class="content"><a 
-href="mainap6.html#sri">SRI</a> fields</span></div><!--tex4ht:label?: x17-205001r1 -->
+href="mainap6.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-205001r1 -->
 <div class="tabular"> <table id="TBL-1" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-1-1g"><col 
@@ -138,8 +137,7 @@ class="td11"> <!--l. 18--><p class="noindent" >Delta  between  two  values  in  
   vector. in the case of time data, this is the
   sampling period. In the case of spectral data,
   this is the frequency difference between two
-  adjacent <a 
- id="section*.35"></a>Fast Fourier Transform (<a 
+  adjacent Fast Fourier Transform (<a 
 href="mainap6.html#fft">FFT</a>) bins.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -233,7 +231,7 @@ href="mainap6.html#corba">CORBA</a> Any can be any type.  </td>
 </tr></table></div>
                                                                                          
                                                                                          
-</div><hr class="endfloat" />
+</td></tr></table></div><hr class="endfloat" />
 </div>
                                                                                          
                                                                                          
@@ -321,6 +319,7 @@ href="#x17-20700015.4">Table 15.4</a>.
                                                                                          
 <!--l. 11--><p class="noindent" ><a 
  id="x17-207001r2"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
@@ -378,13 +377,13 @@ class="td11"> <!--l. 19--><p class="noindent" >Stream  ID  for  this  particular
 href="mainap6.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
-<br /> <div class="caption" 
-><span class="id">Table&#x00A0;15.2: </span><span  
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.2: </td><td  
 class="content">In-band data fields for <span 
-class="ectt-1200">pushPacket() </span>call</span></div><!--tex4ht:label?: x17-207001r2 -->
+class="ectt-1200">pushPacket() </span>call</td></tr></table><!--tex4ht:label?: x17-207001r2 -->
                                                                                          
                                                                                          
-</div><hr class="endfloat" />
+</td></tr></table></div><hr class="endfloat" />
 </div>
 <!--l. 24--><p class="noindent" >In the case of file transfers, the arguments are shown in  <a 
 href="#x17-20700015.4">Table 15.4</a>.
@@ -393,6 +392,7 @@ href="#x17-20700015.4">Table 15.4</a>.
                                                                                          
 <!--l. 27--><p class="noindent" ><a 
  id="x17-207002r3"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
@@ -413,8 +413,7 @@ class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-3-2-1"  
-class="td11"> <!--l. 33--><p class="noindent" ><a 
- id="section*.36"></a>Uniform
+class="td11"> <!--l. 33--><p class="noindent" >Uniform
   Resource
   Locator (<a 
 href="mainap6.html#url">URL</a>)     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-2"  
@@ -461,13 +460,13 @@ class="td11"> <!--l. 39--><p class="noindent" >Stream  ID  for  this  particular
 href="mainap6.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
-<br /> <div class="caption" 
-><span class="id">Table&#x00A0;15.3: </span><span  
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.3: </td><td  
 class="content">Data fields for <span 
-class="ectt-1200">pushPacket() </span>call in file transfers</span></div><!--tex4ht:label?: x17-207002r3 -->
+class="ectt-1200">pushPacket() </span>call in file transfers</td></tr></table><!--tex4ht:label?: x17-207002r3 -->
                                                                                          
                                                                                          
-</div><hr class="endfloat" />
+</td></tr></table></div><hr class="endfloat" />
 </div>
 <!--l. 44--><p class="noindent" >As many <span 
 class="ectt-1200">pushPacket() </span>calls can happen as are needed to transfer data from a uses side to a
@@ -477,8 +476,7 @@ class="ectt-1200">/etc/omniORB.cfg </span>file by changing the defined
 value for <span 
 class="ectt-1200">giopMaxMsgSize</span>. The default maximum transfer size is set to <span 
 class="ectt-1200">2097152 </span>(2
-<a 
- id="section*.37"></a>Megabyte (<a 
+Megabyte (<a 
 href="mainap6.html#mb">MB</a>)). For every <span 
 class="ectt-1200">pushPacket()</span>, the data+headers must be less than this
 value, otherwise a <span 
@@ -494,8 +492,7 @@ class="ectt-1200">dataFile </span>type. When using the <a
 href="mainap6.html#bulkio">BulkIO</a> <span 
 class="ectt-1200">dataFile </span>type, a
 filename is passed to the <span 
-class="ectt-1200">pushPacket() </span>method. The location of the file is specified by a <a 
- id="section*.38"></a>Uniform
+class="ectt-1200">pushPacket() </span>method. The location of the file is specified by a Uniform
 Resource Identifier (<a 
 href="mainap6.html#uri">URI</a>) that either points to the local file system or the <a 
 href="mainap6.html#sdr">SDR</a> file system. In
@@ -572,6 +569,7 @@ href="#x17-209001r4">Table 15.4</a> contains a description of a statistics struc
                                                                                          
 <!--l. 8--><p class="noindent" ><a 
  id="x17-209001r4"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
@@ -657,12 +655,12 @@ class="td11"> <!--l. 19--><p class="noindent" >Additional statistics information
   provided by the <a 
 href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr></table></div>
-<br /> <div class="caption" 
-><span class="id">Table&#x00A0;15.4: </span><span  
-class="content">Fields in returned link statistics</span></div><!--tex4ht:label?: x17-209001r4 -->
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.4: </td><td  
+class="content">Fields in returned link statistics</td></tr></table><!--tex4ht:label?: x17-209001r4 -->
                                                                                          
                                                                                          
-</div><hr class="endfloat" />
+</td></tr></table></div><hr class="endfloat" />
 </div>
 <!--l. 25--><p class="noindent" >The provides-side <a 
 href="mainli2.html#glo:port">Port</a> contains a single <span 
