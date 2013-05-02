@@ -70,7 +70,7 @@ custom implementations, but a majority of signal processing functions can be reu
 shared.
 <!--l. 11--><p class="noindent" >REDHAWK allows for developers to create <a 
 href="mainli2.html#glo:component">Components</a> in either C++, Python, or Java. C++ is
-recommended for most computationally-intensive tasks, whereas Python or Java work well at
+recommended for most computationally-intensive tasks, whereas Python or Java work well for
 handling metadata manipulation or command and control tasks.
 <!--l. 14--><p class="noindent" ><a 
 href="mainli2.html#glo:component">Components</a> can be interconnected together within a <a 
@@ -138,10 +138,10 @@ href="mainap6.html#ide">IDE</a>, development of new <a
 href="mainli2.html#glo:component">Components</a>, <a 
 href="mainli2.html#glo:device">Devices</a>, or other artifacts in a
 REDHAWK environment is contained within an Eclipse project. Each REDHAWK-specific artifact
-is associated with a wizard that leads the developer through the steps necessary to create a project
-which supports the minimum required pieces for proper functioning. For <a 
-href="mainli2.html#glo:component">Components</a>, the default
-project settings allow the developer to choose between Python, C++, and Java as the
+is associated with a wizard that leads the developer through the steps necessary to create a
+project, which supports the minimum required pieces for proper functioning. For <a 
+href="mainli2.html#glo:component">Components</a>, the
+default project settings allow the developer to choose between Python, C++, and Java as the
 development language. To start the <a 
 href="mainap6.html#ide">IDE</a> and begin creating a <a 
 href="mainli2.html#glo:component">Component</a>, run the <span 
@@ -183,8 +183,8 @@ contains a description of all the <a
 href="mainli2.html#glo:property">Properties</a> that this <a 
 href="mainli2.html#glo:component">Component</a> supports. The <a 
 href="mainap6.html#scd">SCD</a> file contains a
-description of the inputs/outputs for the <a 
-href="mainli2.html#glo:component">Component</a>.
+description of the <a 
+href="mainli2.html#glo:component">Component</a> inputs/outputs.
 <!--l. 52--><p class="noindent" >The REDHAWK <a 
 href="mainap6.html#ide">IDE</a> uses an internal model to maintain the state of the <a 
 href="mainli2.html#glo:component">Component</a> design.
@@ -198,10 +198,10 @@ href="mainap6.html#xml">XML</a> files. The different panels available for <a
 href="mainli2.html#glo:component">Component</a> design are used to
 change this model; the model is automatically and continuously mapped to the three
 <a 
-href="mainap6.html#xml">XML</a> files. This awareness is symmetrical; much like changes in the panels will result in
+href="mainap6.html#xml">XML</a> files. This awareness is symmetrical; much like changes in the panels result in
 changes in the <a 
 href="mainap6.html#xml">XML</a> files, changes in the <a 
-href="mainap6.html#xml">XML</a> files will result in automatic updates to the
+href="mainap6.html#xml">XML</a> files result in automatic updates to the
                                                                                          
                                                                                          
 panels.
@@ -221,7 +221,7 @@ href="mainli2.html#glo:port">Ports</a> are Remote Procedure
 Call (<a 
 href="mainap6.html#rpc">RPC</a>) interfaces to a <a 
 href="mainli2.html#glo:component">Component</a>. An input <a 
-href="mainli2.html#glo:port">Port</a> therefore <span 
+href="mainli2.html#glo:port">Port</a>, therefore, <span 
 class="ecbx-1200">provides </span>functionality that can
 be <span 
 class="ecbx-1200">used </span>by an output <a 
@@ -275,13 +275,12 @@ maintained by the Apache Software Foundation.
                                                                                          
 <!--l. 87--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.2.6   </span> <a 
- id="x5-220003.2.6"></a>Component Generation</h4>
-<!--l. 89--><p class="noindent" >On the top-right of the Overview panel of the <a 
-href="mainli2.html#glo:component">Component</a> development project is the <span 
-class="ecbx-1200">Generate</span>
-<span 
-class="ecbx-1200">All Implementations </span>button (see  <a 
-href="#x5-22001r3">Figure 3.3</a>).
+ id="x5-220003.2.6"></a>Generating Components</h4>
+<!--l. 89--><p class="noindent" >The <span 
+class="ecbx-1200">Generate All Implementations </span>button (see  <a 
+href="#x5-22001r3">Figure 3.3</a>) is located in the top-right of the
+Overview panel of the <a 
+href="mainli2.html#glo:component">Component</a> development project.
 <!--l. 91--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 >
@@ -301,7 +300,8 @@ class="ecbx-1200">Generate Component </span>Button</td></tr></table><!--tex4ht:l
                                                                                          
                                                                                          
 <!--l. 96--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-<!--l. 98--><p class="noindent" >Upon clicking this button, the tool will generate:
+<!--l. 98--><p class="noindent" >When the <span 
+class="ecbx-1200">Generate All Implementations </span>button is clicked, the tool generates:
       <ul class="itemize1">
       <li class="itemize">skeleton-code for the <a 
 href="mainli2.html#glo:component">Component</a> in the language of choice
@@ -312,32 +312,32 @@ href="mainli2.html#glo:component">Component</a>
       </li>
       <li class="itemize">Autotools build files</li></ul>
 <h4 class="subsectionHead"><span class="titlemark">3.2.7   </span> <a 
- id="x5-230003.2.7"></a>Component Installation</h4>
-<!--l. 106--><p class="noindent" >Once a <a 
-href="mainli2.html#glo:component">Component</a> is compiled, it can be installed onto the staging area (<span 
-class="ectt-1200">$SDRROOT/dom/components</span>)
-by either dragging the project on the <a 
-href="mainap6.html#ide">IDE</a> from the <span 
-class="ecbx-1200">Project Explorer </span>to the <span 
-class="ecbx-1200">Target Software</span>
+ id="x5-230003.2.7"></a>Installing Components</h4>
+<!--l. 106--><p class="noindent" >After a <a 
+href="mainli2.html#glo:component">Component</a> is compiled, use one of the following methods to install it onto
+the staging area (<span 
+class="ectt-1200">$SDRROOT/dom/components</span>): Drag the project on the <a 
+href="mainap6.html#ide">IDE</a> from the
 <span 
-class="ecbx-1200">Defined Radio (</span><a 
+class="ecbx-1200">Project Explorer </span>to the <span 
+class="ecbx-1200">Target Software Defined Radio (</span><a 
 href="mainap6.html#sdr"><span 
 class="ecbx-1200">SDR</span></a><span 
-class="ecbx-1200">) </span>section of the <a 
+class="ecbx-1200">) </span>section of the
+<a 
 href="mainap6.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
-class="ecbx-1200">Explorer </span>or by invoking <span 
-class="ectt-1200">make install </span>in the
-directory containing the <a 
-href="mainli2.html#glo:component">Component</a> <span 
+class="ecbx-1200">Explorer </span>or invoke <span 
+class="ectt-1200">make install </span>in the directory containing the <a 
+href="mainli2.html#glo:component">Component</a>
+<span 
 class="ectt-1200">Makefile</span>.
 <!--l. 108--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
  id="x5-240003.3"></a>Running a Component</h3>
-<!--l. 110--><p class="noindent" >There are two mechanisms that can be used to run a <a 
-href="mainli2.html#glo:component">Component</a>: the REDHAWK Sandbox and
-the REDHAWK <a 
+<!--l. 110--><p class="noindent" >To run a <a 
+href="mainli2.html#glo:component">Component</a>, use one of the following mechanisms: the REDHAWK Sandbox and the
+REDHAWK <a 
 href="mainli2.html#glo:domain">Domain</a>. When using the Sandbox, a <a 
 href="mainli2.html#glo:component">Component</a> is run from within a
 Python shell or a graphical environment, all operating on a single computer. When
@@ -366,8 +366,8 @@ href="mainap6.html#ide">IDE</a>.
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a>. This provides a very powerful means of testing and scripting tests for
 REDHAWK systems.
-<!--l. 124--><p class="noindent" >The following is a short overview of how to use the Sandbox; for a more detailed description of the
-Python Sandbox, see  <a 
+<!--l. 124--><p class="noindent" >The following procedure is a short overview of how to use the Sandbox; for a more detailed
+description of the Python Sandbox, see  <a 
 href="mainch9.html#x11-1250009">Chapter 9</a>.
 <!--l. 127--><p class="noindent" >
       <ol  class="enumerate1" >
@@ -391,9 +391,9 @@ href="mainli2.html#glo:component">Components</a>, type: <script type="syntaxhigh
              > sb.catalog()
            ['HardLimit', 'SigGen', ...]
            ]]></script>
-           The returned list is derived by doing a scan of <span 
-class="ectt-1200">$SDRROOT</span>. HardLimit and SigGen are
-           examples of existing <a 
+           The displayed list is derived by scanning <span 
+class="ectt-1200">$SDRROOT</span>. HardLimit and SigGen are examples
+           of existing <a 
 href="mainli2.html#glo:component">Components</a>.
            </li>
            <li 
@@ -403,16 +403,15 @@ href="mainli2.html#glo:component">Component</a> object by typing: <script type="
            > sigGen = sb.Component("SigGen")
            ]]></script>
            After the constructor is finished, the <a 
-href="mainli2.html#glo:component">Components</a> will be running as their
-           own processes. Note that if an absolute file path for a <a 
+href="mainli2.html#glo:component">Components</a> run as their own processes. If an
+           absolute file path for a <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file
-           (<span 
-class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>) is given as a constructor argument for the <a 
-href="mainli2.html#glo:component">Component</a>
-           instance, then that <a 
-href="mainli2.html#glo:component">Component</a> is started irrespective of whether or not it is present in
-           <span 
+href="mainap6.html#spd">SPD</a> file (<span 
+class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>) is given as a
+           constructor argument for the <a 
+href="mainli2.html#glo:component">Component</a> instance, then that <a 
+href="mainli2.html#glo:component">Component</a> is started
+           irrespective of whether or not it is present in <span 
 class="ectt-1200">$SDRROOT</span>.</li></ol>
                                                                                          
                                                                                          
@@ -420,13 +419,12 @@ class="ectt-1200">$SDRROOT</span>.</li></ol>
       <li 
   class="enumerate" id="x5-26010x3">Support widgets are available in the Sandbox to help the developer interact with running
       <a 
-href="mainli2.html#glo:component">Components</a>. There are a variety of widgets, including data sources and sinks, a
-      speaker interface, and plotters. For the sake of this example, the plot widget is
-      used.
-      <!--l. 154--><p class="noindent" >In order to use plotting, the path to the eclipse directory of the installed <a 
-href="mainap6.html#ide">IDE</a> must be
-      specified in the Sandbox (this can also be done by setting the RH_IDE environment variable
-      to the absolute path of the eclipse directory prior to starting the Python session): <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+href="mainli2.html#glo:component">Components</a>. There are a variety of widgets, including data sources and sinks, a speaker
+      interface, and plotters. In this example, the plot widget is used.
+      <!--l. 154--><p class="noindent" >To use plotting, the path to the eclipse directory of the installed <a 
+href="mainap6.html#ide">IDE</a> must be specified in the
+      Sandbox (this can also be done by setting the RH_IDE environment variable to
+      the absolute path of the eclipse directory prior to starting the Python session): <script type="syntaxhighlighter" class="brush: python"><![CDATA[
       > sb.IDELocation('/path/to/ide/eclipse')
       > plot = sb.Plot()
       ]]></script>
@@ -443,23 +441,23 @@ class="ectt-1200">Plot </span>class twice and assigning the objects to local var
       <li 
   class="enumerate" id="x5-26014x4">Connect the <a 
 href="mainli2.html#glo:component">Components</a> together and connect the plots. The <span 
-class="ectt-1200">connect() </span>method will try to match
+class="ectt-1200">connect() </span>method tries to match
       the <a 
 href="mainli2.html#glo:port">Port</a>; ambiguities can be resolved with the parameters <span 
 class="ectt-1200">usesPortName </span>and <span 
 class="ectt-1200">providesPortName</span>.
       Connecting the plots to the <a 
-href="mainli2.html#glo:component">Components</a> will present the plot application window. <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+href="mainli2.html#glo:component">Components</a> displays the Plot Application window. <script type="syntaxhighlighter" class="brush: python"><![CDATA[
         > sigGen.connect(hardLimit)
        > sigGen.connect(plot1)
        > hardLimit.connect(plot2)
       ]]></script>
       </li>
       <li 
-  class="enumerate" id="x5-26016x5">For the purposes of this tutorial, the <span 
+  class="enumerate" id="x5-26016x5">In this tutorial, the <span 
 class="ectt-1200">SigGen </span><a 
-href="mainli2.html#glo:component">Component</a> will be configured before
-      it is started to get a better visual. Set the frequency of <span 
+href="mainli2.html#glo:component">Component</a> is configured before it is started
+      to get a better visual. Set the frequency of <span 
 class="ectt-1200">sigGen </span>equal to <span 
 class="ecti-1200">5006</span>: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
         > sigGen.frequency = 5006
@@ -493,9 +491,9 @@ class="ectt-1200">api() </span>method: <script type="syntaxhighlighter" class="b
       </li>
       <li 
   class="enumerate" id="x5-26024x9">To clean up, type <span 
-class="ectt-1200">Ctrl+D </span>to end the Python session. The Python Sandbox will release all
+class="ectt-1200">Ctrl+D </span>to end the Python session. The Python Sandbox releases all
       <a 
-href="mainli2.html#glo:component">Components</a> and cleanup whatever plots or additional widgets were created during the
+href="mainli2.html#glo:component">Components</a> and cleans up whatever plots or additional widgets were created during the
       session.</li></ol>
 <!--l. 192--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.4.2   </span> <a 
@@ -523,11 +521,11 @@ class="ecbx-1200">Explorer View</span>:
            <li 
   class="enumerate" id="x5-27004x1">Expand the <span 
 class="ecbx-1200">Sandbox </span>to expose the <span 
-class="ecbx-1200">Chalkboard</span>
+class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
   class="enumerate" id="x5-27006x2">Double-click the <span 
-class="ecbx-1200">Chalkboard</span></li></ol>
+class="ecbx-1200">Chalkboard</span>.</li></ol>
       <!--l. 204--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
@@ -545,7 +543,7 @@ class="content">Open Chalkboard</td></tr></table><!--tex4ht:label?: x5-27007r4 -
   class="enumerate" id="x5-27009x2">From the Chalkboard:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-27011x1">Select  the  palette  on  the  right,  drag  the  <span 
+  class="enumerate" id="x5-27011x1">Select  the  palette  on  the  right;  drag  the  <span 
 class="ectt-1200">SigGen  </span><a 
 href="mainli2.html#glo:component">Component</a>  onto  the
            <span 
@@ -557,13 +555,13 @@ href="mainli2.html#glo:component">Component</a>.
            </li>
            <li 
   class="enumerate" id="x5-27013x2">If asked to choose an implementation, select the <span 
-class="ecbx-1200">cpp </span>implementation
+class="ecbx-1200">cpp </span>implementation.
            </li>
            <li 
-  class="enumerate" id="x5-27015x3">Right-click on the <span 
+  class="enumerate" id="x5-27015x3">Right-click the <span 
 class="ectt-1200">SigGen </span><a 
-href="mainli2.html#glo:component">Component</a>, click <span 
-class="ecbx-1200">Start </span><hr class="figure"><div class="figure" 
+href="mainli2.html#glo:component">Component</a>, and select <span 
+class="ecbx-1200">Start</span>. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-27016r5"></a> <img 
@@ -575,13 +573,13 @@ class="content">Start Component</td></tr></table><!--tex4ht:label?: x5-27016r5 -
            <!--l. 219--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
-  class="enumerate" id="x5-27018x4">Right-click on the <span 
+  class="enumerate" id="x5-27018x4">Right-click the <span 
 class="ecbx-1200">out </span><a 
-href="mainli2.html#glo:port">Port</a> and click <span 
+href="mainli2.html#glo:port">Port</a>, and select <span 
 class="ecbx-1200">Plot </span><a 
 href="mainli2.html#glo:port"><span 
 class="ecbx-1200">Port</span></a> <span 
-class="ecbx-1200">Data </span><hr class="figure"><div class="figure" 
+class="ecbx-1200">Data</span>. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-27019r6"></a> <img 
@@ -593,12 +591,12 @@ class="content">Plot Port Data</td></tr></table><!--tex4ht:label?: x5-27019r6 --
            <!--l. 225--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
-  class="enumerate" id="x5-27021x5">Right-click on the <span 
+  class="enumerate" id="x5-27021x5">Right-click the <span 
 class="ectt-1200">SigGen </span><a 
-href="mainli2.html#glo:component">Component</a>, click <span 
+href="mainli2.html#glo:component">Component</a>, and click <span 
 class="ecbx-1200">Show Properties View</span>. A new
-           view should open displaying the signal <a 
-href="mainli2.html#glo:property">Properties</a> <hr class="figure"><div class="figure" 
+           view opens and displays the signal <a 
+href="mainli2.html#glo:property">Properties</a>. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-27022r7"></a> <img 
@@ -635,10 +633,10 @@ href="mainli2.html#glo:component">Component</a> onto the
 class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
-  class="enumerate" id="x5-27029x8">Right-click on the <span 
+  class="enumerate" id="x5-27029x8">Right-click the <span 
 class="ectt-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a>, click <span 
-class="ecbx-1200">Start</span>
+class="ecbx-1200">Start</span>.
            </li>
            <li 
   class="enumerate" id="x5-27031x9">Connect the <span 
@@ -667,15 +665,15 @@ class="content">Connect Ports</td></tr></table><!--tex4ht:label?: x5-27032r9 -->
            <!--l. 249--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
-  class="enumerate" id="x5-27034x10">Right-click on the <span 
+  class="enumerate" id="x5-27034x10">Right-click the <span 
 class="ecbx-1200">dataDouble_out </span><a 
 href="mainli2.html#glo:port">Port</a> on the <span 
 class="ectt-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a>, click <span 
-class="ecbx-1200">Plot</span>
-           <a 
+class="ecbx-1200">Plot </span><a 
 href="mainli2.html#glo:port"><span 
-class="ecbx-1200">Port</span></a> <span 
+class="ecbx-1200">Port</span></a>
+           <span 
 class="ecbx-1200">Data</span>
            </li>
            <li 
@@ -685,12 +683,11 @@ href="mainli2.html#glo:component">Component</a></li></ol>
       </li></ol>
 <!--l. 256--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
- id="x5-280003.5"></a>Create and Run a Hello World Component</h3>
-<!--l. 258--><p class="noindent" >This Section provides a brief overview of how to create a simple <a 
+ id="x5-280003.5"></a>Creating and Running a Hello World Component</h3>
+<!--l. 258--><p class="noindent" >Use the following procedure to create a simple <a 
 href="mainli2.html#glo:component">Component</a> that prints <span 
-class="ectt-1200">hello</span>
-<span 
-class="ectt-1200">world </span>to the terminal upon startup.
+class="ectt-1200">hello world </span>to the
+terminal upon startup.
 <!--l. 260--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
@@ -715,7 +712,7 @@ class="ecti-1200">HelloWorld</span>
       </li>
       <li 
   class="enumerate" id="x5-28006x3">Click <span 
-class="ecbx-1200">Next</span>
+class="ecbx-1200">Next</span>.
       </li>
       <li 
   class="enumerate" id="x5-28008x4">Select:
@@ -725,21 +722,21 @@ class="ecbx-1200">Prog. Lang: C++</span></li></ul>
       </li>
       <li 
   class="enumerate" id="x5-28010x5">Click <span 
-class="ecbx-1200">Next</span>
+class="ecbx-1200">Next</span>.
       </li>
       <li 
   class="enumerate" id="x5-28012x6">Click <span 
-class="ecbx-1200">Finish</span>
+class="ecbx-1200">Finish</span>.
                                                                                          
                                                                                          
            <ul class="itemize1">
            <li class="itemize">If a dialog asks to switch to CPP perspective, click <span 
-class="ecbx-1200">No</span></li></ul>
+class="ecbx-1200">No</span>.</li></ul>
       </li>
       <li 
   class="enumerate" id="x5-28014x7">Generate Code:
            <ul class="itemize1">
-           <li class="itemize">In the editor tool bar click <span 
+           <li class="itemize">In the editor tool bar, click <span 
 class="ecbx-1200">Generate All </span><a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a> <span 
@@ -749,7 +746,7 @@ href="#x5-22001r3">Figure 3.3</a></li></ul>
       </li>
       <li 
   class="enumerate" id="x5-28016x8">In the <span 
-class="ectt-1200">HelloWorld.cpp </span>file add the following include to the beginning of the file <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+class="ectt-1200">HelloWorld.cpp </span>file, add the following include to the beginning of the file: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
         #include <iostream>
       ]]></script>
       </li>
@@ -775,10 +772,10 @@ href="mainap6.html#sdr"><span
 class="ecbx-1200">SDR</span></a> section of the <a 
 href="mainap6.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
-class="ecbx-1200">Explorer</span>
+class="ecbx-1200">Explorer</span>.
       </li>
       <li 
-  class="enumerate" id="x5-28024x12">On a terminal, start a Python session
+  class="enumerate" id="x5-28024x12">On a terminal, start a Python session.
       </li>
       <li 
   class="enumerate" id="x5-28026x13">Run  the  following  commands:  <script type="syntaxhighlighter" class="brush: python"><![CDATA[

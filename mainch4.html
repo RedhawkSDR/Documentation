@@ -56,9 +56,9 @@ href="main.html#mainch4.html" >up</a>] </p></div>
 <h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
  id="x6-300004.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This chapter discusses more advanced topics related to <a 
-href="mainli2.html#glo:component">Component</a> development. Readers should
-familiarize themselves with the <a 
-href="mainli2.html#glo:component">Component</a> chapter prior to reading this chapter. (See  <a 
+href="mainli2.html#glo:component">Component</a> development. Prior to reading
+this chapter, familiarize yourself with the information in the <a 
+href="mainli2.html#glo:component">Component</a> chapter. (See  <a 
 href="mainch3.html#x5-140003">Chapter 3</a>
 )
 <!--l. 1--><p class="noindent" >
@@ -71,11 +71,11 @@ Java languages. This process takes care of REDHAWK compliance and allows the dev
 insert their own custom processing algorithm for working with the data sent/received by the
 <a 
 href="mainli2.html#glo:component">Component</a>. The following section provides a brief description of the generated files. Note that
-some files may be freely modified, while other files should not be modified. More information on
-how to use the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> can be found in the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> chapters of this document
-(Starting at  <a 
+some files may be freely modified, while other files should not be modified. For more information
+on using the REDHAWK <a 
+href="mainap6.html#ide">IDE</a>, refer to the REDHAWK <a 
+href="mainap6.html#ide">IDE</a> chapters of this document (Starting
+at  <a 
 href="mainch19.html#x21-25300019">Chapter 19</a>).
 <!--l. 10--><p class="noindent" >Modifying particular files is discouraged for two reasons:
       <ol  class="enumerate1" >
@@ -84,7 +84,7 @@ href="mainch19.html#x21-25300019">Chapter 19</a>).
 href="mainli2.html#glo:component">Component</a> using the <a 
 href="mainap6.html#ide">IDE</a> (for example, to add a <a 
 href="mainli2.html#glo:port">Port</a>), particular
-      files will be overwritten by the code generators. Note:
+      files are overwritten by the code generators. Note:
            <ul class="itemize1">
            <li class="itemize">Files whose modification is not discouraged (e.g., <span 
 class="ectt-1200">componentName.cpp</span>) are not
@@ -97,7 +97,7 @@ href="mainap6.html#ide">IDE</a> should provide the option of not rewriting parti
   class="enumerate" id="x6-31004x2">Modification of files implementing REDHAWK interfaces may impact compatibility with
       other REDHAWK modules.</li></ol>
 <!--l. 20--><p class="noindent" >The word <span 
-class="ectt-1200">componentName </span>will be replaced with the <a 
+class="ectt-1200">componentName </span>is replaced with the <a 
 href="mainli2.html#glo:component">Component</a> name provided during <a 
 href="mainli2.html#glo:component">Component</a>
 creation.
@@ -129,10 +129,10 @@ class="ectt-1200">build.sh </span>script, <a
 href="mainap6.html#rpm">RPM</a>s will be built for the <a 
 href="mainli2.html#glo:component">Component</a>.
       <!--l. 30--><p class="noindent" >The <span 
-class="ectt-1200">build.sh </span>script in the source directory will run <span 
-class="ectt-1200">./reconf; ./configure; make</span>.
-      The Autotools documentation can provide more information on these commands: in
-      short, this process will create the <a 
+class="ectt-1200">build.sh </span>script in the source directory runs <span 
+class="ectt-1200">./reconf; ./configure; make</span>. The
+      Autotools documentation can provide more information on these commands: in short,
+      this process creates the <a 
 href="mainli2.html#glo:component">Component</a> executable.
       </li>
       <li class="itemize"><span 
@@ -244,17 +244,16 @@ class="ectt-1200">componentName.cpp </span>- The appropriate place for developer
       behavior.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">componentName_base.h </span>-  Provides  interface  implementations  for  the  <a 
-href="mainli2.html#glo:component">Component</a>
-      based on the <a 
+class="ectt-1200">componentName_base.h </span>- Provides interface implementations for the <a 
+href="mainli2.html#glo:component">Component</a> based
+      on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:port">Ports</a> and <a 
-href="mainli2.html#glo:property">Properties</a>. Note that most of the <a 
-href="mainli2.html#glo:port">Port</a>-related
-      interface code resides in <span 
+href="mainli2.html#glo:property">Properties</a>. Most of the <a 
+href="mainli2.html#glo:port">Port</a>-related interface code
+      resides in <span 
 class="ectt-1200">port_impl.h/cpp</span>. Modification of <span 
-class="ectt-1200">componentName_base.h </span>is
-      discouraged.
+class="ectt-1200">componentName_base.h </span>is discouraged.
       </li>
       <li class="itemize"><span 
 class="ectt-1200">componentName_base.cpp </span>- Provides interface implementations for the <a 
@@ -262,21 +261,20 @@ href="mainli2.html#glo:component">Component</a>
       based on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:port">Ports</a> and <a 
-href="mainli2.html#glo:property">Properties</a>. Note that most of the <a 
-href="mainli2.html#glo:port">Port</a>-related
-      interface code resides in <span 
+href="mainli2.html#glo:property">Properties</a>. Most of the <a 
+href="mainli2.html#glo:port">Port</a>-related interface code
+      resides in <span 
 class="ectt-1200">port_impl.h/cpp</span>. Modification of <span 
-class="ectt-1200">componentName_base.cpp</span>
-      is discouraged.</li></ul>
+class="ectt-1200">componentName_base.cpp </span>is discouraged.</li></ul>
 <!--l. 69--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.3   </span> <a 
  id="x6-370004.2.3"></a>Files Generated for Python Components</h4>
-                                                                                         
-                                                                                         
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">componentName.py </span>- The appropriate place for developers to add their own processing
       behavior.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">componentName_base.py </span>-  Provides  interface  implementations  for  the  <a 
@@ -300,9 +298,9 @@ class="ectt-1200">componentName.java </span>-  The  appropriate  place  for  dev
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.3   </span> <a 
  id="x6-390004.3"></a>Auto-Generated Component Methods</h3>
-<!--l. 3--><p class="noindent" >This section gives an overview of noteworthy methods provided in the auto-generated <a 
-href="mainli2.html#glo:component">Component</a>
-files. In some cases, the names of the methods vary by language.
+<!--l. 3--><p class="noindent" >This section provides an overview of noteworthy methods provided in the auto-generated
+<a 
+href="mainli2.html#glo:component">Component</a> files. In some cases, the names of the methods vary by language.
 <!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.1   </span> <a 
  id="x6-400004.3.1"></a><span 
@@ -313,12 +311,12 @@ class="ectt-1200">serviceFunction() </span>method in C++, the
 <span 
 class="ectt-1200">process() </span>method in Python, and the <span 
 class="ectt-1200">run() </span>method in Java.
-                                                                                         
-                                                                                         
 <!--l. 9--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.2   </span> <a 
  id="x6-410004.3.2"></a><span 
 class="ectt-1200">construct()</span></h4>
+                                                                                         
+                                                                                         
 <!--l. 10--><p class="noindent" >Found within a C++ <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base class, the <span 
 class="ectt-1200">construct() </span>method initializes the <a 
@@ -338,7 +336,7 @@ method.
 class="ectt-1200">initialize()</span></h4>
 <!--l. 15--><p class="noindent" >Found within Python <a 
 href="mainli2.html#glo:component">Components</a>, the <span 
-class="ectt-1200">initialize() </span>method will initialize any variables
+class="ectt-1200">initialize() </span>method initializes any variables
 relevant to the core functional code. In C++, the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s constructor should be
 used for initializing these variables, although a blank <span 
@@ -347,7 +345,7 @@ generated in the <a
 href="mainli2.html#glo:component">Component</a>&#8217;s base class. Java <a 
 href="mainli2.html#glo:component">Components</a> do not have an auto-generated
 <span 
-class="ectt-1200">initialize() </span>function and thus rely on the one inherited from the <span 
+class="ectt-1200">initialize() </span>function and thus, rely on the one inherited from the <span 
 class="ectt-1200">Resource </span>base
 class.
 <!--l. 19--><p class="noindent" >
@@ -361,7 +359,7 @@ main processing thread that then makes a call to <span
 class="ectt-1200">run()</span>. Java <a 
 href="mainli2.html#glo:component">Components</a> do not have an
 auto-generated <span 
-class="ectt-1200">start() </span>function and thus rely on the one inherited from the <span 
+class="ectt-1200">start() </span>function and thus, rely on the one inherited from the <span 
 class="ectt-1200">Resource </span>base class.
 The <span 
 class="ectt-1200">start() </span>method is called automatically by the <a 
@@ -405,7 +403,7 @@ class="ectt-1200">port_impl.h/cpp </span>files, a Python <a
 href="mainli2.html#glo:component">Component</a>&#8217;s base class, and
 files within a Java <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
-class="ectt-1200">ports </span>package, the <span 
+class="ectt-1200">ports </span>package. The <span 
 class="ectt-1200">pushPacket() </span>and <span 
 class="ectt-1200">pushSRI() </span>methods are
 <a 
@@ -414,14 +412,13 @@ href="mainap6.html#rpc">RPC</a>s used for data and metadata transfer between Bul
 href="mainap6.html#bulkio">BulkIO</a>)
 <a 
 href="mainli2.html#glo:port">Ports</a>.
-<!--l. 33--><p class="noindent" >Both of these methods are called within the <span 
+<!--l. 33--><p class="noindent" >Both methods are called within the <span 
 class="ectt-1200">serviceFunction() </span>(or <span 
-class="ectt-1200">run() </span>method in
-the case of Java and <span 
-class="ectt-1200">process() </span>in the case of Python) whenever a new data packet
-needs to be sent, or the metadata (Signal Related Information (<a 
-href="mainap6.html#sri">SRI</a>)) is updated by the
-<a 
+class="ectt-1200">run() </span>method in the case of Java and
+<span 
+class="ectt-1200">process() </span>in the case of Python) whenever a new data packet needs to be sent, or the metadata
+(Signal Related Information (<a 
+href="mainap6.html#sri">SRI</a>)) is updated by the <a 
 href="mainli2.html#glo:component">Component</a>.
 <!--l. 35--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.7   </span> <a 
@@ -433,11 +430,11 @@ class="ectt-1200">stop() </span>method releases
 and destroys the primary execution thread. Java <a 
 href="mainli2.html#glo:component">Components</a> do not have an auto-generated
 <span 
-class="ectt-1200">stop() </span>function and thus rely on the one inherited from the <span 
+class="ectt-1200">stop() </span>function and thus, rely on the one inherited from the <span 
 class="ectt-1200">Resource </span>base class. When an
 <a 
 href="mainli2.html#glo:application">Application</a> is released, the <a 
-href="mainli2.html#glo:applicationfactory">Application Factory</a> will call <span 
+href="mainli2.html#glo:applicationfactory">Application Factory</a> calls <span 
 class="ectt-1200">releaseObject() </span>on all of the
 <a 
 href="mainli2.html#glo:application">Application</a>&#8217;s <a 
@@ -469,8 +466,6 @@ class="ectt-1200">configure() </span>is called whenever a change to a <a
 href="mainli2.html#glo:property">Property</a> is
 made.
 <!--l. 1--><p class="noindent" >
-                                                                                         
-                                                                                         
 <h3 class="sectionHead"><span class="titlemark">4.4   </span> <a 
  id="x6-480004.4"></a>Component Implementations</h3>
 <!--l. 3--><p class="noindent" ><a 
@@ -479,7 +474,9 @@ href="mainap6.html#os">OS</a>), processor
 architecture, or required <a 
 href="mainli2.html#glo:device">Device</a> <a 
 href="mainli2.html#glo:property">Properties</a> (e.g., processor speed or memory capacity). Setting
-these dependencies will ensure that a <a 
+                                                                                         
+                                                                                         
+these dependencies ensures that a <a 
 href="mainli2.html#glo:component">Component</a> is deployed to an appropriate <a 
 href="mainli2.html#glo:device">Device</a> at
 runtime.
@@ -492,12 +489,12 @@ href="mainli2.html#glo:port">Port</a> code implements a design pattern allowing 
 href="mainli2.html#glo:port">Port</a>. This queue is read by the provides (input) <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">serviceFunction()</span>. The
-queue will fail if the number of packets exceeds the <span 
+queue fails if the number of packets exceeds the <span 
 class="ectt-1200">maxQueueDepth </span>setting for the <a 
-href="mainli2.html#glo:port">Port</a>. In the
-event of a queue overflow, the queue is flushed. On an overflow-induced flush, the <span 
-class="ectt-1200">getPacket()</span>
-method will set <span 
+href="mainli2.html#glo:port">Port</a>. In the event
+of a queue overflow, the queue is flushed. On an overflow-induced flush, the <span 
+class="ectt-1200">getPacket() </span>method
+sets <span 
 class="ectt-1200">inputQueueFlushed </span>to <span 
 class="ectt-1200">true</span>.
 <!--l. 10--><p class="noindent" >Increasing the <a 
@@ -505,7 +502,7 @@ href="mainli2.html#glo:port">Port</a>&#8217;s <span
 class="ectt-1200">maxQueueDepth </span>value may alleviate buffer overflow problems. If you have
 changed the <span 
 class="ectt-1200">maxQueueDepth</span>, a regeneration of a <a 
-href="mainli2.html#glo:component">Component</a> will overwrite that value. As an
+href="mainli2.html#glo:component">Component</a> overwrites that value. As an
 alternative to setting <span 
 class="ectt-1200">maxQueueDepth </span>directly, consider using the method associated with the <a 
 href="mainli2.html#glo:port">Port</a>
@@ -527,24 +524,24 @@ href="mainap6.html#corba">CORBA</a> is the manipulation of
 <span 
 class="ectt-1200">CORBA::Any </span>types for access to <a 
 href="mainap6.html#sri">SRI</a> Keywords.
-<!--l. 6--><p class="noindent" >This section provides, through example, a brief overview of how to manipulate <span 
-class="ectt-1200">CORBA::Any </span>types
-and how this knowledge can be applied to the manipulation of <a 
+<!--l. 6--><p class="noindent" >This section provides an example of how to manipulate <span 
+class="ectt-1200">CORBA::Any </span>types and how this knowledge
+can be applied to the manipulation of <a 
 href="mainap6.html#sri">SRI</a>.
 <!--l. 8--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.1   </span> <a 
  id="x6-510004.6.1"></a>Manipulating <span 
 class="ectt-1200">CORBA::Any </span>Types</h4>
-<!--l. 10--><p class="noindent" >Below is an example of how to set a value in a <span 
+<!--l. 10--><p class="noindent" >The following code is an example of how to set a value in a <span 
 class="ectt-1200">CORBA::Any </span>in C++:
-                                                                                         
-                                                                                         
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CORBA::Any anyVar;
 CORBA::Long longVar = 1000;
+                                                                                         
+                                                                                         
 anyVar = longVar;
 ]]></script>
-<!--l. 18--><p class="noindent" >Below is an example of how to get a value from a <span 
+<!--l. 18--><p class="noindent" >The following code is an example of how to get a value from a <span 
 class="ectt-1200">CORBA::Any </span>in C++:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // variable named "anyVar" of type CORBA::Any has already
@@ -555,7 +552,7 @@ anyVar = longVar;
 <!--l. 27--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.2   </span> <a 
  id="x6-520004.6.2"></a>Working with SRI</h4>
-<!--l. 29--><p class="noindent" >Below are C++ example functions for adding and modifying keywords (keywords are
+<!--l. 29--><p class="noindent" >The following C++ functions are examples of how to add and modify keywords (keywords are
 <span 
 class="ectt-1200">CORBA::String_member </span>and <span 
 class="ectt-1200">CORBA::Any pairs</span>).
@@ -568,15 +565,13 @@ template <typename CORBAXX> bool addModifyKeyword(
       CORBA::String_member id,
       CORBAXX myValue,
       bool addOnly = false) {
-         CORBA::Any value;
-         value = myValue;
-                                                                                         
-                                                                                         
          unsigned long keySize = sri->keywords.length();
          if (!addOnly) {
               for (unsigned int i = 0; i < keySize; i++) {
                    if (!strcmp(sri->keywords[i].id, id)) {
-                        sri->keywords[i].value = value;
+                        sri->keywords[i].value = myValue;
+                                                                                         
+                                                                                         
                         return true;
                    }
               }
@@ -585,11 +580,11 @@ template <typename CORBAXX> bool addModifyKeyword(
          if (sri->keywords.length() != keySize + 1)
               return false;
          sri->keywords[keySize].id = CORBA::string_dup(id);
-         sri->keywords[keySize].value = value;
+         sri->keywords[keySize].value = myValue;
          return true;
 }
 ]]></script>
-<!--l. 59--><p class="noindent" >
+<!--l. 57--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-540004.6.2"></a>Getting a Keyword Position from an ID</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -601,12 +596,12 @@ int getKeywordPos(BULKIO::StreamSRI *sri,
               return i;
          }
      }
-                                                                                         
-                                                                                         
      return -1;
 }
 ]]></script>
-<!--l. 74--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 72--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-550004.6.2"></a>Getting a Keyword Value from an ID</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -623,7 +618,7 @@ template <typename MYTYPE> MYTYPE getKeywordValueByID(
      return value;
 }
 ]]></script>
-<!--l. 91--><p class="noindent" >
+<!--l. 89--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-560004.6.2"></a>Getting a Keyword Value Given a Position</h5>
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -631,13 +626,13 @@ template <typename MYTYPE> MYTYPE getKeywordValueAtPos(
   BULKIO::StreamSRI *sri, int pos) {
      MYTYPE value;
      if (pos >= 0 && pos < (int)sri->keywords.length()) {
-                                                                                         
-                                                                                         
          sri->keywords[pos].value = value;
      }
      return value;
 }
 ]]></script>
+                                                                                         
+                                                                                         
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.7   </span> <a 
  id="x6-570004.7"></a>Resource Interface: <span 
@@ -682,8 +677,10 @@ class="ectt-1200">query() </span>method returns a list of id-value pairs, where 
 href="mainap6.html#id">ID</a>) corresponds to a
 single <a 
 href="mainli2.html#glo:property">Property</a>.
-<!--l. 16--><p class="noindent" >Below is an example of a list returned by <span 
-class="ectt-1200">query()</span>:
+<!--l. 16--><p class="noindent" >«««&#x003C; HEAD The following code is an example of a list returned by <span 
+class="ectt-1200">query()</span>: ======= Below
+is an example of a list returned by <span 
+class="ectt-1200">query()</span>: »»»&#x003E; ab0af97625f7970139fb21f7a590d1a0eeeda6db
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 Query Results:
 [ossie.cf.CF.DataType(
@@ -692,24 +689,24 @@ Query Results:
 ossie.cf.CF.DataType(
      id='DCE:529a33ab-f808-4bb5-8ea1-5727304dbf63',
      value=CORBA.Any(CORBA.TC_long, 0)),
-                                                                                         
-                                                                                         
 ossie.cf.CF.DataType(
      id='DCE:a2c35ba2-39ce-4d8d-8295-feba19f541b1',
      value=CORBA.Any(CORBA.TC_long, 0)),
 ossie.cf.CF.DataType(
      id='DCE:a4216b01-3745-4347-874f-1b7cc13623c9',
+                                                                                         
+                                                                                         
      value=CORBA.Any(CORBA.TC_long, 0)),
 ossie.cf.CF.DataType(
      id='DCE:d1f8a128-d33c-47ba-9246-ce2b4bc0b786',
      value=CORBA.Any(CORBA.TC_short, 0))]
 ]]></script>
-<!--l. 37--><p class="noindent" >The <span 
-class="ectt-1200">query() </span>result above depicts 5 <a 
-href="mainli2.html#glo:property">Properties</a> of types boolean, long, long, long, and short,
-respectively. The values of each of these <a 
-href="mainli2.html#glo:property">Properties</a> are set to True, 0, 0, 0, and 0, respectively.
-The 5 <a 
+<!--l. 41--><p class="noindent" >The <span 
+class="ectt-1200">query() </span>result in the code example depicts five <a 
+href="mainli2.html#glo:property">Properties</a> of types boolean, long, long, long,
+and short, respectively. The values of each of these <a 
+href="mainli2.html#glo:property">Properties</a> are set to True, 0, 0, 0, and 0,
+respectively. The 5 <a 
 href="mainap6.html#id">ID</a> values, which happen to be Universally Unique Identifiers (<a 
 href="mainap6.html#uuid">UUID</a>s) in this
 case, correspond to the <a 
@@ -718,10 +715,10 @@ href="mainli2.html#glo:property">Properties</a> as dictated by the <a
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">prf.xml</span>
 file.
-<!--l. 41--><p class="noindent" >
+<!--l. 45--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.2   </span> <a 
  id="x6-590004.7.2"></a>Specializing Component Configuration</h4>
-<!--l. 43--><p class="noindent" >The <span 
+<!--l. 47--><p class="noindent" >The <span 
 class="ectt-1200">configure() </span>method accepts a list of <a 
 href="mainli2.html#glo:property">Properties</a> to be configured. The list of <a 
 href="mainli2.html#glo:property">Properties</a>
@@ -730,45 +727,45 @@ href="mainli2.html#glo:property">Properties</a> returned by the <span
 class="ectt-1200">configure() </span>method;
 however, the list passed to the <span 
 class="ectt-1200">configure() </span>method may be a subset of <a 
-href="mainli2.html#glo:property">Properties</a>
-(that is, the method caller may send only the <a 
-href="mainli2.html#glo:property">Properties</a> that should be changed). The
-<span 
-class="ectt-1200">configure() </span>method may throw exceptions as defined in the <a 
-href="mainap6.html#sca">SCA</a> specification in the
-event of a failure (e.g., if attempting to set a <a 
+href="mainli2.html#glo:property">Properties</a> (that
+is, the method caller may send only the <a 
+href="mainli2.html#glo:property">Properties</a> that should be changed). In the
+event of a failure, the <span 
+class="ectt-1200">configure() </span>method may throw exceptions as defined in the
+<a 
+href="mainap6.html#sca">SCA</a> specification (e.g., if attempting to set a <a 
 href="mainli2.html#glo:property">Property</a> to a value of the wrong data
 type).
-<!--l. 47--><p class="noindent" >
+<!--l. 51--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.3   </span> <a 
  id="x6-600004.7.3"></a>Customizing the <span 
 class="ectt-1200">configure() </span>Method</h4>
-<!--l. 49--><p class="noindent" >
-                                                                                         
-                                                                                         
+<!--l. 53--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-610004.7.3"></a>Overriding the <span 
 class="ectt-1200">configure() </span>Method</h5>
-<!--l. 53--><p class="noindent" >The code to handle the <span 
+<!--l. 57--><p class="noindent" >The code to handle the <span 
 class="ectt-1200">configure() </span>call is automatically generated in the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base
-class; however, in some cases additional instructions may need to be added to the configuration
+class; however, in some cases, additional instructions may need to be added to the configuration
 process. For example, memory may need to be reallocated.
-<!--l. 56--><p class="noindent" >If specialized behavior is required during <a 
+<!--l. 60--><p class="noindent" >If specialized behavior is required during <a 
 href="mainli2.html#glo:component">Component</a> configuration, the <a 
 href="mainli2.html#glo:component">Component</a> base classes
 <span 
 class="ectt-1200">configure() </span>method may be overridden. It is highly recommended that the developer override the
+                                                                                         
+                                                                                         
 <span 
-class="ectt-1200">configure() </span>method in alternative to re-writing the existing <span 
+class="ectt-1200">configure() </span>method rather than re-writing the existing <span 
 class="ectt-1200">configure() </span>method in the
 base class, as changes to the base class may be overwritten by the REDHAWK code
 generators.
-<!--l. 59--><p class="noindent" >The following code segments provide an example of how to override the <a 
+<!--l. 63--><p class="noindent" >The following code segments provide an example of how to override the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">configure()</span>
 method in C++.
-<!--l. 61--><p class="noindent" >Add the following code to the <span 
+<!--l. 65--><p class="noindent" >Add the following code to the <span 
 class="ectt-1200">[component].h </span>file:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 //define your overloaded configure call
@@ -777,7 +774,7 @@ void configure(const CF::Properties&) throw
       CF::PropertySet::InvalidConfiguration,
       CF::PropertySet::PartialConfiguration);
 ]]></script>
-<!--l. 71--><p class="noindent" >Add the following code to the <span 
+<!--l. 75--><p class="noindent" >Add the following code to the <span 
 class="ectt-1200">[component].cpp</span>:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 //Add functionality
@@ -791,26 +788,26 @@ void Bar_cpp_impl1_i::configure(const CF::Properties& props)
      // Now do something else....
 }
 ]]></script>
-                                                                                         
-                                                                                         
-<!--l. 86--><p class="noindent" >
+<!--l. 90--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-620004.7.3"></a>Property Change Listeners</h5>
-<!--l. 88--><p class="noindent" >Alternatively, the developer may register the property with a callback method in order to modify
-the configuration behavior of only the individual <a 
-href="mainli2.html#glo:property">Property</a>. In this case, the registered
-method will be called whenever <span 
+                                                                                         
+                                                                                         
+<!--l. 92--><p class="noindent" >Alternatively, to modify the configuration behavior of only the individual <a 
+href="mainli2.html#glo:property">Property</a>, the
+developer may register the property with a callback method. In this case, the registered
+method is called whenever <span 
 class="ectt-1200">configure() </span>is called with new values for the particular
 <a 
 href="mainli2.html#glo:property">Property</a>.
-<!--l. 91--><p class="noindent" >Example code demonstrating this behavior can be found the generated <span 
-class="ectt-1200">[component].cpp </span>file in
-the comments section preceding the <span 
+<!--l. 94--><p class="noindent" >The generated <span 
+class="ectt-1200">[component].cpp </span>file contains example code demonstrating this behavior. The code
+is in the comments section preceding the <span 
 class="ectt-1200">serviceFunction()</span>.
-<!--l. 93--><p class="noindent" >
+<!--l. 96--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-630004.7.3"></a>Python</h5>
-<!--l. 95--><p class="noindent" >When working with Python <a 
+<!--l. 98--><p class="noindent" >When working with Python <a 
 href="mainli2.html#glo:component">Components</a>, custom <span 
 class="ectt-1200">onconfigure() </span>methods may be created for
 particular <a 
@@ -819,7 +816,7 @@ class="ectt-1200">onconfigure() </span>gets called for every <a
 href="mainli2.html#glo:property">Property</a> when <span 
 class="ectt-1200">configure() </span>is
 called.
-<!--l. 98--><p class="noindent" >Below is an example of a customized <span 
+<!--l. 101--><p class="noindent" >The following code is an example of a customized <span 
 class="ectt-1200">onconfigure() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 # In this example, freqMHz is a defined property.
@@ -836,14 +833,14 @@ href="mainli2.html#glo:component">Component</a> as meerly a wrapper to an existi
 adding libraries to a <a 
 href="mainli2.html#glo:component">Component</a>, certain changes must be made to the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s
-                                                                                         
-                                                                                         
 <span 
 class="ectt-1200">Makefile.am </span>and <span 
 class="ectt-1200">configure.ac </span>files. This section discusses how to add a library by
 referencing a package config file, how to add a static library, and how to add a dynamic
 library.
 <!--l. 6--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">4.8.1   </span> <a 
  id="x6-650004.8.1"></a>Adding a Library by Referencing a Package Config File</h4>
 <!--l. 8--><p class="noindent" >To add a library by referencing a package config file, edit the <span 
@@ -876,10 +873,10 @@ with the new library of interest):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
  [Component_Name]_cpp_impl1_LDADD =
       $(top_builddir)/[path_to_lib]/libsharedlib.a
-                                                                                         
-                                                                                         
 ]]></script>
 <!--l. 34--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">4.8.3   </span> <a 
  id="x6-670004.8.3"></a>Adding a Shared Library:</h4>
 <!--l. 36--><p class="noindent" >To add a shared library, edit the <span 
