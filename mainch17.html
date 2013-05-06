@@ -288,7 +288,7 @@ href="mainli2.html#glo:component">Component</a> header file, declare the followi
 href="mainli2.html#glo:component">Component</a> source file, implement the callback function: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  void message_consumer_i::receivedMessage(const std::string &id,
     const foo_struct &msg) {
-    std::coutid" "msg.some_float" "msg.some_string
+    std::cout&lt;&lt;id&lt;&lt;" "&lt;&lt;msg.some_float&lt;&lt;" "&lt;&lt;msg.some_string&lt;&lt;
       std::endl;
  }
 ]]></script>
@@ -451,16 +451,16 @@ href="mainli2.html#glo:eventchannel">Event
 Channel</a>.
 <!--l. 274--><p class="noindent" >Connecting a producer directly to a consumer does not require an <a 
 href="mainli2.html#glo:application">Application</a> and can be done in the Sandbox: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > from ossie.utils import sb
- > sb.catalog()
+ &gt;&gt;> from ossie.utils import sb
+ &gt;&gt;> sb.catalog()
  ['structs_test', 'm_in', 'prop_changes', 'm_out',
  'pass']
- > prod=sb.Component('m_out')
- > cons=sb.Component('m_in')
- > prod.connect(cons)
+ &gt;&gt;> prod=sb.Component('m_out')
+ &gt;&gt;> cons=sb.Component('m_in')
+ &gt;&gt;> prod.connect(cons)
  True
- > sb.start()
- > foo 0 hello
+ &gt;&gt;> sb.start()
+ &gt;&gt;> foo 0 hello
  foo 1 hello
  foo 2 hello
  foo 3 hello

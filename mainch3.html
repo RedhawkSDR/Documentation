@@ -378,7 +378,7 @@ href="mainch9.html#x11-1250009">Chapter 9</a>.
       [GCC 4.1.2 20080704 (Red Hat 4.1.2-46)] on linux2
       Type "help", "copyright", "credits" or "license" for more
       information.
-       > from ossie.utils import sb
+       &gt;&gt;> from ossie.utils import sb
       ]]></script>
       </li>
       <li 
@@ -388,7 +388,7 @@ href="mainli2.html#glo:component">Component</a>
            <li 
   class="enumerate" id="x5-26006x1">To get a list of available <a 
 href="mainli2.html#glo:component">Components</a>, type: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-             > sb.catalog()
+             &gt;&gt;> sb.catalog()
            ['HardLimit', 'SigGen', ...]
            ]]></script>
            The displayed list is derived by scanning <span 
@@ -399,8 +399,8 @@ href="mainli2.html#glo:component">Components</a>.
            <li 
   class="enumerate" id="x5-26008x2">Create the <a 
 href="mainli2.html#glo:component">Component</a> object by typing: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-           > hardLimit = sb.Component("HardLimit")
-           > sigGen = sb.Component("SigGen")
+           &gt;&gt;> hardLimit = sb.Component("HardLimit")
+           &gt;&gt;> sigGen = sb.Component("SigGen")
            ]]></script>
            After the constructor is finished, the <a 
 href="mainli2.html#glo:component">Components</a> run as their own processes. If an
@@ -425,16 +425,16 @@ href="mainli2.html#glo:component">Components</a>. There are a variety of widgets
 href="mainap6.html#ide">IDE</a> must be specified in the
       Sandbox (this can also be done by setting the RH_IDE environment variable to
       the absolute path of the eclipse directory prior to starting the Python session): <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-      > sb.IDELocation('/path/to/ide/eclipse')
-      > plot = sb.Plot()
+      &gt;&gt;> sb.IDELocation('/path/to/ide/eclipse')
+      &gt;&gt;> plot = sb.Plot()
       ]]></script>
       <!--l. 160--><p class="noindent" >
            <ol  class="enumerate2" >
            <li 
   class="enumerate" id="x5-26012x1">Create two plot objects by instantiating the <span 
 class="ectt-1200">Plot </span>class twice and assigning the objects to local variables: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-             > plot1 = sb.Plot()
-            > plot2 = sb.Plot()
+             &gt;&gt;> plot1 = sb.Plot()
+            &gt;&gt;> plot2 = sb.Plot()
            ]]></script>
            </li></ol>
       </li>
@@ -448,9 +448,9 @@ class="ectt-1200">usesPortName </span>and <span
 class="ectt-1200">providesPortName</span>.
       Connecting the plots to the <a 
 href="mainli2.html#glo:component">Components</a> displays the Plot Application window. <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > sigGen.connect(hardLimit)
-       > sigGen.connect(plot1)
-       > hardLimit.connect(plot2)
+        &gt;&gt;> sigGen.connect(hardLimit)
+       &gt;&gt;> sigGen.connect(plot1)
+       &gt;&gt;> hardLimit.connect(plot2)
       ]]></script>
       </li>
       <li 
@@ -460,12 +460,12 @@ href="mainli2.html#glo:component">Component</a> is configured before it is start
       to get a better visual. Set the frequency of <span 
 class="ectt-1200">sigGen </span>equal to <span 
 class="ecti-1200">5006</span>: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > sigGen.frequency = 5006
+        &gt;&gt;> sigGen.frequency = 5006
       ]]></script>
       </li>
       <li 
   class="enumerate" id="x5-26018x6">Start  everything  in  the  Sandbox:  <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > sb.start()
+        &gt;&gt;> sb.start()
                                                                                          
                                                                                          
       ]]></script>
@@ -476,7 +476,7 @@ href="mainli2.html#glo:property">Property</a> values can now be set on the <span
 class="ectt-1200">hardLimit </span><a 
 href="mainli2.html#glo:component">Component</a>. The plot should reflect the <a 
 href="mainli2.html#glo:property">Property</a> change: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > hardLimit.upper_limit = .8
+        &gt;&gt;> hardLimit.upper_limit = .8
       ]]></script>
       </li>
       <li 
@@ -486,7 +486,7 @@ href="mainli2.html#glo:port">Ports</a> of a <a
 href="mainli2.html#glo:component">Component</a>, invoke the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">api() </span>method: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > sigGen.api()
+        &gt;&gt;> sigGen.api()
       ]]></script>
       </li>
       <li 
@@ -754,7 +754,7 @@ class="ectt-1200">HelloWorld.cpp </span>file, add the following include to the b
   class="enumerate" id="x5-28018x9">In the <span 
 class="ectt-1200">HelloWorld.cpp </span>file, add the following code to the <span 
 class="ectt-1200">serviceFunction() </span>method: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-        std::cout"Hello world"std::endl;
+        std::cout&lt;&lt;"Hello world"&lt;&lt;std::endl;
       ]]></script>
       </li>
       <li 
@@ -779,9 +779,9 @@ class="ecbx-1200">Explorer</span>.
       </li>
       <li 
   class="enumerate" id="x5-28026x13">Run  the  following  commands:  <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > from ossie.utils import sb
-       > hello_world = sb.Component('HelloWorld')
-       > sb.start()
+        &gt;&gt;> from ossie.utils import sb
+       &gt;&gt;> hello_world = sb.Component('HelloWorld')
+       &gt;&gt;> sb.start()
       ]]></script>
       </li></ol>
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

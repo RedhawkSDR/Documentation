@@ -295,12 +295,12 @@ props.length(2);
 
 CF::DataType string_var;
 string_var.id = "string_prop";
-string_var.value = "my string prop";
+string_var.value &lt;&lt;= "my string prop";
 props[0] = string_var;
 
 CF::DataType long_var;
 long_var.id = "long_prop";
-long_var.value = 1234;
+long_var.value &lt;&lt;= 1234;
 props[1] = long_var;
 
 try {
@@ -354,7 +354,7 @@ try {
   this->query(props);
   for (unsigned int i = 0; i < props.length(); i++){
        // iterates through returned properties and prints ids
-       std::cout  props[i].id  std::endl;
+       std::cout &lt;&lt; props[i].id &lt;&lt; std::endl;
   }
 } catch (CF::UnknownProperties e) {
   // error reporting
@@ -406,7 +406,7 @@ props.length(1);
 
 CF::DataType test_var;
 test_var.id = "prop";
-test_var.value = 1234;
+test_var.value &lt;&lt;= 1234;
 props[0] = test_var;
 
 try {

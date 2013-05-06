@@ -254,19 +254,19 @@ href="mainli2.html#glo:component">Components</a> (for a review of how to do this
 href="mainch4.html#x6-290004">Chapter 4</a>).
 <!--l. 81--><p class="noindent" >In a Python session on a terminal, run the following commands:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > from ossie.utils import sb
- > source = sb.Component('source')
- > sink = sb.Component('sink')
- > uses_port = source.getPort('output')
- > provides_port = sink.getPort('input')
- > uses_port.connectPort(provides_port, 'my_connection')
+ &gt;&gt;> from ossie.utils import sb
+ &gt;&gt;> source = sb.Component('source')
+ &gt;&gt;> sink = sb.Component('sink')
+ &gt;&gt;> uses_port = source.getPort('output')
+ &gt;&gt;> provides_port = sink.getPort('input')
+ &gt;&gt;> uses_port.connectPort(provides_port, 'my_connection')
                                                                                          
                                                                                          
 ]]></script>
 <!--l. 92--><p class="noindent" >After running the script above, the connection has been established.
 <!--l. 94--><p class="noindent" >To destroy the connection, use the following command:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > uses_port.disconnectPort('my_connection')
+ &gt;&gt;> uses_port.disconnectPort('my_connection')
 ]]></script>
 <!--l. 100--><p class="noindent" >Following these multiple steps every time that one wants to establish a connection can be
 cumbersome. In the Sandbox, the Python <a 
@@ -280,10 +280,10 @@ href="mainli2.html#glo:port">Port</a> type matches between two <a
 href="mainli2.html#glo:port">Ports</a>, the steps above can
 be reduced to:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > from ossie.utils import sb
- > source = sb.Component('source')
- > sink = sb.Component('sink')
- > source.connect(sink)
+ &gt;&gt;> from ossie.utils import sb
+ &gt;&gt;> source = sb.Component('source')
+ &gt;&gt;> sink = sb.Component('sink')
+ &gt;&gt;> source.connect(sink)
 ]]></script>
 <!--l. 112--><p class="noindent" >Note that this extension to the Sandbox&#8217;s <a 
 href="mainli2.html#glo:component">Component</a> <a 

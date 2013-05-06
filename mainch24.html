@@ -373,7 +373,7 @@ Job job = new Job("Update Job") {
      protected IStatus run(IProgressMonitor monitor) {
          // Ensures the properties are fetched and up to
          // date upon completion of this method
-         EList<ScaAbstractProperty<? properties =
+         EList<ScaAbstractProperty<?&gt;&gt; properties =
               component.fetchProperties(monitor);
 
          return Status.OK_STATUS;

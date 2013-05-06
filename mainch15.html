@@ -801,12 +801,12 @@ href="mainli2.html#glo:component">Component</a> <span
 class="ectt-1200">sink </span>and install it on Target SDR.
       <!--l. 72--><p class="noindent" >Start a Python session in a command line terminal and run the following commands:</li></ol>
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > from ossie.utils import sb
- > source = sb.Component("source")
- > sink = sb.Component("sink")
- > source.connect(sink)
- > sb.start()
- > print source._ports[0]._get_statistics()[0].statistics
+ &gt;&gt;> from ossie.utils import sb
+ &gt;&gt;> source = sb.Component("source")
+ &gt;&gt;> sink = sb.Component("sink")
+ &gt;&gt;> source.connect(sink)
+ &gt;&gt;> sb.start()
+ &gt;&gt;> print source._ports[0]._get_statistics()[0].statistics
 ]]></script>
                                                                                          
                                                                                          
@@ -817,7 +817,7 @@ structure contains the statistics gathered from this connection. A measure of da
 second.
 <!--l. 88--><p class="noindent" >To display the number of Gigabits per second, run the following command:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > print source._ports[0]._get_statistics()[0].\
+ &gt;&gt;> print source._ports[0]._get_statistics()[0].\
  ... statistics.bitsPerSecond/1e9
 ]]></script>
 <!--l. 95--><p class="noindent" >The resulting value is the measured data transfer rate between the two <a 
@@ -826,7 +826,7 @@ href="mainli2.html#glo:component">Components</a>. The current
 class="ectt-1200">xfer_length </span><a 
 href="mainli2.html#glo:property">Property</a> can be viewed by typing the following:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > source.xfer_length
+ &gt;&gt;> source.xfer_length
 ]]></script>
 <!--l. 102--><p class="noindent" >The default value is <span 
 class="ectt-1200">100000</span>. Update the <a 
@@ -834,7 +834,7 @@ href="mainli2.html#glo:property">Property</a> to <span
 class="ectt-1200">200000 </span>by running the following
 command:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- > source.xfer_length = 200000
+ &gt;&gt;> source.xfer_length = 200000
 ]]></script>
 <!--l. 108--><p class="noindent" >Check the new data rate by repeating the call to <span 
 class="ectt-1200">_get_statistics()</span>. The resulting data rate
@@ -898,15 +898,15 @@ class="cmmi-12">&#x003E; </span>Target SDR.
       <li 
   class="enumerate" id="x17-212008x4">Start a Python session in a command line terminal and run the following commands:
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > from ossie.utils import sb
-       > mult = sb.Component("mult")
-       > source = sb.DataSource(dataFormat="float")
-       > sink = sb.DataSink()
-       > source.connect(mult)
-       > mult.connect(sink)
-       > sb.start()
-       > source.push([1,2,3,4,5])
-       > sink.getData()
+        &gt;&gt;> from ossie.utils import sb
+       &gt;&gt;> mult = sb.Component("mult")
+       &gt;&gt;> source = sb.DataSource(dataFormat="float")
+       &gt;&gt;> sink = sb.DataSink()
+       &gt;&gt;> source.connect(mult)
+       &gt;&gt;> mult.connect(sink)
+       &gt;&gt;> sb.start()
+       &gt;&gt;> source.push([1,2,3,4,5])
+       &gt;&gt;> sink.getData()
                                                                                          
                                                                                          
        [1.0, 2.0, 3.0, 4.0, 5.0]
@@ -915,9 +915,9 @@ class="cmmi-12">&#x003E; </span>Target SDR.
       <li 
   class="enumerate" id="x17-212010x5">The multiplication factor can be changed while the Sandbox is up.
       <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        > mult.factor = 2
-       > source.push([1,2,3,4,5])
-       > sink.getData()
+        &gt;&gt;> mult.factor = 2
+       &gt;&gt;> source.push([1,2,3,4,5])
+       &gt;&gt;> sink.getData()
        [2.0, 4.0, 6.0, 8.0, 10.0]
       ]]></script>
       </li></ol>

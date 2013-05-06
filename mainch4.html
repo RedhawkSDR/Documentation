@@ -539,7 +539,7 @@ CORBA::Any anyVar;
 CORBA::Long longVar = 1000;
                                                                                          
                                                                                          
-anyVar = longVar;
+anyVar &lt;&lt;= longVar;
 ]]></script>
 <!--l. 18--><p class="noindent" >The following code is an example of how to get a value from a <span 
 class="ectt-1200">CORBA::Any </span>in C++:
@@ -547,7 +547,7 @@ class="ectt-1200">CORBA::Any </span>in C++:
 // variable named "anyVar" of type CORBA::Any has already
 // been defined with a value
 CORBA::Long longVar;
-anyVar = longVar;
+anyVar &gt;&gt;= longVar;
 ]]></script>
 <!--l. 27--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.2   </span> <a 
@@ -569,7 +569,7 @@ template <typename CORBAXX> bool addModifyKeyword(
          if (!addOnly) {
               for (unsigned int i = 0; i < keySize; i++) {
                    if (!strcmp(sri->keywords[i].id, id)) {
-                        sri->keywords[i].value = myValue;
+                        sri->keywords[i].value &lt;&lt;= myValue;
                                                                                          
                                                                                          
                         return true;
@@ -580,7 +580,7 @@ template <typename CORBAXX> bool addModifyKeyword(
          if (sri->keywords.length() != keySize + 1)
               return false;
          sri->keywords[keySize].id = CORBA::string_dup(id);
-         sri->keywords[keySize].value = myValue;
+         sri->keywords[keySize].value &lt;&lt;= myValue;
          return true;
 }
 ]]></script>
@@ -611,7 +611,7 @@ template <typename MYTYPE> MYTYPE getKeywordValueByID(
      for (unsigned int i = 0; i < sri->keywords.length();
        i++) {
          if (!strcmp(sri->keywords[i].id, id)) {
-              sri->keywords[i].value = value;
+              sri->keywords[i].value &gt;&gt;= value;
               return value;
          }
      }
@@ -626,7 +626,7 @@ template <typename MYTYPE> MYTYPE getKeywordValueAtPos(
   BULKIO::StreamSRI *sri, int pos) {
      MYTYPE value;
      if (pos >= 0 && pos < (int)sri->keywords.length()) {
-         sri->keywords[pos].value = value;
+         sri->keywords[pos].value &gt;&gt;= value;
      }
      return value;
 }
@@ -677,10 +677,8 @@ class="ectt-1200">query() </span>method returns a list of id-value pairs, where 
 href="mainap6.html#id">ID</a>) corresponds to a
 single <a 
 href="mainli2.html#glo:property">Property</a>.
-<!--l. 16--><p class="noindent" >«««&#x003C; HEAD The following code is an example of a list returned by <span 
-class="ectt-1200">query()</span>: ======= Below
-is an example of a list returned by <span 
-class="ectt-1200">query()</span>: »»»&#x003E; ab0af97625f7970139fb21f7a590d1a0eeeda6db
+<!--l. 16--><p class="noindent" >Below is an example of a list returned by <span 
+class="ectt-1200">query()</span>:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 Query Results:
 [ossie.cf.CF.DataType(
@@ -701,7 +699,7 @@ ossie.cf.CF.DataType(
      id='DCE:d1f8a128-d33c-47ba-9246-ce2b4bc0b786',
      value=CORBA.Any(CORBA.TC_short, 0))]
 ]]></script>
-<!--l. 41--><p class="noindent" >The <span 
+<!--l. 37--><p class="noindent" >The <span 
 class="ectt-1200">query() </span>result in the code example depicts five <a 
 href="mainli2.html#glo:property">Properties</a> of types boolean, long, long, long,
 and short, respectively. The values of each of these <a 
@@ -715,10 +713,10 @@ href="mainli2.html#glo:property">Properties</a> as dictated by the <a
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">prf.xml</span>
 file.
-<!--l. 45--><p class="noindent" >
+<!--l. 41--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.2   </span> <a 
  id="x6-590004.7.2"></a>Specializing Component Configuration</h4>
-<!--l. 47--><p class="noindent" >The <span 
+<!--l. 43--><p class="noindent" >The <span 
 class="ectt-1200">configure() </span>method accepts a list of <a 
 href="mainli2.html#glo:property">Properties</a> to be configured. The list of <a 
 href="mainli2.html#glo:property">Properties</a>
@@ -736,20 +734,20 @@ class="ectt-1200">configure() </span>method may throw exceptions as defined in t
 href="mainap6.html#sca">SCA</a> specification (e.g., if attempting to set a <a 
 href="mainli2.html#glo:property">Property</a> to a value of the wrong data
 type).
-<!--l. 51--><p class="noindent" >
+<!--l. 47--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.3   </span> <a 
  id="x6-600004.7.3"></a>Customizing the <span 
 class="ectt-1200">configure() </span>Method</h4>
-<!--l. 53--><p class="noindent" >
+<!--l. 49--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-610004.7.3"></a>Overriding the <span 
 class="ectt-1200">configure() </span>Method</h5>
-<!--l. 57--><p class="noindent" >The code to handle the <span 
+<!--l. 53--><p class="noindent" >The code to handle the <span 
 class="ectt-1200">configure() </span>call is automatically generated in the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base
 class; however, in some cases, additional instructions may need to be added to the configuration
 process. For example, memory may need to be reallocated.
-<!--l. 60--><p class="noindent" >If specialized behavior is required during <a 
+<!--l. 56--><p class="noindent" >If specialized behavior is required during <a 
 href="mainli2.html#glo:component">Component</a> configuration, the <a 
 href="mainli2.html#glo:component">Component</a> base classes
 <span 
@@ -761,11 +759,11 @@ class="ectt-1200">configure() </span>method rather than re-writing the existing 
 class="ectt-1200">configure() </span>method in the
 base class, as changes to the base class may be overwritten by the REDHAWK code
 generators.
-<!--l. 63--><p class="noindent" >The following code segments provide an example of how to override the <a 
+<!--l. 59--><p class="noindent" >The following code segments provide an example of how to override the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">configure()</span>
 method in C++.
-<!--l. 65--><p class="noindent" >Add the following code to the <span 
+<!--l. 61--><p class="noindent" >Add the following code to the <span 
 class="ectt-1200">[component].h </span>file:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 //define your overloaded configure call
@@ -774,7 +772,7 @@ void configure(const CF::Properties&) throw
       CF::PropertySet::InvalidConfiguration,
       CF::PropertySet::PartialConfiguration);
 ]]></script>
-<!--l. 75--><p class="noindent" >Add the following code to the <span 
+<!--l. 71--><p class="noindent" >Add the following code to the <span 
 class="ectt-1200">[component].cpp</span>:
 <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 //Add functionality
@@ -788,26 +786,26 @@ void Bar_cpp_impl1_i::configure(const CF::Properties& props)
      // Now do something else....
 }
 ]]></script>
-<!--l. 90--><p class="noindent" >
+<!--l. 86--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-620004.7.3"></a>Property Change Listeners</h5>
                                                                                          
                                                                                          
-<!--l. 92--><p class="noindent" >Alternatively, to modify the configuration behavior of only the individual <a 
+<!--l. 88--><p class="noindent" >Alternatively, to modify the configuration behavior of only the individual <a 
 href="mainli2.html#glo:property">Property</a>, the
 developer may register the property with a callback method. In this case, the registered
 method is called whenever <span 
 class="ectt-1200">configure() </span>is called with new values for the particular
 <a 
 href="mainli2.html#glo:property">Property</a>.
-<!--l. 94--><p class="noindent" >The generated <span 
+<!--l. 90--><p class="noindent" >The generated <span 
 class="ectt-1200">[component].cpp </span>file contains example code demonstrating this behavior. The code
 is in the comments section preceding the <span 
 class="ectt-1200">serviceFunction()</span>.
-<!--l. 96--><p class="noindent" >
+<!--l. 92--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x6-630004.7.3"></a>Python</h5>
-<!--l. 98--><p class="noindent" >When working with Python <a 
+<!--l. 94--><p class="noindent" >When working with Python <a 
 href="mainli2.html#glo:component">Components</a>, custom <span 
 class="ectt-1200">onconfigure() </span>methods may be created for
 particular <a 
@@ -816,7 +814,7 @@ class="ectt-1200">onconfigure() </span>gets called for every <a
 href="mainli2.html#glo:property">Property</a> when <span 
 class="ectt-1200">configure() </span>is
 called.
-<!--l. 101--><p class="noindent" >The following code is an example of a customized <span 
+<!--l. 97--><p class="noindent" >The following code is an example of a customized <span 
 class="ectt-1200">onconfigure() </span>method:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 # In this example, freqMHz is a defined property.
