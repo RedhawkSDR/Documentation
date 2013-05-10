@@ -64,7 +64,7 @@ management was discussed in  <a
 href="mainch8.html#x10-1090008">Chapter 8</a>. System <a 
 href="mainli2.html#glo:service">Services</a> are the equivalent to Linux services like
 an Hyper Text Transport Protocol (<a 
-href="mainap6.html#http">HTTP</a>) server; the <a 
+href="mainap7.html#http">HTTP</a>) server; the <a 
 href="mainli2.html#glo:service">Service</a> does not directly control
 hardware but is some facility that becomes automatically available when the host is
 started.
@@ -107,11 +107,11 @@ context.
 href="mainli2.html#glo:service">Service</a>, much like a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
 href="mainli2.html#glo:device">Device</a>, is a binary file and a set of <a 
-href="mainap6.html#xml">XML</a> descriptors,
+href="mainap7.html#xml">XML</a> descriptors,
 normally just the <a 
-href="mainap6.html#spd">SPD</a> (describing the <a 
+href="mainap7.html#spd">SPD</a> (describing the <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s software package) and <a 
-href="mainap6.html#scd">SCD</a> (describing the
+href="mainap7.html#scd">SCD</a> (describing the
 <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s interfaces). The <a 
 href="mainli2.html#glo:service">Service</a> file package resides in <span 
@@ -126,7 +126,7 @@ class="ectt-1200">devices </span>subdirectory.
  id="x9-1020007.4"></a>Service API</h3>
 <!--l. 31--><p class="noindent" >REDHAWK does not include any standard <a 
 href="mainli2.html#glo:service">Service</a> interfaces; the <a 
-href="mainap6.html#sca">SCA</a> specification includes a
+href="mainap7.html#sca">SCA</a> specification includes a
 logging service, but in REDHAWK logging is performed through log4j/log4cxx, as described in
 <a 
 href="mainch18.html#x20-23900018">Chapter 18</a>, not a <a 
@@ -156,8 +156,8 @@ href="mainli2.html#glo:component">Components</a> and <a
 href="mainli2.html#glo:device">Devices</a>.
 Since the <a 
 href="mainli2.html#glo:service">Service</a> package is based on an <a 
-href="mainap6.html#spd">SPD</a> file, it is possible for the package to include a <a 
-href="mainap6.html#prf">PRF</a>
+href="mainap7.html#spd">SPD</a> file, it is possible for the package to include a <a 
+href="mainap7.html#prf">PRF</a>
 file. To deal with instances where the <a 
 href="mainli2.html#glo:service">Service</a> includes <a 
 href="mainli2.html#glo:property">Properties</a>, the runtime environment will
@@ -210,10 +210,10 @@ class="ectt-1200">&#x003C;stringifiedobjectref&#x003E; </span>tag allows someone
                                                                                          
                                                                                          
 Reference (<a 
-href="mainap6.html#ior">IOR</a>) for a <a 
+href="mainap7.html#ior">IOR</a>) for a <a 
 href="mainli2.html#glo:service">Service</a> object to find the <a 
 href="mainli2.html#glo:service">Service</a>. Given that the <a 
-href="mainap6.html#ior">IOR</a> encodes specialized
+href="mainap7.html#ior">IOR</a> encodes specialized
 information such as the specific host that is running the object, its use is limited to static
 systems.
 <!--l. 63--><p class="noindent" >
@@ -225,7 +225,7 @@ class="ectt-1200">&#x003C;namingservice&#x003E; </span>tag allows the specificat
 href="mainli2.html#glo:service">Service</a> based on its name binding on the
 <a 
 href="mainli2.html#glo:namingservice">Naming Service</a>. This is much more generic than the use of the <a 
-href="mainap6.html#ior">IOR</a>, but it implies substantial
+href="mainap7.html#ior">IOR</a>, but it implies substantial
 knowledge regarding the nature of the deployed <a 
 href="mainli2.html#glo:service">Service</a>, namely the binding name chosen in the
 <a 
@@ -258,7 +258,7 @@ that no deconflicting strategy is used in the name; the registered name is the x
 name of the <a 
 href="mainli2.html#glo:service">Service</a>. An example of a <a 
 href="mainli2.html#glo:service">Service</a> name could be ApacheHttp or <a 
-href="mainap6.html#http">HTTP</a>
+href="mainap7.html#http">HTTP</a>
 <a 
 href="mainli2.html#glo:service">Service</a>.
 <!--l. 75--><p class="noindent" >
@@ -269,7 +269,7 @@ class="ectt-1200">servicename</span></h5>
 href="mainli2.html#glo:service">Service</a> name is that it limits the ability to connect to <a 
 href="mainli2.html#glo:service">Services</a> based on
 functionality. For example, the use of <a 
-href="mainap6.html#http">HTTP</a> <a 
+href="mainap7.html#http">HTTP</a> <a 
 href="mainli2.html#glo:service">Service</a> name means that there is a single <a 
 href="mainli2.html#glo:service">Service</a> in
 the entire <a 
@@ -291,13 +291,13 @@ class="ectt-1200">domainfinder</span>.
 class="ectt-1200">servicetype</span></h5>
 <!--l. 83--><p class="noindent" >The <span 
 class="ectt-1200">servicetype </span>type allows the user to specify the Interface Description Language (<a 
-href="mainap6.html#idl">IDL</a>)
+href="mainap7.html#idl">IDL</a>)
 interface that is implemented by the <a 
 href="mainli2.html#glo:service">Service</a>. An example of an interface type is
 &#8220;<span 
 class="ectt-1200">IDL:BULKIO/dataShort:1.0</span>&#8221; for the <span 
 class="ectt-1200">dataShort </span>interface in the <a 
-href="mainap6.html#bulkio">BulkIO</a> module. By using the
+href="mainap7.html#bulkio">BulkIO</a> module. By using the
 <span 
 class="ectt-1200">servicetype </span>type, it is possible for a system user to request that the <a 
 href="mainli2.html#glo:component">Component</a> in a <a 

@@ -57,11 +57,11 @@ href="main.html#mainch2.html" >up</a>] </p></div>
 <h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
  id="x4-70002.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This chapter discusses the process of installing the Core Framework, the <a 
-href="mainap6.html#ide">IDE</a>, and the Basic
+href="mainap7.html#ide">IDE</a>, and the Basic
 Components. The Core Framework is the software back-end of REDHAWK. The <a 
-href="mainap6.html#ide">IDE</a> is a
+href="mainap7.html#ide">IDE</a> is a
 Graphical User Interface (<a 
-href="mainap6.html#gui">GUI</a>) for development and use of REDHAWK systems. The Basic
+href="mainap7.html#gui">GUI</a>) for development and use of REDHAWK systems. The Basic
 Components are building blocks that developers can use to create radio algorithms.
 <!--l. 11--><p class="noindent" >Complete installation of REDHAWK consists of the following steps:
       <ol  class="enumerate1" >
@@ -73,7 +73,7 @@ Components are building blocks that developers can use to create radio algorithm
       </li>
       <li 
   class="enumerate" id="x4-7006x3">Installing the <a 
-href="mainap6.html#ide">IDE</a>
+href="mainap7.html#ide">IDE</a>
       </li>
       <li 
   class="enumerate" id="x4-7008x4">Installing Basic Components
@@ -87,15 +87,15 @@ href="mainap6.html#ide">IDE</a>
 installing the Core Framework (depending on the permissions of the installation target
 directory).
 <!--l. 22--><p class="noindent" >It is recommended that users install from Red Hat Package Managers (<a 
-href="mainap6.html#rpm">RPM</a>s), but advanced users
+href="mainap7.html#rpm">RPM</a>s), but advanced users
 who desire custom functionality may also install from source. If installing from source, refer to
 <a 
 href="mainap4.html#x30-346000D">Section D</a> after installing dependencies.
 <!--l. 25--><p class="noindent" >REDHAWK installation is supported for Red Hat Enterprise Linux or Community Enterprise
 Operating System (<a 
-href="mainap6.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions. A developer
+href="mainap7.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions. A developer
 install of Red Hat Enterprise Linux or <a 
-href="mainap6.html#centos">CentOS</a> is recommended.
+href="mainap7.html#centos">CentOS</a> is recommended.
                                                                                          
                                                                                          
 <!--l. 29--><p class="noindent" >
@@ -108,11 +108,11 @@ in the REDHAWK distribution dependencies tarball is presented in Section <a
 href="mainap3.html#x29-345000C.2">Section
 C.2</a>.
 <!--l. 32--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In Red Hat/<a 
-href="mainap6.html#centos">CentOS</a> 5, the <a 
-href="mainap6.html#epel">EPEL</a> repository must be added to the list of <span 
+href="mainap7.html#centos">CentOS</a> 5, the <a 
+href="mainap7.html#epel">EPEL</a> repository must be added to the list of <span 
 class="ectt-1200">yum </span>repositories that are
 searched. For instructions on how to add <a 
-href="mainap6.html#epel">EPEL</a> to the <span 
+href="mainap7.html#epel">EPEL</a> to the <span 
 class="ectt-1200">yum </span>search, see <a 
 href="mainap3.html#x29-344000C.1">Section C.1</a>. </p></div></div>
 <!--l. 37--><p class="noindent" >To install all of the required and recommended packages, use the following commands:
@@ -131,7 +131,7 @@ class="ectt-1200">*.rpm</span>.
 class="ectt-1200">boost-1.41 </span>contains a known bug. Due to this bug, REDHAWK and REDHAWK C++
 projects will not compile when using <span 
 class="ectt-1200">gcc </span>version 4.4.7 (standard in Red Hat and <a 
-href="mainap6.html#centos">CentOS</a> 6.4). In
+href="mainap7.html#centos">CentOS</a> 6.4). In
 order to fix this, the <span 
 class="ectt-1200">boost </span>file <span 
 class="ectt-1200">exception_ptr.hpp </span>must be patched. For standard <span 
@@ -178,13 +178,13 @@ class="cmmi-12">&#x003E;</span>= 1.6 "\
       </li>
       <li class="itemize">python-devel</li></ul>
 <!--l. 83--><p class="noindent" >The following dependencies are required for Red Hat/<a 
-href="mainap6.html#centos">CentOS</a> 5:
+href="mainap7.html#centos">CentOS</a> 5:
       <ul class="itemize1">
       <li class="itemize">e2fsprogs-devel \
       </li>
       <li class="itemize">python-uuid</li></ul>
 <!--l. 90--><p class="noindent" >The following dependencies are required for Red Hat/<a 
-href="mainap6.html#centos">CentOS</a> 6:
+href="mainap7.html#centos">CentOS</a> 6:
                                                                                          
                                                                                          
       <ul class="itemize1">
@@ -218,16 +218,16 @@ href="mainap5.html#x31-350000E">Appendix E</a>.
  id="x4-110002.4"></a>Installing the IDE</h3>
 <!--l. 118--><p class="noindent" >The REDHAWK IDE leverages JAVA technologies and for the best JAVA experience a minimum
 of 2GB of RAM is recommended. Installing the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> is a simple matter of unzipping
+href="mainap7.html#ide">IDE</a> is a simple matter of unzipping
 the appropriate installation file. Locate the appropriate zip file, and run the following command
 (where &#x003C;version&#x003E; is the version of the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> and &#x003C;architecture&#x003E; is either x86 (for
+href="mainap7.html#ide">IDE</a> and &#x003C;architecture&#x003E; is either x86 (for
 32-bit systems) or x86_64 (for 64-bit systems)):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ unzip redhawk-R<version>-linux.gtk.<architecture>.zip
 ]]></script>
 <!--l. 130--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In order to develop and run Java based components within the <a 
-href="mainap6.html#ide">IDE</a>, the environment variable
+href="mainap7.html#ide">IDE</a>, the environment variable
 JAVA_HOME must be set and JAVA_HOME/bin should be added to the PATH. Putting this in
 the bashrc file is recommended.
                                                                                          
@@ -256,7 +256,7 @@ architecture.
 <!--l. 158--><p class="noindent" >The omniORB configuration file, <span 
 class="ectt-1200">/etc/omniORB.cfg </span>needs to be edited to provide information
 about how to reach the Common Object Request Broker Architecture (<a 
-href="mainap6.html#corba">CORBA</a>) Naming Service
+href="mainap7.html#corba">CORBA</a>) Naming Service
 and Event Service. Open the file and add the following lines in the <span 
 class="ectt-1200">InitRef </span>section (this may
 require root permissions):

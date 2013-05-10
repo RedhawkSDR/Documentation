@@ -55,45 +55,45 @@ href="main.html#mainch19.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;19</span><br /><a 
  id="x21-25300019"></a>Using the REDHAWK IDE</h2>
 <!--l. 1--><p class="noindent" >The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> is a tool that allows developers to create, test, and deploy software for
+href="mainap7.html#ide">IDE</a> is a tool that allows developers to create, test, and deploy software for
 REDHAWK systems. This tool is built on Eclipse, which is a generic, extensible <a 
-href="mainap6.html#ide">IDE</a> that allows
+href="mainap7.html#ide">IDE</a> that allows
 developers to add custom modules. The REDHAWK <a 
-href="mainap6.html#ide">IDE</a>, therefore, leverages all of the features
+href="mainap7.html#ide">IDE</a>, therefore, leverages all of the features
 available in a bare-bones Eclipse <a 
-href="mainap6.html#ide">IDE</a> while also providing customized features specific to
+href="mainap7.html#ide">IDE</a> while also providing customized features specific to
 REDHAWK development.
 <!--l. 5--><p class="noindent" >For signal processing developers, the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> provides graphical interfaces for the
+href="mainap7.html#ide">IDE</a> provides graphical interfaces for the
 auto-generation of <a 
 href="mainli2.html#glo:component">Component</a>, <a 
 href="mainli2.html#glo:device">Device</a>, and <a 
 href="mainli2.html#glo:service">Service</a> code in C++, Python, and Java. Built on top
 of the Eclipse Java Developer Tools (<a 
-href="mainap6.html#jdt">JDT</a>), Eclipse PyDev, and Eclipse C/C++ Developer
+href="mainap7.html#jdt">JDT</a>), Eclipse PyDev, and Eclipse C/C++ Developer
 Tools (<a 
-href="mainap6.html#cdt">CDT</a>), the <a 
-href="mainap6.html#ide">IDE</a> provides feature-rich editors for code written in any of the three languages.
+href="mainap7.html#cdt">CDT</a>), the <a 
+href="mainap7.html#ide">IDE</a> provides feature-rich editors for code written in any of the three languages.
 In addition, a drag-and-drop environment for testing these modules and constructing them into
 <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
 href="mainli2.html#glo:node">Nodes</a> is available.
 <!--l. 9--><p class="noindent" >For system developers, the <a 
-href="mainap6.html#ide">IDE</a> provides an environment for deploying and maintaining
+href="mainap7.html#ide">IDE</a> provides an environment for deploying and maintaining
 <a 
 href="mainli2.html#glo:application">Applications</a> onto fielded systems. Furthermore, the pluggable nature of Eclipse allows system
 developers to add customized system user-interface modules.
 <h3 class="sectionHead"><span class="titlemark">19.1   </span> <a 
  id="x21-25400019.1"></a>Launching the REDHAWK IDE For the First Time</h3>
 <!--l. 3--><p class="noindent" >This section describes the basic process for starting the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> for the first time. To
+href="mainap7.html#ide">IDE</a> for the first time. To
 begin, the REDHAWK Core Framework and the <a 
-href="mainap6.html#ide">IDE</a> must first be installed (see  <a 
+href="mainap7.html#ide">IDE</a> must first be installed (see  <a 
 href="mainch2.html#x4-110002.4">Section 2.4</a>).
 Assuming the <a 
-href="mainap6.html#ide">IDE</a> is installed in <span 
+href="mainap7.html#ide">IDE</a> is installed in <span 
 class="cmsy-10x-x-120">~</span>/redhawk-ide/, the <a 
-href="mainap6.html#ide">IDE</a> may be started using the following
+href="mainap7.html#ide">IDE</a> may be started using the following
 commands:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ cd ~/redhawk-ide/eclipse
@@ -102,13 +102,13 @@ $ ./eclipse
 <!--l. 13--><p class="noindent" >At startup, the program may prompt for a <a 
 href="mainli2.html#glo:workspace">Workspace</a> location. In Eclipse and the REDHAWK
 <a 
-href="mainap6.html#ide">IDE</a>, a <a 
+href="mainap7.html#ide">IDE</a>, a <a 
 href="mainli2.html#glo:workspace">Workspace</a> is a logical collection of projects under active development. The user should set
 the workspace to where he/she intends to store source code.
 <!--l. 17--><p class="noindent" >If this is the first time running the <a 
-href="mainap6.html#ide">IDE</a> using this <a 
+href="mainap7.html#ide">IDE</a> using this <a 
 href="mainli2.html#glo:workspace">Workspace</a>, the <a 
-href="mainap6.html#ide">IDE</a> displays the <span 
+href="mainap7.html#ide">IDE</a> displays the <span 
 class="ecbx-1200">Welcome</span>
 screen and a prompt to configure <a 
 href="mainli2.html#glo:PyDev">PyDev</a>.
@@ -126,7 +126,7 @@ configure <a
 href="mainli2.html#glo:PyDev">PyDev</a> at this time, it can always be configured at a later time.
 <!--l. 26--><p class="noindent" >To configure <a 
 href="mainli2.html#glo:PyDev">PyDev</a> through the <a 
-href="mainap6.html#ide">IDE</a> menus:
+href="mainap7.html#ide">IDE</a> menus:
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x21-255002x1">Select <span 
@@ -148,19 +148,19 @@ class="ecbx-1200">Auto Config</span>.</li></ol>
  id="x21-25600019.2"></a>The Workbench</h3>
 <!--l. 43--><p class="noindent" >The Eclipse introductory screen displays a <span 
 class="ecbx-1200">Workbench </span>button that takes the user to the <a 
-href="mainap6.html#ide">IDE</a>&#8217;s
+href="mainap7.html#ide">IDE</a>&#8217;s
 development environment: the <a 
 href="mainli2.html#glo:workbench">Workbench</a>. The <a 
 href="mainli2.html#glo:workbench">Workbench</a> is made up of multiple, smaller
 windows, which are referred to as <a 
 href="mainli2.html#glo:view">Views</a> in the Eclipse context.
 <!--l. 46--><p class="noindent" >At the center of the <a 
-href="mainap6.html#ide">IDE</a> <a 
+href="mainap7.html#ide">IDE</a> <a 
 href="mainli2.html#glo:workbench">Workbench</a> is the <a 
 href="mainli2.html#glo:editor">Editor</a> window, which will be empty at initial startup.
 The <a 
 href="mainli2.html#glo:editor">Editor</a> is the primary window used when developing code within the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>. An
+href="mainap7.html#ide">IDE</a>. An
 Eclipse <a 
 href="mainli2.html#glo:editor">Editor</a> is a context-sensitive window within the <a 
 href="mainli2.html#glo:workbench">Workbench</a>; the language of opened files
@@ -171,7 +171,7 @@ online Eclipse documentation at <a
 href="http://help.eclipse.org/" class="url" ><span 
 class="ectt-1200">http://help.eclipse.org/</span></a> or the embedded documentation
 within the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> by selecting <span 
+href="mainap7.html#ide">IDE</a> by selecting <span 
 class="ecbx-1200">Help </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Search</span>.
@@ -190,11 +190,11 @@ href="mainli2.html#glo:perspective">Perspectives</a> throughout the development 
 developer may optimize his/her work environment based on the requirements of the particular task
 at hand. The default <a 
 href="mainli2.html#glo:perspective">Perspective</a> in the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> is the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#ide">IDE</a> is the <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a>, which is
 discussed in the following section. A user may switch from the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a> to any other
 <a 
 href="mainli2.html#glo:perspective">Perspective</a> whenever needed.
@@ -237,15 +237,15 @@ class="ecbx-1200">&#x2026;</span></li></ol>
 <h4 class="subsectionHead"><span class="titlemark">19.3.1   </span> <a 
  id="x21-25800019.3.1"></a>The SCA Perspective</h4>
 <!--l. 99--><p class="noindent" >The <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a> is comprised of seven <a 
 href="mainli2.html#glo:view">Views</a> and the <a 
 href="mainli2.html#glo:editor">Editor</a> window. Five of these views are
 provided by Eclipse <a 
-href="mainap6.html#ide">IDE</a>, while the remaining two views are REDHAWK-specific.
+href="mainap7.html#ide">IDE</a>, while the remaining two views are REDHAWK-specific.
 <!--l. 102--><p class="noindent" >The following five Eclipse-provided <a 
 href="mainli2.html#glo:view">Views</a> are in the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a>:
       <ul class="itemize1">
       <li class="itemize"><a 
@@ -283,21 +283,21 @@ class="ecbx-1200">Console View</span></a> are described in  <a
 href="#x21-26700019.4.4">Section 19.4.4</a>.</li></ul>
 <!--l. 119--><p class="noindent" >The following two REDHAWK-specific <a 
 href="mainli2.html#glo:view">Views</a> are in the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a>:
       <ul class="itemize1">
       <li class="itemize"><a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>: allows a user to navigate the contents of an <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:domain">Domain</a>. It
       provides capabilities for viewing the contents of the <a 
 href="mainli2.html#glo:domain">Domain</a>, configuring instantiated
       resources, and launching <a 
 href="mainli2.html#glo:application">Applications</a> in a target <a 
-href="mainap6.html#sdr">SDR</a> environment. It also provides
+href="mainap7.html#sdr">SDR</a> environment. It also provides
       access  to  the  <a 
 href="mainli2.html#glo:Sandbox"><span 
 class="ecbx-1200">Sandbox</span></a>,  which  is  an  environment  for  running  <a 
@@ -308,10 +308,10 @@ href="mainli2.html#glo:domainmanager">Domain  Manager</a>  and  <a
 href="mainli2.html#glo:devicemanager">Device  Manager</a>.  Exploring  an  active
       <a 
 href="mainli2.html#glo:domain">Domain</a> using the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> is discussed in  <a 
+href="mainap7.html#ide">IDE</a> is discussed in  <a 
 href="mainch22.html#x24-30100022">Chapter 22</a>. The <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer</span>
       <span 
@@ -327,23 +327,23 @@ src="images/REDHAWK_SCA_Explorer_View.png" alt="PIC"
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;19.2: </td><td  
 class="content">The <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a></td></tr></table><!--tex4ht:label?: x21-258001r2 -->
       <!--l. 134--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:CORBA Name Browser View"><a 
-href="mainap6.html#corba">CORBA</a> Name Browser</a>: maps names to specific <a 
-href="mainap6.html#corba">CORBA</a> Servants. The <a 
+href="mainap7.html#corba">CORBA</a> Name Browser</a>: maps names to specific <a 
+href="mainap7.html#corba">CORBA</a> Servants. The <a 
 href="mainli2.html#glo:CORBA Name Browser View"><a 
-href="mainap6.html#corba">CORBA</a> Name
+href="mainap7.html#corba">CORBA</a> Name
       Browser</a> is used to examine the current contents of the <a 
 href="mainli2.html#glo:namingservice">Naming Service</a> as well as perform
       basic manipulation of that context. The view displays all currently bound name contexts
       (folders) and objects. The <a 
 href="mainli2.html#glo:CORBA Name Browser View"><a 
-href="mainap6.html#corba">CORBA</a> Name Browser</a> is displayed in the following graphic,
+href="mainap7.html#corba">CORBA</a> Name Browser</a> is displayed in the following graphic,
       <a 
 href="#x21-258002r3">Figure 19.3</a>.
       <!--l. 141--><p class="noindent" ><hr class="figure"><div class="figure" 
@@ -364,21 +364,21 @@ class="ecbx-1200">Name Browser View</span></td></tr></table><!--tex4ht:label?: x
 <h4 class="subsectionHead"><span class="titlemark">19.3.2   </span> <a 
  id="x21-25900019.3.2"></a>Programming Language Specific Perspectives</h4>
 <!--l. 150--><p class="noindent" >While the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a> combines views that are commonly used while viewing <a 
 href="mainli2.html#glo:domain">Domain</a>
 objects, creating <a 
-href="mainap6.html#sca">SCA</a> resources, and launching <a 
+href="mainap7.html#sca">SCA</a> resources, and launching <a 
 href="mainli2.html#glo:application">Applications</a>, many other <a 
 href="mainli2.html#glo:perspective">Perspectives</a> are
 available that are optimized for code development. Because the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> is built on
+href="mainap7.html#ide">IDE</a> is built on
 top of the Eclipse platform, it takes advantage of standard Eclipse, as well as third
 party, <a 
-href="mainap6.html#ide">IDE</a> <a 
+href="mainap7.html#ide">IDE</a> <a 
 href="mainli2.html#glo:perspective">Perspectives</a> for the purpose of supporting language-specific development.
 Specifically, the <a 
-href="mainap6.html#ide">IDE</a> contains <a 
+href="mainap7.html#ide">IDE</a> contains <a 
 href="mainli2.html#glo:perspective">Perspectives</a> that support C/C++, Java, and Python
 development.
 <!--l. 156--><p class="noindent" >For example, the Java <a 
@@ -390,7 +390,7 @@ programs.
 href="mainli2.html#glo:perspective">Perspectives</a>, particularly the Eclipse default, programming language-specific
 <a 
 href="mainli2.html#glo:perspective">Perspectives</a> packaged with the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>, see <a 
+href="mainap7.html#ide">IDE</a>, see <a 
 href="http://help.eclipse.org/" class="url" ><span 
 class="ectt-1200">http://help.eclipse.org/</span></a>.
 <!--l. 1--><p class="noindent" >
@@ -400,22 +400,22 @@ class="ectt-1200">http://help.eclipse.org/</span></a>.
 href="mainli2.html#glo:editor">Editors</a> and <a 
 href="mainli2.html#glo:view">Views</a> provided with the REDHAWK
 <a 
-href="mainap6.html#ide">IDE</a>.
+href="mainap7.html#ide">IDE</a>.
 <!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">19.4.1   </span> <a 
  id="x21-26100019.4.1"></a>SoftPkg Editor</h4>
 <!--l. 8--><p class="noindent" >To open the <a 
 href="mainli2.html#glo:SoftPkg Editor"><span 
 class="ecbx-1200">SoftPkg Editor</span></a>, double-click an <a 
-href="mainap6.html#spd">SPD</a> file from the <a 
+href="mainap7.html#spd">SPD</a> file from the <a 
 href="mainli2.html#glo:Project Explorer View"><span 
 class="ecbx-1200">Project Explorer View</span></a>. It
 presents all the content that can be found within the <span 
 class="ectt-1200">spd.xml </span>file in an editing environment
 designed for human use. If the <a 
-href="mainap6.html#spd">SPD</a> file references a <a 
-href="mainap6.html#prf">PRF</a> or <a 
-href="mainap6.html#scd">SCD</a> file, additional tabs are made
+href="mainap7.html#spd">SPD</a> file references a <a 
+href="mainap7.html#prf">PRF</a> or <a 
+href="mainap7.html#scd">SCD</a> file, additional tabs are made
 available that represent these files in similar fashion.
 <!--l. 13--><p class="noindent" >Each of the <a 
 href="mainli2.html#glo:editor">Editor</a> tabs, with the exception of the raw XML tabs, have a <span 
@@ -425,19 +425,19 @@ class="ecbx-1200">Implementations </span>button located in the top right corner.
 his/her code implementation. The generated code is based on the code generator template that was
 chosen during the <span 
 class="ecbx-1200">New Project Wizard </span>and the content found within the <a 
-href="mainap6.html#spd">SPD</a>, <a 
-href="mainap6.html#prf">PRF</a>, and <a 
-href="mainap6.html#scd">SCD</a>
+href="mainap7.html#spd">SPD</a>, <a 
+href="mainap7.html#prf">PRF</a>, and <a 
+href="mainap7.html#scd">SCD</a>
 files.
 <!--l. 19--><p class="noindent" >Each of the three <a 
-href="mainap6.html#xml">XML</a> files has a corresponding <a 
+href="mainap7.html#xml">XML</a> files has a corresponding <a 
 href="mainli2.html#glo:editor">Editor</a> tab: the <a 
-href="mainap6.html#spd">SPD</a> - the <span 
+href="mainap7.html#spd">SPD</a> - the <span 
 class="ecbx-1200">Overview </span>tab, the
 <a 
-href="mainap6.html#prf">PRF</a> - <span 
+href="mainap7.html#prf">PRF</a> - <span 
 class="ecbx-1200">Properties </span>tab, and the <a 
-href="mainap6.html#scd">SCD</a> - the <span 
+href="mainap7.html#scd">SCD</a> - the <span 
 class="ecbx-1200">Implementations </span>tab. The following sections describe
 each of these <a 
 href="mainli2.html#glo:editor">Editors</a>.
@@ -448,18 +448,18 @@ href="mainli2.html#glo:editor">Editors</a>.
  id="x21-26200019.4.1"></a>Overview Tab</h5>
 <!--l. 25--><p class="noindent" >The <span 
 class="ecbx-1200">Overview </span>tab is a representation of the content found within the <a 
-href="mainap6.html#spd">SPD</a> file and contains six
+href="mainap7.html#spd">SPD</a> file and contains six
 sections.
       <ul class="itemize1">
       <li class="itemize">The  <span 
 class="ecbx-1200">General  Information </span>section  provides  the  ability  to  view  and  set  (if  write
       permissions are granted) the resource&#8217;s <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> and <span 
 class="ecbx-1200">Name </span>as well as the location of the
       <a 
-href="mainap6.html#prf">PRF</a> and <a 
-href="mainap6.html#scd">SCD</a> files. The initial content of these fields is auto-generated when the
+href="mainap7.html#prf">PRF</a> and <a 
+href="mainap7.html#scd">SCD</a> files. The initial content of these fields is auto-generated when the
       project is created and is generally left unaltered. The optional fields, <span 
 class="ecbx-1200">Version</span>, <span 
 class="ecbx-1200">Title</span>,
@@ -497,15 +497,15 @@ href="mainli2.html#glo:port">Port</a> must have a type and defaults to control i
       </li>
       <li 
   class="enumerate" id="x21-262010x5">Select an <a 
-href="mainap6.html#idl">IDL</a> for this <a 
+href="mainap7.html#idl">IDL</a> for this <a 
 href="mainli2.html#glo:port">Port</a> to inherit from. The set of <a 
-href="mainap6.html#idl">IDL</a>s within the <a 
-href="mainap6.html#bulkio">BulkIO</a> package
+href="mainap7.html#idl">IDL</a>s within the <a 
+href="mainap7.html#bulkio">BulkIO</a> package
       is recommended for <a 
 href="mainli2.html#glo:port">Ports</a> that input or output intrinsic data types. The <a 
-href="mainap6.html#idl">IDL</a> list is
+href="mainap7.html#idl">IDL</a> list is
       taken from the <a 
-href="mainap6.html#idl">IDL</a>s found within the Core Framework&#8217;s install location.
+href="mainap7.html#idl">IDL</a>s found within the Core Framework&#8217;s install location.
       </li>
       <li 
   class="enumerate" id="x21-262012x6">Click <span 
@@ -521,13 +521,13 @@ respectively.
       <ul class="itemize1">
       <li class="itemize">The <span 
 class="ecbx-1200">Interfaces </span>section lists the <a 
-href="mainap6.html#idl">IDL</a>s that this resource inherits. This includes <a 
-href="mainap6.html#idl">IDL</a>s
+href="mainap7.html#idl">IDL</a>s that this resource inherits. This includes <a 
+href="mainap7.html#idl">IDL</a>s
       used by the resource&#8217;s <a 
 href="mainli2.html#glo:port">Ports</a>, lifecycle, and <a 
 href="mainli2.html#glo:property">Properties</a>. This table is <span class="uline">read only</span>, and
       additional <a 
-href="mainap6.html#idl">IDL</a> interfaces cannot be added here.
+href="mainap7.html#idl">IDL</a> interfaces cannot be added here.
       </li>
       <li class="itemize">The <a 
 href="mainli2.html#glo:component"><span 
@@ -552,7 +552,7 @@ href="#x21-27600019.6">Section 19.6</a>.
       </li>
       <li class="itemize">The <span 
 class="ecbx-1200">Exporting </span>section provides a hyperlink for deploying a project to the <a 
-href="mainap6.html#sdr">SDR</a> Root.</li></ul>
+href="mainap7.html#sdr">SDR</a> Root.</li></ul>
 <!--l. 76--><p class="noindent" >Use the following procedure to export a project using the <span 
 class="ecbx-1200">Export Wizard</span>:
       <ol  class="enumerate1" >
@@ -577,9 +577,9 @@ class="ecbx-1200">Finish</span>.</li></ol>
 <!--l. 85--><p class="noindent" >The <a 
 href="mainli2.html#glo:property"><span 
 class="ecbx-1200">Properties</span></a> tab is a representation of the content found within the <a 
-href="mainap6.html#prf">PRF</a> file. The
+href="mainap7.html#prf">PRF</a> file. The
 REDHAWK <a 
-href="mainap6.html#ide">IDE</a> supports the creation of four types of <a 
+href="mainap7.html#ide">IDE</a> supports the creation of four types of <a 
 href="mainli2.html#glo:property">Properties</a>: simple, sequence, struct,
 and struct sequence. See  <a 
 href="mainch3.html#x5-200003.2.4">Section 3.2.4</a> for information about the different <a 
@@ -597,9 +597,9 @@ href="mainli2.html#glo:editor">Editor</a> page is now in an error state because 
       </li>
       <li 
   class="enumerate" id="x21-263004x2">In the <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> field, type an <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>.
       </li>
       <li 
@@ -620,9 +620,9 @@ href="mainli2.html#glo:editor">Editor</a> page is now in an error state because 
       </li>
       <li 
   class="enumerate" id="x21-263012x2">In the <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> field, type an <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>.
       </li>
       <li 
@@ -652,9 +652,9 @@ href="mainli2.html#glo:editor">Editor</a> page is now in an error state because 
       </li>
       <li 
   class="enumerate" id="x21-263022x2">In the <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> field, type an <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>.
       </li>
       <li 
@@ -684,9 +684,9 @@ href="mainli2.html#glo:editor">Editor</a> page is now in an error state because 
       </li>
       <li 
   class="enumerate" id="x21-263032x2">In the <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> field, type an <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> for the struct sequence.
       </li>
       <li 
@@ -695,9 +695,9 @@ class="ecbx-1200">Struct</span>.
       </li>
       <li 
   class="enumerate" id="x21-263036x4">In the <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> field, type an <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a> for the struct.
       </li>
       <li 
@@ -749,7 +749,7 @@ class="ecbx-1200">Finish</span>.</li></ol>
  id="x21-26400019.4.1"></a>Implementations Tab</h5>
 <!--l. 163--><p class="noindent" >The <span 
 class="ecbx-1200">Implementations Tab </span>is a representation of the content found within the <a 
-href="mainap6.html#scd">SCD</a> file. It
+href="mainap7.html#scd">SCD</a> file. It
 describes the programming language implementations that are generated and the hardware
 dependencies required for this resource.
 <!--l. 167--><p class="noindent" >During the <span 
@@ -774,9 +774,9 @@ on a device&#8217;s <a
 href="mainli2.html#glo:property">Property</a>. To provide compatibility among different sets of users, well
 known <a 
 href="mainli2.html#glo:property">Properties</a> have been created, including different <a 
-href="mainap6.html#os">OS</a> and processor types. The
+href="mainap7.html#os">OS</a> and processor types. The
 <a 
-href="mainap6.html#os">OS</a> and processor dependencies sections contain a preset list of <a 
+href="mainap7.html#os">OS</a> and processor dependencies sections contain a preset list of <a 
 href="mainli2.html#glo:property">Properties</a> to select
 from.
 <!--l. 182--><p class="noindent" >The <span 
@@ -792,7 +792,7 @@ properties.
 <!--l. 191--><p class="noindent" >To open the <a 
 href="mainli2.html#glo:Node Editor"><span 
 class="ecbx-1200">Node Editor</span></a>, double-click a <a 
-href="mainap6.html#dcd">DCD</a> file from the <a 
+href="mainap7.html#dcd">DCD</a> file from the <a 
 href="mainli2.html#glo:Project Explorer View"><span 
 class="ecbx-1200">Project Explorer View</span></a>. It
 presents all the content that can be found within the <span 
@@ -806,16 +806,16 @@ href="mainli2.html#glo:device"><span
 class="ecbx-1200">Devices</span></a>, <span 
 class="ecbx-1200">Diagram</span>, and a
 raw <a 
-href="mainap6.html#xml">XML</a> tab, which contains the <a 
-href="mainap6.html#dcd">DCD</a> file content.
+href="mainap7.html#xml">XML</a> tab, which contains the <a 
+href="mainap7.html#dcd">DCD</a> file content.
 <!--l. 196--><p class="noindent" >The <span 
 class="ecbx-1200">Overview </span>tab provides general information about the <a 
 href="mainli2.html#glo:node">Node</a>, and hyperlinks to additional
 <a 
 href="mainli2.html#glo:node">Node</a>-related sections within the <a 
-href="mainap6.html#ide">IDE</a>. From the <span 
+href="mainap7.html#ide">IDE</a>. From the <span 
 class="ecbx-1200">General Information </span>section, the <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>, <span 
 class="ecbx-1200">name</span>,
 and <span 
@@ -836,12 +836,12 @@ section provides a hyperlink to the <span
 class="ecbx-1200">Export Wizard</span>, which steps through the process of deploying
 the <a 
 href="mainli2.html#glo:node">Node</a> into the <a 
-href="mainap6.html#sdr">SDR</a> root.
+href="mainap7.html#sdr">SDR</a> root.
 <!--l. 206--><p class="noindent" >The <a 
 href="mainli2.html#glo:device"><span 
 class="ecbx-1200">Devices</span></a> tab enables a user to add <a 
 href="mainli2.html#glo:device">Devices</a> from the <a 
-href="mainap6.html#sdr">SDR</a> Root into the <a 
+href="mainap7.html#sdr">SDR</a> Root into the <a 
 href="mainli2.html#glo:node">Node</a>
 and to configure the <a 
 href="mainli2.html#glo:property">Properties</a> for the <a 
@@ -966,22 +966,22 @@ one <a
 href="mainli2.html#glo:port">Port</a> to the other. <a 
 href="mainli2.html#glo:port">Ports</a> may have more than one connection drawn to or from
 them. Any unsupported or erroneous connection detected by the <a 
-href="mainap6.html#ide">IDE</a> is marked with an
+href="mainap7.html#ide">IDE</a> is marked with an
 appropriate indicator. Hovering over the indicator provides information concerning the
 error.
 <!--l. 267--><p class="noindent" >The <span 
 class="ectt-1200">dcd.xml </span>tab displays the raw <a 
-href="mainap6.html#xml">XML</a> data, which describes the <a 
+href="mainap7.html#xml">XML</a> data, which describes the <a 
 href="mainli2.html#glo:node">Node</a> fully. Although not
 recommended, manually editing the <a 
-href="mainap6.html#xml">XML</a> file is supported.
+href="mainap7.html#xml">XML</a> file is supported.
 <!--l. 271--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">19.4.3   </span> <a 
  id="x21-26600019.4.3"></a>Waveform Editor</h4>
 <!--l. 273--><p class="noindent" >To open the <a 
 href="mainli2.html#glo:Waveform Editor"><span 
 class="ecbx-1200">Waveform Editor</span></a>, double-click an <a 
-href="mainap6.html#sad">SAD</a> file from the <a 
+href="mainap7.html#sad">SAD</a> file from the <a 
 href="mainli2.html#glo:Project Explorer View"><span 
 class="ecbx-1200">Project Explorer View</span></a>. It
 presents all the content that can be found within the <span 
@@ -992,17 +992,17 @@ class="ecbx-1200">Waveform Editor</span></a> contains an <span
 class="ecbx-1200">Overview</span>, <span 
 class="ecbx-1200">Diagram</span>, and a raw
 <a 
-href="mainap6.html#xml">XML</a> tab which contains the <a 
-href="mainap6.html#sad">SAD</a> file content.
+href="mainap7.html#xml">XML</a> tab which contains the <a 
+href="mainap7.html#sad">SAD</a> file content.
 <!--l. 278--><p class="noindent" >The <span 
 class="ecbx-1200">Overview </span>tab provides general information about the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, and hyperlinks to
 additional <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>-related sections within the <a 
-href="mainap6.html#ide">IDE</a>. From the <span 
+href="mainap7.html#ide">IDE</a>. From the <span 
 class="ecbx-1200">General Information </span>section the
 <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>, <span 
 class="ecbx-1200">name</span>, <span 
 class="ecbx-1200">version</span>, <span 
@@ -1039,7 +1039,7 @@ class="ecbx-1200">Exporting </span>section provides a hyperlink to the <span
 class="ecbx-1200">Export Wizard </span>which steps through
 the process of deploying the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> into the <a 
-href="mainap6.html#sdr">SDR</a> Root.
+href="mainap7.html#sdr">SDR</a> Root.
 <!--l. 296--><p class="noindent" >The <span 
 class="ecbx-1200">Diagram </span>section (along with the <a 
 href="mainli2.html#glo:property"><span 
@@ -1137,15 +1137,15 @@ href="mainli2.html#glo:port">Ports</a> by clicking and dragging from one
 href="mainli2.html#glo:port">Port</a> to the other. <a 
 href="mainli2.html#glo:port">Ports</a> may have more than one connection drawn to or from them.
 Any unsupported or erroneous connection that the <a 
-href="mainap6.html#ide">IDE</a> can detect is marked with an
+href="mainap7.html#ide">IDE</a> can detect is marked with an
 appropriate indicator. Hovering over the indicator provides information concerning the
 error.
 <!--l. 342--><p class="noindent" >The <span 
 class="ectt-1200">sad.xml </span>tab displays the raw <a 
-href="mainap6.html#xml">XML</a> data, which describes this <a 
+href="mainap7.html#xml">XML</a> data, which describes this <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> fully. Although not
 recommended, manually editing the <a 
-href="mainap6.html#xml">XML</a> file is supported.
+href="mainap7.html#xml">XML</a> file is supported.
 <!--l. 345--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">19.4.4   </span> <a 
  id="x21-26700019.4.4"></a>Console View</h4>
@@ -1155,7 +1155,7 @@ class="ecbx-1200">Console View</span></a> is a part of Eclipse and the basic use
 documentation: <a 
 href="http://help.eclipse.org/" class="url" ><span 
 class="ectt-1200">http://help.eclipse.org/</span></a>. The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> uses multiple <a 
+href="mainap7.html#ide">IDE</a> uses multiple <a 
 href="mainli2.html#glo:Console View"><span 
 class="ecbx-1200">Console Views</span></a>
 for different purposes. Third party plug-ins within REDHAWK have their own <a 
@@ -1201,20 +1201,20 @@ href="mainli2.html#glo:device">Device</a>, the
       the code generation.
       </li>
       <li class="itemize">Python <a 
-href="mainap6.html#sca">SCA</a> Sandbox: The Python Sandbox, as described in  <a 
+href="mainap7.html#sca">SCA</a> Sandbox: The Python Sandbox, as described in  <a 
 href="mainch9.html#x11-1250009">Chapter 9</a>, is a powerful
       tool for testing and interacting with <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:device">Devices</a>. A Python Sandbox may
       be created from within the <a 
-href="mainap6.html#ide">IDE</a> to aid in testing.
+href="mainap7.html#ide">IDE</a> to aid in testing.
                                                                                          
                                                                                          
       </li>
       <li class="itemize">Third Party Consoles: Additional consoles (not described in this section) are available,
       including PyDev Scripting, Subversion (<a 
-href="mainap6.html#svn">SVN</a>), Concurrent Versions System (<a 
-href="mainap6.html#cvs">CVS</a>),
+href="mainap7.html#svn">SVN</a>), Concurrent Versions System (<a 
+href="mainap7.html#cvs">CVS</a>),
       Java Stack Trace, etc. These are part of Eclipse or part of third party plug-ins such as
       PyDev.</li></ul>
 <!--l. 1--><p class="noindent" >
@@ -1222,12 +1222,12 @@ href="mainap6.html#cvs">CVS</a>),
  id="x21-26800019.5"></a>Types of REDHAWK Projects</h3>
 <!--l. 3--><p class="noindent" >This section describes the different types of REDHAWK Projects and how to create them using
 the provided Wizards. Before creating a new project, it is recommended that the <a 
-href="mainap6.html#ide">IDE</a> be in the
+href="mainap7.html#ide">IDE</a> be in the
 <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a> so that the proper menus are available. For guidance on how to switch to the
 <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:perspective">Perspective</a> refer to  <a 
 href="#x21-25700019.3">Section 19.3</a>.
 <!--l. 10--><p class="noindent" >There are three ways to create a new REDHAWK project:
@@ -1296,28 +1296,28 @@ href="mainli2.html#glo:component">Component</a> wizard contains:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">Contents</span>: An <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> is defined by an <a 
-href="mainap6.html#spd">SPD</a> file. By default, when creating
+href="mainap7.html#spd">SPD</a> file. By default, when creating
       a new <a 
 href="mainli2.html#glo:component">Component</a>, the <a 
-href="mainap6.html#spd">SPD</a> file created is an empty skeleton. A new <a 
+href="mainap7.html#spd">SPD</a> file created is an empty skeleton. A new <a 
 href="mainli2.html#glo:component">Component</a> may
       be based off of a previous <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file by selecting it from the file system.
+href="mainap7.html#spd">SPD</a> file by selecting it from the file system.
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a> <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Every softpkg element contains an <a 
-href="mainap6.html#id">ID</a> which is used for universally
+href="mainap7.html#id">ID</a> which is used for universally
       unique identification. The <a 
-href="mainap6.html#ide">IDE</a> will generate a Distributed Computing Environment
+href="mainap7.html#ide">IDE</a> will generate a Distributed Computing Environment
       (<a 
-href="mainap6.html#dce">DCE</a>) compliant <a 
-href="mainap6.html#uuid">UUID</a> by default.</li></ul>
+href="mainap7.html#dce">DCE</a>) compliant <a 
+href="mainap7.html#uuid">UUID</a> by default.</li></ul>
 <!--l. 59--><p class="noindent" >Page two of the wizard defines the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s implementation, the programming language used
 and the code generation template.
@@ -1332,26 +1332,26 @@ href="mainli2.html#glo:component">Component</a>&#8217;s implementation may be wr
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Code Generator</span>: The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> provides a single code generator for each of
+href="mainap7.html#ide">IDE</a> provides a single code generator for each of
       the programming languages. It is possible to augment the <a 
-href="mainap6.html#ide">IDE</a> with additional code
+href="mainap7.html#ide">IDE</a> with additional code
       generators. This process is described in   <a 
 href="mainap2.html#x28-338000B.1.1">Section B.1.1</a>. A user may choose to forgo
       automatic code generation and instead choose to create their implementation manually.
       </li>
       <li class="itemize"><a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Each language implementation has a project unique <a 
-href="mainap6.html#id">ID</a>. By default the language
+href="mainap7.html#id">ID</a>. By default the language
       chosen is used as the <a 
-href="mainap6.html#id">ID</a>.
+href="mainap7.html#id">ID</a>.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Description</span>:  A  <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s  implementation  may  contain  a  description.  The
       description is written into the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file.</li></ul>
+href="mainap7.html#spd">SPD</a> file.</li></ul>
 <!--l. 78--><p class="noindent" >Page three of the wizard allows the user to customize the properties of the code generator and
 template.
 <!--l. 81--><p class="noindent" >Wizard page three contains fields for:
@@ -1426,27 +1426,27 @@ href="mainli2.html#glo:device">Device</a> types.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Contents</span>: An <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:device">Device</a> is defined by an <a 
-href="mainap6.html#spd">SPD</a> file. By default, when creating a new
+href="mainap7.html#spd">SPD</a> file. By default, when creating a new
       <a 
 href="mainli2.html#glo:device">Device</a>, the <a 
-href="mainap6.html#spd">SPD</a> file created is an empty skeleton. The new <a 
+href="mainap7.html#spd">SPD</a> file created is an empty skeleton. The new <a 
 href="mainli2.html#glo:device">Device</a> may be based off
       of a previous <a 
 href="mainli2.html#glo:device">Device</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file by selecting it from the file system.
+href="mainap7.html#spd">SPD</a> file by selecting it from the file system.
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:device"><span 
 class="ecbx-1200">Device</span></a> <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Every softpkg element contains an <a 
-href="mainap6.html#id">ID</a> which is used for universally unique
+href="mainap7.html#id">ID</a> which is used for universally unique
       identification. The <a 
-href="mainap6.html#ide">IDE</a> will generate a <a 
-href="mainap6.html#dce">DCE</a> compliant <a 
-href="mainap6.html#uuid">UUID</a> by default.</li></ul>
+href="mainap7.html#ide">IDE</a> will generate a <a 
+href="mainap7.html#dce">DCE</a> compliant <a 
+href="mainap7.html#uuid">UUID</a> by default.</li></ul>
 <!--l. 137--><p class="noindent" >Page two of the wizard defines the <a 
 href="mainli2.html#glo:device">Device</a>&#8217;s implementation, the programming language used and
 the code generation template.
@@ -1461,25 +1461,25 @@ href="mainli2.html#glo:device">Device</a>&#8217;s implementation may be written 
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Code Generator</span>: The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> provides a single code generator for each of
+href="mainap7.html#ide">IDE</a> provides a single code generator for each of
       the programming languages. It is possible to augment the <a 
-href="mainap6.html#ide">IDE</a> with additional code
+href="mainap7.html#ide">IDE</a> with additional code
       generators. This process is described in   <a 
 href="mainap2.html#x28-338000B.1.1">Section B.1.1</a>. A user may choose to forgo
       automatic code generation and instead choose to create their implementation manually.
       </li>
       <li class="itemize"><a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Each language implementation has a project unique <a 
-href="mainap6.html#id">ID</a>, by default the language
+href="mainap7.html#id">ID</a>, by default the language
       chosen is used as the <a 
-href="mainap6.html#id">ID</a>.
+href="mainap7.html#id">ID</a>.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Description</span>: A description for this implementation may be provided. The description
       is written into the <a 
 href="mainli2.html#glo:device">Device</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file.</li></ul>
+href="mainap7.html#spd">SPD</a> file.</li></ul>
 <!--l. 156--><p class="noindent" >Page three of the wizard allows the user to customize the properties of the code generator and
 template.
 <!--l. 159--><p class="noindent" >Wizard page three contains:
@@ -1541,28 +1541,28 @@ href="#x21-26800019.5">Section 19.5</a>.
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">Contents</span>: An <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is defined by an <a 
-href="mainap6.html#sad">SAD</a> file. By default, when creating a
+href="mainap7.html#sad">SAD</a> file. By default, when creating a
       new <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, the <a 
-href="mainap6.html#sad">SAD</a> file created is an empty skeleton. The new <a 
+href="mainap7.html#sad">SAD</a> file created is an empty skeleton. The new <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> may be
       based off of a previous <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s <a 
-href="mainap6.html#sad">SAD</a> file by selecting it from the file system.
+href="mainap7.html#sad">SAD</a> file by selecting it from the file system.
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:waveform"><span 
 class="ecbx-1200">SCA Waveform</span></a> <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Every <a 
-href="mainap6.html#sad">SAD</a> file contains an <a 
-href="mainap6.html#id">ID</a> which is used for universally
+href="mainap7.html#sad">SAD</a> file contains an <a 
+href="mainap7.html#id">ID</a> which is used for universally
       unique identification. The <a 
-href="mainap6.html#ide">IDE</a> will generate a <a 
-href="mainap6.html#dce">DCE</a> compliant <a 
-href="mainap6.html#uuid">UUID</a> by default.</li></ul>
+href="mainap7.html#ide">IDE</a> will generate a <a 
+href="mainap7.html#dce">DCE</a> compliant <a 
+href="mainap7.html#uuid">UUID</a> by default.</li></ul>
                                                                                          
                                                                                          
 <!--l. 212--><p class="noindent" >The user may choose to complete the wizard at this point or continue on to the optional second
@@ -1596,28 +1596,28 @@ href="mainli2.html#glo:node">Node</a> will be assigned.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Contents</span>: An <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:node">Node</a> is defined by a <a 
-href="mainap6.html#dcd">DCD</a> file. By default, when creating a new
+href="mainap7.html#dcd">DCD</a> file. By default, when creating a new
       <a 
 href="mainli2.html#glo:node">Node</a>, the <a 
-href="mainap6.html#dcd">DCD</a> file created is an empty skeleton. The new <a 
+href="mainap7.html#dcd">DCD</a> file created is an empty skeleton. The new <a 
 href="mainli2.html#glo:node">Node</a> may be based off of
       a previous <a 
 href="mainli2.html#glo:node">Node</a>&#8217;s <a 
-href="mainap6.html#dcd">DCD</a> file by selecting it from the file system.
+href="mainap7.html#dcd">DCD</a> file by selecting it from the file system.
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:node"><span 
 class="ecbx-1200">Node</span></a>  <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>:  Every  <a 
-href="mainap6.html#dcd">DCD</a>  contains  an  <a 
-href="mainap6.html#id">ID</a>  which  is  used  for  universally  unique
+href="mainap7.html#dcd">DCD</a>  contains  an  <a 
+href="mainap7.html#id">ID</a>  which  is  used  for  universally  unique
       identification. The <a 
-href="mainap6.html#ide">IDE</a> will generate a <a 
-href="mainap6.html#dce">DCE</a> compliant <a 
-href="mainap6.html#uuid">UUID</a> by default.</li></ul>
+href="mainap7.html#ide">IDE</a> will generate a <a 
+href="mainap7.html#dce">DCE</a> compliant <a 
+href="mainap7.html#uuid">UUID</a> by default.</li></ul>
 <!--l. 237--><p class="noindent" >The wizard may be completed at this point by clicking <span 
 class="ecbx-1200">Finish </span>or the user may continue to the
 optional second page.
@@ -1633,7 +1633,7 @@ class="ecbx-1200">Finish </span>to complete the new project creation wizard.
 <h4 class="subsectionHead"><span class="titlemark">19.5.5   </span> <a 
  id="x21-27300019.5.5"></a>New Interface Library Wizard</h4>
 <!--l. 246--><p class="noindent" >The New <a 
-href="mainap6.html#idl">IDL</a> Project Wizard is a one page wizard that walks through project creation. Fields
+href="mainap7.html#idl">IDL</a> Project Wizard is a one page wizard that walks through project creation. Fields
 common to all new project wizards are defined in  <a 
 href="#x21-26800019.5">Section 19.5</a>.
                                                                                          
@@ -1642,20 +1642,20 @@ href="#x21-26800019.5">Section 19.5</a>.
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">Module Name</span>: The module to place this <a 
-href="mainap6.html#idl">IDL</a> into.
+href="mainap7.html#idl">IDL</a> into.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Version</span>: <a 
-href="mainap6.html#idl">IDL</a> Version
+href="mainap7.html#idl">IDL</a> Version
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Import existing </span><a 
-href="mainap6.html#idl"><span 
+href="mainap7.html#idl"><span 
 class="ecbx-1200">IDL</span></a> <span 
 class="ecbx-1200">Files</span>: Specifies <a 
-href="mainap6.html#idl">IDL</a> files on disk which will be included in this
+href="mainap7.html#idl">IDL</a> files on disk which will be included in this
       new <a 
-href="mainap6.html#idl">IDL</a>.</li></ul>
+href="mainap7.html#idl">IDL</a>.</li></ul>
 <!--l. 259--><p class="noindent" >Click <span 
 class="ecbx-1200">Finish </span>to complete the new project creation wizard.
 <!--l. 261--><p class="noindent" >
@@ -1676,33 +1676,33 @@ href="#x21-26800019.5">Section 19.5</a>.
 href="mainli2.html#glo:service"><span 
 class="ecbx-1200">Service</span></a>  <span 
 class="ecbx-1200">Interface</span>:  Select,  from  the  Core  Framework&#8217;s  list  of  installed  <a 
-href="mainap6.html#idl">IDL</a>s  the
+href="mainap7.html#idl">IDL</a>s  the
       interface which this <a 
 href="mainli2.html#glo:service">Service</a> will use.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Contents</span>: An <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:service">Service</a> is defined by an <a 
-href="mainap6.html#spd">SPD</a> file. By default, when creating a new
+href="mainap7.html#spd">SPD</a> file. By default, when creating a new
       <a 
 href="mainli2.html#glo:service">Service</a>, the <a 
-href="mainap6.html#spd">SPD</a> file created is an empty skeleton. The new <a 
+href="mainap7.html#spd">SPD</a> file created is an empty skeleton. The new <a 
 href="mainli2.html#glo:service">Service</a> may be based off
       of a previous <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file by selecting it from the file system.
+href="mainap7.html#spd">SPD</a> file by selecting it from the file system.
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:service"><span 
 class="ecbx-1200">Service</span></a> <a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Every softpkg element contains an <a 
-href="mainap6.html#id">ID</a> which is used for universally unique
+href="mainap7.html#id">ID</a> which is used for universally unique
       identification. The <a 
-href="mainap6.html#ide">IDE</a> will generate a <a 
-href="mainap6.html#dce">DCE</a> compliant <a 
-href="mainap6.html#uuid">UUID</a> by default.</li></ul>
+href="mainap7.html#ide">IDE</a> will generate a <a 
+href="mainap7.html#dce">DCE</a> compliant <a 
+href="mainap7.html#uuid">UUID</a> by default.</li></ul>
 <!--l. 282--><p class="noindent" >Page two of the wizard defines the <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s implementation, the programming language used and
 the code generation template.
@@ -1719,22 +1719,22 @@ href="mainli2.html#glo:service">Service</a>&#8217;s implementation may be writte
 class="ecbx-1200">Code Generator</span>: A Python code generator is available for REDHAWK <a 
 href="mainli2.html#glo:service">Service</a> code
       generation. It is possible to augment the <a 
-href="mainap6.html#ide">IDE</a> with additional code generators. This
+href="mainap7.html#ide">IDE</a> with additional code generators. This
       process is described in  <a 
 href="mainap2.html#x28-338000B.1.1">Section B.1.1</a>.
       </li>
       <li class="itemize"><a 
-href="mainap6.html#id"><span 
+href="mainap7.html#id"><span 
 class="ecbx-1200">ID</span></a>: Each language implementation has a project unique <a 
-href="mainap6.html#id">ID</a>, by default the language
+href="mainap7.html#id">ID</a>, by default the language
       chosen is used as the <a 
-href="mainap6.html#id">ID</a>.
+href="mainap7.html#id">ID</a>.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">Description</span>: A description may be provided for this implementation. The description
       is written into the <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file.</li></ul>
+href="mainap7.html#spd">SPD</a> file.</li></ul>
 <!--l. 299--><p class="noindent" >Page three of the wizard provides customization to the configuration values of this implementation&#8217;s
 code generation properties and template.
 <!--l. 302--><p class="noindent" >Wizard page three contains:
@@ -1782,11 +1782,11 @@ for relevant documentation.
 <h3 class="sectionHead"><span class="titlemark">19.6   </span> <a 
  id="x21-27600019.6"></a>Debugging REDHAWK Components and Devices with Eclipse</h3>
 <!--l. 3--><p class="noindent" >The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> uses the debugging capabilities from the <a 
-href="mainap6.html#jdt">JDT</a>, <a 
-href="mainap6.html#cdt">CDT</a>, Python
+href="mainap7.html#ide">IDE</a> uses the debugging capabilities from the <a 
+href="mainap7.html#jdt">JDT</a>, <a 
+href="mainap7.html#cdt">CDT</a>, Python
 Development (<a 
-href="mainap6.html#pydev">PyDev</a>), and REDHAWK Sandbox. The debugger provides tools to detect and
+href="mainap7.html#pydev">PyDev</a>), and REDHAWK Sandbox. The debugger provides tools to detect and
 diagnose errors in an application during execution. The debugger allows control of execution of the
 program by setting breakpoints, suspending launched programs, stepping through source code, and
 examining the contents of variables.
@@ -1795,7 +1795,7 @@ examining the contents of variables.
 href="http://help.eclipse.org/" class="url" ><span 
 class="ectt-1200">http://help.eclipse.org/</span></a> or view the embedded documentation from within the REDHAWK
 <a 
-href="mainap6.html#ide">IDE</a> by selecting <span 
+href="mainap7.html#ide">IDE</a> by selecting <span 
 class="ecbx-1200">Help </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Help Contents</span>.
@@ -1848,7 +1848,7 @@ class="ecbx-1200">Debugging</span></li></ul>
 <!--l. 24--><p class="noindent" ><a 
 href="mainli2.html#glo:component">Component</a> and <a 
 href="mainli2.html#glo:device">Device</a> projects created with the <a 
-href="mainap6.html#ide">IDE</a> have a <span 
+href="mainap7.html#ide">IDE</a> have a <span 
 class="ectt-1200">tests </span>folder that contains a
 functional example test case. This test case checks that the resource can be started, stopped, and
 released without error.
@@ -1882,7 +1882,7 @@ is started as its own forked process. A new <span
 class="ecbx-1200">Console View </span>is created for logging and error
 messages.
 <!--l. 44--><p class="noindent" >To launch an <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> or <a 
 href="mainli2.html#glo:device">Device</a> in the Sandbox:
 <!--l. 46--><p class="noindent" >
@@ -1902,7 +1902,7 @@ class="ecbx-1200">Launch a local component</span>.
       <li 
   class="enumerate" id="x21-278006x3">From the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>, expand the <span 
 class="ecbx-1200">Sandbox</span>.
@@ -1927,19 +1927,19 @@ class="ecbx-1200">Console</span>.</li></ol>
  id="x21-27900019.6.2"></a>Releasing a Component/Device from the REDHAWK Sandbox</h5>
 <!--l. 59--><p class="noindent" >There are two ways to release a <a 
 href="mainli2.html#glo:component">Component</a> using the <a 
-href="mainap6.html#ide">IDE</a> and one to release a <a 
+href="mainap7.html#ide">IDE</a> and one to release a <a 
 href="mainli2.html#glo:device">Device</a>:
       <ul class="itemize1">
       <li class="itemize">Releasing using <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>:
            <ol  class="enumerate1" >
            <li 
   class="enumerate" id="x21-279002x1">In the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>, expand <span 
 class="ecbx-1200">Sandbox </span><span 
@@ -1964,7 +1964,7 @@ class="ecbx-1200">Release</span>.</li></ol>
            <li 
   class="enumerate" id="x21-279006x1">In the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>, expand the <span 
 class="ecbx-1200">Sandbox</span>, double-click <span 
@@ -1972,7 +1972,7 @@ class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
   class="enumerate" id="x21-279008x2">In the Chalkboard Diagram, right-click the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>, select <span 
 class="ecbx-1200">Delete from</span>
            <span 
@@ -1984,7 +1984,7 @@ class="ecbx-1200">Model</span>.</li></ol>
 <h5 class="subsubsectionHead"><a 
  id="x21-28000019.6.2"></a>Terminating a Component from the REDHAWK Sandbox</h5>
 <!--l. 78--><p class="noindent" >Sometimes an <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> fails to respond to input. In these cases the <a 
 href="mainli2.html#glo:component">Component</a> may need
 to be terminated.
@@ -1992,12 +1992,12 @@ to be terminated.
 href="mainli2.html#glo:component">Component</a>:
       <ul class="itemize1">
       <li class="itemize">Terminating using <a 
-href="mainap6.html#sca">SCA</a> Explorer:
+href="mainap7.html#sca">SCA</a> Explorer:
            <ol  class="enumerate1" >
            <li 
   class="enumerate" id="x21-280002x1">In the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>, expand the <span 
 class="ecbx-1200">Sandbox </span><span 
@@ -2006,7 +2006,7 @@ class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
   class="enumerate" id="x21-280004x2">Right-click the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>, select <span 
 class="ecbx-1200">Terminate</span>.</li></ol>
       </li>
@@ -2015,7 +2015,7 @@ class="ecbx-1200">Terminate</span>.</li></ol>
            <li 
   class="enumerate" id="x21-280006x1">In the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>, expand the <span 
 class="ecbx-1200">Sandbox</span>, double-click <span 
@@ -2023,7 +2023,7 @@ class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
   class="enumerate" id="x21-280008x2">In the Chalkboard Diagram, right-click the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>, select <span 
 class="ecbx-1200">Terminate</span>.</li></ol>
       </li>
@@ -2037,7 +2037,7 @@ class="ecbx-1200">Display Selected Console </span>drop down.
            </li>
            <li 
   class="enumerate" id="x21-280012x2">Select the launched <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> from the drop-down list to switch to it&#8217;s
            console.
            </li>
@@ -2051,11 +2051,11 @@ class="ecbx-1200">Terminate </span>icon, indicated by a red square.</li></ol>
 <h4 class="subsectionHead"><span class="titlemark">19.6.3   </span> <a 
  id="x21-28100019.6.3"></a>Using the Debugger with the Sandbox</h4>
 <!--l. 103--><p class="noindent" >The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> provides an infrastructure-free way to use, test, and debug <a 
-href="mainap6.html#sca">SCA</a>
+href="mainap7.html#ide">IDE</a> provides an infrastructure-free way to use, test, and debug <a 
+href="mainap7.html#sca">SCA</a>
 <a 
 href="mainli2.html#glo:component">Components</a>. This section describes how to use the debugging features of the <a 
-href="mainap6.html#ide">IDE</a>.
+href="mainap7.html#ide">IDE</a>.
 <!--l. 107--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x21-28200019.6.3"></a>Setting Breakpoints in Component source code</h5>
@@ -2089,8 +2089,8 @@ class="ecbx-1200">Toggle Breakpoint</span>.
 <h5 class="subsubsectionHead"><a 
  id="x21-28300019.6.3"></a>Launching a Component in the REDHAWK Sandbox in Debug Mode</h5>
 <!--l. 128--><p class="noindent" >To use the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>&#8217;s debugger, an <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#ide">IDE</a>&#8217;s debugger, an <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> can be launched in the Sandbox in
 debug mode.
                                                                                          
@@ -2099,7 +2099,7 @@ debug mode.
 href="mainli2.html#glo:component">Component</a> can be launched in debug mode in several ways:
       <ul class="itemize1">
       <li class="itemize">From the <a 
-href="mainap6.html#spd">SPD</a> file Editor:
+href="mainap7.html#spd">SPD</a> file Editor:
            <ol  class="enumerate1" >
            <li 
   class="enumerate" id="x21-283002x1">Open the project&#8217;s spd.xml file.
@@ -2113,7 +2113,7 @@ class="ecbx-1200">Launch a local component in debug mode</span>.
            </li>
            <li 
   class="enumerate" id="x21-283006x3">The <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> is now launched in the Sandbox in debug mode.</li></ol>
       </li>
       <li class="itemize">From the Project Explorer:
@@ -2132,7 +2132,7 @@ class="cmmi-12">&#x003E;  </span><span
 class="ecbx-1200">Local  Python  </span><a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a>  (for  Python  <a 
-href="mainap6.html#sca">SCA</a>
+href="mainap7.html#sca">SCA</a>
                <a 
 href="mainli2.html#glo:component">Component</a>).
                </li>
@@ -2142,7 +2142,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ecbx-1200">Local C++ </span><a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a> (for C++ <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>).
                </li>
                <li class="itemize">Select <span 
@@ -2151,29 +2151,29 @@ class="cmmi-12">&#x003E; </span><span
 class="ecbx-1200">Local Java </span><a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a> (for Java <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>).</li></ul>
            </li>
            <li 
   class="enumerate" id="x21-283012x3">The <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> is now launched in the Sandbox in debug mode.</li></ol>
       </li></ul>
 <!--l. 153--><p class="noindent" >There are two ways to confirm that the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> has been launched in debug
 mode:
       <ul class="itemize1">
       <li class="itemize">From the Chalkboard Diagram, there is a small bug icon at the top right corner of the
       <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>.
                                                                                          
                                                                                          
       </li>
       <li class="itemize">From  the  <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a>  <span 
 class="ecbx-1200">Explorer  View</span></a>,  expand  the  <span 
 class="ecbx-1200">Sandbox  </span><span 
@@ -2181,10 +2181,10 @@ class="cmmi-12">&#x003E;  </span><span
 class="ecbx-1200">Chalkboard  </span>and  a
       <span 
 class="ecbx-1200">&#x003C;DEBUGGING&#x003E; </span>decorator is displayed to the right of the <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a>.</li></ul>
 <!--l. 161--><p class="noindent" >The debugger can switch between Python, C++, and Java while debugging. The REDHAWK <a 
-href="mainap6.html#ide">IDE</a>
+href="mainap7.html#ide">IDE</a>
 can also launch other <a 
 href="mainli2.html#glo:component">Components</a> in the Sandbox to interact with <a 
 href="mainli2.html#glo:component">Components</a> in debug
@@ -2243,8 +2243,8 @@ class="ecbx-1200">Help Contents </span>or the Eclipse documentation for more
  id="x21-28400019.7"></a>Deploying Projects to the <span 
 class="ectt-1200">SDRROOT</span></h3>
 <!--l. 3--><p class="noindent" >The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> allows the user to deploy an <a 
-href="mainap6.html#sca">SCA</a> project into the target SDRROOT.
+href="mainap7.html#ide">IDE</a> allows the user to deploy an <a 
+href="mainap7.html#sca">SCA</a> project into the target SDRROOT.
 <!--l. 5--><p class="noindent" >There are several ways to accomplish this:
       <ul class="itemize1">
       <li class="itemize">Drag-and-drop from the <span 
@@ -2253,24 +2253,24 @@ class="ecbx-1200">Project Explorer</span>:
            <li 
   class="enumerate" id="x21-284002x1">From the <span 
 class="ecbx-1200">Project Explorer View</span>, drag the <a 
-href="mainap6.html#sca">SCA</a> project (top level) onto the
+href="mainap7.html#sca">SCA</a> project (top level) onto the
            <span 
 class="ecbx-1200">Target </span><a 
-href="mainap6.html#sdr"><span 
+href="mainap7.html#sdr"><span 
 class="ecbx-1200">SDR</span></a> in the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>.
            </li>
            <li 
   class="enumerate" id="x21-284004x2">In the <a 
 href="mainli2.html#glo:SCA Explorer View"><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span></a>, expand <span 
 class="ecbx-1200">Target </span><a 
-href="mainap6.html#sdr"><span 
+href="mainap7.html#sdr"><span 
 class="ecbx-1200">SDR</span></a>, then expand the appropriate
            sub-area; <a 
 href="mainli2.html#glo:component"><span 
@@ -2286,7 +2286,7 @@ class="ecbx-1200">SCA Waveforms</span></a>, to
            see the deployed project.</li></ol>
       </li>
       <li class="itemize">From the Overview page of the <a 
-href="mainap6.html#spd">SPD</a> Editor:
+href="mainap7.html#spd">SPD</a> Editor:
            <ol  class="enumerate1" >
            <li 
   class="enumerate" id="x21-284006x1">Open the project&#8217;s <span 
@@ -2302,7 +2302,7 @@ class="ecbx-1200">Export Wizard</span>.
   class="enumerate" id="x21-284010x3">In the <span 
 class="ecbx-1200">Export </span>Wizard, from the <span 
 class="ecbx-1200">Available </span><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">project </span>section, check the
            desired project(s) to deploy.
@@ -2310,12 +2310,12 @@ class="ecbx-1200">project </span>section, check the
            <li 
   class="enumerate" id="x21-284012x4">The <span 
 class="ecbx-1200">Destination </span>directory is prepopulated with the target <a 
-href="mainap6.html#sdr">SDR</a>.
+href="mainap7.html#sdr">SDR</a>.
            </li>
            <li 
   class="enumerate" id="x21-284014x5">Click <span 
 class="ecbx-1200">Finish </span>to deploy selected project(s) into the target <a 
-href="mainap6.html#sdr">SDR</a>.</li></ol>
+href="mainap7.html#sdr">SDR</a>.</li></ol>
       </li>
       <li class="itemize">From the File Menu:
            <ol  class="enumerate1" >
@@ -2327,12 +2327,12 @@ class="ecbx-1200">Export</span>.
            </li>
            <li 
   class="enumerate" id="x21-284018x2">From the Export Wizard, expand <a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Development </span>and select <span 
 class="ecbx-1200">Deployable</span>
            <a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a>.
                                                                                          
                                                                                          
@@ -2344,19 +2344,19 @@ class="ecbx-1200">Next</span>.
            <li 
   class="enumerate" id="x21-284022x4">From the <span 
 class="ecbx-1200">Available </span><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">project </span>section, check the desired project(s) to deploy.
            </li>
            <li 
   class="enumerate" id="x21-284024x5">The <span 
 class="ecbx-1200">Destination </span>directory is prepopulated with the target <a 
-href="mainap6.html#sdr">SDR</a>.
+href="mainap7.html#sdr">SDR</a>.
            </li>
            <li 
   class="enumerate" id="x21-284026x6">Click <span 
 class="ecbx-1200">Finish </span>to deploy the selected project(s) into target <a 
-href="mainap6.html#sdr">SDR</a>.</li></ol>
+href="mainap7.html#sdr">SDR</a>.</li></ol>
       </li></ul>
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainch20.html" >next</a>] [<a 

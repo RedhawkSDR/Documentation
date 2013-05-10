@@ -118,12 +118,12 @@ aspects of the <a
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s implementations contained within its system.
 <!--l. 16--><p class="noindent" >The <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> is configured from the <a 
-href="mainap6.html#dmd">DMD</a> <a 
-href="mainap6.html#xml">XML</a> file that is located at <span 
+href="mainap7.html#dmd">DMD</a> <a 
+href="mainap7.html#xml">XML</a> file that is located at <span 
 class="ectt-1200">$SDRROOT/dom/Domain</span>.
 This file contains the <a 
 href="mainli2.html#glo:domain">Domain</a>&#8217;s name, an <a 
-href="mainap6.html#id">ID</a> and a description of the <a 
+href="mainap7.html#id">ID</a> and a description of the <a 
 href="mainli2.html#glo:domain">Domain</a>.
 <!--l. 19--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">11.2.1   </span> <a 
@@ -161,7 +161,7 @@ for supporting.
 <!--l. 41--><p class="noindent" >The <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> has Core Framework administrative duties that are required to provide
 interface access to its registered items. The <a 
-href="mainap6.html#api">API</a> of the <a 
+href="mainap7.html#api">API</a> of the <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a>, <a 
 href="mainli2.html#glo:applicationfactory">Application Factories</a>,
 <a 
@@ -239,7 +239,7 @@ $ nodeBooter -D --dburl $SDRROOT/dom/persistence.sqlite
 ]]></script>
 <!--l. 76--><p class="noindent" >Then, upon failure of the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>, all <a 
-href="mainap6.html#id">ID</a>s and references to objects within it <a 
+href="mainap7.html#id">ID</a>s and references to objects within it <a 
 href="mainli2.html#glo:domain">Domain</a>
 are stored. Since these objects themselves are actually separate processes, the <a 
 href="mainli2.html#glo:domainmanager">Domain
@@ -256,12 +256,12 @@ died.
 <h3 class="sectionHead"><span class="titlemark">11.3   </span> <a 
  id="x13-15900011.3"></a>File System</h3>
 <!--l. 3--><p class="noindent" >The File System interface defines <a 
-href="mainap6.html#corba">CORBA</a> operations that exists to provide a runtime abstraction
+href="mainap7.html#corba">CORBA</a> operations that exists to provide a runtime abstraction
 of an <a 
-href="mainap6.html#os">OS</a>s real file system. It gives REDHAWK the ability to have a single interface for reading and
+href="mainap7.html#os">OS</a>s real file system. It gives REDHAWK the ability to have a single interface for reading and
 writing individual files within a file system regardless of the underlying implementation in the
 <a 
-href="mainap6.html#os">OS</a>.
+href="mainap7.html#os">OS</a>.
 <!--l. 6--><p class="noindent" >Files that are stored on the File System may be either plain files or directories.
 <!--l. 8--><p class="noindent" >Characters and symbols that are valid in directories and file names consist of:
       <ul class="itemize1">
@@ -281,7 +281,7 @@ href="mainap6.html#os">OS</a>.
                                                                                          
                                                                                          
 <!--l. 21--><p class="noindent" >Path names are structured according to the Portable Operating System Interface (<a 
-href="mainap6.html#posix">POSIX</a>)
+href="mainap7.html#posix">POSIX</a>)
 specification where the &#8220;/&#8221; (forward slash) is a valid character that acts as the separator between
 directories.
 <!--l. 23--><p class="noindent" >Additionally, the File System interface provides implementation of many standard functions such
@@ -325,7 +325,7 @@ Manager</a>.
                                                                                          
 <!--l. 45--><p class="noindent" >The <a 
 href="mainli2.html#glo:filemanager">File Manager</a> inherits the <a 
-href="mainap6.html#idl">IDL</a> interface of a File System. It then delegates tasks from the Core
+href="mainap7.html#idl">IDL</a> interface of a File System. It then delegates tasks from the Core
 Framework based off of the path names to the correct mounted File System, depending on where
 that File System is mounted. It is also responsible for copying the appropriate <a 
 href="mainli2.html#glo:component">Component</a>
@@ -352,7 +352,7 @@ href="mainli2.html#glo:application">Application</a> contains a unique <a
 href="mainli2.html#glo:application">Application</a> name and profile which describes the <a 
 href="mainli2.html#glo:application">Applications</a>
 configuration. This profile is a <a 
-href="mainap6.html#sad">SAD</a> file that is referenced by a <a 
+href="mainap7.html#sad">SAD</a> file that is referenced by a <a 
 href="mainli2.html#glo:filemanager">File Manager</a>.
 <!--l. 12--><p class="noindent" >An <span 
 class="ectt-1200">Application </span>object is responsible for providing control, configuration and status of any
@@ -362,9 +362,9 @@ href="mainli2.html#glo:domain">Domain</a>. In order to accomplish this, each <sp
 class="ectt-1200">Application</span>
 object maintains various data structures to monitor all aspects of its execution.
 <!--l. 15--><p class="noindent" >A list of <a 
-href="mainap6.html#spd">SPD</a> implementation <a 
-href="mainap6.html#id">ID</a>s and a list of <a 
-href="mainap6.html#pid">PID</a>s are kept for each <a 
+href="mainap7.html#spd">SPD</a> implementation <a 
+href="mainap7.html#id">ID</a>s and a list of <a 
+href="mainap7.html#pid">PID</a>s are kept for each <a 
 href="mainli2.html#glo:component">Component</a> that makes up
 the <a 
 href="mainli2.html#glo:application">Application</a> in order to manage their life cycles. Since every <a 
@@ -400,7 +400,7 @@ href="mainli2.html#glo:component">Components</a> that make up the <a
 href="mainli2.html#glo:application">Application</a> are released and all connected
 <a 
 href="mainli2.html#glo:port">Ports</a> are disconnected. Any consumers or producers that were connected to a <a 
-href="mainap6.html#corba">CORBA</a> <a 
+href="mainap7.html#corba">CORBA</a> <a 
 href="mainli2.html#glo:eventchannel">Event
 Channel</a> are removed. Finally, all <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s naming contexts are unbound from the <a 
@@ -412,10 +412,10 @@ Service</a>.
 <h4 class="subsectionHead"><span class="titlemark">11.4.2   </span> <a 
  id="x13-16300011.4.2"></a>SAD File</h4>
 <!--l. 27--><p class="noindent" >The <a 
-href="mainap6.html#sad">SAD</a> File is where information about a <a 
+href="mainap7.html#sad">SAD</a> File is where information about a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s composition and configuration is stored. It
 is an <a 
-href="mainap6.html#xml">XML</a> file that contains tags for all of the elements required for the <a 
+href="mainap7.html#xml">XML</a> file that contains tags for all of the elements required for the <a 
 href="mainli2.html#glo:application">Application</a> to be
 built and is located at: <span 
 class="ectt-1200">$SDRROOT/dev/waveforms/WAVE_NAME</span>. This file is parsed by the
@@ -427,7 +427,7 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>.
       <ul class="itemize1">
       <li class="itemize">References to all required <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> and their locations
+href="mainap7.html#spd">SPD</a> and their locations
       </li>
       <li class="itemize">Required connections between the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
@@ -450,14 +450,14 @@ href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>
       <li class="itemize">Start order of the <a 
 href="mainli2.html#glo:component">Components</a></li></ul>
 <!--l. 43--><p class="noindent" >Within the <a 
-href="mainap6.html#sad">SAD</a> file, each <a 
+href="mainap7.html#sad">SAD</a> file, each <a 
 href="mainli2.html#glo:component">Component</a> instantiation gets its own unique <a 
-href="mainap6.html#id">ID</a> which allows support
+href="mainap7.html#id">ID</a> which allows support
 for multiple instantiations of the same <a 
 href="mainli2.html#glo:component">Component</a>. In this situation, each <a 
 href="mainli2.html#glo:component">Component</a> would have
 the same file reference, a unique <a 
-href="mainap6.html#id">ID</a>s, as well as a unique name in the <a 
+href="mainap7.html#id">ID</a>s, as well as a unique name in the <a 
 href="mainli2.html#glo:namingservice">Naming Service</a> that is based
 off of the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s usage name. For multiple instantiations of the same <a 
@@ -557,7 +557,7 @@ href="mainli2.html#glo:component">Components</a> are required to be deployed and
 piece of hardware. This is provided to address varying performance considerations.
 <!--l. 91--><p class="noindent" >In order to collocate <a 
 href="mainli2.html#glo:component">Components</a> in the <a 
-href="mainap6.html#ide">IDE</a>, follow these steps:
+href="mainap7.html#ide">IDE</a>, follow these steps:
 <!--l. 93--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
@@ -635,8 +635,8 @@ href="mainli2.html#glo:port">Ports</a> as external. This will add an <span
 class="ectt-1200">external </span><a 
 href="mainli2.html#glo:port">Ports</a> tag in
 the <a 
-href="mainap6.html#sad">SAD</a> <a 
-href="mainap6.html#xml">XML</a> file that contains a <a 
+href="mainap7.html#sad">SAD</a> <a 
+href="mainap7.html#xml">XML</a> file that contains a <a 
 href="mainli2.html#glo:port">Port</a> reference that matches a previous <a 
 href="mainli2.html#glo:port">Port</a> reference in the file.
 Additionally, the color of the <a 
@@ -679,7 +679,7 @@ href="mainli2.html#glo:domainmanager">Domain Manager</a>, an <a
 href="mainli2.html#glo:applicationfactory">Application Factory</a> is created from tags in
 the <a 
 href="mainli2.html#glo:application">Application</a>&#8217;s <a 
-href="mainap6.html#sad">SAD</a> file, in order to deploy <a 
+href="mainap7.html#sad">SAD</a> file, in order to deploy <a 
 href="mainli2.html#glo:component">Components</a> of the <a 
 href="mainli2.html#glo:application">Application</a> to <a 
 href="mainli2.html#glo:device">Devices</a> based on
@@ -689,7 +689,7 @@ their implementation dependencies.
 <!--l. 6--><p class="noindent" >When the <span 
 class="ectt-1200">create() </span>function is called, the <a 
 href="mainli2.html#glo:applicationfactory">Application Factory</a> uses the <a 
-href="mainap6.html#spd">SPD</a> <span 
+href="mainap7.html#spd">SPD</a> <span 
 class="ectt-1200">implementation</span>
 element to locate <a 
 href="mainli2.html#glo:device">Devices</a> that are capable of loading and executing the given <a 
@@ -737,7 +737,7 @@ href="mainli2.html#glo:property">Properties</a>
 can also be overridden from the <span 
 class="ectt-1200">componentproperties </span>tags in the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s <a 
-href="mainap6.html#sad">SAD</a>
+href="mainap7.html#sad">SAD</a>
 file.
 <!--l. 3--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">11.6   </span> <a 
@@ -750,15 +750,15 @@ System. The <a
 href="mainli2.html#glo:devicemanager">Device Manager</a> is responsible for parsing the <a 
 href="mainli2.html#glo:node">Node</a>&#8217;s Device Configuration
 Descriptor (<a 
-href="mainap6.html#dcd">DCD</a>) <a 
-href="mainap6.html#xml">XML</a> in order to fork processes for all <a 
+href="mainap7.html#dcd">DCD</a>) <a 
+href="mainap7.html#xml">XML</a> in order to fork processes for all <a 
 href="mainli2.html#glo:device">Devices</a> and <a 
 href="mainli2.html#glo:service">Services</a> in the <a 
 href="mainli2.html#glo:node">Node</a>. Each
 process gets passed a list of command-line character strings as executable parameters that are
 <a 
 href="mainli2.html#glo:node">Node</a>-specific configuration variables read from the <a 
-href="mainap6.html#dcd">DCD</a> file.
+href="mainap7.html#dcd">DCD</a> file.
 <!--l. 9--><p class="noindent" >Once a child process has been forked, its reference is added to a pending list in the <a 
 href="mainli2.html#glo:devicemanager">Device
 Manager</a>, while the child process is initialized and configured (possibly with overloaded <a 
@@ -774,7 +774,7 @@ href="mainli2.html#glo:node">Node</a>. Once all children have been launched,
 instantiated, and configured, the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> connects the <a 
 href="mainli2.html#glo:device">Devices</a> as described by the <a 
-href="mainap6.html#dcd">DCD</a>
+href="mainap7.html#dcd">DCD</a>
 file.
 <!--l. 14--><p class="noindent" >The <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> also responds to signals from any of its child processes. Upon exit of a
@@ -823,8 +823,8 @@ Manager
 <h4 class="subsectionHead"><span class="titlemark">11.6.2   </span> <a 
  id="x13-17000011.6.2"></a>DCD File</h4>
 <!--l. 40--><p class="noindent" >The <a 
-href="mainap6.html#dcd">DCD</a> file is an <a 
-href="mainap6.html#xml">XML</a> file that contains the necessary information to configure a <a 
+href="mainap7.html#dcd">DCD</a> file is an <a 
+href="mainap7.html#xml">XML</a> file that contains the necessary information to configure a <a 
 href="mainli2.html#glo:node">Node</a>, which is
 a specific instance of a <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>, as well as all <a 
@@ -832,7 +832,7 @@ href="mainli2.html#glo:device">Devices</a> and <a
 href="mainli2.html#glo:service">Services</a> associated with that
 <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> instance. The <a 
-href="mainap6.html#dcd">DCD</a> file contains information about the <a 
+href="mainap7.html#dcd">DCD</a> file contains information about the <a 
 href="mainli2.html#glo:device">Devices</a> and <a 
 href="mainli2.html#glo:service">Services</a>
 associated with a <a 
@@ -853,15 +853,15 @@ href="mainli2.html#glo:devicemanager">Device Manager</a> name
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> <a 
-href="mainap6.html#id">ID</a>
+href="mainap7.html#id">ID</a>
       </li>
       <li class="itemize">References to required <a 
 href="mainli2.html#glo:device">Devices</a> <a 
-href="mainap6.html#spd">SPD</a> files
+href="mainap7.html#spd">SPD</a> files
       </li>
       <li class="itemize">References to required <a 
 href="mainli2.html#glo:service">Services</a> <a 
-href="mainap6.html#spd">SPD</a> files
+href="mainap7.html#spd">SPD</a> files
       </li>
       <li class="itemize">The <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s <a 

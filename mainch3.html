@@ -65,7 +65,7 @@ href="mainli2.html#glo:property">Properties</a>, and functionality. Examples inc
 href="mainli2.html#glo:component">Component</a>
 that will tune, filter, and decimate a wideband signal and one that would perform a
 Frequency Modulation (<a 
-href="mainap6.html#fm">FM</a>) demodulation. Some <a 
+href="mainap7.html#fm">FM</a>) demodulation. Some <a 
 href="mainli2.html#glo:component">Components</a> will inevitably need to be
 custom implementations, but a majority of signal processing functions can be reused and
 shared.
@@ -104,7 +104,7 @@ class="centerline">                                                             
 <!--l. 24--><p class="noindent" >By using the REDHAWK Framework, basic processing elements may be encapsulated as
 <a 
 href="mainli2.html#glo:component">Components</a> and reused by other REDHAWK compliant systems. Using the REDHAWK <a 
-href="mainap6.html#ide">IDE</a> and
+href="mainap7.html#ide">IDE</a> and
 the included code generators, much of the code for control and input/output can be
 auto-generated. The figure below depicts the encapsulation of an arbitrary processing algorithm
 into an auto-generated REDHAWK <a 
@@ -135,7 +135,7 @@ href="mainli2.html#glo:component">Component</a> is presented.
 <h4 class="subsectionHead"><span class="titlemark">3.2.1   </span> <a 
  id="x5-170003.2.1"></a>Component Wizard</h4>
 <!--l. 40--><p class="noindent" >In the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>, development of new <a 
+href="mainap7.html#ide">IDE</a>, development of new <a 
 href="mainli2.html#glo:component">Components</a>, <a 
 href="mainli2.html#glo:device">Devices</a>, or other artifacts in a
 REDHAWK environment is contained within an Eclipse project. Each REDHAWK-specific artifact
@@ -144,16 +144,16 @@ project, which supports the minimum required pieces for proper functioning. For 
 href="mainli2.html#glo:component">Components</a>, the
 default project settings allow the developer to choose between Python, C++, and Java as the
 development language. To start the <a 
-href="mainap6.html#ide">IDE</a> and begin creating a <a 
+href="mainap7.html#ide">IDE</a> and begin creating a <a 
 href="mainli2.html#glo:component">Component</a>, run the <span 
 class="ectt-1200">eclipse</span>
 binary in the <a 
-href="mainap6.html#ide">IDE</a> installation directory. Then, select <span 
+href="mainap7.html#ide">IDE</a> installation directory. Then, select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
 class="cmmi-12">&#x003E; </span><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a>
@@ -164,45 +164,45 @@ class="ecbx-1200">Project</span>.
  id="x5-180003.2.2"></a>Component Descriptors</h4>
 <!--l. 48--><p class="noindent" >A REDHAWK <a 
 href="mainli2.html#glo:component">Component</a> is described through three Extensible Markup Language (<a 
-href="mainap6.html#xml">XML</a>)
+href="mainap7.html#xml">XML</a>)
 files, a Software Package Descriptor (<a 
-href="mainap6.html#spd">SPD</a>) file (<span 
+href="mainap7.html#spd">SPD</a>) file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>), a Properties
 File (<a 
-href="mainap6.html#prf">PRF</a>) file (<span 
+href="mainap7.html#prf">PRF</a>) file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.prf.xml</span>), and a Software Component Descriptor (<a 
-href="mainap6.html#scd">SCD</a>) file
+href="mainap7.html#scd">SCD</a>) file
 (<span 
 class="ectt-1200">&#x003C;component&#x003E;.scd.xml</span>). The role of the <a 
-href="mainap6.html#spd">SPD</a> is to describe all the files that are associated with
+href="mainap7.html#spd">SPD</a> is to describe all the files that are associated with
 the <a 
 href="mainli2.html#glo:component">Component</a>: the <a 
-href="mainap6.html#prf">PRF</a> and <a 
-href="mainap6.html#scd">SCD</a> files, all binaries, and associated data files. The <a 
-href="mainap6.html#prf">PRF</a> file
+href="mainap7.html#prf">PRF</a> and <a 
+href="mainap7.html#scd">SCD</a> files, all binaries, and associated data files. The <a 
+href="mainap7.html#prf">PRF</a> file
 contains a description of all the <a 
 href="mainli2.html#glo:property">Properties</a> that this <a 
 href="mainli2.html#glo:component">Component</a> supports. The <a 
-href="mainap6.html#scd">SCD</a> file contains a
+href="mainap7.html#scd">SCD</a> file contains a
 description of the <a 
 href="mainli2.html#glo:component">Component</a> inputs/outputs.
 <!--l. 52--><p class="noindent" >The REDHAWK <a 
-href="mainap6.html#ide">IDE</a> uses an internal model to maintain the state of the <a 
+href="mainap7.html#ide">IDE</a> uses an internal model to maintain the state of the <a 
 href="mainli2.html#glo:component">Component</a> design.
 This model is a Java representation of the three <a 
-href="mainap6.html#xml">XML</a> files described above as well as
+href="mainap7.html#xml">XML</a> files described above as well as
 project-specific information (like the development language). The main screen on the <a 
 href="mainli2.html#glo:component">Component</a>
 development perspective contains several tabs. Some of these tabs are for panels and
 some are for <a 
-href="mainap6.html#xml">XML</a> files. The different panels available for <a 
+href="mainap7.html#xml">XML</a> files. The different panels available for <a 
 href="mainli2.html#glo:component">Component</a> design are used to
 change this model; the model is automatically and continuously mapped to the three
 <a 
-href="mainap6.html#xml">XML</a> files. This awareness is symmetrical; much like changes in the panels result in
+href="mainap7.html#xml">XML</a> files. This awareness is symmetrical; much like changes in the panels result in
 changes in the <a 
-href="mainap6.html#xml">XML</a> files, changes in the <a 
-href="mainap6.html#xml">XML</a> files result in automatic updates to the
+href="mainap7.html#xml">XML</a> files, changes in the <a 
+href="mainap7.html#xml">XML</a> files result in automatic updates to the
                                                                                          
                                                                                          
 panels.
@@ -220,7 +220,7 @@ href="mainli2.html#glo:port">Port</a>. This naming convention is
 often viewed as counter-intuitive, so an explanation is in order. <a 
 href="mainli2.html#glo:port">Ports</a> are Remote Procedure
 Call (<a 
-href="mainap6.html#rpc">RPC</a>) interfaces to a <a 
+href="mainap7.html#rpc">RPC</a>) interfaces to a <a 
 href="mainli2.html#glo:component">Component</a>. An input <a 
 href="mainli2.html#glo:port">Port</a>, therefore, <span 
 class="ecbx-1200">provides </span>functionality that can
@@ -233,7 +233,7 @@ href="mainli2.html#glo:port">Ports</a>. When a <a
 href="mainli2.html#glo:port">Port</a> is selected in the <a 
 href="mainli2.html#glo:component">Component</a> generation
 wizard in the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>, code to implement these interfaces is automatically
+href="mainap7.html#ide">IDE</a>, code to implement these interfaces is automatically
 generated.
 <!--l. 71--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.2.4   </span> <a 
@@ -241,7 +241,7 @@ generated.
 <!--l. 73--><p class="noindent" >Properties provide a way to maintain <a 
 href="mainli2.html#glo:component">Component</a> states while also allowing external entities (e.g.,
 programs, <a 
-href="mainap6.html#ui">UI</a>s, or status scripts) to inspect the state of the <a 
+href="mainap7.html#ui">UI</a>s, or status scripts) to inspect the state of the <a 
 href="mainli2.html#glo:component">Component</a>. Properties are the primary
 means for <a 
 href="mainli2.html#glo:component">Component</a> configuration.
@@ -308,7 +308,7 @@ class="ecbx-1200">Generate All Implementations </span>button is clicked, the too
 href="mainli2.html#glo:component">Component</a> in the language of choice
       </li>
       <li class="itemize">the <a 
-href="mainap6.html#xml">XML</a> files associated with the <a 
+href="mainap7.html#xml">XML</a> files associated with the <a 
 href="mainli2.html#glo:component">Component</a>
       </li>
       <li class="itemize">Autotools build files</li></ul>
@@ -318,15 +318,15 @@ href="mainli2.html#glo:component">Component</a>
 href="mainli2.html#glo:component">Component</a> is compiled, use one of the following methods to install it onto
 the staging area (<span 
 class="ectt-1200">$SDRROOT/dom/components</span>): Drag the project on the <a 
-href="mainap6.html#ide">IDE</a> from the
+href="mainap7.html#ide">IDE</a> from the
 <span 
 class="ecbx-1200">Project Explorer </span>to the <span 
 class="ecbx-1200">Target Software Defined Radio (</span><a 
-href="mainap6.html#sdr"><span 
+href="mainap7.html#sdr"><span 
 class="ecbx-1200">SDR</span></a><span 
 class="ecbx-1200">) </span>section of the
 <a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer </span>or invoke <span 
 class="ectt-1200">make install </span>in the directory containing the <a 
@@ -354,9 +354,9 @@ inspection.
 <h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
  id="x5-250003.4"></a>Sandbox</h3>
 <!--l. 117--><p class="noindent" >This section describes how to use the Sandbox either from a Python shell or through a <a 
-href="mainap6.html#ui">UI</a> available
+href="mainap7.html#ui">UI</a> available
 on the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>.
+href="mainap7.html#ide">IDE</a>.
                                                                                          
                                                                                          
 <!--l. 119--><p class="noindent" >
@@ -407,7 +407,7 @@ href="mainli2.html#glo:component">Component</a> object by typing: <script type="
 href="mainli2.html#glo:component">Components</a> run as their own processes. If an
            absolute file path for a <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap6.html#spd">SPD</a> file (<span 
+href="mainap7.html#spd">SPD</a> file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>) is given as a
            constructor argument for the <a 
 href="mainli2.html#glo:component">Component</a> instance, then that <a 
@@ -423,7 +423,7 @@ class="ectt-1200">$SDRROOT</span>.</li></ol>
 href="mainli2.html#glo:component">Components</a>. There are a variety of widgets, including data sources and sinks, a speaker
       interface, and plotters. In this example, the plot widget is used.
       <!--l. 154--><p class="noindent" >To use plotting, the path to the eclipse directory of the installed <a 
-href="mainap6.html#ide">IDE</a> must be specified in the
+href="mainap7.html#ide">IDE</a> must be specified in the
       Sandbox (this can also be done by setting the RH_IDE environment variable to
       the absolute path of the eclipse directory prior to starting the Python session): <script type="syntaxhighlighter" class="brush: python"><![CDATA[
       &gt;&gt;> sb.IDELocation('/path/to/ide/eclipse')
@@ -500,22 +500,22 @@ href="mainli2.html#glo:component">Components</a> and cleans up whatever plots or
 <h4 class="subsectionHead"><span class="titlemark">3.4.2   </span> <a 
  id="x5-270003.4.2"></a>The IDE Sandbox</h4>
 <!--l. 194--><p class="noindent" >This section provides an overview of how to use the Sandbox in the REDHAWK <a 
-href="mainap6.html#ide">IDE</a>. The <a 
-href="mainap6.html#ide">IDE</a>
+href="mainap7.html#ide">IDE</a>. The <a 
+href="mainap7.html#ide">IDE</a>
 Sandbox provides a graphical environment for launching, inspecting, and debugging
 <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:device">Devices</a>. In addition, via the REDHAWK <a 
-href="mainap6.html#sca">SCA</a> Console, you can use the
+href="mainap7.html#sca">SCA</a> Console, you can use the
 Python-based Sandbox <a 
-href="mainap6.html#api">API</a> to interact with objects that are running within the <a 
-href="mainap6.html#ide">IDE</a>
+href="mainap7.html#api">API</a> to interact with objects that are running within the <a 
+href="mainap7.html#ide">IDE</a>
 Sandbox.
 <!--l. 198--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x5-27002x1">In the <a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer View</span>:
            <ol  class="enumerate2" >
@@ -693,7 +693,7 @@ terminal upon startup.
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x5-28002x1">Create a new <a 
-href="mainap6.html#sca">SCA</a> <a 
+href="mainap7.html#sca">SCA</a> <a 
 href="mainli2.html#glo:component">Component</a> Project:
            <ul class="itemize1">
            <li class="itemize"><span 
@@ -701,7 +701,7 @@ class="ecbx-1200">File </span><span
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
 class="cmmi-12">&#x003E; </span><a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a> <span 
@@ -769,9 +769,9 @@ class="ecbx-1200">Build Project</span></li></ul>
       <li 
   class="enumerate" id="x5-28022x11">Drag the project to the <span 
 class="ecbx-1200">Target </span><a 
-href="mainap6.html#sdr"><span 
+href="mainap7.html#sdr"><span 
 class="ecbx-1200">SDR</span></a> section of the <a 
-href="mainap6.html#sca"><span 
+href="mainap7.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer</span>.
       </li>
