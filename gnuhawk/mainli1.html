@@ -60,18 +60,18 @@ Radio blocks to be used within the REDHAWK software framework.
 <!--l. 5--><p class="noindent" >GNUHAWK provides reusability of GNU Radio block algorithms and capabilities by making them interoperable
 with other REDHAWK components within the REDHAWK software framework without requiring a separate
 GNU Radio installation.
-<!--l. 7--><p class="noindent" >The GNUHAWK library provides integration software that enables a GNU Radio block to be integrated into the
-REDHAWK software framework. This library enables a GNUHAWK component to instantiate a GNU Radio
-block, interact with it by using the block&#8217;s setters and getters, and utilize the GNU Radio block algorithm by
+<!--l. 7--><p class="noindent" >The GNUHAWK library provides software that enables a GNU Radio block to be integrated into the REDHAWK
+software framework. This library enables a GNUHAWK component to instantiate a GNU Radio block,
+interact with it by using the block&#8217;s setters and getters, and utilize the GNU Radio block algorithm by
 calling the general_work method. GNUHAWK is based on version 3.6.2 of GNU Radio, which is
 included as part of the GNUHAWK source baseline. A separate build of GNU Radio is not required
 when installing GNUHAWK. The installed GNUHAWK library and include files are located under
 <span 
 class="cmtt-12">$SDRROOT/dom/deps/gnuhawk</span>.
-<!--l. 9--><p class="noindent" >Integration of a GNU Radio block follows an integration pattern that enables external algorithms to be
-integrated into the REDHAWK processing framework with minimal modifications to the algorithm&#8217;s original
-source code. The GNUHAWK library enables standard REDHAWK component properties to interact with the
-setters and getters of the underlying GNU Radio block, which changes the block&#8217;s state. The GNUHAWK
+<!--l. 9--><p class="noindent" >GNUHAWK follows an integration pattern that enables external algorithms from existing GNU Radio blocks to
+be used within the REDHAWK processing framework with minimal modifications to the algorithm&#8217;s original
+source code. The GNUHAWK library enables standard REDHAWK components properties to change the state
+of an underlying GNU Radio block by interacting with the setters and getters of the block. The GNUHAWK
 component&#8217;s service function mimics the functionality of the GNU Radio gr_block_executor class as well as the
 necessary requirements for data flow over the BULKIO interfaces. In addition to maintaining SRI and time
 stamp context for the data flow, the component provides the marshalling and unmarshalling of data

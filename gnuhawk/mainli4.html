@@ -68,8 +68,9 @@ href="main.html#mainli4.html" >up</a>] </p></div>
                                                                                                        
                                                                                                        
 ]]></script>
-NOTE: The IDE provides the plotting capability in the Sandbox. Therefore, the location of the IDE must either
-be set in the Sandbox by using the IDELocation() method, or by setting a shell environment variable,
+<span 
+class="phvb7t-x-x-120">Note: </span>The IDE provides the plotting capability in the Sandbox. Therefore, the location of the IDE must either be
+set in the Sandbox by using the IDELocation() method, or by setting a shell environment variable,
 RH_IDE.
                                                                                                        
                                                                                                        
@@ -132,7 +133,7 @@ $ ./runtests.py qa_int_to_float.py --prefix=test_002
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-19000"></a>Troubleshooting</h3>
-<!--l. 78--><p class="noindent" >While running GHUHAWK components, if unexpected behavior is observed, refer to the following possible
+<!--l. 78--><p class="noindent" >While running GNUHAWK components, if unexpected behavior is observed, refer to the following possible
 causes and solutions.
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -155,12 +156,14 @@ class="phvb7t-x-x-120">_filter fails on 32-bit architectures</span>
       </li>
       <li class="itemize"><span 
 class="phvb7t-x-x-120">Component fails on start</span><br 
-class="newline" />Components that have properties that are sequences, for example, taps in fft_filter_fff and k in
+class="newline" />Components that have properties that are sequences, for example, <span 
+class="cmtt-12">taps </span>in fft_filter_fff and <span 
+class="cmtt-12">k </span>in
       multiply_const_vff, fail when passing empty vectors into the underlying GNU Radio block. GNUHAWK
       components with sequence properties must have non-zero length for those properties.
       </li>
       <li class="itemize"><span 
-class="phvb7t-x-x-120">Source component doesn&#8217;t appear to be producing data</span><br 
+class="phvb7t-x-x-120">Source component does not appear to be producing data</span><br 
 class="newline" />Source components, for example, <span 
 class="cmtt-12">glfsr</span><span 
 class="cmtt-12">_source</span>, <span 
@@ -180,7 +183,7 @@ class="cmtt-12">setThrottle(false) </span>in the
                                                                                                        
                                                                                                        
       <li class="itemize"><span 
-class="phvb7t-x-x-120">./configure *esc--*endwith-components fail to find dependencies</span><br 
+class="phvb7t-x-x-120">./configure --with-components fails to find dependencies</span><br 
 class="newline" />
       <!--l. 111--><p class="noindent" >When building components from source, the configuration fails if the GNUHAWK library is not installed.
       Verify the GNUHAWK library is installed prior to running the commands to build the GNUHAWK
