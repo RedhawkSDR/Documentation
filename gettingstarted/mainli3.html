@@ -57,30 +57,30 @@ href="main.html#mainli3.html" >up</a>] </p></div>
  id="x4-7000"></a>Getting Started</h2>
 <h3 class="likesectionHead"><a 
  id="x4-8000"></a>Installation</h3>
-<!--l. 6--><p class="noindent" >Installation of the REDHAWK Core Framework is handled through a set of
+<!--l. 12--><p class="noindent" >Installation of the REDHAWK Core Framework is handled through a set of
 RPMs. The use of RPMs allows for automated installation of dependencies
 required for REDHAWK to run as well as automated installation of the Core
 Framework itself. Additionally, the REDHAWK Integrated Development
 Environment (IDE) is packaged as a zip file which can be unzipped and then
 launched. Greater detail on REDHAWK installation can be found in the
-REDHAWK manual.
-<!--l. 11--><p class="noindent" >
+<a 
+href="../mainch2.html" >REDHAWK manual</a>.
+<h3 class="likesectionHead"><a 
+ id="x4-9000"></a>Basic Example</h3>
                                                                           
 
                                                                           
-<h3 class="likesectionHead"><a 
- id="x4-9000"></a>Basic Example</h3>
-<!--l. 13--><p class="noindent" >The fastest and easiest way to get a REDHAWK application started is through
+<!--l. 19--><p class="noindent" >The fastest and easiest way to get a REDHAWK application started is through
 the REDHAWK &#8220;sandbox&#8221;, a self contained python module that is able to run
 REDHAWK Components outside the runtime environment, which limits the
 Components to a single host computer.
-<!--l. 15--><p class="noindent" >In order to do this, first bring up a command line terminal. Begin a Python
+<!--l. 21--><p class="noindent" >In order to do this, first bring up a command line terminal. Begin a Python
 session and import the sandbox module by typing: <br 
 class="newline" /><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ python
 >>> from ossie.utils import sb
 ]]></script>
-<!--l. 22--><p class="noindent" >The Sandbox has commands to list Components available for use and to create
+<!--l. 28--><p class="noindent" >The Sandbox has commands to list Components available for use and to create
 an instance of a Component by passing its name as an argument:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sb.catalog()
@@ -88,7 +88,7 @@ an instance of a Component by passing its name as an argument:
 >>> sigGen = sb.Component('SigGen')
 >>> hardLimit = sb.Component('HardLimit')
 ]]></script>
-<!--l. 31--><p class="noindent" >The REDHAWK IDE plotting tool can be used in the Sandbox to display data
+<!--l. 37--><p class="noindent" >The REDHAWK IDE plotting tool can be used in the Sandbox to display data
 graphically. The path to the eclipse directory of the installed IDE must be
 specified in the Sandbox (this can also be done by setting the RH_IDE
 environment variable to the REDHAWK path prior to starting the python
@@ -97,28 +97,28 @@ session):
 >>> sb.IDELocation('/path/to/ide/eclipse')
 >>> plot = sb.Plot()
 ]]></script>
+<!--l. 44--><p class="noindent" >The two Components need to be connected, and hardLimit must be connected
+to the plotter to display the results.
                                                                           
 
                                                                           
-<!--l. 38--><p class="noindent" >The two Components need to be connected, and hardLimit must be connected
-to the plotter to display the results.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sigGen.connect(hardLimit)
 >>> hardLimit.connect(plot)
 ]]></script>
-<!--l. 45--><p class="noindent" >Once the hardLimit Component is connected to the plotter, a window appears
+<!--l. 51--><p class="noindent" >Once the hardLimit Component is connected to the plotter, a window appears
 that plots any data coming out of it. Once the Sandbox is started, the plot begins
 to display data:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sb.start()
 ]]></script>
-<!--l. 51--><p class="noindent" >Component properties can be modified as attributes of the component. The
+<!--l. 57--><p class="noindent" >Component properties can be modified as attributes of the component. The
 hardLimit property upper_limit can be changed to set an upper limit on the data
 that is displayed:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> hardLimit.upper_limit = .8
 ]]></script>
-<!--l. 57--><p class="noindent" >For further reading on application development, the Component and Sandbox
+<!--l. 63--><p class="noindent" >For further reading on application development, the Component and Sandbox
 chapters of the REDHAWK manual provide a more thorough description of
 the makeup of Components and how to test them in the REDHAWK
 environment.

@@ -54,7 +54,7 @@ href="#tailmainli2.html">tail</a>] [<a
 href="main.html#mainli2.html" >up</a>] </p></div>
 <h2 class="likechapterHead"><a 
  id="x3-3000"></a>Installing GNUHAWK</h2>
-<!--l. 3--><p class="noindent" >This chapter describes the process of installing the GNUHAWK library and components. Users may install
+<!--l. 3--><p class="noindent" >This chapter describes the process of installing the GNUHAWK library and Components. Users may install
 GNUHAWK from source or pre-built rpms.
 <!--l. 6--><p class="noindent" ><span 
 class="phvb7t-x-x-120">Note: </span>To install GNUHAWK, users must have root or sudo access.
@@ -77,14 +77,16 @@ class="phvb7t-x-x-120">Note: </span>To install GNUHAWK, users must have root or 
 <!--l. 19--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
  id="x3-6000"></a>Build Dependencies</h4>
-<!--l. 20--><p class="noindent" >The following dependencies are required to build the underlying VOLK GNU Radio library.
+<a 
+ id="x3-6000doc"></a>
+<!--l. 21--><p class="noindent" >The following dependencies are required to build the underlying VOLK GNU Radio library.
       <ul class="itemize1">
       <li class="itemize">cmake
       </li>
       <li class="itemize">python-cheetah
       </li>
       <li class="itemize">FFTW
-      <!--l. 26--><p class="noindent" >For 32-bit architectures, FFTW must be configured with the <span 
+      <!--l. 27--><p class="noindent" >For 32-bit architectures, FFTW must be configured with the <span 
 class="cmtt-12">--enable-sse </span>flag.
       This requires installing FFTW from source with the following configure call: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
       ./configure --enable-float --enable-sse --enable-shared --disable-static
@@ -94,7 +96,7 @@ class="cmtt-12">--enable-sse </span>flag.
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x3-7000"></a>Installing GNUHAWK Library from RPM</h3>
-<!--l. 33--><p class="noindent" >To install the GNUHAWK library from RPM, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 34--><p class="noindent" >To install the GNUHAWK library from RPM, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ sudo rpm -ivh gnuhawk-<version>.<os>.<arch>.rpm
 ]]></script>
 Where <span 
@@ -102,10 +104,10 @@ class="cmtt-12">&#x003C;version&#x003E; </span>corresponds to the associated RED
 class="cmtt-12">&#x003C;os&#x003E; </span>corresponds to the associated Linux
 distribution, and <span 
 class="cmtt-12">&#x003C;arch&#x003E; </span>corresponds to the associated architecture.
-<!--l. 40--><p class="noindent" >
+<!--l. 41--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x3-8000"></a>Installing GNUHAWK Components from RPM</h3>
-<!--l. 41--><p class="noindent" >To install GNUHAWK components from RPM, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 42--><p class="noindent" >To install GNUHAWK Components from RPM, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ sudo rpm -ivh gnuhawk-components-<version>.<os>.<arch>.rpm
 ]]></script>
 Where <span 
@@ -123,18 +125,18 @@ class="cmtt-12">$SDRROOT/dom/deps/gnuhawk/lib</span>.
 class="newline" /><span 
 class="cmtt-12">$SDRROOT/dom/deps/gnuhawk/lib</span>.
       </li>
-      <li class="itemize">GNUHAWK components are installed in <span 
+      <li class="itemize">GNUHAWK Components are installed in <span 
 class="cmtt-12">$SDRROOT/dom/components/gnuhawk</span>. Within this directory, there
       are two subdirectories:
                                                                                                        
                                                                                                        
            <ul class="itemize2">
            <li class="itemize"><span 
-class="cmtt-12">gr </span>contains components that utilize GNU Radio blocks that have the prefix <span 
+class="cmtt-12">gr </span>contains Components that utilize GNU Radio blocks that have the prefix <span 
 class="cmtt-12">gr</span>_.
            </li>
            <li class="itemize"><span 
-class="cmtt-12">digital </span>contains components that utilize GNU Radio blocks that have the prefix <span 
+class="cmtt-12">digital </span>contains Components that utilize GNU Radio blocks that have the prefix <span 
 class="cmtt-12">digital</span>_.</li></ul>
       </li></ul>
                                                                                                        

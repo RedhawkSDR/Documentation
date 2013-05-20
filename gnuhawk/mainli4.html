@@ -55,29 +55,33 @@ href="main.html#mainli4.html" >up</a>] </p></div>
  id="x5-14000"></a>Testing the GNUHAWK Installation</h2>
 <h3 class="likesectionHead"><a 
  id="x5-15000"></a>Running a Sample Component in the Sandbox</h3>
-<!--l. 4--><p class="noindent" >To run a sample component in the Sandbox, enter the following commands: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<!--l. 4--><p class="noindent" >To run a sample Component in the Sandbox, enter the following commands: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  >>> from ossie.utils import sb
- >>> sb.IDELocation("\<path to Eclipse IDE top level directory\>")
+ >>> sb.IDELocation("/path/to/ide/eclipse")
  >>> source = sb.Component("sig_source_f")
  >>> plot = sb.Plot()
  >>> source.connect(plot) # On connect, a plot dialog will pop up
  >>> sb.start()
- >>> source.api()  #Look at the components properties and interfaces
+ >>> source.api()  #Look at the Components properties and interfaces
  >>> source.waveform # Look at a specific property
  >>> source.waveform = 105 # Change a specific property
                                                                                                        
                                                                                                        
 ]]></script>
-<span 
-class="phvb7t-x-x-120">Note: </span>The IDE provides the plotting capability in the Sandbox. Therefore, the location of the IDE must either be
-set in the Sandbox by using the IDELocation() method, or by setting a shell environment variable,
-RH_IDE.
+After sb.start(), a sine wave is displayed in the plot varying from -100 to +100 in amplitude. The waveform
+property of the source component defaults to a value of 101, which corresponds to the enumerated type
+value of SIN_WAVE. Setting the waveform property to 105 results in a saw wave varying from 0 to
++100.
+<!--l. 18--><p class="noindent" ><span 
+class="phvb7t-x-x-120">Note: </span>To use plotting, the path to the eclipse directory of the installed IDE must be specfied in the Sandbox.
+(This can also be done by setting the RH_IDE environment variable to the absolute path of the eclipse directory
+prior to starting the Python session).
                                                                                                        
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-16000"></a>Quality Assurance (QA) Testing For GNUHAWK Components</h3>
-<!--l. 22--><p class="noindent" >A subset of GNU Radio QA tests are incorporated within the GNUHAWK baseline to test the provided
-GNUHAWK components. In the <span 
+<!--l. 24--><p class="noindent" >A subset of GNU Radio QA tests are incorporated within the GNUHAWK baseline to test the provided
+GNUHAWK Components. In the <span 
 class="cmtt-12">gnuhawk/qa </span>subdirectory, runtests.py, a Python script, performs all of the tests
 located in the <span 
 class="cmtt-12">gnuhawk/qa/tests </span>subdirectory. GNUHAWK provides the <span 
@@ -88,9 +92,9 @@ cases, QA tests had to be modified to facilitate using the Sandbox Python enviro
 test.
 <h3 class="likesectionHead"><a 
  id="x5-17000"></a>Initial Setup For Quality Assurance (QA)</h3>
-<!--l. 33--><p class="noindent" >The <span 
-class="cmtt-12">qa/components </span>directory contains helper components needed for the QA tests. Before running the QA
-tests the first time, these components must be built. To build the components, enter the following commands. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 35--><p class="noindent" >The <span 
+class="cmtt-12">qa/components </span>directory contains helper Components needed for the QA tests. Before running the QA
+tests the first time, these Components must be built. To build the Components, enter the following commands. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ cd gnuhawk-<version>/qa
 $ make
 ]]></script>
@@ -98,13 +102,13 @@ $ make
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-18000"></a>Running Quality Assurance (QA)</h3>
-<!--l. 43--><p class="noindent" >QA tests are run against the locally built component executables found in the<br 
+<!--l. 45--><p class="noindent" >QA tests are run against the locally built Component executables found in the<br 
 class="newline" /><span 
-class="cmtt-12">gnuhawk-&#x003C;version&#x003E;/components </span>directory. They are not run against the installed components
+class="cmtt-12">gnuhawk-&#x003C;version&#x003E;/components </span>directory. They are not run against the installed Components
 in <span 
-class="cmtt-12">$SDRROOT/dom/components/gnuhawk</span>. It is not necessary to install the components to run
-the QA tests. It is only necessary to build the GNUHAWK components and the QA helper
-components. To run all QA tests located in <span 
+class="cmtt-12">$SDRROOT/dom/components/gnuhawk</span>. It is not necessary to install the Components to run
+the QA tests. It is only necessary to build the GNUHAWK Components and the QA helper
+Components. To run all QA tests located in <span 
 class="cmtt-12">gnuhawk/qa/tests</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ ./runtests.py
 ]]></script>
@@ -133,7 +137,7 @@ $ ./runtests.py qa_int_to_float.py --prefix=test_002
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-19000"></a>Troubleshooting</h3>
-<!--l. 78--><p class="noindent" >While running GNUHAWK components, if unexpected behavior is observed, refer to the following possible
+<!--l. 80--><p class="noindent" >While running GNUHAWK Components, if unexpected behavior is observed, refer to the following possible
 causes and solutions.
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -142,8 +146,8 @@ class="phvb7t-x-x-120">_filter</span><span
 class="phvb7t-x-x-120">_fff and qa</span><span 
 class="phvb7t-x-x-120">_fft</span><span 
 class="phvb7t-x-x-120">_filter fails on 32-bit architectures</span>
-      <!--l. 82--><p class="noindent" >If the installed version of FFTW was not configured with the --enable-sse flag, the qa_fft_filter.py
-      test fails and the component fails within a waveform. On 32-bit architectures, FFTW must
+      <!--l. 84--><p class="noindent" >If the installed version of FFTW was not configured with the --enable-sse flag, the qa_fft_filter.py
+      test fails and the Component fails within a waveform. On 32-bit architectures, FFTW must
       be installed from source. The GNU Radio block gr_fft_filter_fff uses the underlying GNU
       Radio VOLK library, which requires SSE to be enabled. After downloading a particular
       version of FFTW, install FFTW from source by entering the following commands: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -159,12 +163,13 @@ class="phvb7t-x-x-120">Component fails on start</span><br
 class="newline" />Components that have properties that are sequences, for example, <span 
 class="cmtt-12">taps </span>in fft_filter_fff and <span 
 class="cmtt-12">k </span>in
-      multiply_const_vff, fail when passing empty vectors into the underlying GNU Radio block. GNUHAWK
-      components with sequence properties must have non-zero length for those properties.
+      multiply_const_vff, fail when passing empty vectors into the underlying GNU Radio block.
+      GNUHAWK Components with sequence properties must have non-zero length for those
+      properties.
       </li>
       <li class="itemize"><span 
-class="phvb7t-x-x-120">Source component does not appear to be producing data</span><br 
-class="newline" />Source components, for example, <span 
+class="phvb7t-x-x-120">Source Component does not appear to be producing data</span><br 
+class="newline" />Source Components, for example, <span 
 class="cmtt-12">glfsr</span><span 
 class="cmtt-12">_source</span>, <span 
 class="cmtt-12">noise</span><span 
@@ -174,20 +179,20 @@ class="cmtt-12">_source</span>, and <br
 class="newline" /><span 
 class="cmtt-12">glfsr</span><span 
 class="cmtt-12">_source</span>, have a property called transfer_size. If this property is not set, then data is throttled
-      internally within the component. If there is unexpected behavior with the rate of data being pushed,
+      internally within the Component. If there is unexpected behavior with the rate of data being pushed,
       throttling may be the cause. With throttling, which is on by default, data is pushed at the rate defined by
       SRI. To determine if throttling is causing the issue, disable it by calling <span 
 class="cmtt-12">setThrottle(false) </span>in the
       createBlock method.
+                                                                                                       
+                                                                                                       
       </li>
-                                                                                                       
-                                                                                                       
       <li class="itemize"><span 
 class="phvb7t-x-x-120">./configure --with-components fails to find dependencies</span><br 
 class="newline" />
-      <!--l. 111--><p class="noindent" >When building components from source, the configuration fails if the GNUHAWK library is not installed.
+      <!--l. 113--><p class="noindent" >When building Components from source, the configuration fails if the GNUHAWK library is not installed.
       Verify the GNUHAWK library is installed prior to running the commands to build the GNUHAWK
-      components from source.</li></ul>
+      Components from source.</li></ul>
 <!--l. 37--><div class="crosslinks"><p class="noindent">[<a 
 href="mainli3.html" >prev</a>] [<a 
 href="mainli3.html#tailmainli3.html" >prev-tail</a>] [<a 
