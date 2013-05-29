@@ -53,9 +53,9 @@ href="mainch13.html#tailmainch13.html" >prev-tail</a>] [<a
 href="#tailmainch14.html">tail</a>] [<a 
 href="main.html#mainch14.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;14</span><br /><a 
- id="x16-19600014"></a>Connections</h2>
+ id="x16-19500014"></a>Connections</h2>
 <h3 class="sectionHead"><span class="titlemark">14.1   </span> <a 
- id="x16-19700014.1"></a>Introduction</h3>
+ id="x16-19600014.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >When discussing connections, there are several terms that are thrown around in REDHAWK: uses,
 provides, <a 
 href="mainli2.html#glo:port">Port</a>, interfaces, <a 
@@ -64,7 +64,7 @@ the key concepts that enable a REDHAWK-based system to easily interact with othe
 systems and external tools developed outside the scope of REDHAWK.
 <!--l. 9--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.2   </span> <a 
- id="x16-19800014.2"></a>The Connection Process</h3>
+ id="x16-19700014.2"></a>The Connection Process</h3>
 <!--l. 10--><p class="noindent" >All connections take a client-server pattern. All calls are made from the client to the server. It is
 the role of the server to provide a set of functions that can be called by the client. It is the role of
 the client to understand what interfaces the server provides and to invoke (use) them. This is the
@@ -115,7 +115,7 @@ class="ectt-1200">connectPort() </span>call.
                                                                                          
 <!--l. 28--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.3   </span> <a 
- id="x16-19900014.3"></a>Why Ports?</h3>
+ id="x16-19800014.3"></a>Why Ports?</h3>
 <!--l. 30--><p class="noindent" >It seems burdensome to connect <a 
 href="mainli2.html#glo:component">Components</a> through <a 
 href="mainli2.html#glo:port">Port</a> objects; this is an additional level of
@@ -161,7 +161,7 @@ launch and release <a
 href="mainli2.html#glo:application">Applications</a>, or do any other kind of management functions.
 <!--l. 45--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.4   </span> <a 
- id="x16-20000014.4"></a>Port Access</h3>
+ id="x16-19900014.4"></a>Port Access</h3>
 <!--l. 46--><p class="noindent" >A <a 
 href="mainli2.html#glo:port">Port</a> belongs to a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
@@ -169,7 +169,7 @@ href="mainli2.html#glo:device">Device</a> (<a
 href="mainli2.html#glo:device">Devices</a> are specialized <a 
 href="mainli2.html#glo:component">Components</a> - more on that in
 <a 
-href="mainch6.html#x8-830006">Chapter 6</a>). To retrieve a <a 
+href="mainch6.html#x8-820006">Chapter 6</a>). To retrieve a <a 
 href="mainli2.html#glo:port">Port</a>, an external entity needs to call <span 
 class="ectt-1200">getPort() </span>on the <a 
 href="mainli2.html#glo:component">Component</a> that
@@ -192,7 +192,7 @@ href="mainli2.html#glo:devicemanager">Device
 Manager</a>.
 <!--l. 54--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.5   </span> <a 
- id="x16-20100014.5"></a>Dynamic Connections</h3>
+ id="x16-20000014.5"></a>Dynamic Connections</h3>
 <!--l. 56--><p class="noindent" >Unless a <a 
 href="mainli2.html#glo:component">Component</a> is in the process of being terminated, it is valid to retrieve a <a 
 href="mainli2.html#glo:port">Port</a> reference at
@@ -228,7 +228,7 @@ connections. This means of dynamic connecting is essential for REDHAWK&#8217;s p
 mechanism.
 <!--l. 68--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.6   </span> <a 
- id="x16-20200014.6"></a>Example</h3>
+ id="x16-20100014.6"></a>Example</h3>
 <!--l. 70--><p class="noindent" >To exercise connections, create the following <a 
 href="mainli2.html#glo:component">Components</a>:
       <ul class="itemize1">
@@ -252,7 +252,7 @@ generate the <a
 href="mainli2.html#glo:component">Component</a> code, and install the <a 
 href="mainli2.html#glo:component">Components</a> (for a review of how to do this, see
 <a 
-href="mainch4.html#x6-290004">Chapter 4</a>).
+href="mainch4.html#x6-280004">Chapter 4</a>).
 <!--l. 81--><p class="noindent" >In a Python session on a terminal, run the following commands:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> from ossie.utils import sb

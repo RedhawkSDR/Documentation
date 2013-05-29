@@ -53,9 +53,9 @@ href="mainch5.html#tailmainch5.html" >prev-tail</a>] [<a
 href="#tailmainch6.html">tail</a>] [<a 
 href="main.html#mainch6.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;6</span><br /><a 
- id="x8-830006"></a>Devices</h2>
+ id="x8-820006"></a>Devices</h2>
 <h3 class="sectionHead"><span class="titlemark">6.1   </span> <a 
- id="x8-840006.1"></a>Introduction</h3>
+ id="x8-830006.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" ><a 
 href="mainli2.html#glo:device">Devices</a> are proxies that run on a host but interact with installed hardware.
 <!--l. 8--><p class="noindent" >The <a 
@@ -64,16 +64,16 @@ class="ectt-1200">Device </span>class types:
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-84002x1"><a 
+  class="enumerate" id="x8-83002x1"><a 
 href="mainli2.html#glo:device">Device</a>
       </li>
       <li 
-  class="enumerate" id="x8-84004x2">Loadable <a 
+  class="enumerate" id="x8-83004x2">Loadable <a 
 href="mainli2.html#glo:device">Device</a>, which inherits from <a 
 href="mainli2.html#glo:device">Device</a>
       </li>
       <li 
-  class="enumerate" id="x8-84006x3">Executable <a 
+  class="enumerate" id="x8-83006x3">Executable <a 
 href="mainli2.html#glo:device">Device</a>, which inherits from Loadable <a 
 href="mainli2.html#glo:device">Device</a></li></ol>
 <!--l. 15--><p class="noindent" >All of these classes inherit from the <span 
@@ -103,7 +103,7 @@ understanding the expected roles and behaviors of the various <a
 href="mainli2.html#glo:device">Device</a> types.
 <!--l. 26--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">6.2   </span> <a 
- id="x8-850006.2"></a>Device</h3>
+ id="x8-840006.2"></a>Device</h3>
 <!--l. 27--><p class="noindent" >The Basic <a 
 href="mainli2.html#glo:device">Device</a> methods are <span 
 class="ectt-1200">allocateCapacity() </span>and <span 
@@ -143,7 +143,7 @@ class="ectt-1200">ENABLED </span>or <span
 class="ectt-1200">DISABLED</span>).
 <!--l. 34--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.2.1   </span> <a 
- id="x8-860006.2.1"></a><span 
+ id="x8-850006.2.1"></a><span 
 class="ectt-1200">allocateCapacity()</span></h4>
 <!--l. 35--><p class="noindent" >In REDHAWK 1.8, the implementation of capacity allocation for C++ and Java <a 
 href="mainli2.html#glo:device">Devices</a> vary in
@@ -174,7 +174,7 @@ href="mainap7.html#xml">XML</a> file:
 ]]></script>
 <!--l. 54--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x8-870006.2.1"></a>C++ and Java Device Capacity Allocation</h5>
+ id="x8-860006.2.1"></a>C++ and Java Device Capacity Allocation</h5>
                                                                                          
                                                                                          
 <!--l. 55--><p class="noindent" >When the <a 
@@ -200,7 +200,7 @@ class="ectt-1200">allocateCapacity() </span>method may be overridden in their <a
 href="mainli2.html#glo:device">Device</a> implementation.
 <!--l. 63--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x8-880006.2.1"></a>Python Device Capacity Allocation</h5>
+ id="x8-870006.2.1"></a>Python Device Capacity Allocation</h5>
 <!--l. 64--><p class="noindent" >The <span 
 class="ectt-1200">Device </span>base class in device.py (distributed as a part of the REDHAWK Core Framework)
 provides a means for defining custom allocate methods for particular allocation <a 
@@ -231,11 +231,11 @@ def allocate_memCapacity(self, value):
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">6.2.2   </span> <a 
- id="x8-890006.2.2"></a><span 
+ id="x8-880006.2.2"></a><span 
 class="ectt-1200">deallocateCapacity()</span></h4>
 <!--l. 83--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x8-900006.2.2"></a>C++ and Java Capacity Deallocation</h5>
+ id="x8-890006.2.2"></a>C++ and Java Capacity Deallocation</h5>
 <!--l. 84--><p class="noindent" >The <span 
 class="ectt-1200">deallocateCapacity() </span>method essentially reverses the process implemented in
 the <span 
@@ -243,7 +243,7 @@ class="ectt-1200">allocateCapacity() </span>method (i.e., the available capacity
 incremented).
 <!--l. 86--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x8-910006.2.2"></a>Python deallocate_ Methods</h5>
+ id="x8-900006.2.2"></a>Python deallocate_ Methods</h5>
 <!--l. 87--><p class="noindent" >Similar to the Python <a 
 href="mainli2.html#glo:device">Device</a>&#8217;s support for custom allocation methods, custom deallocation
 methods may be created by adding a method named <span 
@@ -271,7 +271,7 @@ def deallocate_memCapacity(self, value):
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">6.3   </span> <a 
- id="x8-920006.3"></a>Loadable Device</h3>
+ id="x8-910006.3"></a>Loadable Device</h3>
 <!--l. 104--><p class="noindent" >The Loadable <a 
 href="mainli2.html#glo:device">Device</a> methods, <span 
 class="ectt-1200">load() </span>and <span 
@@ -284,7 +284,7 @@ href="mainli2.html#glo:device">Device</a> is created at its File
 System&#8217;s mount point.
 <!--l. 108--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.3.1   </span> <a 
- id="x8-930006.3.1"></a><span 
+ id="x8-920006.3.1"></a><span 
 class="ectt-1200">load()</span></h4>
 <!--l. 109--><p class="noindent" >When the <span 
 class="ectt-1200">load() </span>method is called on a Loadable <a 
@@ -315,7 +315,7 @@ href="mainli2.html#glo:device">Device</a> (e.g.,
 class="ectt-1200">$SDRROOT/dev/.DeviceManager_/GPP_1/component/myComponent/myComponent.py</span>).
 <!--l. 116--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.3.2   </span> <a 
- id="x8-940006.3.2"></a><span 
+ id="x8-930006.3.2"></a><span 
 class="ectt-1200">unload()</span></h4>
 <!--l. 117--><p class="noindent" >The <span 
 class="ectt-1200">unload() </span>method removes loaded files from the physical device that the Loadable <a 
@@ -323,7 +323,7 @@ href="mainli2.html#glo:device">Device</a>
 proxy represents.
 <!--l. 119--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">6.4   </span> <a 
- id="x8-950006.4"></a>Executable Device</h3>
+ id="x8-940006.4"></a>Executable Device</h3>
 <!--l. 120--><p class="noindent" >The Executable <a 
 href="mainli2.html#glo:device">Device</a> methods, <span 
 class="ectt-1200">execute() </span>and <span 
@@ -349,7 +349,7 @@ process for the particular <a
 href="mainli2.html#glo:device">Device</a>&#8217;s hardware implementation.
 <!--l. 126--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.4.1   </span> <a 
- id="x8-960006.4.1"></a><span 
+ id="x8-950006.4.1"></a><span 
 class="ectt-1200">execute()</span></h4>
 <!--l. 127--><p class="noindent" >The <span 
 class="ectt-1200">execute() </span>method is called by the <a 
@@ -369,7 +369,7 @@ href="mainli2.html#glo:device">Device</a> returns to
 wait for commands.
 <!--l. 131--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.4.2   </span> <a 
- id="x8-970006.4.2"></a><span 
+ id="x8-960006.4.2"></a><span 
 class="ectt-1200">terminate()</span></h4>
 <!--l. 132--><p class="noindent" >The <span 
 class="ectt-1200">terminate() </span>method exists to kill processes that have been started by the <a 
