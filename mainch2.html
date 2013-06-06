@@ -117,78 +117,64 @@ class="ectt-1200">yum </span>search, see <a
 href="mainap3.html#x29-343000C.1">Section C.1</a>. </p></div></div>
 <!--l. 37--><p class="noindent" >To install all of the required and recommended packages, use the following commands:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ tar xzvf redhawk-deps-yum-centos-<version>.tar.gz
-$ cd redhawk-deps-yum-centos-<version>
+$ tar xzvf redhawk-deps-yum-<dist>-<arch>.tar.gz
+$ cd redhawk-deps/<dist>/<arch>/
 $ sudo yum localinstall --nogpgcheck *.rpm
 ]]></script>
 <!--l. 45--><p class="noindent" >Where <span 
-class="ectt-1200">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
-architecture. To install a subset of the dependencies, simply list out the desired <span 
+class="ectt-1200">&#x003C;dist&#x003E; </span>and <span 
+class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated Linux distribution and architecture
+respectively. To install a subset of the dependencies, simply list out the desired <span 
 class="ectt-1200">rpm </span>files in place of
 <span 
 class="ectt-1200">*.rpm</span>.
-<!--l. 47--><p class="noindent" >Note, <span 
-class="ectt-1200">boost-1.41 </span>contains a known bug. Due to this bug, REDHAWK and REDHAWK C++
-projects will not compile when using <span 
-class="ectt-1200">gcc </span>version 4.4.7 (standard in Red Hat and <a 
-href="mainap7.html#centos">CentOS</a> 6.4). In
-order to fix this, the <span 
-class="ectt-1200">boost </span>file <span 
-class="ectt-1200">exception_ptr.hpp </span>must be patched. For standard <span 
-class="ectt-1200">boost</span>
-installations, this file is located at <span 
-class="ectt-1200">/usr/include/boost/exception_ptr.hpp</span>. Open the file in a
-text editor (this may require root permissions) and add the following destructor code starting at
-line 93:
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  ~exception_ptr() throw()
-       {
-       }
-]]></script>
-<!--l. 58--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> On Red Hat Enterprise Linux 6 and CentOS 6, once these packages have been installed, do not
+<!--l. 50--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> On Red Hat Enterprise Linux 6 and CentOS 6, once these packages have been installed, do not
 update Boost, as doing so will update Boost to a version that is incompatible with REDHAWK. </p></div></div>
                                                                                          
                                                                                          
-<!--l. 63--><p class="noindent" >
+<!--l. 57--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
  id="x4-90002.3"></a>Installing the Framework from RPMs</h3>
-<!--l. 65--><p class="noindent" >To install the Core Framework, use the following commands:
+<!--l. 59--><p class="noindent" >To install the Core Framework, use the following commands:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ tar xzvf redhawk-yum-<version>.tar.gz
-$ cd redhawk-<version>
+$ tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
+$ cd redhawk-yum-<version>-<dist>-<arch>
 $ sudo yum localinstall --nogpgcheck *.rpm
 $ source ~/.bashrc
 $ sudo chown -R <user name>.<user name> $SDRROOT
 ]]></script>
-<!--l. 75--><p class="noindent" >Where <span 
-class="ectt-1200">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
-architecture, and <span 
-class="ectt-1200">&#x003C;user name&#x003E; </span>must be replaced with the desired Linux user account name. An
-alternative to using the <span 
-class="ectt-1200">chown </span>command, at the discretion of the system administrator, is to use
-Linux user groups for controlling file ownership. For a list of the packages making up the
-REDHAWK installation, see <a 
-href="mainap5.html#x31-350000E">Appendix E</a>.
-<!--l. 81--><p class="noindent" >
+<!--l. 69--><p class="noindent" >Where <span 
+class="ectt-1200">&#x003C;version&#x003E;</span>, <span 
+class="ectt-1200">&#x003C;dist&#x003E;</span>, and <span 
+class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated REDHAWK version, Linux
+distribution, and architecture respectively. The <span 
+class="ectt-1200">&#x003C;user name&#x003E; </span>must be replaced with the
+desired Linux user account name. An alternative to using the <span 
+class="ectt-1200">chown </span>command, at the
+discretion of the system administrator, is to use Linux user groups for controlling file
+ownership. For a list of the packages making up the REDHAWK installation, see <a 
+href="mainap5.html#x31-350000E">Appendix
+E</a>.
+<!--l. 79--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
  id="x4-100002.4"></a>Installing the IDE</h3>
-<!--l. 83--><p class="noindent" >The REDHAWK IDE leverages JAVA technologies and for the best JAVA experience a minimum
+<!--l. 81--><p class="noindent" >The REDHAWK IDE leverages JAVA technologies and for the best JAVA experience a minimum
 of 2GB of RAM is recommended. Installing the REDHAWK <a 
 href="mainap7.html#ide">IDE</a> is a simple matter of unzipping
 the appropriate installation file. Locate the appropriate zip file, and run the following command
 (where &#x003C;version&#x003E; is the version of the REDHAWK <a 
-href="mainap7.html#ide">IDE</a> and &#x003C;architecture&#x003E; is either x86 (for
-32-bit systems) or x86_64 (for 64-bit systems)):
+href="mainap7.html#ide">IDE</a> and &#x003C;arch&#x003E; is either x86 (for 32-bit
+systems) or x86_64 (for 64-bit systems)):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ unzip redhawk-R<version>-linux.gtk.<architecture>.zip
+$ unzip redhawk-ide-<version>-linux.gtk.<arch>.zip
 ]]></script>
-<!--l. 95--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In order to develop and run Java based components within the <a 
+<!--l. 93--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In order to develop and run Java based components within the <a 
 href="mainap7.html#ide">IDE</a>, the environment variable
 JAVA_HOME must be set and JAVA_HOME/bin should be added to the PATH. Putting this in
+                                                                                         
+                                                                                         
 the bashrc file is recommended.
-                                                                                         
-                                                                                         
-<!--l. 100--><p class="noindent" >The location of JAVA_HOME depends on where Java is installed and will be based on the
+<!--l. 98--><p class="noindent" >The location of JAVA_HOME depends on where Java is installed and will be based on the
 system configuration. An example using the default location of JAVA_HOME is shown
 below.
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -196,20 +182,20 @@ $ export JAVA_HOME=/usr/java/default
 $ export PATH=$JAVA_HOME:$PATH
 ]]></script>
 </p></div></div>
-<!--l. 111--><p class="noindent" >
+<!--l. 109--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
  id="x4-110002.5"></a>Installing the Basic Components</h3>
-<!--l. 113--><p class="noindent" >To install the Basic Components, use the following command:
+<!--l. 111--><p class="noindent" >To install the Basic Components, use the following command:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ sudo yum localinstall --nogpgcheck redhawk-basic-components-<version>.rpm
 ]]></script>
-<!--l. 119--><p class="noindent" >Where <span 
+<!--l. 117--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
 architecture.
-<!--l. 122--><p class="noindent" >
+<!--l. 120--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
  id="x4-120002.6"></a>Configuring omniORB</h3>
-<!--l. 123--><p class="noindent" >The omniORB configuration file, <span 
+<!--l. 121--><p class="noindent" >The omniORB configuration file, <span 
 class="ectt-1200">/etc/omniORB.cfg </span>needs to be edited to provide information
 about how to reach the Common Object Request Broker Architecture (<a 
 href="mainap7.html#corba">CORBA</a>) Naming Service
@@ -219,10 +205,10 @@ require root permissions):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = NameService=corbaname::127.0.0.1
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
+                                                                                         
+                                                                                         
 ]]></script>
-                                                                                         
-                                                                                         
-<!--l. 131--><p class="noindent" >After the file has been edited, the <span 
+<!--l. 129--><p class="noindent" >After the file has been edited, the <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>services need to be started (note
 that this requires root permissions):
@@ -245,5 +231,5 @@ href="main.html#mainch2.html" >up</a>] </p></div>
 <hr> 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
  
-</div> 
+</div></section></div> 
 </body></html> 

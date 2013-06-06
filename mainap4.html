@@ -69,7 +69,7 @@ href="mainap3.html#x29-343000C.1">Section C.1</a>.
 <!--l. 9--><p class="noindent" >To  install  <span 
 class="ectt-1200">xsd </span>in  Red  Hat/<a 
 href="mainap7.html#centos">CentOS</a>  5:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
- $ cd redhawk-deps-yum-centos-5-<architecture>
+ $ cd redhawk-deps/el5/<architecture>/
  $ sudo yum remove boost
  $ sudo yum install xsd
  $ sudo rpm -ivh boost-1.41.0-2.el5.<architecture>.rpm \
@@ -85,10 +85,10 @@ href="mainap7.html#centos">CentOS</a> 6:
 <!--l. 26--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.2   </span> <a 
  id="x30-348000D.2"></a>Installing the Framework from Source</h3>
-<!--l. 27--><p class="noindent" >In order to install the Core Framework from source, the <span 
+<!--l. 28--><p class="noindent" >In order to install the Core Framework from source, the <span 
 class="ectt-1200">redhawk-src-1.8.4.tar.gz </span>must be
 downloaded.
-<!--l. 29--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
+<!--l. 30--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
 configuration options, including:
                                                                                          
                                                                                          
@@ -125,7 +125,7 @@ class="ectt-1200">&#8211;with-ossie=&#x003C;dir&#x003E;</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">&#8211;with-sdr=&#x003C;dir&#x003E;</span></li></ul>
-<!--l. 47--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
+<!--l. 48--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
 be used after the <span 
 class="ectt-1200">./configure </span>command):
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -138,10 +138,10 @@ $ ./configure <options>
 $ make
 $ make install
 ]]></script>
-<!--l. 58--><p class="noindent" >
+<!--l. 59--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.3   </span> <a 
  id="x30-349000D.3"></a>Setting Environment Variables</h3>
-<!--l. 60--><p class="noindent" >The environment variables <span 
+<!--l. 61--><p class="noindent" >The environment variables <span 
 class="ectt-1200">SDRROOT </span>and <span 
 class="ectt-1200">OSSIEHOME </span>must be set in order to run REDHAWK.
 <span 
@@ -163,7 +163,7 @@ export SDRROOT=/var/redhawk/sdr
 export OSSIEHOME=/usr/local/redhawk/core
 export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
 ]]></script>
-<!--l. 71--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
+<!--l. 72--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
 class="cmsy-10x-x-120">~</span><span 
 class="ectt-1200">/.bashrc </span>to take effect.
                                                                                          
@@ -181,5 +181,5 @@ href="main.html#mainap4.html" >up</a>] </p></div>
 <hr> 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
  
-</div> 
+</div></section></div> 
 </body></html> 
