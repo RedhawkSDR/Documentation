@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>G List of Acronyms</title> 
+<head><title>G FrontEnd Interfaces</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -46,546 +46,1685 @@ window.attachEvent("onload", f);
 <!-- Custom MAIN CONTENT --> 
 <div id="main_content_wrap" tabindex="0" class="outer"> 
 <section id="main_content" class="inner"> 
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap8.html" >next</a>] [<a 
 href="mainap6.html" >prev</a>] [<a 
 href="mainap6.html#tailmainap6.html" >prev-tail</a>] [<a 
 href="#tailmainap7.html">tail</a>] [<a 
 href="main.html#mainap7.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;G</span><br /><a 
- id="x33-356000G"></a>List of Acronyms</h2>
-  <dl class="list1"><dt class="list">
+ id="x33-356000G"></a>FrontEnd Interfaces</h2>
+<h3 class="sectionHead"><span class="titlemark">G.1   </span> <a 
+ id="x33-357000G.1"></a>Introduction</h3>
+<!--l. 5--><p class="noindent" >FrontEnd Interfaces is a module containing interfaces designed to standardize the interaction
+between <a 
+href="mainli2.html#glo:application">Applications</a> and radio hardware. This appendix specifies the requirements of a FrontEnd
+2.0 compatible <a 
+href="mainli2.html#glo:device">Device</a>, explains best-practices, and provides advice for development. The appendix
+is not intended to be an <a 
+href="mainap8.html#api">API</a> reference for the FrontEnd Interfaces or an exhaustive
+description of the <a 
+href="mainap8.html#idl">IDL</a>s, but more as an additional resource to which developers may
+refer.
+<!--l. 9--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.1.1   </span> <a 
+ id="x33-358000G.1.1"></a>Theory of Operations</h4>
+<!--l. 10--><p class="noindent" >FrontEnd Interfaces were developed to standardize the allocation, operation, and development of
+tuner <a 
+href="mainli2.html#glo:device">Devices</a> within the REDHAWK Core Framework. These tuner <a 
+href="mainli2.html#glo:device">Devices</a> could consist of <a 
+ id="section*.52"></a>Radio
+Frequency (<a 
+href="mainap8.html#rf">RF</a>), <a 
+ id="section*.53"></a>Intermediate Frequency (<a 
+href="mainap8.html#if">IF</a>), or purely digital tuning equipment or software.
+Explicit types for tuners have been defined in  <a 
+href="#x33-360000G.2">Section G.2</a>, so that <a 
+href="mainli2.html#glo:device">Devices</a> can be easily
+categorized by the capabilities they provide.
+<!--l. 16--><p class="noindent" >Tuner <a 
+href="mainli2.html#glo:device">Devices</a> can provide individual tuners to other REDHAWK entities by allocating them. To
+allocate the tuners, call <span 
+class="ectt-1200">allocateCapacity() </span>on the <a 
+href="mainli2.html#glo:device">Device</a> and pass in an appropriate allocation
+structure. <a 
+href="mainli2.html#glo:device">Devices</a> then allocate physical resources and begin flowing data out of the
 <a 
- id="ajax"></a><span 
-class="ecsx-1200">AJAX</span> </dt><dd 
-class="list">
-  <!--l. 4--><p class="noindent" >Asynchronous
-  JavaScript
-  and
+href="mainli2.html#glo:device">Device</a>.
+<!--l. 20--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.1.2   </span> <a 
+ id="x33-359000G.1.2"></a>FrontEnd Terminology</h4>
+<!--l. 21--><p class="noindent" >The following table describes the common terminology used for FrontEnd Interfaces.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 27--><p class="noindent" ><hr class="float"><div class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-9" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-9-1g"><col 
+id="TBL-9-1"></colgroup><colgroup id="TBL-9-2g"><col 
+id="TBL-9-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-9-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-9-1-1"  
+class="td11"> <span 
+class="ecbx-1200">Terminology           </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-9-1-2"  
+class="td11"> <!--l. 29--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                                                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-9-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-9-2-1"  
+class="td11"> <a 
+href="mainli2.html#glo:device">Device</a>                        </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-2-2"  
+class="td11"> <!--l. 34--><p class="noindent" >A REDHAWK <a 
+href="mainli2.html#glo:device">Device</a>.                                            </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-9-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-9-3-1"  
+class="td11"> FrontEnd <a 
+href="mainli2.html#glo:device">Device</a> </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-3-2"  
+class="td11"> <!--l. 35--><p class="noindent" ><a 
+href="mainli2.html#glo:device">Devices</a> that have a device_kind of FRONTEND and
+  implement one of the FrontEnd IDLs. Typically, GPS
+  and navigation devices fall into this category.               </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-9-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-9-4-1"  
+class="td11"> Tuner                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-4-2"  
+class="td11"> <!--l. 36--><p class="noindent" >A specific tuner capability in a FrontEnd <a 
+href="mainli2.html#glo:device">Device</a>.          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-9-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-9-5-1"  
+class="td11"> FrontEnd Tuner <a 
+href="mainli2.html#glo:device">Device</a>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-5-2"  
+class="td11"> <!--l. 37--><p class="noindent" ><a 
+href="mainli2.html#glo:device">Devices</a>     that     have     a     <a 
+href="mainli2.html#glo:device">Device</a>     kind     of
+  FRONTEND:TUNER. These devices must implement
+  the TunerControl idl and contain Tuners for allocation.  </td>
+</tr></table></div>
+                                                                                         
+                                                                                         
+</div><hr class="endfloat" />
+</div>
+<h3 class="sectionHead"><span class="titlemark">G.2   </span> <a 
+ id="x33-360000G.2"></a>Types of Tuners</h3>
+<!--l. 48--><p class="noindent" >Tuner types are defined so that <a 
+href="mainli2.html#glo:device">Device</a> developers and users can categorize the basic behavior of
+disparate hardware. Behavior of each of these types is described below and must be
+adhered to during development to allow for interoperability between different hardware
+baselines.
+<!--l. 51--><p class="noindent" >Physical devices often need to be split into multiple logical REDHAWK tuners to fully describe
+their functionality. Splitting physical devices often incorporates both multiple tuners of the
+same type or tuners of mixed types. Common pairings are described in each of the type
+descriptions.
+<!--l. 55--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.2.1   </span> <a 
+ id="x33-361000G.2.1"></a>RX Tuner</h4>
+<!--l. 56--><p class="noindent" >A simple receiver or RX tuner is an <a 
+href="mainap8.html#rf">RF</a> to <a 
+href="mainap8.html#if">IF</a> conversion only. This conversion implies
+an analog to analog translation, typically down-converting an <a 
+href="mainap8.html#rf">RF</a> signal to a new <a 
+href="mainap8.html#if">IF</a>.
+<a 
+href="mainli2.html#glo:device">Devices</a> often will have multiple RX <a 
+href="mainli2.html#glo:device">Devices</a> corresponding to each of the independent
+analog channels provided. Single channels that have selectable <a 
+href="mainap8.html#rf">RF</a> input ports should
+be represented as a single RX tuner and utilize an <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a> to select between the
+input options. For more information about RF Flow IDs, refer to Section F.3.1  <a 
+href="#x33-372000G.3.1">Section
+G.3.1</a>.
+<!--l. 61--><p class="noindent" >RX <a 
+href="mainli2.html#glo:device">Devices</a> that output digital-<a 
+href="mainap8.html#if">IF</a> (SDDS, VITA-49, etc.) are considered RX_DIGITIZERS, which
+are a distinct tuner type and should be classified as such.
+<!--l. 63--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.2.2   </span> <a 
+ id="x33-362000G.2.2"></a>RX_DIGITIZER Tuner</h4>
+<!--l. 64--><p class="noindent" >An RX_DIGITIZER tuner is an RX <a 
+href="mainli2.html#glo:device">Device</a> that also samples the analog data and provides it as a
+digitized stream. The stream can be either real samples (typically referred to as digital-<a 
+href="mainap8.html#if">IF</a>) or
+complex baseband data. Multiple RX_DIGITIZER channels in a singular physical device should
+be treated like RX <a 
+href="mainli2.html#glo:device">Devices</a>, including using the <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a> to differentiate between which external
+<a 
+href="mainap8.html#rf">RF</a> source to use.
+                                                                                         
+                                                                                         
+<!--l. 66--><p class="noindent" >RX_DIGITIZER tuners can also optionally provide access to the analog <a 
+href="mainap8.html#if">IF</a> output. If
+the <a 
+href="mainli2.html#glo:device">Device</a> in question provides access to the analog IF output, an additional analog
+output port should be added to the <a 
+href="mainli2.html#glo:device">Device</a>. Users can optionally connect to and use
+that port, although the existence of the port is not guaranteed for all RX_DIGITIZER
+tuners.
+<!--l. 69--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.2.3   </span> <a 
+ id="x33-363000G.2.3"></a>CHANNELIZER Tuner</h4>
+<!--l. 70--><p class="noindent" >The CHANNELIZER tuner takes a digital wideband input and provides tuned, filtered, and
+decimated narrowband output. CHANNELIZER <a 
+href="mainli2.html#glo:device">Devices</a> act as a token to allocate and control
+the wideband input, which then can have individual narrowband channels allocated
+as well. Each of these narrowband tuners are their own tuner of type <a 
+ id="section*.54"></a>Digital Down
+Converter (<a 
+href="mainap8.html#ddc">DDC</a>).
+<!--l. 74--><p class="noindent" >CHANNELIZER tuners must maintain a one-to-one relationship with the digital wideband inputs.
+It is also important to remember that each <a 
+href="mainli2.html#glo:device">Device</a> can only support one digital input port, and
+therefore, only one CHANNELIZER tuner. If a phyiscal <a 
+href="mainli2.html#glo:device">Device</a> has more than one
+CHANNELIZER capability, it should be represented as multiple logical REDHAWK devices.
+In the case of a <a 
+href="mainli2.html#glo:device">Device</a> with multiple CHANNELIZER tuners, <a 
+href="mainap8.html#ddc">DDC</a>s can be assigned
+based upon <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a> with each unique CHANNELIZER tuner having a unique Flow
+<a 
+href="mainap8.html#id">ID</a>.
+<!--l. 79--><p class="noindent" >To establish control over the input to the CHANNELIZER and to allow users to understand if they
+have the ability to attach a new stream to the wideband input, a CHANNELIZER tuner must be
+allocated prior to allocating <a 
+href="mainap8.html#ddc">DDC</a> tuners. Changing the CHANNELIZER input can cause attached
+<a 
+href="mainap8.html#ddc">DDC</a> tuners to be dropped.
+<!--l. 81--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.2.4   </span> <a 
+ id="x33-364000G.2.4"></a>DDC Tuner</h4>
+<!--l. 82--><p class="noindent" ><a 
+href="mainap8.html#ddc">DDC</a> tuners provide a narrowband output from an existing channelizer capability. These narrowband
+channels are typically selectable in terms of the center frequency and bandwidth/sample rate
+within the constraints of the wideband input to the channelizer.
+<!--l. 85--><p class="noindent" >Allocating a <a 
+href="mainap8.html#ddc">DDC</a> tuner against a <a 
+href="mainli2.html#glo:device">Device</a> with multiple CHANNELIZER (or
+RX_DIGITIZER_CHANNLEIZER) tuners can specify which tuner to use in two different ways.
+One method is to specify an <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a> of the specific CHANNELIZER to be allocated against.
+The other method is to allow the <a 
+href="mainli2.html#glo:device">Device</a> to match by using the requested center frequency and/or
+bandwidth/sample rate. The <a 
+href="mainli2.html#glo:device">Device</a> will match the <a 
+href="mainap8.html#ddc">DDC</a> to the first channelizer capability that
+                                                                                         
+                                                                                         
+meets those criteria.
+<!--l. 90--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.2.5   </span> <a 
+ id="x33-365000G.2.5"></a>RX_DIGITZER_CHANNELIZER Tuner</h4>
+<!--l. 91--><p class="noindent" >The RX_DIGITIZER_CHANNELIZER tuner is a combination of an RX_DIGITIZER and
+CHANNELIZER capability into a single tuner type. Input is through an analog <a 
+href="mainap8.html#rf">RF</a> input port,
+and output is through <a 
+href="mainap8.html#ddc">DDC</a> tuners.
+<!--l. 94--><p class="noindent" >RX_DIGITIZER_CHANNELIZER tuners have the optional ability to output both analog <a 
+href="mainap8.html#if">IF</a> as
+well as digital<a 
+href="mainap8.html#if">IF</a> data. The analog <a 
+href="mainap8.html#if">IF</a> ports are represented just like the output of an RX or
+RX_DIGITIZER tuner. The digital<a 
+href="mainap8.html#if">IF</a> data is accessed by allocating a listener to the
+RX_DIGITIZER_CHANNELIZER, which will then start flowing digital data just like an
+RX_DIGITIZER. Note: The primary RX_DIGITIZER_CHANNELIZER allocation will not put
+out wideband digital data by default. These are optional ports, and each may or may not be
+present on each <a 
+href="mainli2.html#glo:device">Device</a>.
+<!--l. 100--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.2.6   </span> <a 
+ id="x33-366000G.2.6"></a>TX Tuner</h4>
+<!--l. 101--><p class="noindent" >Although the exact functionality of the TX tuner is not yet defined, it is reserved for transmitter
+<a 
+href="mainli2.html#glo:device">Devices</a>.
+<!--l. 104--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">G.3   </span> <a 
+ id="x33-367000G.3"></a>Allocation</h3>
+<!--l. 105--><p class="noindent" >Allocation is the process where specific tuners are requested for use, and initial setup of the tuner
+is performed. Allocation of FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a> always occurs by calling <span 
+class="ectt-1200">allocateCapacity() </span>on the
+<a 
+href="mainli2.html#glo:device">Device</a> with the argument of the <span 
+class="ectt-1200">allocateCapacity() </span>call being a FrontEnd allocation
+<a 
+href="mainli2.html#glo:property">Property</a>.
+<!--l. 108--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.3.1   </span> <a 
+ id="x33-368000G.3.1"></a>ID</h4>
+<!--l. 109--><p class="noindent" >A number of different <a 
+href="mainap8.html#id">ID</a>s are used in REDHAWK and FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a>. The most important
+                                                                                         
+                                                                                         
+types of IDs are described in this section.
+<!--l. 112--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-369000G.3.1"></a>Allocation ID</h5>
+<!--l. 113--><p class="noindent" >The Allocation <a 
+href="mainap8.html#id">ID</a> is a string used as a unique <a 
+href="mainap8.html#id">ID</a> for each allocated FrontEnd tuner. The
+Allocation <a 
+href="mainap8.html#id">ID</a> is passed in as part of the <span 
+class="ectt-1200">allocateCapacity() </span>call and is used as identification for
+all subsequent interaction. Allocation <a 
+href="mainap8.html#id">ID</a>s are used to identify tuners in the FrontEnd Status
+structure and in the TunerControl <a 
+href="mainap8.html#idl">IDL</a>.
+<!--l. 117--><p class="noindent" >Allocation <a 
+href="mainap8.html#id">ID</a>s can be any unique string, but typically <a 
+href="mainap8.html#uuid">UUID</a> values are used. If human readable
+Allocation <a 
+href="mainap8.html#id">ID</a>s are required, the preferred approach is to append the <a 
+href="mainap8.html#uuid">UUID</a> onto a base
+human-readable string. With this approach, allocations for non-coordinated <a 
+href="mainli2.html#glo:device">Devices</a> are not likely
+to create identical allocations.
+<!--l. 121--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-370000G.3.1"></a>Stream ID</h5>
+<!--l. 122--><p class="noindent" >In all REDHAWK <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Ports</a>, Stream <a 
+href="mainap8.html#id">ID</a> is used to separate unique data streams that are
+passed in a single <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a>. This methodology is also utilized in FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a>
+to allow <a 
+href="mainli2.html#glo:device">Devices</a> to pass the output of multiple tuners through a single <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a>.
+REDHAWK does not mandate any uniqueness requirements on Stream <a 
+href="mainap8.html#id">ID</a>s, but it is
+recommended that developers attempt to make the Stream <a 
+href="mainap8.html#id">ID</a>s unique by appending a
+<a 
+href="mainap8.html#uuid">UUID</a>.
+<!--l. 126--><p class="noindent" >Stream <a 
+href="mainap8.html#id">ID</a>s can only be changed after an <a 
+href="mainap8.html#eos">EOS</a> is sent, and in FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a>, an <a 
+href="mainap8.html#eos">EOS</a> is only
+sent when deallocating or disabling the tuner. Note: <a 
+href="mainap8.html#eos">EOS</a> should only be sent on an
+externally commanded tuner disable and not one that is handled internally to the <a 
+href="mainli2.html#glo:device">Device</a>.
+Therefore, if the device must temporarily disable output to tune, no <a 
+href="mainap8.html#eos">EOS</a> should be
+sent.
+<!--l. 130--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-371000G.3.1"></a>Connection ID</h5>
+<!--l. 131--><p class="noindent" >In all REDHAWK <a 
+href="mainap8.html#bulkio">BulkIO</a> connections, there is a specific string <a 
+href="mainap8.html#id">ID</a> for the connection. For
+FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a>, the connection to the output <a 
+href="mainli2.html#glo:port">Port</a> of the <a 
+href="mainli2.html#glo:device">Device</a> must have a Connection <a 
+href="mainap8.html#id">ID</a>
+that is equal to the Allocation <a 
+href="mainap8.html#id">ID</a> of the tuner to be accessed. Because the Connection <a 
+href="mainap8.html#id">ID</a> is equal
+to the Allocation ID, the output <a 
+href="mainli2.html#glo:port">Port</a> can be constructed as a multi-out <a 
+href="mainli2.html#glo:port">Port</a>, which is described in
+                                                                                         
+                                                                                         
+more detail in  <a 
+href="#x33-385000G.5.1">Section G.5.1</a>.
+<!--l. 136--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-372000G.3.1"></a>RF Flow ID</h5>
+<!--l. 138--><p class="noindent" ><a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a>s are used to differentiate between <a 
+href="mainap8.html#rf">RF</a> input streams, similarly to how Stream <a 
+href="mainap8.html#id">ID</a>s are
+used to differentiate between <a 
+href="mainap8.html#bulkio">BulkIO</a> streams. For FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a>, these <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a>s are used
+to match allocation requests to specific <a 
+href="mainap8.html#rf">RF</a> sources.
+<!--l. 141--><p class="noindent" >Unlike Allocation and Stream <a 
+href="mainap8.html#id">ID</a>s, <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a>s are often human readable. Typically, they
+describe specific inputs to a <a 
+href="mainli2.html#glo:device">Device</a> or feed names. Flow <a 
+href="mainap8.html#id">ID</a>s for a <a 
+href="mainli2.html#glo:device">Device</a> can be set as a <a 
+href="mainli2.html#glo:device">Device</a>
+<a 
+href="mainli2.html#glo:property">Property</a>, which is set as part of the <a 
+href="mainli2.html#glo:node">Node</a> configuration. System developers can create a <a 
+href="mainli2.html#glo:node">Node</a> that
+sets the individual FrontEnd <a 
+href="mainli2.html#glo:device">Device</a> with the <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a>s that are appropriately set to the
+current state of the physical <a 
+href="mainap8.html#rf">RF</a> connections.
+<!--l. 146--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-373000G.3.1"></a>Device Group ID</h5>
+<!--l. 147--><p class="noindent" ><a 
+href="mainli2.html#glo:device">Device</a> Group <a 
+href="mainap8.html#id">ID</a> is similar to <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a> in that it is used as an additional <a 
+href="mainap8.html#id">ID</a> to allow
+allocations against a specific pool of <a 
+href="mainli2.html#glo:device">Devices</a>. In this case, each FrontEnd <a 
+href="mainli2.html#glo:device">Device</a> can have its
+Group <a 
+href="mainap8.html#id">ID</a> set, and individual allocations can request specific Group <a 
+href="mainap8.html#id">ID</a>s. Only <a 
+href="mainli2.html#glo:device">Devices</a> that are
+part of that Group allow those allocations. Group <a 
+href="mainap8.html#id">ID</a>s are strings that are often human readable. A
+<a 
+href="mainli2.html#glo:device">Device</a> typically has its Group <a 
+href="mainap8.html#id">ID</a>s set as a <a 
+href="mainli2.html#glo:property">Property</a>, so it can be configured as part of a
+<a 
+href="mainli2.html#glo:node">Node</a>.
+<!--l. 153--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.3.2   </span> <a 
+ id="x33-374000G.3.2"></a>Tuner Allocation Overview</h4>
+<!--l. 154--><p class="noindent" >FrontEnd tuners are allocated by calling the <a 
+href="mainli2.html#glo:device">Device</a>&#8217;s <span 
+class="ectt-1200">allocateCapacity() </span>method with a
+particular FrontEnd Allocation structure. The call acts as a request to the <a 
+href="mainli2.html#glo:device">Device</a> for
+allocation of a tuner that meets the specifications in that structure. If the request is
+able to be met by that <a 
+href="mainli2.html#glo:device">Device</a>, then the tuner should be allocated, and True should be
+returned to the <span 
+class="ectt-1200">allocateCapacity() </span>call. If the tuner cannot be allocated, then an
+appropriate exception should be thrown. Returns and exceptions are shown in  <a 
+href="#x33-375000G.3.2">Section
+G.3.2</a>.
+<!--l. 161--><p class="noindent" >Two different FrontEnd Allocation structures can be used. The Tuner Allocation structure is
+primarily used for allocating new tuners against a FrontEnd <a 
+href="mainli2.html#glo:device">Device</a>. The Listener Allocation
+                                                                                         
+                                                                                         
+structure is used for allocating listener tuners that will piggyback on existing control tuners.
+Listener tuners are logical tuners that simply mirror the output of existing control tuners.
+Therefore, FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a> can keep track of how many consumers are attached to each of the
+tuner outputs and handle requests appropriately. The Tuner Allocation structure is
+described in  <a 
+href="#x33-376000G.3.3">Section G.3.3</a>, and the Listener Allocation structure is described in  <a 
+href="#x33-377000G.3.4">Section
+G.3.4</a>.
+<!--l. 171--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-375000G.3.2"></a>Allocation Return Types</h5>
+<!--l. 173--><p class="noindent" >The exceptions and descriptions are described in the following table. <div class="table">
+                                                                                         
+                                                                                         
+<!--l. 179--><p class="noindent" ><hr class="float"><div class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-10" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-10-1g"><col 
+id="TBL-10-1"></colgroup><colgroup id="TBL-10-2g"><col 
+id="TBL-10-2"></colgroup><colgroup id="TBL-10-3g"><col 
+id="TBL-10-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-10-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-10-1-1"  
+class="td11"> <!--l. 181--><p class="noindent" ><span 
+class="ecbx-1200">Return Type</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-1-2"  
+class="td11"> <!--l. 181--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>               </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-1-3"  
+class="td11"> <!--l. 181--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-10-2-1"  
+class="td11"> <!--l. 186--><p class="noindent" ><span 
+class="ectt-1200">True</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-2-2"  
+class="td11"> <!--l. 186--><p class="noindent" >Tuner   was   sucessfully
+  allocated.                      </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-2-3"  
+class="td11"> <!--l. 186--><p class="noindent" >Returned if the tuner was successfully
+  allocated. Indicates that the tuner has
+  been added to the status structure, the
+  underlying hardware/software has been
+  set up, and the tuner is now enabled.   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-10-3-1"  
+class="td11"> <!--l. 187--><p class="noindent" ><span 
+class="ectt-1200">CF::Device::InvalidCapacity</span>
+ <span 
+class="ectt-1200">Exception</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-3-2"  
+class="td11"> <!--l. 187--><p class="noindent" >Capacity   request   was
+  malformed.                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-3-3"  
+class="td11"> <!--l. 187--><p class="noindent" >Indicates   that   there   was   an   error
+  in  parsing  the  Capacity  (FrontEnd
+  Allocation Structure) that was passed
+  in. The error is typically the result of a
+  missing Allocation <a 
+href="mainap8.html#id">ID</a> or other critical
+  field but can also indicate a duplicate
+  Allocation <a 
+href="mainap8.html#id">ID</a> request.                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-10-4-1"  
+class="td11"> <!--l. 188--><p class="noindent" ><span 
+class="ectt-1200">CF::Device::InvalidState</span>
+ <span 
+class="ectt-1200">Exception</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-4-2"  
+class="td11"> <!--l. 188--><p class="noindent" ><a 
+href="mainli2.html#glo:device">Device</a>  is  in  an  invalid
+  state for allocation.         </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-4-3"  
+class="td11"> <!--l. 188--><p class="noindent" >Returned  when  the  <a 
+href="mainli2.html#glo:device">Device</a>  is  in  an
+  Error or Disabled state.                     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-10-5-1"  
+class="td11"> <!--l. 189--><p class="noindent" ><span 
+class="ectt-1200">False</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-5-2"  
+class="td11"> <!--l. 189--><p class="noindent" >Tuner was not sucessfully
+  allocated.                      </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-5-3"  
+class="td11"> <!--l. 189--><p class="noindent" >Indicates the device is unable to meet
+  the request in the allocation structure.  </td>
+</tr></table></div>
+                                                                                         
+                                                                                         
+</div><hr class="endfloat" />
+</div>
+<h4 class="subsectionHead"><span class="titlemark">G.3.3   </span> <a 
+ id="x33-376000G.3.3"></a>Tuner Allocation Properties</h4>
+<!--l. 201--><p class="noindent" >Each <span 
+class="ectt-1200">allocateCapacity() </span>call passes in a single FrontEnd Tuner Allocation structure. If multiple
+tuners are allocated each tuner needs an independent <span 
+class="ectt-1200">allocateCapacity()</span>) call Each field in the
+allocation structure needs to be matched against the available tuners in the <a 
+href="mainli2.html#glo:device">Device</a>. Each field
+must correctly match for the allocation to be successful. If any of the properties cannot be met, the
+allocation throws an exception.
+<!--l. 207--><p class="noindent" >The following table describes the tuner properties and how to handle requests.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 214--><p class="noindent" ><hr class="float"><div class="float" 
+>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-11" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-11-1g"><col 
+id="TBL-11-1"></colgroup><colgroup id="TBL-11-2g"><col 
+id="TBL-11-2"></colgroup><colgroup id="TBL-11-3g"><col 
+id="TBL-11-3"></colgroup><colgroup id="TBL-11-4g"><col 
+id="TBL-11-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-11-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-1-1"  
+class="td11"> <!--l. 216--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-1-2"  
+class="td11"> <!--l. 216--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-1-3"  
+class="td11"> <!--l. 216--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-1-4"  
+class="td11"> <!--l. 216--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-1"  
+class="td11"> <!--l. 221--><p class="noindent" ><span 
+class="ectt-1200">tuner_type</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-2"  
+class="td11"> <!--l. 221--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-3"  
+class="td11"> <!--l. 221--><p class="noindent" >Type      of      tuner
+  requested.                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-4"  
+class="td11"> <!--l. 221--><p class="noindent" >The tuner type must match exactly and
+  cannot  be  a  super  set  of  the  request
+  (e.g.,  an  RX_DIGITIZER  is  not  a
+  match for an RX request).                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-1"  
+class="td11"> <!--l. 222--><p class="noindent" ><span 
+class="ectt-1200">allocation_id</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-2"  
+class="td11"> <!--l. 222--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-3"  
+class="td11"> <!--l. 222--><p class="noindent" >Used   by   the   caller
+  to reference the tuner
+  uniquely.                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-4"  
+class="td11"> <!--l. 222--><p class="noindent" >Reject any requests with an Allocation
   <a 
-href="#xml">XML</a>
-  </dd><dt class="list">
-<a 
- id="api"></a><span 
-class="ecsx-1200">API</span> </dt><dd 
-class="list">
-  <!--l. 5--><p class="noindent" >Application
-  Programming
-  Interface
-  </dd><dt class="list">
-<a 
- id="bulkio"></a><span 
-class="ecsx-1200">BulkIO</span> </dt><dd 
-class="list">
-  <!--l. 6--><p class="noindent" >Bulk
-  Input/Output
-  </dd><dt class="list">
-<a 
- id="cdt"></a><span 
-class="ecsx-1200">CDT</span> </dt><dd 
-class="list">
-  <!--l. 7--><p class="noindent" >C/C++
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="centos"></a><span 
-class="ecsx-1200">CentOS</span> </dt><dd 
-class="list">
-  <!--l. 8--><p class="noindent" >Community
-  Enterprise
-  Operating
-  System
+href="mainap8.html#id">ID</a>    already    in    use    with    the
+  <span 
+class="ectt-1200">InvalidCapacity </span>exception.              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-1"  
+class="td11"> <!--l. 223--><p class="noindent" ><span 
+class="ectt-1200">center_frequency</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-2"  
+class="td11"> <!--l. 223--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-3"  
+class="td11"> <!--l. 223--><p class="noindent" >Requested        center
+  frequency in Hz.         </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-4"  
+class="td11"> <!--l. 223--><p class="noindent" >It   is   up   to   the   device   developer
+  to  determine  the  error  tolerance  of
+  the  true  tuned  center  frequency.  For
+  CHANNELIZER  tuners  only,  this  is
+  the  expected  input  frequency  of  the
+  stream that will be provided.              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-1"  
+class="td11"> <!--l. 224--><p class="noindent" ><span 
+class="ectt-1200">bandwidth</span>     </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-2"  
+class="td11"> <!--l. 224--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-3"  
+class="td11"> <!--l. 224--><p class="noindent" >Requested Bandwidth
+  in Hz.                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-4"  
+class="td11"> <!--l. 224--><p class="noindent" >The  minimum  bandwidth  that  must
+  be  provided  to  allocate  the  channel.
+  See tolerance for the upper bound of
+  bandwidth.  A  value  of  zero  indicates
+  any bandwidth is acceptable.              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-6-1"  
+class="td11"> <!--l. 225--><p class="noindent" ><span 
+class="ectt-1200">bandwidth_tolerance</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-6-2"  
+class="td11"> <!--l. 225--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-6-3"  
+class="td11"> <!--l. 225--><p class="noindent" >Allowable      Percent
+  above         requested
+  bandwidth.                </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-6-4"  
+class="td11"> <!--l. 225--><p class="noindent" >The
+  acceptable amount of excess bandwidth
+  used  to  allocate  the  channel.  This
+  amount is defined as a percentage of the
+  requested band-width. For example, if
+  a  1kHz  bandwidth  was  required,  and
+  the  tolerance  was  set  to  50%,  then
+  any  bandwidth  between  1-1.5kHz  is
+  acceptable.  For  the  CHANNELIZER
+  only,   this   should   be   the   expected
+  bandwidth   of   the   provided   input
+  stream.                                           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-7-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-7-1"  
+class="td11"> <!--l. 226--><p class="noindent" ><span 
+class="ectt-1200">sample_rate</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-7-2"  
+class="td11"> <!--l. 226--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-7-3"  
+class="td11"> <!--l. 226--><p class="noindent" >Requested     complex
+  sample rate in Hz.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-7-4"  
+class="td11"> <!--l. 226--><p class="noindent" >The minimum sample rate that must
+  be  provided  to  allocate  the  channel
+  expressed in terms of complex sample
+  rate. See tolerance for the upper bound
+  of sample rate. A value of zero indicates
+  any  sample  rate  is  acceptable.  The
+  <span 
+class="ectt-1200">sample_rate </span>value can be ignored for
+  such <a 
+href="mainli2.html#glo:device">Devices</a> as analog tuners, which do
+  not provide digital (sampled) data. For
+  the CHANNELIZER only, this is the
+  expected sample rate of the provided
+  input stream.                                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-8-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-8-1"  
+class="td11"> <!--l. 227--><p class="noindent" ><span 
+class="ectt-1200">sample_rate_tolerance</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-8-2"  
+class="td11"> <!--l. 227--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-8-3"  
+class="td11"> <!--l. 227--><p class="noindent" >Allowable       percent
+  above         requested
+  sample rate.               </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-8-4"  
+class="td11"> <!--l. 227--><p class="noindent" >The amount of excess sample rate that
+  is acceptable to allocate the channel as
+  a percentage of the requested sample
+  rate.                                              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-9-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-9-1"  
+class="td11"> <!--l. 228--><p class="noindent" ><span 
+class="ectt-1200">device_control</span></td><td  style="white-space:wrap; text-align:left;" id="TBL-11-9-2"  
+class="td11"> <!--l. 228--><p class="noindent" >boolean</td><td  style="white-space:wrap; text-align:left;" id="TBL-11-9-3"  
+class="td11"> <!--l. 228--><p class="noindent" >Indicates if this tuner
+  has        modification
+  control.                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-9-4"  
+class="td11"> <!--l. 228--><p class="noindent" >Describes  if  the  requested  tuner  has
+  control  over  the  tuner  and  can  make
+  changes  to  tuner  parameters.  Setting
+  <span 
+class="ectt-1200">device_control </span>to false indicates that
+  the <a 
+href="mainli2.html#glo:device">Device</a> should attempt to find an
+  existing channel and add the allocated
+  tuner  as  a  listener.  If  no  suitable
+  tuners exist, the request should fail. For
+  CHANNELIZER                    tuners,
+  <span 
+class="ectt-1200">device_control </span>must always be set to
+  true.                                              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-10-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-1"  
+class="td11"> <!--l. 229--><p class="noindent" ><span 
+class="ectt-1200">group_id</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-2"  
+class="td11"> <!--l. 229--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-3"  
+class="td11"> <!--l. 229--><p class="noindent" >Unique                <a 
+href="mainap8.html#id">ID</a>
+  that specifies a group
+  of <a 
+href="mainli2.html#glo:device">Devices</a>.                </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-4"  
+class="td11"> <!--l. 229--><p class="noindent" >Must match <span 
+class="ectt-1200">group_id </span>on the <a 
+href="mainli2.html#glo:device">Device</a>;
+  otherwise,  allocation  should  fail.  The
+  matching must be explicit, but a blank
+  string  is  typically  used  to  indicate  a
+  default group.                                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-11-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-1"  
+class="td11"> <!--l. 230--><p class="noindent" ><span 
+class="ectt-1200">rf_flow_id</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-2"  
+class="td11"> <!--l. 230--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-3"  
+class="td11"> <!--l. 230--><p class="noindent" >Specifies a certain <a 
+href="mainap8.html#rf">RF</a>
+  flow      to      allocate
+  against.                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-4"  
+class="td11"> <!--l. 230--><p class="noindent" >Must match <span 
+class="ectt-1200">rf_flow_id </span>on the <a 
+href="mainli2.html#glo:device">Device</a>
+  input used; otherwise, allocation should
+  fail. A blank string indicates that no
+  channel is requested.                         </td>
+</tr></table>                                                                                         
+                                                                                         
+</div>
                                                                                          
                                                                                          
-  </dd><dt class="list">
+</div><hr class="endfloat" />
+</div>
+<!--l. 239--><p class="noindent" >After successfully matching the allocation properties, the FrontEnd <a 
+href="mainli2.html#glo:device">Device</a> needs to perform a
+number of tasks prior to returning from the <span 
+class="ectt-1200">allocateCapacity() </span>call. First, the actual hardware
+or software should then be allocated with the values requested. Then, the internal Status
 <a 
- id="corba"></a><span 
-class="ecsx-1200">CORBA</span> </dt><dd 
-class="list">
-  <!--l. 9--><p class="noindent" >Common
-  Object
-  Request
-  Broker
-  Architecture
-  </dd><dt class="list">
+href="mainli2.html#glo:property">Properties</a> need to be updated to show the new channel. More information about the status
 <a 
- id="cvs"></a><span 
-class="ecsx-1200">CVS</span> </dt><dd 
-class="list">
-  <!--l. 10--><p class="noindent" >Concurrent
-  Versions
-  System
-  </dd><dt class="list">
+href="mainli2.html#glo:property">Properties</a> can be found in  <a 
+href="#x33-388000G.6.1">Section G.6.1</a>. Once the status is set, the <span 
+class="ectt-1200">allocateCapacity() </span>call can
+return.
+<!--l. 246--><p class="noindent" >After a successful allocation, the tuner is enabled and data should be flowing though the <a 
+href="mainli2.html#glo:device">Device</a>
+and out the output <a 
+href="mainli2.html#glo:port">Port</a>. It is not required that the <span 
+class="ectt-1200">allocateCapacity() </span>call return prior to the
+first data packet being pushed through the <a 
+href="mainli2.html#glo:device">Device</a>.
+<h4 class="subsectionHead"><span class="titlemark">G.3.4   </span> <a 
+ id="x33-377000G.3.4"></a>Listener Allocation Properties</h4>
+<!--l. 250--><p class="noindent" >There are two methods used to perform listener allocations. The first method is to use a standard
+FrontEnd Allocation Structure as shown in  <a 
+href="#x33-376000G.3.3">Section G.3.3</a> with the control <a 
+href="mainli2.html#glo:property">Property</a> set to False.
+Setting the control Property to False causes the <a 
+href="mainli2.html#glo:device">Device</a> to look for existing tuners that meet
+the required <a 
+href="mainli2.html#glo:property">Properties</a> in the rest of the FrontEnd Allocation Structure and assign a
+new listener tuner to that master tuner. If no tuners already exist, the request should
+fail.
+<!--l. 257--><p class="noindent" >The second way of allocating a listener tuner is by using a FrontEnd Listener Allocation structure
+in the <span 
+class="ectt-1200">allocateCapacity() </span>call. Passing in this FrontEnd Listener Allocation structure causes the
 <a 
- id="dcd"></a><span 
-class="ecsx-1200">DCD</span> </dt><dd 
-class="list">
-  <!--l. 11--><p class="noindent" >Device
-  Configuration
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dce"></a><span 
-class="ecsx-1200">DCE</span> </dt><dd 
-class="list">
-  <!--l. 12--><p class="noindent" >Distributed
-  Computing
-  Environment
-  </dd><dt class="list">
-<a 
- id="ddc"></a><span 
-class="ecsx-1200">DDC</span> </dt><dd 
-class="list">
-  <!--l. 13--><p class="noindent" >Digital
-  Down
-  Converter
-  </dd><dt class="list">
-<a 
- id="dmd"></a><span 
-class="ecsx-1200">DMD</span> </dt><dd 
-class="list">
-  <!--l. 14--><p class="noindent" >Domain
-  Manager
+href="mainli2.html#glo:device">Device</a> to create a new listener tuner that is attached to the tuner with the Allocation <a 
+href="mainap8.html#id">ID</a> given in
+the structure. The FrontEnd Listener Allocation structure is described fully in the following
+table.
+<div class="table">
                                                                                          
                                                                                          
-  Configuration
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dpd"></a><span 
-class="ecsx-1200">DPD</span> </dt><dd 
-class="list">
-  <!--l. 15--><p class="noindent" >Device
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="emf"></a><span 
-class="ecsx-1200">EMF</span> </dt><dd 
-class="list">
-  <!--l. 16--><p class="noindent" >Eclipse
-  Modeling
-  Framework
-  </dd><dt class="list">
-<a 
- id="eos"></a><span 
-class="ecsx-1200">EOS</span> </dt><dd 
-class="list">
-  <!--l. 17--><p class="noindent" >End
-  of
-  Stream
-  </dd><dt class="list">
-<a 
- id="epel"></a><span 
-class="ecsx-1200">EPEL</span> </dt><dd 
-class="list">
-  <!--l. 18--><p class="noindent" >Extra
-  Packages
-  for
-  Enterprise
-  Linux
-  </dd><dt class="list">
-<a 
- id="fft"></a><span 
-class="ecsx-1200">FFT</span> </dt><dd 
-class="list">
-  <!--l. 19--><p class="noindent" >Fast
-  Fourier
-  Transform
-  </dd><dt class="list">
-<a 
- id="fm"></a><span 
-class="ecsx-1200">FM</span> </dt><dd 
-class="list">
+<!--l. 266--><p class="noindent" ><hr class="float"><div class="float" 
+>
                                                                                          
                                                                                          
-  <!--l. 20--><p class="noindent" >Frequency
-  Modulation
-  </dd><dt class="list">
-<a 
- id="gpp"></a><span 
-class="ecsx-1200">GPP</span> </dt><dd 
-class="list">
-  <!--l. 21--><p class="noindent" >General
-  Purpose
-  Processor
-  </dd><dt class="list">
-<a 
- id="gui"></a><span 
-class="ecsx-1200">GUI</span> </dt><dd 
-class="list">
-  <!--l. 22--><p class="noindent" >Graphical
-  User
-  Interface
-  </dd><dt class="list">
-<a 
- id="http"></a><span 
-class="ecsx-1200">HTTP</span> </dt><dd 
-class="list">
-  <!--l. 23--><p class="noindent" >Hyper
-  Text
-  Transport
-  Protocol
-  </dd><dt class="list">
-<a 
- id="ide"></a><span 
-class="ecsx-1200">IDE</span> </dt><dd 
-class="list">
-  <!--l. 24--><p class="noindent" >Integrated
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="idm"></a><span 
-class="ecsx-1200">IDM</span> </dt><dd 
-class="list">
-  <!--l. 25--><p class="noindent" >Incoming
-  Domain
-  Management
-  </dd><dt class="list">
-<a 
- id="if"></a><span 
-class="ecsx-1200">IF</span> </dt><dd 
-class="list">
+<div class="tabular"> <table id="TBL-12" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-12-1g"><col 
+id="TBL-12-1"></colgroup><colgroup id="TBL-12-2g"><col 
+id="TBL-12-2"></colgroup><colgroup id="TBL-12-3g"><col 
+id="TBL-12-3"></colgroup><colgroup id="TBL-12-4g"><col 
+id="TBL-12-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-12-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-12-1-1"  
+class="td11"> <!--l. 268--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-1-2"  
+class="td11"> <!--l. 268--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-1-3"  
+class="td11"> <!--l. 268--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-1-4"  
+class="td11"> <!--l. 268--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-1"  
+class="td11"> <!--l. 273--><p class="noindent" ><span 
+class="ectt-1200">existing_allocation_id</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-2"  
+class="td11"> <!--l. 273--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-3"  
+class="td11"> <!--l. 273--><p class="noindent" >Allocation  <a 
+href="mainap8.html#id">ID</a>  for  an
+  existing allocation.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-4"  
+class="td11"> <!--l. 273--><p class="noindent" >The Allocation <a 
+href="mainap8.html#id">ID</a> of the tuner to which
+  the  new  listener  should  attach.  The
+  tuner can be either a control or listener.  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-1"  
+class="td11"> <!--l. 274--><p class="noindent" ><span 
+class="ectt-1200">listener_allocation_id</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-2"  
+class="td11"> <!--l. 274--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-3"  
+class="td11"> <!--l. 274--><p class="noindent" >New Listener <a 
+href="mainap8.html#id">ID</a>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-4"  
+class="td11"> <!--l. 274--><p class="noindent" >The Allocation <a 
+href="mainap8.html#id">ID</a> of the new listener
+  tuner.   All   typical   Allocation   <a 
+href="mainap8.html#id">ID</a>
+  requirements apply.                           </td>
+</tr></table></div>
                                                                                          
                                                                                          
-  <!--l. 26--><p class="noindent" >Intermediate
-  Frequency
-  </dd><dt class="list">
-<a 
- id="ior"></a><span 
-class="ecsx-1200">IOR</span> </dt><dd 
-class="list">
-  <!--l. 27--><p class="noindent" >Interoperable
-  Object
-  Reference
-  </dd><dt class="list">
-<a 
- id="id"></a><span 
-class="ecsx-1200">ID</span> </dt><dd 
-class="list">
-  <!--l. 28--><p class="noindent" >Identifier
-  </dd><dt class="list">
-<a 
- id="idl"></a><span 
-class="ecsx-1200">IDL</span> </dt><dd 
-class="list">
-  <!--l. 29--><p class="noindent" >Interface
-  Description
-  Language
-  </dd><dt class="list">
-<a 
- id="jar"></a><span 
-class="ecsx-1200">JAR</span> </dt><dd 
-class="list">
-  <!--l. 30--><p class="noindent" >Java
-  ARchive
-  </dd><dt class="list">
-<a 
- id="jdt"></a><span 
-class="ecsx-1200">JDT</span> </dt><dd 
-class="list">
-  <!--l. 31--><p class="noindent" >Java
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="jee"></a><span 
-class="ecsx-1200">JEE</span> </dt><dd 
-class="list">
-  <!--l. 32--><p class="noindent" >Java
-  Platform,
-  Enterprise
-  Edition
+</div><hr class="endfloat" />
+</div>
+<!--l. 284--><p class="noindent" >The requirements for tuner setup of a listener tuner are the same as those for a control tuner. The
+status structure must be updated, and the output must be enabled. These actions are expected to
+be performed prior to returning from <span 
+class="ectt-1200">allocateCapacity()</span>.
+<h4 class="subsectionHead"><span class="titlemark">G.3.5   </span> <a 
+ id="x33-378000G.3.5"></a>Tuner Deallocation</h4>
+<!--l. 289--><p class="noindent" >Tuners are deallocated using the <span 
+class="ectt-1200">deallocateCapacity() </span>call. There is no return from the
+<span 
+class="ectt-1200">deallocateCapacity() </span>function, but exceptions are thrown if deallocation in unsuccessful. The
+only exceptions that can be thrown are <span 
+class="ectt-1200">InvalidCapacity</span>, which indicates that the
+Allocation <a 
+href="mainap8.html#id">ID</a> provided is not valid, or <span 
+class="ectt-1200">InvalidState</span>, indicating the <a 
+href="mainli2.html#glo:device">Device</a> is in an error
+state.
+<!--l. 293--><p class="noindent" >The <span 
+class="ectt-1200">deallocateCapacity() </span>call can accept either of the Allocation structures, Tuner or
+Listener, as only the Allocation <a 
+href="mainap8.html#id">ID</a> field is utilized. All other fields are ignored and
+have no impact on the deallocation. The concept is that the same Allocation structure
+provided to <span 
+class="ectt-1200">allocateCapacity() </span>can be sent to <span 
+class="ectt-1200">deallocateCapacity() </span>to remove the
+tuner.
+<!--l. 297--><p class="noindent" >Tuners that are deallocated need to have their status entries removed, the underlying
+hardware/software disabled, and all output stopped. A final <a 
+href="mainap8.html#bulkio">BulkIO</a> packet containing an <a 
+href="mainap8.html#eos">EOS</a> <a 
+href="mainap8.html#sri">SRI</a>
+flag should be sent prior to the return from the <span 
+class="ectt-1200">deallocateCapacity() </span>call. More information on
+the <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap8.html#sri">SRI</a> information can be found in  <a 
+href="#x33-386000G.5.2">Section G.5.2</a>. No more data from that tuner should
+flow though the <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a>.
+<!--l. 303--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-379000G.3.5"></a>Automatic Listener Deallocation</h5>
+<!--l. 304--><p class="noindent" >When a control tuner is deallocated, its attached listeners are expected to also be deallocated.
+Therefore, both status cleanup as well as <a 
+href="mainap8.html#eos">EOS</a> information flows over the <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a>.
+<!--l. 308--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">G.4   </span> <a 
+ id="x33-380000G.4"></a>Command and Control</h3>
+<!--l. 309--><p class="noindent" >Command and Control of existing allocated tuners is performed though the Digital or Analog
+Tuner port on the FrontEnd <a 
+href="mainli2.html#glo:device">Device</a>. These commands allow external users to get and set specific
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="jtrs"></a><span 
-class="ecsx-1200">JTRS</span> </dt><dd 
-class="list">
-  <!--l. 33--><p class="noindent" >Joint
-  Tactical
-  Radio
-  System
-  </dd><dt class="list">
-<a 
- id="mb"></a><span 
-class="ecsx-1200">MB</span> </dt><dd 
-class="list">
-  <!--l. 34--><p class="noindent" >Megabyte
-  </dd><dt class="list">
-<a 
- id="noop"></a><span 
-class="ecsx-1200">NOOP</span> </dt><dd 
-class="list">
-  <!--l. 35--><p class="noindent" >No
-  Operation
-  </dd><dt class="list">
-<a 
- id="odm"></a><span 
-class="ecsx-1200">ODM</span> </dt><dd 
-class="list">
-  <!--l. 36--><p class="noindent" >Outgoing
-  Domain
-  Management
-  </dd><dt class="list">
-<a 
- id="os"></a><span 
-class="ecsx-1200">OS</span> </dt><dd 
-class="list">
-  <!--l. 37--><p class="noindent" >Operating
-  System
-  </dd><dt class="list">
-<a 
- id="osgi"></a><span 
-class="ecsx-1200">OSGi</span> </dt><dd 
-class="list">
-  <!--l. 38--><p class="noindent" >Open
-  Services
-  Gateway
-  initiative
-  </dd><dt class="list">
-<a 
- id="pde"></a><span 
-class="ecsx-1200">PDE</span> </dt><dd 
-class="list">
+settings for each of the tuners. Each FrontEnd <a 
+href="mainli2.html#glo:device">Device</a> must have a DigitalTuner port named
+DigitalTuner_in (or AnalogTuner_in for an AnalogTuner port) that allows for command and
+control. All of the functions in the Tuner Control <a 
+href="mainap8.html#idl">IDL</a> need to be implemented even if only to
+report that the capability is not supported. Each of these <a 
+href="mainap8.html#idl">IDL</a> functions uses the Allocation <a 
+href="mainap8.html#id">ID</a> to
+uniquely identify the tuners.
+<!--l. 315--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.4.1   </span> <a 
+ id="x33-381000G.4.1"></a>Tuner Control IDL</h4>
+<!--l. 316--><p class="noindent" >The tuner control <a 
+href="mainap8.html#idl">IDL</a> describes two interfaces for control. The first is the AnalogTuner,
+which describes all of the functions common for Digital and Analog tuners. DigitalTuner
+inherits from AnalogTuner and adds <span 
+class="ectt-1200">setOutputSampleRate() </span>/ <span 
+class="ectt-1200">getOutputSampleRate()</span>
+functionality. The functions and potential exceptions are described in the following
+tables.
+<!--l. 322--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-382000G.4.1"></a>Tuner Control Functions</h5>
+<!--l. 323--><p class="noindent" >The following table describes the the functions that can be accessed via the Tuner Control <a 
+href="mainap8.html#idl">IDL</a>.
+<div class="table">
                                                                                          
                                                                                          
-  <!--l. 39--><p class="noindent" >Plug-in
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="pid"></a><span 
-class="ecsx-1200">PID</span> </dt><dd 
-class="list">
-  <!--l. 40--><p class="noindent" >Process
-  Identifier
-  </dd><dt class="list">
-<a 
- id="posix"></a><span 
-class="ecsx-1200">POSIX</span> </dt><dd 
-class="list">
-  <!--l. 41--><p class="noindent" >Portable
-  Operating
-  System
-  Interface
-  </dd><dt class="list">
-<a 
- id="prf"></a><span 
-class="ecsx-1200">PRF</span> </dt><dd 
-class="list">
-  <!--l. 42--><p class="noindent" >Properties
-  File
-  </dd><dt class="list">
-<a 
- id="pydev"></a><span 
-class="ecsx-1200">PyDev</span> </dt><dd 
-class="list">
-  <!--l. 43--><p class="noindent" >Python
-  Development
-  </dd><dt class="list">
-<a 
- id="rap"></a><span 
-class="ecsx-1200">RAP</span> </dt><dd 
-class="list">
-  <!--l. 44--><p class="noindent" >Rich
-  Ajax
-  Platform
-  </dd><dt class="list">
-<a 
- id="rcp"></a><span 
-class="ecsx-1200">RCP</span> </dt><dd 
-class="list">
-  <!--l. 45--><p class="noindent" >Rich
-  Client
-  Platform
+<!--l. 329--><p class="noindent" ><hr class="float"><div class="float" 
+>
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="rf"></a><span 
-class="ecsx-1200">RF</span> </dt><dd 
-class="list">
-  <!--l. 46--><p class="noindent" >Radio
-  Frequency
-  </dd><dt class="list">
-<a 
- id="rpc"></a><span 
-class="ecsx-1200">RPC</span> </dt><dd 
-class="list">
-  <!--l. 47--><p class="noindent" >Remote
-  Procedure
-  Call
-  </dd><dt class="list">
-<a 
- id="rpm"></a><span 
-class="ecsx-1200">RPM</span> </dt><dd 
-class="list">
-  <!--l. 48--><p class="noindent" >Red
-  Hat
-  Package
-  Manager
-  </dd><dt class="list">
-<a 
- id="rwt"></a><span 
-class="ecsx-1200">RWT</span> </dt><dd 
-class="list">
-  <!--l. 49--><p class="noindent" ><a 
-href="#rap">RAP</a>
-  Widget
-  Toolkit
-  </dd><dt class="list">
-<a 
- id="sad"></a><span 
-class="ecsx-1200">SAD</span> </dt><dd 
-class="list">
-  <!--l. 50--><p class="noindent" >Software
-  Assembly
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sca"></a><span 
-class="ecsx-1200">SCA</span> </dt><dd 
-class="list">
-  <!--l. 51--><p class="noindent" >Software
-  Communications
-  Architecture
+<div class="tabular"> <table id="TBL-13" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-13-1g"><col 
+id="TBL-13-1"></colgroup><colgroup id="TBL-13-2g"><col 
+id="TBL-13-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-1-1"  
+class="td11"> <!--l. 331--><p class="noindent" ><span 
+class="ecbx-1200">Function Prototype</span>                          </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-1-2"  
+class="td11"> <!--l. 331--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                               </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-2-1"  
+class="td11"> <!--l. 336--><p class="noindent" ><span 
+class="ectt-1200">string getTunerType(in string id)</span>     </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-2-2"  
+class="td11"> <!--l. 336--><p class="noindent" >Get  the  type  of  tuner  (e.g.,  RX  or
+  <a 
+href="mainap8.html#ddc">DDC</a>)  associated  with  this  allocation
+  id.                                                 </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-3-1"  
+class="td11"> <!--l. 337--><p class="noindent" ><span 
+class="ectt-1200">boolean getTunerDeviceControl(in</span>
+ <span 
+class="ectt-1200">string id)</span>                            </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-3-2"  
+class="td11"> <!--l. 337--><p class="noindent" >Returns whether this allocation id has
+  control  (modification  privleges)  over
+  the tuner.                                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-4-1"  
+class="td11"> <!--l. 338--><p class="noindent" ><span 
+class="ectt-1200">string getTunerGroupId(in string id)</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-4-2"  
+class="td11"> <!--l. 338--><p class="noindent" >Retrieves the group id (may be empty)
+  for this allocation id.                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-5-1"  
+class="td11"> <!--l. 339--><p class="noindent" ><span 
+class="ectt-1200">string getTunerRfFlowId(in string</span>
+ <span 
+class="ectt-1200">id)</span>                                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-5-2"  
+class="td11"> <!--l. 339--><p class="noindent" >Retrieves the rf flow id (may be empty)
+  for this allocation id.                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-6-1"  
+class="td11"> <!--l. 340--><p class="noindent" ><span 
+class="ectt-1200">CF::Properties getTunerStatus(in</span>
+ <span 
+class="ectt-1200">string id)</span>                            </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-6-2"  
+class="td11"> <!--l. 340--><p class="noindent" >Key/Value pair of entire tuner status
+  structure.  Note:  The  return  should
+  simply   be   a   sequence   of   simple
+  properties, not a single struct property.  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-7-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-7-1"  
+class="td11"> <!--l. 341--><p class="noindent" ><span 
+class="ectt-1200">void setTunerCenterFrequency(in</span>
+ <span 
+class="ectt-1200">string id, in double freq)</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-7-2"  
+class="td11"> <!--l. 341--><p class="noindent" >Set the current center frequency in Hz.  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-8-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-8-1"  
+class="td11"> <!--l. 342--><p class="noindent" ><span 
+class="ectt-1200">double getTunerCenterFrequency(in</span>
+ <span 
+class="ectt-1200">string id)</span>                            </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-8-2"  
+class="td11"> <!--l. 342--><p class="noindent" >Get the current center frequency in Hz.  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-9-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-9-1"  
+class="td11"> <!--l. 343--><p class="noindent" ><span 
+class="ectt-1200">void setTunerBandwidth(in string</span>
+ <span 
+class="ectt-1200">id,in double bw)</span>                      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-9-2"  
+class="td11"> <!--l. 343--><p class="noindent" >Set the current bandwidth in Hz.         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-10-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-10-1"  
+class="td11"> <!--l. 344--><p class="noindent" ><span 
+class="ectt-1200">double getTunerBandwidth(in string</span>
+ <span 
+class="ectt-1200">id)</span>                                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-10-2"  
+class="td11"> <!--l. 344--><p class="noindent" >Get the current bandwidth in Hz.        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-11-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-11-1"  
+class="td11"> <!--l. 345--><p class="noindent" ><span 
+class="ectt-1200">void setTunerAgcEnable(in string</span>
+ <span 
+class="ectt-1200">id,in boolean enable)</span>                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-11-2"  
+class="td11"> <!--l. 345--><p class="noindent" >Enable   or   disable   the   Auto   Gain
+  Control (AGC). True indicates that the
+  AGC should be enabled.                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-12-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-12-1"  
+class="td11"> <!--l. 346--><p class="noindent" ><span 
+class="ectt-1200">boolean getTunerAgcEnable(in string</span>
+ <span 
+class="ectt-1200">id)</span>                                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-12-2"  
+class="td11"> <!--l. 346--><p class="noindent" >Get the current status of AGC. True
+  indicates enabled.                             </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-13-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-13-1"  
+class="td11"> <!--l. 347--><p class="noindent" ><span 
+class="ectt-1200">void setTunerGain(in string id,in</span>
+ <span 
+class="ectt-1200">float gain)</span>                           </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-13-2"  
+class="td11"> <!--l. 347--><p class="noindent" >Set tuner gain in dB.                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-14-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-14-1"  
+class="td11"> <!--l. 348--><p class="noindent" ><span 
+class="ectt-1200">float getTunerGain(in string id)</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-14-2"  
+class="td11"> <!--l. 348--><p class="noindent" >Get current tuner gain in dB.              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-15-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-15-1"  
+class="td11"> <!--l. 349--><p class="noindent" ><span 
+class="ectt-1200">void setTunerReferenceSource(in</span>
+ <span 
+class="ectt-1200">string id,in long source)</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-15-2"  
+class="td11"> <!--l. 349--><p class="noindent" >Set the tuner reference source. Zero is
+  defined as internal and one is defined as
+  external.                                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-16-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-16-1"  
+class="td11"> <!--l. 350--><p class="noindent" ><span 
+class="ectt-1200">long getTunerReferenceSource(in</span>
+ <span 
+class="ectt-1200">string id)</span>                            </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-16-2"  
+class="td11"> <!--l. 350--><p class="noindent" >Get the current tuner reference source.  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-17-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-17-1"  
+class="td11"> <!--l. 351--><p class="noindent" ><span 
+class="ectt-1200">void setTunerEnable(in string id, in</span>
+ <span 
+class="ectt-1200">boolean enable)</span>                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-17-2"  
+class="td11"> <!--l. 351--><p class="noindent" >Set  the  output  enable  state  of  the
+  tuner. True indicates output is enabled.  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-18-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-18-1"  
+class="td11"> <!--l. 352--><p class="noindent" ><span 
+class="ectt-1200">boolean getTunerEnable(in string id)</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-18-2"  
+class="td11"> <!--l. 352--><p class="noindent" >Get  the  current  output  enable  state
+  of the tuner. True indicates output is
+  enabled.                                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-19-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-19-1"  
+class="td11"> <!--l. 353--><p class="noindent" ><span 
+class="ectt-1200">void setTunerOutputSampleRate(in</span>
+ <span 
+class="ectt-1200">string id,in double sr)</span>               </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-19-2"  
+class="td11"> <!--l. 353--><p class="noindent" >Set   the   output   sample   rate   in
+  samples/sec.                                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-20-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-20-1"  
+class="td11"> <!--l. 354--><p class="noindent" ><span 
+class="ectt-1200">double getTunerOutputSampleRate(in</span>
+ <span 
+class="ectt-1200">string id)</span>                            </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-20-2"  
+class="td11"> <!--l. 354--><p class="noindent" >Get   the   output   sample   rate   in
+  samples/sec.                                    </td>
+</tr></table></div>
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="scd"></a><span 
-class="ecsx-1200">SCD</span> </dt><dd 
-class="list">
-  <!--l. 52--><p class="noindent" >Software
-  Component
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sdr"></a><span 
-class="ecsx-1200">SDR</span> </dt><dd 
-class="list">
-  <!--l. 53--><p class="noindent" >Software-Defined
-  Radio
-  </dd><dt class="list">
-<a 
- id="spd"></a><span 
-class="ecsx-1200">SPD</span> </dt><dd 
-class="list">
-  <!--l. 54--><p class="noindent" >Software
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sri"></a><span 
-class="ecsx-1200">SRI</span> </dt><dd 
-class="list">
-  <!--l. 55--><p class="noindent" >Signal
-  Related
-  Information
-  </dd><dt class="list">
-<a 
- id="svn"></a><span 
-class="ecsx-1200">SVN</span> </dt><dd 
-class="list">
-  <!--l. 56--><p class="noindent" >Subversion
-  </dd><dt class="list">
-<a 
- id="swt"></a><span 
-class="ecsx-1200">SWT</span> </dt><dd 
-class="list">
-  <!--l. 57--><p class="noindent" >Standard
-  Widget
-  Toolkit
-  </dd><dt class="list">
-<a 
- id="udp"></a><span 
-class="ecsx-1200">UDP</span> </dt><dd 
-class="list">
+</div><hr class="endfloat" />
+</div>
+<h5 class="subsubsectionHead"><a 
+ id="x33-383000G.4.1"></a>Tuner Control Exceptions</h5>
+<!--l. 365--><p class="noindent" >The following table describes the exceptions that can be thrown from the tuner control functions.
+<div class="table">
                                                                                          
                                                                                          
-  <!--l. 58--><p class="noindent" >User
-  Datagram
-  Protocol
-  </dd><dt class="list">
-<a 
- id="ui"></a><span 
-class="ecsx-1200">UI</span> </dt><dd 
-class="list">
-  <!--l. 59--><p class="noindent" >User
-  Interface
-  </dd><dt class="list">
-<a 
- id="uri"></a><span 
-class="ecsx-1200">URI</span> </dt><dd 
-class="list">
-  <!--l. 60--><p class="noindent" >Uniform
-  Resource
-  Identifier
-  </dd><dt class="list">
-<a 
- id="url"></a><span 
-class="ecsx-1200">URL</span> </dt><dd 
-class="list">
-  <!--l. 61--><p class="noindent" >Uniform
-  Resource
-  Locator
-  </dd><dt class="list">
-<a 
- id="uuid"></a><span 
-class="ecsx-1200">UUID</span> </dt><dd 
-class="list">
-  <!--l. 62--><p class="noindent" >Universally
-  Unique
-  Identifier
-  </dd><dt class="list">
-<a 
- id="vlan"></a><span 
-class="ecsx-1200">VLAN</span> </dt><dd 
-class="list">
-  <!--l. 63--><p class="noindent" >Virtual
-  Local
-  Area
-  Network
-  </dd><dt class="list">
-<a 
- id="vm"></a><span 
-class="ecsx-1200">VM</span> </dt><dd 
-class="list">
+<!--l. 371--><p class="noindent" ><hr class="float"><div class="float" 
+>
                                                                                          
                                                                                          
-  <!--l. 64--><p class="noindent" >Virtual
-  Machine
-  </dd><dt class="list">
-<a 
- id="war"></a><span 
-class="ecsx-1200">WAR</span> </dt><dd 
-class="list">
-  <!--l. 65--><p class="noindent" >Web
-  ARchive
-  </dd><dt class="list">
-<a 
- id="xml"></a><span 
-class="ecsx-1200">XML</span> </dt><dd 
-class="list">
-  <!--l. 66--><p class="noindent" >Extensible
-  Markup
-  Language</dd></dl>
+<div class="tabular"> <table id="TBL-14" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-14-1g"><col 
+id="TBL-14-1"></colgroup><colgroup id="TBL-14-2g"><col 
+id="TBL-14-2"></colgroup><colgroup id="TBL-14-3g"><col 
+id="TBL-14-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-14-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-14-1-1"  
+class="td11"> <!--l. 373--><p class="noindent" ><span 
+class="ecbx-1200">Exception</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-1-2"  
+class="td11"> <!--l. 373--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-1-3"  
+class="td11"> <!--l. 373--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-1"  
+class="td11"> <!--l. 378--><p class="noindent" ><span 
+class="ectt-1200">BadParameterException</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-2"  
+class="td11"> <!--l. 378--><p class="noindent" >Parameter     provided     is
+  invalid.                            </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-3"  
+class="td11"> <!--l. 378--><p class="noindent" >Indicates the value provided is out
+  of bounds for the capability of the
+  <a 
+href="mainli2.html#glo:device">Device</a> or that the value was invalid
+  (e.g., a negative frequency).            </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-1"  
+class="td11"> <!--l. 379--><p class="noindent" ><span 
+class="ectt-1200">NotSupportedException</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-2"  
+class="td11"> <!--l. 379--><p class="noindent" >Capability is not supported.  </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-3"  
+class="td11"> <!--l. 379--><p class="noindent" >Indicates the tuner does not support
+  the   setting   (or   getting)   of   this
+  capability.                                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-1"  
+class="td11"> <!--l. 380--><p class="noindent" ><span 
+class="ectt-1200">FronEndException</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-2"  
+class="td11"> <!--l. 380--><p class="noindent" >Generic              FrontEnd
+  exception.                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-3"  
+class="td11"> <!--l. 380--><p class="noindent" >Indicates there is a FrontEnd issue
+  preventing   the   command,   often
+  because   the   Allocation   <a 
+href="mainap8.html#id">ID</a>   does
+  not  match  any  currently  allocated
+  tuners.                                        </td>
+</tr></table></div>
                                                                                          
                                                                                          
-<!--l. 1--><p class="noindent" ><a 
- id="likesection.1"></a><a 
- id="Q1-33-405"></a><!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+</div><hr class="endfloat" />
+</div>
+<h3 class="sectionHead"><span class="titlemark">G.5   </span> <a 
+ id="x33-384000G.5"></a>Data Flow</h3>
+<!--l. 391--><p class="noindent" >By default, FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a> can provide <a 
+href="mainap8.html#bulkio">BulkIO</a> data. Data flow into FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a> is
+typically constrained to digital-<a 
+href="mainap8.html#if">IF</a> data for CHANNELIZER tuners. Digital-<a 
+href="mainap8.html#if">IF</a> data is consumed
+regardless of Stream <a 
+href="mainap8.html#id">ID</a> and is the responsibility of the CHANNELIZER allocator to make the
+connection from the source into the FrontEnd <a 
+href="mainli2.html#glo:device">Device</a>.
+<!--l. 395--><p class="noindent" >Output data flow is managed by the FrontEnd <a 
+href="mainli2.html#glo:device">Device</a> and multiple tuners can have output
+through a single <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a>. In general, there should only be one <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a> for each
+data type (int, float, etc.). All streams of any data type must pass through this <a 
+href="mainap8.html#bulkio">BulkIO</a>
+<a 
+href="mainli2.html#glo:port">Port</a>. The allocator of each tuner is responsible for connecting to the <a 
+href="mainli2.html#glo:device">Device</a> output
+<a 
+href="mainli2.html#glo:port">Port</a>. The Connection <a 
+href="mainap8.html#id">ID</a> of the <a 
+href="mainap8.html#bulkio">BulkIO</a> connection must match the Allocation <a 
+href="mainap8.html#id">ID</a> of
+the tuner for data to flow through that connection. Thus, the output <a 
+href="mainli2.html#glo:port">Port</a> must be a
+multi-out <a 
+href="mainli2.html#glo:port">Port</a>, one that only passes data packets to specific connections rather than all
+connections.
+<!--l. 401--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.5.1   </span> <a 
+ id="x33-385000G.5.1"></a>Multi-Output</h4>
+<!--l. 403--><p class="noindent" >Multi-out <a 
+href="mainli2.html#glo:port">Ports</a> are a specific implementation of a <a 
+href="mainap8.html#bulkio">BulkIO</a> output <a 
+href="mainli2.html#glo:port">Port</a>. The defining characteristic
+is that multi-out <a 
+href="mainli2.html#glo:port">Ports</a> are selective in which connection each piece of data is sent to rather than
+having each piece of data broadcast to every connection. This behavior is typically implemented
+by creating a custom <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a> implementation that handles data routing for each
+connection.
+<!--l. 407--><p class="noindent" >Constructing the custom port is easiest if the internal <span 
+class="ectt-1200">pushPacket() </span>call does not need to be
+modified, which is why Stream <a 
+href="mainap8.html#id">ID</a> is the easiest field on which to differentiate. As long as the
+Stream <a 
+href="mainap8.html#id">ID</a> is equal to the Allocation <a 
+href="mainap8.html#id">ID</a>, the Stream <a 
+href="mainap8.html#id">ID</a> can simply be matched to the Connection
+<a 
+href="mainap8.html#id">ID</a> to make a multi-out port. Hence, a REDHAWK best practice is to maintain a one-to-one
+relationship between Stream and Allocation <a 
+href="mainap8.html#id">ID</a>s.
+<!--l. 411--><p class="noindent" >If the <a 
+href="mainap8.html#id">ID</a>s are the same, there are only two required changes to the standard port implementation.
+The first change is that as the port iterates over the list of connections, a simple check needs to be
+performed to only do the remote <span 
+class="ectt-1200">pushPacket() </span>call on connections where the Connection <a 
+href="mainap8.html#id">ID</a>
+matches the current packet Stream <a 
+href="mainap8.html#id">ID</a>. The second change is that the internal storage of previous
+<a 
+href="mainap8.html#sri">SRI</a> states needs to become a vector rather than a single element so that a new connection gets the
+correct previous <a 
+href="mainap8.html#sri">SRI</a> for its stream rather than just the most recent stream that has had data
+                                                                                         
+                                                                                         
+sent.
+<!--l. 416--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.5.2   </span> <a 
+ id="x33-386000G.5.2"></a>SRI and Keywords</h4>
+<!--l. 418--><p class="noindent" >FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a> use both the basic <a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap8.html#sri">SRI</a> fields as well as the Keywords field for additional
+items. All standard <a 
+href="mainap8.html#sri">SRI</a> fields should be filled out as appropriate in accordance with the existing
+<a 
+href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap8.html#idl">IDL</a> descriptions. The following table describes the additional FrontEnd-specific
+keywords.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 427--><p class="noindent" ><hr class="float"><div class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"></colgroup><colgroup id="TBL-15-2g"><col 
+id="TBL-15-2"></colgroup><colgroup id="TBL-15-3g"><col 
+id="TBL-15-3"></colgroup><colgroup id="TBL-15-4g"><col 
+id="TBL-15-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-1-1"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-1-2"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-1-3"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>     </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-1-4"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-2-1"  
+class="td11"> <!--l. 434--><p class="noindent" ><span 
+class="ectt-1200">COL_RF</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-2-2"  
+class="td11"> <!--l. 434--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-2-3"  
+class="td11"> <!--l. 434--><p class="noindent" >Collector  center
+  frequency in Hz.  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-2-4"  
+class="td11"> <!--l. 434--><p class="noindent" >Center frequency of the collector,
+  which is typically thought of as
+  the
+  center frequency of the wideband
+  receiver used to generate the <a 
+href="mainap8.html#if">IF</a>
+  data. In the case of a <a 
+href="mainap8.html#ddc">DDC</a> tuner,
+  the value of <span 
+class="ectt-1200">COL_RF </span>is the center
+  frequency  of  the  input  to  the
+  CHANNELIZER.                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-3-1"  
+class="td11"> <!--l. 435--><p class="noindent" ><span 
+class="ectt-1200">CHAN_RF</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-3-2"  
+class="td11"> <!--l. 435--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-3-3"  
+class="td11"> <!--l. 435--><p class="noindent" >Channel   center
+  frequency in Hz.  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-3-4"  
+class="td11"> <!--l. 435--><p class="noindent" >The   center   frequency   of   the
+  stream. The value of <span 
+class="ectt-1200">CHAN_RF </span>is
+  equal  to  the  COL_RF  for  RX
+  and RX_DIGITIZER tuners but
+  should still be included.              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-4-1"  
+class="td11"> <!--l. 436--><p class="noindent" ><span 
+class="ectt-1200">FRONTEND::BANDWIDTH</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-4-2"  
+class="td11"> <!--l. 436--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-4-3"  
+class="td11"> <!--l. 436--><p class="noindent" >Effective
+  bandwidth     in
+  Hz.                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-4-4"  
+class="td11"> <!--l. 436--><p class="noindent" >The  effective  bandwidth  of  the
+  stream.                                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-1"  
+class="td11"> <!--l. 437--><p class="noindent" ><span 
+class="ectt-1200">FRONTEND::RF_FLOW_ID</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-2"  
+class="td11"> <!--l. 437--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-3"  
+class="td11"> <!--l. 437--><p class="noindent" ><a 
+href="mainap8.html#rf">RF</a>  Flow  <a 
+href="mainap8.html#id">ID</a>  of
+  data.                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-4"  
+class="td11"> <!--l. 437--><p class="noindent" >Always  include  even  if  the  <a 
+href="mainap8.html#rf">RF</a>
+  Flow <a 
+href="mainap8.html#id">ID</a> is blank.                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-1"  
+class="td11"> <!--l. 438--><p class="noindent" ><span 
+class="ectt-1200">FRONTEND::DEVICE_ID</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-2"  
+class="td11"> <!--l. 438--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-3"  
+class="td11"> <!--l. 438--><p class="noindent" >The  <a 
+href="mainap8.html#id">ID</a>  of  the
+  <a 
+href="mainli2.html#glo:device">Device</a>.              </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-4"  
+class="td11"> <!--l. 438--><p class="noindent" >Component ref <a 
+href="mainap8.html#id">ID</a>, which allows
+  downstream   users   to   gain   a
+  reference   to   the   <a 
+href="mainli2.html#glo:device">Device</a>   that
+  created the data.                       </td>
+</tr></table></div>
+                                                                                         
+                                                                                         
+</div><hr class="endfloat" />
+</div>
+<h3 class="sectionHead"><span class="titlemark">G.6   </span> <a 
+ id="x33-387000G.6"></a>Status</h3>
+<!--l. 449--><p class="noindent" >All FRONTEND <a 
+href="mainli2.html#glo:device">Devices</a> must report the status of each tuner as an entry in the
+FRONTEND::TunerStatus <a 
+href="mainli2.html#glo:property">Property</a>. The FRONTEND::TunerStatus <a 
+href="mainli2.html#glo:property">Property</a> is a struct sequence
+where each element represents a single tuner as a structure containing all of the required status
+elements and a subset of the optional status elements. The status <a 
+href="mainli2.html#glo:property">Property</a> should contain entries
+for both allocated and un-allocated tuners so users can see additional available tuners for
+allocation.
+<!--l. 451--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">G.6.1   </span> <a 
+ id="x33-388000G.6.1"></a>Status Elements</h4>
+<!--l. 453--><p class="noindent" >The FrontEnd Status <a 
+href="mainli2.html#glo:property">Property</a> consists of a sequence of FrontEnd Tuner Status Structures. Each
+of these Tuner Status structures must contain each of the required elements listed in  <a 
+href="#x33-389000G.6.1">Section G.6.1</a>
+and may contain any number of the elements listed in  <a 
+href="#x33-390000G.6.1">Section G.6.1</a>.
+<!--l. 459--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x33-389000G.6.1"></a>Required Status Elements</h5>
+<!--l. 461--><p class="noindent" >The following table describes the required status elements are required for all FrontEnd <a 
+href="mainli2.html#glo:device">Devices</a>
+and all tuners. In some cases, null, zero, or blank values may be used to indicate that
+a value is not set for this <a 
+href="mainli2.html#glo:device">Device</a>, but each of these <a 
+href="mainli2.html#glo:property">Properties</a> must be in the status
+structure.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 469--><p class="noindent" ><hr class="float"><div class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-16" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-16-1g"><col 
+id="TBL-16-1"></colgroup><colgroup id="TBL-16-2g"><col 
+id="TBL-16-2"></colgroup><colgroup id="TBL-16-3g"><col 
+id="TBL-16-3"></colgroup><colgroup id="TBL-16-4g"><col 
+id="TBL-16-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-16-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-1-1"  
+class="td11"> <!--l. 471--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-1-2"  
+class="td11"> <!--l. 471--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-1-3"  
+class="td11"> <!--l. 471--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-1-4"  
+class="td11"> <!--l. 471--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-2-1"  
+class="td11"> <!--l. 476--><p class="noindent" ><span 
+class="ectt-1200">tuner_type</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-2-2"  
+class="td11"> <!--l. 476--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-2-3"  
+class="td11"> <!--l. 476--><p class="noindent" >Type   description   of
+  tuner.                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-2-4"  
+class="td11"> <!--l. 476--><p class="noindent" >One of the types defined in <a 
+href="#x33-360000G.2">Section G.2</a>  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-3-1"  
+class="td11"> <!--l. 478--><p class="noindent" ><span 
+class="ectt-1200">allocation_id_csv</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-3-2"  
+class="td11"><!--l. 478--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-3-3"  
+class="td11"> <!--l. 478--><p class="noindent" >Comma separated list
+  of  current  Allocation
+  <a 
+href="mainap8.html#id">ID</a>s.                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-3-4"  
+class="td11"> <!--l. 478--><p class="noindent" >Contains  a  list  of  both  control  and
+  listener   Allocation   <a 
+href="mainap8.html#id">ID</a>s.   In   effect,
+  the length of the <span 
+class="ectt-1200">allocation_id_csv</span>
+ list  is  the  number  of  independent
+  consumers  of  the  tuner  output.  The
+  control Allocation <a 
+href="mainap8.html#id">ID</a> must be the first
+  in the comma separated list.               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-4-1"  
+class="td11"> <!--l. 479--><p class="noindent" ><span 
+class="ectt-1200">center_frequency</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-4-2"  
+class="td11"> <!--l. 479--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-4-3"  
+class="td11"> <!--l. 479--><p class="noindent" >Current           center
+  frequency in Hz.         </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-4-4"  
+class="td11"> <!--l. 479--><p class="noindent" >Actual tuned frequency rather than the
+  desired frequency (if those values are
+  not the same).                                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-5-1"  
+class="td11"> <!--l. 480--><p class="noindent" ><span 
+class="ectt-1200">bandwidth</span>     </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-5-2"  
+class="td11"> <!--l. 480--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-5-3"  
+class="td11"> <!--l. 480--><p class="noindent" >Current bandwidth in
+  Hz                           </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-5-4"  
+class="td11"> <!--l. 480--><p class="noindent" >Actual   bandwidth   rather   than   the
+  desired bandwidth (if those values are
+  not the same).                                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-6-1"  
+class="td11"> <!--l. 481--><p class="noindent" ><span 
+class="ectt-1200">sample_rate</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-6-2"  
+class="td11"> <!--l. 481--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-6-3"  
+class="td11"> <!--l. 481--><p class="noindent" >Current sample rate in
+  Hz.                          </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-6-4"  
+class="td11"> <!--l. 481--><p class="noindent" >Actual  sample  rate  rather  than  the
+  desired sample rate (if those values are
+  not the same). Can be ignored for such
+  <a 
+href="mainli2.html#glo:device">Devices</a> as analog tuners                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-7-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-1"  
+class="td11"> <!--l. 482--><p class="noindent" ><span 
+class="ectt-1200">group_id</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-2"  
+class="td11"> <!--l. 482--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-3"  
+class="td11"> <!--l. 482--><p class="noindent" >Unique                <a 
+href="mainap8.html#id">ID</a>
+  that specifies a group
+  of <a 
+href="mainli2.html#glo:device">Device</a>.                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-4"  
+class="td11"> <!--l. 482--><p class="noindent" >Actual Group <a 
+href="mainap8.html#id">ID</a>, regardless whether it
+  was requested in the tuner allocation or
+  not.                                               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-8-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-1"  
+class="td11"> <!--l. 483--><p class="noindent" ><span 
+class="ectt-1200">rf_flow_id</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-2"  
+class="td11"> <!--l. 483--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-3"  
+class="td11"> <!--l. 483--><p class="noindent" >Specifies a certain <a 
+href="mainap8.html#rf">RF</a>
+  flow      to      allocate
+  against.                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-4"  
+class="td11"> <!--l. 483--><p class="noindent" >Actual <a 
+href="mainap8.html#rf">RF</a> Flow <a 
+href="mainap8.html#id">ID</a>, regardless whether
+  it was requested in the tuner allocation
+  or not.                                            </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-9-"><td  style="white-space:wrap; text-align:left;" id="TBL-16-9-1"  
+class="td11"> <!--l. 484--><p class="noindent" ><span 
+class="ectt-1200">enabled</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-9-2"  
+class="td11"> <!--l. 484--><p class="noindent" >boolean</td><td  style="white-space:wrap; text-align:left;" id="TBL-16-9-3"  
+class="td11"> <!--l. 484--><p class="noindent" >Indicates  if  tuner  is
+  enabled.                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-9-4"  
+class="td11"> <!--l. 484--><p class="noindent" >Enabled refers to the output state not
+  any internal hardware/software state.   </td>
+</tr></table></div>
+                                                                                         
+                                                                                         
+</div><hr class="endfloat" />
+</div>
+<h5 class="subsubsectionHead"><a 
+ id="x33-390000G.6.1"></a>Optional Status Elements</h5>
+<!--l. 495--><p class="noindent" >These following table describes the optional values for each tuner. If necessary, a different mix of
+<a 
+href="mainli2.html#glo:property">Properties</a> can be used for each of the tuners in a <a 
+href="mainli2.html#glo:device">Device</a>.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 503--><p class="noindent" ><hr class="float"><div class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-17" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-17-1g"><col 
+id="TBL-17-1"></colgroup><colgroup id="TBL-17-2g"><col 
+id="TBL-17-2"></colgroup><colgroup id="TBL-17-3g"><col 
+id="TBL-17-3"></colgroup><colgroup id="TBL-17-4g"><col 
+id="TBL-17-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-17-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-1-1"  
+class="td11"> <!--l. 505--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-1-2"  
+class="td11"> <!--l. 505--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-1-3"  
+class="td11"> <!--l. 505--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-1-4"  
+class="td11"> <!--l. 505--><p class="noindent" ><span 
+class="ecbx-1200">Notes</span>                                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-2-1"  
+class="td11"> <!--l. 510--><p class="noindent" ><span 
+class="ectt-1200">bandwidth_tolerance</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-2-2"  
+class="td11"> <!--l. 510--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-2-3"  
+class="td11"> <!--l. 510--><p class="noindent" >Allowable  percentage
+  over           requested
+  bandwidth.                </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-2-4"  
+class="td11"> <!--l. 510--><p class="noindent" >Tolerance provided by the requester.    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-3-1"  
+class="td11"> <!--l. 511--><p class="noindent" ><span 
+class="ectt-1200">sample_rate_tolerance</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-3-2"  
+class="td11"> <!--l. 511--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-3-3"  
+class="td11"> <!--l. 511--><p class="noindent" >Allowable  percentage
+  over requested sample
+  rate.                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-3-4"  
+class="td11"> <!--l. 511--><p class="noindent" >Tolerance provided by the requester.    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-4-1"  
+class="td11"> <!--l. 512--><p class="noindent" ><span 
+class="ectt-1200">complex</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-4-2"  
+class="td11"> <!--l. 512--><p class="noindent" >boolean</td><td  style="white-space:wrap; text-align:left;" id="TBL-17-4-3"  
+class="td11"> <!--l. 512--><p class="noindent" >Indicates if the output
+  data is complex.         </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-4-4"  
+class="td11"> <!--l. 512--><p class="noindent" >True for complex; False for real.          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-5-1"  
+class="td11"> <!--l. 513--><p class="noindent" ><span 
+class="ectt-1200">gain</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-5-2"  
+class="td11"> <!--l. 513--><p class="noindent" >double  </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-5-3"  
+class="td11"> <!--l. 513--><p class="noindent" >Current gain in dB.     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-5-4"  
+class="td11"> <!--l. 513--><p class="noindent" >N/A                                              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-6-1"  
+class="td11"> <!--l. 514--><p class="noindent" ><span 
+class="ectt-1200">agc</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-6-2"  
+class="td11"> <!--l. 514--><p class="noindent" >boolean</td><td  style="white-space:wrap; text-align:left;" id="TBL-17-6-3"  
+class="td11"> <!--l. 514--><p class="noindent" >Indicates if the tuner
+  has  Automatic  Gain
+  Control enabled.         </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-6-4"  
+class="td11"> <!--l. 514--><p class="noindent" >Even  if  AGC  is  enabled,  the  <a 
+href="mainli2.html#glo:device">Device</a>
+  should still report the current gain in
+  the gain <a 
+href="mainli2.html#glo:property">Property</a>.                            </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-7-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-7-1"  
+class="td11"> <!--l. 515--><p class="noindent" ><span 
+class="ectt-1200">valid</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-7-2"  
+class="td11"> <!--l. 515--><p class="noindent" >boolean</td><td  style="white-space:wrap; text-align:left;" id="TBL-17-7-3"  
+class="td11"> <!--l. 515--><p class="noindent" >Indicates if the tuner
+  is in a valid state.       </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-7-4"  
+class="td11"> <!--l. 515--><p class="noindent" >When the tuner is of type <a 
+href="mainap8.html#ddc">DDC</a>, then
+  the  <a 
+href="mainap8.html#ddc">DDC</a>  channel  is  no  longer  able
+  to  tune  to  the  appropriate  frequency
+  because   the   CHANNELIZER   it   is
+  attached to has been moved.               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-8-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-8-1"  
+class="td11"> <!--l. 516--><p class="noindent" ><span 
+class="ectt-1200">available_frequency</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-8-2"  
+class="td11"> <!--l. 516--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-8-3"  
+class="td11"> <!--l. 516--><p class="noindent" >Valid potential center
+  frequencies   for   the
+  tuner in Hz.               </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-8-4"  
+class="td11"> <!--l. 516--><p class="noindent" >In   range(XX-YY)   or   csv   (X,Y,Z)
+  format.                                           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-9-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-9-1"  
+class="td11"> <!--l. 517--><p class="noindent" ><span 
+class="ectt-1200">available_bandwidth</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-9-2"  
+class="td11"> <!--l. 517--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-9-3"  
+class="td11"> <!--l. 517--><p class="noindent" >Valid           potential
+  bandwidth    for    the
+  tuner in Hz.               </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-9-4"  
+class="td11"> <!--l. 517--><p class="noindent" >In   range(XX-YY)   or   csv   (X,Y,Z)
+  format.                                           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-10-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-10-1"  
+class="td11"> <!--l. 518--><p class="noindent" ><span 
+class="ectt-1200">available_gain</span></td><td  style="white-space:wrap; text-align:left;" id="TBL-17-10-2"  
+class="td11"> <!--l. 518--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-10-3"  
+class="td11"> <!--l. 518--><p class="noindent" >Valid   potential   gain
+  for the tuner in dB.     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-10-4"  
+class="td11"> <!--l. 518--><p class="noindent" >In   range(XX-YY)   or   csv   (X,Y,Z)
+  format.                                           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-11-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-11-1"  
+class="td11"> <!--l. 519--><p class="noindent" ><span 
+class="ectt-1200">available_sample_rate</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-11-2"  
+class="td11"> <!--l. 519--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-11-3"  
+class="td11"> <!--l. 519--><p class="noindent" >Valid potential sample
+  rates for the tuner.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-11-4"  
+class="td11"> <!--l. 519--><p class="noindent" >In   range(XX-YY)   or   csv   (X,Y,Z)
+  format.                                           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-12-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-12-1"  
+class="td11"> <!--l. 520--><p class="noindent" ><span 
+class="ectt-1200">reference_source</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-12-2"  
+class="td11"> <!--l. 520--><p class="noindent" >long     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-12-3"  
+class="td11"> <!--l. 520--><p class="noindent" >Indicates       internal
+  vs  external  reference
+  source.                      </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-12-4"  
+class="td11"> <!--l. 520--><p class="noindent" >0  =  internal  reference;  1  =  external
+  reference.                                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-13-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-13-1"  
+class="td11"> <!--l. 521--><p class="noindent" ><span 
+class="ectt-1200">output_format</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-13-2"  
+class="td11"> <!--l. 521--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-13-3"  
+class="td11"> <!--l. 521--><p class="noindent" >Indicates        current
+  output data format.    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-13-4"  
+class="td11"> <!--l. 521--><p class="noindent" >Uses the SDDS digraph format.           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-14-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-14-1"  
+class="td11"> <!--l. 522--><p class="noindent" ><span 
+class="ectt-1200">output_multicast</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-14-2"  
+class="td11"> <!--l. 522--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-14-3"  
+class="td11"> <!--l. 522--><p class="noindent" >Multicast  address  for
+  SDDS output.            </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-14-4"  
+class="td11"> <!--l. 522--><p class="noindent" >Multicast   address   in   dotted   quad
+  notation (e.g., "192.168.0.1").             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-15-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-1"  
+class="td11"> <!--l. 523--><p class="noindent" ><span 
+class="ectt-1200">output_vlan</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-2"  
+class="td11"> <!--l. 523--><p class="noindent" >long     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-3"  
+class="td11"> <!--l. 523--><p class="noindent" ><a 
+href="mainap8.html#vlan">VLAN</a>   number   for
+  SDDS output.            </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-4"  
+class="td11"> <!--l. 523--><p class="noindent" >If there is no <a 
+href="mainap8.html#vlan">VLAN</a> used, indicate that
+  with a zero.                                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-16-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-16-1"  
+class="td11"> <!--l. 524--><p class="noindent" ><span 
+class="ectt-1200">output_port</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-16-2"  
+class="td11"> <!--l. 524--><p class="noindent" >long     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-16-3"  
+class="td11"> <!--l. 524--><p class="noindent" ><a 
+href="mainli2.html#glo:port">Port</a>     number     for
+  SDDS output.            </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-16-4"  
+class="td11"> <!--l. 524--><p class="noindent" >N/A                                              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-17-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-17-1"  
+class="td11"> <!--l. 525--><p class="noindent" ><span 
+class="ectt-1200">decimation</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-17-2"  
+class="td11"> <!--l. 525--><p class="noindent" >long     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-17-3"  
+class="td11"> <!--l. 525--><p class="noindent" >Current decimation of
+  tuner.                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-17-4"  
+class="td11"> <!--l. 525--><p class="noindent" >Decimation  values  for  <a 
+href="mainap8.html#ddc">DDC</a>  tuners.
+  Defined  as  the  ratio  of  input  sample
+  rate to output sample rate regardless of
+  data format.                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-18-"><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-1"  
+class="td11"> <!--l. 526--><p class="noindent" ><span 
+class="ectt-1200">tuner_number</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-2"  
+class="td11"> <!--l. 526--><p class="noindent" >short    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-3"  
+class="td11"> <!--l. 526--><p class="noindent" >Physical tuner <a 
+href="mainap8.html#id">ID</a>.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-4"  
+class="td11"> <!--l. 526--><p class="noindent" >Tuner <a 
+href="mainap8.html#id">ID</a> number within <a 
+href="mainli2.html#glo:device">Device</a>. May
+  represent  physical  tuner  ordering  or
+  virtual ordering in software.                </td>
+</tr></table></div>
+                                                                                         
+                                                                                         
+</div><hr class="endfloat" />
+</div>
+                                                                                         
+                                                                                         
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap8.html" >next</a>] [<a 
 href="mainap6.html" >prev</a>] [<a 
 href="mainap6.html#tailmainap6.html" >prev-tail</a>] [<a 
 href="mainap7.html" >front</a>] [<a 
 href="main.html#mainap7.html" >up</a>] </p></div>
-<!--l. 1--><p class="noindent" ><a 
- id="tailmainap7.html"></a>  
+<!--l. 2--><p class="noindent" ><a 
+ id="tailmainap7.html"></a>    
  
 <div class=license>  
 <hr> 

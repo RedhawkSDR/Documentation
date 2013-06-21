@@ -84,7 +84,7 @@ class="ecbx-1200">Note: </span>Root permissions are required to perform the foll
       </li>
       <li 
   class="enumerate" id="x32-353004x2">Set the endpoints that are published in an object&#8217;s <a 
-href="mainap7.html#ior">IOR</a> by adding the following lines to the
+href="mainap8.html#ior">IOR</a> by adding the following lines to the
                                                                                          
                                                                                          
       endPointPublish section of the file:
@@ -93,7 +93,7 @@ href="mainap7.html#ior">IOR</a> by adding the following lines to the
       ]]></script>
       <!--l. 33--><p class="noindent" >After changing these settings, the name and event services must be reset, and their
       associated log files must be deleted. If the log files are not deleted, they preserve <a 
-href="mainap7.html#ior">IOR</a>s that
+href="mainap8.html#ior">IOR</a>s that
       are no longer valid.
       </li>
       <li 
@@ -119,8 +119,8 @@ href="mainap7.html#ior">IOR</a>s that
 <h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
  id="x32-354000F.3"></a>Packet Transfer Size</h3>
 <!--l. 53--><p class="noindent" >REDHAWK transfers data using <a 
-href="mainap7.html#bulkio">BulkIO</a>, which is an <a 
-href="mainap7.html#rpc">RPC</a> mechanism. The size of the data
+href="mainap8.html#bulkio">BulkIO</a>, which is an <a 
+href="mainap8.html#rpc">RPC</a> mechanism. The size of the data
 sequence that is passed on each of these calls has an effect on the data rate. The size of the transfer
 is not controlled by the REDHAWK runtime environment; instead, data producers can pass any
 arbitrary length less than <span 
@@ -135,7 +135,6 @@ F.3</a>.
                                                                                          
                                                                                          
 <!--l. 63--><p class="noindent" ><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
@@ -169,7 +168,7 @@ class="hline"><td><hr></td><td><hr></td></tr><tr
 class="td11">                   </td></tr></table></div>
                                                                                          
                                                                                          
-</td></tr></table></div><hr class="endfloat" />
+</div><hr class="endfloat" />
 </div>
 <!--l. 77--><p class="noindent" ><a 
 href="#x32-354001r1">Figure F.1</a> shows the supported data rate in Giga-bytes per second at different transfer sizes when
@@ -178,7 +177,6 @@ platform plateau when transfer size approaches approximately 500 kB. Using highe
 data rate does not improve, while latency increases. The value at which data rates plateau is
 system-specific.
 <!--l. 79--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -189,13 +187,13 @@ system-specific.
 <!--l. 81--><p class="noindent" ><img 
 src="optimization/loopback.jpg" alt="PIC"  
 >
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.1: </td><td  
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;F.1: </span><span  
 class="content">Throughput for <a 
-href="mainap7.html#bulkio">BulkIO</a> When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x32-354001r1 -->
+href="mainap8.html#bulkio">BulkIO</a> When Using the Loopback Interface</span></div><!--tex4ht:label?: x32-354001r1 -->
                                                                                          
                                                                                          
-<!--l. 84--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 84--><p class="noindent" ></div><hr class="endfigure">
 <!--l. 86--><p class="noindent" >Another result derived from the experiment shown in  <a 
 href="#x32-354001r1">Figure F.1</a> is that there is a substantial
 impact when the number of component pairs transferring data increases.
@@ -210,7 +208,6 @@ experiment are roughly four times higher when using Linux Domain Sockets compare
 loopback interface. Even when heavily loaded, the Linux Domain Socket configuration is as fast or
 faster than the lightly-loaded loopback configuration.
 <!--l. 90--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -221,17 +218,17 @@ faster than the lightly-loaded loopback configuration.
 <!--l. 92--><p class="noindent" ><img 
 src="optimization/linux_domain_sockets.jpg" alt="PIC"  
 >
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.2: </td><td  
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;F.2: </span><span  
 class="content">Throughput for <a 
-href="mainap7.html#bulkio">BulkIO</a> When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x32-354002r2 -->
+href="mainap8.html#bulkio">BulkIO</a> When Using Linux Domain Sockets</span></div><!--tex4ht:label?: x32-354002r2 -->
                                                                                          
                                                                                          
-<!--l. 95--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 95--><p class="noindent" ></div><hr class="endfigure">
 <h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
  id="x32-355000F.4"></a>Messaging Latency</h3>
 <!--l. 99--><p class="noindent" >Much like <a 
-href="mainap7.html#bulkio">BulkIO</a>, messaging is subject to performance issues as the transfer size changes. Testing
+href="mainap8.html#bulkio">BulkIO</a>, messaging is subject to performance issues as the transfer size changes. Testing
 was performed to determine the impact of message size on the latency per message. The size of the
 message was modified and the latency per message was measured. The average latency was
 measured for sets of 1000 messages.  <a 
@@ -242,7 +239,6 @@ function of the size of the message, where the measured latency ranges between 4
 microseconds and 50-160 microseconds for Linux Domain Sockets and loopback interface,
 respectively.
 <!--l. 101--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -253,14 +249,13 @@ respectively.
 <!--l. 103--><p class="noindent" ><img 
 src="optimization/loop_msg.jpg" alt="PIC"  
 >
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.3: </td><td  
-class="content">Message Latency When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x32-355001r3 -->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;F.3: </span><span  
+class="content">Message Latency When Using the Loopback Interface</span></div><!--tex4ht:label?: x32-355001r3 -->
                                                                                          
                                                                                          
-<!--l. 106--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 106--><p class="noindent" ></div><hr class="endfigure">
 <!--l. 108--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -271,12 +266,12 @@ class="content">Message Latency When Using the Loopback Interface</td></tr></tab
 <!--l. 110--><p class="noindent" ><img 
 src="optimization/lds_msg.jpg" alt="PIC"  
 >
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.4: </td><td  
-class="content">Message Latency When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x32-355002r4 -->
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;F.4: </span><span  
+class="content">Message Latency When Using Linux Domain Sockets</span></div><!--tex4ht:label?: x32-355002r4 -->
                                                                                          
                                                                                          
-<!--l. 113--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 113--><p class="noindent" ></div><hr class="endfigure">
 <!--l. 115--><p class="noindent" >Note that in  <a 
 href="#x32-355001r3">Figure F.3</a> and  <a 
 href="#x32-355002r4">Figure F.4</a>, latency is linear as a function of the message
@@ -286,13 +281,13 @@ Socket performance and loopback interface performance is, while measurable, rela
 small.
                                                                                          
                                                                                          
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap7.html" >next</a>] [<a 
 href="mainap5.html" >prev</a>] [<a 
 href="mainap5.html#tailmainap5.html" >prev-tail</a>] [<a 
 href="mainap6.html" >front</a>] [<a 
 href="main.html#mainap6.html" >up</a>] </p></div>
-<!--l. 2--><p class="noindent" ><a 
+<!--l. 1--><p class="noindent" ><a 
  id="tailmainap6.html"></a>  
  
 <div class=license>  

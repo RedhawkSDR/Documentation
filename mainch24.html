@@ -57,7 +57,7 @@ href="main.html#mainch24.html" >up</a>] </p></div>
 <h3 class="sectionHead"><span class="titlemark">24.1   </span> <a 
  id="x26-31300024.1"></a>What is a Control Panel?</h3>
 <!--l. 4--><p class="noindent" >A control panel is a contributed <a 
-href="mainap7.html#ui">UI</a> Component for a specific <a 
+href="mainap8.html#ui">UI</a> Component for a specific <a 
 href="mainli2.html#glo:domain">Domain</a> object to allow easier
 interaction with that <a 
 href="mainli2.html#glo:domain">Domain</a> object. These usually appear in either the <a 
@@ -84,10 +84,11 @@ prerequisites should be met:
       </li>
       <li class="itemize">The reader should have some level of understanding of Eclipse (specifically within the
       context of the REDHAWK <a 
-href="mainap7.html#ide">IDE</a>).
+href="mainap8.html#ide">IDE</a>).
       </li>
-      <li class="itemize">Though  not  required,  basic  knowledge  of  Eclipse  Rich  Client  Platform  (<a 
-href="mainap7.html#rcp">RCP</a>)
+      <li class="itemize">Though  not  required,  basic  knowledge  of  Eclipse  <a 
+ id="section*.47"></a>Rich  Client  Platform  (<a 
+href="mainap8.html#rcp">RCP</a>)
       development is helpful.</li></ul>
 <!--l. 24--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">24.2   </span> <a 
@@ -125,22 +126,22 @@ class="ecbx-1200">Next</span>
       </li>
       <li 
   class="enumerate" id="x26-316012x3">Ensure <span 
-class="ecbx-1200">This plug-in will make contributions to the </span><a 
-href="mainap7.html#ui"><span 
+class="ecbx-1200">This plug-in will make contributions to the</span> <a 
+href="mainap8.html#ui"><span 
 class="ecbx-1200">UI</span></a> is selected and click
       <span 
 class="ecbx-1200">Next</span>
       </li>
       <li 
   class="enumerate" id="x26-316014x4">Select <a 
-href="mainap7.html#sca"><span 
+href="mainap8.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Plug-in with </span><a 
 href="mainli2.html#glo:component"><span 
 class="ecbx-1200">Component</span></a> <span 
 class="ecbx-1200">Control Panel </span><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Other forms of control panels
       include: <a 
-href="mainap7.html#corba">CORBA</a>, <a 
+href="mainap8.html#corba">CORBA</a>, <a 
 href="mainli2.html#glo:device">Device</a>, and Waveform.</p></div></div>
       </li>
       <li 
@@ -149,11 +150,11 @@ href="mainli2.html#glo:component">Component</a> to create a control panel, and c
 class="ecbx-1200">Finish</span></li></ol>
 <!--l. 43--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Control Panels are created within Eclipse plug-in projects. The wizard creates a new plug-in
 project, and opens the main plug-in project form editor. This editor is very similar to the <a 
-href="mainap7.html#sca">SCA</a>
+href="mainap8.html#sca">SCA</a>
 <a 
 href="mainli2.html#glo:component">Component</a> form editor. There are multiple tabs to control various aspects of the plug-in project.
 To learn more about Eclipse development, see Eclipse <a 
-href="mainap7.html#ui">UI</a> Development References in Appendix
+href="mainap8.html#ui">UI</a> Development References in Appendix
 <a 
 href="mainap1.html#x27-328000A">Chapter A</a>. </p></div></div>
 <!--l. 50--><p class="noindent" >Open the new plug-in project and expand the <span 
@@ -214,15 +215,16 @@ class="ectt-1200">plugin.xml</span>: The plug-in manifest file, plugin.xml, desc
 <!--l. 68--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">24.3.1   </span> <a 
  id="x26-31900024.3.1"></a>SWT</h4>
-<!--l. 69--><p class="noindent" >The Standard Widget Toolkit (<a 
-href="mainap7.html#swt">SWT</a>) is a widget toolkit for Java developers that provides a
+<!--l. 69--><p class="noindent" >The <a 
+ id="section*.48"></a>Standard Widget Toolkit (<a 
+href="mainap8.html#swt">SWT</a>) is a widget toolkit for Java developers that provides a
 portable <a 
-href="mainap7.html#api">API</a> and tight integration with the underlying native <a 
-href="mainap7.html#os">OS</a> <a 
-href="mainap7.html#gui">GUI</a> platform.<br 
+href="mainap8.html#api">API</a> and tight integration with the underlying native <a 
+href="mainap8.html#os">OS</a> <a 
+href="mainap8.html#gui">GUI</a> platform.<br 
 class="newline" /><br 
 class="newline" /><a 
-href="mainap7.html#swt">SWT</a> basic building blocks:
+href="mainap8.html#swt">SWT</a> basic building blocks:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">org.eclipse.swt.widgets.Label</span>: A basic label widget
@@ -240,7 +242,7 @@ class="ectt-1200">org.eclipse.swt.widgets.Composite</span>: The main container w
       <li class="itemize"><span 
 class="ectt-1200">org.eclipse.swt.widgets.Group</span>: A container widget with text and a border</li></ul>
 <!--l. 78--><p class="noindent" >Some <a 
-href="mainap7.html#swt">SWT</a> examples can be found at <a 
+href="mainap8.html#swt">SWT</a> examples can be found at <a 
 href="http://www.eclipse.org/swt/examples.php" class="url" ><span 
 class="ectt-1200">http://www.eclipse.org/swt/examples.php</span></a>.
 <!--l. 80--><p class="noindent" >
@@ -277,11 +279,11 @@ public void createPartControl(final Composite main) {
 <h4 class="subsectionHead"><span class="titlemark">24.3.2   </span> <a 
  id="x26-32100024.3.2"></a>JFace</h4>
 <!--l. 112--><p class="noindent" >JFace is a <a 
-href="mainap7.html#ui">UI</a> toolkit that provides helper classes for developing <a 
-href="mainap7.html#ui">UI</a> features that can be tedious to
+href="mainap8.html#ui">UI</a> toolkit that provides helper classes for developing <a 
+href="mainap8.html#ui">UI</a> features that can be tedious to
 implement. JFace operates above the level of a raw widget system. It includes classes for handling
 common <a 
-href="mainap7.html#ui">UI</a> programming tasks:
+href="mainap8.html#ui">UI</a> programming tasks:
       <ul class="itemize1">
       <li class="itemize">Viewers handle the drudgery of populating, sorting, filtering, and updating widgets. <br 
 class="newline" /><span 
@@ -293,7 +295,7 @@ class="newline" /><span
 class="ectt-1200">org.eclipse.jface.action.Action</span>
       </li>
       <li class="itemize">Image and font registries provide common patterns for handling <a 
-href="mainap7.html#ui">UI</a> resources. <br 
+href="mainap8.html#ui">UI</a> resources. <br 
 class="newline" /><span 
 class="ectt-1200">org.eclipse.swt.graphics.Image</span>
       </li>
@@ -307,7 +309,7 @@ class="ectt-1200">org.eclipse.jface.wizard.Wizard</span>
 <!--l. 122--><p class="noindent" >JFace frees a developer up to focus on the implementation of a specific plug-in&#8217;s
 function, rather than focusing on the underlying widget system or solving problems
 that are common in almost any <a 
-href="mainap7.html#ui">UI</a> application. Some JFace examples can be found at
+href="mainap8.html#ui">UI</a> application. Some JFace examples can be found at
 <a 
 href="http://wiki.eclipse.org/JFaceSnippets" class="url" ><span 
 class="ectt-1200">http://wiki.eclipse.org/JFaceSnippets</span></a>.
@@ -315,36 +317,37 @@ class="ectt-1200">http://wiki.eclipse.org/JFaceSnippets</span></a>.
 <h3 class="sectionHead"><span class="titlemark">24.4   </span> <a 
  id="x26-32200024.4"></a>Using the SCA Model in a Control Panel</h3>
 <!--l. 127--><p class="noindent" >The REDHAWK back-end libraries provide implementations of various <a 
-href="mainap7.html#sca">SCA</a> interfaces. To
+href="mainap8.html#sca">SCA</a> interfaces. To
 facilitate interaction with the provided REDHAWK interface implementations in conjunction with
 various <a 
-href="mainap7.html#xml">XML</a> configuration files, the REDHAWK <a 
-href="mainap7.html#ide">IDE</a> utilizes an underlying <a 
+href="mainap8.html#xml">XML</a> configuration files, the REDHAWK <a 
+href="mainap8.html#ide">IDE</a> utilizes an underlying <a 
 href="mainli2.html#glo:domain">Domain</a> model: the
 <a 
-href="mainap7.html#sca">SCA</a> Model. The <a 
-href="mainap7.html#sca">SCA</a> Model uses the Eclipse Modeling Framework (<a 
-href="mainap7.html#emf">EMF</a>).
+href="mainap8.html#sca">SCA</a> Model. The <a 
+href="mainap8.html#sca">SCA</a> Model uses the <a 
+ id="section*.49"></a>Eclipse Modeling Framework (<a 
+href="mainap8.html#emf">EMF</a>).
 <!--l. 131--><p class="noindent" >The control panel is passed, as its input, a reference to an <a 
-href="mainap7.html#sca">SCA</a> Model object, such as a
+href="mainap8.html#sca">SCA</a> Model object, such as a
 <a 
 href="mainli2.html#glo:component">Component</a>. The control panel should use this model object when interacting with the back-end
 system. By using <a 
-href="mainap7.html#emf">EMF</a> several common operations become easier, such as listening for
+href="mainap8.html#emf">EMF</a> several common operations become easier, such as listening for
 changes, displaying modeling objects within a viewer, and connecting model objects to text
 fields.
 <!--l. 139--><p class="noindent" >There are a few things the control panel developer should be aware of. REDHAWK is a remote
 system; therefore, many of the calls within the <a 
-href="mainap7.html#sca">SCA</a> Model may be blocking and the state within
+href="mainap8.html#sca">SCA</a> Model may be blocking and the state within
 the model may be stale.
 <!--l. 143--><p class="noindent" >There are ways to identify and deal with these aspects:
       <ul class="itemize1">
       <li class="itemize">Blocking calls: All calls within the <a 
-href="mainap7.html#sca">SCA</a> Model that are potentially blocking take an
+href="mainap8.html#sca">SCA</a> Model that are potentially blocking take an
       <span 
 class="ectt-1200">org.eclipse.core.runtime.IProgressMonitor </span>parameter. <div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> Never call a potentially
       blocking call from the <a 
-href="mainap7.html#ui">UI</a> thread. This has the potential to DEAD-LOCK the application.</p></div></div>
+href="mainap8.html#ui">UI</a> thread. This has the potential to DEAD-LOCK the application.</p></div></div>
                                                                                          
                                                                                          
       </li>
@@ -354,7 +357,7 @@ class="ectt-1200">refresh</span>, and <span
 class="ectt-1200">fetch* </span>methods. <div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> These are also blocking calls.</p></div></div>
       </li>
       <li class="itemize">Lazy instantiation: The <a 
-href="mainap7.html#sca">SCA</a> Model is lazy, on purpose. This avoids network traffic and
+href="mainap8.html#sca">SCA</a> Model is lazy, on purpose. This avoids network traffic and
       unnecessary strain on the back-end processing system. Therefore, do not assume the state of
       an object has ever been fetched.</li></ul>
 <!--l. 150--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Once the model is aware of an object, it will try and keep the state of that object up to date
@@ -386,7 +389,7 @@ Job job = new Job("Update Job") {
 job.schedule();
 ]]></script>
 <!--l. 176--><p class="noindent" >Below is an example of using JFace with the <a 
-href="mainap7.html#sca">SCA</a> Model objects: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+href="mainap8.html#sca">SCA</a> Model objects: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
 private void createViewer(Composite parent) {
      // Set the viewer to use all available space
      // within the parent, and some margin.
@@ -490,15 +493,16 @@ error.
 <!--l. 269--><p class="noindent" >There are two ways to run a plug-in once it has been built.
       <ul class="itemize1">
       <li class="itemize">The plug-in&#8217;s <a 
-href="mainap7.html#jar">JAR</a> file can be installed in the eclipse/plugins directory. When the
+href="mainap8.html#jar">JAR</a> file can be installed in the eclipse/plugins directory. When the
       Workbench is restarted, it will find the new plug-in.
       </li>
-      <li class="itemize">The  Plug-in  Development  Environment  (<a 
-href="mainap7.html#pde">PDE</a>)  tool  can  be  used  to  run  another
+      <li class="itemize">The  <a 
+ id="section*.50"></a>Plug-in  Development  Environment  (<a 
+href="mainap8.html#pde">PDE</a>)  tool  can  be  used  to  run  another
       Workbench from within the current Workbench. This runtime Workbench is handy for
       testing new plug-ins from the Workbench immediately as they are developed. For more
       information about how a runtime workbench works, check the <a 
-href="mainap7.html#pde">PDE</a> guide.</li></ul>
+href="mainap8.html#pde">PDE</a> guide.</li></ul>
 <!--l. 279--><p class="noindent" >For simplicity, the plug-in can be run from within the Eclipse Workbench.
 <!--l. 281--><p class="noindent" >To launch a runtime Workbench, choose <span 
 class="ecbx-1200">Run </span><span 
@@ -526,7 +530,7 @@ registered with the highest priority, then double clicking the <a
 href="mainli2.html#glo:component">Component</a> will also open the new
 control panel. <div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  This <a 
 href="mainli2.html#glo:component">Component</a> may be run within the Sandbox in this <a 
-href="mainap7.html#ide">IDE</a> just like any other
+href="mainap8.html#ide">IDE</a> just like any other
 <a 
 href="mainli2.html#glo:component">Component</a>. </p></div></div>
 The control panel may also be debugged by running the Eclipse application within debug mode. To
@@ -540,7 +544,7 @@ class="ecbx-1200">Debug Configurations</span>.
                                                                                          
                                                                                          
 <!--l. 301--><p class="noindent" >A control panel project is an Eclipse plug-in. Eclipse plug-ins can either be built into a <a 
-href="mainap7.html#jar">JAR</a> that
+href="mainap8.html#jar">JAR</a> that
 can be dropped-in to the Eclipse environment or be wrapped into an Eclipse feature. Using the
 drop-in approach is simpler to implement, while creating a feature, the preferred method, provides
 a more user-friendly product through the use of p2 repositories (Explained in  <a 
@@ -556,11 +560,11 @@ href="#x26-32700024.6.2">Section
 class="ecbx-1200">Overview </span>page, follow
       the instructions in the <span 
 class="ecbx-1200">Exporting </span>section. This will produce a <a 
-href="mainap7.html#jar">JAR</a> file.
+href="mainap8.html#jar">JAR</a> file.
       </li>
       <li 
   class="enumerate" id="x26-326004x2">Copy this <a 
-href="mainap7.html#jar">JAR</a> file to the drop-in folder of the target Eclipse / REDHAWK Application.
+href="mainap8.html#jar">JAR</a> file to the drop-in folder of the target Eclipse / REDHAWK Application.
       The Application must be restarted for the control panel to be installed.</li></ol>
 <!--l. 313--><p class="noindent" >While by far the easiest approach to implement, creating a drop-in module is not considered the
 most correct nor extensible method. Deploying via the drop-in folder can run into problems if all
@@ -653,7 +657,7 @@ finally deploying it within the update site). A set of new items will appear in 
 project: a <span 
 class="ectt-1200">feature </span>folder, a <span 
 class="ectt-1200">plugins </span>folder and two <a 
-href="mainap7.html#jar">JAR</a> files (<span 
+href="mainap8.html#jar">JAR</a> files (<span 
 class="ectt-1200">artifacts.jar </span>and
 <span 
 class="ectt-1200">content.jar</span>). Copy these to any web-server to make them available as an update site.

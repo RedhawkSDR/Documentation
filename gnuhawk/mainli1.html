@@ -53,32 +53,33 @@ href="main.html#tailmain" >prev-tail</a>] [<a
 href="#tailmainli1.html">tail</a>] [<a 
 href="main.html#mainli1.html" >up</a>] </p></div>
 <h2 class="likechapterHead"><a 
- id="x2-1000"></a>GNUHAWK</h2> GNUHAWK is a software package containing a shared library and Components that enable GNU
-Radio blocks to be used within the REDHAWK software framework.
+ id="x2-1000"></a>GNUHAWK</h2> GNUHAWK is a software package containing a shared library and Components that
+enable GNU Radio blocks to be used within the REDHAWK software framework.
 <h3 class="likesectionHead"><a 
  id="x2-2000"></a>Introduction</h3>
-<!--l. 5--><p class="noindent" >GNUHAWK provides reusability of GNU Radio block algorithms and capabilities by making them interoperable
-with other REDHAWK Components within the REDHAWK software framework without requiring a separate
-GNU Radio installation.
-<!--l. 7--><p class="noindent" >The GNUHAWK library provides software that enables a GNU Radio block to be integrated into the REDHAWK
-software framework. This library enables a GNUHAWK Component to instantiate a GNU Radio block,
-interact with it by using the block&#8217;s setters and getters, and utilize the GNU Radio block algorithm by
-calling the general_work method. GNUHAWK is based on version 3.6.2 of GNU Radio, which is
-included as part of the GNUHAWK source baseline. A separate build of GNU Radio is not required
-when installing GNUHAWK. The installed GNUHAWK library and include files are located under
-<span 
+<!--l. 5--><p class="noindent" >GNUHAWK provides reusability of GNU Radio block algorithms and capabilities by making them
+interoperable with other REDHAWK Components within the REDHAWK software framework without
+requiring a separate GNU Radio installation.
+<!--l. 7--><p class="noindent" >The GNUHAWK library provides software that enables a GNU Radio block to be integrated into the
+REDHAWK software framework. This library enables a GNUHAWK Component to instantiate a
+GNU Radio block, interact with it by using the block&#8217;s setters and getters, and utilize the GNU Radio
+block algorithm by calling the general_work method. GNUHAWK is based on version 3.6.2 of GNU
+Radio, which is included as part of the GNUHAWK source baseline. A separate build of GNU Radio
+is not required when installing GNUHAWK. The installed GNUHAWK library and include files are
+located under <span 
 class="cmtt-12">$SDRROOT/dom/deps/gnuhawk</span>.
-<!--l. 9--><p class="noindent" >GNUHAWK follows an integration pattern that enables external algorithms from existing GNU Radio blocks to
-be used within the REDHAWK processing framework with minimal modifications to the algorithm&#8217;s original
-source code. The GNUHAWK library enables standard REDHAWK Components properties to change the state
-of an underlying GNU Radio block by interacting with the setters and getters of the block. The GNUHAWK
-Component&#8217;s service function mimics the functionality of the GNU Radio gr_block_executor class as well as the
-necessary requirements for data flow over the BULKIO interfaces. In addition to maintaining SRI and time
-stamp context for the data flow, the Component provides the marshalling and unmarshalling of data
-from standard REDHAWK BULKIO interfaces and presents the data to the block&#8217;s general_work
+<!--l. 9--><p class="noindent" >GNUHAWK follows an integration pattern that enables external algorithms from existing GNU Radio
+blocks to be used within the REDHAWK processing framework with minimal modifications to the
+algorithm&#8217;s original source code. The GNUHAWK library enables standard REDHAWK Components
+properties to change the state of an underlying GNU Radio block by interacting with the setters and
+getters of the block. The GNUHAWK Component&#8217;s service function mimics the functionality of the
+GNU Radio gr_block_executor class as well as the necessary requirements for data flow
+over the BULKIO interfaces. In addition to maintaining SRI and time stamp context for
+the data flow, the Component provides the marshalling and unmarshalling of data from
+standard REDHAWK BULKIO interfaces and presents the data to the block&#8217;s general_work
 method.
-                                                                                                       
-                                                                                                       
+                                                                                             
+                                                                                             
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainli2.html" >next</a>] [<a 
 href="main.html" >prev</a>] [<a 
