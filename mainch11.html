@@ -217,7 +217,7 @@ href="mainli2.html#glo:domain">Domain</a> Persistence. In order to make use of P
 must be specified. Ensure that the Core Framework has been compiled from source and
 that <span 
 class="ectt-1200">./configure </span>was ran with <span 
-class="ectt-1200">&#8211;enable-persistence=persist_type</span>. (See  <a 
+class="ectt-1200">--enable-persistence=persist_type</span>. (See  <a 
 href="mainap4.html#x30-348000D.2">Section
 D.2</a>)
 <!--l. 69--><p class="noindent" >With this feature enabled, all bookkeeping data structures that are used to maintain information
@@ -230,7 +230,7 @@ href="mainli2.html#glo:applicationfactory">Application Factories</a> are
 written to a database whenever any change is made to them. This database file needs
 to be specified upon launch of the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> with the <span 
-class="ectt-1200">&#8211;dburl &#x003C;file path&#x003E;</span>
+class="ectt-1200">--dburl &#x003C;file path&#x003E;</span>
 argument:
 <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ nodeBooter -D --dburl $SDRROOT/dom/persistence.sqlite
@@ -280,8 +280,7 @@ href="mainap8.html#os">OS</a>.
       </li></ul>
                                                                                          
                                                                                          
-<!--l. 21--><p class="noindent" >Path names are structured according to the <a 
- id="section*.31"></a>Portable Operating System Interface (<a 
+<!--l. 21--><p class="noindent" >Path names are structured according to the Portable Operating System Interface (<a 
 href="mainap8.html#posix">POSIX</a>)
 specification where the &#8220;/&#8221; (forward slash) is a valid character that acts as the separator between
 directories.
@@ -499,6 +498,7 @@ class="ecbx-1200">Assign </span><a
 href="mainli2.html#glo:assemblycontroller"><span 
 class="ecbx-1200">Assembly Controller</span></a>.
 <!--l. 62--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -509,12 +509,12 @@ class="ecbx-1200">Assembly Controller</span></a>.
 <!--l. 65--><p class="noindent" ><img 
 src="images/RuntimeEnvironmentInDepth/assembly_controller.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.1: </span><span  
-class="content">Assembly Controller Asignment</span></div><!--tex4ht:label?: x13-163001r1 -->
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.1: </td><td  
+class="content">Assembly Controller Asignment</td></tr></table><!--tex4ht:label?: x13-163001r1 -->
                                                                                          
                                                                                          
-<!--l. 67--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 67--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <!--l. 69--><p class="noindent" >The number in the middle of the <a 
 href="mainli2.html#glo:component">Components</a> block in the diagram is its designated start order.
 After the <a 
@@ -539,15 +539,16 @@ class="ecbx-1200">Move Earlier </span>or <span
 class="ecbx-1200">Move Later </span>to change when the <a 
 href="mainli2.html#glo:component">Component</a> gets
       started <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x13-163008r2"></a> <a 
  id="x13-1630063"></a><img 
 src="images/RuntimeEnvironmentInDepth/start_order.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.2: </span><span  
-class="content">Start Order Asignment</span></div><!--tex4ht:label?: x13-163008r2 -->
-      <!--l. 83--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.2: </td><td  
+class="content">Start Order Asignment</td></tr></table><!--tex4ht:label?: x13-163008r2 -->
+      <!--l. 83--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li></ol>
 <h4 class="subsectionHead"><span class="titlemark">11.4.4   </span> <a 
  id="x13-16400011.4.4"></a>Host Collocation</h4>
@@ -563,61 +564,65 @@ href="mainap8.html#ide">IDE</a>, follow these steps:
   class="enumerate" id="x13-164002x1">Select <span 
 class="ecbx-1200">Host Collocation </span>from the <span 
 class="ecbx-1200">Base Types Palette </span><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x13-164003r3"></a> <a 
  id="x13-1640011"></a><img 
 src="images/RuntimeEnvironmentInDepth/select_host_collocation.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.3: </span><span  
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.3: </td><td  
 class="content">Select <span 
 class="ecbx-1200">Host Collocation </span>from the <span 
-class="ecbx-1200">Base Types Palette</span></span></div><!--tex4ht:label?: x13-164003r3 -->
-      <!--l. 100--><p class="noindent" ></div><hr class="endfigure">
+class="ecbx-1200">Base Types Palette</span></td></tr></table><!--tex4ht:label?: x13-164003r3 -->
+      <!--l. 100--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
   class="enumerate" id="x13-164005x2">Create a Collocated area by clicking and dragging the mouse
       </li>
       <li 
   class="enumerate" id="x13-164007x3">Give the collocated area a name <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x13-164008r4"></a> <a 
  id="x13-1640063"></a><img 
 src="images/RuntimeEnvironmentInDepth/create_collocation.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.4: </span><span  
-class="content">Name Host Collocation</span></div><!--tex4ht:label?: x13-164008r4 -->
-      <!--l. 108--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.4: </td><td  
+class="content">Name Host Collocation</td></tr></table><!--tex4ht:label?: x13-164008r4 -->
+      <!--l. 108--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
                                                                                          
                                                                                          
       </li>
       <li 
   class="enumerate" id="x13-164010x4">Add desired <a 
 href="mainli2.html#glo:component">Components</a> to the collocated area <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x13-164011r5"></a> <a 
  id="x13-1640094"></a><img 
 src="images/RuntimeEnvironmentInDepth/add_components.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.5: </span><span  
-class="content">Add Components to Host Collocation</span></div><!--tex4ht:label?: x13-164011r5 -->
-      <!--l. 115--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.5: </td><td  
+class="content">Add Components to Host Collocation</td></tr></table><!--tex4ht:label?: x13-164011r5 -->
+      <!--l. 115--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
   class="enumerate" id="x13-164013x5">Finalize other <a 
 href="mainli2.html#glo:component">Component</a> connections <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x13-164014r6"></a> <a 
  id="x13-1640125"></a><img 
 src="images/RuntimeEnvironmentInDepth/final_collocation.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.6: </span><span  
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.6: </td><td  
 class="content">Finalize other <a 
-href="mainli2.html#glo:component">Component</a> connections</span></div><!--tex4ht:label?: x13-164014r6 -->
-      <!--l. 122--><p class="noindent" ></div><hr class="endfigure">
+href="mainli2.html#glo:component">Component</a> connections</td></tr></table><!--tex4ht:label?: x13-164014r6 -->
+      <!--l. 122--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li></ol>
 <!--l. 125--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">11.4.5   </span> <a 
@@ -650,15 +655,16 @@ href="mainli2.html#glo:port">Port</a> that you wish to make external
 class="ecbx-1200">Mark as External </span><a 
 href="mainli2.html#glo:port"><span 
 class="ecbx-1200">Port</span></a> from the list <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x13-165005r7"></a> <a 
  id="x13-1650032"></a><img 
 src="images/RuntimeEnvironmentInDepth/external_port.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;11.7: </span><span  
-class="content">Mark External Ports</span></div><!--tex4ht:label?: x13-165005r7 -->
-      <!--l. 139--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;11.7: </td><td  
+class="content">Mark External Ports</td></tr></table><!--tex4ht:label?: x13-165005r7 -->
+      <!--l. 139--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li></ol>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">11.5   </span> <a 
@@ -742,8 +748,7 @@ href="mainli2.html#glo:device">Devices</a>, <a
 href="mainli2.html#glo:service">Services</a> and a File
 System. The <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> is responsible for parsing the <a 
-href="mainli2.html#glo:node">Node</a>&#8217;s <a 
- id="section*.32"></a>Device Configuration
+href="mainli2.html#glo:node">Node</a>&#8217;s Device Configuration
 Descriptor (<a 
 href="mainap8.html#dcd">DCD</a>) <a 
 href="mainap8.html#xml">XML</a> in order to fork processes for all <a 

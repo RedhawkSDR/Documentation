@@ -96,17 +96,17 @@ configuration options, including:
       <li class="itemize">Disable log4cxx support
       </li>
       <li class="itemize"><span 
-class="ectt-1200">&#8211;disable-log4cxx</span>
+class="ectt-1200">--disable-log4cxx</span>
       </li>
       <li class="itemize">Enable LOG_TRACE statements
       </li>
       <li class="itemize"><span 
-class="ectt-1200">&#8211;enable-trace</span>
+class="ectt-1200">--enable-trace</span>
       </li>
       <li class="itemize">Enable persistence support:
       </li>
       <li class="itemize"><span 
-class="ectt-1200">&#8211;enable-persistence=&#x003C;persist_type&#x003E;</span>
+class="ectt-1200">--enable-persistence=&#x003C;persist_type&#x003E;</span>
       </li>
       <li class="itemize"> <span 
 class="ectt-1200">(Support types: bdb, gdbm, sqlite, none)</span>
@@ -114,17 +114,17 @@ class="ectt-1200">(Support types: bdb, gdbm, sqlite, none)</span>
       <li class="itemize">Disable framework java support:
       </li>
       <li class="itemize"><span 
-class="ectt-1200">&#8211;disable-java</span>
+class="ectt-1200">--disable-java</span>
       </li>
       <li class="itemize">Change the ossie root directory
       </li>
       <li class="itemize"><span 
-class="ectt-1200">&#8211;with-ossie=&#x003C;dir&#x003E;</span>
+class="ectt-1200">--with-ossie=&#x003C;dir&#x003E;</span>
       </li>
       <li class="itemize">Change the SDR root directory
       </li>
       <li class="itemize"><span 
-class="ectt-1200">&#8211;with-sdr=&#x003C;dir&#x003E;</span></li></ul>
+class="ectt-1200">--with-sdr=&#x003C;dir&#x003E;</span></li></ul>
 <!--l. 48--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
 be used after the <span 
 class="ectt-1200">./configure </span>command):
@@ -166,8 +166,61 @@ export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
 <!--l. 72--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
 class="cmsy-10x-x-120">~</span><span 
 class="ectt-1200">/.bashrc </span>to take effect.
+<!--l. 74--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">D.4   </span> <a 
+ id="x30-350000D.4"></a>Modifying the Python parsers</h3>
+<!--l. 75--><p class="noindent" >The files <span 
+class="ectt-1200">dcd.py</span>, <span 
+class="ectt-1200">dmd.py</span>, <span 
+class="ectt-1200">dpd.py</span>, <span 
+class="ectt-1200">prf.py</span>, <span 
+class="ectt-1200">profile.py</span>, <span 
+class="ectt-1200">sad.py</span>, <span 
+class="ectt-1200">scd.py</span>, and <span 
+class="ectt-1200">spd.py </span>are
+generated with a tool called generateDS. If the xsd is modified, then these files must be
+re-generated. Unlike in C++, this process is not tied into autoconf, so the integration process of
+the newly generated files is manual (generate the new Python files and over-write the existing
+ones). Furthermore, due to some aspects of the generated code, namely that some attributes are
+mapped to Python reserved words along with other minor issues, the generated files must be
+hand-modified to work with REDHAWK. These are the modifications that must be
+made:
                                                                                          
                                                                                          
+      <ul class="itemize1">
+      <li class="itemize">Change every constructor attribute <span 
+class="ectt-1200">id </span>to <span 
+class="ectt-1200">id_</span>
+      </li>
+      <li class="itemize">Change every member variable <span 
+class="ectt-1200">id </span>to <span 
+class="ectt-1200">id_</span>
+      </li>
+      <li class="itemize">Change the class <span 
+class="ectt-1200">range </span>to <span 
+class="ectt-1200">range_</span>. Make sure to also update the name where the class
+      is instantiated
+      </li>
+      <li class="itemize">In the <span 
+class="ectt-1200">buildChildren </span>function of the <span 
+class="ectt-1200">values </span>class in <span 
+class="ectt-1200">prf.py</span>, add the
+      following code before <span 
+class="ectt-1200">value_ </span>is appended to the member list <span 
+class="ectt-1200">value </span><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+          if value_ == None:
+            value_ = 
+        ]]></script>
+      </li>
+      <li class="itemize">In the 1.8 series only, invoke the <span 
+class="ectt-1200">unlink </span>function on the object <span 
+class="ectt-1200">doc </span>in the <span 
+class="ectt-1200">parse</span>,
+      <span 
+class="ectt-1200">parseLiteral</span>, and <span 
+class="ectt-1200">parseString </span>functions before <span 
+class="ectt-1200">doc </span>is set to <span 
+class="ectt-1200">None</span></li></ul>
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap5.html" >next</a>] [<a 
 href="mainap3.html" >prev</a>] [<a 

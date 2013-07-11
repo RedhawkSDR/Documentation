@@ -63,8 +63,7 @@ href="mainli2.html#glo:component">Component</a> is fully
 defined by its interfaces, <a 
 href="mainli2.html#glo:property">Properties</a>, and functionality. Examples include a <a 
 href="mainli2.html#glo:component">Component</a>
-that will tune, filter, and decimate a wideband signal and one that would perform a <a 
- id="section*.10"></a>
+that will tune, filter, and decimate a wideband signal and one that would perform a
 Frequency Modulation (<a 
 href="mainap8.html#fm">FM</a>) demodulation. Some <a 
 href="mainli2.html#glo:component">Components</a> will inevitably need to be
@@ -83,6 +82,7 @@ href="mainli2.html#glo:component">Components</a> into a
 <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>.
 <!--l. 17--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -93,12 +93,12 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>.
 <!--l. 19--><p class="noindent" ><img 
 src="images/REDHAWK_Component_Workflow_Graphic.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.1: </span><span  
-class="content">REDHAWK Workflow</span></div><!--tex4ht:label?: x5-14001r1 -->
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.1: </td><td  
+class="content">REDHAWK Workflow</td></tr></table><!--tex4ht:label?: x5-14001r1 -->
                                                                                          
                                                                                          
-<!--l. 21--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 21--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <div  
 class="centerline">                                                                                         </div>
 <!--l. 24--><p class="noindent" >By using the REDHAWK Framework, basic processing elements may be encapsulated as
@@ -110,6 +110,7 @@ auto-generated. The figure below depicts the encapsulation of an arbitrary proce
 into an auto-generated REDHAWK <a 
 href="mainli2.html#glo:component">Component</a> wrapper.
 <!--l. 28--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -120,12 +121,12 @@ href="mainli2.html#glo:component">Component</a> wrapper.
 <!--l. 30--><p class="noindent" ><img 
 src="images/REDHAWK_Component_Container_Graphic.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.2: </span><span  
-class="content">Components</span></div><!--tex4ht:label?: x5-14002r2 -->
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.2: </td><td  
+class="content">Components</td></tr></table><!--tex4ht:label?: x5-14002r2 -->
                                                                                          
                                                                                          
-<!--l. 32--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 32--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <h3 class="sectionHead"><span class="titlemark">3.2   </span> <a 
  id="x5-150003.2"></a>Creating a Component Project</h3>
 <!--l. 36--><p class="noindent" >In this section, an overview of the structure of a <a 
@@ -151,7 +152,7 @@ href="mainap8.html#ide">IDE</a> installation directory. Then, select <span
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
-class="cmmi-12">&#x003E;</span> <a 
+class="cmmi-12">&#x003E; </span><a 
 href="mainap8.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <a 
 href="mainli2.html#glo:component"><span 
@@ -162,18 +163,14 @@ class="ecbx-1200">Project</span>.
 <h4 class="subsectionHead"><span class="titlemark">3.2.2   </span> <a 
  id="x5-170003.2.2"></a>Component Descriptors</h4>
 <!--l. 48--><p class="noindent" >A REDHAWK <a 
-href="mainli2.html#glo:component">Component</a> is described through three <a 
- id="section*.11"></a>Extensible Markup Language (<a 
+href="mainli2.html#glo:component">Component</a> is described through three Extensible Markup Language (<a 
 href="mainap8.html#xml">XML</a>)
-files, a <a 
- id="section*.12"></a>Software Package Descriptor (<a 
+files, a Software Package Descriptor (<a 
 href="mainap8.html#spd">SPD</a>) file (<span 
-class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>), a <a 
- id="section*.13"></a>Properties
+class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>), a Properties
 File (<a 
 href="mainap8.html#prf">PRF</a>) file (<span 
-class="ectt-1200">&#x003C;component&#x003E;.prf.xml</span>), and a <a 
- id="section*.14"></a>Software Component Descriptor (<a 
+class="ectt-1200">&#x003C;component&#x003E;.prf.xml</span>), and a Software Component Descriptor (<a 
 href="mainap8.html#scd">SCD</a>) file
 (<span 
 class="ectt-1200">&#x003C;component&#x003E;.scd.xml</span>). The role of the <a 
@@ -221,8 +218,7 @@ class="ecbx-1200">provides </span>(input) or <span
 class="ecbx-1200">uses </span>(output) <a 
 href="mainli2.html#glo:port">Port</a>. This naming convention is
 often viewed as counter-intuitive, so an explanation is in order. <a 
-href="mainli2.html#glo:port">Ports</a> are <a 
- id="section*.15"></a>Remote Procedure
+href="mainli2.html#glo:port">Ports</a> are Remote Procedure
 Call (<a 
 href="mainap8.html#rpc">RPC</a>) interfaces to a <a 
 href="mainli2.html#glo:component">Component</a>. An input <a 
@@ -287,6 +283,7 @@ href="#x5-21001r3">Figure 3.3</a>) is located in the top-right of the
 Overview panel of the <a 
 href="mainli2.html#glo:component">Component</a> development project.
 <!--l. 91--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
                                                                                          
@@ -297,13 +294,13 @@ href="mainli2.html#glo:component">Component</a> development project.
 <!--l. 93--><p class="noindent" ><img 
 src="images/Generate_Code_Highlighted.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.3: </span><span  
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.3: </td><td  
 class="content"><span 
-class="ecbx-1200">Generate Component </span>Button</span></div><!--tex4ht:label?: x5-21001r3 -->
+class="ecbx-1200">Generate Component </span>Button</td></tr></table><!--tex4ht:label?: x5-21001r3 -->
                                                                                          
                                                                                          
-<!--l. 96--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 96--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <!--l. 98--><p class="noindent" >When the <span 
 class="ecbx-1200">Generate All Implementations </span>button is clicked, the tool generates:
       <ul class="itemize1">
@@ -324,9 +321,7 @@ class="ectt-1200">$SDRROOT/dom/components</span>): Drag the project on the <a
 href="mainap8.html#ide">IDE</a> from the
 <span 
 class="ecbx-1200">Project Explorer </span>to the <span 
-class="ecbx-1200">Target </span><a 
- id="section*.16"></a><span 
-class="ecbx-1200">Software-Defined Radio (</span><a 
+class="ecbx-1200">Target Software-Defined Radio (</span><a 
 href="mainap8.html#sdr"><span 
 class="ecbx-1200">SDR</span></a><span 
 class="ecbx-1200">) </span>section of the
@@ -533,14 +528,15 @@ class="ecbx-1200">Chalkboard</span>.
   class="enumerate" id="x5-26006x2">Double-click the <span 
 class="ecbx-1200">Chalkboard</span>.</li></ol>
       <!--l. 204--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-26007r4"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Chalkboard_Highlighted.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.4: </span><span  
-class="content">Open Chalkboard</span></div><!--tex4ht:label?: x5-26007r4 -->
-      <!--l. 208--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.4: </td><td  
+class="content">Open Chalkboard</td></tr></table><!--tex4ht:label?: x5-26007r4 -->
+      <!--l. 208--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
                                                                                          
                                                                                          
       </li>
@@ -567,14 +563,15 @@ class="ecbx-1200">cpp </span>implementation.
 class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a>, and select <span 
 class="ecbx-1200">Start</span>. <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-26016r5"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Sandbox_Start_Comp.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.5: </span><span  
-class="content">Start Component</span></div><!--tex4ht:label?: x5-26016r5 -->
-           <!--l. 219--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.5: </td><td  
+class="content">Start Component</td></tr></table><!--tex4ht:label?: x5-26016r5 -->
+           <!--l. 219--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
   class="enumerate" id="x5-26018x4">Right-click the <span 
@@ -584,14 +581,15 @@ class="ecbx-1200">Plot </span><a
 href="mainli2.html#glo:port"><span 
 class="ecbx-1200">Port</span></a> <span 
 class="ecbx-1200">Data</span>. <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-26019r6"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Sandbox_Plot_Port.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.6: </span><span  
-class="content">Plot Port Data</span></div><!--tex4ht:label?: x5-26019r6 -->
-           <!--l. 225--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.6: </td><td  
+class="content">Plot Port Data</td></tr></table><!--tex4ht:label?: x5-26019r6 -->
+           <!--l. 225--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
   class="enumerate" id="x5-26021x5">Right-click the <span 
@@ -600,14 +598,15 @@ href="mainli2.html#glo:component">Component</a>, and click <span
 class="ecbx-1200">Show Properties View</span>. A new
            view opens and displays the signal <a 
 href="mainli2.html#glo:property">Properties</a>. <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-26022r7"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Sandbox_Show_Prop.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.7: </span><span  
-class="content">Show Properties View</span></div><!--tex4ht:label?: x5-26022r7 -->
-           <!--l. 231--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.7: </td><td  
+class="content">Show Properties View</td></tr></table><!--tex4ht:label?: x5-26022r7 -->
+           <!--l. 231--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
   class="enumerate" id="x5-26024x6">Change the following signal <a 
@@ -617,14 +616,15 @@ href="mainli2.html#glo:property">Properties</a>:
                </li>
                <li class="itemize">magnitude: 10</li></ul>
            <!--l. 237--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-26025r8"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Sandbox_Prop_Change.png" alt="PIC"  
 >
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.8: </span><span  
-class="content">Change Property Value</span></div><!--tex4ht:label?: x5-26025r8 -->
-           <!--l. 241--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.8: </td><td  
+class="content">Change Property Value</td></tr></table><!--tex4ht:label?: x5-26025r8 -->
+           <!--l. 241--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
   class="enumerate" id="x5-26027x7">Select the palette on the right, drag the <span 
@@ -653,16 +653,17 @@ href="mainli2.html#glo:component">Component</a> by clicking and dragging from th
            output <a 
 href="mainli2.html#glo:port">Port</a> to the input <a 
 href="mainli2.html#glo:port">Port</a>. <hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
  id="x5-26032r9"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Sandbox_Connect_Comp.png" alt="PIC"  
 >
                                                                                          
                                                                                          
-<br /> <div class="caption" 
-><span class="id">Figure&#x00A0;3.9: </span><span  
-class="content">Connect Ports</span></div><!--tex4ht:label?: x5-26032r9 -->
-           <!--l. 249--><p class="noindent" ></div><hr class="endfigure">
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.9: </td><td  
+class="content">Connect Ports</td></tr></table><!--tex4ht:label?: x5-26032r9 -->
+           <!--l. 249--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
   class="enumerate" id="x5-26034x10">Right-click the <span 
@@ -699,7 +700,7 @@ href="mainli2.html#glo:component">Component</a> Project:
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
-class="cmmi-12">&#x003E;</span> <a 
+class="cmmi-12">&#x003E; </span><a 
 href="mainap8.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <a 
 href="mainli2.html#glo:component"><span 
@@ -767,7 +768,7 @@ class="ecbx-1200">Build Project</span></li></ul>
       </li>
       <li 
   class="enumerate" id="x5-27022x11">Drag the project to the <span 
-class="ecbx-1200">Target</span> <a 
+class="ecbx-1200">Target </span><a 
 href="mainap8.html#sdr"><span 
 class="ecbx-1200">SDR</span></a> section of the <a 
 href="mainap8.html#sca"><span 

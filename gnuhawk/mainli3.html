@@ -54,10 +54,10 @@ href="#tailmainli3.html">tail</a>] [<a
 href="main.html#mainli3.html" >up</a>] </p></div>
 <h2 class="likechapterHead"><a 
  id="x4-10000"></a>Building GNUHAWK</h2>
-<!--l. 3--><p class="noindent" >The GNUHAWK source baseline consists of a compatibility library of GNU Radio base classes,
-along with GNU Radio version 3.6.2. The source tree utilizes GNU&#8217;s Auto Tools to configure and
-build the compilation environment for the compatibility library, the VOLK library, the GNU Radio
-Blocks, and their supporting files.
+<!--l. 3--><p class="noindent" >The GNUHAWK source baseline consists of a compatibility library of GNU Radio base classes, along with GNU
+Radio version 3.6.2. The source tree utilizes GNU&#8217;s Auto Tools to configure and build the compilation
+environment for the compatibility library, the VOLK library, the GNU Radio Blocks, and their supporting
+files.
 <h3 class="likesectionHead"><a 
  id="x4-11000"></a>Building GNUHAWK Library from Source</h3>
 <!--l. 6--><p class="noindent" >To build the GNUHAWK library from source, enter the following commands:
@@ -66,8 +66,8 @@ $ rpm2cpio gnuhawk-<version>.<os>.src.rpm | cpio -idmv
 $ tar zxvf gnuhawk-<version>.tar.gz
 $ cd gnuhawk-<version>
 $ ./reconf
-                                                                                             
-                                                                                             
+                                                                                                       
+                                                                                                       
 $ ./configure
 $ make
 $ make install
@@ -76,20 +76,19 @@ The library is installed in <span
 class="cmtt-12">$SDRROOT/dom/deps/gnuhawk/lib</span>. <br 
 class="newline" /><br 
 class="newline" /><span 
-class="phvb7t-x-x-120">Note: </span>For 32-bit architectures, the GNUHAWK library and Components must be installed from
-source due to the need to create a specialized build of FFTW. The standard FFTW RPM for
-32-bit architectures is not built with Streaming SIMD Extensions (SSE) enabled. For more
-information about configuration command to build FFTW, refer to  <a 
-href="mainli2.html#x3-6000doc">Build Dependencies.
-</a>
+class="phvb7t-x-x-120">Note: </span>For 32-bit architectures, the GNUHAWK library and Components must be installed from source due to
+the need to create a specialized build of FFTW. The standard FFTW RPM for 32-bit architectures is not built
+with Streaming SIMD Extensions (SSE) enabled. For more information about configuration command to build
+FFTW, refer to  <a 
+href="mainli2.html#x3-6000doc">Build Dependencies. </a>
 <!--l. 22--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x4-12000"></a>Building GNUHAWK Components from Source</h3>
 <!--l. 23--><p class="noindent" >To build GNUHAWK Components from source, enter the following commands: <br 
 class="newline" /><br 
 class="newline" /><span 
-class="phvb7t-x-x-120">Note: </span>The GNUHAWK library must be installed prior to running the following commands; otherwise,
-the build process fails. <br 
+class="phvb7t-x-x-120">Note: </span>The GNUHAWK library must be installed prior to running the following commands; otherwise, the build
+process fails. <br 
 class="newline" /><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ rpm2cpio gnuhawk-components-<version>.<os>.src.rpm | cpio -idmv
 $ tar zxvf gnuhawk-components-<version>.tar.gz
@@ -102,10 +101,8 @@ $ make install
 ]]></script>
 The Components are installed in <span 
 class="cmtt-12">$SDRROOT/dom/components/gnuhawk</span>.
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
+                                                                                                       
+                                                                                                       
 <h3 class="likesectionHead"><a 
  id="x4-13000"></a>Directory Structure of GNUHAWK Source</h3>
 <!--l. 42--><p class="noindent" >The GNUHAWK source is structured as follows:
@@ -114,8 +111,7 @@ class="cmtt-12">$SDRROOT/dom/components/gnuhawk</span>.
 class="cmtt-12">components </span>contains the GNUHAWK Components.
       </li>
       <li class="itemize"><span 
-class="cmtt-12">include </span>contains  the  GNUHAWK  include  files  installed  to  support  the  GNUHAWK
-      library.
+class="cmtt-12">include </span>contains the GNUHAWK include files installed to support the GNUHAWK library.
       </li>
       <li class="itemize"><span 
 class="cmtt-12">gnuradio </span>contains the GNU Radio baseline, version 3.6.2.
@@ -124,16 +120,16 @@ class="cmtt-12">gnuradio </span>contains the GNU Radio baseline, version 3.6.2.
 class="cmtt-12">qa/components </span>contains the supporting Components for QA tests.
       </li>
       <li class="itemize"><span 
-class="cmtt-12">qa/gnuradio </span>contains  the  GNUHAWK  version  of  the  GNU  Radio  python  module
-      needed to perform QA testing.
+class="cmtt-12">qa/gnuradio </span>contains  the  GNUHAWK  version  of  the  GNU  Radio  python  module  needed  to
+      perform QA testing.
       </li>
       <li class="itemize"><span 
-class="cmtt-12">qa/tests </span>contains  the  QA  tests  to  be  run,  most  of  which  are  unmodified  from  the
-      original GNU Radio tests.
+class="cmtt-12">qa/tests </span>contains the QA tests to be run, most of which are unmodified from the original GNU
+      Radio tests.
       </li>
       <li class="itemize"><span 
-class="cmtt-12">src </span>contains the source code needed to build the library, including Makefile.am files
-      used to build the original GNU Radio blocks and supporting classes.</li></ul>
+class="cmtt-12">src </span>contains the source code needed to build the library, including Makefile.am files used to build
+      the original GNU Radio blocks and supporting classes.</li></ul>
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainli4.html" >next</a>] [<a 
 href="mainli2.html" >prev</a>] [<a 
