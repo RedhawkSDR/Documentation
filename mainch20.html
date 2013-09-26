@@ -21,6 +21,7 @@ SyntaxHighlighter.all()
 </script> 
  </head><body 
 >
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
 <script> 
 function f() {  
 document.getElementById('main_content_wrap').focus(); 
@@ -53,46 +54,46 @@ href="mainch19.html#tailmainch19.html" >prev-tail</a>] [<a
 href="#tailmainch20.html">tail</a>] [<a 
 href="main.html#mainch20.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;20</span><br /><a 
- id="x22-28400020"></a>Sharing REDHAWK Projects With Others</h2>
+ id="x22-35200020"></a>Sharing REDHAWK Projects With Others</h2>
 <!--l. 2--><p class="noindent" >The REDHAWK <a 
-href="mainap8.html#ide">IDE</a> provides a set of tools that allow for the collaborative development of
+href="mainap11.html#ide">IDE</a> provides a set of tools that allow for the collaborative development of
 REDHAWK capabilities. Projects can be exported or imported from the <a 
-href="mainap8.html#ide">IDE</a> or can be shared via
+href="mainap11.html#ide">IDE</a> or can be shared via
 a source code version-control system. The base REDHAWK <a 
-href="mainap8.html#ide">IDE</a> installation includes support for
+href="mainap11.html#ide">IDE</a> installation includes support for
 both <a 
-href="mainap8.html#cvs">CVS</a> and <a 
-href="mainap8.html#svn">SVN</a> and can easily be extended to include support for other systems, such as Git
+href="mainap11.html#cvs">CVS</a> and <a 
+href="mainap11.html#svn">SVN</a> and can easily be extended to include support for other systems, such as Git
 and Mercurial.
 <h3 class="sectionHead"><span class="titlemark">20.1   </span> <a 
- id="x22-28500020.1"></a>Exporting Projects as Source Code Archives</h3>
+ id="x22-35300020.1"></a>Exporting Projects as Source Code Archives</h3>
 <!--l. 10--><p class="noindent" >The quickest way to share projects is to export them as an archive file. A single archive may
 contain one or more projects of varying types. This allows easy distribution of an archive that
 includes all of the relevant <a 
 href="mainli2.html#glo:component">Components</a>, libraries, and <a 
-href="mainap8.html#sca">SCA</a> <a 
-href="mainap8.html#xml">XML</a> files that another developer
+href="mainap11.html#sca">SCA</a> <a 
+href="mainap11.html#xml">XML</a> files that another developer
 would require.
 <!--l. 15--><p class="noindent" >To export a project as an archive:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-285002x1">Select <span 
+  class="enumerate" id="x22-353002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Export</span><span 
 class="ecbx-1200">&#x2026;</span>.
       </li>
       <li 
-  class="enumerate" id="x22-285004x2">Expand <span 
+  class="enumerate" id="x22-353004x2">Expand <span 
 class="ecbx-1200">General </span>and select <span 
 class="ecbx-1200">Archive File</span>
       </li>
       <li 
-  class="enumerate" id="x22-285006x3">Click <span 
+  class="enumerate" id="x22-353006x3">Click <span 
 class="ecbx-1200">Next</span>.
       </li>
       <li 
-  class="enumerate" id="x22-285008x4">Select the projects or files to include in the archive. <div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  When selecting a project, all files within
+  class="enumerate" id="x22-353008x4">Select the projects or files to include in the archive. <div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  When selecting a project, all files within
       the project will be included in the archive by default. To reduce the set of files being
       exported, click <span 
 class="ecbx-1200">Filter Types</span><span 
@@ -100,23 +101,23 @@ class="ecbx-1200">&#x2026; </span>and select the desired file extensions that sh
       in the archive. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x22-285010x5">Specify the output file in <span 
+  class="enumerate" id="x22-353010x5">Specify the output file in <span 
 class="ecbx-1200">To archive file</span>.
       </li>
       <li 
-  class="enumerate" id="x22-285012x6">To create the archive, click <span 
+  class="enumerate" id="x22-353012x6">To create the archive, click <span 
 class="ecbx-1200">Finish</span>.</li></ol>
                                                                                          
                                                                                          
 <!--l. 31--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">20.1.1   </span> <a 
- id="x22-28600020.1.1"></a>REDHAWK Project Metadata Files</h4>
+ id="x22-35400020.1.1"></a>REDHAWK Project Metadata Files</h4>
 <!--l. 33--><p class="noindent" >When sharing projects, it is important to include all of the source code, <a 
-href="mainap8.html#sca">SCA</a> <a 
-href="mainap8.html#xml">XML</a>, and the
+href="mainap11.html#sca">SCA</a> <a 
+href="mainap11.html#xml">XML</a>, and the
 project metadata files. The project metadata files contain settings and preferences that allow the
 REDHAWK <a 
-href="mainap8.html#ide">IDE</a> to properly generate, build, and analyze the project.
+href="mainap11.html#ide">IDE</a> to properly generate, build, and analyze the project.
 <!--l. 38--><p class="noindent" >Project metadata files are typically hidden files (i.e., they start with a &#8217;.&#8217; ) and usually will not
 appear within the <span 
 class="ecbx-1200">Project Explorer </span>view. Furthermore, many project views will also display or
@@ -125,7 +126,7 @@ hide additional non-file content.
 class="ecbx-1200">Navigator </span>view:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-286002x1">Select <span 
+  class="enumerate" id="x22-354002x1">Select <span 
 class="ecbx-1200">Window </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Show View </span><span 
@@ -134,12 +135,12 @@ class="ecbx-1200">Other</span><span
 class="ecbx-1200">&#x2026;</span>.
       </li>
       <li 
-  class="enumerate" id="x22-286004x2">Expand <span 
+  class="enumerate" id="x22-354004x2">Expand <span 
 class="ecbx-1200">General </span>and select <span 
 class="ecbx-1200">Navigator</span>.
       </li>
       <li 
-  class="enumerate" id="x22-286006x3">Click <span 
+  class="enumerate" id="x22-354006x3">Click <span 
 class="ecbx-1200">OK</span>.</li></ol>
 <!--l. 50--><p class="noindent" >The set of metadata files found in a project will vary depending on the type of project. At a
 minimum, all projects will contain a <span 
@@ -151,7 +152,7 @@ class="ectt-1200">.project </span>file - Defines the basic Eclipse project setti
       </li>
       <li class="itemize"><span 
 class="ectt-1200">.library </span>file - Defines the <a 
-href="mainap8.html#idl">IDL</a> search path for the project
+href="mainap11.html#idl">IDL</a> search path for the project
       </li>
       <li class="itemize"><span 
 class="ectt-1200">.PROJECTNAME.wavedev </span>file  -  Defines  REDHAWK  specific  settings  for  the  project
@@ -171,30 +172,30 @@ class="ectt-1200">.classpath </span>file - Defines settings related to the Java 
 files found in the project.
 <!--l. 66--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">20.2   </span> <a 
- id="x22-28700020.2"></a>Importing Source Code Projects</h3>
+ id="x22-35500020.2"></a>Importing Source Code Projects</h3>
 <!--l. 68--><p class="noindent" >Projects that have been exported as a source code archives can be imported into a REDHAWK
 <a 
-href="mainap8.html#ide">IDE</a> workspace.
+href="mainap11.html#ide">IDE</a> workspace.
 <!--l. 71--><p class="noindent" >To import projects:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-287002x1">Select <span 
+  class="enumerate" id="x22-355002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Import</span><span 
 class="ecbx-1200">&#x2026;</span>.
       </li>
       <li 
-  class="enumerate" id="x22-287004x2">Expand <span 
+  class="enumerate" id="x22-355004x2">Expand <span 
 class="ecbx-1200">General </span>and select <span 
 class="ecbx-1200">Existing Projects into Workspace</span>.
       </li>
       <li 
-  class="enumerate" id="x22-287006x3">Click <span 
+  class="enumerate" id="x22-355006x3">Click <span 
 class="ecbx-1200">Next</span>.
       </li>
       <li 
-  class="enumerate" id="x22-287008x4">Do one of the following:
+  class="enumerate" id="x22-355008x4">Do one of the following:
            <ul class="itemize1">
            <li class="itemize">Click <span 
 class="ecbx-1200">Select root directory </span>and provide either a project directory or a directory
@@ -205,7 +206,7 @@ class="ecbx-1200">Select archive file </span>and provide an archive file that in
            projects.</li></ul>
       </li>
       <li 
-  class="enumerate" id="x22-287010x5">Select one or more projects and click <span 
+  class="enumerate" id="x22-355010x5">Select one or more projects and click <span 
 class="ecbx-1200">Finish</span>.</li></ol>
 <!--l. 85--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> A common error is to attempt to import projects by choosing <span 
 class="ecbx-1200">General </span><span 
@@ -222,17 +223,17 @@ class="ecbx-1200">Copy projects into workspace</span>. </p></div></div>
                                                                                          
 <!--l. 95--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">20.3   </span> <a 
- id="x22-28800020.3"></a>Collaborative REDHAWK Development Using a Version Control System</h3>
+ id="x22-35600020.3"></a>Collaborative REDHAWK Development Using a Version Control System</h3>
 <!--l. 96--><p class="noindent" >REDHAWK projects can be shared by multiple developers by using a version-control system such
 as <a 
-href="mainap8.html#cvs">CVS</a> or <a 
-href="mainap8.html#svn">SVN</a>. When sharing projects via a version-control system, it is important to &#8220;commit&#8221;
+href="mainap11.html#cvs">CVS</a> or <a 
+href="mainap11.html#svn">SVN</a>. When sharing projects via a version-control system, it is important to &#8220;commit&#8221;
 all of the project metadata files as described in  <a 
-href="#x22-28600020.1.1">Section 20.1.1</a>.
+href="#x22-35400020.1.1">Section 20.1.1</a>.
 <!--l. 102--><p class="noindent" >All version-control system integration within the Eclipse <a 
-href="mainap8.html#ide">IDE</a> is performed by the &#8220;Team
+href="mainap11.html#ide">IDE</a> is performed by the &#8220;Team
 Capabilities&#8221;. Because the REDHAWK <a 
-href="mainap8.html#ide">IDE</a> is built upon the Eclipse platform, one can easily
+href="mainap11.html#ide">IDE</a> is built upon the Eclipse platform, one can easily
 install plug-ins that will provide support for additional version-control systems. Details for
 installing these plug-ins can be found on the associated project web pages.
 <!--l. 108--><p class="noindent" >The details for sharing and importing projects will differ for each type of version-control system.
@@ -241,13 +242,13 @@ system.
 <!--l. 112--><p class="noindent" >To view full documentation:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-288002x1">Select <span 
+  class="enumerate" id="x22-356002x1">Select <span 
 class="ecbx-1200">Help </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Help Contents</span>.
       </li>
       <li 
-  class="enumerate" id="x22-288004x2">Choose the appropriate topic:
+  class="enumerate" id="x22-356004x2">Choose the appropriate topic:
            <ul class="itemize1">
            <li class="itemize"><span 
 class="ecbx-1200">Workbench User Guide </span><span 
@@ -255,7 +256,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ecbx-1200">Getting Started </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Team </span><a 
-href="mainap8.html#cvs"><span 
+href="mainap11.html#cvs"><span 
 class="ecbx-1200">CVS</span></a> <span 
 class="ecbx-1200">tutorial</span>.
            </li>
@@ -267,36 +268,36 @@ class="ecbx-1200">Subversive User Guide</span>.
 <!--l. 123--><p class="noindent" >To share a project:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-288006x1">Right-click on the project to share and select <span 
+  class="enumerate" id="x22-356006x1">Right-click on the project to share and select <span 
 class="ecbx-1200">Team </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Share</span>.
       </li>
       <li 
-  class="enumerate" id="x22-288008x2">Choose the appropriate version-control system (e.g. <a 
-href="mainap8.html#cvs">CVS</a>, <a 
-href="mainap8.html#svn">SVN</a>, etc.)
+  class="enumerate" id="x22-356008x2">Choose the appropriate version-control system (e.g. <a 
+href="mainap11.html#cvs">CVS</a>, <a 
+href="mainap11.html#svn">SVN</a>, etc.)
       </li>
       <li 
-  class="enumerate" id="x22-288010x3">Follow the steps for sharing the project as described in the relevant documentation.</li></ol>
+  class="enumerate" id="x22-356010x3">Follow the steps for sharing the project as described in the relevant documentation.</li></ol>
 <!--l. 130--><p class="noindent" >To import a project:
                                                                                          
                                                                                          
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-288012x1">Select <span 
+  class="enumerate" id="x22-356012x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Import</span>.
       </li>
       <li 
-  class="enumerate" id="x22-288014x2">Expand the desired item (e.g. <a 
-href="mainap8.html#cvs">CVS</a>, <a 
-href="mainap8.html#svn">SVN</a>, etc.) and click <span 
+  class="enumerate" id="x22-356014x2">Expand the desired item (e.g. <a 
+href="mainap11.html#cvs">CVS</a>, <a 
+href="mainap11.html#svn">SVN</a>, etc.) and click <span 
 class="ecbx-1200">Next</span>.
       </li>
       <li 
-  class="enumerate" id="x22-288016x3">Follow the steps for importing the project as described in the relevant documentation.</li></ol>
+  class="enumerate" id="x22-356016x3">Follow the steps for importing the project as described in the relevant documentation.</li></ol>
 <!--l. 137--><p class="noindent" >Once a project is being tracked by the Eclipse team system, many additional capabilities will be
 exposed. For example, files that have been modified will be decorated to indicate their
 current status. This provides an &#8220;at-a-glance&#8221; view of which files need to be committed or
@@ -306,7 +307,7 @@ reverted.
       <li class="itemize">Quick review of outgoing changes using the Eclipse &#8220;diff&#8221; viewer.
       </li>
       <li class="itemize">Commit changes from within the <a 
-href="mainap8.html#ide">IDE</a>.
+href="mainap11.html#ide">IDE</a>.
       </li>
       <li class="itemize">Update the projects with changes from the source repository.
       </li>
@@ -315,11 +316,11 @@ href="mainap8.html#ide">IDE</a>.
       <li class="itemize">Create and merge branches.</li></ul>
 <!--l. 153--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">20.3.1   </span> <a 
- id="x22-28900020.3.1"></a>Managing Projects Outside of the Eclipse Workspace</h4>
+ id="x22-35700020.3.1"></a>Managing Projects Outside of the Eclipse Workspace</h4>
 <!--l. 154--><p class="noindent" >An alternate approach is to use the version-control system&#8217;s native tools and then import the
 project directories into the REDHAWK <a 
-href="mainap8.html#ide">IDE</a> (See  <a 
-href="#x22-28700020.2">Section 20.2</a>). It is important to
+href="mainap11.html#ide">IDE</a> (See  <a 
+href="#x22-35500020.2">Section 20.2</a>). It is important to
 ensure that projects <span class="uline">DO NOT</span> select <span 
 class="ecbx-1200">Copy projects into workspace </span>when using the
 method.
@@ -327,52 +328,52 @@ method.
                                                                                          
 <!--l. 162--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">20.4   </span> <a 
- id="x22-29000020.4"></a>Exporting Projects as Deployable SCA</h3>
+ id="x22-35800020.4"></a>Exporting Projects as Deployable SCA</h3>
 <!--l. 163--><p class="noindent" >To install a REDHAWK project into the Target <a 
-href="mainap8.html#sdr">SDR</a> or share a &#8220;ready to run&#8221; package, it is
+href="mainap11.html#sdr">SDR</a> or share a &#8220;ready to run&#8221; package, it is
 necessary to export the project as &#8220;Deployable <a 
-href="mainap8.html#sca">SCA</a>&#8221;. Unlike a source code export, a
+href="mainap11.html#sca">SCA</a>&#8221;. Unlike a source code export, a
 deployable export will only include the <a 
-href="mainap8.html#sca">SCA</a> <a 
-href="mainap8.html#xml">XML</a> files and the files identified in the softpkg
+href="mainap11.html#sca">SCA</a> <a 
+href="mainap11.html#xml">XML</a> files and the files identified in the softpkg
 implementation.
 <!--l. 168--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> If the softpkg implementation references a directory, the export will include <span class="uline">all</span> files within the
 directory. </p></div></div>
 <!--l. 173--><p class="noindent" >To export a deployable <a 
-href="mainap8.html#sca">SCA</a> archive:
+href="mainap11.html#sca">SCA</a> archive:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-290002x1">Select <span 
+  class="enumerate" id="x22-358002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Export</span><span 
 class="ecbx-1200">&#x2026;</span>.
       </li>
       <li 
-  class="enumerate" id="x22-290004x2">Expand <a 
-href="mainap8.html#sca"><span 
+  class="enumerate" id="x22-358004x2">Expand <a 
+href="mainap11.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Development </span>and select <span 
 class="ecbx-1200">Deployable </span><a 
-href="mainap8.html#sca"><span 
+href="mainap11.html#sca"><span 
 class="ecbx-1200">SCA</span></a>.
       </li>
       <li 
-  class="enumerate" id="x22-290006x3">Select the projects to export.
+  class="enumerate" id="x22-358006x3">Select the projects to export.
       </li>
       <li 
-  class="enumerate" id="x22-290008x4">Provide the archive (zip) file.
+  class="enumerate" id="x22-358008x4">Provide the archive (zip) file.
       </li>
       <li 
-  class="enumerate" id="x22-290010x5">Click <span 
+  class="enumerate" id="x22-358010x5">Click <span 
 class="ecbx-1200">Finish</span>.</li></ol>
 <!--l. 182--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Deployable <a 
-href="mainap8.html#sca">SCA</a> archives are intended to provide a stop-gap capability to easily install a project
+href="mainap11.html#sca">SCA</a> archives are intended to provide a stop-gap capability to easily install a project
 into a REDHAWK Target <a 
-href="mainap8.html#sdr">SDR</a>. In general, it is recommended to use the <a 
-href="mainap8.html#rpm">RPM</a> format instead of a
+href="mainap11.html#sdr">SDR</a>. In general, it is recommended to use the <a 
+href="mainap11.html#rpm">RPM</a> format instead of a
 deployable <a 
-href="mainap8.html#sca">SCA</a> archive. </p></div></div>
+href="mainap11.html#sca">SCA</a> archive. </p></div></div>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

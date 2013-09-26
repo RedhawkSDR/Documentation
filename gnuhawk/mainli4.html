@@ -21,6 +21,7 @@ SyntaxHighlighter.all()
 </script> 
  </head><body 
 >
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
 <script> 
 function f() {  
 document.getElementById('main_content_wrap').focus(); 
@@ -72,15 +73,14 @@ After sb.start(), a sine wave is displayed in the plot varying from -100 to +100
 property of the source component defaults to a value of 101, which corresponds to the enumerated type
 value of SIN_WAVE. Setting the waveform property to 105 results in a saw wave varying from 0 to
 +100.
-<!--l. 18--><p class="noindent" ><span 
-class="phvb7t-x-x-120">Note: </span>To use plotting, the path to the eclipse directory of the installed IDE must be specfied in the Sandbox.
-(This can also be done by setting the RH_IDE environment variable to the absolute path of the eclipse directory
-prior to starting the Python session).
+<!--l. 18--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> To use plotting, the path to the eclipse directory of the installed IDE must be specfied in the Sandbox. (This
+can also be done by setting the RH_IDE environment variable to the absolute path of the eclipse directory prior
+to starting the Python session). </p></div></div>
                                                                                                        
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-16000"></a>Quality Assurance (QA) Testing For GNUHAWK Components</h3>
-<!--l. 24--><p class="noindent" >A subset of GNU Radio QA tests are incorporated within the GNUHAWK baseline to test the provided
+<!--l. 25--><p class="noindent" >A subset of GNU Radio QA tests are incorporated within the GNUHAWK baseline to test the provided
 GNUHAWK Components. In the <span 
 class="cmtt-12">gnuhawk/qa </span>subdirectory, runtests.py, a Python script, performs all of the tests
 located in the <span 
@@ -92,7 +92,7 @@ cases, QA tests had to be modified to facilitate using the Sandbox Python enviro
 test.
 <h3 class="likesectionHead"><a 
  id="x5-17000"></a>Initial Setup For Quality Assurance (QA)</h3>
-<!--l. 35--><p class="noindent" >The <span 
+<!--l. 36--><p class="noindent" >The <span 
 class="cmtt-12">qa/components </span>directory contains helper Components needed for the QA tests. Before running the QA
 tests the first time, these Components must be built. To build the Components, enter the following commands. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ cd gnuhawk-<version>/qa
@@ -102,7 +102,7 @@ $ make
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-18000"></a>Running Quality Assurance (QA)</h3>
-<!--l. 45--><p class="noindent" >QA tests are run against the locally built Component executables found in the<br 
+<!--l. 46--><p class="noindent" >QA tests are run against the locally built Component executables found in the<br 
 class="newline" /><span 
 class="cmtt-12">gnuhawk-&#x003C;version&#x003E;/components </span>directory. They are not run against the installed Components
 in <span 
@@ -137,7 +137,7 @@ $ ./runtests.py qa_int_to_float.py --prefix=test_002
                                                                                                        
 <h3 class="likesectionHead"><a 
  id="x5-19000"></a>Troubleshooting</h3>
-<!--l. 80--><p class="noindent" >While running GNUHAWK Components, if unexpected behavior is observed, refer to the following possible
+<!--l. 81--><p class="noindent" >While running GNUHAWK Components, if unexpected behavior is observed, refer to the following possible
 causes and solutions.
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -146,7 +146,7 @@ class="phvb7t-x-x-120">_filter</span><span
 class="phvb7t-x-x-120">_fff and qa</span><span 
 class="phvb7t-x-x-120">_fft</span><span 
 class="phvb7t-x-x-120">_filter fails on 32-bit architectures</span>
-      <!--l. 84--><p class="noindent" >If the installed version of FFTW was not configured with the --enable-sse flag, the qa_fft_filter.py
+      <!--l. 85--><p class="noindent" >If the installed version of FFTW was not configured with the --enable-sse flag, the qa_fft_filter.py
       test fails and the Component fails within a waveform. On 32-bit architectures, FFTW must
       be installed from source. The GNU Radio block gr_fft_filter_fff uses the underlying GNU
       Radio VOLK library, which requires SSE to be enabled. After downloading a particular
@@ -190,7 +190,7 @@ class="cmtt-12">setThrottle(false) </span>in the
       <li class="itemize"><span 
 class="phvb7t-x-x-120">./configure --with-components fails to find dependencies</span><br 
 class="newline" />
-      <!--l. 113--><p class="noindent" >When building Components from source, the configuration fails if the GNUHAWK library is not installed.
+      <!--l. 114--><p class="noindent" >When building Components from source, the configuration fails if the GNUHAWK library is not installed.
       Verify the GNUHAWK library is installed prior to running the commands to build the GNUHAWK
       Components from source.</li></ul>
 <!--l. 36--><div class="crosslinks"><p class="noindent">[<a 

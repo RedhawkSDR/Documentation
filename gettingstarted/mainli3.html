@@ -21,6 +21,7 @@ SyntaxHighlighter.all()
 </script> 
  </head><body 
 >
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
 <script> 
 function f() {  
 document.getElementById('main_content_wrap').focus(); 
@@ -85,8 +86,8 @@ an instance of a Component by passing its name as an argument:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sb.catalog()
 ['SigGen', 'HardLimit']
->>> sigGen = sb.Component('SigGen')
->>> hardLimit = sb.Component('HardLimit')
+>>> sigGen = sb.launch('SigGen')
+>>> hardLimit = sb.launch('HardLimit')
 ]]></script>
 <!--l. 37--><p class="noindent" >The REDHAWK IDE plotting tool can be used in the Sandbox to display data
 graphically. The path to the eclipse directory of the installed IDE must be

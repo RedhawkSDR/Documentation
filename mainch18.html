@@ -21,6 +21,7 @@ SyntaxHighlighter.all()
 </script> 
  </head><body 
 >
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
 <script> 
 function f() {  
 document.getElementById('main_content_wrap').focus(); 
@@ -53,9 +54,9 @@ href="mainch17.html#tailmainch17.html" >prev-tail</a>] [<a
 href="#tailmainch18.html">tail</a>] [<a 
 href="main.html#mainch18.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;18</span><br /><a 
- id="x20-23800018"></a>Logging</h2>
+ id="x20-29000018"></a>Logging</h2>
 <h3 class="sectionHead"><span class="titlemark">18.1   </span> <a 
- id="x20-23900018.1"></a>Introduction</h3>
+ id="x20-29100018.1"></a>Introduction</h3>
 <!--l. 5--><p class="noindent" >REDHAWK provides a logging interface for use by Resources (e.g., <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:device">Devices</a>). The
@@ -64,7 +65,7 @@ third-party libraries. This chapter addresses the basic use and configuration of
 REDHAWK context.
 <!--l. 9--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">18.2   </span> <a 
- id="x20-24000018.2"></a>Dependencies</h3>
+ id="x20-29200018.2"></a>Dependencies</h3>
 <!--l. 10--><p class="noindent" >REDHAWK utilizes log4cxx, log4j, and log4py for C++, Java, and Python, respectively.
 <!--l. 12--><p class="noindent" >For more information on each of these libraries, consult the following web pages:
       <ul class="itemize1">
@@ -72,13 +73,10 @@ REDHAWK context.
 href="http://logging.apache.org/log4cxx/" >http://logging.apache.org/log4cxx/</a>
       </li>
       <li class="itemize"><a 
-href="http://logging.apache.org/log4j/2.x/" >http://logging.apache.org/log4j/2.x/</a>
-      </li>
-      <li class="itemize"><a 
-href="https://github.com/maihde/log4py/" >https://github.com/maihde/log4py/</a></li></ul>
-<!--l. 18--><p class="noindent" >In all languages, the third-party libraries provide multiple log levels. The configuration of the
+href="http://logging.apache.org/log4j/2.x/" >http://logging.apache.org/log4j/2.x/</a></li></ul>
+<!--l. 17--><p class="noindent" >In all languages, the third-party libraries provide multiple log levels. The configuration of the
 REDHAWK logger will determine which levels of messages appear in the log.
-<!--l. 21--><p class="noindent" >Below are the available logging levels listed in order of increasing verbosity:
+<!--l. 20--><p class="noindent" >Below are the available logging levels listed in order of increasing verbosity:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">OFF</span>
@@ -88,11 +86,11 @@ class="ectt-1200">FATAL</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">ERROR</span>
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">WARN</span>
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">INFO</span>
@@ -105,7 +103,7 @@ class="ectt-1200">TRACE</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">ALL</span></li></ul>
-<!--l. 35--><p class="noindent" >The log level configuration of the system will indicate the highest level of verbosity that
+<!--l. 34--><p class="noindent" >The log level configuration of the system will indicate the highest level of verbosity that
 will appear in the log. For example, if the log level is set to the default (<span 
 class="ectt-1200">INFO</span>), then
 messages at the <span 
@@ -122,19 +120,19 @@ of the log messages, but a particular message may not be logged at log levels <s
 class="ectt-1200">ALL </span>or
 <span 
 class="ectt-1200">OFF</span>.
-<!--l. 39--><p class="noindent" >
+<!--l. 38--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">18.3   </span> <a 
- id="x20-24100018.3"></a>Configuration</h3>
-<!--l. 41--><p class="noindent" >By default, the logging feature is configured to write log messages of level <span 
+ id="x20-29300018.3"></a>Configuration</h3>
+<!--l. 40--><p class="noindent" >By default, the logging feature is configured to write log messages of level <span 
 class="ectt-1200">INFO </span>or greater to
 standard out.
-<!--l. 43--><p class="noindent" >To change the default configuration, a configuration file may be passed to <span 
+<!--l. 42--><p class="noindent" >To change the default configuration, a configuration file may be passed to <span 
 class="ectt-1200">nodeBooter </span>using the
 following command-line argument:
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 -logcfgfile sca:/<logging config file>
-]]></script>
-<!--l. 49--><p class="noindent" >Passing the argument when starting up a <a 
+]]></script></div>
+<!--l. 48--><p class="noindent" >Passing the argument when starting up a <a 
 href="mainli2.html#glo:node">Node</a> (i.e., when starting <span 
 class="ectt-1200">nodeBooter </span>with the <span 
 class="ectt-1200">-d</span>
@@ -145,28 +143,28 @@ well as for the <a
 href="mainli2.html#glo:devicemanager">Device Manager</a> itself. In this case, the logging file is located relative to
 <span 
 class="ectt-1200">$SDRROOT/dev</span>.
-<!--l. 52--><p class="noindent" >Passing the argument when starting up the <a 
+<!--l. 51--><p class="noindent" >Passing the argument when starting up the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> (i.e., when starting <span 
 class="ectt-1200">nodeBooter </span>with
 the <span 
 class="ectt-1200">-D </span>argument) will set the logging configuration for everything in the system apart from
-                                                                                         
-                                                                                         
 <a 
-href="mainli2.html#glo:devicemanager">Device Managers</a>s and <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> and <a 
 href="mainli2.html#glo:device">Devices</a>. In this case, the logging config file is located relative to
 <span 
 class="ectt-1200">$SDRROOT/dom</span>.
-<!--l. 55--><p class="noindent" >Passing the argument when starting up the <a 
+<!--l. 54--><p class="noindent" >Passing the argument when starting up the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> and <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> simultaneously
+                                                                                         
+                                                                                         
 (i.e., when starting <span 
 class="ectt-1200">nodeBooter </span>with the <span 
 class="ectt-1200">-d </span>and <span 
 class="ectt-1200">-D </span>arguments) will set the logging configuration
 for the entire system.
-<!--l. 57--><p class="noindent" >Below is an example log4j configuration file:
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+<!--l. 56--><p class="noindent" >Below is an example log4j configuration file:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 # Set root logger default levels and appender
 log4j.rootLogger=DEBUG, CONSOLE, FILE
 
@@ -191,8 +189,6 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601}:
 log4j.appender.STDERR.layout=org.apache.log4j.PatternLayout
 log4j.appender.STDERR.layout.ConversionPattern=%d{ISO8601}:
      %p:%c - %m [%F:%L]%n
-                                                                                         
-                                                                                         
 log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
 log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601}:
      %p:%c - %m [%F:%L]%n
@@ -204,89 +200,95 @@ log4j.appender.NULL.layout.ConversionPattern=%n
 
 log4j.category.Foo_cpp_impl1_i=DEBUG, edetLog
 log4j.additivity.Foo_cpp_impl1_i=false
-]]></script>
-<!--l. 97--><p class="noindent" >
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 96--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">18.4   </span> <a 
- id="x20-24200018.4"></a>Use Within Resources</h3>
-<!--l. 98--><p class="noindent" >Code generated using the REDHAWK <a 
-href="mainap8.html#ide">IDE</a> should contain all necessary prerequisites for using log
+ id="x20-29400018.4"></a>Use Within Resources</h3>
+<!--l. 97--><p class="noindent" >Code generated using the REDHAWK <a 
+href="mainap11.html#ide">IDE</a> should contain all necessary prerequisites for using log
 methods as well as example calls to the log methods. Should auto-generated code not be available,
 this section provides a description of the use of the log modules in C++, Java, and
 Python.
 <h4 class="subsectionHead"><span class="titlemark">18.4.1   </span> <a 
- id="x20-24300018.4.1"></a>C++</h4>
-<!--l. 102--><p class="noindent" >
+ id="x20-29500018.4.1"></a>C++</h4>
+<!--l. 101--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-24400018.4.1"></a>Setup</h5>
-<!--l. 103--><p class="noindent" >All necessary include statements are inherited from the Resource base class.
-<!--l. 105--><p class="noindent" >
-                                                                                         
-                                                                                         
+ id="x20-29600018.4.1"></a>Setup</h5>
+<!--l. 102--><p class="noindent" >All necessary include statements are inherited from the Resource base class.
+<!--l. 104--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-24500018.4.1"></a>Use</h5>
-<!--l. 107--><p class="noindent" >An example logging method call for use in C++ is: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+ id="x20-29700018.4.1"></a>Use</h5>
+<!--l. 106--><p class="noindent" >An example logging method call for use in C++ is:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 LOG_DEBUG(complexCpp_i, "serviceFunction() example log message");
-]]></script>
-<!--l. 112--><p class="noindent" >Note that the word &#8220;<span 
+]]></script></div>
+<!--l. 111--><p class="noindent" >Note that the word &#8220;<span 
 class="ectt-1200">DEBUG</span>&#8221; may be replaced with any of the logging levels between <span 
 class="ectt-1200">FATAL </span>and
 <span 
 class="ectt-1200">TRACE </span>(see  <a 
-href="#x20-24000018.2">Section 18.2</a>).
-<!--l. 115--><p class="noindent" >
+href="#x20-29200018.2">Section 18.2</a>).
+<!--l. 114--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">18.4.2   </span> <a 
- id="x20-24600018.4.2"></a>Java</h4>
-<!--l. 116--><p class="noindent" >
+ id="x20-29800018.4.2"></a>Java</h4>
+                                                                                         
+                                                                                         
+<!--l. 115--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-24700018.4.2"></a>Setup</h5>
-<!--l. 117--><p class="noindent" >The log4j Logger module must be imported for use: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+ id="x20-29900018.4.2"></a>Setup</h5>
+<!--l. 116--><p class="noindent" >The log4j Logger module must be imported for use:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 import org.apache.log4j.Logger;
-]]></script>
-<!--l. 122--><p class="noindent" >A class data field of type <span 
+]]></script></div>
+<!--l. 121--><p class="noindent" >A class data field of type <span 
 class="ectt-1200">Logger </span>should then be created:
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 public final static Logger logger =
      Logger.getLogger(myComponentClass.class.getName());
-]]></script>
-<!--l. 129--><p class="noindent" >
+]]></script></div>
+<!--l. 128--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-24800018.4.2"></a>Use</h5>
-<!--l. 130--><p class="noindent" >An example logging method call for Java is: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+ id="x20-30000018.4.2"></a>Use</h5>
+<!--l. 129--><p class="noindent" >An example logging method call for Java is: <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 logger.debug("run() example log message");
-]]></script>
+]]></script></div>
 Note that the word &#8220;<span 
 class="ectt-1200">debug</span>&#8221; may be replaced with any of the logging levels between <span 
 class="ectt-1200">FATAL </span>and
 <span 
 class="ectt-1200">TRACE </span>(lower case).
-                                                                                         
-                                                                                         
-<!--l. 137--><p class="noindent" >
+<!--l. 136--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">18.4.3   </span> <a 
- id="x20-24900018.4.3"></a>Python</h4>
-<!--l. 138--><p class="noindent" >
+ id="x20-30100018.4.3"></a>Python</h4>
+<!--l. 137--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x20-25000018.4.3"></a>Setup</h5>
-<!--l. 140--><p class="noindent" >A <a 
+ id="x20-30200018.4.3"></a>Setup</h5>
+<!--l. 139--><p class="noindent" >A <a 
 href="mainli2.html#glo:component">Component</a> inheriting from the REDHAWK Python Resource class will inherit a <span 
 class="ectt-1200">_log </span>data
 field.
-<!--l. 142--><p class="noindent" >
+<!--l. 141--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h5 class="subsubsectionHead"><a 
- id="x20-25100018.4.3"></a>Use</h5>
-<!--l. 143--><p class="noindent" >An example logging method call for Python is: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ id="x20-30300018.4.3"></a>Use</h5>
+<!--l. 142--><p class="noindent" >An example logging method call for Python is:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 self._log.debug("process() example log message")
-]]></script>
-<!--l. 148--><p class="noindent" >Note that the word &#8220;<span 
+]]></script></div>
+<!--l. 147--><p class="noindent" >Note that the word &#8220;<span 
 class="ectt-1200">debug</span>&#8221; may be replaced with any of the logging levels between <span 
 class="ectt-1200">FATAL </span>and
 <span 
 class="ectt-1200">TRACE </span>(lower case).
-<!--l. 150--><p class="noindent" >Optionally, a developer can make direct calls to the logger module. Below is an example of using the logger directly: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<!--l. 149--><p class="noindent" >Optionally, a developer can make direct calls to the logger module. Below is an example of using the logger
+directly: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 import logging
 logging.getLogger().setLevel(logging.WARN)
 logging.debug("Starting Component")
-]]></script>
+]]></script></div>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

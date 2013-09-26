@@ -21,6 +21,7 @@ SyntaxHighlighter.all()
 </script> 
  </head><body 
 >
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
 <script> 
 function f() {  
 document.getElementById('main_content_wrap').focus(); 
@@ -53,35 +54,35 @@ href="mainch16.html#tailmainch16.html" >prev-tail</a>] [<a
 href="#tailmainch17.html">tail</a>] [<a 
 href="main.html#mainch17.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;17</span><br /><a 
- id="x19-22600017"></a>Messaging</h2>
+ id="x19-27800017"></a>Messaging</h2>
 <h3 class="sectionHead"><span class="titlemark">17.1   </span> <a 
- id="x19-22700017.1"></a>Introduction</h3>
+ id="x19-27900017.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Messaging relies on <a 
-href="mainap8.html#corba">CORBA</a>&#8217;s event structure as a transport structure. In <a 
-href="mainap8.html#corba">CORBA</a>&#8217;s event <a 
-href="mainap8.html#api">API</a>,
+href="mainap11.html#corba">CORBA</a>&#8217;s event structure as a transport structure. In <a 
+href="mainap11.html#corba">CORBA</a>&#8217;s event <a 
+href="mainap11.html#api">API</a>,
 <a 
 href="mainli2.html#glo:message">Messages</a> are passed as an <span 
 class="ectt-1200">Any </span>type using the function <span 
 class="ectt-1200">push()</span>.
 <!--l. 9--><p class="noindent" >While <a 
-href="mainap8.html#corba">CORBA</a> manages marshaling and delivery of the data, it does not provide any
+href="mainap11.html#corba">CORBA</a> manages marshaling and delivery of the data, it does not provide any
 mechanisms inherent to events to describe the contents of the <span 
 class="ectt-1200">Any </span>type. REDHAWK
 decided to leverage an existing payload structure descriptor to describe the payload of
 <a 
 href="mainli2.html#glo:message">Messages</a>, the <a 
 href="mainli2.html#glo:property">Properties</a> <a 
-href="mainap8.html#idl">IDL</a>. The selection of this interface eliminates the need to create a
+href="mainap11.html#idl">IDL</a>. The selection of this interface eliminates the need to create a
 new <a 
-href="mainap8.html#idl">IDL</a> describing <a 
+href="mainap11.html#idl">IDL</a> describing <a 
 href="mainli2.html#glo:message">Messages</a>. Furthermore, there is already an <a 
-href="mainap8.html#xml">XML</a> structure that is
+href="mainap11.html#xml">XML</a> structure that is
 mapped to efficient binary data structures, allowing the use of <a 
-href="mainap8.html#xml">XML</a> to describe <a 
+href="mainap11.html#xml">XML</a> to describe <a 
 href="mainli2.html#glo:message">Message</a>
 contents while eliminating the need for introducing <a 
-href="mainap8.html#xml">XML</a> parsers in the <a 
+href="mainap11.html#xml">XML</a> parsers in the <a 
 href="mainli2.html#glo:message">Message</a> delivery
 mechanism.
 <!--l. 14--><p class="noindent" >To support this additional functionality, REDHAWK has expanded the <a 
@@ -96,7 +97,7 @@ class="ecbx-1200">Message</span></a>
 kind is a structure.
 <!--l. 17--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.2   </span> <a 
- id="x19-22800017.2"></a>Message Producer</h3>
+ id="x19-28000017.2"></a>Message Producer</h3>
 <!--l. 19--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> producer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
@@ -104,7 +105,7 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 21--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-228002x1">Add a Struct <a 
+  class="enumerate" id="x19-280002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Select the kind for the <a 
@@ -115,14 +116,14 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x19-228004x2">Add <span 
+  class="enumerate" id="x19-280004x2">Add <span 
 class="ecbx-1200">uses </span><a 
 href="mainli2.html#glo:port">Port</a> of <a 
-href="mainap8.html#idl">IDL</a> Interface ExtendedEvent <span 
+href="mainap11.html#idl">IDL</a> Interface ExtendedEvent <span 
 class="cmmi-12">&#x003E; </span>MessageEvent
       </li>
       <li 
-  class="enumerate" id="x19-228006x3">Regenerate the <a 
+  class="enumerate" id="x19-280006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
                                                                                          
                                                                                          
@@ -153,54 +154,55 @@ Channel</a>, the following code examples will send a <a
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 46--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.1   </span> <a 
- id="x19-22900017.2.1"></a>C++</h4>
+ id="x19-28100017.2.1"></a>C++</h4>
 <!--l. 48--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method of the
 implementation file):
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  foo_struct my_msg;
  my_msg.some_string = "hello";
  my_msg.some_float = 1.0;
  this->message_out->sendMessage(my_msg);
-]]></script>
+]]></script></div>
 <!--l. 57--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.2   </span> <a 
- id="x19-23000017.2.2"></a>Java</h4>
-                                                                                         
-                                                                                         
+ id="x19-28200017.2.2"></a>Java</h4>
 <!--l. 59--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
-class="ectt-1200">run() </span>method): <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ectt-1200">serviceFunction() </span>method):
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 
  foo_struct my_msg = new foo_struct();
  my_msg.some_string.setValue("hello");
  my_msg.some_float.setValue((float)1.0);
  this.port_message_out.sendMessage(my_msg);
-]]></script>
+]]></script></div>
 <!--l. 68--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.3   </span> <a 
- id="x19-23100017.2.3"></a>Python</h4>
+ id="x19-28300017.2.3"></a>Python</h4>
 <!--l. 70--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">process() </span>method of the implementation
 file):
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  my_msg = Foo()
  my_msg.some_string = 'hello'
  my_msg.some_float = 1.0
  self.port_message_out.sendMessage(my_msg)
-]]></script>
+]]></script></div>
 <!--l. 81--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.3   </span> <a 
- id="x19-23200017.3"></a>Message Consumer</h3>
+ id="x19-28400017.3"></a>Message Consumer</h3>
 <!--l. 83--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> consumer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
 href="mainli2.html#glo:component">Component</a>.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-232002x1">Add a Struct <a 
+  class="enumerate" id="x19-284002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Select the kind for the <a 
@@ -209,21 +211,21 @@ href="mainli2.html#glo:message"><span
 class="ecbx-1200">Message</span></a>
            </li>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
-                                                                                         
-                                                                                         
       </li>
       <li 
-  class="enumerate" id="x19-232004x2">Add <span 
+  class="enumerate" id="x19-284004x2">Add <span 
 class="ecbx-1200">uses/provides </span>(bidirectional) <a 
 href="mainli2.html#glo:port">Port</a> of <a 
-href="mainap8.html#idl">IDL</a> <br 
+href="mainap11.html#idl">IDL</a> <br 
 class="newline" /><span 
 class="ectt-1200">Interface ExtendedEvent</span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ectt-1200">MessageEvent</span>
+                                                                                         
+                                                                                         
       </li>
       <li 
-  class="enumerate" id="x19-232006x3">Regenerate the <a 
+  class="enumerate" id="x19-284006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 94--><p class="noindent" >The bidirectional <a 
 href="mainli2.html#glo:port">Port</a> is needed because in point-to-point connections, the <a 
@@ -239,7 +241,7 @@ class="ectt-1200">getPort() </span>returns a pointer to the same object
 irrespective of whether or not the <a 
 href="mainli2.html#glo:port">Port</a> is to be employed as a Uses or Provides; the object
 implements both sets of interfaces. The <a 
-href="mainap8.html#scd">SCD</a> will contain two entries for this <a 
+href="mainap11.html#scd">SCD</a> will contain two entries for this <a 
 href="mainli2.html#glo:port">Port</a>, both with the
 same name, but one a uses and the other a provides.
 <!--l. 99--><p class="noindent" >For the purposes of the following examples, assume that the structure is as follows:
@@ -276,52 +278,58 @@ Channel</a>, the following code examples will process an incoming <a
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 118--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.1   </span> <a 
- id="x19-23300017.3.1"></a>C++</h4>
+ id="x19-28500017.3.1"></a>C++</h4>
 <!--l. 120--><p class="noindent" >Given the asynchronous nature of events, a callback pattern was selected for the consumer.
-                                                                                         
-                                                                                         
 <!--l. 122--><p class="noindent" >In the <a 
-href="mainli2.html#glo:component">Component</a> header file, declare the following callback function: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+href="mainli2.html#glo:component">Component</a> header file, declare the following callback function:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  void receivedMessage(const std::string &id,
     const foo_struct &msg);
 ]]></script>
+                                                                                         
+                                                                                         
+</div>
 <!--l. 128--><p class="noindent" >In the <a 
-href="mainli2.html#glo:component">Component</a> source file, implement the callback function: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+href="mainli2.html#glo:component">Component</a> source file, implement the callback function:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  void message_consumer_i::receivedMessage(const std::string &id,
     const foo_struct &msg) {
     std::cout&lt;&lt;id&lt;&lt;" "&lt;&lt;msg.some_float&lt;&lt;" "&lt;&lt;msg.some_string&lt;&lt;
       std::endl;
  }
-]]></script>
+]]></script></div>
 <!--l. 137--><p class="noindent" >In the <a 
-href="mainli2.html#glo:component">Component</a> constructor, register the callback function: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+href="mainli2.html#glo:component">Component</a> constructor, register the callback function:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  message_in->registerMessage("foo", this,
     &message_consumer_i::receivedMessage);
-]]></script>
+]]></script></div>
 <!--l. 143--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.2   </span> <a 
- id="x19-23400017.3.2"></a>Java</h4>
-<!--l. 145--><p class="noindent" >Add  to  the  list  of  import  packages:  <script type="syntaxhighlighter" class="brush: java"><![CDATA[
- import org.omg.CORBA.Any;
-]]></script>
-<!--l. 150--><p class="noindent" >Add the callback definition to the class after the <span 
-class="ectt-1200">run() </span>method.
-<!--l. 152--><p class="noindent" ><span 
-class="ecbx-1200">NOTE: the </span><span 
-class="ectt-1200">message() </span><span 
-class="ecbx-1200">method is </span><a 
-href="mainli2.html#glo:message"><span 
-class="ecbx-1200">Message</span></a> <span 
-class="ecbx-1200">specific and must contain structure-specific code</span>: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+ id="x19-28600017.3.2"></a>Java</h4>
+<!--l. 145--><p class="noindent" >Add to the list of import packages: <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+  import org.omg.CORBA.Any;
+ import org.ossie.properties.AnyUtils;
+ import org.ossie.events.EventCallback;
+ import CF.LifeCyclePackage.InitializeError;
+]]></script></div>
+<!--l. 153--><p class="noindent" >Add the callback definition to the class after the <span 
+class="ectt-1200">run() </span>method or after the <span 
+class="ectt-1200">serviceFunction()</span>
+method with the new 1.9 java component pattern.
+<!--l. 155--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The <span 
+class="ectt-1200">message() </span>method is <a 
+href="mainli2.html#glo:message">Message</a> specific and must contain structure-specific code. </p></div></div>
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
  public class callback implements
-           EventCallback<message_prop_struct> {
+           EventCallback<foo_struct> {
 
-      private test_message_rx_java parent;
+      private message_consumer parent;
       public Object handlingMessagesLock;
-                                                                                         
-                                                                                         
 
-      public callback(test_message_rx_java _parent) {
+      public callback(message_consumer _parent) {
            this.parent = _parent;
            this.handlingMessagesLock = new Object();
       }
@@ -329,17 +337,17 @@ class="ecbx-1200">specific and must contain structure-specific code</span>: <scr
       public void message(String id, Any msg) {
            synchronized (this.handlingMessagesLock) {
                CF.DataType [] msg_set =
-                    (DataType[])AnyUtils.convertAny(msg);
-               message_prop_struct msg_container =
-                    new message_prop_struct();
-               for (final DataType msg_item : msg_set) {
-                    if (msg_item.id.equals("val1")) {
-                         msg_container.val1.setValue(
+                    (CF.DataType[])AnyUtils.convertAny(msg);
+               foo_struct msg_container =
+                    new foo_struct();
+               for (final CF.DataType msg_item : msg_set) {
+                    if (msg_item.id.equals("some_string")) {
+                         msg_container.some_string.setValue(
                                   msg_item.value.extract_string());
                     }
-                    if (msg_item.id.equals("val2")) {
-                         msg_container.val2.setValue(
-                                  msg_item.value.extract_double());
+                    if (msg_item.id.equals("some_float")) {
+                         msg_container.some_float.setValue(
+                                  msg_item.value.extract_float());
                     }
                }
                this.messageReceived(id, msg_container);
@@ -347,112 +355,125 @@ class="ecbx-1200">specific and must contain structure-specific code</span>: <scr
      }
 
      public void messageReceived(String id,
-              message_prop_struct msg) {
+              foo_struct msg) {
          synchronized (this.handlingMessagesLock) {
-              String msg_out = id+","+msg.val1.getValue()+","+
-                                                                                         
-                                                                                         
-                   msg.val2.getValue();
+              String msg_out = id+","+msg.some_string.getValue()+","+
+                   msg.some_float.getValue();
               System.out.println("messageReceived " + msg_out);
          }
       }
  }
-]]></script>
-<!--l. 196--><p class="noindent" >Add the <span 
-class="ectt-1200">callbackContainer </span>class variable after the <span 
-class="ectt-1200">MessageConsumerPort </span>declaration: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 203--><p class="noindent" >Add the <span 
+class="ectt-1200">callbackContainer </span>class variable before the constructor:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
      public callback callbackContainer;
-]]></script>
-<!--l. 201--><p class="noindent" >In the <span 
+]]></script></div>
+<!--l. 208--><p class="noindent" >In the <span 
 class="ectt-1200">test_message_rx_java() </span>class constructor, create an instance of <span 
-class="ectt-1200">callbackContainer</span>: <script type="syntaxhighlighter" class="brush: java"><![CDATA[
+class="ectt-1200">callbackContainer</span>:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
      this.callbackContainer = new callback(this);
-]]></script>
-<!--l. 206--><p class="noindent" >In the <span 
+]]></script></div>
+<!--l. 213--><p class="noindent" >In the <span 
 class="ectt-1200">initialize() </span>method after <span 
 class="ectt-1200">super.initialize()</span>, register the <a 
 href="mainli2.html#glo:message">Message</a> with the callback
-method. <span 
-class="ecbx-1200">NOTE: This must occur in </span><span 
-class="ectt-1200">initialize() </span><span 
-class="ecbx-1200">not the class constructor because the</span>
-<a 
-href="mainli2.html#glo:message"><span 
-class="ecbx-1200">Message</span></a> <span 
-class="ecbx-1200">consumer object is not setup yet when the constructor is called. </span><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-     this.port_message_in.registerMessage("message_prop",
+method.
+<!--l. 215--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> This must occur in <span 
+class="ectt-1200">initialize() </span>not the class constructor because the <a 
+href="mainli2.html#glo:message">Message</a> consumer object
+is not setup yet when the constructor is called. </p></div></div>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+     this.port_message_in.registerMessage("foo",
          this.callbackContainer);
-]]></script>
-<!--l. 213--><p class="noindent" >
+]]></script></div>
+<!--l. 225--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.3   </span> <a 
- id="x19-23500017.3.3"></a>Python</h4>
-<!--l. 215--><p class="noindent" >To the <span 
+ id="x19-28700017.3.3"></a>Python</h4>
+<!--l. 227--><p class="noindent" >To the <span 
 class="ectt-1200">initialize() </span>method, register the expected <a 
-href="mainli2.html#glo:message">Message</a> with a callback method: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- self.port_message_in.registerMessage("message_prop",
-    test_message_rx_python_base.MessageProp, self.messageReceived)
-]]></script>
-<!--l. 221--><p class="noindent" >In the class, define the callback method. In this example, the method is called <span 
-class="ectt-1200">messageReceived()</span>: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+href="mainli2.html#glo:message">Message</a> with a callback method:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ self.port_message_in.registerMessage("foo",
+    message_consumer_base.Foo, self.messageReceived)
+]]></script></div>
+<!--l. 233--><p class="noindent" >In the class, define the callback method. In this example, the method is called <span 
+class="ectt-1200">messageReceived()</span>:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  def messageReceived(self, msgId, msgData):
-      self._log.info("messageReceived *************************");
+      self._log.info("messageReceived *************************")
+      self._log.info("messageReceived msgId " + str(msgId))
+      self._log.info("messageReceived msgData " + str(msgData))
+]]></script></div>
                                                                                          
                                                                                          
-      self._log.info("messageReceived msgId " + str(msgId));
-      self._log.info("messageReceived msgData " + str(msgData));
-]]></script>
-<!--l. 229--><p class="noindent" >
+<!--l. 241--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For a generated python component, by default, the debug level is set to <span 
+class="ectt-1200">WARN </span>in the main portion
+of the code. To see the <span 
+class="ectt-1200">messageReceived() </span>log message, you must set the debug level for the
+python component to <span 
+class="ectt-1200">INFO</span>, <span 
+class="ectt-1200">DEBUG</span>, or <span 
+class="ectt-1200">TRACE</span>. </p></div></div>
+<!--l. 245--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.4   </span> <a 
- id="x19-23600017.4"></a>Viewing Messages</h3>
-<!--l. 231--><p class="noindent" ><a 
+ id="x19-28800017.4"></a>Viewing Messages</h3>
+<!--l. 247--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> are events with their payload definition tied to structures in <a 
 href="mainli2.html#glo:component">Component</a> <a 
 href="mainli2.html#glo:property">Properties</a>.
 Viewing <a 
 href="mainli2.html#glo:message">Messages</a> can be done with the same techniques that are used to view events.
-<!--l. 234--><p class="noindent" >To view events and <a 
+<!--l. 250--><p class="noindent" >To view events and <a 
 href="mainli2.html#glo:message">Messages</a> sent to an <a 
-href="mainli2.html#glo:eventchannel">Event Channel</a> in a terminal window: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+href="mainli2.html#glo:eventchannel">Event Channel</a> in a terminal window:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
   eventviewer <domain name> <event channel>
-]]></script>
-<!--l. 239--><p class="noindent" >Help  for  the  utility:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-  eventviewer --help
-]]></script>
-<!--l. 244--><p class="noindent" >Example  output:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-  \$ eventviewer REDHAWK_DEV testchan
+]]></script></div>
+<!--l. 255--><p class="noindent" >Help for the utility: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+   eventviewer --help
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 260--><p class="noindent" >Example output: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+   \$ eventviewer REDHAWK_DEV testchan
   Receiving events. Press 'enter' key to exit
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 0.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 1.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 2.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 3.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 4.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-                                                                                         
-                                                                                         
-  string'}, {'id': 'val2', 'value': 5.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 6.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 7.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 8.0}]}]
-  [{'id': 'message_prop', 'value': [{'id': 'val1', 'value': 'some
-  string'}, {'id': 'val2', 'value': 9.0}]}]
-]]></script>
-<!--l. 270--><p class="noindent" >
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 0.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 1.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 2.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 3.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 4.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 5.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 6.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 7.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 8.0}]}]
+  [{'id': 'foo', 'value': [{'id': 'some_string', 'value': 'some
+  string'}, {'id': 'some_float', 'value': 9.0}]}]
+]]></script></div>
+<!--l. 286--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.5   </span> <a 
- id="x19-23700017.5"></a>Connecting Producers and Consumers</h3>
-<!--l. 272--><p class="noindent" >Producers and consumers can be connected either point-to-point or through an <a 
+ id="x19-28900017.5"></a>Connecting Producers and Consumers</h3>
+<!--l. 288--><p class="noindent" >Producers and consumers can be connected either point-to-point or through an <a 
 href="mainli2.html#glo:eventchannel">Event
 Channel</a>.
-<!--l. 274--><p class="noindent" >Connecting a producer directly to a consumer does not require an <a 
-href="mainli2.html#glo:application">Application</a> and can be done in the Sandbox: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
- &gt;&gt;> from ossie.utils import sb
+<!--l. 290--><p class="noindent" >Connecting a producer directly to a consumer does not require an <a 
+href="mainli2.html#glo:application">Application</a> and can be done in the
+                                                                                         
+                                                                                         
+Sandbox: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+  &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> sb.catalog()
  ['structs_test', 'm_in', 'prop_changes', 'm_out',
  'pass']
@@ -465,26 +486,24 @@ href="mainli2.html#glo:application">Application</a> and can be done in the Sandb
  foo 1 hello
  foo 2 hello
  foo 3 hello
-                                                                                         
-                                                                                         
  foo 4 hello
  foo 5 hello
  foo 6 hello
-]]></script>
-<!--l. 294--><p class="noindent" >Connecting producers to consumers through an <a 
+]]></script></div>
+<!--l. 310--><p class="noindent" >Connecting producers to consumers through an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> requires an <a 
 href="mainli2.html#glo:application">Application</a>. An
 <a 
 href="mainli2.html#glo:application">Application</a> can also support point-to-point connections.
-<!--l. 296--><p class="noindent" >Below is a description of how to establish connections through an <a 
+<!--l. 312--><p class="noindent" >Below is a description of how to establish connections through an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-237002x1">Add producer and consumer <a 
+  class="enumerate" id="x19-289002x1">Add producer and consumer <a 
 href="mainli2.html#glo:component">Components</a>
       </li>
       <li 
-  class="enumerate" id="x19-237004x2">For point-to-point messaging, connect output <span 
+  class="enumerate" id="x19-289004x2">For point-to-point messaging, connect output <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> , <span 
 class="ectt-1200">message_out </span>in
@@ -494,14 +513,14 @@ href="mainli2.html#glo:port">Port</a> of the receive <a
 href="mainli2.html#glo:component">Component</a>.
       </li>
       <li 
-  class="enumerate" id="x19-237006x3">For messaging via an <a 
+  class="enumerate" id="x19-289006x3">For messaging via an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>, add an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> and connect to
       it
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x19-237008x1">In the <a 
+  class="enumerate" id="x19-289008x1">In the <a 
 href="mainli2.html#glo:waveform">SCA Waveform</a> Diagram, under <span 
 class="ecbx-1200">Palette </span><span 
 class="cmmi-12">&#x003E; </span><span 
@@ -516,6 +535,8 @@ class="ecbx-1200">FindBy </span>box can
 class="ecbx-1200">Domain Finder </span>and drag into <span 
 class="ecbx-1200">FindBy </span>box dropped previously
                into the diagram.
+                                                                                         
+                                                                                         
                </li>
                <li class="itemize">From the pull-down in the <span 
 class="ecbx-1200">Domain Finder </span>box, select <span 
@@ -539,18 +560,16 @@ href="mainli2.html#glo:eventchannel">Event Channel</a> <span
 class="ectt-1200">testchan</span>.</li></ul>
            </li>
            <li 
-  class="enumerate" id="x19-237010x2">Connect the Uses (Output) <span 
+  class="enumerate" id="x19-289010x2">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the sending <a 
 href="mainli2.html#glo:component">Component</a>, called
            <span 
 class="ectt-1200">message_out </span>in my example, to the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>.
-                                                                                         
-                                                                                         
            </li>
            <li 
-  class="enumerate" id="x19-237012x3">Connect the Uses (Output) <span 
+  class="enumerate" id="x19-289012x3">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the receiving <a 
 href="mainli2.html#glo:component">Component</a>, called
@@ -562,7 +581,7 @@ href="mainli2.html#glo:port">Port</a> that must be
            connected to the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>.</li></ol>
       </li></ol>
-<!--l. 313--><p class="noindent" >In this example, connections are made point-to-point and through the <a 
+<!--l. 329--><p class="noindent" >In this example, connections are made point-to-point and through the <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>. Therefore,
 for every <a 
 href="mainli2.html#glo:message">Message</a> sent, two <a 

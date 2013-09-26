@@ -21,6 +21,7 @@ SyntaxHighlighter.all()
 </script> 
  </head><body 
 >
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
 <script> 
 function f() {  
 document.getElementById('main_content_wrap').focus(); 
@@ -73,23 +74,19 @@ $ make
 $ make install
 ]]></script>
 The library is installed in <span 
-class="cmtt-12">$SDRROOT/dom/deps/gnuhawk/lib</span>. <br 
-class="newline" /><br 
-class="newline" /><span 
-class="phvb7t-x-x-120">Note: </span>For 32-bit architectures, the GNUHAWK library and Components must be installed from source due to
-the need to create a specialized build of FFTW. The standard FFTW RPM for 32-bit architectures is not built
-with Streaming SIMD Extensions (SSE) enabled. For more information about configuration command to build
+class="cmtt-12">$SDRROOT/dom/deps/gnuhawk/lib</span>.
+<!--l. 19--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For 32-bit architectures, the GNUHAWK library and Components must be installed from source due to the
+need to create a specialized build of FFTW. The standard FFTW RPM for 32-bit architectures is not built with
+Streaming SIMD Extensions (SSE) enabled. For more information about configuration command to build
 FFTW, refer to  <a 
-href="mainli2.html#x3-6000doc">Build Dependencies. </a>
-<!--l. 22--><p class="noindent" >
+href="mainli2.html#x3-6000doc">Build Dependencies. </a> </p></div></div>
+<!--l. 27--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x4-12000"></a>Building GNUHAWK Components from Source</h3>
-<!--l. 23--><p class="noindent" >To build GNUHAWK Components from source, enter the following commands: <br 
-class="newline" /><br 
-class="newline" /><span 
-class="phvb7t-x-x-120">Note: </span>The GNUHAWK library must be installed prior to running the following commands; otherwise, the build
-process fails. <br 
-class="newline" /><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 28--><p class="noindent" >To build GNUHAWK Components from source, enter the following commands:
+<!--l. 30--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The GNUHAWK library must be installed prior to running the following commands; otherwise, the build
+process fails. </p></div></div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ rpm2cpio gnuhawk-components-<version>.<os>.src.rpm | cpio -idmv
 $ tar zxvf gnuhawk-components-<version>.tar.gz
 $ cd gnuhawk-components-<version>
@@ -103,9 +100,11 @@ The Components are installed in <span
 class="cmtt-12">$SDRROOT/dom/components/gnuhawk</span>.
                                                                                                        
                                                                                                        
+                                                                                                       
+                                                                                                       
 <h3 class="likesectionHead"><a 
  id="x4-13000"></a>Directory Structure of GNUHAWK Source</h3>
-<!--l. 42--><p class="noindent" >The GNUHAWK source is structured as follows:
+<!--l. 48--><p class="noindent" >The GNUHAWK source is structured as follows:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="cmtt-12">components </span>contains the GNUHAWK Components.
