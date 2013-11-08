@@ -81,9 +81,9 @@ href="mainli2.html#glo:devicemanager">Device Manager</a>
 program hosts an instance of a <span 
 class="ectt-1200">DeviceManager </span>object and an instance of a File System. The only
 reason why the major classes making up these programs are imported is because their <a 
-href="mainap8.html#api">API</a> is
+href="mainap9.html#api">API</a> is
 remotely available, so a user can arbitrarily interact with these objects. Irrespective of their <a 
-href="mainap8.html#api">API</a>,
+href="mainap9.html#api">API</a>,
 these objects will exclusively reside in either the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> or <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>
@@ -112,7 +112,7 @@ Manager</a>.
 href="mainli2.html#glo:domainmanager">Domain Manager</a> program:
       <ul class="itemize1">
       <li class="itemize">receives an <a 
-href="mainap8.html#xml">XML</a> file describing a <a 
+href="mainap9.html#xml">XML</a> file describing a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> that is to be deployed.
       </li>
       <li class="itemize">scans all running <a 
@@ -142,24 +142,24 @@ href="mainli2.html#glo:application">Applications</a> appropriately.</li></ul>
 <h4 class="subsectionHead"><span class="titlemark">10.1.1   </span> <a 
  id="x12-14800010.1.1"></a>Launching a Domain</h4>
 <!--l. 38--><p class="noindent" >If REDHAWK was installed from <a 
-href="mainap8.html#rpm">RPM</a>, a <a 
+href="mainap9.html#rpm">RPM</a>, a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> are ready for
 immediate use on the <span 
 class="ectt-1200">localhost</span>. To run using a default <a 
 href="mainli2.html#glo:domain">Domain</a> in the <a 
-href="mainap8.html#ide">IDE</a>, follow these
+href="mainap9.html#ide">IDE</a>, follow these
 steps:
 <!--l. 41--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x12-148002x1">In the <a 
-href="mainap8.html#sca"><span 
+href="mainap9.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer </span>view (by default on the right-side of the window) right-click
       the <span 
 class="ecbx-1200">Target </span><a 
-href="mainap8.html#sdr"><span 
+href="mainap9.html#sdr"><span 
 class="ecbx-1200">SDR</span></a> element and select <span 
 class="ecbx-1200">Launch...</span>, as seen in  <a 
 href="#x12-148003r1">Figure 10.1</a>.
@@ -207,7 +207,7 @@ class="content">Device Manager Selection</td></tr></table><!--tex4ht:label?: x12
 <!--l. 66--><p class="noindent" >This will launch both a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and a <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> that manages a single <a 
-href="mainap8.html#gpp">GPP</a>
+href="mainap9.html#gpp">GPP</a>
 <a 
 href="mainli2.html#glo:device">Device</a>. The output from both the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
@@ -248,7 +248,7 @@ class="content">Location of console switcher</td></tr></table><!--tex4ht:label?:
 <!--l. 79--><p class="noindent" >A <a 
 href="mainli2.html#glo:domain">Domain</a> connection called <span 
 class="ecbx-1200">REDHAWK_DEV </span>in the <a 
-href="mainap8.html#sca"><span 
+href="mainap9.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer </span>view should be visible,
 as seen in  <a 
@@ -274,7 +274,7 @@ src="images/running_domain.png" alt="PIC"
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;10.4: </td><td  
 class="content"><a 
 href="mainli2.html#glo:domain">Domain</a> connections shown on <a 
-href="mainap8.html#ide">IDE</a></td></tr></table><!--tex4ht:label?: x12-148010r4 -->
+href="mainap9.html#ide">IDE</a></td></tr></table><!--tex4ht:label?: x12-148010r4 -->
                                                                                          
                                                                                          
 <!--l. 88--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
@@ -298,7 +298,7 @@ processes that have been started.
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x12-149002x1">In the <a 
-href="mainap8.html#sca"><span 
+href="mainap9.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer </span>view right-click the <span 
 class="ecbx-1200">REDHAWK_DEV </span><a 
@@ -376,7 +376,7 @@ href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a
 href="mainli2.html#glo:devicemanager">Device Manager</a> processes should no longer exist on the host. The
 <a 
 href="mainli2.html#glo:domain">Domain</a> entry will remain in the <a 
-href="mainap8.html#sca"><span 
+href="mainap9.html#sca"><span 
 class="ecbx-1200">SCA</span></a> <span 
 class="ecbx-1200">Explorer </span>view with a <span 
 class="ecbx-1200">DISCONNECTED </span>state
@@ -384,12 +384,12 @@ indicating that the <a
 href="mainli2.html#glo:domain">Domain</a> is no longer visible. This decoupling of the running <a 
 href="mainli2.html#glo:domain">Domain</a> from the
 environment is there to allow the <a 
-href="mainap8.html#sca">SCA</a> Explorer to interact with an arbitrary number
+href="mainap9.html#sca">SCA</a> Explorer to interact with an arbitrary number
 of <a 
 href="mainli2.html#glo:domain">Domains</a> on a network where each <a 
 href="mainli2.html#glo:domain">Domain</a>&#8217;s life cycle is outside the control of the
 <a 
-href="mainap8.html#ide">IDE</a>.
+href="mainap9.html#ide">IDE</a>.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

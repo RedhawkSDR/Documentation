@@ -128,7 +128,7 @@ href="mainli2.html#glo:component">Component</a> can
 have zero to many input and output <a 
 href="mainli2.html#glo:port">Ports</a> which are specified in the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap8.html#scd">SCD</a>
+href="mainap9.html#scd">SCD</a>
 file.
 <!--l. 31--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.3   </span> <a 
@@ -139,7 +139,7 @@ class="ectt-1200">configure() </span>and <span
 class="ectt-1200">query() </span>methods. The <span 
 class="ectt-1200">configure()</span>
 method takes in a list of <a 
-href="mainap8.html#id">ID</a> and value pairs and attempts to set them. An Invalid Configuration
+href="mainap9.html#id">ID</a> and value pairs and attempts to set them. An Invalid Configuration
 error is thrown if no <a 
 href="mainli2.html#glo:property">Properties</a> in the list are able to be set. A Partial Configuration error is
 thrown if at least one, but not all <a 
@@ -153,7 +153,7 @@ class="ectt-1200">query() </span>method is passed an empty list, it returns all 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:property">Properties</a>. Otherwise, it will return any valid <a 
 href="mainli2.html#glo:property">Properties</a> based on the <a 
-href="mainap8.html#id">ID</a> and value
+href="mainap9.html#id">ID</a> and value
 pair passed in as a parameter.
 <!--l. 41--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.4   </span> <a 
@@ -162,7 +162,7 @@ pair passed in as a parameter.
 class="ectt-1200">runTest() </span>is defined to provide a means to perform stand-alone
 testing of a <a 
 href="mainli2.html#glo:component">Component</a>. Test <a 
-href="mainap8.html#id">ID</a>s and a set of test values are passed in as parameters, with the test
+href="mainap9.html#id">ID</a>s and a set of test values are passed in as parameters, with the test
 results returned in the test values parameter. This method gives the <a 
 href="mainli2.html#glo:component">Component</a> the ability to
 be &#8220;black box&#8221; tested where an input is provided in an attempt to match the actual
@@ -185,65 +185,63 @@ class="ectt-1200">CF::LifeCycle</span></h4>
 class="ectt-1200">initialize()</span></h5>
 <!--l. 53--><p class="noindent" ><span 
 class="ecbx-1200">C++</span>
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 try {
      this->initialize();
 } catch (CF::LifeCycle::InitializeError e){
      // error reporting
 }
 
-]]></script>
+]]></script></div>
 <!--l. 64--><p class="noindent" ><span 
 class="ecbx-1200">Python</span>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
      self.initialize()
 except:
      # error reporting
-]]></script>
+]]></script></div>
 <!--l. 73--><p class="noindent" ><span 
 class="ecbx-1200">Java</span>
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 try {
      this.initialize();
 } catch (InitializeError e) {
      // error reporting
 }
-]]></script>
-                                                                                         
-                                                                                         
+]]></script></div>
 <!--l. 83--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x14-18200012.3.1"></a><span 
 class="ectt-1200">releaseObject()</span></h5>
+                                                                                         
+                                                                                         
 <!--l. 85--><p class="noindent" ><span 
 class="ecbx-1200">C++</span>
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 try {
      this->releaseObject();
 } catch (CF::LifeCycle::ReleaseError e){
      // error reporting
 }
-]]></script>
+]]></script></div>
 <!--l. 95--><p class="noindent" ><span 
 class="ecbx-1200">Python</span>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
      self.releaseObject()
 except:
      # error reporting
-]]></script>
+]]></script></div>
 <!--l. 104--><p class="noindent" ><span 
 class="ecbx-1200">Java</span>
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 try {
      this.releaseObject();
 } catch (ReleaseError e) {
      // error reporting
 }
-]]></script>
-                                                                                         
-                                                                                         
+]]></script></div>
 <!--l. 114--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.2   </span> <a 
  id="x14-18300012.3.2"></a><span 
@@ -254,32 +252,32 @@ class="ectt-1200">CF::PortSupplier</span></h4>
 class="ectt-1200">getPort()</span></h5>
 <!--l. 118--><p class="noindent" ><span 
 class="ecbx-1200">C++</span>
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 try {
      CORBA::Object_var port = this->getPort("my_port");
 } catch (CF::PortSupplier::UnknownPort e){
      // error reporting
 }
-]]></script>
+]]></script></div>
 <!--l. 128--><p class="noindent" ><span 
 class="ecbx-1200">Python</span>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
      port = self.getPort("my_port")
 except:
      # error reporting
-]]></script>
+]]></script></div>
 <!--l. 137--><p class="noindent" ><span 
 class="ecbx-1200">Java</span>
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 try {
      org.omg.CORBA.Object port = this.getPort("my_port");
 } catch (UnknownPort e) {
      // error reporting
 }
-]]></script>
-                                                                                         
-                                                                                         
+]]></script></div>
 <!--l. 147--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.3   </span> <a 
  id="x14-18500012.3.3"></a><span 
@@ -290,7 +288,9 @@ class="ectt-1200">CF::PropertySet</span></h4>
 class="ectt-1200">configure()</span></h5>
 <!--l. 153--><p class="noindent" ><span 
 class="ecbx-1200">C++</span>
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CF::Properties props;
 props.length(2);
 
@@ -311,21 +311,21 @@ try {
 } catch (CF::PropertySet::PartialConfiguration e) {
      // error reporting
 }
-]]></script>
-                                                                                         
-                                                                                         
+]]></script></div>
 <!--l. 178--><p class="noindent" ><span 
 class="ecbx-1200">Python</span>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 prop = CF.DataType(id="prop", value=CORBA.Any(CORBA.TC_long, 1))
 try:
      self.configure([prop])
 except:
      # error reporting
-]]></script>
+]]></script></div>
 <!--l. 188--><p class="noindent" ><span 
 class="ecbx-1200">Java</span>
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 DataType[] props = new DataType[2];
 props[0] = new DataType("prop",
      AnyUtils.toAny("my prop", TCKind.tk_string));
@@ -339,16 +339,14 @@ try {
 } catch (PartialConfiguration e) {
      // error reporting
 }
-]]></script>
+]]></script></div>
 <!--l. 206--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x14-18700012.3.3"></a><span 
 class="ectt-1200">query()</span></h5>
 <!--l. 208--><p class="noindent" ><span 
 class="ecbx-1200">C++</span>
-                                                                                         
-                                                                                         
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CF::Properties props;
 try {
   // queries all properties
@@ -360,10 +358,12 @@ try {
 } catch (CF::UnknownProperties e) {
   // error reporting
 }
-]]></script>
+]]></script></div>
 <!--l. 224--><p class="noindent" ><span 
 class="ecbx-1200">Python</span>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 try:
   # queries all properties
   props = self.query([])
@@ -372,16 +372,14 @@ try:
      print prop.id
 except:
   # error reporting
-]]></script>
+]]></script></div>
 <!--l. 237--><p class="noindent" ><span 
 class="ecbx-1200">Java</span>
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 PropertiesHolder props =
      new PropertiesHolder(new CF.DataType[0]);
 try {
      // queries all properties
-                                                                                         
-                                                                                         
      this.query(props);
      for (int i = 0; i < props.value.length; i ++){
          // iterates through returned properties and prints ids
@@ -390,7 +388,7 @@ try {
 } catch (UnknownProperties e1) {
      // error reporting
 }
-]]></script>
+]]></script></div>
 <!--l. 254--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.3.4   </span> <a 
  id="x14-18800012.3.4"></a><span 
@@ -401,7 +399,9 @@ class="ectt-1200">CF::TestableObject</span></h4>
 class="ectt-1200">runTest()</span></h5>
 <!--l. 258--><p class="noindent" ><span 
 class="ecbx-1200">C++</span>
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CF::Properties props;
 props.length(1);
 
@@ -413,25 +413,23 @@ props[0] = test_var;
 try {
      this->runTest(0, props);
 } catch (CF::TestableObject::UnknownTest e) {
-                                                                                         
-                                                                                         
      // error reporting
 } catch (CF::UnknownProperties e){
      // error reporting
 }
-]]></script>
+]]></script></div>
 <!--l. 278--><p class="noindent" ><span 
 class="ecbx-1200">Python</span>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 prop = CF.DataType(id="prop", value=CORBA.Any(CORBA.TC_long, 1))
 try:
   self.runTest(0, [prop])
 except:
   # error reporting
-]]></script>
+]]></script></div>
 <!--l. 288--><p class="noindent" ><span 
 class="ecbx-1200">Java</span>
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
 DataType[] props = new DataType[1];
 props[0] = new DataType("prop",
      AnyUtils.toAny("my prop", TCKind.tk_string));
@@ -443,7 +441,9 @@ try {
 } catch (UnknownProperties e) {
      // error reporting
 }
-]]></script>
+]]></script></div>
+                                                                                         
+                                                                                         
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

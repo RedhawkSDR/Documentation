@@ -57,11 +57,11 @@ href="main.html#mainch2.html" >up</a>] </p></div>
 <h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
  id="x4-70002.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This chapter discusses the process of installing the Core Framework, the <a 
-href="mainap8.html#ide">IDE</a>, and the Basic
+href="mainap9.html#ide">IDE</a>, and the Basic
 Components. The Core Framework is the software back-end of REDHAWK. The <a 
-href="mainap8.html#ide">IDE</a> is a
+href="mainap9.html#ide">IDE</a> is a
 Graphical User Interface (<a 
-href="mainap8.html#gui">GUI</a>) for development and use of REDHAWK systems. The Basic
+href="mainap9.html#gui">GUI</a>) for development and use of REDHAWK systems. The Basic
 Components are building blocks that developers can use to create radio algorithms.
 <!--l. 11--><p class="noindent" >Complete installation of REDHAWK consists of the following steps:
       <ol  class="enumerate1" >
@@ -73,7 +73,7 @@ Components are building blocks that developers can use to create radio algorithm
       </li>
       <li 
   class="enumerate" id="x4-7006x3">Installing the <a 
-href="mainap8.html#ide">IDE</a>
+href="mainap9.html#ide">IDE</a>
       </li>
       <li 
   class="enumerate" id="x4-7008x4">Installing Basic Components
@@ -87,63 +87,69 @@ href="mainap8.html#ide">IDE</a>
 installing the Core Framework (depending on the permissions of the installation target
 directory).
 <!--l. 22--><p class="noindent" >It is recommended that users install from Red Hat Package Managers (<a 
-href="mainap8.html#rpm">RPM</a>s), but advanced users
+href="mainap9.html#rpm">RPM</a>s), but advanced users
 who desire custom functionality may also install from source. If installing from source, refer to
 <a 
 href="mainap4.html#x30-346000D">Section D</a> after installing dependencies.
 <!--l. 25--><p class="noindent" >REDHAWK installation is supported for Red Hat Enterprise Linux or Community Enterprise
 Operating System (<a 
-href="mainap8.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions. A developer
+href="mainap9.html#centos">CentOS</a>) versions 5 and 6, for both 32-bit and 64-bit versions. A developer
 install of Red Hat Enterprise Linux or <a 
-href="mainap8.html#centos">CentOS</a> is recommended.
+href="mainap9.html#centos">CentOS</a> is recommended.
+<!--l. 29--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you are running RHEL/<a 
+href="mainap9.html#centos">CentOS</a> 6.4, you must ensure the latest updates have been applied to
+your systems. A bug in the boost libraries was present in the initial release of 6.4 that causes
                                                                                          
                                                                                          
-<!--l. 29--><p class="noindent" >
+compilation errors when developing for REDHAWK. If it is not possible for you to apply the latest
+updates, refer to <a 
+href="mainap8.html#x34-392000H">Section H</a>. </p></div></div>
+<!--l. 35--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
  id="x4-80002.2"></a>Installing Dependencies</h3>
-<!--l. 30--><p class="noindent" >REDHAWK has several third-party dependencies; installation can be accomplished using a few <span 
-class="ectt-1200">yum</span>
-commands. The list of dependencies that are either required or recommended is included
-in the REDHAWK distribution dependencies tarball is presented in Section <a 
+<!--l. 36--><p class="noindent" >REDHAWK has several third-party dependencies; installation can be accomplished using a few
+<span 
+class="ectt-1200">yum </span>commands. The list of dependencies that are either required or recommended is
+included in the REDHAWK distribution dependencies tarball is presented in  <a 
 href="mainap3.html#x29-344000C.2">Section
 C.2</a>.
-<!--l. 32--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In Red Hat/<a 
-href="mainap8.html#centos">CentOS</a> 5, the <a 
-href="mainap8.html#epel">EPEL</a> repository must be added to the list of <span 
+<!--l. 38--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In Red Hat/<a 
+href="mainap9.html#centos">CentOS</a> 5, the <a 
+href="mainap9.html#epel">EPEL</a> repository must be added to the list of <span 
 class="ectt-1200">yum </span>repositories that are
 searched. For instructions on how to add <a 
-href="mainap8.html#epel">EPEL</a> to the <span 
-class="ectt-1200">yum </span>search, see <a 
+href="mainap9.html#epel">EPEL</a> to the <span 
+class="ectt-1200">yum </span>search, refer to <a 
 href="mainap3.html#x29-343000C.1">Section C.1</a>. </p></div></div>
-<!--l. 37--><p class="noindent" >To install all of the required and recommended packages, use the following commands:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 43--><p class="noindent" >To install all of the required and recommended packages, use the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ tar xzvf redhawk-deps-yum-<dist>-<arch>.tar.gz
 $ cd redhawk-deps/<dist>/<arch>/
 $ sudo yum localinstall --nogpgcheck *.rpm
-]]></script>
-<!--l. 45--><p class="noindent" >Where <span 
+]]></script></div>
+<!--l. 51--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;dist&#x003E; </span>and <span 
 class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated Linux distribution and architecture
 respectively. To install a subset of the dependencies, simply list out the desired <span 
 class="ectt-1200">rpm </span>files in place of
 <span 
 class="ectt-1200">*.rpm</span>.
-<!--l. 50--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> On Red Hat Enterprise Linux 6 and CentOS 6, once these packages have been installed, do not
+<!--l. 56--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> On Red Hat Enterprise Linux 6 and CentOS 6, once these packages have been installed, do not
 update Boost, as doing so will update Boost to a version that is incompatible with REDHAWK. </p></div></div>
                                                                                          
                                                                                          
-<!--l. 57--><p class="noindent" >
+<!--l. 63--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
  id="x4-90002.3"></a>Installing the Framework from RPMs</h3>
-<!--l. 59--><p class="noindent" >To install the Core Framework, use the following commands:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 65--><p class="noindent" >To install the Core Framework, use the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
 $ cd redhawk-yum-<version>-<dist>-<arch>
 $ sudo yum localinstall --nogpgcheck *.rpm
 $ source ~/.bashrc
 $ sudo chown -R <user name>.<user name> $SDRROOT
-]]></script>
-<!--l. 69--><p class="noindent" >Where <span 
+]]></script></div>
+<!--l. 75--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;version&#x003E;</span>, <span 
 class="ectt-1200">&#x003C;dist&#x003E;</span>, and <span 
 class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated REDHAWK version, Linux
@@ -155,67 +161,67 @@ discretion of the system administrator, is to use Linux user groups for controll
 ownership. For a list of the packages making up the REDHAWK installation, see <a 
 href="mainap5.html#x31-351000E">Appendix
 E</a>.
-<!--l. 79--><p class="noindent" >
+<!--l. 85--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
  id="x4-100002.4"></a>Installing the IDE</h3>
-<!--l. 81--><p class="noindent" >The REDHAWK IDE leverages JAVA technologies and for the best JAVA experience a minimum
+<!--l. 87--><p class="noindent" >The REDHAWK IDE leverages JAVA technologies and for the best JAVA experience a minimum
 of 2GB of RAM is recommended. Installing the REDHAWK <a 
-href="mainap8.html#ide">IDE</a> is a simple matter of unzipping
+href="mainap9.html#ide">IDE</a> is a simple matter of unzipping
 the appropriate installation file. Locate the appropriate zip file, and run the following command
 (where &#x003C;version&#x003E; is the version of the REDHAWK <a 
-href="mainap8.html#ide">IDE</a> and &#x003C;arch&#x003E; is either x86 (for 32-bit
+href="mainap9.html#ide">IDE</a> and &#x003C;arch&#x003E; is either x86 (for 32-bit
 systems) or x86_64 (for 64-bit systems)):
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ unzip redhawk-ide-<version>-linux.gtk.<arch>.zip
-]]></script>
-<!--l. 93--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In order to develop and run Java based components within the <a 
-href="mainap8.html#ide">IDE</a>, the environment variable
+]]></script></div>
+<!--l. 99--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In order to develop and run Java based components within the <a 
+href="mainap9.html#ide">IDE</a>, the environment variable
 JAVA_HOME must be set and JAVA_HOME/bin should be added to the PATH. Putting this in
-                                                                                         
-                                                                                         
 the bashrc file is recommended.
-<!--l. 98--><p class="noindent" >The location of JAVA_HOME depends on where Java is installed and will be based on the
+<!--l. 104--><p class="noindent" >The location of JAVA_HOME depends on where Java is installed and will be based on the
+                                                                                         
+                                                                                         
 system configuration. An example using the default location of JAVA_HOME is shown
 below.
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ export JAVA_HOME=/usr/java/default
 $ export PATH=$JAVA_HOME:$PATH
-]]></script>
+]]></script></div>
 </p></div></div>
-<!--l. 109--><p class="noindent" >
+<!--l. 115--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
  id="x4-110002.5"></a>Installing the Basic Components</h3>
-<!--l. 111--><p class="noindent" >To install the Basic Components, use the following command:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 117--><p class="noindent" >To install the Basic Components, use the following command:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ sudo yum localinstall --nogpgcheck redhawk-basic-components-<version>.rpm
-]]></script>
-<!--l. 117--><p class="noindent" >Where <span 
+]]></script></div>
+<!--l. 123--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;version&#x003E; </span>corresponds to the associated REDHAWK version, Linux distribution, and
 architecture.
-<!--l. 120--><p class="noindent" >
+<!--l. 126--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
  id="x4-120002.6"></a>Configuring omniORB</h3>
-<!--l. 121--><p class="noindent" >The omniORB configuration file, <span 
+<!--l. 127--><p class="noindent" >The omniORB configuration file, <span 
 class="ectt-1200">/etc/omniORB.cfg </span>needs to be edited to provide information
 about how to reach the Common Object Request Broker Architecture (<a 
-href="mainap8.html#corba">CORBA</a>) Naming Service
+href="mainap9.html#corba">CORBA</a>) Naming Service
 and Event Service. Open the file and add the following lines in the <span 
 class="ectt-1200">InitRef </span>section (this may
 require root permissions):
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = NameService=corbaname::127.0.0.1
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
-                                                                                         
-                                                                                         
-]]></script>
-<!--l. 129--><p class="noindent" >After the file has been edited, the <span 
+]]></script></div>
+<!--l. 135--><p class="noindent" >After the file has been edited, the <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>services need to be started (note
 that this requires root permissions):
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ sudo /sbin/service omniNames start
 $ sudo /sbin/service omniEvents restart
-]]></script>
+]]></script></div>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

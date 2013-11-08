@@ -76,37 +76,37 @@ class="ecbx-1200">Note: </span>Root permissions are required to perform the foll
       <li 
   class="enumerate" id="x32-354002x1">In the omiORB configuration file (/etc/omniORB.cfg), set the endpoints where the
       server is listening by adding the following lines to the endPoint section of the file:
-      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-      endPoint = giop:tcp:127.0.0.1:
-               = giop:tcp:<computer IP address>:
-               = giop:unix
-      ]]></script>
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+endPoint = giop:tcp:127.0.0.1:
+         = giop:tcp:<computer IP address>:
+         = giop:unix:
+]]></script></div>
       </li>
       <li 
   class="enumerate" id="x32-354004x2">Set the endpoints that are published in an object&#8217;s <a 
-href="mainap8.html#ior">IOR</a> by adding the following lines to the
-                                                                                         
-                                                                                         
+href="mainap9.html#ior">IOR</a> by adding the following lines to the
       endPointPublish section of the file:
-      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-      endPointPublish = all(addr)
-      ]]></script>
+                                                                                         
+                                                                                         
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+endPointPublish = all(addr)
+]]></script></div>
       <!--l. 33--><p class="noindent" >After changing these settings, the name and event services must be reset, and their
       associated log files must be deleted. If the log files are not deleted, they preserve <a 
-href="mainap8.html#ior">IOR</a>s that
+href="mainap9.html#ior">IOR</a>s that
       are no longer valid.
       </li>
       <li 
   class="enumerate" id="x32-354006x3">Use the following commands to reset the name and event services and delete the associated
       files:
-      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-      # /etc/init.d/omniEvents stop
-      # /etc/init.d/omniNames stop
-      # rm -f /var/lib/omniEvents/*
-      # rm -f /var/omniNames/*
-      # /etc/init.d/omniNames start
-      # /etc/init.d/omniEvents start
-      ]]></script>
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+# /etc/init.d/omniEvents stop
+# /etc/init.d/omniNames stop
+# rm -f /var/lib/omniEvents/*
+# rm -f /var/omniNames/*
+# /etc/init.d/omniNames start
+# /etc/init.d/omniEvents start
+]]></script></div>
       </li>
       <li 
   class="enumerate" id="x32-354008x4">To verify that Linux Domain Sockets are being used, go to /tmp, and verify that the
@@ -119,18 +119,18 @@ href="mainap8.html#ior">IOR</a>s that
 <h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
  id="x32-355000F.3"></a>Packet Transfer Size</h3>
 <!--l. 53--><p class="noindent" >REDHAWK transfers data using <a 
-href="mainap8.html#bulkio">BulkIO</a>, which is an <a 
-href="mainap8.html#rpc">RPC</a> mechanism. The size of the data
+href="mainap9.html#bulkio">BulkIO</a>, which is an <a 
+href="mainap9.html#rpc">RPC</a> mechanism. The size of the data
 sequence that is passed on each of these calls has an effect on the data rate. The size of the transfer
 is not controlled by the REDHAWK runtime environment; instead, data producers can pass any
 arbitrary length less than <span 
 class="ectt-1200">giopMaxMsgSize</span>.
-                                                                                         
-                                                                                         
 <!--l. 55--><p class="noindent" >To demonstrate how throughput is affected by the configuration of omniORB and data
 transfer size, tests were performed on a system with the specifications shown in  <a 
 href="#x32-355000F.3">Table
 F.3</a>.
+                                                                                         
+                                                                                         
 <div class="table">
                                                                                          
                                                                                          
@@ -192,7 +192,7 @@ src="optimization/loopback.jpg" alt="PIC"
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.1: </td><td  
 class="content">Throughput for <a 
-href="mainap8.html#bulkio">BulkIO</a> When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x32-355001r1 -->
+href="mainap9.html#bulkio">BulkIO</a> When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x32-355001r1 -->
                                                                                          
                                                                                          
 <!--l. 84--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
@@ -224,14 +224,14 @@ src="optimization/linux_domain_sockets.jpg" alt="PIC"
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.2: </td><td  
 class="content">Throughput for <a 
-href="mainap8.html#bulkio">BulkIO</a> When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x32-355002r2 -->
+href="mainap9.html#bulkio">BulkIO</a> When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x32-355002r2 -->
                                                                                          
                                                                                          
 <!--l. 95--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
  id="x32-356000F.4"></a>Messaging Latency</h3>
 <!--l. 99--><p class="noindent" >Much like <a 
-href="mainap8.html#bulkio">BulkIO</a>, messaging is subject to performance issues as the transfer size changes. Testing
+href="mainap9.html#bulkio">BulkIO</a>, messaging is subject to performance issues as the transfer size changes. Testing
 was performed to determine the impact of message size on the latency per message. The size of the
 message was modified and the latency per message was measured. The average latency was
 measured for sets of 1000 messages.  <a 

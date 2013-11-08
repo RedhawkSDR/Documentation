@@ -62,9 +62,9 @@ href="mainli2.html#glo:application">Applications</a> and radio hardware. This ap
 2.0 compatible <a 
 href="mainli2.html#glo:device">Device</a>, explains best-practices, and provides advice for development. The appendix
 is not intended to be an <a 
-href="mainap8.html#api">API</a> reference for the FrontEnd Interfaces or an exhaustive
+href="mainap9.html#api">API</a> reference for the FrontEnd Interfaces or an exhaustive
 description of the <a 
-href="mainap8.html#idl">IDL</a>s, but more as an additional resource to which developers may
+href="mainap9.html#idl">IDL</a>s, but more as an additional resource to which developers may
 refer.
 <!--l. 9--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">G.1.1   </span> <a 
@@ -74,8 +74,8 @@ tuner <a
 href="mainli2.html#glo:device">Devices</a> within the REDHAWK Core Framework. These tuner <a 
 href="mainli2.html#glo:device">Devices</a> could consist of Radio
 Frequency (<a 
-href="mainap8.html#rf">RF</a>), Intermediate Frequency (<a 
-href="mainap8.html#if">IF</a>), or purely digital tuning equipment or software.
+href="mainap9.html#rf">RF</a>), Intermediate Frequency (<a 
+href="mainap9.html#if">IF</a>), or purely digital tuning equipment or software.
 Explicit types for tuners have been defined in  <a 
 href="#x33-361000G.2">Section G.2</a>, so that <a 
 href="mainli2.html#glo:device">Devices</a> can be easily
@@ -158,25 +158,25 @@ descriptions.
 <h4 class="subsectionHead"><span class="titlemark">G.2.1   </span> <a 
  id="x33-362000G.2.1"></a>RX Tuner</h4>
 <!--l. 44--><p class="noindent" >A simple receiver or RX tuner is an <a 
-href="mainap8.html#rf">RF</a> to <a 
-href="mainap8.html#if">IF</a> conversion only. This conversion implies
+href="mainap9.html#rf">RF</a> to <a 
+href="mainap9.html#if">IF</a> conversion only. This conversion implies
 an analog to analog translation, typically down-converting an <a 
-href="mainap8.html#rf">RF</a> signal to a new <a 
-href="mainap8.html#if">IF</a>.
+href="mainap9.html#rf">RF</a> signal to a new <a 
+href="mainap9.html#if">IF</a>.
 <a 
 href="mainli2.html#glo:device">Devices</a> often will have multiple RX <a 
 href="mainli2.html#glo:device">Devices</a> corresponding to each of the independent
 analog channels provided. Single channels that have selectable <a 
-href="mainap8.html#rf">RF</a> input ports should
+href="mainap9.html#rf">RF</a> input ports should
 be represented as a single RX tuner and utilize an <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a> to select between the
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a> to select between the
 input options. For more information about RF Flow IDs, refer to Section F.3.1  <a 
 href="#x33-373000G.3.1">Section
 G.3.1</a>.
 <!--l. 49--><p class="noindent" >RX <a 
 href="mainli2.html#glo:device">Devices</a> that output digital-<a 
-href="mainap8.html#if">IF</a> (SDDS, VITA-49, etc.) are considered RX_DIGITIZERS, which
+href="mainap9.html#if">IF</a> (SDDS, VITA-49, etc.) are considered RX_DIGITIZERS, which
 are a distinct tuner type and should be classified as such.
 <!--l. 51--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">G.2.2   </span> <a 
@@ -184,18 +184,18 @@ are a distinct tuner type and should be classified as such.
 <!--l. 52--><p class="noindent" >An RX_DIGITIZER tuner is an RX <a 
 href="mainli2.html#glo:device">Device</a> that also samples the analog data and provides it as a
 digitized stream. The stream can be either real samples (typically referred to as digital-<a 
-href="mainap8.html#if">IF</a>) or
+href="mainap9.html#if">IF</a>) or
 complex baseband data. Multiple RX_DIGITIZER channels in a singular physical device should
 be treated like RX <a 
 href="mainli2.html#glo:device">Devices</a>, including using the <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a> to differentiate between which external
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a> to differentiate between which external
 <a 
-href="mainap8.html#rf">RF</a> source to use.
+href="mainap9.html#rf">RF</a> source to use.
                                                                                          
                                                                                          
 <!--l. 54--><p class="noindent" >RX_DIGITIZER tuners can also optionally provide access to the analog <a 
-href="mainap8.html#if">IF</a> output. If
+href="mainap9.html#if">IF</a> output. If
 the <a 
 href="mainli2.html#glo:device">Device</a> in question provides access to the analog IF output, an additional analog
 output port should be added to the <a 
@@ -211,7 +211,7 @@ href="mainli2.html#glo:device">Devices</a> act as a token to allocate and contro
 the wideband input, which then can have individual narrowband channels allocated
 as well. Each of these narrowband tuners are their own tuner of type Digital Down
 Converter (<a 
-href="mainap8.html#ddc">DDC</a>).
+href="mainap9.html#ddc">DDC</a>).
 <!--l. 62--><p class="noindent" >CHANNELIZER tuners must maintain a one-to-one relationship with the digital wideband inputs.
 It is also important to remember that each <a 
 href="mainli2.html#glo:device">Device</a> can only support one digital input port, and
@@ -220,37 +220,37 @@ href="mainli2.html#glo:device">Device</a> has more than one
 CHANNELIZER capability, it should be represented as multiple logical REDHAWK devices.
 In the case of a <a 
 href="mainli2.html#glo:device">Device</a> with multiple CHANNELIZER tuners, <a 
-href="mainap8.html#ddc">DDC</a>s can be assigned
+href="mainap9.html#ddc">DDC</a>s can be assigned
 based upon <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a> with each unique CHANNELIZER tuner having a unique Flow
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a> with each unique CHANNELIZER tuner having a unique Flow
 <a 
-href="mainap8.html#id">ID</a>.
+href="mainap9.html#id">ID</a>.
 <!--l. 67--><p class="noindent" >To establish control over the input to the CHANNELIZER and to allow users to understand if they
 have the ability to attach a new stream to the wideband input, a CHANNELIZER tuner must be
 allocated prior to allocating <a 
-href="mainap8.html#ddc">DDC</a> tuners. Changing the CHANNELIZER input can cause attached
+href="mainap9.html#ddc">DDC</a> tuners. Changing the CHANNELIZER input can cause attached
 <a 
-href="mainap8.html#ddc">DDC</a> tuners to be dropped.
+href="mainap9.html#ddc">DDC</a> tuners to be dropped.
 <!--l. 69--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">G.2.4   </span> <a 
  id="x33-365000G.2.4"></a>DDC Tuner</h4>
 <!--l. 70--><p class="noindent" ><a 
-href="mainap8.html#ddc">DDC</a> tuners provide a narrowband output from an existing channelizer capability. These narrowband
+href="mainap9.html#ddc">DDC</a> tuners provide a narrowband output from an existing channelizer capability. These narrowband
 channels are typically selectable in terms of the center frequency and bandwidth/sample rate
 within the constraints of the wideband input to the channelizer.
 <!--l. 73--><p class="noindent" >Allocating a <a 
-href="mainap8.html#ddc">DDC</a> tuner against a <a 
+href="mainap9.html#ddc">DDC</a> tuner against a <a 
 href="mainli2.html#glo:device">Device</a> with multiple CHANNELIZER (or
 RX_DIGITIZER_CHANNLEIZER) tuners can specify which tuner to use in two different ways.
 One method is to specify an <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a> of the specific CHANNELIZER to be allocated against.
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a> of the specific CHANNELIZER to be allocated against.
 The other method is to allow the <a 
 href="mainli2.html#glo:device">Device</a> to match by using the requested center frequency and/or
 bandwidth/sample rate. The <a 
 href="mainli2.html#glo:device">Device</a> will match the <a 
-href="mainap8.html#ddc">DDC</a> to the first channelizer capability that
+href="mainap9.html#ddc">DDC</a> to the first channelizer capability that
                                                                                          
                                                                                          
 meets those criteria.
@@ -259,16 +259,16 @@ meets those criteria.
  id="x33-366000G.2.5"></a>RX_DIGITZER_CHANNELIZER Tuner</h4>
 <!--l. 79--><p class="noindent" >The RX_DIGITIZER_CHANNELIZER tuner is a combination of an RX_DIGITIZER and
 CHANNELIZER capability into a single tuner type. Input is through an analog <a 
-href="mainap8.html#rf">RF</a> input port,
+href="mainap9.html#rf">RF</a> input port,
 and output is through <a 
-href="mainap8.html#ddc">DDC</a> tuners.
+href="mainap9.html#ddc">DDC</a> tuners.
 <!--l. 82--><p class="noindent" >RX_DIGITIZER_CHANNELIZER tuners have the optional ability to output both analog <a 
-href="mainap8.html#if">IF</a> as
+href="mainap9.html#if">IF</a> as
 well as digital<a 
-href="mainap8.html#if">IF</a> data. The analog <a 
-href="mainap8.html#if">IF</a> ports are represented just like the output of an RX or
+href="mainap9.html#if">IF</a> data. The analog <a 
+href="mainap9.html#if">IF</a> ports are represented just like the output of an RX or
 RX_DIGITIZER tuner. The digital<a 
-href="mainap8.html#if">IF</a> data is accessed by allocating a listener to the
+href="mainap9.html#if">IF</a> data is accessed by allocating a listener to the
 RX_DIGITIZER_CHANNELIZER, which will then start flowing digital data just like an
 RX_DIGITIZER. Note: The primary RX_DIGITIZER_CHANNELIZER allocation will not put
 out wideband digital data by default. These are optional ports, and each may or may not be
@@ -296,7 +296,7 @@ href="mainli2.html#glo:property">Property</a>.
 <h4 class="subsectionHead"><span class="titlemark">G.3.1   </span> <a 
  id="x33-369000G.3.1"></a>ID</h4>
 <!--l. 97--><p class="noindent" >A number of different <a 
-href="mainap8.html#id">ID</a>s are used in REDHAWK and FrontEnd <a 
+href="mainap9.html#id">ID</a>s are used in REDHAWK and FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a>. The most important
                                                                                          
                                                                                          
@@ -305,21 +305,21 @@ types of IDs are described in this section.
 <h5 class="subsubsectionHead"><a 
  id="x33-370000G.3.1"></a>Allocation ID</h5>
 <!--l. 101--><p class="noindent" >The Allocation <a 
-href="mainap8.html#id">ID</a> is a string used as a unique <a 
-href="mainap8.html#id">ID</a> for each allocated FrontEnd tuner. The
+href="mainap9.html#id">ID</a> is a string used as a unique <a 
+href="mainap9.html#id">ID</a> for each allocated FrontEnd tuner. The
 Allocation <a 
-href="mainap8.html#id">ID</a> is passed in as part of the <span 
+href="mainap9.html#id">ID</a> is passed in as part of the <span 
 class="ectt-1200">allocateCapacity() </span>call and is used as identification for
 all subsequent interaction. Allocation <a 
-href="mainap8.html#id">ID</a>s are used to identify tuners in the FrontEnd Status
+href="mainap9.html#id">ID</a>s are used to identify tuners in the FrontEnd Status
 structure and in the TunerControl <a 
-href="mainap8.html#idl">IDL</a>.
+href="mainap9.html#idl">IDL</a>.
 <!--l. 105--><p class="noindent" >Allocation <a 
-href="mainap8.html#id">ID</a>s can be any unique string, but typically <a 
-href="mainap8.html#uuid">UUID</a> values are used. If human readable
+href="mainap9.html#id">ID</a>s can be any unique string, but typically <a 
+href="mainap9.html#uuid">UUID</a> values are used. If human readable
 Allocation <a 
-href="mainap8.html#id">ID</a>s are required, the preferred approach is to append the <a 
-href="mainap8.html#uuid">UUID</a> onto a base
+href="mainap9.html#id">ID</a>s are required, the preferred approach is to append the <a 
+href="mainap9.html#uuid">UUID</a> onto a base
 human-readable string. With this approach, allocations for non-coordinated <a 
 href="mainli2.html#glo:device">Devices</a> are not likely
 to create identical allocations.
@@ -327,49 +327,49 @@ to create identical allocations.
 <h5 class="subsubsectionHead"><a 
  id="x33-371000G.3.1"></a>Stream ID</h5>
 <!--l. 110--><p class="noindent" >In all REDHAWK <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Ports</a>, Stream <a 
-href="mainap8.html#id">ID</a> is used to separate unique data streams that are
+href="mainap9.html#id">ID</a> is used to separate unique data streams that are
 passed in a single <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a>. This methodology is also utilized in FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a>
 to allow <a 
 href="mainli2.html#glo:device">Devices</a> to pass the output of multiple tuners through a single <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a>.
 REDHAWK does not mandate any uniqueness requirements on Stream <a 
-href="mainap8.html#id">ID</a>s, but it is
+href="mainap9.html#id">ID</a>s, but it is
 recommended that developers attempt to make the Stream <a 
-href="mainap8.html#id">ID</a>s unique by appending a
+href="mainap9.html#id">ID</a>s unique by appending a
 <a 
-href="mainap8.html#uuid">UUID</a>.
+href="mainap9.html#uuid">UUID</a>.
 <!--l. 114--><p class="noindent" >Stream <a 
-href="mainap8.html#id">ID</a>s can only be changed after an <a 
-href="mainap8.html#eos">EOS</a> is sent, and in FrontEnd <a 
+href="mainap9.html#id">ID</a>s can only be changed after an <a 
+href="mainap9.html#eos">EOS</a> is sent, and in FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a>, an <a 
-href="mainap8.html#eos">EOS</a> is only
+href="mainap9.html#eos">EOS</a> is only
 sent when deallocating or disabling the tuner. Note: <a 
-href="mainap8.html#eos">EOS</a> should only be sent on an
+href="mainap9.html#eos">EOS</a> should only be sent on an
 externally commanded tuner disable and not one that is handled internally to the <a 
 href="mainli2.html#glo:device">Device</a>.
 Therefore, if the device must temporarily disable output to tune, no <a 
-href="mainap8.html#eos">EOS</a> should be
+href="mainap9.html#eos">EOS</a> should be
 sent.
 <!--l. 118--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x33-372000G.3.1"></a>Connection ID</h5>
 <!--l. 119--><p class="noindent" >In all REDHAWK <a 
-href="mainap8.html#bulkio">BulkIO</a> connections, there is a specific string <a 
-href="mainap8.html#id">ID</a> for the connection. For
+href="mainap9.html#bulkio">BulkIO</a> connections, there is a specific string <a 
+href="mainap9.html#id">ID</a> for the connection. For
 FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a>, the connection to the output <a 
 href="mainli2.html#glo:port">Port</a> of the <a 
 href="mainli2.html#glo:device">Device</a> must have a Connection <a 
-href="mainap8.html#id">ID</a>
+href="mainap9.html#id">ID</a>
 that is equal to the Allocation <a 
-href="mainap8.html#id">ID</a> of the tuner to be accessed. Because the Connection <a 
-href="mainap8.html#id">ID</a> is equal
+href="mainap9.html#id">ID</a> of the tuner to be accessed. Because the Connection <a 
+href="mainap9.html#id">ID</a> is equal
 to the Allocation ID, the output <a 
 href="mainli2.html#glo:port">Port</a> can be constructed as a multi-out <a 
 href="mainli2.html#glo:port">Port</a>, which is described in
@@ -381,24 +381,24 @@ href="#x33-386000G.5.1">Section G.5.1</a>.
 <h5 class="subsubsectionHead"><a 
  id="x33-373000G.3.1"></a>RF Flow ID</h5>
 <!--l. 126--><p class="noindent" ><a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a>s are used to differentiate between <a 
-href="mainap8.html#rf">RF</a> input streams, similarly to how Stream <a 
-href="mainap8.html#id">ID</a>s are
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a>s are used to differentiate between <a 
+href="mainap9.html#rf">RF</a> input streams, similarly to how Stream <a 
+href="mainap9.html#id">ID</a>s are
 used to differentiate between <a 
-href="mainap8.html#bulkio">BulkIO</a> streams. For FrontEnd <a 
+href="mainap9.html#bulkio">BulkIO</a> streams. For FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a>, these <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a>s are used
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a>s are used
 to match allocation requests to specific <a 
-href="mainap8.html#rf">RF</a> sources.
+href="mainap9.html#rf">RF</a> sources.
 <!--l. 129--><p class="noindent" >Unlike Allocation and Stream <a 
-href="mainap8.html#id">ID</a>s, <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a>s are often human readable. Typically, they
+href="mainap9.html#id">ID</a>s, <a 
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a>s are often human readable. Typically, they
 describe specific inputs to a <a 
 href="mainli2.html#glo:device">Device</a> or feed names. Flow <a 
-href="mainap8.html#id">ID</a>s for a <a 
+href="mainap9.html#id">ID</a>s for a <a 
 href="mainli2.html#glo:device">Device</a> can be set as a <a 
 href="mainli2.html#glo:device">Device</a>
 <a 
@@ -407,31 +407,31 @@ href="mainli2.html#glo:node">Node</a> configuration. System developers can creat
 href="mainli2.html#glo:node">Node</a> that
 sets the individual FrontEnd <a 
 href="mainli2.html#glo:device">Device</a> with the <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a>s that are appropriately set to the
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a>s that are appropriately set to the
 current state of the physical <a 
-href="mainap8.html#rf">RF</a> connections.
+href="mainap9.html#rf">RF</a> connections.
 <!--l. 134--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x33-374000G.3.1"></a>Device Group ID</h5>
 <!--l. 135--><p class="noindent" ><a 
 href="mainli2.html#glo:device">Device</a> Group <a 
-href="mainap8.html#id">ID</a> is similar to <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a> in that it is used as an additional <a 
-href="mainap8.html#id">ID</a> to allow
+href="mainap9.html#id">ID</a> is similar to <a 
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a> in that it is used as an additional <a 
+href="mainap9.html#id">ID</a> to allow
 allocations against a specific pool of <a 
 href="mainli2.html#glo:device">Devices</a>. In this case, each FrontEnd <a 
 href="mainli2.html#glo:device">Device</a> can have its
 Group <a 
-href="mainap8.html#id">ID</a> set, and individual allocations can request specific Group <a 
-href="mainap8.html#id">ID</a>s. Only <a 
+href="mainap9.html#id">ID</a> set, and individual allocations can request specific Group <a 
+href="mainap9.html#id">ID</a>s. Only <a 
 href="mainli2.html#glo:device">Devices</a> that are
 part of that Group allow those allocations. Group <a 
-href="mainap8.html#id">ID</a>s are strings that are often human readable. A
+href="mainap9.html#id">ID</a>s are strings that are often human readable. A
 <a 
 href="mainli2.html#glo:device">Device</a> typically has its Group <a 
-href="mainap8.html#id">ID</a>s set as a <a 
+href="mainap9.html#id">ID</a>s set as a <a 
 href="mainli2.html#glo:property">Property</a>, so it can be configured as part of a
 <a 
 href="mainli2.html#glo:node">Node</a>.
@@ -513,10 +513,10 @@ class="td11"> <!--l. 169--><p class="noindent" >Indicates   that   there   was  
   Allocation Structure) that was passed
   in. The error is typically the result of a
   missing Allocation <a 
-href="mainap8.html#id">ID</a> or other critical
+href="mainap9.html#id">ID</a> or other critical
   field but can also indicate a duplicate
   Allocation <a 
-href="mainap8.html#id">ID</a> request.                       </td>
+href="mainap9.html#id">ID</a> request.                       </td>
 </tr><tr  
  style="vertical-align:baseline;" id="TBL-10-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-10-4-1"  
 class="td11"> <!--l. 170--><p class="noindent" ><span 
@@ -600,7 +600,7 @@ class="td11"> <!--l. 192--><p class="noindent" >Used   by   the   caller
   uniquely.                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-4"  
 class="td11"> <!--l. 192--><p class="noindent" >Reject any requests with an Allocation
   <a 
-href="mainap8.html#id">ID</a>    already    in    use    with    the
+href="mainap9.html#id">ID</a>    already    in    use    with    the
   <span 
 class="ectt-1200">InvalidCapacity </span>exception.              </td>
 </tr><tr  
@@ -709,7 +709,7 @@ class="td11"> <!--l. 199--><p class="noindent" ><span
 class="ectt-1200">group_id</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-2"  
 class="td11"> <!--l. 199--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-3"  
 class="td11"> <!--l. 199--><p class="noindent" >Unique                <a 
-href="mainap8.html#id">ID</a>
+href="mainap9.html#id">ID</a>
   that specifies a group
   of <a 
 href="mainli2.html#glo:device">Devices</a>.                </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-10-4"  
@@ -726,7 +726,7 @@ class="td11"> <!--l. 200--><p class="noindent" ><span
 class="ectt-1200">rf_flow_id</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-2"  
 class="td11"> <!--l. 200--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-3"  
 class="td11"> <!--l. 200--><p class="noindent" >Specifies a certain <a 
-href="mainap8.html#rf">RF</a>
+href="mainap9.html#rf">RF</a>
   flow      to      allocate
   against.                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-11-4"  
 class="td11"> <!--l. 200--><p class="noindent" >Must match <span 
@@ -778,7 +778,7 @@ in the <span
 class="ectt-1200">allocateCapacity() </span>call. Passing in this FrontEnd Listener Allocation structure causes the
 <a 
 href="mainli2.html#glo:device">Device</a> to create a new listener tuner that is attached to the tuner with the Allocation <a 
-href="mainap8.html#id">ID</a> given in
+href="mainap9.html#id">ID</a> given in
 the structure. The FrontEnd Listener Allocation structure is described fully in the following
 table.
 <div class="table">
@@ -811,10 +811,10 @@ class="td11"> <!--l. 231--><p class="noindent" ><span
 class="ectt-1200">existing_allocation_id</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-2"  
 class="td11"> <!--l. 231--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-3"  
 class="td11"> <!--l. 231--><p class="noindent" >Allocation  <a 
-href="mainap8.html#id">ID</a>  for  an
+href="mainap9.html#id">ID</a>  for  an
   existing allocation.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-4"  
 class="td11"> <!--l. 231--><p class="noindent" >The Allocation <a 
-href="mainap8.html#id">ID</a> of the tuner to which
+href="mainap9.html#id">ID</a> of the tuner to which
   the  new  listener  should  attach.  The
   tuner can be either a control or listener.  </td>
 </tr><tr  
@@ -823,11 +823,11 @@ class="td11"> <!--l. 232--><p class="noindent" ><span
 class="ectt-1200">listener_allocation_id</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-2"  
 class="td11"> <!--l. 232--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-3"  
 class="td11"> <!--l. 232--><p class="noindent" >New Listener <a 
-href="mainap8.html#id">ID</a>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-4"  
+href="mainap9.html#id">ID</a>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-4"  
 class="td11"> <!--l. 232--><p class="noindent" >The Allocation <a 
-href="mainap8.html#id">ID</a> of the new listener
+href="mainap9.html#id">ID</a> of the new listener
   tuner.   All   typical   Allocation   <a 
-href="mainap8.html#id">ID</a>
+href="mainap9.html#id">ID</a>
   requirements apply.                           </td>
 </tr></table></div>
                                                                                          
@@ -847,14 +847,14 @@ class="ectt-1200">deallocateCapacity() </span>function, but exceptions are throw
 only exceptions that can be thrown are <span 
 class="ectt-1200">InvalidCapacity</span>, which indicates that the
 Allocation <a 
-href="mainap8.html#id">ID</a> provided is not valid, or <span 
+href="mainap9.html#id">ID</a> provided is not valid, or <span 
 class="ectt-1200">InvalidState</span>, indicating the <a 
 href="mainli2.html#glo:device">Device</a> is in an error
 state.
 <!--l. 244--><p class="noindent" >The <span 
 class="ectt-1200">deallocateCapacity() </span>call can accept either of the Allocation structures, Tuner or
 Listener, as only the Allocation <a 
-href="mainap8.html#id">ID</a> field is utilized. All other fields are ignored and
+href="mainap9.html#id">ID</a> field is utilized. All other fields are ignored and
 have no impact on the deallocation. The concept is that the same Allocation structure
 provided to <span 
 class="ectt-1200">allocateCapacity() </span>can be sent to <span 
@@ -862,25 +862,25 @@ class="ectt-1200">deallocateCapacity() </span>to remove the
 tuner.
 <!--l. 248--><p class="noindent" >Tuners that are deallocated need to have their status entries removed, the underlying
 hardware/software disabled, and all output stopped. A final <a 
-href="mainap8.html#bulkio">BulkIO</a> packet containing an <a 
-href="mainap8.html#eos">EOS</a> <a 
-href="mainap8.html#sri">SRI</a>
+href="mainap9.html#bulkio">BulkIO</a> packet containing an <a 
+href="mainap9.html#eos">EOS</a> <a 
+href="mainap9.html#sri">SRI</a>
 flag should be sent prior to the return from the <span 
 class="ectt-1200">deallocateCapacity() </span>call. More information on
 the <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
-href="mainap8.html#sri">SRI</a> information can be found in  <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#sri">SRI</a> information can be found in  <a 
 href="#x33-387000G.5.2">Section G.5.2</a>. No more data from that tuner should
 flow though the <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a>.
 <!--l. 254--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x33-380000G.3.5"></a>Automatic Listener Deallocation</h5>
 <!--l. 255--><p class="noindent" >When a control tuner is deallocated, its attached listeners are expected to also be deallocated.
 Therefore, both status cleanup as well as <a 
-href="mainap8.html#eos">EOS</a> information flows over the <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#eos">EOS</a> information flows over the <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a>.
 <!--l. 259--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">G.4   </span> <a 
@@ -894,16 +894,16 @@ settings for each of the tuners. Each FrontEnd <a
 href="mainli2.html#glo:device">Device</a> must have a DigitalTuner port named
 DigitalTuner_in (or AnalogTuner_in for an AnalogTuner port) that allows for command and
 control. All of the functions in the Tuner Control <a 
-href="mainap8.html#idl">IDL</a> need to be implemented even if only to
+href="mainap9.html#idl">IDL</a> need to be implemented even if only to
 report that the capability is not supported. Each of these <a 
-href="mainap8.html#idl">IDL</a> functions uses the Allocation <a 
-href="mainap8.html#id">ID</a> to
+href="mainap9.html#idl">IDL</a> functions uses the Allocation <a 
+href="mainap9.html#id">ID</a> to
 uniquely identify the tuners.
 <!--l. 266--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">G.4.1   </span> <a 
  id="x33-382000G.4.1"></a>Tuner Control IDL</h4>
 <!--l. 267--><p class="noindent" >The tuner control <a 
-href="mainap8.html#idl">IDL</a> describes two interfaces for control. The first is the AnalogTuner,
+href="mainap9.html#idl">IDL</a> describes two interfaces for control. The first is the AnalogTuner,
 which describes all of the functions common for Digital and Analog tuners. DigitalTuner
 inherits from AnalogTuner and adds <span 
 class="ectt-1200">setOutputSampleRate() </span>/ <span 
@@ -914,7 +914,7 @@ tables.
 <h5 class="subsubsectionHead"><a 
  id="x33-383000G.4.1"></a>Tuner Control Functions</h5>
 <!--l. 274--><p class="noindent" >The following table describes the the functions that can be accessed via the Tuner Control <a 
-href="mainap8.html#idl">IDL</a>.
+href="mainap9.html#idl">IDL</a>.
 <div class="table">
                                                                                          
                                                                                          
@@ -939,7 +939,7 @@ class="td11"> <!--l. 281--><p class="noindent" ><span
 class="ectt-1200">string getTunerType(in string id)</span>     </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-2-2"  
 class="td11"> <!--l. 281--><p class="noindent" >Get  the  type  of  tuner  (e.g.,  RX  or
   <a 
-href="mainap8.html#ddc">DDC</a>)  associated  with  this  allocation
+href="mainap9.html#ddc">DDC</a>)  associated  with  this  allocation
   id.                                                 </td>
 </tr><tr  
  style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-13-3-1"  
@@ -1137,7 +1137,7 @@ class="td11"> <!--l. 313--><p class="noindent" >Generic              FrontEnd
 class="td11"> <!--l. 313--><p class="noindent" >Indicates there is a FrontEnd issue
   preventing   the   command,   often
   because   the   Allocation   <a 
-href="mainap8.html#id">ID</a>   does
+href="mainap9.html#id">ID</a>   does
   not  match  any  currently  allocated
   tuners.                                        </td>
 </tr></table></div>
@@ -1149,32 +1149,32 @@ href="mainap8.html#id">ID</a>   does
  id="x33-385000G.5"></a>Data Flow</h3>
 <!--l. 318--><p class="noindent" >By default, FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a> can provide <a 
-href="mainap8.html#bulkio">BulkIO</a> data. Data flow into FrontEnd <a 
+href="mainap9.html#bulkio">BulkIO</a> data. Data flow into FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a> is
 typically constrained to digital-<a 
-href="mainap8.html#if">IF</a> data for CHANNELIZER tuners. Digital-<a 
-href="mainap8.html#if">IF</a> data is consumed
+href="mainap9.html#if">IF</a> data for CHANNELIZER tuners. Digital-<a 
+href="mainap9.html#if">IF</a> data is consumed
 regardless of Stream <a 
-href="mainap8.html#id">ID</a> and is the responsibility of the CHANNELIZER allocator to make the
+href="mainap9.html#id">ID</a> and is the responsibility of the CHANNELIZER allocator to make the
 connection from the source into the FrontEnd <a 
 href="mainli2.html#glo:device">Device</a>.
 <!--l. 322--><p class="noindent" >Output data flow is managed by the FrontEnd <a 
 href="mainli2.html#glo:device">Device</a> and multiple tuners can have output
 through a single <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a>. In general, there should only be one <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a> for each
 data type (int, float, etc.). All streams of any data type must pass through this <a 
-href="mainap8.html#bulkio">BulkIO</a>
+href="mainap9.html#bulkio">BulkIO</a>
 <a 
 href="mainli2.html#glo:port">Port</a>. The allocator of each tuner is responsible for connecting to the <a 
 href="mainli2.html#glo:device">Device</a> output
 <a 
 href="mainli2.html#glo:port">Port</a>. The Connection <a 
-href="mainap8.html#id">ID</a> of the <a 
-href="mainap8.html#bulkio">BulkIO</a> connection must match the Allocation <a 
-href="mainap8.html#id">ID</a> of
+href="mainap9.html#id">ID</a> of the <a 
+href="mainap9.html#bulkio">BulkIO</a> connection must match the Allocation <a 
+href="mainap9.html#id">ID</a> of
 the tuner for data to flow through that connection. Thus, the output <a 
 href="mainli2.html#glo:port">Port</a> must be a
 multi-out <a 
@@ -1185,39 +1185,39 @@ connections.
  id="x33-386000G.5.1"></a>Multi-Output</h4>
 <!--l. 330--><p class="noindent" >Multi-out <a 
 href="mainli2.html#glo:port">Ports</a> are a specific implementation of a <a 
-href="mainap8.html#bulkio">BulkIO</a> output <a 
+href="mainap9.html#bulkio">BulkIO</a> output <a 
 href="mainli2.html#glo:port">Port</a>. The defining characteristic
 is that multi-out <a 
 href="mainli2.html#glo:port">Ports</a> are selective in which connection each piece of data is sent to rather than
 having each piece of data broadcast to every connection. This behavior is typically implemented
 by creating a custom <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a> implementation that handles data routing for each
 connection.
 <!--l. 334--><p class="noindent" >Constructing the custom port is easiest if the internal <span 
 class="ectt-1200">pushPacket() </span>call does not need to be
 modified, which is why Stream <a 
-href="mainap8.html#id">ID</a> is the easiest field on which to differentiate. As long as the
+href="mainap9.html#id">ID</a> is the easiest field on which to differentiate. As long as the
 Stream <a 
-href="mainap8.html#id">ID</a> is equal to the Allocation <a 
-href="mainap8.html#id">ID</a>, the Stream <a 
-href="mainap8.html#id">ID</a> can simply be matched to the Connection
+href="mainap9.html#id">ID</a> is equal to the Allocation <a 
+href="mainap9.html#id">ID</a>, the Stream <a 
+href="mainap9.html#id">ID</a> can simply be matched to the Connection
 <a 
-href="mainap8.html#id">ID</a> to make a multi-out port. Hence, a REDHAWK best practice is to maintain a one-to-one
+href="mainap9.html#id">ID</a> to make a multi-out port. Hence, a REDHAWK best practice is to maintain a one-to-one
 relationship between Stream and Allocation <a 
-href="mainap8.html#id">ID</a>s.
+href="mainap9.html#id">ID</a>s.
 <!--l. 338--><p class="noindent" >If the <a 
-href="mainap8.html#id">ID</a>s are the same, there are only two required changes to the standard port implementation.
+href="mainap9.html#id">ID</a>s are the same, there are only two required changes to the standard port implementation.
 The first change is that as the port iterates over the list of connections, a simple check needs to be
 performed to only do the remote <span 
 class="ectt-1200">pushPacket() </span>call on connections where the Connection <a 
-href="mainap8.html#id">ID</a>
+href="mainap9.html#id">ID</a>
 matches the current packet Stream <a 
-href="mainap8.html#id">ID</a>. The second change is that the internal storage of previous
+href="mainap9.html#id">ID</a>. The second change is that the internal storage of previous
 <a 
-href="mainap8.html#sri">SRI</a> states needs to become a vector rather than a single element so that a new connection gets the
+href="mainap9.html#sri">SRI</a> states needs to become a vector rather than a single element so that a new connection gets the
 correct previous <a 
-href="mainap8.html#sri">SRI</a> for its stream rather than just the most recent stream that has had data
+href="mainap9.html#sri">SRI</a> for its stream rather than just the most recent stream that has had data
                                                                                          
                                                                                          
 sent.
@@ -1226,13 +1226,13 @@ sent.
  id="x33-387000G.5.2"></a>SRI and Keywords</h4>
 <!--l. 345--><p class="noindent" >FrontEnd <a 
 href="mainli2.html#glo:device">Devices</a> use both the basic <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
-href="mainap8.html#sri">SRI</a> fields as well as the Keywords field for additional
+href="mainap9.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#sri">SRI</a> fields as well as the Keywords field for additional
 items. All standard <a 
-href="mainap8.html#sri">SRI</a> fields should be filled out as appropriate in accordance with the existing
+href="mainap9.html#sri">SRI</a> fields should be filled out as appropriate in accordance with the existing
 <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
-href="mainap8.html#idl">IDL</a> descriptions. The following table describes the additional FrontEnd-specific
+href="mainap9.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#idl">IDL</a> descriptions. The following table describes the additional FrontEnd-specific
 keywords.
 <div class="table">
                                                                                          
@@ -1270,9 +1270,9 @@ class="td11"> <!--l. 355--><p class="noindent" >Center frequency of the collecto
   the
   center frequency of the wideband
   receiver used to generate the <a 
-href="mainap8.html#if">IF</a>
+href="mainap9.html#if">IF</a>
   data. In the case of a <a 
-href="mainap8.html#ddc">DDC</a> tuner,
+href="mainap9.html#ddc">DDC</a> tuner,
   the value of <span 
 class="ectt-1200">COL_RF </span>is the center
   frequency  of  the  input  to  the
@@ -1309,13 +1309,13 @@ class="td11"> <!--l. 358--><p class="noindent" ><span
 class="ectt-1200">FRONTEND::RF_FLOW_ID</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-2"  
 class="td11"> <!--l. 358--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-3"  
 class="td11"> <!--l. 358--><p class="noindent" ><a 
-href="mainap8.html#rf">RF</a>  Flow  <a 
-href="mainap8.html#id">ID</a>  of
+href="mainap9.html#rf">RF</a>  Flow  <a 
+href="mainap9.html#id">ID</a>  of
   data.                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-4"  
 class="td11"> <!--l. 358--><p class="noindent" >Always  include  even  if  the  <a 
-href="mainap8.html#rf">RF</a>
+href="mainap9.html#rf">RF</a>
   Flow <a 
-href="mainap8.html#id">ID</a> is blank.                      </td>
+href="mainap9.html#id">ID</a> is blank.                      </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-15-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-1"  
@@ -1323,11 +1323,11 @@ class="td11"> <!--l. 359--><p class="noindent" ><span
 class="ectt-1200">FRONTEND::DEVICE_ID</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-2"  
 class="td11"> <!--l. 359--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-3"  
 class="td11"> <!--l. 359--><p class="noindent" >The  <a 
-href="mainap8.html#id">ID</a>  of  the
+href="mainap9.html#id">ID</a>  of  the
   <a 
 href="mainli2.html#glo:device">Device</a>.              </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-4"  
 class="td11"> <!--l. 359--><p class="noindent" >Component ref <a 
-href="mainap8.html#id">ID</a>, which allows
+href="mainap9.html#id">ID</a>, which allows
   downstream   users   to   gain   a
   reference   to   the   <a 
 href="mainli2.html#glo:device">Device</a>   that
@@ -1410,16 +1410,16 @@ class="td11"><!--l. 387--><p class="noindent" >string   </td><td  style="white-s
 class="td11"> <!--l. 387--><p class="noindent" >Comma separated list
   of  current  Allocation
   <a 
-href="mainap8.html#id">ID</a>s.                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-3-4"  
+href="mainap9.html#id">ID</a>s.                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-3-4"  
 class="td11"> <!--l. 387--><p class="noindent" >Contains  a  list  of  both  control  and
   listener   Allocation   <a 
-href="mainap8.html#id">ID</a>s.   In   effect,
+href="mainap9.html#id">ID</a>s.   In   effect,
   the length of the <span 
 class="ectt-1200">allocation_id_csv</span>
  list  is  the  number  of  independent
   consumers  of  the  tuner  output.  The
   control Allocation <a 
-href="mainap8.html#id">ID</a> must be the first
+href="mainap9.html#id">ID</a> must be the first
   in the comma separated list.               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -1463,12 +1463,12 @@ class="td11"> <!--l. 391--><p class="noindent" ><span
 class="ectt-1200">group_id</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-2"  
 class="td11"> <!--l. 391--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-3"  
 class="td11"> <!--l. 391--><p class="noindent" >Unique                <a 
-href="mainap8.html#id">ID</a>
+href="mainap9.html#id">ID</a>
   that specifies a group
   of <a 
 href="mainli2.html#glo:device">Device</a>.                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-7-4"  
 class="td11"> <!--l. 391--><p class="noindent" >Actual Group <a 
-href="mainap8.html#id">ID</a>, regardless whether it
+href="mainap9.html#id">ID</a>, regardless whether it
   was requested in the tuner allocation or
   not.                                               </td>
 </tr><tr 
@@ -1478,12 +1478,12 @@ class="td11"> <!--l. 392--><p class="noindent" ><span
 class="ectt-1200">rf_flow_id</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-2"  
 class="td11"> <!--l. 392--><p class="noindent" >string   </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-3"  
 class="td11"> <!--l. 392--><p class="noindent" >Specifies a certain <a 
-href="mainap8.html#rf">RF</a>
+href="mainap9.html#rf">RF</a>
   flow      to      allocate
   against.                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-16-8-4"  
 class="td11"> <!--l. 392--><p class="noindent" >Actual <a 
-href="mainap8.html#rf">RF</a> Flow <a 
-href="mainap8.html#id">ID</a>, regardless whether
+href="mainap9.html#rf">RF</a> Flow <a 
+href="mainap9.html#id">ID</a>, regardless whether
   it was requested in the tuner allocation
   or not.                                            </td>
 </tr><tr 
@@ -1590,9 +1590,9 @@ class="td11"> <!--l. 412--><p class="noindent" >boolean</td><td  style="white-sp
 class="td11"> <!--l. 412--><p class="noindent" >Indicates if the tuner
   is in a valid state.       </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-7-4"  
 class="td11"> <!--l. 412--><p class="noindent" >When the tuner is of type <a 
-href="mainap8.html#ddc">DDC</a>, then
+href="mainap9.html#ddc">DDC</a>, then
   the  <a 
-href="mainap8.html#ddc">DDC</a>  channel  is  no  longer  able
+href="mainap9.html#ddc">DDC</a>  channel  is  no  longer  able
   to  tune  to  the  appropriate  frequency
   because   the   CHANNELIZER   it   is
   attached to has been moved.               </td>
@@ -1675,10 +1675,10 @@ class="td11"> <!--l. 420--><p class="noindent" ><span
 class="ectt-1200">output_vlan</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-2"  
 class="td11"> <!--l. 420--><p class="noindent" >long     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-3"  
 class="td11"> <!--l. 420--><p class="noindent" ><a 
-href="mainap8.html#vlan">VLAN</a>   number   for
+href="mainap9.html#vlan">VLAN</a>   number   for
   SDDS output.            </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-15-4"  
 class="td11"> <!--l. 420--><p class="noindent" >If there is no <a 
-href="mainap8.html#vlan">VLAN</a> used, indicate that
+href="mainap9.html#vlan">VLAN</a> used, indicate that
   with a zero.                                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -1699,7 +1699,7 @@ class="td11"> <!--l. 422--><p class="noindent" >long     </td><td  style="white-
 class="td11"> <!--l. 422--><p class="noindent" >Current decimation of
   tuner.                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-17-4"  
 class="td11"> <!--l. 422--><p class="noindent" >Decimation  values  for  <a 
-href="mainap8.html#ddc">DDC</a>  tuners.
+href="mainap9.html#ddc">DDC</a>  tuners.
   Defined  as  the  ratio  of  input  sample
   rate to output sample rate regardless of
   data format.                                    </td>
@@ -1710,9 +1710,9 @@ class="td11"> <!--l. 423--><p class="noindent" ><span
 class="ectt-1200">tuner_number</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-2"  
 class="td11"> <!--l. 423--><p class="noindent" >short    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-3"  
 class="td11"> <!--l. 423--><p class="noindent" >Physical tuner <a 
-href="mainap8.html#id">ID</a>.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-4"  
+href="mainap9.html#id">ID</a>.      </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-18-4"  
 class="td11"> <!--l. 423--><p class="noindent" >Tuner <a 
-href="mainap8.html#id">ID</a> number within <a 
+href="mainap9.html#id">ID</a> number within <a 
 href="mainli2.html#glo:device">Device</a>. May
   represent  physical  tuner  ordering  or
   virtual ordering in software.                </td>
@@ -1723,13 +1723,13 @@ href="mainli2.html#glo:device">Device</a>. May
 </div>
                                                                                          
                                                                                          
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap8.html" >next</a>] [<a 
 href="mainap6.html" >prev</a>] [<a 
 href="mainap6.html#tailmainap6.html" >prev-tail</a>] [<a 
 href="mainap7.html" >front</a>] [<a 
 href="main.html#mainap7.html" >up</a>] </p></div>
-<!--l. 2--><p class="noindent" ><a 
+<!--l. 1--><p class="noindent" ><a 
  id="tailmainap7.html"></a>    
  
 <div class=license>  

@@ -59,12 +59,12 @@ href="main.html#mainch15.html" >up</a>] </p></div>
 <!--l. 6--><p class="noindent" >Data flow through REDHAWK <a 
 href="mainli2.html#glo:component">Components</a> is managed through a module of interfaces called
 <a 
-href="mainap8.html#bulkio">BulkIO</a>. The <a 
-href="mainap8.html#bulkio">BulkIO</a> module is designed to provide a standardized methodology for transferring
+href="mainap9.html#bulkio">BulkIO</a>. The <a 
+href="mainap9.html#bulkio">BulkIO</a> module is designed to provide a standardized methodology for transferring
 data between <a 
 href="mainli2.html#glo:component">Components</a>/<a 
 href="mainli2.html#glo:device">Devices</a>. As the name implies, <a 
-href="mainap8.html#bulkio">BulkIO</a> is designed for bulk data
+href="mainap9.html#bulkio">BulkIO</a> is designed for bulk data
 transfers. The code generators are constructed to provide <a 
 href="mainli2.html#glo:port">Port</a> implementations that maximize the
 efficiency of data throughput while providing network-accessible data ingest/egress and minimizing
@@ -72,20 +72,20 @@ the complexity of the implementation.
 <!--l. 11--><p class="noindent" >Data is transferred either in-band (through the <a 
 href="mainli2.html#glo:port">Port</a> object directly) or out-of-band
 (i.e., User Datagram Protocol (<a 
-href="mainap8.html#udp">UDP</a>) multicast). In the case of out-of-band transfers,
+href="mainap9.html#udp">UDP</a>) multicast). In the case of out-of-band transfers,
 the <a 
 href="mainli2.html#glo:port">Port</a> provides only metadata regarding connections, such as multicast address in a
 Virtual Local Area Network (<a 
-href="mainap8.html#vlan">VLAN</a>). Data transferred in-band is embedded with some
+href="mainap9.html#vlan">VLAN</a>). Data transferred in-band is embedded with some
 fixed-field metadata, like a birth date timestamp, and variable-field metadata in key/value
 pairs.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.2   </span> <a 
  id="x17-20400015.2"></a>SRI</h3>
 <!--l. 3--><p class="noindent" ><a 
-href="mainap8.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload.
+href="mainap9.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload.
 <!--l. 5--><p class="noindent" >The <a 
-href="mainap8.html#sri">SRI</a> data structure contains the following 12 fields:
+href="mainap9.html#sri">SRI</a> data structure contains the following 12 fields:
 <div class="table">
                                                                                          
                                                                                          
@@ -98,7 +98,7 @@ href="mainap8.html#sri">SRI</a> data structure contains the following 12 fields:
  <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.1: </td><td  
 class="content"><a 
-href="mainap8.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-204001r1 -->
+href="mainap9.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-204001r1 -->
 <div class="tabular"> <table id="TBL-1" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-1-1g"><col 
@@ -118,7 +118,7 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> hversion   </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-2-2"  
 class="td11"> <!--l. 16--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-2-3"  
 class="td11"> <!--l. 16--><p class="noindent" >Version of the Stream <a 
-href="mainap8.html#sri">SRI</a> header. This field
+href="mainap9.html#sri">SRI</a> header. This field
   is ignored by the code generators, so a default
   1.0 is adequate.                                       </td>
 </tr><tr 
@@ -138,7 +138,7 @@ class="td11"> <!--l. 18--><p class="noindent" >Delta  between  two  values  in  
   sampling period. In the case of spectral data,
   this is the frequency difference between two
   adjacent Fast Fourier Transform (<a 
-href="mainap8.html#fft">FFT</a>) bins.  </td>
+href="mainap9.html#fft">FFT</a>) bins.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-1"  
@@ -146,7 +146,7 @@ class="td11"> xunits      </td><td  style="white-space:wrap; text-align:left;" i
 class="td11"> <!--l. 19--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-5-3"  
 class="td11"> <!--l. 19--><p class="noindent" >Unit                                            types;
   common codes defined in <a 
-href="mainap8.html#idl">IDL</a> (i.e: 0=None,
+href="mainap9.html#idl">IDL</a> (i.e: 0=None,
   1=time, 2=delay, 3=frequency)                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -176,7 +176,7 @@ class="td11"> yunits      </td><td  style="white-space:wrap; text-align:left;" i
 class="td11"> <!--l. 23--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-9-3"  
 class="td11"> <!--l. 23--><p class="noindent" >Unit                                            types;
   common codes defined in <a 
-href="mainap8.html#idl">IDL</a> (i.e: 0=None,
+href="mainap9.html#idl">IDL</a> (i.e: 0=None,
   1=time, 2=delay, 3=frequency)                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -193,13 +193,13 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> streamID  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-11-2"  
 class="td11"> <!--l. 25--><p class="noindent" >string                </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-11-3"  
 class="td11"> <!--l. 25--><p class="noindent" >Stream <a 
-href="mainap8.html#id">ID</a>. Unique streams can be delivered
+href="mainap9.html#id">ID</a>. Unique streams can be delivered
   over  the  same  <a 
 href="mainli2.html#glo:port">Port</a>,  where  each  stream
   is  identified  by  a  unique  string  (generated
   or  passed  along  by  the  provides  side).
   The   generation   of   this   stream   <a 
-href="mainap8.html#id">ID</a>   is
+href="mainap9.html#id">ID</a>   is
   <a 
 href="mainli2.html#glo:application">Application</a>-specific  and  not  controlled  by
   the REDHAWK Core Framework.               </td>
@@ -223,11 +223,11 @@ class="td11"> <!--l. 27--><p class="noindent" >sequence
   &#x003C;CF::DataType&#x003E; </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-13-3"  
 class="td11"> <!--l. 27--><p class="noindent" >User  defined  keywords.  This  is  a  sequence
   of  structures  that  contain  an  <a 
-href="mainap8.html#id">ID</a>  of  type
+href="mainap9.html#id">ID</a>  of  type
   string and a value of type <a 
-href="mainap8.html#corba">CORBA</a> Any. The
+href="mainap9.html#corba">CORBA</a> Any. The
   content of the <a 
-href="mainap8.html#corba">CORBA</a> Any can be any type.  </td>
+href="mainap9.html#corba">CORBA</a> Any can be any type.  </td>
 </tr></table></div>
                                                                                          
                                                                                          
@@ -236,28 +236,28 @@ href="mainap8.html#corba">CORBA</a> Any can be any type.  </td>
                                                                                          
                                                                                          
 <!--l. 35--><p class="noindent" ><a 
-href="mainap8.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the providesside function
+href="mainap9.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the providesside function
 <span 
 class="ectt-1200">pushSRI()</span>. The <span 
 class="ectt-1200">pushSRI() </span>function contains a single argument, an instance of an <a 
-href="mainap8.html#sri">SRI</a>
+href="mainap9.html#sri">SRI</a>
 object.
 <!--l. 38--><p class="noindent" >Each provides-side <a 
 href="mainli2.html#glo:port">Port</a> that implements a <a 
-href="mainap8.html#bulkio">BulkIO</a> interface expects that <a 
-href="mainap8.html#sri">SRI</a> regarding data being
+href="mainap9.html#bulkio">BulkIO</a> interface expects that <a 
+href="mainap9.html#sri">SRI</a> regarding data being
 received become available before any data is transferred. When using the code generators and base
 classes in the REDHAWK development tools, this behavior is hard-coded into the uses-side <a 
-href="mainap8.html#bulkio">BulkIO</a>
+href="mainap9.html#bulkio">BulkIO</a>
 <a 
 href="mainli2.html#glo:port">Ports</a>. If the user code on the uses-side of a <a 
-href="mainap8.html#bulkio">BulkIO</a> connection does not explicitly invoke a
+href="mainap9.html#bulkio">BulkIO</a> connection does not explicitly invoke a
 <span 
 class="ectt-1200">pushSRI() </span>call before any data is sent out, the auto-generated code will create a trivial <a 
-href="mainap8.html#sri">SRI</a>
+href="mainap9.html#sri">SRI</a>
 message with normalized values.
 <!--l. 42--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a> is to issue a <span 
 class="ectt-1200">pushSRI() </span>when a new
 connection is made to the newly-connected object. For example, a system is created in which data
@@ -277,8 +277,8 @@ class="ectt-1200">BULKIO::PrecisionUTCTime </span>Timestamp</h3>
 <!--l. 4--><p class="noindent" >The following code segment provides an example of how to construct a <span 
 class="ectt-1200">BULKIO::PrecisionUTCTime</span>
 time stamp to be sent in the <a 
-href="mainap8.html#sri">SRI</a>:
-<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+href="mainap9.html#sri">SRI</a>:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
  //To create a PrecisionUTCTime object, use the following
  //code:
  struct timeval tmp_time;
@@ -292,15 +292,15 @@ href="mainap8.html#sri">SRI</a>:
  tstamp.tcstatus = (short)1;
  tstamp.toff = 0.0;
  tstamp.twsec = wsec;
-                                                                                         
-                                                                                         
  tstamp.tfsec = fsec;
-]]></script>
+]]></script></div>
+                                                                                         
+                                                                                         
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.4   </span> <a 
  id="x17-20600015.4"></a>Data Transfers</h3>
 <!--l. 3--><p class="noindent" >The <a 
-href="mainap8.html#bulkio">BulkIO</a> data transfers happen with the <span 
+href="mainap9.html#bulkio">BulkIO</a> data transfers happen with the <span 
 class="ectt-1200">pushPacket() </span>call. As mentioned earlier, the
 provides-side <a 
 href="mainli2.html#glo:port">Port</a> expects a <span 
@@ -345,7 +345,7 @@ class="td11"> sequence&#x003C;TYPE&#x003E;  </td><td  style="white-space:wrap; t
 class="td11"> <!--l. 16--><p class="noindent" >A sequence of a particular type,
   where   TYPE   is   some   native
   <a 
-href="mainap8.html#corba">CORBA</a> type (e.g., float, short).
+href="mainap9.html#corba">CORBA</a> type (e.g., float, short).
   The sequence may be zero-length.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -359,7 +359,7 @@ class="td11"> <!--l. 17--><p class="noindent" >The epoch birth date of the first
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
 class="td11"> <a 
-href="mainap8.html#eos">EOS</a>        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
+href="mainap9.html#eos">EOS</a>        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
 class="td11"> boolean                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-4-3"  
 class="td11"> <!--l. 18--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
@@ -374,7 +374,7 @@ class="td11"> <!--l. 19--><p class="noindent" >Stream  ID  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap8.html#sri">SRI</a>
+href="mainap9.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
@@ -416,19 +416,19 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> <!--l. 33--><p class="noindent" >Uniform
   Resource
   Locator (<a 
-href="mainap8.html#url">URL</a>)     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-2"  
+href="mainap9.html#url">URL</a>)     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-2"  
 class="td11"> string                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-3-2-3"  
 class="td11"> <!--l. 33--><p class="noindent" >The   <a 
-href="mainap8.html#url">URL</a>   describing   the   file.
+href="mainap9.html#url">URL</a>   describing   the   file.
   Appropriate   schemes   for   the
   <a 
-href="mainap8.html#url">URL</a>s are file:// and <a 
-href="mainap8.html#sca">SCA</a>://. The
+href="mainap9.html#url">URL</a>s are file:// and <a 
+href="mainap9.html#sca">SCA</a>://. The
   file  scheme  applies  to  the  local
   file system, while the <a 
-href="mainap8.html#sca">SCA</a> scheme
+href="mainap9.html#sca">SCA</a> scheme
   applies to the <a 
-href="mainap8.html#sca">SCA</a> <a 
+href="mainap9.html#sca">SCA</a> <a 
 href="mainli2.html#glo:filemanager">File Manager</a>.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -442,7 +442,7 @@ class="td11"> <!--l. 35--><p class="noindent" >The epoch birth date of the first
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-3-4-1"  
 class="td11"> <!--l. 37--><p class="noindent" ><a 
-href="mainap8.html#eos">EOS</a>                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-2"  
+href="mainap9.html#eos">EOS</a>                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-2"  
 class="td11"> boolean                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-3-4-3"  
 class="td11"> <!--l. 37--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
@@ -457,7 +457,7 @@ class="td11"> <!--l. 39--><p class="noindent" >Stream  ID  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap8.html#sri">SRI</a>
+href="mainap9.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
@@ -477,7 +477,7 @@ value for <span
 class="ectt-1200">giopMaxMsgSize</span>. The default maximum transfer size is set to <span 
 class="ectt-1200">2097152 </span>(2
 Megabyte (<a 
-href="mainap8.html#mb">MB</a>)). For every <span 
+href="mainap9.html#mb">MB</a>)). For every <span 
 class="ectt-1200">pushPacket()</span>, the data+headers must be less than this
 value, otherwise a <span 
 class="ectt-1200">MARSHAL </span>exception will be raise by the middleware. The maximum
@@ -487,21 +487,21 @@ call.
 <h3 class="sectionHead"><span class="titlemark">15.5   </span> <a 
  id="x17-20700015.5"></a>Data File Guidance</h3>
 <!--l. 3--><p class="noindent" >Data files may be sent via the <a 
-href="mainap8.html#bulkio">BulkIO</a> <span 
+href="mainap9.html#bulkio">BulkIO</a> <span 
 class="ectt-1200">dataFile </span>type. When using the <a 
-href="mainap8.html#bulkio">BulkIO</a> <span 
+href="mainap9.html#bulkio">BulkIO</a> <span 
 class="ectt-1200">dataFile </span>type, a
 filename is passed to the <span 
 class="ectt-1200">pushPacket() </span>method. The location of the file is specified by a Uniform
 Resource Identifier (<a 
-href="mainap8.html#uri">URI</a>) that either points to the local file system or the <a 
-href="mainap8.html#sdr">SDR</a> file system. In
+href="mainap9.html#uri">URI</a>) that either points to the local file system or the <a 
+href="mainap9.html#sdr">SDR</a> file system. In
 order to support portability, use of the <a 
-href="mainap8.html#sdr">SDR</a> file system is recommended.
+href="mainap9.html#sdr">SDR</a> file system is recommended.
                                                                                          
                                                                                          
 <!--l. 9--><p class="noindent" >The following table describes in greater detail the <a 
-href="mainap8.html#uri">URI</a> options.
+href="mainap9.html#uri">URI</a> options.
  <table id="TBL-6" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-6-1g"><col 
@@ -534,13 +534,13 @@ class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr
 class="td11"> sdr           </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-2"  
 class="td11"> <!--l. 20--><p class="noindent" ><span 
 class="ectt-1200">sdr://[</span><a 
-href="mainap8.html#ior"><span 
+href="mainap9.html#ior"><span 
 class="ectt-1200">IOR</span></a><span 
 class="ectt-1200">]/&#x003C;path&#x003E;</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-3"  
 class="td11"> <!--l. 20--><p class="noindent" >A path on the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s
   file system. If the optional <a 
-href="mainap8.html#ior">IOR</a> is
+href="mainap9.html#ior">IOR</a> is
   provided, this path provides the
   reference to the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>.
@@ -557,7 +557,7 @@ href="mainli2.html#glo:service">Service</a>         </td>
 <h3 class="sectionHead"><span class="titlemark">15.6   </span> <a 
  id="x17-20800015.6"></a>Link Statistics</h3>
 <!--l. 3--><p class="noindent" >All <a 
-href="mainap8.html#bulkio">BulkIO</a> <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
 <span 
 class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
@@ -627,7 +627,7 @@ class="td11"> <!--l. 16--><p class="noindent" >List  of  all  stream  ids  where
   <span 
 class="ectt-1200">pushSRI() </span>has  occurred  but  no
   <a 
-href="mainap8.html#eos">EOS</a> has been received.              </td>
+href="mainap9.html#eos">EOS</a> has been received.              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-7-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-7-1"  
@@ -701,7 +701,7 @@ class="ecti-1200">output  </span>of  type
       <span 
 class="ecti-1200">dataShort</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with <a 
-href="mainap8.html#id">ID</a> <span 
+href="mainap9.html#id">ID</a> <span 
 class="ecti-1200">xfer_length</span>, type <span 
 class="ecti-1200">ulong</span>, and default value
       of <span 
@@ -711,53 +711,53 @@ href="mainli2.html#glo:component">Component</a> code.
       <li 
   class="enumerate" id="x17-210004x2">Open the file <span 
 class="ectt-1200">source.h </span>and add the following member to the <span 
-class="ectt-1200">source_i </span>class: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-            std::vector<short> data;
-      ]]></script>
+class="ectt-1200">source_i </span>class:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+      std::vector<short> data;
+]]></script></div>
       </li>
+                                                                                         
+                                                                                         
       <li 
   class="enumerate" id="x17-210006x3">Open the file <span 
 class="ectt-1200">source.cpp </span>and edit it in the following ways:
-                                                                                         
-                                                                                         
            <ul class="itemize1">
-           <li class="itemize">In  the  <span 
-class="ectt-1200">source_i </span>constructor:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-                   data.resize(0);
-             ]]></script>
+           <li class="itemize">In the <span 
+class="ectt-1200">source_i </span>constructor: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+        data.resize(0);
+  ]]></script></div>
            </li></ul>
       </li>
       <li 
   class="enumerate" id="x17-210008x4">In <span 
 class="ectt-1200">serviceFunction() </span>comment-out the <span 
-class="ectt-1200">LOG_DEBUG </span>statement and add the following lines: <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-        if (data.size() != this->xfer_length) {
-           data.resize(xfer_length);
-           BULKIO::StreamSRI sri = BULKIO::StreamSRI();
-           sri.hversion = 1;
-           sri.xstart = 0.0;
-           sri.xdelta = 0.0;
-           sri.xunits = BULKIO::UNITS_TIME;
-           sri.subsize = 0;
-           sri.ystart = 0.0;
-           sri.ydelta = 0.0;
-           sri.yunits = BULKIO::UNITS_NONE;
-           sri.mode = 0;
-           sri.streamID = "sample";
-           this->output->pushSRI(sri);
-       }
-       BULKIO::PrecisionUTCTime tstamp =
-           BULKIO::PrecisionUTCTime();
-       tstamp.tcmode = BULKIO::TCM_CPU;
-       tstamp.tcstatus = (short)1;
-       tstamp.toff = 0.0;
-       tstamp.twsec = 0.0;
-       tstamp.tfsec = 0.0;
-       this->output->pushPacket(data,tstamp,false,"sample");
-       return NORMAL;
-      ]]></script>
-                                                                                         
-                                                                                         
+class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  if (data.size() != this->xfer_length) {
+     data.resize(xfer_length);
+     BULKIO::StreamSRI sri = BULKIO::StreamSRI();
+     sri.hversion = 1;
+     sri.xstart = 0.0;
+     sri.xdelta = 0.0;
+     sri.xunits = BULKIO::UNITS_TIME;
+     sri.subsize = 0;
+     sri.ystart = 0.0;
+     sri.ydelta = 0.0;
+     sri.yunits = BULKIO::UNITS_NONE;
+     sri.mode = 0;
+     sri.streamID = "sample";
+     this->output->pushSRI(sri);
+ }
+ BULKIO::PrecisionUTCTime tstamp =
+     BULKIO::PrecisionUTCTime();
+ tstamp.tcmode = BULKIO::TCM_CPU;
+ tstamp.tcstatus = (short)1;
+ tstamp.toff = 0.0;
+ tstamp.twsec = 0.0;
+ tstamp.tfsec = 0.0;
+ this->output->pushPacket(data,tstamp,false,"sample");
+ return NORMAL;
+]]></script></div>
       </li>
       <li 
   class="enumerate" id="x17-210010x5">Compile the <a 
@@ -773,6 +773,8 @@ class="ecti-1200">input </span>of type <span
 class="ecti-1200">dataShort</span>.
       Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
+                                                                                         
+                                                                                         
       </li>
       <li 
   class="enumerate" id="x17-210014x7">Open the file <span 
@@ -784,16 +786,16 @@ class="ectt-1200">serviceFunction()</span>, comment-out the <span
 class="ectt-1200">LOG_DEBUG </span>statement
            </li>
            <li 
-  class="enumerate" id="x17-210018x2">Add  the  following  lines:  <script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-             ::BULKIO_dataShort_In_i::dataTransfer *tmp =
-                this->input->getPacket(-1);
-            if (tmp == NULL) {
-                return NOOP;
-            } else {
-                delete tmp;
-                return NORMAL;
-            }
-           ]]></script>
+  class="enumerate" id="x17-210018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  ::BULKIO_dataShort_In_i::dataTransfer *tmp =
+     this->input->getPacket(-1);
+ if (tmp == NULL) {
+     return NOOP;
+ } else {
+     delete tmp;
+     return NORMAL;
+ }
+]]></script></div>
            </li></ol>
       </li>
       <li 
@@ -801,42 +803,42 @@ class="ectt-1200">LOG_DEBUG </span>statement
 href="mainli2.html#glo:component">Component</a> <span 
 class="ectt-1200">sink </span>and install it on Target SDR.
       <!--l. 72--><p class="noindent" >Start a Python session in a command line terminal and run the following commands:</li></ol>
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> source = sb.Component("source")
  &gt;&gt;> sink = sb.Component("sink")
  &gt;&gt;> source.connect(sink)
  &gt;&gt;> sb.start()
  &gt;&gt;> print source._ports[0]._get_statistics()[0].statistics
-]]></script>
-                                                                                         
-                                                                                         
+]]></script></div>
 <!--l. 84--><p class="noindent" >The output of the print statement is an instance of the <span 
 class="ectt-1200">PortStatistics </span>structure in <a 
-href="mainap8.html#bulkio">BulkIO</a>. This
+href="mainap9.html#bulkio">BulkIO</a>. This
 structure contains the statistics gathered from this connection. A measure of data rate is bits per
 second.
 <!--l. 88--><p class="noindent" >To display the number of Gigabits per second, run the following command:
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> print source._ports[0]._get_statistics()[0].\
  ... statistics.bitsPerSecond/1e9
-]]></script>
+]]></script></div>
 <!--l. 95--><p class="noindent" >The resulting value is the measured data transfer rate between the two <a 
 href="mainli2.html#glo:component">Components</a>. The current
+                                                                                         
+                                                                                         
 <span 
 class="ectt-1200">xfer_length </span><a 
 href="mainli2.html#glo:property">Property</a> can be viewed by typing the following:
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> source.xfer_length
-]]></script>
+]]></script></div>
 <!--l. 102--><p class="noindent" >The default value is <span 
 class="ectt-1200">100000</span>. Update the <a 
 href="mainli2.html#glo:property">Property</a> to <span 
 class="ectt-1200">200000 </span>by running the following
 command:
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> source.xfer_length = 200000
-]]></script>
+]]></script></div>
 <!--l. 108--><p class="noindent" >Check the new data rate by repeating the call to <span 
 class="ectt-1200">_get_statistics()</span>. The resulting data rate
 should now be different.
@@ -863,10 +865,8 @@ href="mainli2.html#glo:port">Port</a> called <span
 class="ecti-1200">output </span>of type <span 
 class="ecti-1200">dataFloat</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with
-                                                                                         
-                                                                                         
       <a 
-href="mainap8.html#id">ID</a> <span 
+href="mainap9.html#id">ID</a> <span 
 class="ecti-1200">factor</span>, type <span 
 class="ecti-1200">float</span>, and default value of <span 
 class="ecti-1200">1</span>. Generate the <a 
@@ -875,21 +875,23 @@ href="mainli2.html#glo:component">Component</a> code.
       <li 
   class="enumerate" id="x17-211004x2">Open the file <span 
 class="ectt-1200">mult.py </span>and add the following lines:
-      <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        data, T, EOS, streamID, sri, sriChanged, inputQueueFlushed =
-        self.port_input.getPacket()
-       if data == None:
-           return NOOP
-      
-       outData = []
-       for value in data:
-           outData.append(value*self.factor)
-       if sriChanged:
-           self.port_output.pushSRI(sri)
-      
-       self.port_output.pushPacket(outData, T, EOS, streamID)
-       return NORMAL
-      ]]></script>
+                                                                                         
+                                                                                         
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+  data, T, EOS, streamID, sri, sriChanged, inputQueueFlushed =
+  self.port_input.getPacket()
+ if data == None:
+     return NOOP
+
+ outData = []
+ for value in data:
+     outData.append(value*self.factor)
+ if sriChanged:
+     self.port_output.pushSRI(sri)
+
+ self.port_output.pushPacket(outData, T, EOS, streamID)
+ return NORMAL
+]]></script></div>
       </li>
       <li 
   class="enumerate" id="x17-211006x3">Save the project and drag the <span 
@@ -898,29 +900,30 @@ class="cmmi-12">&#x003E; </span>Target SDR.
       </li>
       <li 
   class="enumerate" id="x17-211008x4">Start a Python session in a command line terminal and run the following commands:
-      <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        &gt;&gt;> from ossie.utils import sb
-       &gt;&gt;> mult = sb.Component("mult")
-       &gt;&gt;> source = sb.DataSource(dataFormat="float")
-       &gt;&gt;> sink = sb.DataSink()
-       &gt;&gt;> source.connect(mult)
-       &gt;&gt;> mult.connect(sink)
-       &gt;&gt;> sb.start()
-       &gt;&gt;> source.push([1,2,3,4,5])
-       &gt;&gt;> sink.getData()
-                                                                                         
-                                                                                         
-       [1.0, 2.0, 3.0, 4.0, 5.0]
-      ]]></script>
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+  &gt;&gt;> from ossie.utils import sb
+ &gt;&gt;> mult = sb.Component("mult")
+ &gt;&gt;> source = sb.DataSource(dataFormat="float")
+ &gt;&gt;> sink = sb.DataSink()
+ &gt;&gt;> source.connect(mult)
+ &gt;&gt;> mult.connect(sink)
+ &gt;&gt;> sb.start()
+ &gt;&gt;> source.push([1,2,3,4,5])
+ &gt;&gt;> sink.getData()
+ [1.0, 2.0, 3.0, 4.0, 5.0]
+]]></script></div>
       </li>
       <li 
   class="enumerate" id="x17-211010x5">The multiplication factor can be changed while the Sandbox is up.
-      <script type="syntaxhighlighter" class="brush: python"><![CDATA[
-        &gt;&gt;> mult.factor = 2
-       &gt;&gt;> source.push([1,2,3,4,5])
-       &gt;&gt;> sink.getData()
-       [2.0, 4.0, 6.0, 8.0, 10.0]
-      ]]></script>
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+  &gt;&gt;> mult.factor = 2
+ &gt;&gt;> source.push([1,2,3,4,5])
+ &gt;&gt;> sink.getData()
+ [2.0, 4.0, 6.0, 8.0, 10.0]
+]]></script>
+                                                                                         
+                                                                                         
+      </div>
       </li></ol>
                                                                                          
                                                                                          

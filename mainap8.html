@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>H List of Acronyms</title> 
+<head><title>H Known Compatability Issues</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -46,545 +46,60 @@ window.attachEvent("onload", f);
 <!-- Custom MAIN CONTENT --> 
 <div id="main_content_wrap" tabindex="0" class="outer"> 
 <section id="main_content" class="inner"> 
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap9.html" >next</a>] [<a 
 href="mainap7.html" >prev</a>] [<a 
 href="mainap7.html#tailmainap7.html" >prev-tail</a>] [<a 
 href="#tailmainap8.html">tail</a>] [<a 
 href="main.html#mainap8.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;H</span><br /><a 
- id="x34-392000H"></a>List of Acronyms</h2>
-  <dl class="list1"><dt class="list">
-<a 
- id="ajax"></a><span 
-class="ecsx-1200">AJAX</span> </dt><dd 
-class="list">
-  <!--l. 4--><p class="noindent" >Asynchronous
-  JavaScript
-  and
-  <a 
-href="#xml">XML</a>
-  </dd><dt class="list">
-<a 
- id="api"></a><span 
-class="ecsx-1200">API</span> </dt><dd 
-class="list">
-  <!--l. 5--><p class="noindent" >Application
-  Programming
-  Interface
-  </dd><dt class="list">
-<a 
- id="bulkio"></a><span 
-class="ecsx-1200">BulkIO</span> </dt><dd 
-class="list">
-  <!--l. 6--><p class="noindent" >Bulk
-  Input/Output
-  </dd><dt class="list">
-<a 
- id="cdt"></a><span 
-class="ecsx-1200">CDT</span> </dt><dd 
-class="list">
-  <!--l. 7--><p class="noindent" >C/C++
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="centos"></a><span 
-class="ecsx-1200">CentOS</span> </dt><dd 
-class="list">
-  <!--l. 8--><p class="noindent" >Community
-  Enterprise
-  Operating
-  System
+ id="x34-392000H"></a>Known Compatability Issues</h2>
+<h3 class="sectionHead"><span class="titlemark">H.1   </span> <a 
+ id="x34-393000H.1"></a>Compiling REDHAWK and REDHAWK C++ Components in RHEL/CentOS
+6.4</h3>
+<!--l. 4--><p class="noindent" >Due to a bug in the boost header files at the time RHEL/CentOS 6.4 was released, REDHAWK
+and REDHAWK C++ projects do not compile using the system-installed gcc version 4.4.7
+(<a 
+href="https://bugzilla.redhat.com/show_bug.cgi?id=921792" class="url" ><span 
+class="ectt-1200">https://bugzilla.redhat.com/show_bug.cgi?id=921792</span></a>). If your system is configured to
+receive the latest OS updates, performing a yum update resolves this issue. The issue is corrected
+in boost-1.41.0-17 and later.
+<!--l. 6--><p class="noindent" >You may verify your version of the boost header libraries by entering:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ rpm -q boost-devel
+]]></script></div>
+<!--l. 12--><p class="noindent" >If an up-to-date repository is not available, the boost file <span 
+class="ectt-1200">/usr/include/boost/exception_</span>
+<span 
+class="ectt-1200">ptr.hpp </span>may be patched. The following procedure explains how to patch the boost
+file.
+<!--l. 14--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x34-393002x1">Enter the following command.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo vi /usr/include/boost/exception_ptr.hpp
+]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x34-393004x2">Add the following destructor code starting at line 92.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+~exception_ptr() throw()
+{
+}
+]]></script></div>
+      </li></ol>
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="corba"></a><span 
-class="ecsx-1200">CORBA</span> </dt><dd 
-class="list">
-  <!--l. 9--><p class="noindent" >Common
-  Object
-  Request
-  Broker
-  Architecture
-  </dd><dt class="list">
-<a 
- id="cvs"></a><span 
-class="ecsx-1200">CVS</span> </dt><dd 
-class="list">
-  <!--l. 10--><p class="noindent" >Concurrent
-  Versions
-  System
-  </dd><dt class="list">
-<a 
- id="dcd"></a><span 
-class="ecsx-1200">DCD</span> </dt><dd 
-class="list">
-  <!--l. 11--><p class="noindent" >Device
-  Configuration
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dce"></a><span 
-class="ecsx-1200">DCE</span> </dt><dd 
-class="list">
-  <!--l. 12--><p class="noindent" >Distributed
-  Computing
-  Environment
-  </dd><dt class="list">
-<a 
- id="ddc"></a><span 
-class="ecsx-1200">DDC</span> </dt><dd 
-class="list">
-  <!--l. 13--><p class="noindent" >Digital
-  Down
-  Converter
-  </dd><dt class="list">
-<a 
- id="dmd"></a><span 
-class="ecsx-1200">DMD</span> </dt><dd 
-class="list">
-  <!--l. 14--><p class="noindent" >Domain
-  Manager
                                                                                          
                                                                                          
-  Configuration
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dpd"></a><span 
-class="ecsx-1200">DPD</span> </dt><dd 
-class="list">
-  <!--l. 15--><p class="noindent" >Device
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="emf"></a><span 
-class="ecsx-1200">EMF</span> </dt><dd 
-class="list">
-  <!--l. 16--><p class="noindent" >Eclipse
-  Modeling
-  Framework
-  </dd><dt class="list">
-<a 
- id="eos"></a><span 
-class="ecsx-1200">EOS</span> </dt><dd 
-class="list">
-  <!--l. 17--><p class="noindent" >End
-  of
-  Stream
-  </dd><dt class="list">
-<a 
- id="epel"></a><span 
-class="ecsx-1200">EPEL</span> </dt><dd 
-class="list">
-  <!--l. 18--><p class="noindent" >Extra
-  Packages
-  for
-  Enterprise
-  Linux
-  </dd><dt class="list">
-<a 
- id="fft"></a><span 
-class="ecsx-1200">FFT</span> </dt><dd 
-class="list">
-  <!--l. 19--><p class="noindent" >Fast
-  Fourier
-  Transform
-  </dd><dt class="list">
-<a 
- id="fm"></a><span 
-class="ecsx-1200">FM</span> </dt><dd 
-class="list">
-                                                                                         
-                                                                                         
-  <!--l. 20--><p class="noindent" >Frequency
-  Modulation
-  </dd><dt class="list">
-<a 
- id="gpp"></a><span 
-class="ecsx-1200">GPP</span> </dt><dd 
-class="list">
-  <!--l. 21--><p class="noindent" >General
-  Purpose
-  Processor
-  </dd><dt class="list">
-<a 
- id="gui"></a><span 
-class="ecsx-1200">GUI</span> </dt><dd 
-class="list">
-  <!--l. 22--><p class="noindent" >Graphical
-  User
-  Interface
-  </dd><dt class="list">
-<a 
- id="http"></a><span 
-class="ecsx-1200">HTTP</span> </dt><dd 
-class="list">
-  <!--l. 23--><p class="noindent" >Hyper
-  Text
-  Transport
-  Protocol
-  </dd><dt class="list">
-<a 
- id="ide"></a><span 
-class="ecsx-1200">IDE</span> </dt><dd 
-class="list">
-  <!--l. 24--><p class="noindent" >Integrated
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="idm"></a><span 
-class="ecsx-1200">IDM</span> </dt><dd 
-class="list">
-  <!--l. 25--><p class="noindent" >Incoming
-  Domain
-  Management
-  </dd><dt class="list">
-<a 
- id="if"></a><span 
-class="ecsx-1200">IF</span> </dt><dd 
-class="list">
-                                                                                         
-                                                                                         
-  <!--l. 26--><p class="noindent" >Intermediate
-  Frequency
-  </dd><dt class="list">
-<a 
- id="ior"></a><span 
-class="ecsx-1200">IOR</span> </dt><dd 
-class="list">
-  <!--l. 27--><p class="noindent" >Interoperable
-  Object
-  Reference
-  </dd><dt class="list">
-<a 
- id="id"></a><span 
-class="ecsx-1200">ID</span> </dt><dd 
-class="list">
-  <!--l. 28--><p class="noindent" >Identifier
-  </dd><dt class="list">
-<a 
- id="idl"></a><span 
-class="ecsx-1200">IDL</span> </dt><dd 
-class="list">
-  <!--l. 29--><p class="noindent" >Interface
-  Description
-  Language
-  </dd><dt class="list">
-<a 
- id="jar"></a><span 
-class="ecsx-1200">JAR</span> </dt><dd 
-class="list">
-  <!--l. 30--><p class="noindent" >Java
-  ARchive
-  </dd><dt class="list">
-<a 
- id="jdt"></a><span 
-class="ecsx-1200">JDT</span> </dt><dd 
-class="list">
-  <!--l. 31--><p class="noindent" >Java
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="jee"></a><span 
-class="ecsx-1200">JEE</span> </dt><dd 
-class="list">
-  <!--l. 32--><p class="noindent" >Java
-  Platform,
-  Enterprise
-  Edition
-                                                                                         
-                                                                                         
-  </dd><dt class="list">
-<a 
- id="jtrs"></a><span 
-class="ecsx-1200">JTRS</span> </dt><dd 
-class="list">
-  <!--l. 33--><p class="noindent" >Joint
-  Tactical
-  Radio
-  System
-  </dd><dt class="list">
-<a 
- id="mb"></a><span 
-class="ecsx-1200">MB</span> </dt><dd 
-class="list">
-  <!--l. 34--><p class="noindent" >Megabyte
-  </dd><dt class="list">
-<a 
- id="noop"></a><span 
-class="ecsx-1200">NOOP</span> </dt><dd 
-class="list">
-  <!--l. 35--><p class="noindent" >No
-  Operation
-  </dd><dt class="list">
-<a 
- id="odm"></a><span 
-class="ecsx-1200">ODM</span> </dt><dd 
-class="list">
-  <!--l. 36--><p class="noindent" >Outgoing
-  Domain
-  Management
-  </dd><dt class="list">
-<a 
- id="os"></a><span 
-class="ecsx-1200">OS</span> </dt><dd 
-class="list">
-  <!--l. 37--><p class="noindent" >Operating
-  System
-  </dd><dt class="list">
-<a 
- id="osgi"></a><span 
-class="ecsx-1200">OSGi</span> </dt><dd 
-class="list">
-  <!--l. 38--><p class="noindent" >Open
-  Services
-  Gateway
-  initiative
-  </dd><dt class="list">
-<a 
- id="pde"></a><span 
-class="ecsx-1200">PDE</span> </dt><dd 
-class="list">
-                                                                                         
-                                                                                         
-  <!--l. 39--><p class="noindent" >Plug-in
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="pid"></a><span 
-class="ecsx-1200">PID</span> </dt><dd 
-class="list">
-  <!--l. 40--><p class="noindent" >Process
-  Identifier
-  </dd><dt class="list">
-<a 
- id="posix"></a><span 
-class="ecsx-1200">POSIX</span> </dt><dd 
-class="list">
-  <!--l. 41--><p class="noindent" >Portable
-  Operating
-  System
-  Interface
-  </dd><dt class="list">
-<a 
- id="prf"></a><span 
-class="ecsx-1200">PRF</span> </dt><dd 
-class="list">
-  <!--l. 42--><p class="noindent" >Properties
-  File
-  </dd><dt class="list">
-<a 
- id="pydev"></a><span 
-class="ecsx-1200">PyDev</span> </dt><dd 
-class="list">
-  <!--l. 43--><p class="noindent" >Python
-  Development
-  </dd><dt class="list">
-<a 
- id="rap"></a><span 
-class="ecsx-1200">RAP</span> </dt><dd 
-class="list">
-  <!--l. 44--><p class="noindent" >Rich
-  Ajax
-  Platform
-  </dd><dt class="list">
-<a 
- id="rcp"></a><span 
-class="ecsx-1200">RCP</span> </dt><dd 
-class="list">
-  <!--l. 45--><p class="noindent" >Rich
-  Client
-  Platform
-                                                                                         
-                                                                                         
-  </dd><dt class="list">
-<a 
- id="rf"></a><span 
-class="ecsx-1200">RF</span> </dt><dd 
-class="list">
-  <!--l. 46--><p class="noindent" >Radio
-  Frequency
-  </dd><dt class="list">
-<a 
- id="rpc"></a><span 
-class="ecsx-1200">RPC</span> </dt><dd 
-class="list">
-  <!--l. 47--><p class="noindent" >Remote
-  Procedure
-  Call
-  </dd><dt class="list">
-<a 
- id="rpm"></a><span 
-class="ecsx-1200">RPM</span> </dt><dd 
-class="list">
-  <!--l. 48--><p class="noindent" >Red
-  Hat
-  Package
-  Manager
-  </dd><dt class="list">
-<a 
- id="rwt"></a><span 
-class="ecsx-1200">RWT</span> </dt><dd 
-class="list">
-  <!--l. 49--><p class="noindent" ><a 
-href="#rap">RAP</a>
-  Widget
-  Toolkit
-  </dd><dt class="list">
-<a 
- id="sad"></a><span 
-class="ecsx-1200">SAD</span> </dt><dd 
-class="list">
-  <!--l. 50--><p class="noindent" >Software
-  Assembly
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sca"></a><span 
-class="ecsx-1200">SCA</span> </dt><dd 
-class="list">
-  <!--l. 51--><p class="noindent" >Software
-  Communications
-  Architecture
-                                                                                         
-                                                                                         
-  </dd><dt class="list">
-<a 
- id="scd"></a><span 
-class="ecsx-1200">SCD</span> </dt><dd 
-class="list">
-  <!--l. 52--><p class="noindent" >Software
-  Component
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sdr"></a><span 
-class="ecsx-1200">SDR</span> </dt><dd 
-class="list">
-  <!--l. 53--><p class="noindent" >Software-Defined
-  Radio
-  </dd><dt class="list">
-<a 
- id="spd"></a><span 
-class="ecsx-1200">SPD</span> </dt><dd 
-class="list">
-  <!--l. 54--><p class="noindent" >Software
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sri"></a><span 
-class="ecsx-1200">SRI</span> </dt><dd 
-class="list">
-  <!--l. 55--><p class="noindent" >Signal
-  Related
-  Information
-  </dd><dt class="list">
-<a 
- id="svn"></a><span 
-class="ecsx-1200">SVN</span> </dt><dd 
-class="list">
-  <!--l. 56--><p class="noindent" >Subversion
-  </dd><dt class="list">
-<a 
- id="swt"></a><span 
-class="ecsx-1200">SWT</span> </dt><dd 
-class="list">
-  <!--l. 57--><p class="noindent" >Standard
-  Widget
-  Toolkit
-  </dd><dt class="list">
-<a 
- id="udp"></a><span 
-class="ecsx-1200">UDP</span> </dt><dd 
-class="list">
-                                                                                         
-                                                                                         
-  <!--l. 58--><p class="noindent" >User
-  Datagram
-  Protocol
-  </dd><dt class="list">
-<a 
- id="ui"></a><span 
-class="ecsx-1200">UI</span> </dt><dd 
-class="list">
-  <!--l. 59--><p class="noindent" >User
-  Interface
-  </dd><dt class="list">
-<a 
- id="uri"></a><span 
-class="ecsx-1200">URI</span> </dt><dd 
-class="list">
-  <!--l. 60--><p class="noindent" >Uniform
-  Resource
-  Identifier
-  </dd><dt class="list">
-<a 
- id="url"></a><span 
-class="ecsx-1200">URL</span> </dt><dd 
-class="list">
-  <!--l. 61--><p class="noindent" >Uniform
-  Resource
-  Locator
-  </dd><dt class="list">
-<a 
- id="uuid"></a><span 
-class="ecsx-1200">UUID</span> </dt><dd 
-class="list">
-  <!--l. 62--><p class="noindent" >Universally
-  Unique
-  Identifier
-  </dd><dt class="list">
-<a 
- id="vlan"></a><span 
-class="ecsx-1200">VLAN</span> </dt><dd 
-class="list">
-  <!--l. 63--><p class="noindent" >Virtual
-  Local
-  Area
-  Network
-  </dd><dt class="list">
-<a 
- id="vm"></a><span 
-class="ecsx-1200">VM</span> </dt><dd 
-class="list">
-                                                                                         
-                                                                                         
-  <!--l. 64--><p class="noindent" >Virtual
-  Machine
-  </dd><dt class="list">
-<a 
- id="war"></a><span 
-class="ecsx-1200">WAR</span> </dt><dd 
-class="list">
-  <!--l. 65--><p class="noindent" >Web
-  ARchive
-  </dd><dt class="list">
-<a 
- id="xml"></a><span 
-class="ecsx-1200">XML</span> </dt><dd 
-class="list">
-  <!--l. 66--><p class="noindent" >Extensible
-  Markup
-  Language</dd></dl>
-                                                                                         
-                                                                                         
-<!--l. 1--><p class="noindent" ><a 
- id="likesection.1"></a><a 
- id="Q1-34-441"></a><!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap9.html" >next</a>] [<a 
 href="mainap7.html" >prev</a>] [<a 
 href="mainap7.html#tailmainap7.html" >prev-tail</a>] [<a 
 href="mainap8.html" >front</a>] [<a 
 href="main.html#mainap8.html" >up</a>] </p></div>
-<!--l. 1--><p class="noindent" ><a 
+<!--l. 2--><p class="noindent" ><a 
  id="tailmainap8.html"></a>  
  
 <div class=license>  

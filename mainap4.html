@@ -59,41 +59,41 @@ href="main.html#mainap4.html" >up</a>] </p></div>
 <!--l. 5--><p class="noindent" >The package <span 
 class="ectt-1200">xsd </span>is a dependency for installing the Core Framework from source. This dependency
 is available in the <a 
-href="mainap8.html#epel">EPEL</a> repository for Red Hat/<a 
-href="mainap8.html#centos">CentOS</a> 5 and Red Hat/<a 
-href="mainap8.html#centos">CentOS</a> 6. For
+href="mainap9.html#epel">EPEL</a> repository for Red Hat/<a 
+href="mainap9.html#centos">CentOS</a> 5 and Red Hat/<a 
+href="mainap9.html#centos">CentOS</a> 6. For
 instructions on how to add <a 
-href="mainap8.html#epel">EPEL</a> to the <span 
+href="mainap9.html#epel">EPEL</a> to the <span 
 class="ectt-1200">yum </span>search, see <a 
 href="mainap3.html#x29-343000C.1">Section C.1</a>.
-<!--l. 9--><p class="noindent" >To  install  <span 
-class="ectt-1200">xsd </span>in  Red  Hat/<a 
-href="mainap8.html#centos">CentOS</a>  5:  <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
- $ cd redhawk-deps/el5/<architecture>/
+<!--l. 9--><p class="noindent" >To install <span 
+class="ectt-1200">xsd </span>in Red Hat/<a 
+href="mainap9.html#centos">CentOS</a> 5: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  $ cd redhawk-deps/el5/<architecture>/
  $ sudo yum remove boost
  $ sudo yum install xsd
  $ sudo rpm -ivh boost-1.41.0-2.el5.<architecture>.rpm \
-      boost-devel-1.41.0-2.el5.<architecture>.rpm
-]]></script>
+     boost-devel-1.41.0-2.el5.<architecture>.rpm
+]]></script></div>
 <!--l. 18--><p class="noindent" >Where &#x003C;architecture&#x003E; is either i386 (32 bit) or x86_64 (64 bit).
 <!--l. 20--><p class="noindent" >To install <span 
 class="ectt-1200">xsd </span>in Red Hat/<a 
-href="mainap8.html#centos">CentOS</a> 6:
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+href="mainap9.html#centos">CentOS</a> 6:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
  $ sudo yum install xsd
-]]></script>
+]]></script></div>
 <!--l. 26--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.2   </span> <a 
  id="x30-348000D.2"></a>Installing the Framework from Source</h3>
 <!--l. 28--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="ectt-1200">redhawk-src-1.8.4.tar.gz </span>must be
+class="ectt-1200">redhawk-src-1.8.5.tar.gz </span>must be
 downloaded.
 <!--l. 30--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
 configuration options, including:
-                                                                                         
-                                                                                         
       <ul class="itemize1">
       <li class="itemize">Disable log4cxx support
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">--disable-log4cxx</span>
@@ -128,16 +128,16 @@ class="ectt-1200">--with-sdr=&#x003C;dir&#x003E;</span></li></ul>
 <!--l. 48--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
 be used after the <span 
 class="ectt-1200">./configure </span>command):
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 $ tar -xvf redhawk-src-1.8.4.tar.gz
 $ cd redhawk-src-1.8.4/redhawk-1.8.4/src
 $ ./reconf
-                                                                                         
-                                                                                         
 $ ./configure <options>
 $ make
 $ make install
-]]></script>
+]]></script></div>
+                                                                                         
+                                                                                         
 <!--l. 59--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.3   </span> <a 
  id="x30-349000D.3"></a>Setting Environment Variables</h3>
@@ -158,11 +158,11 @@ class="ectt-1200">/.bashrc </span>file (default <span
 class="ectt-1200">SDRROOT </span>and <span 
 class="ectt-1200">OSSIEHOME </span>directories
 used):
-<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export SDRROOT=/var/redhawk/sdr
 export OSSIEHOME=/usr/local/redhawk/core
 export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
-]]></script>
+]]></script></div>
 <!--l. 72--><p class="noindent" >Note that the terminal must be restarted for the changes to <span 
 class="cmsy-10x-x-120">~</span><span 
 class="ectt-1200">/.bashrc </span>to take effect.
@@ -185,8 +185,6 @@ ones). Furthermore, due to some aspects of the generated code, namely that some 
 mapped to Python reserved words along with other minor issues, the generated files must be
 hand-modified to work with REDHAWK. These are the modifications that must be
 made:
-                                                                                         
-                                                                                         
       <ul class="itemize1">
       <li class="itemize">Change every constructor attribute <span 
 class="ectt-1200">id </span>to <span 
@@ -199,18 +197,21 @@ class="ectt-1200">id_</span>
       <li class="itemize">Change the class <span 
 class="ectt-1200">range </span>to <span 
 class="ectt-1200">range_</span>. Make sure to also update the name where the class
+                                                                                         
+                                                                                         
       is instantiated
       </li>
       <li class="itemize">In the <span 
 class="ectt-1200">buildChildren </span>function of the <span 
 class="ectt-1200">values </span>class in <span 
-class="ectt-1200">prf.py</span>, add the
-      following code before <span 
+class="ectt-1200">prf.py</span>, add
+      the following code before <span 
 class="ectt-1200">value_ </span>is appended to the member list <span 
-class="ectt-1200">value </span><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-          if value_ == None:
-            value_ = 
-        ]]></script>
+class="ectt-1200">value</span>
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+    if value_ == None:
+      value_ = 
+  ]]></script></div>
       </li>
       <li class="itemize">In the 1.8 series only, invoke the <span 
 class="ectt-1200">unlink </span>function on the object <span 

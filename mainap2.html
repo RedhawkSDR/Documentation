@@ -80,18 +80,18 @@ class="newline" /><span
 class="ecbi-1200">Description: </span>Contribute a code generator for various REDHAWK resources.<br 
 class="newline" /><span 
 class="ecbi-1200">Configuration Markup:</span><br 
-class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT extension (codegen)*>
 <!ATTLIST extension
   id    CDATA #IMPLIED
   point CDATA #REQUIRED
   name  CDATA #IMPLIED
 >
-]]></script>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+]]></script></div>
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT codegen (description? , processor* ,
-                                                                                         
-                                                                                         
   operatingSystem+ , componenttype+)>
 <!ATTLIST codegen
   id                      CDATA #REQUIRED
@@ -111,12 +111,12 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
   associatedPerspectiveId IDREF #IMPLIED
   priority                (high|normal|low) "normal"
 >
-]]></script>
+]]></script></div>
 Specifies a new code generator:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">id </span>- Unique <a 
-href="mainap8.html#id">ID</a> for the generator.
+href="mainap9.html#id">ID</a> for the generator.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- Human readable label for generator.
@@ -129,14 +129,14 @@ class="ecbx-1200">language </span>- The programming language supported by this c
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">icon </span>- Icon / graphical representation of the generator.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">languageVersion </span>- Value to be inserted for the language version.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">compiler </span>- The compiler of the codegenerator.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">compilerVersion </span>- Version of the compiler.
@@ -171,60 +171,61 @@ class="ecbx-1200">associatedPerspectiveId </span>- The perspective id to associa
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT description (#PCDATA)>
-]]></script>
+]]></script></div>
 Provide a detailed human readable description of the codegenerator.
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT operatingSystem EMPTY>
-                                                                                         
-                                                                                         
 <!ATTLIST operatingSystem
   os      CDATA #REQUIRED
   default (true | false)
   version CDATA #IMPLIED
 >
-]]></script>
+]]></script></div>
+                                                                                         
+                                                                                         
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">os </span>- Operating System <a 
-href="mainap8.html#id">ID</a>
+href="mainap9.html#id">ID</a>
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">default </span>- The default <a 
-href="mainap8.html#os">OS</a> if marked true
+href="mainap9.html#os">OS</a> if marked true
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">version </span>- <a 
-href="mainap8.html#os">OS</a> version</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+href="mainap9.html#os">OS</a> version</li></ul>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT processor EMPTY>
 <!ATTLIST processor
   proc_type CDATA #REQUIRED
   default   (true | false)
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">proc_type </span>- Processor type
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">default </span>- The default <a 
-href="mainap8.html#os">OS</a> if marked true</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+href="mainap9.html#os">OS</a> if marked true</li></ul>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT componenttype EMPTY>
 <!ATTLIST componenttype
   type (resource|device|service)
-                                                                                         
-                                                                                         
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">type </span>- <a 
 href="mainli2.html#glo:component">Component</a> Type to generate.</li></ul>
 <!--l. 133--><p class="noindent" ><span 
-class="ecbi-1200">Examples: </span>The following is an example of the extension point: <script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="ecbi-1200">Examples: </span>The following is an example of the extension point:
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
  <extension
            point="gov.redhawk.ide.codegen.codegens">
        <codegen
@@ -249,8 +250,6 @@ class="ecbi-1200">Examples: </span>The following is an example of the extension 
            </description>
            <operatingSystem
                   default="true"
-                                                                                         
-                                                                                         
                   os="Linux">
            </operatingSystem>
            <componenttype
@@ -261,41 +260,41 @@ class="ecbi-1200">Examples: </span>The following is an example of the extension 
            </componenttype>
        </codegen>
     </extension>
-]]></script>
+]]></script></div>
 <!--l. 172--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
  id="x28-338000B.1.2"></a>Port Handlers</h4>
+                                                                                         
+                                                                                         
 <!--l. 173--><p class="noindent" ><span 
 class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.portGenerator<br 
 class="newline" /><span 
 class="ecbi-1200">Description: </span>Custom code generators used when generating code for ports <br 
 class="newline" /><span 
 class="ecbi-1200">Configuration Markup:</span><br 
-class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT extension (portHandler)+>
 <!ATTLIST extension
   point CDATA #REQUIRED
   id    CDATA #IMPLIED
   name  CDATA #IMPLIED
 >
-]]></script>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+]]></script></div>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT portHandler (description , property* ,
   interfaces , language+)+>
 <!ATTLIST portHandler
-                                                                                         
-                                                                                         
   id            CDATA #REQUIRED
   class         CDATA #REQUIRED
   name          CDATA #REQUIRED
   pullInputData (true | false) "true"
   priority      (LOW|MEDIUM|HIGH) "LOW"
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">id </span>- Unique <a 
-href="mainap8.html#id">ID</a> for this port handler.
+href="mainap9.html#id">ID</a> for this port handler.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">class </span>- Java class that implements<br 
@@ -311,19 +310,19 @@ class="ecbx-1200">pullInputData </span>- Set this to true if the generated code 
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT portInterface EMPTY>
 <!ATTLIST portInterface
   idlInterface CDATA #REQUIRED
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">idlInterface </span>- The <a 
-href="mainap8.html#corba">CORBA</a> data type of the port output.</li></ul>
-                                                                                         
-                                                                                         
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+href="mainap9.html#corba">CORBA</a> data type of the port output.</li></ul>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT property (description)?>
 <!ATTLIST property
   key           CDATA #REQUIRED
@@ -331,7 +330,7 @@ href="mainap8.html#corba">CORBA</a> data type of the port output.</li></ul>
   name          CDATA #REQUIRED
   required      (true | false)
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">key </span>- The key/id of the property.
@@ -344,28 +343,29 @@ class="ecbx-1200">name </span>- A user friendly name for the property.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">required </span>- True if the property is required.</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT description (#PCDATA)>
-]]></script>
+]]></script></div>
 A user friendly description of the object.
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT interfaces (portInterface)+>
 ]]></script>
+                                                                                         
+                                                                                         
+</div>
 <!--l. 242--><p class="noindent" >List of port interfaces.
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT language EMPTY>
 <!ATTLIST language
   name (Python|C++|Java|Blank)
-                                                                                         
-                                                                                         
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- Name of the programming language to be generated.</li></ul>
 <!--l. 254--><p class="noindent" ><span 
 class="ecbi-1200">Examples: </span>The following is an example of the Port Handler extension point:<br 
-class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <extension point="gov.redhawk.ide.codegen.portGenerator">
        <portHandler
               class=
@@ -390,9 +390,9 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
            </language>
        </portHandler>
 </extension>
+]]></script></div>
                                                                                          
                                                                                          
-]]></script>
 <!--l. 282--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.3   </span> <a 
  id="x28-339000B.1.3"></a>Codegen Template</h4>
@@ -402,15 +402,15 @@ class="newline" /><span
 class="ecbi-1200">Description: </span>Provide a template for a code generator<br 
 class="newline" /><span 
 class="ecbi-1200">Configuration Markup:</span><br 
-class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT extension (template)*>
 <!ATTLIST extension
   id    CDATA #IMPLIED
   point CDATA #REQUIRED
   name  CDATA #IMPLIED
 >
-]]></script>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+]]></script></div>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT template (description , property* , componenttype+)*>
 <!ATTLIST template
   class             CDATA #REQUIRED
@@ -424,20 +424,20 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
   portCodegenId     IDREF #IMPLIED
   usesPortTemplates (true | false)
 >
-                                                                                         
-                                                                                         
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">class </span>- The name of the class that provides the generated code.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">codegenId </span>- The <a 
-href="mainap8.html#id">ID</a> of the Code Generator that this template will generate source.
+href="mainap9.html#id">ID</a> of the Code Generator that this template will generate source.
       </li>
+                                                                                         
+                                                                                         
       <li class="itemize"><span 
 class="ecbx-1200">id </span>- Unique <a 
-href="mainap8.html#id">ID</a> for this template.
+href="mainap9.html#id">ID</a> for this template.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- Human readable name of this template.
@@ -460,29 +460,29 @@ class="ecbx-1200">templateLocation </span>- Deprecated, do not use.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">portCodegenId </span>- <a 
-href="mainap8.html#id">ID</a> of the port generator to reference.
+href="mainap9.html#id">ID</a> of the port generator to reference.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">usesPortTemplates </span>- This attribute is used to indicate whether or not this template
       will delegate code generation to port generators if one is specified.</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT property (description)?>
 <!ATTLIST property
   key           CDATA #REQUIRED
   default_value CDATA #REQUIRED
-                                                                                         
-                                                                                         
   name          CDATA #REQUIRED
   required      (true | false)
   deprecated    (true | false) "false"
 >
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">key </span>- The key/id of the property.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">default_value </span>- The default value for the property.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- A user friendly name for the property.
@@ -492,26 +492,24 @@ class="ecbx-1200">required </span>- True if the property is required.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">deprecated </span>- True if the property is now considered deprecated.</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT description (#PCDATA)>
-]]></script>
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">description </span>- A user friendly description of the object.</li></ul>
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT componenttype EMPTY>
-<!--l. 354--><p class="noindent" ><!ATTLIST componenttype
+<!ATTLIST componenttype
 type (resource|device|service)
 >
-]]></script>
-                                                                                         
-                                                                                         
+]]></script></div>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">type </span>- Type of resource to contribute.</li></ul>
 <!--l. 360--><p class="noindent" ><span 
 class="ecbi-1200">Examples: </span>The following is an example of the Template extension point: <br 
-class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <extension
            point="gov.redhawk.ide.codegen.codegenTemplate">
   <template
@@ -539,8 +537,6 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
             When this property is set,
             the generated codes initialize function is
             tied to the start function,
-                                                                                         
-                                                                                         
             which in turn starts the processing thread.
             When the property is not set,
             the start function needs to be explicitly
@@ -571,18 +567,18 @@ class="newline" /><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
         type="resource">
      </componenttype>
      <componenttype
-                                                                                         
-                                                                                         
          type="device">
      </componenttype>
  </template>
 </extension>
-]]></script>
+]]></script>                                                                                         
+                                                                                         
+</div>
 <!--l. 426--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
  id="x28-340000B.2"></a>Building and installing</h3>
 <!--l. 427--><p class="noindent" >A code-generator project is an Eclipse Plug-in. Eclipse plug-ins are built into <a 
-href="mainap8.html#jar">JAR</a> files which
+href="mainap9.html#jar">JAR</a> files which
 can be distributed as is or wrapped up in a feature and deployed within an Eclipse
 Update-site.
 <!--l. 429--><p class="noindent" >For more details follow the directions for deploying a Control Panel in Section  <a 
@@ -592,17 +588,18 @@ href="mainch24.html#x26-32500024.6">Section
 <h3 class="sectionHead"><span class="titlemark">B.3   </span> <a 
  id="x28-341000B.3"></a>Using JacORB</h3>
 <!--l. 433--><p class="noindent" >The REDHAWK IDE uses JacORB as its implementation for the <a 
-href="mainap8.html#corba">CORBA</a> standard. To use
+href="mainap9.html#corba">CORBA</a> standard. To use
 JacORB, the <span 
 class="ectt-1200">org.jacorb.systemFragment </span>and <span 
 class="ectt-1200">org.jacorb.systemFragment.feature </span>must be
 included in the product.
 <!--l. 437--><p class="noindent" >In addition, the following VM arguments must be placed in either the run configuration or the <span 
-class="ectt-1200">eclipse.ini </span>file: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+class="ectt-1200">eclipse.ini</span>
+file: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB
 -Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton
 -Dorg.omg.PortableInterceptor.ORBInitializerClass.standard_init=org.jacorb.orb.standardInterceptors.IORInterceptorInitializer
-]]></script>
+]]></script></div>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

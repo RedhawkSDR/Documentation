@@ -59,7 +59,7 @@ href="main.html#mainch6.html" >up</a>] </p></div>
 <!--l. 6--><p class="noindent" ><a 
 href="mainli2.html#glo:device">Devices</a> are proxies that run on a host but interact with installed hardware.
 <!--l. 8--><p class="noindent" >The <a 
-href="mainap8.html#sca">SCA</a> defines three <span 
+href="mainap9.html#sca">SCA</a> defines three <span 
 class="ectt-1200">Device </span>class types:
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
@@ -84,21 +84,21 @@ defines.
 <!--l. 18--><p class="noindent" >It is expected that developers will define their own <a 
 href="mainli2.html#glo:device">Devices</a> that will implement a customized
 version of each of these methods. REDHAWK provides a General Purpose Processor (<a 
-href="mainap8.html#gpp">GPP</a>), which
+href="mainap9.html#gpp">GPP</a>), which
 is an Executable <a 
 href="mainli2.html#glo:device">Device</a> that serves as a useful implementation example. Note that the <a 
-href="mainap8.html#gpp">GPP</a> is
+href="mainap9.html#gpp">GPP</a> is
 written in Python. It is often the case that <a 
 href="mainli2.html#glo:device">Devices</a> (being hardware proxies rather than actual
 hardware) do not execute performance-critical tasks, since the primary goal of the <a 
-href="mainap8.html#gpp">GPP</a> <a 
+href="mainap9.html#gpp">GPP</a> <a 
 href="mainli2.html#glo:device">Device</a> is
 to spawn off <a 
 href="mainli2.html#glo:component">Component</a> processes. Because of this, a higher-level language provides sufficient
 performance.
 <!--l. 24--><p class="noindent" >Section 3.1.3.3 (<a 
 href="mainli2.html#glo:device">Device</a> Interfaces) of the <a 
-href="mainap8.html#sca">SCA</a> 2.2.2 specification may also prove useful in
+href="mainap9.html#sca">SCA</a> 2.2.2 specification may also prove useful in
 understanding the expected roles and behaviors of the various <a 
 href="mainli2.html#glo:device">Device</a> types.
 <!--l. 26--><p class="noindent" >
@@ -155,13 +155,13 @@ href="mainli2.html#glo:device">Devices</a>.
 <!--l. 38--><p class="noindent" >An allocatable capacity is defined as a <a 
 href="mainli2.html#glo:property">Property</a> in the <a 
 href="mainli2.html#glo:device">Device</a>&#8217;s <a 
-href="mainap8.html#prf">PRF</a> file.
+href="mainap9.html#prf">PRF</a> file.
 <!--l. 40--><p class="noindent" >Below is an example of an allocation <a 
 href="mainli2.html#glo:property">Property</a> in the <a 
-href="mainap8.html#gpp">GPP</a>&#8217;s <a 
-href="mainap8.html#prf">PRF</a> <a 
-href="mainap8.html#xml">XML</a> file:
-<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+href="mainap9.html#gpp">GPP</a>&#8217;s <a 
+href="mainap9.html#prf">PRF</a> <a 
+href="mainap9.html#xml">XML</a> file:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
   <simple id="DCE:8dcef419-b440-4bcf-b893-cab79b6024fb"
          mode="readwrite" name="memCapacity" type="long">
      <description>Amount of RAM in the GPP not allocated to
@@ -171,12 +171,10 @@ href="mainap8.html#xml">XML</a> file:
      <kind kindtype="event"/>
      <action type="external"/>
   </simple>
-]]></script>
+]]></script></div>
 <!--l. 54--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x8-860006.2.1"></a>C++ and Java Device Capacity Allocation</h5>
-                                                                                         
-                                                                                         
 <!--l. 55--><p class="noindent" >When the <a 
 href="mainli2.html#glo:applicationfactory">Application Factory</a> calls the <span 
 class="ectt-1200">allocateCapacity() </span>method on a <a 
@@ -188,6 +186,8 @@ class="ectt-1200">allocateCapacity() </span>to allocate 1 MB of memory on a <a
 href="mainli2.html#glo:device">Device</a>. The <span 
 class="ectt-1200">allocateCapacity()</span>
 method simply checks to see if the requested amount of memory is less than the available
+                                                                                         
+                                                                                         
 memory. If so, the amount of memory is decremented by the amount requested and the
 <span 
 class="ectt-1200">allocateCapacity() </span>method returns true. The <span 
@@ -214,8 +214,8 @@ class="ectt-1200">allocation() </span>method for the
 <span 
 class="ectt-1200">memCapacity </span>allocation <a 
 href="mainli2.html#glo:property">Property</a> of the <a 
-href="mainap8.html#gpp">GPP</a>.
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+href="mainap9.html#gpp">GPP</a>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 # overrides allocateCapacity for memCapacity
 def allocate_memCapacity(self, value):
      # see if calculated capacity and measured capacity
@@ -226,10 +226,8 @@ def allocate_memCapacity(self, value):
      self.memCapacity = self.memCapacity - value
      self._log.debug("Remaining capacity %s", self.memCapacity)
      return True
-]]></script>
+]]></script></div>
 <!--l. 82--><p class="noindent" >
-                                                                                         
-                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">6.2.2   </span> <a 
  id="x8-880006.2.2"></a><span 
 class="ectt-1200">deallocateCapacity()</span></h4>
@@ -238,6 +236,8 @@ class="ectt-1200">deallocateCapacity()</span></h4>
  id="x8-890006.2.2"></a>C++ and Java Capacity Deallocation</h5>
 <!--l. 84--><p class="noindent" >The <span 
 class="ectt-1200">deallocateCapacity() </span>method essentially reverses the process implemented in
+                                                                                         
+                                                                                         
 the <span 
 class="ectt-1200">allocateCapacity() </span>method (i.e., the available capacity for the given resource is
 incremented).
@@ -254,8 +254,8 @@ class="ectt-1200">deallocation() </span>method for the
 <span 
 class="ectt-1200">memCapacity </span>allocation <a 
 href="mainli2.html#glo:property">Property</a> of the <a 
-href="mainap8.html#gpp">GPP</a>.
-<script type="syntaxhighlighter" class="brush: python"><![CDATA[
+href="mainap9.html#gpp">GPP</a>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 # overrides deallocateCapacity for memCapacity
 def deallocate_memCapacity(self, value):
      self._log.debug("deallocate_memCapacity(%s)", value)
@@ -266,10 +266,8 @@ def deallocate_memCapacity(self, value):
      else:
          self.memCapacity = self.memCapacity + value
      self._log.debug("Remaining capacity %s", self.memCapacity)
-]]></script>
+]]></script></div>
 <!--l. 103--><p class="noindent" >
-                                                                                         
-                                                                                         
 <h3 class="sectionHead"><span class="titlemark">6.3   </span> <a 
  id="x8-910006.3"></a>Loadable Device</h3>
 <!--l. 104--><p class="noindent" >The Loadable <a 
@@ -290,6 +288,8 @@ class="ectt-1200">load()</span></h4>
 class="ectt-1200">load() </span>method is called on a Loadable <a 
 href="mainli2.html#glo:device">Device</a>, the Loadable <a 
 href="mainli2.html#glo:device">Device</a> copies the file
+                                                                                         
+                                                                                         
 indicated by the provided filename onto the hardware that the proxy represents. If the Loadable
 <a 
 href="mainli2.html#glo:device">Device</a> is also an Executable <a 
@@ -306,10 +306,10 @@ support copying the local code (perhaps on a desktop computer) to be run on the 
 <span 
 class="ectt-1200">Bar</span>&#8217;s file system.
 <!--l. 114--><p class="noindent" >In the case of the <a 
-href="mainap8.html#gpp">GPP</a>, the executable files associated with a <a 
+href="mainap9.html#gpp">GPP</a>, the executable files associated with a <a 
 href="mainli2.html#glo:component">Component</a>
 are copied to the directory associated with the running <a 
-href="mainap8.html#gpp">GPP</a> <a 
+href="mainap9.html#gpp">GPP</a> <a 
 href="mainli2.html#glo:device">Device</a> (e.g.,
 <span 
 class="ectt-1200">$SDRROOT/dev/.DeviceManager_/GPP_1/component/myComponent/myComponent.py</span>).
@@ -334,15 +334,13 @@ and executing a software process or thread on a <a
 href="mainli2.html#glo:device">Device</a>.
 <!--l. 123--><p class="noindent" >If the <a 
 href="mainli2.html#glo:device">Device</a> is running the Linux <a 
-href="mainap8.html#os">OS</a>, the <span 
+href="mainap9.html#os">OS</a>, the <span 
 class="ectt-1200">execute() </span>method will call a <span 
 class="ectt-1200">fork() </span>function to start a
 <a 
 href="mainli2.html#glo:component">Component</a> process. For Executable <a 
 href="mainli2.html#glo:device">Devices</a> that do not execute code using a <span 
 class="ectt-1200">fork() </span>statement,
-                                                                                         
-                                                                                         
 the developer would be required to implement the necessary code for executing a <a 
 href="mainli2.html#glo:component">Component</a>
 process for the particular <a 
@@ -356,17 +354,19 @@ class="ectt-1200">execute() </span>method is called by the <a
 href="mainli2.html#glo:applicationfactory">Application Factory</a> when a <a 
 href="mainli2.html#glo:component">Component</a> process needs to
 be started. In the case of the <a 
-href="mainap8.html#gpp">GPP</a> <a 
+href="mainap9.html#gpp">GPP</a> <a 
 href="mainli2.html#glo:device">Device</a>, the <span 
 class="ectt-1200">execute() </span>method uses the provides arguments
 (indicating the <a 
 href="mainli2.html#glo:component">Component</a> name and <a 
 href="mainli2.html#glo:property">Property</a> overrides from the <a 
-href="mainap8.html#sad">SAD</a> file) to formulate a Linux
+href="mainap9.html#sad">SAD</a> file) to formulate a Linux
 command-line execution statement. After starting the <a 
 href="mainli2.html#glo:component">Component</a> process, the <a 
 href="mainli2.html#glo:device">Device</a> returns to
 wait for commands.
+                                                                                         
+                                                                                         
 <!--l. 131--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.4.2   </span> <a 
  id="x8-960006.4.2"></a><span 
@@ -375,11 +375,11 @@ class="ectt-1200">terminate()</span></h4>
 class="ectt-1200">terminate() </span>method exists to kill processes that have been started by the <a 
 href="mainli2.html#glo:device">Device</a>. In the
 example of the <a 
-href="mainap8.html#gpp">GPP</a> <a 
+href="mainap9.html#gpp">GPP</a> <a 
 href="mainli2.html#glo:device">Device</a>, the <span 
 class="ectt-1200">terminate() </span>method simply sends a kill command to the given
 Process Identifier (<a 
-href="mainap8.html#pid">PID</a>) and waits for it to die.
+href="mainap9.html#pid">PID</a>) and waits for it to die.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
