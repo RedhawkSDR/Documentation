@@ -54,18 +54,18 @@ href="mainch13.html#tailmainch13.html" >prev-tail</a>] [<a
 href="#tailmainch14.html">tail</a>] [<a 
 href="main.html#mainch14.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;14</span><br /><a 
- id="x16-24000014"></a>Connections</h2>
+ id="x16-25700014"></a>Connections</h2>
 <h3 class="sectionHead"><span class="titlemark">14.1   </span> <a 
- id="x16-24100014.1"></a>Introduction</h3>
+ id="x16-25800014.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >When discussing connections, there are several terms that are thrown around in REDHAWK: uses,
 provides, <a 
 href="mainli2.html#glo:port">Port</a>, interfaces, <a 
-href="mainap11.html#idl">IDL</a>, among others. This section demystifies connections and presents
+href="mainap14.html#idl">IDL</a>, among others. This section demystifies connections and presents
 the key concepts that enable a REDHAWK-based system to easily interact with other REDHAWK
 systems and external tools developed outside the scope of REDHAWK.
 <!--l. 9--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.2   </span> <a 
- id="x16-24200014.2"></a>The Connection Process</h3>
+ id="x16-25900014.2"></a>The Connection Process</h3>
 <!--l. 10--><p class="noindent" >All connections take a client-server pattern. All calls are made from the client to the server. It is
 the role of the server to provide a set of functions that can be called by the client. It is the role of
 the client to understand what interfaces the server provides and to invoke (use) them. This is the
@@ -84,39 +84,41 @@ href="mainli2.html#glo:port">Port</a>, an external entity needs to invoke
 the <span 
 class="ectt-1200">connectPort() </span>function on the uses <a 
 href="mainli2.html#glo:port">Port</a>, where the arguments are a <a 
-href="mainap11.html#corba">CORBA</a> pointer to the
+href="mainap14.html#corba">CORBA</a> pointer to the
 provides <a 
 href="mainli2.html#glo:port">Port</a> and a string that identifies that connection. To sever a connection, an
 external entity needs to invoke the <span 
 class="ectt-1200">disconnectPort() </span>function on the uses <a 
 href="mainli2.html#glo:port">Port</a>, where
 its only argument is the string <a 
-href="mainap11.html#id">ID</a> used to establish the connection. In the case of an
+href="mainap14.html#id">ID</a> used to establish the connection. In the case of an
 <a 
 href="mainli2.html#glo:application">Application</a>, the connections are established/destroyed by an object in the <a 
 href="mainli2.html#glo:domainmanager">Domain
 Manager</a> process space based on the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>&#8217;s <a 
-href="mainap11.html#xml">XML</a> file. In the case of the Sandbox, the
-Sandbox will make the correct calls to establish and destroy a connection based on user
+href="mainap14.html#xml">XML</a> file. In the case of the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, the
+<a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> makes the correct calls to establish and destroy a connection based on user
 input.
 <!--l. 23--><p class="noindent" >All provides <a 
 href="mainli2.html#glo:port">Ports</a> must implement an interface described in <a 
-href="mainap11.html#idl">IDL</a>. This interface implements the
+href="mainap14.html#idl">IDL</a>. This interface implements the
 methods that the uses <a 
-href="mainli2.html#glo:port">Port</a> will invoke after a connection has been made. When a uses <a 
-href="mainli2.html#glo:port">Port</a> is
-given a pointer to a provides <a 
-href="mainli2.html#glo:port">Port</a>, it essentially casts this generic pointer to the interface that it
-believes the provides <a 
-href="mainli2.html#glo:port">Port</a> to implement. If this casting process fails, an exception is raised during
-the <span 
+href="mainli2.html#glo:port">Port</a> invokes after a connection has been made. When a uses <a 
+href="mainli2.html#glo:port">Port</a> is given a
+pointer to a provides <a 
+href="mainli2.html#glo:port">Port</a>, it essentially casts this generic pointer to the interface that it believes
+the provides <a 
+href="mainli2.html#glo:port">Port</a> to implement. If this casting process fails, an exception is raised during the
+<span 
 class="ectt-1200">connectPort() </span>call.
                                                                                          
                                                                                          
 <!--l. 28--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.3   </span> <a 
- id="x16-24300014.3"></a>Why Ports?</h3>
+ id="x16-26000014.3"></a>Why Ports?</h3>
 <!--l. 30--><p class="noindent" >It seems burdensome to connect <a 
 href="mainli2.html#glo:component">Components</a> through <a 
 href="mainli2.html#glo:port">Port</a> objects; this is an additional level of
@@ -157,12 +159,13 @@ href="mainli2.html#glo:component">Component</a>&#8217;s uses <a
 href="mainli2.html#glo:port">Port</a> may cast to <span 
 class="ectt-1200">CF::DomainManager</span>. If that connection is made, the
 <a 
-href="mainli2.html#glo:component">Component</a> now has access to the REDHAWK Domain, and it can inspect all deployed objects,
+href="mainli2.html#glo:component">Component</a> now has access to the REDHAWK <a 
+href="mainli2.html#glo:domain">Domain</a>, and it can inspect all deployed objects,
 launch and release <a 
 href="mainli2.html#glo:application">Applications</a>, or do any other kind of management functions.
 <!--l. 45--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.4   </span> <a 
- id="x16-24400014.4"></a>Port Access</h3>
+ id="x16-26100014.4"></a>Port Access</h3>
 <!--l. 46--><p class="noindent" >A <a 
 href="mainli2.html#glo:port">Port</a> belongs to a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
@@ -170,7 +173,7 @@ href="mainli2.html#glo:device">Device</a> (<a
 href="mainli2.html#glo:device">Devices</a> are specialized <a 
 href="mainli2.html#glo:component">Components</a> - more on that in
 <a 
-href="mainch6.html#x8-930006">Chapter 6</a>). To retrieve a <a 
+href="mainch6.html#x8-1030006">Chapter 6</a>). To retrieve a <a 
 href="mainli2.html#glo:port">Port</a>, an external entity needs to call <span 
 class="ectt-1200">getPort() </span>on the <a 
 href="mainli2.html#glo:component">Component</a> that
@@ -179,7 +182,7 @@ href="mainli2.html#glo:port">Port</a>. The argument to the <span
 class="ectt-1200">getPort() </span>function is the string name for the <a 
 href="mainli2.html#glo:port">Port</a>, and the
 return value is a <a 
-href="mainap11.html#corba">CORBA</a> pointer to that <a 
+href="mainap14.html#corba">CORBA</a> pointer to that <a 
 href="mainli2.html#glo:port">Port</a> object. Both uses and provides <a 
 href="mainli2.html#glo:port">Ports</a>
 are retrieved from <a 
@@ -193,7 +196,7 @@ href="mainli2.html#glo:devicemanager">Device
 Manager</a>.
 <!--l. 54--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.5   </span> <a 
- id="x16-24500014.5"></a>Dynamic Connections</h3>
+ id="x16-26200014.5"></a>Dynamic Connections</h3>
 <!--l. 56--><p class="noindent" >Unless a <a 
 href="mainli2.html#glo:component">Component</a> is in the process of being terminated, it is valid to retrieve a <a 
 href="mainli2.html#glo:port">Port</a> reference at
@@ -229,7 +232,7 @@ connections. This means of dynamic connecting is essential for REDHAWK&#8217;s p
 mechanism.
 <!--l. 68--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">14.6   </span> <a 
- id="x16-24600014.6"></a>Example</h3>
+ id="x16-26300014.6"></a>Example</h3>
 <!--l. 70--><p class="noindent" >To exercise connections, create the following <a 
 href="mainli2.html#glo:component">Components</a>:
       <ul class="itemize1">
@@ -251,10 +254,10 @@ href="mainli2.html#glo:component">Components</a> is not relevant. Create both <a
 href="mainli2.html#glo:component">Component</a> projects,
 generate the <a 
 href="mainli2.html#glo:component">Component</a> code, and install the <a 
-href="mainli2.html#glo:component">Components</a> (for a review of how to do this, see
+href="mainli2.html#glo:component">Components</a> (for a review of how to do this, refer to
 <a 
-href="mainch4.html#x6-280004">Chapter 4</a>).
-<!--l. 81--><p class="noindent" >In a Python session on a terminal, run the following commands:
+href="mainch4.html#x6-380004">Chapter 4</a>).
+<!--l. 80--><p class="noindent" >In a Python session on a terminal, run the following commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> source = sb.Component('source')
@@ -265,19 +268,20 @@ href="mainch4.html#x6-280004">Chapter 4</a>).
 ]]></script></div>
                                                                                          
                                                                                          
-<!--l. 92--><p class="noindent" >After running the script above, the connection has been established.
-<!--l. 94--><p class="noindent" >To destroy the connection, use the following command:
+<!--l. 91--><p class="noindent" >After running the script above, the connection has been established.
+<!--l. 93--><p class="noindent" >To destroy the connection, use the following command:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> uses_port.disconnectPort('my_connection')
 ]]></script></div>
-<!--l. 100--><p class="noindent" >Following these multiple steps every time that one wants to establish a connection can be
-cumbersome. In the Sandbox, the Python <a 
-href="mainap11.html#api">API</a> for <a 
+<!--l. 99--><p class="noindent" >Following these multiple steps every time that one wants to establish a connection can be
+cumbersome. In the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, the Python <a 
+href="mainap14.html#api">API</a> for <a 
 href="mainli2.html#glo:component">Components</a> has been extended to include
 <span 
 class="ectt-1200">connect() </span>and <span 
 class="ectt-1200">disconnect() </span>members.
-<!--l. 103--><p class="noindent" >If it is possible to create unambiguous <a 
+<!--l. 102--><p class="noindent" >If it is possible to create unambiguous <a 
 href="mainli2.html#glo:port">Port</a> type matches between two <a 
 href="mainli2.html#glo:port">Ports</a>, the steps above can
 be reduced to:
@@ -287,11 +291,13 @@ be reduced to:
  &gt;&gt;> sink = sb.Component('sink')
  &gt;&gt;> source.connect(sink)
 ]]></script></div>
-<!--l. 112--><p class="noindent" >Note that this extension to the Sandbox&#8217;s <a 
+<!--l. 111--><p class="noindent" >Note that this extension to the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>&#8217;s <a 
 href="mainli2.html#glo:component">Component</a> <a 
-href="mainap11.html#api">API</a> is not an extension of <span 
+href="mainap14.html#api">API</a> is not an extension of <span 
 class="ectt-1200">CF::Resource</span>,
-so this shortcut does not work outside the context of the Sandbox.
+so this shortcut does not work outside the context of the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

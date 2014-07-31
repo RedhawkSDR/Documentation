@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>D Building the REDHAWK Framework from Source</title> 
+<head><title>D REDHAWK Dependencies</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -54,183 +54,207 @@ href="mainap3.html#tailmainap3.html" >prev-tail</a>] [<a
 href="#tailmainap4.html">tail</a>] [<a 
 href="main.html#mainap4.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;D</span><br /><a 
- id="x30-413000D"></a>Building the REDHAWK Framework from Source</h2>
+ id="x30-471000D"></a>REDHAWK Dependencies</h2>
 <h3 class="sectionHead"><span class="titlemark">D.1   </span> <a 
- id="x30-414000D.1"></a>Installing build dependencies</h3>
-<!--l. 5--><p class="noindent" >Building REDHAWK from source requires a few additional dependencies beyond those
-required to run Redhawk. The following procedure explains how to build REDHAWK from
-source.
-<!--l. 7--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x30-414002x1">First, install the dependencies in  <a 
-href="mainch2.html#x4-90002.3">Section 2.3</a>.
+ id="x30-472000D.1"></a>Dependencies Packaged with REDHAWK</h3>
+<!--l. 7--><p class="noindent" >The following REDHAWK dependencies/support packages are included in the standard
+REDHAWK tarball for Red Hat/<a 
+href="mainap14.html#centos">CentOS</a> 5 and 6:
+      <ul class="itemize1">
+      <li class="itemize">libomniEvents2-2.6.2-8
       </li>
-      <li 
-  class="enumerate" id="x30-414004x2">Next, if building on Red Hat/CentOS 5, enter the following commands:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo yum install e2fsprogs-devel \
-  boost141-devel \
-  autoconf automake libtool \
-  expat-devel \
-  java-devel \
-  python-devel \
-  xsd
-]]></script></div>
+      <li class="itemize">libomniEvents2-devel-2.6.2-8
       </li>
-      <li 
-  class="enumerate" id="x30-414006x3">If building on Red Hat/CentOS 6, enter the following commands:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo yum install libuuid-devel \
-  boost-devel \
-  autoconf automake libtool \
-  expat-devel \
-  java-devel \
-  python-devel \
-  log4cxx-devel \
-  xsd
-]]></script></div>
+      <li class="itemize">omniEvents-bootscripts-2.6.2-8
+      </li>
+      <li class="itemize">omniEvents-debuginfo-2.6.2-8
+      </li>
+      <li class="itemize">omniEvents-doc-2.6.2-8
+      </li>
+      <li class="itemize">omniEvents-server-2.6.2-8
+      </li>
+      <li class="itemize">omniEvents-utils-2.6.2-8
+      </li>
+      <li class="itemize">omniORBpy-debuginfo-3.6-3
+      </li>
+      <li class="itemize">omniORBpy-devel-3.6-3
+      </li>
+      <li class="itemize">omniORBpy-libs-3.6-3
+      </li>
+      <li class="itemize">python-omniORB-3.6-3
                                                                                          
                                                                                          
-      </li></ol>
-<!--l. 37--><p class="noindent" >
+      </li>
+      <li class="itemize">uhd-3.5.3-1
+      </li>
+      <li class="itemize">uhd-debuginfo-3.5.3-1
+      </li>
+      <li class="itemize">uhd-devel-3.5.3-1
+      </li>
+      <li class="itemize">uhd-doc-3.5.3-1
+      </li>
+      <li class="itemize">uhd-firmware-3.5.3-1</li></ul>
+<!--l. 28--><p class="noindent" >The following additional REDHAWK dependencies/support packages are included only for Red
+Hat/<a 
+href="mainap14.html#centos">CentOS</a> 5 in the standard REDHAWK tarball:
+      <ul class="itemize1">
+      <li class="itemize">libusb1-1.0.9-0.6.rc1
+      </li>
+      <li class="itemize">libusb1-debuginfo-1.0.9-0.6.rc1
+      </li>
+      <li class="itemize">libusb1-devel-1.0.9-0.6.rc1
+      </li>
+      <li class="itemize">libusb1-devel-doc-1.0.9-0.6.rc1
+      </li>
+      <li class="itemize">libusb1-static-1.0.9-0.6.rc1
+      </li>
+      <li class="itemize">log4cxx-0.10.0-13
+      </li>
+      <li class="itemize">log4cxx-debuginfo-0.10.0-13
+      </li>
+      <li class="itemize">log4cxx-devel-0.10.0-13
+      </li>
+      <li class="itemize">python-jinja2-26-2.6-3</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 42--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.2   </span> <a 
- id="x30-415000D.2"></a>Installing the Framework from Source</h3>
-<!--l. 39--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="ectt-1200">redhawk-src-1.9.0.tar.gz </span>must be
-downloaded.
-<!--l. 41--><p class="noindent" >Installing from source provides the advantage of allowing the user to set a variety of compile-time
-configuration options, including:
+ id="x30-473000D.2"></a>Dependencies From Fedora <a 
+href="mainap14.html#epel">EPEL</a></h3>
+<!--l. 45--><p class="noindent" >Users without access to the Fedora <a 
+href="mainap14.html#epel">EPEL</a> repositories can use the standalone <a 
+href="mainap14.html#epel">EPEL</a> tarballs
+distributed with REDHAWK. These provide a small subset of the <a 
+href="mainap14.html#epel">EPEL</a> repository to satisfy only
+the dependencies necessary for REDHAWK.
+<!--l. 47--><p class="noindent" >The following REDHAWK dependencies/support packages for Red Hat/<a 
+href="mainap14.html#centos">CentOS</a> 6 from <a 
+href="mainap14.html#epel">EPEL</a> are
+included in the standalone tarball:
       <ul class="itemize1">
-      <li class="itemize">Disable log4cxx support
+      <li class="itemize">log4cxx-0.10.0-13
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">--disable-log4cxx</span>
+      <li class="itemize">log4cxx-devel-0.10.0-13
       </li>
-      <li class="itemize">Enable LOG_TRACE statements
+      <li class="itemize">omniORB-4.1.6-2
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">--enable-trace</span>
+      <li class="itemize">omniORB-devel-4.1.6-2
       </li>
-      <li class="itemize">Enable persistence support:
+      <li class="itemize">omniORB-doc-4.1.6-2
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">--enable-persistence=&#x003C;persist_type&#x003E;</span>
+      <li class="itemize">omniORB-servers-4.1.6-2
       </li>
-      <li class="itemize"> <span 
-class="ectt-1200">(Support types: bdb, gdbm, sqlite, none)</span>
+      <li class="itemize">omniORB-utils-4.1.6-2
       </li>
-      <li class="itemize">Disable framework java support:
+      <li class="itemize">python-jinja2-26-2.6-3
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">--disable-java</span>
+      <li class="itemize">xsd-3.3.0-1
       </li>
-      <li class="itemize">Change the ossie root directory
+      <li class="itemize">xsd-doc-3.3.0-1</li></ul>
+<!--l. 62--><p class="noindent" >The following REDHAWK dependencies/support packages for Red Hat/<a 
+href="mainap14.html#centos">CentOS</a> 5 from <a 
+href="mainap14.html#epel">EPEL</a> are
+included in the standalone tarball:
+                                                                                         
+                                                                                         
+      <ul class="itemize1">
+      <li class="itemize">atlas-3.8.3-1
+      </li>
+      <li class="itemize">atlas-devel-3.8.3-1
+      </li>
+      <li class="itemize">atlas-sse2-3.8.3-1
+      </li>
+      <li class="itemize">atlas-sse2-devel-3.8.3-1
+      </li>
+      <li class="itemize">atlas-sse-3.8.3-1
+      </li>
+      <li class="itemize">atlas-sse3-3.8.3-1
+      </li>
+      <li class="itemize">atlas-sse3-devel-3.8.3-1
+      </li>
+      <li class="itemize">atlas-sse-devel-3.8.3-1
+      </li>
+      <li class="itemize">boost141-1.41.0-5
+      </li>
+      <li class="itemize">boost141-date-time-1.41.0-5
+      </li>
+      <li class="itemize">boost141-devel-1.41.0-5
+      </li>
+      <li class="itemize">boost141-doc-1.41.0-5
+      </li>
+      <li class="itemize">boost141-filesystem-1.41.0-5
+      </li>
+      <li class="itemize">boost141-graph-1.41.0-5
+      </li>
+      <li class="itemize">boost141-iostreams-1.41.0-5
+      </li>
+      <li class="itemize">boost141-math-1.41.0-5
                                                                                          
                                                                                          
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">--with-ossie=&#x003C;dir&#x003E;</span>
+      <li class="itemize">boost141-program-options-1.41.0-5
       </li>
-      <li class="itemize">Change the SDR root directory
+      <li class="itemize">boost141-python-1.41.0-5
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">--with-sdr=&#x003C;dir&#x003E;</span></li></ul>
-<!--l. 59--><p class="noindent" >To compile the source, execute the following commands (and put any configuration arguments to
-be used after the <span 
-class="ectt-1200">./configure </span>command):
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ tar -xvf redhawk-src-1.9.0.tar.gz
-$ cd redhawk-src-1.9.0/redhawk-1.9.0/src
-$ ./reconf
-$ ./configure <options>
-$ make
-$ make install
-]]></script></div>
-<!--l. 70--><p class="noindent" >
+      <li class="itemize">boost141-regex-1.41.0-5
+      </li>
+      <li class="itemize">boost141-serialization-1.41.0-5
+      </li>
+      <li class="itemize">boost141-signals-1.41.0-5
+      </li>
+      <li class="itemize">boost141-static-1.41.0-5
+      </li>
+      <li class="itemize">boost141-system-1.41.0-5
+      </li>
+      <li class="itemize">boost141-test-1.41.0-5
+      </li>
+      <li class="itemize">boost141-thread-1.41.0-5
+      </li>
+      <li class="itemize">boost141-wave-1.41.0-5
+      </li>
+      <li class="itemize">fftw3-3.2.2-3
+      </li>
+      <li class="itemize">fftw3-devel-3.2.2-3
+      </li>
+      <li class="itemize">numpy-1.2.1-2
+      </li>
+      <li class="itemize">omniORB-4.1.6-2
+      </li>
+      <li class="itemize">omniORB-devel-4.1.6-2
+      </li>
+      <li class="itemize">omniORB-doc-4.1.6-2
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">omniORB-servers-4.1.6-2
+      </li>
+      <li class="itemize">omniORB-utils-4.1.6-2
+      </li>
+      <li class="itemize">python-babel-0.9.5-2
+      </li>
+      <li class="itemize">python-cheetah-2.0.1-1
+      </li>
+      <li class="itemize">python-markupsafe-0.9.2-3
+      </li>
+      <li class="itemize">python-nose-0.11.3-2
+      </li>
+      <li class="itemize">scipy-0.6.0-7
+      </li>
+      <li class="itemize">xerces-c-2.7.0-8
+      </li>
+      <li class="itemize">xerces-c-devel-2.7.0-8
+      </li>
+      <li class="itemize">xsd-3.3.0-1
+      </li>
+      <li class="itemize">xsd-doc-3.3.0-1</li></ul>
+<!--l. 111--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">D.3   </span> <a 
- id="x30-416000D.3"></a>Setting Environment Variables</h3>
-<!--l. 72--><p class="noindent" >The environment variables <span 
-class="ectt-1200">SDRROOT </span>and <span 
-class="ectt-1200">OSSIEHOME </span>must be set in order to run REDHAWK.
-<span 
-class="ectt-1200">OSSIEHOME </span>points to the location of installed libraries, header files, and executables. <span 
-class="ectt-1200">SDRROOT </span>is the
-installation target of user-developed resources (e.g., <a 
-href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:waveformapplication">Waveforms</a>), which implies
-that the developer must have write permissions to <span 
-class="ectt-1200">SDRROOT </span>and its subdirectories. For convenience,
-a user may add three lines to their <span 
-class="cmsy-10x-x-120">~</span><span 
-class="ectt-1200">/.bashrc </span>file (default <span 
-class="ectt-1200">SDRROOT </span>and <span 
-class="ectt-1200">OSSIEHOME </span>directories
-used):
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-export SDRROOT=/var/redhawk/sdr
-export OSSIEHOME=/usr/local/redhawk/core
-export PYTHONPATH=$OSSIEHOME/lib/python:$PYTHONPATH
-]]></script></div>
-<!--l. 83--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The terminal must be restarted for the changes to <span 
-class="cmsy-10x-x-120">~</span><span 
-class="ectt-1200">/.bashrc </span>to take effect. </p></div></div>
+ id="x30-474000D.3"></a>Developer Dependencies</h3>
+<!--l. 113--><p class="noindent" >Building REDHAWK assets requires several development dependencies that must be installed to
+compile new Components. Installing the redhawk-devel package ensures that any required
+dependencies are installed on your machine.
                                                                                          
                                                                                          
-<!--l. 87--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">D.4   </span> <a 
- id="x30-417000D.4"></a>Modifying the Python parsers</h3>
-<!--l. 88--><p class="noindent" >The files <span 
-class="ectt-1200">dcd.py</span>, <span 
-class="ectt-1200">dmd.py</span>, <span 
-class="ectt-1200">dpd.py</span>, <span 
-class="ectt-1200">prf.py</span>, <span 
-class="ectt-1200">profile.py</span>, <span 
-class="ectt-1200">sad.py</span>, <span 
-class="ectt-1200">scd.py</span>, and <span 
-class="ectt-1200">spd.py </span>are
-generated with a tool called generateDS. If the xsd is modified, then these files must be
-re-generated. Unlike in C++, this process is not tied into autoconf, so the integration process of
-the newly generated files is manual (generate the new Python files and over-write the existing
-ones). Furthermore, due to some aspects of the generated code, namely that some attributes are
-mapped to Python reserved words along with other minor issues, the generated files must be
-hand-modified to work with REDHAWK. These are the modifications that must be
-made:
-      <ul class="itemize1">
-      <li class="itemize">Change every constructor attribute <span 
-class="ectt-1200">id </span>to <span 
-class="ectt-1200">id_</span>
-      </li>
-      <li class="itemize">Change every member variable <span 
-class="ectt-1200">id </span>to <span 
-class="ectt-1200">id_</span>
-      </li>
-      <li class="itemize">Change the class <span 
-class="ectt-1200">range </span>to <span 
-class="ectt-1200">range_</span>. Make sure to also update the name where the class
-      is instantiated
-      </li>
-      <li class="itemize">In the <span 
-class="ectt-1200">buildChildren </span>function of the <span 
-class="ectt-1200">values </span>class in <span 
-class="ectt-1200">prf.py</span>, add
-      the following code before <span 
-class="ectt-1200">value_ </span>is appended to the member list <span 
-class="ectt-1200">value</span>
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-    if value_ == None:
-      value_ = 
-  ]]></script></div>
-      </li>
-      <li class="itemize">In the 1.8 series only, invoke the <span 
-class="ectt-1200">unlink </span>function on the object <span 
-class="ectt-1200">doc </span>in the <span 
-class="ectt-1200">parse</span>,
-      <span 
-class="ectt-1200">parseLiteral</span>, and <span 
-class="ectt-1200">parseString </span>functions before <span 
-class="ectt-1200">doc </span>is set to <span 
-class="ectt-1200">None</span></li></ul>
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap5.html" >next</a>] [<a 
 href="mainap3.html" >prev</a>] [<a 

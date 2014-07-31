@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>L Known Compatibility Issues</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
+<li><a href="gettingstarted/main.html">Getting Started</a></li> 
+<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a href="download.html">Download</a></li> 
+<li><a href="community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap13.html" >next</a>] [<a 
+href="mainap11.html" >prev</a>] [<a 
+href="mainap11.html#tailmainap11.html" >prev-tail</a>] [<a 
+href="#tailmainap12.html">tail</a>] [<a 
+href="main.html#mainap12.html" >up</a>] </p></div>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;L</span><br /><a 
+ id="x38-566000L"></a>Known Compatibility Issues</h2>
+<h3 class="sectionHead"><span class="titlemark">L.1   </span> <a 
+ id="x38-567000L.1"></a>Compiling REDHAWK and REDHAWK C++ Components in RHEL/<a 
+href="mainap14.html#centos">CentOS</a>
+6.4</h3>
+<!--l. 4--><p class="noindent" >Due to a bug in the boost header files at the time RHEL/<a 
+href="mainap14.html#centos">CentOS</a> 6.4 was released, REDHAWK
+and REDHAWK C++ projects do not compile using the system-installed gcc version 4.4.7
+(<a 
+href="https://bugzilla.redhat.com/show_bug.cgi?id=921792" class="url" ><span 
+class="ectt-1200">https://bugzilla.redhat.com/show_bug.cgi?id=921792</span></a>). If your system is configured to
+receive the latest <a 
+href="mainap14.html#os">OS</a> updates, performing a yum update resolves this issue. The issue is corrected
+in boost-1.41.0-17 and later.
+<!--l. 6--><p class="noindent" >You may verify your version of the boost header libraries by entering:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+rpm -q boost-devel
+]]></script></div>
+<!--l. 12--><p class="noindent" >If an up-to-date repository is not available, the boost file <span 
+class="ectt-1200">/usr/include/boost/exception_</span>
+<span 
+class="ectt-1200">ptr.hpp </span>may be patched. The following procedure explains how to patch the boost
+file.
+<!--l. 14--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x38-567002x1">Enter the following command.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo vi /usr/include/boost/exception_ptr.hpp
+]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x38-567004x2">Add the following destructor code starting at line 92.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+~exception_ptr() throw()
+{
+}
+]]></script></div>
+      </li></ol>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap13.html" >next</a>] [<a 
+href="mainap11.html" >prev</a>] [<a 
+href="mainap11.html#tailmainap11.html" >prev-tail</a>] [<a 
+href="mainap12.html" >front</a>] [<a 
+href="main.html#mainap12.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainap12.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div></section></div> 
+</body></html> 

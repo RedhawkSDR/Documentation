@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>15 Data Flow Management: BulkIO</title> 
+<head><title>15 Data Flow Management</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -54,48 +54,87 @@ href="mainch14.html#tailmainch14.html" >prev-tail</a>] [<a
 href="#tailmainch15.html">tail</a>] [<a 
 href="main.html#mainch15.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;15</span><br /><a 
- id="x17-24700015"></a>Data Flow Management: BulkIO</h2>
+ id="x17-26400015"></a>Data Flow Management</h2>
 <h3 class="sectionHead"><span class="titlemark">15.1   </span> <a 
- id="x17-24800015.1"></a>Introduction</h3>
-<!--l. 6--><p class="noindent" >Data flow between REDHAWK <a 
-href="mainli2.html#glo:component">Components</a> is managed through a module of interfaces called
+ id="x17-26500015.1"></a>Introduction</h3>
+<!--l. 6--><p class="noindent" >Data flow between REDHAWK resources (<a 
+href="mainli2.html#glo:component">Components</a> and <a 
+href="mainli2.html#glo:device">Devices</a>) is managed through two sets
+of interfaces: <a 
+href="mainap14.html#bulkio">BulkIO</a> and Burst Input/Output (<a 
+href="mainap14.html#burstio">BurstIO</a>). The <a 
+href="mainap14.html#bulkio">BulkIO</a> module is designed for
+streaming data and maximizes the efficiency for bulk data transfers between resources, where as,
 <a 
-href="mainap11.html#bulkio">BulkIO</a>. The <a 
-href="mainap11.html#bulkio">BulkIO</a> module is designed to provide a standardized methodology and
-maximize efficiency for bulk data for transfers between <a 
+href="mainap14.html#burstio">BurstIO</a> is designed for applications that require small and possibly non-contiguous
+chunks of data transfers. Both interfaces also allow for the association of metadata, Signal
+Related Information (<a 
+href="mainap14.html#sri">SRI</a>), and a Precision Time Stamp, which describe the content
+being transferred in support of content processing. The following 2 sections detail the
+capabilites for both <a 
+href="mainap14.html#bulkio">BulkIO</a> and <a 
+href="mainap14.html#burstio">BurstIO</a> implmementations and the interfaces they
+provide.
+<!--l. 1--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">15.2   </span> <a 
+ id="x17-26600015.2"></a>BulkIO</h3>
+<!--l. 4--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.2.1   </span> <a 
+ id="x17-26700015.2.1"></a>Introduction</h4>
+<!--l. 6--><p class="noindent" ><a 
+href="mainap14.html#bulkio">BulkIO</a> is designed to provide a standardized methodology and to maximize efficiency for bulk
+data transfers between REDHAWK resources (<a 
 href="mainli2.html#glo:component">Components</a>/<a 
-href="mainli2.html#glo:device">Devices</a>. This interface
+href="mainli2.html#glo:device">Devices</a>). This interface
 supports the transfer of data vectors (float, double, char (int8), octet (uint8), short
 (int16), ushort (uint16), long (int32), ulong (uint32), longlong (int64), ulonglong(uint64)
 ), character strings (char *), and out-of-band connection descriptors for SDDS data
 streams.
-<!--l. 8--><p class="noindent" >These interfaces also allow for meta data, Signal Related Information (SRI), and a precision time
-stamp, which are described in detail in the following subsections, which describe the content being
-transferred and support content processing. Part of the required methodology for passing data
-between REDHAWK <a 
-href="mainli2.html#glo:component">Components</a> is that all data transfers via pushPacket will be preceeded by at
-least one call to pushSRI with an appropriate SRI object. SRI data is passed out-of-band from the
-content data to reduce the overhead for transferring data between components. The precision time
-stamp represents the birth date for data and is part of the pushPacket method call for those
-components that require this information.
-<!--l. 10--><p class="noindent" >The data flow implementation for a Component&#8217;s BulkIO Port interface is provided
+<!--l. 8--><p class="noindent" >These interfaces also allow for metadata, Signal Related Information (<a 
+href="mainap14.html#sri">SRI</a>), and a precision time
+stamp (described in detail in the following subsections), which describe the content being
+transferred and support content processing. Part of the required methodology for passing
+data between REDHAWK <a 
+href="mainli2.html#glo:component">Components</a> is that all data transfers via <span 
+class="ectt-1200">pushPacket() </span>are
+preceeded by at least one call to <span 
+class="ectt-1200">pushSRI() </span>with an appropriate <a 
+href="mainap14.html#sri">SRI</a> object. <a 
+href="mainap14.html#sri">SRI</a> data
+is passed out-of-band from the content data to reduce the overhead for transferring
+data between <a 
+href="mainli2.html#glo:component">Components</a>. The precision time stamp represents the birth date for data
+and is part of the <span 
+class="ectt-1200">pushPacket() </span>method call for those <a 
+href="mainli2.html#glo:component">Components</a> that require this
+                                                                                         
+                                                                                         
+information.
+<!--l. 10--><p class="noindent" >The data flow implementation for a <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s <a 
+href="mainap14.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a> interface is provided
 by a shared <span 
-class="ectt-1200">bulkio </span>base class library. The resulting component code instantiates a
+class="ectt-1200">bulkio </span>base class library. The resulting <a 
+href="mainli2.html#glo:component">Component</a> code instantiates a
 <span 
 class="ectt-1200">bulkio </span>base class object and makes use of the shared library during deployment and
 execution.
 <!--l. 1--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">15.2   </span> <a 
- id="x17-24900015.2"></a>Data Transfers</h3>
+<h4 class="subsectionHead"><span class="titlemark">15.2.2   </span> <a 
+ id="x17-26800015.2.2"></a>Data Transfers</h4>
 <!--l. 3--><p class="noindent" >Data transfers happen through the <span 
-class="ectt-1200">pushPacket() </span>method call of a REDHAWK Component&#8217;s <a 
+class="ectt-1200">pushPacket() </span>method call of a REDHAWK <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:port">Port</a>
 object. This method transfers the data from the uses-side <a 
 href="mainli2.html#glo:port">Port</a> to the corresponding
 connected provides-side <a 
 href="mainli2.html#glo:port">Port</a>. The data is marshaled by the middleware (omniORB) and
-placed on a queue for processing by the receiving component. The implementations of
-the pushPacket methods are maximized for the efficiency of data throughput while
+placed on a queue for processing by the receiving <a 
+href="mainli2.html#glo:component">Component</a>. The implementations of
+the <span 
+class="ectt-1200">pushPacket() </span>methods are maximized for the efficiency of data throughput while
 providing network-accessible ingest/egress of data and minimizing the complexity of the
 implementation.
 <!--l. 8--><p class="noindent" ><hr class="figure"><div class="figure" 
@@ -104,7 +143,7 @@ implementation.
                                                                                          
                                                                                          
 <a 
- id="x17-249001r1"></a>
+ id="x17-268001r1"></a>
                                                                                          
                                                                                          
 <!--l. 10--><p class="noindent" ><img 
@@ -112,32 +151,42 @@ src="images/REDHAWK_bulkio_dataflow.png" alt="PIC"
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.1: </td><td  
-class="content">Bulkio Data Flow via pushPacket</td></tr></table><!--tex4ht:label?: x17-249001r1 -->
+class="content"><a 
+href="mainap14.html#bulkio">BulkIO</a> Data Flow via pushPacket()</td></tr></table><!--tex4ht:label?: x17-268001r1 -->
                                                                                          
                                                                                          
 <!--l. 12--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-<!--l. 15--><p class="noindent" >Each implementation maintains the required behavior of providing an SRI object before receiving
-any data transfers. This is accomplished by calling the pushSRI method of the Port with an SRI
-object. In most cases, a component takes the ingest SRI object received from an input <a 
+<!--l. 15--><p class="noindent" >Each implementation maintains the required behavior of providing an <a 
+href="mainap14.html#sri">SRI</a> object before receiving
+any data transfers. This is accomplished by calling the <span 
+class="ectt-1200">pushSRI() </span>method of the <a 
+href="mainli2.html#glo:port">Port</a> with an <a 
+href="mainap14.html#sri">SRI</a>
+object. In most cases, a <a 
+href="mainli2.html#glo:component">Component</a> takes the ingest <a 
+href="mainap14.html#sri">SRI</a> object received from an input <a 
 href="mainli2.html#glo:port">Port</a>,
 makes any required modifications as necessary, and passes this object down stream
 over its output <a 
 href="mainli2.html#glo:port">Port</a>. If a <a 
-href="mainli2.html#glo:component">Component</a> does not provide an SRI object before its first
+href="mainli2.html#glo:component">Component</a> does not provide an <a 
+href="mainap14.html#sri">SRI</a> object before its first
 <span 
 class="ectt-1200">pushPacket()</span>, the <a 
-href="mainli2.html#glo:port">Port</a> creates a default SRI object with nominal values to pass out the
+href="mainli2.html#glo:port">Port</a> creates a default <a 
+href="mainap14.html#sri">SRI</a> object with nominal values to pass out the
 <a 
 href="mainli2.html#glo:port">Port</a>.
 <!--l. 17--><p class="noindent" >The following sections explain the different methods for transferring supported data types by a
-component.
+<a 
+href="mainli2.html#glo:component">Component</a>.
 <!--l. 19--><p class="noindent" ><span 
 class="ecbx-1200">Caution: </span>For the current implementation of omniORB, the <span 
 class="ectt-1200">/etc/omniORB.cfg </span>maintains the
 configurable maximum transfer size defined by the value for giopMaxMsgSize. The default
 maximum transfer size is set to <span 
 class="ectt-1200">2097152 </span>(2 Megabyte (<a 
-href="mainap11.html#mb">MB</a>)). For every <span 
+href="mainap14.html#mb">MB</a>)). For every <span 
 class="ectt-1200">pushPacket()</span>, the
 data+headers must be less than this value; otherwise, a <span 
 class="ectt-1200">MARSHAL </span>exception is raised
@@ -146,14 +195,23 @@ by the middleware. This maximum value can be found during run time by using the
 class="ectt-1200">omniORB::giopMaxMsgSize() </span>function call or the <span 
 class="ectt-1200">bulkio::Const::MAX_TRANSFER_BYTES</span>
 value.
-<h4 class="subsectionHead"><span class="titlemark">15.2.1   </span> <a 
- id="x17-25000015.2.1"></a>Vector Data</h4>
-<!--l. 23--><p class="noindent" >A component usually ingests and egresses data from its ports in the service function. A
-component with a provides-port (input), grabs data from the port using the getPacket
-method. This method returns a dataTransfer object from the input port&#8217;s data queue or a
-null/None value if the queue is empty. The following brief snippet describes grabbing data
-from a provides-port (input); the second snippet describes pushing data out a uses-port
-(output).
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.2.1   </span> <a 
+ id="x17-26900015.2.2.1"></a>Vector Data</h5>
+<!--l. 23--><p class="noindent" >A <a 
+href="mainli2.html#glo:component">Component</a> usually ingests and egresses data from its <a 
+href="mainli2.html#glo:port">Ports</a> in the service function. A
+<a 
+href="mainli2.html#glo:component">Component</a> with a provides-<a 
+href="mainli2.html#glo:port">Port</a> (input), grabs data from the <a 
+href="mainli2.html#glo:port">Port</a> using the <span 
+class="ectt-1200">getPacket()</span>
+method. This method returns a <span 
+class="ectt-1200">dataTransfer </span>object (described in <a 
+href="#x17-269001r1">Table 15.1</a>) from the input
+<a 
+href="mainli2.html#glo:port">Port</a>&#8217;s data queue or a null/None value if the queue is empty.
+<!--l. 25--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">getPacket() </span>method.
                                                                                          
                                                                                          
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -178,101 +236,110 @@ from a provides-port (input); the second snippet describes pushing data out a us
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 46--><p class="noindent" ><a 
- id="x17-250001r1"></a><hr class="float"><div class="float" 
+<!--l. 62--><p class="noindent" ><a 
+ id="x17-269001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-4" class="tabular" 
+<div class="tabular"> <table id="TBL-8" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-4-1g"><col 
-id="TBL-4-1"></colgroup><colgroup id="TBL-4-2g"><col 
-id="TBL-4-2"></colgroup><colgroup id="TBL-4-3g"><col 
-id="TBL-4-3"></colgroup><tr 
+><colgroup id="TBL-8-1g"><col 
+id="TBL-8-1"></colgroup><colgroup id="TBL-8-2g"><col 
+id="TBL-8-2"></colgroup><colgroup id="TBL-8-3g"><col 
+id="TBL-8-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-1"  
-class="td11"> <span 
-class="ecbx-1200">Name               </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-2"  
-class="td11"> <span 
-class="ecbx-1200">Type                  </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-4-1-3"  
-class="td11"> <!--l. 51--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-8-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-1-1"  
+class="td11"> <!--l. 65--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-1-2"  
+class="td11"> <!--l. 65--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-1-3"  
+class="td11"> <!--l. 65--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-1"  
-class="td11"> dataBuffer             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-2"  
-class="td11"> std::vector&#x003C;TYPE&#x003E;  </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-2-3"  
-class="td11"> <!--l. 53--><p class="noindent" >The
+ style="vertical-align:baseline;" id="TBL-8-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-2-1"  
+class="td11"> <!--l. 68--><p class="noindent" >dataBuffer                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-2-2"  
+class="td11"> <!--l. 68--><p class="noindent" >std::vector&#x003C;TYPE&#x003E;    </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-2-3"  
+class="td11"> <!--l. 68--><p class="noindent" >The
   data transferred, where TYPE is
   some native <a 
-href="mainap11.html#corba">CORBA</a> type (e.g.,
+href="mainap14.html#corba">CORBA</a> type (e.g.,
   float,  short).  The  sequence  may
   be zero-length.                          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-1"  
-class="td11"> T                         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-2"  
-class="td11"> PrecisionUTCTime   </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-3-3"  
-class="td11"> <!--l. 55--><p class="noindent" >The epoch birth date of the first
+ style="vertical-align:baseline;" id="TBL-8-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-3-1"  
+class="td11"> <!--l. 70--><p class="noindent" >T                             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-3-2"  
+class="td11"> <!--l. 70--><p class="noindent" >PrecisionUTCTime     </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-3-3"  
+class="td11"> <!--l. 70--><p class="noindent" >The epoch birth date of the first
   sample of the sequence.              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-1"  
-class="td11"> <a 
-href="mainap11.html#eos">EOS</a>                     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-2"  
-class="td11"> boolean                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-4-3"  
-class="td11"> <!--l. 57--><p class="noindent" >Flag   describing   whether   this
+ style="vertical-align:baseline;" id="TBL-8-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-4-1"  
+class="td11"> <!--l. 72--><p class="noindent" ><a 
+href="mainap14.html#eos">EOS</a>                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-4-2"  
+class="td11"> <!--l. 72--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-4-3"  
+class="td11"> <!--l. 72--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
   buffer of data.                          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-1"  
-class="td11"> streamID               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-2"  
-class="td11"> string                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-5-3"  
-class="td11"> <!--l. 59--><p class="noindent" >Stream  ID  for  this  particular
+ style="vertical-align:baseline;" id="TBL-8-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-5-1"  
+class="td11"> <!--l. 74--><p class="noindent" >streamID                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-5-2"  
+class="td11"> <!--l. 74--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-5-3"  
+class="td11"> <!--l. 74--><p class="noindent" >Stream  ID  for  this  particular
   payload.  This  value  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap11.html#sri">SRI</a>
+href="mainap14.html#sri">SRI</a>
   data structure.                          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-1"  
-class="td11"> SRI                      </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-2"  
-class="td11"> <span 
-class="ectt-1200">BULKIO::StreamSRI </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-4-6-3"  
-class="td11"> <!--l. 61--><p class="noindent" >The  Signal  Related  Information
-  (meta data) associated with the
+ style="vertical-align:baseline;" id="TBL-8-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-6-1"  
+class="td11"> <!--l. 76--><p class="noindent" >SRI                           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-6-2"  
+class="td11"> <!--l. 76--><p class="noindent" ><span 
+class="ectt-1200">BULKIO::StreamSRI</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-6-3"  
+class="td11"> <!--l. 76--><p class="noindent" >The  Signal  Related  Information
+  (metadata)  associated  with  the
   buffer of data.                          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-1"  
-class="td11"> sriChanged            </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-2"  
-class="td11"> boolean                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-7-3"  
-class="td11"> <!--l. 63--><p class="noindent" >Flag  that  describes  if  a  new
-  SRI object was received for this
+ style="vertical-align:baseline;" id="TBL-8-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-7-1"  
+class="td11"> <!--l. 78--><p class="noindent" >sriChanged                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-7-2"  
+class="td11"> <!--l. 78--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-7-3"  
+class="td11"> <!--l. 78--><p class="noindent" >Flag  that  describes  if  a  new
+  <a 
+href="mainap14.html#sri">SRI</a> object was received for this
   stream.                                   </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-4-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-8-1"  
-class="td11"> inputQueueFlushed  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-8-2"  
-class="td11"> boolean                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-8-3"  
-class="td11"> <!--l. 65--><p class="noindent" >Flag  that  signifies  if  the  port&#8217;s
+ style="vertical-align:baseline;" id="TBL-8-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-8-1"  
+class="td11"> <!--l. 80--><p class="noindent" >inputQueueFlushed      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-8-8-2"  
+class="td11"> <!--l. 80--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-8-8-3"  
+class="td11"> <!--l. 80--><p class="noindent" >Flag  that  signifies  if  the  <a 
+href="mainli2.html#glo:port">Port</a>&#8217;s
   incoming data queue was flushed
   (purged)  because  the  limit  was
   reached. This happens when the
-  consuming  component  does  not
+  consuming <a 
+href="mainli2.html#glo:component">Component</a> does not
   keep up with the incoming rate at
   which the data is being received.  </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.1: </td><td  
-class="content">DataTransfer Member Descriptions</td></tr></table><!--tex4ht:label?: x17-250001r1 -->
+class="content">DataTransfer Member Descriptions</td></tr></table><!--tex4ht:label?: x17-269001r1 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
+<!--l. 90--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">pushPacket() </span>method call for vector data with
+sample parameters. The <span 
+class="ectt-1200">pushPacket() </span>parameters for vector data are described in <a 
+href="#x17-269002r2">Table
+15.2</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
  std::vector<short> data;
@@ -286,76 +353,83 @@ class="content">DataTransfer Member Descriptions</td></tr></table><!--tex4ht:lab
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 84--><p class="noindent" ><a 
- id="x17-250002r2"></a><hr class="float"><div class="float" 
+<!--l. 104--><p class="noindent" ><a 
+ id="x17-269002r2"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-5" class="tabular" 
+<div class="tabular"> <table id="TBL-9" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-5-1g"><col 
-id="TBL-5-1"></colgroup><colgroup id="TBL-5-2g"><col 
-id="TBL-5-2"></colgroup><colgroup id="TBL-5-3g"><col 
-id="TBL-5-3"></colgroup><tr 
+><colgroup id="TBL-9-1g"><col 
+id="TBL-9-1"></colgroup><colgroup id="TBL-9-2g"><col 
+id="TBL-9-2"></colgroup><colgroup id="TBL-9-3g"><col 
+id="TBL-9-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-1-1"  
-class="td11"> <span 
-class="ecbx-1200">Name   </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-1-2"  
-class="td11"> <span 
-class="ecbx-1200">Type                 </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-5-1-3"  
-class="td11"> <!--l. 89--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-9-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-1-1"  
+class="td11"> <!--l. 108--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-1-2"  
+class="td11"> <!--l. 108--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-1-3"  
+class="td11"> <!--l. 108--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-2-1"  
-class="td11"> data        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-2-2"  
-class="td11"> sequence&#x003C;TYPE&#x003E;  </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-2-3"  
-class="td11"> <!--l. 91--><p class="noindent" >A sequence of a particular type,
+ style="vertical-align:baseline;" id="TBL-9-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-2-1"  
+class="td11"> <!--l. 110--><p class="noindent" >data                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-2-2"  
+class="td11"> <!--l. 110--><p class="noindent" >sequence&#x003C;TYPE&#x003E;      </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-2-3"  
+class="td11"> <!--l. 110--><p class="noindent" >A sequence of a particular type,
   where   TYPE   is   some   native
   <a 
-href="mainap11.html#corba">CORBA</a> type (e.g., float, short).
+href="mainap14.html#corba">CORBA</a> type (e.g., float, short).
   The sequence may be zero-length.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-3-1"  
-class="td11"> T            </td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-3-2"  
-class="td11"> PrecisionUTCTime  </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-3-3"  
-class="td11"> <!--l. 93--><p class="noindent" >The epoch birth date of the first
+ style="vertical-align:baseline;" id="TBL-9-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-3-1"  
+class="td11"> <!--l. 112--><p class="noindent" >T                             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-3-2"  
+class="td11"> <!--l. 112--><p class="noindent" >PrecisionUTCTime     </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-3-3"  
+class="td11"> <!--l. 112--><p class="noindent" >The epoch birth date of the first
   sample of the sequence passed in
   this call.                                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-4-1"  
-class="td11"> <a 
-href="mainap11.html#eos">EOS</a>        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-4-2"  
-class="td11"> boolean                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-4-3"  
-class="td11"> <!--l. 95--><p class="noindent" >Flag   describing   whether   this
+ style="vertical-align:baseline;" id="TBL-9-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-4-1"  
+class="td11"> <!--l. 114--><p class="noindent" ><a 
+href="mainap14.html#eos">EOS</a>                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-4-2"  
+class="td11"> <!--l. 114--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-4-3"  
+class="td11"> <!--l. 114--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
   <span 
 class="ectt-1200">pushPacket() </span>call.                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-5-1"  
-class="td11"> streamID  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-5-2"  
-class="td11"> string                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-5-3"  
-class="td11"> <!--l. 97--><p class="noindent" >Stream  ID  for  this  particular
+ style="vertical-align:baseline;" id="TBL-9-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-5-1"  
+class="td11"> <!--l. 116--><p class="noindent" >streamID                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-9-5-2"  
+class="td11"> <!--l. 116--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-9-5-3"  
+class="td11"> <!--l. 116--><p class="noindent" >Stream  <a 
+href="mainap14.html#id">ID</a>  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap11.html#sri">SRI</a>
+href="mainap14.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.2: </td><td  
 class="content"><span 
-class="ectt-1200">pushPacket() </span>Parameter Descriptions for Vector Data </td></tr></table><!--tex4ht:label?: x17-250002r2 -->
+class="ectt-1200">pushPacket() </span>Parameter Descriptions for Vector Data </td></tr></table><!--tex4ht:label?: x17-269002r2 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
-<h4 class="subsectionHead"><span class="titlemark">15.2.2   </span> <a 
- id="x17-25100015.2.2"></a>String Data/XML Document</h4>
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.2.2   </span> <a 
+ id="x17-27000015.2.2.2"></a>String Data/XML Document</h5>
+<!--l. 123--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">pushPacket() </span>method call for string data with
+sample parameters. The <span 
+class="ectt-1200">pushPacket() </span>parameters for string data are described in <a 
+href="#x17-270001r3">Table
+15.3</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
  std::string data;
@@ -368,69 +442,77 @@ class="ectt-1200">pushPacket() </span>Parameter Descriptions for Vector Data </t
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 116--><p class="noindent" ><a 
- id="x17-251001r3"></a><hr class="float"><div class="float" 
+<!--l. 135--><p class="noindent" ><a 
+ id="x17-270001r3"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-6" class="tabular" 
+<div class="tabular"> <table id="TBL-10" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-6-1g"><col 
-id="TBL-6-1"></colgroup><colgroup id="TBL-6-2g"><col 
-id="TBL-6-2"></colgroup><colgroup id="TBL-6-3g"><col 
-id="TBL-6-3"></colgroup><tr 
+><colgroup id="TBL-10-1g"><col 
+id="TBL-10-1"></colgroup><colgroup id="TBL-10-2g"><col 
+id="TBL-10-2"></colgroup><colgroup id="TBL-10-3g"><col 
+id="TBL-10-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-1-1"  
-class="td11"> <span 
-class="ecbx-1200">Name   </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-6-1-2"  
-class="td11"> <span 
-class="ecbx-1200">Type   </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-3"  
-class="td11"> <!--l. 121--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-10-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-1-1"  
+class="td11"> <!--l. 139--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-1-2"  
+class="td11"> <!--l. 139--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-1-3"  
+class="td11"> <!--l. 139--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-2-1"  
-class="td11"> data        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-6-2-2"  
-class="td11"> char      </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-2-3"  
-class="td11"> <!--l. 123--><p class="noindent" >A      string      of      characters
-  to pass between components. Also
-  used for passing XML documents
-  in-line between components.        </td>
+ style="vertical-align:baseline;" id="TBL-10-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-2-1"  
+class="td11"> <!--l. 141--><p class="noindent" >data                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-2-2"  
+class="td11"> <!--l. 141--><p class="noindent" >char                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-2-3"  
+class="td11"> <!--l. 141--><p class="noindent" >A    string    of    characters    to
+  pass  between  <a 
+href="mainli2.html#glo:component">Components</a>.  Also
+  used for passing <a 
+href="mainap14.html#xml">XML</a> documents
+  in-line between <a 
+href="mainli2.html#glo:component">Components</a>.       </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-3-1"  
-class="td11"> <a 
-href="mainap11.html#eos">EOS</a>        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-6-3-2"  
-class="td11"> boolean  </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-3"  
-class="td11"> <!--l. 125--><p class="noindent" >Flag   describing   whether   this
+ style="vertical-align:baseline;" id="TBL-10-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-3-1"  
+class="td11"> <!--l. 143--><p class="noindent" ><a 
+href="mainap14.html#eos">EOS</a>                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-3-2"  
+class="td11"> <!--l. 143--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-3-3"  
+class="td11"> <!--l. 143--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
   <span 
 class="ectt-1200">pushPacket() </span>call.                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-4-1"  
-class="td11"> streamID  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-6-4-2"  
-class="td11"> string    </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-4-3"  
-class="td11"> <!--l. 127--><p class="noindent" >Stream  ID  for  this  particular
+ style="vertical-align:baseline;" id="TBL-10-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-4-1"  
+class="td11"> <!--l. 145--><p class="noindent" >streamID                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-10-4-2"  
+class="td11"> <!--l. 145--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-4-3"  
+class="td11"> <!--l. 145--><p class="noindent" >Stream  <a 
+href="mainap14.html#id">ID</a>  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap11.html#sri">SRI</a>
+href="mainap14.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.3: </td><td  
-class="content">Parameter descriptions for <span 
-class="ectt-1200">pushPacket() </span>for string transfers.</td></tr></table><!--tex4ht:label?: x17-251001r3 -->
+class="content"><span 
+class="ectt-1200">pushPacket() </span>Parameter Descriptions for String Data</td></tr></table><!--tex4ht:label?: x17-270001r3 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
-<h4 class="subsectionHead"><span class="titlemark">15.2.3   </span> <a 
- id="x17-25200015.2.3"></a>URL/File Data</h4>
-<!--l. 136--><p class="noindent" >In the case of file transfers, the arguments are shown in  <a 
-href="#x17-25200015.2.3">Table 15.2.3</a>.
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.2.3   </span> <a 
+ id="x17-27100015.2.2.3"></a>URL/File Data</h5>
+<!--l. 154--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">pushPacket() </span>method call for file transfers with
+sample parameters. The <span 
+class="ectt-1200">pushPacket() </span>parameters for file transfers are described in <a 
+href="#x17-271001r4">Table
+15.4</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
  std::string uri;
@@ -446,120 +528,127 @@ href="#x17-25200015.2.3">Table 15.2.3</a>.
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 151--><p class="noindent" ><a 
- id="x17-252001r4"></a><hr class="float"><div class="float" 
+<!--l. 169--><p class="noindent" ><a 
+ id="x17-271001r4"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-7" class="tabular" 
+<div class="tabular"> <table id="TBL-11" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-7-1g"><col 
-id="TBL-7-1"></colgroup><colgroup id="TBL-7-2g"><col 
-id="TBL-7-2"></colgroup><colgroup id="TBL-7-3g"><col 
-id="TBL-7-3"></colgroup><tr 
+><colgroup id="TBL-11-1g"><col 
+id="TBL-11-1"></colgroup><colgroup id="TBL-11-2g"><col 
+id="TBL-11-2"></colgroup><colgroup id="TBL-11-3g"><col 
+id="TBL-11-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-7-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-7-1-1"  
-class="td11"> <!--l. 156--><p class="noindent" ><span 
-class="ecbx-1200">Name</span>             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-1-2"  
-class="td11"> <span 
-class="ecbx-1200">Type                 </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-7-1-3"  
-class="td11"> <!--l. 156--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-11-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-1-1"  
+class="td11"> <!--l. 173--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-1-2"  
+class="td11"> <!--l. 173--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-1-3"  
+class="td11"> <!--l. 173--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-7-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-7-2-1"  
-class="td11"> <!--l. 158--><p class="noindent" >Uniform
-  Resource
+ style="vertical-align:baseline;" id="TBL-11-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-2-1"  
+class="td11"> <!--l. 175--><p class="noindent" >Uniform Resource
   Locator (<a 
-href="mainap11.html#url">URL</a>)     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-2-2"  
-class="td11"> string                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-2-3"  
-class="td11"> <!--l. 158--><p class="noindent" >The   <a 
-href="mainap11.html#url">URL</a>   describing   the   file.
+href="mainap14.html#url">URL</a>)            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-2-2"  
+class="td11"> <!--l. 175--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-3"  
+class="td11"> <!--l. 175--><p class="noindent" >The   <a 
+href="mainap14.html#url">URL</a>   describing   the   file.
   Appropriate   schemes   for   the
   <a 
-href="mainap11.html#url">URL</a>s are file:// and <a 
-href="mainap11.html#sca">SCA</a>://. The
+href="mainap14.html#url">URL</a>s are file:// and <a 
+href="mainap14.html#sca">SCA</a>://. The
   file  scheme  applies  to  the  local
   file system, while the <a 
-href="mainap11.html#sca">SCA</a> scheme
+href="mainap14.html#sca">SCA</a> scheme
   applies to the <a 
-href="mainap11.html#sca">SCA</a> <a 
+href="mainap14.html#sca">SCA</a> <a 
 href="mainli2.html#glo:filemanager">File Manager</a>.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-7-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-7-3-1"  
-class="td11"> <!--l. 160--><p class="noindent" >T                      </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-3-2"  
-class="td11"> PrecisionUTCTime  </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-3-3"  
-class="td11"> <!--l. 160--><p class="noindent" >An  appropriate  time  stamp  for
+ style="vertical-align:baseline;" id="TBL-11-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-3-1"  
+class="td11"> <!--l. 177--><p class="noindent" >T                             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-3-2"  
+class="td11"> <!--l. 177--><p class="noindent" >PrecisionUTCTime     </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-3"  
+class="td11"> <!--l. 177--><p class="noindent" >An  appropriate  time  stamp  for
   the data being passed.                </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-7-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-7-4-1"  
-class="td11"> <!--l. 162--><p class="noindent" ><a 
-href="mainap11.html#eos">EOS</a>                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-4-2"  
-class="td11"> boolean                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-4-3"  
-class="td11"> <!--l. 162--><p class="noindent" >Flag   describing   whether   this
+ style="vertical-align:baseline;" id="TBL-11-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-4-1"  
+class="td11"> <!--l. 179--><p class="noindent" ><a 
+href="mainap14.html#eos">EOS</a>                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-4-2"  
+class="td11"> <!--l. 179--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-3"  
+class="td11"> <!--l. 179--><p class="noindent" >Flag   describing   whether   this
   particular stream ends with this
   <span 
 class="ectt-1200">pushPacket() </span>call.                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-7-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-7-5-1"  
-class="td11"> <!--l. 164--><p class="noindent" >streamID            </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-5-2"  
-class="td11"> string                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-7-5-3"  
-class="td11"> <!--l. 164--><p class="noindent" >Stream  ID  for  this  particular
+ style="vertical-align:baseline;" id="TBL-11-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-5-1"  
+class="td11"> <!--l. 181--><p class="noindent" >streamID                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-5-2"  
+class="td11"> <!--l. 181--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-3"  
+class="td11"> <!--l. 181--><p class="noindent" >Stream  ID  for  this  particular
   payload.  This  string  is  used  to
   reconcile  this  sequence  of  data
   with  a  particular  Stream  <a 
-href="mainap11.html#sri">SRI</a>
+href="mainap14.html#sri">SRI</a>
   data structure.                          </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.4: </td><td  
-class="content">Parameter Descriptions for <span 
-class="ectt-1200">pushPacket() </span>for File Transfers</td></tr></table><!--tex4ht:label?: x17-252001r4 -->
+class="content"><span 
+class="ectt-1200">pushPacket() </span>Parameter Descriptions for File Transfers</td></tr></table><!--tex4ht:label?: x17-271001r4 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
-<!--l. 169--><p class="noindent" >Data files may be sent via the <a 
-href="mainap11.html#bulkio">BulkIO</a> <span 
+<!--l. 187--><p class="noindent" >Data files may be sent via the <a 
+href="mainap14.html#bulkio">BulkIO</a> <span 
 class="ectt-1200">dataFile </span>type. When using the <a 
-href="mainap11.html#bulkio">BulkIO</a> <span 
+href="mainap14.html#bulkio">BulkIO</a> <span 
 class="ectt-1200">dataFile </span>type, a
 filename is passed to the <span 
 class="ectt-1200">pushPacket() </span>method. The location of the file is specified by a Uniform
 Resource Identifier (<a 
-href="mainap11.html#uri">URI</a>) that either points to the local file system or the <a 
-href="mainap11.html#sdr">SDR</a> file system. To
+href="mainap14.html#uri">URI</a>) that either points to the local file system or the <a 
+href="mainap14.html#sdr">SDR</a> file system. To
 support portability, use of the <a 
-href="mainap11.html#sdr">SDR</a> file system is recommended.
+href="mainap14.html#sdr">SDR</a> file system is recommended. <a 
+href="#x17-271002r5">Table 15.5</a> describes the <a 
+href="mainap14.html#uri">URI</a>
+options in greater detail.
+<div class="table">
                                                                                          
                                                                                          
-<!--l. 175--><p class="noindent" >The following table describes in greater detail the <a 
-href="mainap11.html#uri">URI</a> options.
- <table id="TBL-10" class="tabular" 
+<!--l. 193--><p class="noindent" ><a 
+ id="x17-271002r5"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-12" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-10-1g"><col 
-id="TBL-10-1"></colgroup><colgroup id="TBL-10-2g"><col 
-id="TBL-10-2"></colgroup><colgroup id="TBL-10-3g"><col 
-id="TBL-10-3"></colgroup><tr 
+><colgroup id="TBL-12-1g"><col 
+id="TBL-12-1"></colgroup><colgroup id="TBL-12-2g"><col 
+id="TBL-12-2"></colgroup><colgroup id="TBL-12-3g"><col 
+id="TBL-12-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-10-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-1-1"  
-class="td11"> <span 
-class="ecbx-1200">Protocol </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-10-1-2"  
-class="td11"> <!--l. 186--><p class="noindent" ><span 
-class="ecbx-1200">Format</span>                              </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-1-3"  
-class="td11"> <!--l. 186--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-12-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-12-1-1"  
+class="td11"> <!--l. 197--><p class="noindent" ><span 
+class="ecbx-1200">Protocol</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-12-1-2"  
+class="td11"> <!--l. 197--><p class="noindent" ><span 
+class="ecbx-1200">Format</span>                           </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-1-3"  
+class="td11"> <!--l. 197--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-10-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-2-1"  
-class="td11"> file            </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-2-2"  
-class="td11"> <!--l. 186--><p class="noindent" ><span 
-class="ectt-1200">file://[localhost]/&#x003C;path&#x003E;</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-2-3"  
-class="td11"> <!--l. 186--><p class="noindent" >A host specific absolute path of
+ style="vertical-align:baseline;" id="TBL-12-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-12-2-1"  
+class="td11"> <!--l. 199--><p class="noindent" >file                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-12-2-2"  
+class="td11"> <!--l. 199--><p class="noindent" ><span 
+class="ectt-1200">file://[localhost]/&#x003C;path&#x003E;</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-3"  
+class="td11"> <!--l. 199--><p class="noindent" >A host specific absolute path of
   the                            deployed
   <a 
 href="mainli2.html#glo:component">Component</a>/<a 
@@ -567,39 +656,47 @@ href="mainli2.html#glo:device">Device</a>/<a
 href="mainli2.html#glo:service">Service</a>.        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-10-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-3-1"  
-class="td11"> sdr           </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-3-2"  
-class="td11"> <!--l. 186--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-12-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-12-3-1"  
+class="td11"> <!--l. 201--><p class="noindent" >sdr                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-12-3-2"  
+class="td11"> <!--l. 201--><p class="noindent" ><span 
 class="ectt-1200">sdr://[</span><a 
-href="mainap11.html#ior"><span 
+href="mainap14.html#ior"><span 
 class="ectt-1200">IOR</span></a><span 
-class="ectt-1200">]/&#x003C;path&#x003E;</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-10-3-3"  
-class="td11"> <!--l. 186--><p class="noindent" >A path on the <a 
+class="ectt-1200">]/&#x003C;path&#x003E;</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-3"  
+class="td11"> <!--l. 201--><p class="noindent" >A path on the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s
-  file system. If the optional <a 
-href="mainap11.html#ior">IOR</a> is
-  provided, this path provides the
-  reference to the <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a>.
-  If                                     not
-  provided,  the  <a 
-href="mainli2.html#glo:domainmanager">Domain  Manager</a>
-  should be the default used by the
+  file  system.  If  the  optional  <a 
+href="mainap14.html#ior">IOR</a>
+  is  provided,  this  path  provides
+  the   reference   to   the   <a 
+href="mainli2.html#glo:domainmanager">Domain
+  Manager</a>.  If  not  provided,  the
   <a 
+href="mainli2.html#glo:domainmanager">Domain
+  Manager</a>  is  the  default  used  by
+  the <a 
 href="mainli2.html#glo:component">Component</a>/<a 
 href="mainli2.html#glo:device">Device</a>/<a 
-href="mainli2.html#glo:service">Service</a>         </td>
-</tr></table>.
-<h4 class="subsectionHead"><span class="titlemark">15.2.4   </span> <a 
- id="x17-25300015.2.4"></a>SDDS Stream Definition</h4>
-<!--l. 190--><p class="noindent" >The SDDS Stream Definition object defines a multicast connection source for data from a network
+href="mainli2.html#glo:service">Service</a>    </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.5: </td><td  
+class="content">URI Options</td></tr></table><!--tex4ht:label?: x17-271002r5 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.2.4   </span> <a 
+ id="x17-27200015.2.2.4"></a>SDDS Stream Definition</h5>
+<!--l. 211--><p class="noindent" >The SDDS Stream Definition object defines a multicast connection source for data from a network
 interface. The methods for the SDDS Stream Definition interface do not follow the normal <a 
-href="mainap11.html#bulkio">BulkIO</a>
+href="mainap14.html#bulkio">BulkIO</a>
 <span 
 class="ectt-1200">pushPacket() </span>convention. Instead this interface defines <span 
 class="ectt-1200">attach() </span>and <span 
 class="ectt-1200">detach() </span>methods as
-described below.
+described in the code snippet below and <a 
+href="#x17-272001r6">Table 15.6</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
  /**
@@ -620,435 +717,98 @@ described below.
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 211--><p class="noindent" ><a 
- id="x17-253001r5"></a><hr class="float"><div class="float" 
+<!--l. 232--><p class="noindent" ><a 
+ id="x17-272001r6"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-11" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-11-1g"><col 
-id="TBL-11-1"></colgroup><colgroup id="TBL-11-2g"><col 
-id="TBL-11-2"></colgroup><colgroup id="TBL-11-3g"><col 
-id="TBL-11-3"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-1-1"  
-class="td11"> <!--l. 216--><p class="noindent" ><span 
-class="ecbx-1200">Method</span>          </td><td colspan="2" style="white-space:nowrap; text-align:center;" id="TBL-11-1-2"  
-class="td11">                    <div class="multicolumn"  style="white-space:nowrap; text-align:center;"> char* attach() </div>
-</td></tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-1"  
-class="td11"> <!--l. 218--><p class="noindent" ><span 
-class="ecbx-1200">Name</span>              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-2-2"  
-class="td11"> <span 
-class="ecbx-1200">Type                     </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-11-2-3"  
-class="td11"> <!--l. 218--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-1"  
-class="td11"> <!--l. 220--><p class="noindent" >return value        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-3-2"  
-class="td11"> char*                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-3-3"  
-class="td11"> <!--l. 220--><p class="noindent" >Attachment identifier assigned to
-  this request.                             </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-1"  
-class="td11"> <!--l. 222--><p class="noindent" >stream               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-4-2"  
-class="td11"> SDDSStreamDefinition  </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-4-3"  
-class="td11"> <!--l. 222--><p class="noindent" >Stream       definition       object
-  describing a multicast address.     </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-1"  
-class="td11"> <!--l. 224--><p class="noindent" >userid                </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-5-2"  
-class="td11"> const char*                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-5-3"  
-class="td11"> <!--l. 224--><p class="noindent" >Identification  for  the  request  of
-  the attach call.                         </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-6-1"  
-class="td11"> <!--l. 226--><p class="noindent" >               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-6-2"  
-class="td11">                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-6-3"  
-class="td11"> <!--l. 227--><p class="noindent" >                             </td>
-</tr><tr  
- style="vertical-align:baseline;" id="TBL-11-7-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-7-1"  
-class="td11"> <!--l. 227--><p class="noindent" ><span 
-class="ecbx-1200">Method</span>           </td><td colspan="2" style="white-space:nowrap; text-align:center;" id="TBL-11-7-2"  
-class="td11">                    <div class="multicolumn"  style="white-space:nowrap; text-align:center;"> void detach() </div>
-</td></tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-8-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-8-1"  
-class="td11"> <!--l. 229--><p class="noindent" ><span 
-class="ecbx-1200">Name</span>              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-8-2"  
-class="td11"> <span 
-class="ecbx-1200">Type                     </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-11-8-3"  
-class="td11"> <!--l. 229--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-11-9-"><td  style="white-space:wrap; text-align:left;" id="TBL-11-9-1"  
-class="td11"> <!--l. 231--><p class="noindent" >attachId             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-9-2"  
-class="td11"> char*                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-11-9-3"  
-class="td11"> <!--l. 231--><p class="noindent" >Attachment   identifier   returned
-  from attach request. &#x00A0;                </td>
-</tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.5: </td><td  
-class="content">Parameter Descriptions for SDDS Stream Definition Interface </td></tr></table><!--tex4ht:label?: x17-253001r5 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
-<div class="table">
-                                                                                         
-                                                                                         
-<!--l. 238--><p class="noindent" ><a 
- id="x17-253002r6"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
-                                                                                         
-                                                                                         
-<div class="tabular"> <table id="TBL-12" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-12-1g"><col 
-id="TBL-12-1"></colgroup><colgroup id="TBL-12-2g"><col 
-id="TBL-12-2"></colgroup><colgroup id="TBL-12-3g"><col 
-id="TBL-12-3"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-1-1"  
-class="td11"> <span 
-class="ecbx-1200">Name            </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-1-2"  
-class="td11"> <span 
-class="ecbx-1200">Type                  </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-12-1-3"  
-class="td11"> <!--l. 243--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-2-1"  
-class="td11"> id                     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-2-2"  
-class="td11"> string                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-2-3"  
-class="td11"> <!--l. 245--><p class="noindent" >Unique  identifier  for  the  source
-  stream.                                   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-3-1"  
-class="td11"> dataFormat         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-3-2"  
-class="td11"> SDDSDataDiagraph  </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-3-3"  
-class="td11"> <!--l. 247--><p class="noindent" >Data format of the data stream
-  samples.                                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-4-1"  
-class="td11"> multicastAddress  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-4-2"  
-class="td11"> string                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-4-3"  
-class="td11"> <!--l. 249--><p class="noindent" >IPv4   network   address   in   dot
-  notation form.                          </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-5-1"  
-class="td11"> vlan                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-5-2"  
-class="td11"> unsigned long          </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-5-3"  
-class="td11"> <!--l. 251--><p class="noindent" >Virtual lan identifier as defined by
-  802.11q.                                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-6-1"  
-class="td11"> port                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-6-2"  
-class="td11"> unsigned long          </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-6-3"  
-class="td11"> <!--l. 253--><p class="noindent" >IP port number associated with
-  the network connection.              </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-7-1"  
-class="td11"> sampleRate         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-7-2"  
-class="td11"> unsigned long          </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-7-3"  
-class="td11"> <!--l. 255--><p class="noindent" >Expected  sample  rate  for  the
-  data.                                      </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-8-1"  
-class="td11"> timeTagValid      </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-8-2"  
-class="td11"> boolean                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-8-3"  
-class="td11"> <!--l. 257--><p class="noindent" >Denotes   if   data   stream   can
-  provide valid time stamp values.   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-12-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-9-1"  
-class="td11"> privateInfo          </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-9-2"  
-class="td11"> string                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-12-9-3"  
-class="td11"> <!--l. 259--><p class="noindent" >Allows for user-defined values to
-  be passed as a string. &#x00A0;              </td>
-</tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.6: </td><td  
-class="content">SDDS Stream Definition Member Descriptions</td></tr></table><!--tex4ht:label?: x17-253002r6 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
-<h3 class="sectionHead"><span class="titlemark">15.3   </span> <a 
- id="x17-25400015.3"></a>Signal Related Information (SRI)</h3>
-<!--l. 3--><p class="noindent" ><a 
-href="mainap11.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload. The <a 
-href="mainap11.html#sri">SRI</a> data
-structure contains the following fields:
-<div class="table">
-                                                                                         
-                                                                                         
-<!--l. 10--><p class="noindent" ><a 
- id="x17-254001r7"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
-                                                                                         
-                                                                                         
- <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.7: </td><td  
-class="content"><a 
-href="mainap11.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-254001r7 -->
 <div class="tabular"> <table id="TBL-13" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
 ><colgroup id="TBL-13-1g"><col 
 id="TBL-13-1"></colgroup><colgroup id="TBL-13-2g"><col 
 id="TBL-13-2"></colgroup><colgroup id="TBL-13-3g"><col 
-id="TBL-13-3"></colgroup><tr  
- style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-1-1"  
+id="TBL-13-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-1-1"  
+class="td11"> <!--l. 237--><p class="noindent" >               </td><td colspan="2" style="white-space:nowrap; text-align:center;" id="TBL-13-1-2"  
+class="td11">                          <div class="multicolumn"  style="white-space:nowrap; text-align:center;"> </div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-2-1"  
+class="td11"> <!--l. 238--><p class="noindent" ><span 
+class="ecbx-1200">Method</span>           </td><td colspan="2" style="white-space:nowrap; text-align:center;" id="TBL-13-2-2"  
+class="td11">                    <div class="multicolumn"  style="white-space:nowrap; text-align:center;"> char* attach() </div>
+</td></tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-3-1"  
+class="td11"> <!--l. 240--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-2"  
 class="td11"> <span 
-class="ecbx-1200">Name   </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-13-1-2"  
-class="td11"> <!--l. 13--><p class="noindent" ><span 
-class="ecbx-1200">Type</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-1-3"  
-class="td11"> <!--l. 13--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                                     </td>
+class="ecbx-1200">Type                     </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-13-3-3"  
+class="td11"> <!--l. 240--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-2-1"  
-class="td11"> hversion   </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-2-2"  
-class="td11"> <!--l. 14--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-2-3"  
-class="td11"> <!--l. 14--><p class="noindent" >Version of the Stream <a 
-href="mainap11.html#sri">SRI</a> header. This field
-  is ignored by the code generators, so a default
-  1.0 is adequate.                                       </td>
+ style="vertical-align:baseline;" id="TBL-13-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-4-1"  
+class="td11"> <!--l. 242--><p class="noindent" >return value        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-2"  
+class="td11"> char*                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-4-3"  
+class="td11"> <!--l. 242--><p class="noindent" >Attachment identifier assigned to
+  this request.                             </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-1"  
-class="td11"> xstart      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-3-2"  
-class="td11"> <!--l. 15--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-3-3"  
-class="td11"> <!--l. 15--><p class="noindent" >Start time of the stream. This is epoch time
-  from January 1, 1970 in seconds.                 </td>
+ style="vertical-align:baseline;" id="TBL-13-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-5-1"  
+class="td11"> <!--l. 244--><p class="noindent" >stream               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-2"  
+class="td11"> SDDSStreamDefinition  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-5-3"  
+class="td11"> <!--l. 244--><p class="noindent" >Stream       definition       object
+  describing  a  multicast  address
+  (<a 
+href="#x17-272002r7">Table 15.7</a>).                            </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-1"  
-class="td11"> xdelta      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-4-2"  
-class="td11"> <!--l. 16--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-4-3"  
-class="td11"> <!--l. 16--><p class="noindent" >Delta  between  two  values  in  the  payload
-  vector. in the case of time data, this is the
-  sampling period. In the case of spectral data,
-  this is the frequency difference between two
-  adjacent <a 
-href="mainap11.html#fft">FFT</a> bins.                                  </td>
+ style="vertical-align:baseline;" id="TBL-13-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-6-1"  
+class="td11"> <!--l. 246--><p class="noindent" >userid                </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-2"  
+class="td11"> const char*                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-6-3"  
+class="td11"> <!--l. 246--><p class="noindent" >Identification  for  the  request  of
+  the attach call.                         </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-1"  
-class="td11"> xunits      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-5-2"  
-class="td11"> <!--l. 17--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-5-3"  
-class="td11"> <!--l. 17--><p class="noindent" >Unit                                            types;
-  common codes defined in <a 
-href="mainap11.html#idl">IDL</a> (i.e: 0=None,
-  1=time, 2=delay, 3=frequency)                  </td>
+ style="vertical-align:baseline;" id="TBL-13-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-7-1"  
+class="td11"> <!--l. 248--><p class="noindent" >               </td><td colspan="2" style="white-space:nowrap; text-align:center;" id="TBL-13-7-2"  
+class="td11">                          <div class="multicolumn"  style="white-space:nowrap; text-align:center;"> </div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-8-1"  
+class="td11"> <!--l. 249--><p class="noindent" ><span 
+class="ecbx-1200">Method</span>           </td><td colspan="2" style="white-space:nowrap; text-align:center;" id="TBL-13-8-2"  
+class="td11">                    <div class="multicolumn"  style="white-space:nowrap; text-align:center;"> void detach() </div>
+</td></tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-9-1"  
+class="td11"> <!--l. 251--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-9-2"  
+class="td11"> <span 
+class="ecbx-1200">Type                     </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-13-9-3"  
+class="td11"> <!--l. 251--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-1"  
-class="td11"> subsize     </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-6-2"  
-class="td11"> <!--l. 18--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-6-3"  
-class="td11"> <!--l. 18--><p class="noindent" >0 if the data is one dimensional; &#x003E;0 if two
-  dimensional.  This  applies  to  framed  data;
-  ydelta describes the frame length.               </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-7-1"  
-class="td11"> ystart      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-7-2"  
-class="td11"> <!--l. 19--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-7-3"  
-class="td11"> <!--l. 19--><p class="noindent" >Start of second dimension                          </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-8-1"  
-class="td11"> ydelta      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-8-2"  
-class="td11"> <!--l. 20--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-8-3"  
-class="td11"> <!--l. 20--><p class="noindent" >Delta   between   two   samples   of   second
-  dimension (e.g., frame length in framed data)  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-9-1"  
-class="td11"> yunits      </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-9-2"  
-class="td11"> <!--l. 21--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-9-3"  
-class="td11"> <!--l. 21--><p class="noindent" >Unit                                            types;
-  common codes defined in <a 
-href="mainap11.html#idl">IDL</a> (i.e: 0=None,
-  1=time, 2=delay, 3=frequency)                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-10-1"  
-class="td11"> mode       </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-10-2"  
-class="td11"> <!--l. 22--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-10-3"  
-class="td11"> <!--l. 22--><p class="noindent" >0-Scalar, 1-Complex. Complex data is passed
-  as  interleaved  I/Q  values  in  the  sequence.
-  The type for the sequence remains the same
-  for both real and complex data.                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-11-1"  
-class="td11"> streamID  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-11-2"  
-class="td11"> <!--l. 23--><p class="noindent" >string                </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-11-3"  
-class="td11"> <!--l. 23--><p class="noindent" >Stream <a 
-href="mainap11.html#id">ID</a>. Unique streams can be delivered
-  over  the  same  <a 
-href="mainli2.html#glo:port">Port</a>,  where  each  stream
-  is  identified  by  a  unique  string  (generated
-  or  passed  along  by  the  provides  side).
-  The   generation   of   this   stream   <a 
-href="mainap11.html#id">ID</a>   is
-  <a 
-href="mainli2.html#glo:application">Application</a>-specific  and  not  controlled  by
-  the REDHAWK Core Framework.               </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-12-1"  
-class="td11"> blocking   </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-12-2"  
-class="td11"> <!--l. 24--><p class="noindent" >boolean             </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-12-3"  
-class="td11"> <!--l. 24--><p class="noindent" >Flag to determine whether the receiving <a 
-href="mainli2.html#glo:port">Port</a>
-  should exhibit back pressure. If this is false
-  and the provides-side queue is full, the data is
-  dumped. If this is true and the provides-side
-  queue is full, the <span 
-class="ectt-1200">pushPacket() </span>call blocks.  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-13-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-13-1"  
-class="td11"> keywords  </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-13-2"  
-class="td11"> <!--l. 25--><p class="noindent" >sequence
-  &#x003C;CF::DataType&#x003E; </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-13-3"  
-class="td11"> <!--l. 25--><p class="noindent" >User  defined  keywords.  This  is  a  sequence
-  of  structures  that  contain  an  <a 
-href="mainap11.html#id">ID</a>  of  type
-  string and a value of type <a 
-href="mainap11.html#corba">CORBA</a> Any. The
-  content of the <a 
-href="mainap11.html#corba">CORBA</a> Any can be any type.  </td>
+ style="vertical-align:baseline;" id="TBL-13-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-13-10-1"  
+class="td11"> <!--l. 253--><p class="noindent" >attachId             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-10-2"  
+class="td11"> char*                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-13-10-3"  
+class="td11"> <!--l. 253--><p class="noindent" >Attachment   identifier   returned
+  from attach request.                   </td>
 </tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.6: </td><td  
+class="content">Parameter Descriptions for SDDS Stream Definition Interface </td></tr></table><!--tex4ht:label?: x17-272001r6 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
-                                                                                         
-                                                                                         
-<!--l. 33--><p class="noindent" ><a 
-href="mainap11.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the providesside function
-<span 
-class="ectt-1200">pushSRI()</span>. The <span 
-class="ectt-1200">pushSRI() </span>function contains a single argument, an instance of an <a 
-href="mainap11.html#sri">SRI</a>
-object.
-<!--l. 36--><p class="noindent" >Each provides-side <a 
-href="mainli2.html#glo:port">Port</a> that implements a <a 
-href="mainap11.html#bulkio">BulkIO</a> interface expects that <a 
-href="mainap11.html#sri">SRI</a> regarding data being
-received become available before any data is transferred. When using the code generators and base
-classes in the REDHAWK development tools, this behavior is hard-coded into the uses-side <a 
-href="mainap11.html#bulkio">BulkIO</a>
-<a 
-href="mainli2.html#glo:port">Ports</a>. If the user code on the uses-side of a <a 
-href="mainap11.html#bulkio">BulkIO</a> connection does not explicitly invoke a
-<span 
-class="ectt-1200">pushSRI() </span>call before any data is sent out, the auto-generated code will create a trivial <a 
-href="mainap11.html#sri">SRI</a>
-message with normalized values.
-<!--l. 40--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
-href="mainap11.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Port</a> is to issue a <span 
-class="ectt-1200">pushSRI() </span>when a new
-connection is made to the newly-connected object. For example, a system is created in which data
-is flowing between <a 
-href="mainli2.html#glo:component">Components</a> A and B. As data is flowing between these <a 
-href="mainli2.html#glo:component">Components</a>, a new
-connection is established between <a 
-href="mainli2.html#glo:component">Components</a> A and C. When this connection is established, a
-<span 
-class="ectt-1200">pushSRI() </span>method call will automatically be made from <a 
-href="mainli2.html#glo:component">Component</a> A to <a 
-href="mainli2.html#glo:component">Component</a>
-C.
-<h3 class="sectionHead"><span class="titlemark">15.4   </span> <a 
- id="x17-25500015.4"></a>Working with Complex Data</h3>
-<!--l. 3--><p class="noindent" >If the StreamSRI mode field of the incoming data is set to 1, the associated input data is complex
-(i.e., it is comprised of real and imaginary parts). Complex data is sent as alternating real
-and imaginary values. A developer can work with this data in any fashion; however,
-this section provides common methods for converting the data into a more workable
-form.
-<!--l. 5--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">15.4.1   </span> <a 
- id="x17-25600015.4.1"></a>Converting Complex Data in C++</h4>
-<!--l. 7--><p class="noindent" >In C++, the incoming BulkIO data vector may be typecast into a std::vector of std::complex
-values. For example:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-bulkio::InShortPort::dataTransfer *tmp =
-     myInput->getPacket(bulkio::Const::BLOCKING);
-std::vector<std::complex<short> >* intermediate =
-     (std::vector<std::complex<short> >*) &(tmp->dataBuffer);
-std::vector<short>* output = (std::vector<short>*) intermediate;
-myOutput->pushPacket(*output, tmp->T, tmp->EOS, tmp->streamID);
-]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 18--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">15.4.2   </span> <a 
- id="x17-25700015.4.2"></a>Converting Complex Data in Python</h4>
-<!--l. 20--><p class="noindent" >The helper functions <span 
-class="ectt-1200">bulkioComplexToPythonComplexList </span>and <span 
-class="ectt-1200">pythonComplexListToBulkioComplex</span>,
-defined in the module <span 
-class="ectt-1200">ossie.utils.bulkio.bulkio_helpers</span>, provide an efficient translation to
-and from lists of Python complex numbers.
-<!--l. 22--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">15.4.3   </span> <a 
- id="x17-25800015.4.3"></a>Converting Complex Data in Java</h4>
-<!--l. 24--><p class="noindent" >Unlike with C++ and Python, Java does not have a ubiquitous means for representing complex
-numbers; therefore, when using Java, users are free to map the incoming BulkIO data to the
-complex data representation of their choosing.
-<!--l. 2--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">15.5   </span> <a 
- id="x17-25900015.5"></a>Time Stamps</h3>
-<!--l. 4--><p class="noindent" >The following code segment provides an example of how to construct a <span 
-class="ectt-1200">BULKIO::PrecisionUTCTime</span>
-time stamp to be sent in the <a 
-href="mainap11.html#sri">SRI</a>:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
- /**
-    * To create a time stamp from the current time of day
-    */
-
-  BULKIO::PrecisionUTCTime tstamp = bulkio::time::utils::now();
-]]></script></div>
-<!--l. 1--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">15.6   </span> <a 
- id="x17-26000015.6"></a>Link Statistics</h3>
-                                                                                         
-                                                                                         
-<!--l. 3--><p class="noindent" >All <a 
-href="mainap11.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
-<span 
-class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
-href="mainli2.html#glo:port">Port</a>.
-<a 
-href="#x17-260001r8">Table 15.8</a> contains a description of a statistics structure
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 8--><p class="noindent" ><a 
- id="x17-260001r8"></a><hr class="float"><div class="float" 
+<!--l. 260--><p class="noindent" ><a 
+ id="x17-272002r7"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -1060,66 +820,457 @@ id="TBL-14-1"></colgroup><colgroup id="TBL-14-2g"><col
 id="TBL-14-2"></colgroup><colgroup id="TBL-14-3g"><col 
 id="TBL-14-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-1-1"  
-class="td11"> <span 
-class="ecbx-1200">Name                </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-14-1-2"  
-class="td11"> <!--l. 11--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-14-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-1-1"  
+class="td11"> <!--l. 264--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-1-2"  
+class="td11"> <!--l. 264--><p class="noindent" ><span 
 class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-1-3"  
+class="td11"> <!--l. 264--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-1"  
+class="td11"> <!--l. 266--><p class="noindent" >id                             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-2"  
+class="td11"> <!--l. 266--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-3"  
+class="td11"> <!--l. 266--><p class="noindent" >Unique  identifier  for  the  source
+  stream.                                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-1"  
+class="td11"> <!--l. 268--><p class="noindent" >dataFormat                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-2"  
+class="td11"> <!--l. 268--><p class="noindent" >SDDSDataDigraph      </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-3"  
+class="td11"> <!--l. 268--><p class="noindent" >Data format of the data stream
+  samples.                                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-1"  
+class="td11"> <!--l. 270--><p class="noindent" >multicastAddress         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-2"  
+class="td11"> <!--l. 270--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-3"  
+class="td11"> <!--l. 270--><p class="noindent" >IPv4   network   address   in   dot
+  notation form.                          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-1"  
+class="td11"> <!--l. 272--><p class="noindent" >vlan                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-2"  
+class="td11"> <!--l. 272--><p class="noindent" >unsigned long             </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-5-3"  
+class="td11"> <!--l. 272--><p class="noindent" >Virtual lan identifier as defined by
+  802.11q.                                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-1"  
+class="td11"> <!--l. 274--><p class="noindent" >port                          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-2"  
+class="td11"> <!--l. 274--><p class="noindent" >unsigned long             </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-6-3"  
+class="td11"> <!--l. 274--><p class="noindent" >IP <a 
+href="mainli2.html#glo:port">Port</a> number associated with
+  the network connection.              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-7-1"  
+class="td11"> <!--l. 276--><p class="noindent" >sampleRate                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-7-2"  
+class="td11"> <!--l. 276--><p class="noindent" >unsigned long             </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-7-3"  
+class="td11"> <!--l. 276--><p class="noindent" >Expected  sample  rate  for  the
+  data.                                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-8-1"  
+class="td11"> <!--l. 278--><p class="noindent" >timeTagValid              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-8-2"  
+class="td11"> <!--l. 278--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-8-3"  
+class="td11"> <!--l. 278--><p class="noindent" >Denotes   if   data   stream   can
+  provide valid time stamp values.   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-9-1"  
+class="td11"> <!--l. 280--><p class="noindent" >privateInfo                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-9-2"  
+class="td11"> <!--l. 280--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-9-3"  
+class="td11"> <!--l. 280--><p class="noindent" >Allows for user-defined values to
+  be passed as a string.                 </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.7: </td><td  
+class="content">SDDS Stream Definition Member Descriptions</td></tr></table><!--tex4ht:label?: x17-272002r7 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h4 class="subsectionHead"><span class="titlemark">15.2.3   </span> <a 
+ id="x17-27300015.2.3"></a>Signal Related Information (SRI)</h4>
+<!--l. 3--><p class="noindent" ><a 
+href="mainap14.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload. The <a 
+href="mainap14.html#sri">SRI</a> data
+structure fields are described in <a 
+href="#x17-273001r8">Table 15.8</a>.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 21--><p class="noindent" ><a 
+ id="x17-273001r8"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"></colgroup><colgroup id="TBL-15-2g"><col 
+id="TBL-15-2"></colgroup><colgroup id="TBL-15-3g"><col 
+id="TBL-15-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-1-1"  
+class="td11"> <span 
+class="ecbx-1200">Name   </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-15-1-2"  
+class="td11"> <!--l. 23--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-1-3"  
+class="td11"> <!--l. 23--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-2-1"  
+class="td11"> hversion   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-2-2"  
+class="td11"> <!--l. 25--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-2-3"  
+class="td11"> <!--l. 25--><p class="noindent" >Version of the Stream <a 
+href="mainap14.html#sri">SRI</a> header. This field
+  is typically ignored, so a default value of 1 is
+  adequate.                                               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-3-1"  
+class="td11"> xstart      </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-3-2"  
+class="td11"> <!--l. 26--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-3-3"  
+class="td11"> <!--l. 26--><p class="noindent" >Start time of the stream. This is epoch time
+  from January 1, 1970 in seconds.                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-4-1"  
+class="td11"> xdelta      </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-4-2"  
+class="td11"> <!--l. 27--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-4-3"  
+class="td11"> <!--l. 27--><p class="noindent" >Delta  between  two  values  in  the  payload
+  vector. in the case of time data, this is the
+  sampling period. In the case of spectral data,
+  this is the frequency difference between two
+  adjacent <a 
+href="mainap14.html#fft">FFT</a> bins.                                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-5-1"  
+class="td11"> xunits      </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-2"  
+class="td11"> <!--l. 28--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-5-3"  
+class="td11"> <!--l. 28--><p class="noindent" >Unit                                            types;
+  common codes defined in <a 
+href="mainap14.html#idl">IDL</a> (i.e: 0=None,
+  1=time, 2=delay, 3=frequency)                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-6-1"  
+class="td11"> subsize     </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-2"  
+class="td11"> <!--l. 29--><p class="noindent" >long                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-6-3"  
+class="td11"> <!--l. 29--><p class="noindent" >0 if the data is one dimensional; &#x003E;0 if two
+  dimensional. This applies to framed data.     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-7-1"  
+class="td11"> ystart      </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-7-2"  
+class="td11"> <!--l. 30--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-7-3"  
+class="td11"> <!--l. 30--><p class="noindent" >Start time of the first frame                       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-8-1"  
+class="td11"> ydelta      </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-8-2"  
+class="td11"> <!--l. 31--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-8-3"  
+class="td11"> <!--l. 31--><p class="noindent" >Delta   between   two   samples   of   second
+  dimension (e.g., bin size in <a 
+href="mainap14.html#fft">FFT</a>)                </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-9-1"  
+class="td11"> yunits      </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-9-2"  
+class="td11"> <!--l. 32--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-9-3"  
+class="td11"> <!--l. 32--><p class="noindent" >Unit                                            types;
+  common codes defined in <a 
+href="mainap14.html#idl">IDL</a> (i.e: 0=None,
+  1=time, 2=delay, 3=frequency)                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-10-1"  
+class="td11"> mode       </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-10-2"  
+class="td11"> <!--l. 33--><p class="noindent" >short                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-10-3"  
+class="td11"> <!--l. 33--><p class="noindent" >0-Scalar, 1-Complex. Complex data is passed
+  as  interleaved  I/Q  values  in  the  sequence.
+  The type for the sequence remains the same
+  for both real and complex data.                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-11-1"  
+class="td11"> streamID  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-11-2"  
+class="td11"> <!--l. 34--><p class="noindent" >string                </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-11-3"  
+class="td11"> <!--l. 34--><p class="noindent" >Stream <a 
+href="mainap14.html#id">ID</a>. Unique streams can be delivered
+  over  the  same  <a 
+href="mainli2.html#glo:port">Port</a>,  where  each  stream
+  is  identified  by  a  unique  string  (generated
+  or  passed  along  by  the  provides  side).
+  The   generation   of   this   stream   <a 
+href="mainap14.html#id">ID</a>   is
+  <a 
+href="mainli2.html#glo:application">Application</a>-specific  and  not  controlled  by
+  the REDHAWK Core Framework.               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-12-1"  
+class="td11"> blocking   </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-12-2"  
+class="td11"> <!--l. 35--><p class="noindent" >Boolean             </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-12-3"  
+class="td11"> <!--l. 35--><p class="noindent" >Flag to determine whether the receiving <a 
+href="mainli2.html#glo:port">Port</a>
+  exhibits  back  pressure.  If  this  is  false  and
+  the provides-side queue is full, the data is
+  dumped. If this is true and the provides-side
+  queue is full, the <span 
+class="ectt-1200">pushPacket() </span>call blocks.  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-13-1"  
+class="td11"> keywords  </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-13-2"  
+class="td11"> <!--l. 36--><p class="noindent" >sequence
+  &#x003C;CF::DataType&#x003E; </td><td  style="white-space:wrap; text-align:left;" id="TBL-15-13-3"  
+class="td11"> <!--l. 36--><p class="noindent" >User  defined  keywords.  This  is  a  sequence
+  of  structures  that  contain  an  <a 
+href="mainap14.html#id">ID</a>  of  type
+  string and a value of type <a 
+href="mainap14.html#corba">CORBA</a> Any. The
+  content of the <a 
+href="mainap14.html#corba">CORBA</a> Any can be any type.  </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.8: </td><td  
+class="content"><a 
+href="mainap14.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-273001r8 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 47--><p class="noindent" ><a 
+href="mainap14.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the provides-side function
+<span 
+class="ectt-1200">pushSRI()</span>. The <span 
+class="ectt-1200">pushSRI() </span>function contains a single argument, an instance of an <a 
+href="mainap14.html#sri">SRI</a>
+object.
+<!--l. 50--><p class="noindent" >Each provides-side <a 
+href="mainli2.html#glo:port">Port</a> that implements a <a 
+href="mainap14.html#bulkio">BulkIO</a> interface expects that <a 
+href="mainap14.html#sri">SRI</a> regarding data being
+received become available before any data is transferred. When using the code generators and base
+classes in the REDHAWK development tools, this behavior is hard-coded into the uses-side <a 
+href="mainap14.html#bulkio">BulkIO</a>
+<a 
+href="mainli2.html#glo:port">Ports</a>. If the user code on the uses-side of a <a 
+href="mainap14.html#bulkio">BulkIO</a> connection does not explicitly invoke a
+<span 
+class="ectt-1200">pushSRI() </span>call before any data is sent out, the auto-generated code creates a trivial <a 
+href="mainap14.html#sri">SRI</a> message
+with normalized values.
+<!--l. 54--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
+href="mainap14.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Port</a> is to issue a <span 
+class="ectt-1200">pushSRI() </span>when a new
+connection is made to the newly-connected object. For example, a system is created in which data
+is flowing between <a 
+href="mainli2.html#glo:component">Components</a> A and B. As data is flowing between these <a 
+href="mainli2.html#glo:component">Components</a>, a new
+connection is established between <a 
+href="mainli2.html#glo:component">Components</a> A and C. When this connection is established,
+a <span 
+class="ectt-1200">pushSRI() </span>method call is automatically made from <a 
+href="mainli2.html#glo:component">Component</a> A to <a 
+href="mainli2.html#glo:component">Component</a>
+C.
+<h4 class="subsectionHead"><span class="titlemark">15.2.4   </span> <a 
+ id="x17-27400015.2.4"></a>Multi-out Ports</h4>
+<!--l. 3--><p class="noindent" >A multi-out <a 
+href="mainli2.html#glo:port">Port</a> allows a <a 
+href="mainli2.html#glo:component">Component</a> to select specific streams to be sent over specific connections
+out of arbitrarily-selected <a 
+href="mainli2.html#glo:port">Ports</a>. To use multi-out <a 
+href="mainli2.html#glo:port">Ports</a>, a <a 
+href="mainli2.html#glo:component">Component</a> must include the following
+property:
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<structsequence id="connectionTable">
+     <struct id="connectionTable::connection_descriptor"
+                  name="connection_descriptor">
+       <simple id="connectionTable::connection_id" name="connection_id"
+                    type="string">
+         <kind kindtype="configure"/>
+       </simple>
+       <simple id="connectionTable::stream_id" name="stream_id" type="string">
+         <kind kindtype="configure"/>
+       </simple>
+       <simple id="connectionTable::port_name" name="port_name" type="string">
+         <kind kindtype="configure"/>
+       </simple>
+     </struct>
+     <configurationkind kindtype="configure"/>
+</structsequence>
+]]></script></div>
+<!--l. 24--><p class="noindent" >To steer a particular stream out of a particular connection through a particular <a 
+href="mainli2.html#glo:port">Port</a>, an element
+must be added to the connection table structure that identifies the stream id/connection id/port
+name set. After this element is added to the structure, any data pushed to a particular <a 
+href="mainli2.html#glo:port">Port</a> is
+filtered by that <a 
+href="mainli2.html#glo:port">Port</a> in the appropriate fashion.
+<!--l. 26--><p class="noindent" >A <a 
+href="mainli2.html#glo:port">Port</a> does not filter its output until an element in the connection table sequence mentions the
+<a 
+href="mainli2.html#glo:port">Port</a> name. If a <a 
+href="mainli2.html#glo:port">Port</a> is listed on the connection table, then data is pushed out only if both the
+stream id and connection id match.
+<!--l. 28--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The multi-out capability is supported only for BulkIO and BurstIO output (uses) <a 
+href="mainli2.html#glo:port">Ports</a>. </p></div></div>
+<!--l. 1--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.2.5   </span> <a 
+ id="x17-27500015.2.5"></a>Working with Complex Data</h4>
+<!--l. 3--><p class="noindent" >If the StreamSRI mode field of the incoming data is set to 1, the associated input data is complex
+(i.e., it is comprised of real and imaginary parts). Complex data is sent as alternating real
+and imaginary values. A developer can work with this data in any fashion; however,
+this section provides common methods for converting the data into a more workable
+form.
+                                                                                         
+                                                                                         
+<!--l. 5--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.5.1   </span> <a 
+ id="x17-27600015.2.5.1"></a>Converting Complex Data in C++</h5>
+<!--l. 7--><p class="noindent" >In C++, the incoming <a 
+href="mainap14.html#bulkio">BulkIO</a> data vector may be typecast into a std::vector of std::complex
+values. For example:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+bulkio::InShortPort::dataTransfer *tmp =
+     myInput->getPacket(bulkio::Const::BLOCKING);
+std::vector<std::complex<short> >* intermediate =
+     (std::vector<std::complex<short> >*) &(tmp->dataBuffer);
+std::vector<short>* output = (std::vector<short>*) intermediate;
+myOutput->pushPacket(*output, tmp->T, tmp->EOS, tmp->streamID);
+]]></script></div>
+<!--l. 18--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.5.2   </span> <a 
+ id="x17-27700015.2.5.2"></a>Converting Complex Data in Python</h5>
+<!--l. 20--><p class="noindent" >The helper functions <span 
+class="ectt-1200">bulkioComplexToPythonComplexList </span>and
+<span 
+class="ectt-1200">pythonComplexListToBulkioComplex</span>, defined in the module
+<span 
+class="ectt-1200">ossie.utils.bulkio.bulkio_helpers</span>, provide an efficient translation to and from lists of Python
+complex numbers.
+<!--l. 23--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.5.3   </span> <a 
+ id="x17-27800015.2.5.3"></a>Converting Complex Data in Java</h5>
+<!--l. 25--><p class="noindent" >Unlike with C++ and Python, Java does not have a ubiquitous means for representing complex
+numbers; therefore, when using Java, users are free to map the incoming <a 
+href="mainap14.html#bulkio">BulkIO</a> data to the
+complex data representation of their choosing.
+<!--l. 2--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.2.6   </span> <a 
+ id="x17-27900015.2.6"></a>Time Stamps</h4>
+<!--l. 4--><p class="noindent" >The following code segment provides an example of how to construct a <span 
+class="ectt-1200">BULKIO::PrecisionUTCTime</span>
+time stamp to be sent in the <a 
+href="mainap14.html#sri">SRI</a>.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+ /**
+    * To create a time stamp from the current time of day
+    */
+
+  BULKIO::PrecisionUTCTime tstamp = bulkio::time::utils::now();
+]]></script></div>
+<!--l. 1--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.2.7   </span> <a 
+ id="x17-28000015.2.7"></a>Port Statistics</h4>
+<!--l. 3--><p class="noindent" >All <a 
+href="mainap14.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
+<span 
+class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
+href="mainli2.html#glo:port">Port</a>.
+<a 
+href="#x17-280001r9">Table 15.9</a> contains a description of a statistics structure
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 7--><p class="noindent" ><a 
+ id="x17-280001r9"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-16" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-16-1g"><col 
+id="TBL-16-1"></colgroup><colgroup id="TBL-16-2g"><col 
+id="TBL-16-2"></colgroup><colgroup id="TBL-16-3g"><col 
+id="TBL-16-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-16-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-1-1"  
+class="td11"> <!--l. 11--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-1-2"  
+class="td11"> <!--l. 11--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-1-3"  
 class="td11"> <!--l. 11--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-2-1"  
-class="td11"> portName               </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-2"  
-class="td11"> <!--l. 12--><p class="noindent" >string                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-3"  
+ style="vertical-align:baseline;" id="TBL-16-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-2-1"  
+class="td11"> <!--l. 12--><p class="noindent" >portName                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-2-2"  
+class="td11"> <!--l. 12--><p class="noindent" >string                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-2-3"  
 class="td11"> <!--l. 12--><p class="noindent" >Name of this <a 
 href="mainli2.html#glo:port">Port</a>                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-3-1"  
-class="td11"> elementsPerSecond   </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-2"  
-class="td11"> <!--l. 13--><p class="noindent" >float                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-3"  
+ style="vertical-align:baseline;" id="TBL-16-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-3-1"  
+class="td11"> <!--l. 13--><p class="noindent" >elementsPerSecond       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-3-2"  
+class="td11"> <!--l. 13--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-3-3"  
 class="td11"> <!--l. 13--><p class="noindent" >A   moving   average   describing
   the  rate  at  which  elements  are
   arriving.                                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-4-1"  
-class="td11"> bitsPerSecond         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-2"  
-class="td11"> <!--l. 14--><p class="noindent" >float                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-3"  
-class="td11"> <!--l. 14--><p class="noindent" >This   should   be   the   same   as
-  elementsPerSecond   *   bits   per
-  elements.                                 </td>
+ style="vertical-align:baseline;" id="TBL-16-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-4-1"  
+class="td11"> <!--l. 14--><p class="noindent" >bitsPerSecond             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-4-2"  
+class="td11"> <!--l. 14--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-4-3"  
+class="td11"> <!--l. 14--><p class="noindent" >This                                    is
+  the same as elementsPerSecond *
+  bits per elements.                      </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-5-1"  
-class="td11"> callsPerSecond        </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-5-2"  
-class="td11"> <!--l. 15--><p class="noindent" >float                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-5-3"  
+ style="vertical-align:baseline;" id="TBL-16-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-5-1"  
+class="td11"> <!--l. 15--><p class="noindent" >callsPerSecond            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-5-2"  
+class="td11"> <!--l. 15--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-5-3"  
 class="td11"> <!--l. 15--><p class="noindent" >Number  of  <span 
 class="ectt-1200">pushPacket() </span>calls
   per second.                              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-6-1"  
-class="td11"> streamIDs              </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-6-2"  
-class="td11"> <!--l. 16--><p class="noindent" >CF::StringSequence     </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-6-3"  
+ style="vertical-align:baseline;" id="TBL-16-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-6-1"  
+class="td11"> <!--l. 16--><p class="noindent" >streamIDs                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-6-2"  
+class="td11"> <!--l. 16--><p class="noindent" >CF::StringSequence     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-6-3"  
 class="td11"> <!--l. 16--><p class="noindent" >List  of  all  stream  ids  where  a
   <span 
 class="ectt-1200">pushSRI() </span>has  occurred  but  no
   <a 
-href="mainap11.html#eos">EOS</a> has been received.              </td>
+href="mainap14.html#eos">EOS</a> has been received.              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-7-1"  
-class="td11"> averageQueueDepth  </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-7-2"  
-class="td11"> <!--l. 17--><p class="noindent" >float                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-7-3"  
+ style="vertical-align:baseline;" id="TBL-16-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-7-1"  
+class="td11"> <!--l. 17--><p class="noindent" >averageQueueDepth     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-7-2"  
+class="td11"> <!--l. 17--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-7-3"  
 class="td11"> <!--l. 17--><p class="noindent" >Moving average calculation of the
   percentage queue depth.             </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-8-1"  
-class="td11"> timeSinceLastCall    </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-8-2"  
-class="td11"> <!--l. 18--><p class="noindent" >float                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-8-3"  
+ style="vertical-align:baseline;" id="TBL-16-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-8-1"  
+class="td11"> <!--l. 18--><p class="noindent" >timeSinceLastCall        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-8-2"  
+class="td11"> <!--l. 18--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-8-3"  
 class="td11"> <!--l. 18--><p class="noindent" >The
   elapsed time, in seconds, since the
   last packet was transferred via a
@@ -1127,17 +1278,19 @@ class="td11"> <!--l. 18--><p class="noindent" >The
 class="ectt-1200">pushPacket() </span>call                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-14-9-1"  
-class="td11"> keywords                </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-9-2"  
+ style="vertical-align:baseline;" id="TBL-16-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-9-1"  
+class="td11"> <!--l. 19--><p class="noindent" >keywords                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-9-2"  
 class="td11"> <!--l. 19--><p class="noindent" >sequence
-  &#x003C;CF::DataType&#x003E;       </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-9-3"  
+  &#x003C;CF::DataType&#x003E;       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-16-9-3"  
 class="td11"> <!--l. 19--><p class="noindent" >Additional statistics information
   provided by the <a 
 href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr></table></div>
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.8: </td><td  
-class="content">Fields in returned link statistics</td></tr></table><!--tex4ht:label?: x17-260001r8 -->
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.9: </td><td  
+class="content">Fields in Returned <span 
+class="ecbx-1200">port! </span>(<span 
+class="ecbx-1200">port!</span>) Statistics</td></tr></table><!--tex4ht:label?: x17-280001r9 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -1151,29 +1304,31 @@ class="ectt-1200">PortStatistics </span>structures; each one associated with a s
 connection.
 <!--l. 28--><p class="noindent" >An interesting exercise is to create <a 
 href="mainli2.html#glo:component">Components</a> that generate and consume data in the three
-languages supported by REDHAWK. The data generator and consumer should generate/consume
-data as fast as possible. The statistics data structure can provide metrics regarding data transfer
-rates, average latency, and other relevant data. Shifting the transfer length (by changing the size of
-the sequence in the <span 
-class="ectt-1200">pushPacket() </span>call) and seeing its effects on the performance of the connection
-is also instructive.
-<h3 class="sectionHead"><span class="titlemark">15.7   </span> <a 
- id="x17-26100015.7"></a>Examples</h3>
+languages supported by REDHAWK. The data generator and consumer generate/consume data as
+fast as possible. The statistics data structure can provide metrics regarding data transfer rates,
+average latency, and other relevant data. Shifting the transfer length (by changing the size of the
+sequence in the <span 
+class="ectt-1200">pushPacket() </span>call) and seeing its effects on the performance of the connection is
+also instructive.
+<h4 class="subsectionHead"><span class="titlemark">15.2.8   </span> <a 
+ id="x17-28100015.2.8"></a>Examples</h4>
 <!--l. 3--><p class="noindent" >These two examples illustrate high-speed data exchange between two C++ <a 
 href="mainli2.html#glo:component">Components</a> and basic
-data manipulation through the Sandbox
+data manipulation through the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>.
 <!--l. 5--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">15.7.1   </span> <a 
- id="x17-26200015.7.1"></a>High-speed data</h4>
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.8.1   </span> <a 
+ id="x17-28200015.2.8.1"></a>High-speed data</h5>
 <!--l. 7--><p class="noindent" >In this example, two C++ <a 
 href="mainli2.html#glo:component">Components</a> are created: a source and a sink. We will then deploy these
 <a 
-href="mainli2.html#glo:component">Components</a> through the Sandbox and evaluate the statistics of the data transfer between
+href="mainli2.html#glo:component">Components</a> through the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> and evaluate the statistics of the data transfer between
 them.
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-262002x1">Create  a  C++  <a 
+  class="enumerate" id="x17-282002x1">Create  a  C++  <a 
 href="mainli2.html#glo:component">Component</a>  called  <span 
 class="ecti-1200">source  </span>with  a  uses  <a 
 href="mainli2.html#glo:port">Port</a>  called  <span 
@@ -1181,7 +1336,7 @@ class="ecti-1200">output  </span>of  type
       <span 
 class="ecti-1200">dataShort</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with <a 
-href="mainap11.html#id">ID</a> <span 
+href="mainap14.html#id">ID</a> <span 
 class="ecti-1200">xfer_length</span>, type <span 
 class="ecti-1200">ulong</span>, and default value
       of <span 
@@ -1189,18 +1344,18 @@ class="ecti-1200">100000</span>. Generate the <a
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-262004x2">Open the file <span 
+  class="enumerate" id="x17-282004x2">Open the file <span 
 class="ectt-1200">source.h </span>and add the following member to the <span 
 class="ectt-1200">source_i </span>class:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
       std::vector<short> data;
 ]]></script></div>
       </li>
-                                                                                         
-                                                                                         
       <li 
-  class="enumerate" id="x17-262006x3">Open the file <span 
+  class="enumerate" id="x17-282006x3">Open the file <span 
 class="ectt-1200">source.cpp </span>and edit it in the following ways:
+                                                                                         
+                                                                                         
            <ul class="itemize1">
            <li class="itemize">In the <span 
 class="ectt-1200">source_i </span>constructor: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1209,7 +1364,7 @@ class="ectt-1200">source_i </span>constructor: <div class="minipage"><script typ
            </li></ul>
       </li>
       <li 
-  class="enumerate" id="x17-262008x4">In <span 
+  class="enumerate" id="x17-282008x4">In <span 
 class="ectt-1200">serviceFunction() </span>comment-out the <span 
 class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1240,12 +1395,13 @@ class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x17-262010x5">Compile the <a 
+  class="enumerate" id="x17-282010x5">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
-class="ectt-1200">source </span>and install it on Target SDR.
+class="ectt-1200">source </span>and install it on <a 
+href="mainli2.html#glo:targetSDR">Target SDR</a>.
       </li>
       <li 
-  class="enumerate" id="x17-262012x6">Create a C++ <a 
+  class="enumerate" id="x17-282012x6">Create a C++ <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="ecti-1200">sink </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -1253,20 +1409,20 @@ class="ecti-1200">input </span>of type <span
 class="ecti-1200">dataShort</span>.
       Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
-                                                                                         
-                                                                                         
       </li>
+                                                                                         
+                                                                                         
       <li 
-  class="enumerate" id="x17-262014x7">Open the file <span 
+  class="enumerate" id="x17-282014x7">Open the file <span 
 class="ectt-1200">sink.cpp </span>and edit it in the following ways:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x17-262016x1">In <span 
+  class="enumerate" id="x17-282016x1">In <span 
 class="ectt-1200">serviceFunction()</span>, comment-out the <span 
 class="ectt-1200">LOG_DEBUG </span>statement
            </li>
            <li 
-  class="enumerate" id="x17-262018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x17-282018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
   ::BULKIO_dataShort_In_i::dataTransfer *tmp =
      this->input->getPacket(-1);
  if (tmp == NULL) {
@@ -1279,9 +1435,10 @@ class="ectt-1200">LOG_DEBUG </span>statement
            </li></ol>
       </li>
       <li 
-  class="enumerate" id="x17-262020x8">Compile the <a 
+  class="enumerate" id="x17-282020x8">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
-class="ectt-1200">sink </span>and install it on Target SDR.
+class="ectt-1200">sink </span>and install it on <a 
+href="mainli2.html#glo:targetSDR">Target SDR</a>.
       <!--l. 72--><p class="noindent" >Start a Python session in a command line terminal and run the following commands:</li></ol>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> from ossie.utils import sb
@@ -1293,7 +1450,7 @@ class="ectt-1200">sink </span>and install it on Target SDR.
 ]]></script></div>
 <!--l. 84--><p class="noindent" >The output of the print statement is an instance of the <span 
 class="ectt-1200">PortStatistics </span>structure in <a 
-href="mainap11.html#bulkio">BulkIO</a>. This
+href="mainap14.html#bulkio">BulkIO</a>. This
 structure contains the statistics gathered from this connection. A measure of data rate is bits per
 second.
 <!--l. 88--><p class="noindent" >To display the number of Gigabits per second, run the following command:
@@ -1303,11 +1460,11 @@ second.
 ]]></script></div>
 <!--l. 95--><p class="noindent" >The resulting value is the measured data transfer rate between the two <a 
 href="mainli2.html#glo:component">Components</a>. The current
-                                                                                         
-                                                                                         
 <span 
 class="ectt-1200">xfer_length </span><a 
 href="mainli2.html#glo:property">Property</a> can be viewed by typing the following:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
  &gt;&gt;> source.xfer_length
 ]]></script></div>
@@ -1320,11 +1477,11 @@ command:
  &gt;&gt;> source.xfer_length = 200000
 ]]></script></div>
 <!--l. 108--><p class="noindent" >Check the new data rate by repeating the call to <span 
-class="ectt-1200">_get_statistics()</span>. The resulting data rate
-should now be different.
+class="ectt-1200">_get_statistics()</span>. The resulting data rate is
+now different.
 <!--l. 111--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">15.7.2   </span> <a 
- id="x17-26300015.7.2"></a>Data manipulation</h4>
+<h5 class="subsubsectionHead"><span class="titlemark">15.2.8.2   </span> <a 
+ id="x17-28300015.2.8.2"></a>Data manipulation</h5>
 <!--l. 113--><p class="noindent" >In this example, a Python <a 
 href="mainli2.html#glo:component">Component</a> is created that takes vectors of floats as inputs, multiplies
 the vector by some arbitrary number, and then outputs the resulting vector. This example
@@ -1334,7 +1491,7 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 115--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-263002x1">Create a Python <a 
+  class="enumerate" id="x17-283002x1">Create a Python <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="ecti-1200">mult  </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -1346,14 +1503,14 @@ class="ecti-1200">output </span>of type <span
 class="ecti-1200">dataFloat</span>. Add a simple <a 
 href="mainli2.html#glo:property">Property</a> with
       <a 
-href="mainap11.html#id">ID</a> <span 
+href="mainap14.html#id">ID</a> <span 
 class="ecti-1200">factor</span>, type <span 
 class="ecti-1200">float</span>, and default value of <span 
 class="ecti-1200">1</span>. Generate the <a 
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x17-263004x2">Open the file <span 
+  class="enumerate" id="x17-283004x2">Open the file <span 
 class="ectt-1200">mult.py </span>and add the following lines:
                                                                                          
                                                                                          
@@ -1374,12 +1531,15 @@ class="ectt-1200">mult.py </span>and add the following lines:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x17-263006x3">Save the project and drag the <span 
-class="ectt-1200">mult </span>project to SCA Explorer<span 
-class="cmmi-12">&#x003E; </span>Target SDR.
+  class="enumerate" id="x17-283006x3">Save the project and drag the <span 
+class="ectt-1200">mult </span>project to <a 
+href="mainli2.html#glo:SCA Explorer"><span 
+class="ecbx-1200">SCA Explorer</span></a> <span 
+class="cmmi-12">&#x003E;  </span><a 
+href="mainli2.html#glo:targetSDR">Target SDR</a>.
       </li>
       <li 
-  class="enumerate" id="x17-263008x4">Start a Python session in a command line terminal and run the following commands:
+  class="enumerate" id="x17-283008x4">Start a Python session in a command line terminal and run the following commands:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> mult = sb.Component("mult")
@@ -1394,7 +1554,8 @@ class="cmmi-12">&#x003E; </span>Target SDR.
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x17-263010x5">The multiplication factor can be changed while the Sandbox is up.
+  class="enumerate" id="x17-283010x5">The multiplication factor can be changed while the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> is up.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> mult.factor = 2
  &gt;&gt;> source.push([1,2,3,4,5])
@@ -1405,6 +1566,900 @@ class="cmmi-12">&#x003E; </span>Target SDR.
                                                                                          
       </div>
       </li></ol>
+<!--l. 1--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">15.3   </span> <a 
+ id="x17-28400015.3"></a>BurstIO</h3>
+<!--l. 4--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.3.1   </span> <a 
+ id="x17-28500015.3.1"></a>Introduction</h4>
+<!--l. 6--><p class="noindent" >For those applications that require small, and possibly non-contiguous, chunks (or bursts) of data
+with frequently-varying metadata, <a 
+href="mainap14.html#burstio">BurstIO</a> provides the data transfer containers and interfaces to
+meet those requirements. This interface only supports the transfer of data vectors: float, double,
+octet (int8/uint8), short (int16), ushort (uint16), long (int32), ulong (uint32), longlong
+(int64), and ulonglong(uint64). Similar to <a 
+href="mainap14.html#bulkio">BulkIO</a>, <a 
+href="mainap14.html#burstio">BurstIO</a> provides Burst Signal Related
+Information (<a 
+href="mainap14.html#sri">SRI</a>), and a Precision Time stamp but provides this information in-band with
+each data burst. With the increased overhead requirement for metadata, <a 
+href="mainap14.html#burstio">BurstIO</a> can
+achieve its highest throughput by grouping multiple bursts into a single transfer, either
+programmatically or through configurable policy settings, to try and maximize efficiency and limit
+latency.
+<!--l. 1--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.3.2   </span> <a 
+ id="x17-28600015.3.2"></a>Data Transfers</h4>
+<!--l. 3--><p class="noindent" ><a 
+href="mainap14.html#burstio">BurstIO</a> data transfers happen through the <span 
+class="ectt-1200">pushBurst() </span>and <span 
+class="ectt-1200">pushBursts() </span>method calls of a
+REDHAWK resource&#8217;s (<a 
+href="mainli2.html#glo:component">Component</a> or <a 
+href="mainli2.html#glo:device">Device</a>) <a 
+href="mainap14.html#burstio">BurstIO</a> <a 
+href="mainli2.html#glo:port">Port</a> object. A resource can use these push
+methods to transfer bursts and their associated meta data from one resource to another within the
+resource&#8217;s service function. Similar to <a 
+href="mainap14.html#bulkio">BulkIO</a>, <a 
+href="mainap14.html#burstio">BurstIO</a> interfaces provide the same
+<span 
+class="ectt-1200">BULKIO::PrecisionUTCTime </span>time stamp for each data vector of the burst. <a 
+href="mainap14.html#burstio">BurstIO</a> defines
+a new <span 
+class="ectt-1200">BurstSRI </span><a 
+href="mainap14.html#sri">SRI</a> object that enables developers to further describe the signaling
+environment and the data transformations. These fields are further described in <a 
+href="#x17-28900015.3.3">Section
+15.3.3</a>.
+<!--l. 5--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.2.1   </span> <a 
+ id="x17-28700015.3.2.1"></a>Input</h5>
+<!--l. 7--><p class="noindent" >A resource with a provides-<a 
+href="mainli2.html#glo:port">Port</a> (input), grabs data from the <a 
+href="mainli2.html#glo:port">Port</a> using the <span 
+class="ectt-1200">getBurst() </span>method.
+This method returns a <span 
+class="ectt-1200">PacketType </span>object (described in <a 
+href="#x17-287001r10">Table 15.10</a>) from the input <a 
+href="mainli2.html#glo:port">Port</a>&#8217;s data
+queue or a null/None value if the queue is empty.
+<!--l. 9--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">getBurst() </span>method.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  /**
+      Grab data from the port's getBurst method
+    */
+  burstio::BurstShortIn::PacketType *pkt;
+  pkt = inShortPort->getPacket( bulkio::Const::NON_BLOCKING );
+
+  // check if a valid packet was returned
+  if ( pkt == NULL ) {
+     return NOOP;
+  }
+
+  // check for EOS
+  if ( pkt->getEOS() ) {
+     outShortPort->pushBurst(pkt->getSequence(), pkt->getSRI(), pkt->getEOS());
+  }
+
+  ...  perform algorithm on the data: pkt->getData() ... or pkt->getSequence()
+
+]]></script></div>
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 47--><p class="noindent" ><a 
+ id="x17-287001r10"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-17" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-17-1g"><col 
+id="TBL-17-1"></colgroup><colgroup id="TBL-17-2g"><col 
+id="TBL-17-2"></colgroup><colgroup id="TBL-17-3g"><col 
+id="TBL-17-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-1-1"  
+class="td11"> <!--l. 50--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-1-2"  
+class="td11"> <!--l. 50--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-1-3"  
+class="td11"> <!--l. 50--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-2-1"  
+class="td11"> <!--l. 53--><p class="noindent" ><span 
+class="ectt-1200">getSize</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-2-2"  
+class="td11"> <!--l. 53--><p class="noindent" >size                          </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-2-3"  
+class="td11"> <!--l. 53--><p class="noindent" >The  number  of  samples  in  the
+  burst.  For  complex  data,  the
+  number  of  samples  is  half  this
+  value.                                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-3-1"  
+class="td11"> <!--l. 55--><p class="noindent" ><span 
+class="ectt-1200">getData</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-3-2"  
+class="td11"> <!--l. 55--><p class="noindent" >pointer to &#x003C;TYPE&#x003E;   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-3-3"  
+class="td11"> <!--l. 55--><p class="noindent" >Pointer to the data samples.        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-4-1"  
+class="td11"> <!--l. 57--><p class="noindent" ><span 
+class="ectt-1200">getSequence</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-4-2"  
+class="td11"> <!--l. 57--><p class="noindent" >container to
+  &#x003C;TYPE&#x003E;                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-4-3"  
+class="td11"> <!--l. 57--><p class="noindent" >Returns  an  iterable  sequence  to
+  the data samples.                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-5-1"  
+class="td11"> <!--l. 59--><p class="noindent" ><span 
+class="ectt-1200">getEOS</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-5-2"  
+class="td11"> <!--l. 59--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-5-3"  
+class="td11"> <!--l. 59--><p class="noindent" >Returns  <span 
+class="ectt-1200">TRUE </span>if  this  is  the  last
+  burst in a stream.                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-6-1"  
+class="td11"> <!--l. 61--><p class="noindent" ><span 
+class="ectt-1200">getSRI</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-6-2"  
+class="td11"> <!--l. 61--><p class="noindent" ><span 
+class="ectt-1200">BULKIO::StreamSRI</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-6-3"  
+class="td11"> <!--l. 61--><p class="noindent" >The  <a 
+href="mainap14.html#sri">SRI</a>  (metadata)  associated
+  with the sample data.                </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-7-1"  
+class="td11"> <!--l. 63--><p class="noindent" ><span 
+class="ectt-1200">getTime</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-7-2"  
+class="td11"> <!--l. 63--><p class="noindent" >PrecisionUTCTime     </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-7-3"  
+class="td11"> <!--l. 63--><p class="noindent" >The epoch birth date of the first
+  sample of the sequence.              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-8-1"  
+class="td11"> <!--l. 65--><p class="noindent" ><span 
+class="ectt-1200">blockOccurred</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-8-2"  
+class="td11"> <!--l. 65--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-8-3"  
+class="td11"> <!--l. 65--><p class="noindent" >Returns   <span 
+class="ectt-1200">TRUE  </span>if   an   incoming
+  burst was blocked.                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-9-1"  
+class="td11"> <!--l. 67--><p class="noindent" ><span 
+class="ectt-1200">isComplex</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-9-2"  
+class="td11"> <!--l. 67--><p class="noindent" >Boolean                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-9-3"  
+class="td11"> <!--l. 67--><p class="noindent" >Returns <span 
+class="ectt-1200">TRUE </span>if data is complex.  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-17-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-10-1"  
+class="td11"> <!--l. 69--><p class="noindent" ><span 
+class="ectt-1200">getComplexData</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-17-10-2"  
+class="td11"> <!--l. 69--><p class="noindent" >pointer to &#x003C;TYPE&#x003E;   </td><td  style="white-space:wrap; text-align:left;" id="TBL-17-10-3"  
+class="td11"> <!--l. 69--><p class="noindent" >Pointer  to  a  vector  of  complex
+  pairs.                                      </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.10: </td><td  
+class="content">Burst Packet Accessors</td></tr></table><!--tex4ht:label?: x17-287001r10 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.2.2   </span> <a 
+ id="x17-28800015.3.2.2"></a>Output</h5>
+<!--l. 81--><p class="noindent" >Due to the asynchronous nature of <a 
+href="mainap14.html#burstio">BurstIO</a> data, the interface enables the developer to control
+the output (egress) of bursts from a resource. The 2 main method calls to push burst
+data downstream from one resource to another are: <span 
+class="ectt-1200">pushBursts() </span>and <span 
+class="ectt-1200">pushBurst()</span>.
+<span 
+class="ectt-1200">pushBursts() </span>enables multiple bursts to be sent directly downstream as a sequence of
+<span 
+class="ectt-1200">BurstType </span>objects, whereas, <span 
+class="ectt-1200">pushBurst() </span>provides an interface to queue a single burst
+to be pushed but follows policy directives based on the number of bursts, total queue
+size, and send intervals. Both methods route burst data using the specified routing
+contraints and connection filter which are controlled using the following interface:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+
+  // this route streams with stream id == "data-stream-one" to a connection
+  // identified as "connection-one"
+
+  shortBurstPort->addConnectionFilter("data-stream-one", "connection-one");
+
+  or
+
+  // update connection filter using the Component's connection property
+  // "myConnectionTable"
+
+  shortBurstPort->updateConnectionFilter(myConnectionTable);
+
+  // this sets the stream filter to only route streams to specific connections
+  shortBurstPort->setRoutingMode(burstio::ROUTE_CONNECTION_STREAMS);
+
+
+]]></script>
+                                                                                         
+                                                                                         
+</div>
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 118--><p class="noindent" ><a 
+ id="x17-288001r11"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-18" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-18-1g"><col 
+id="TBL-18-1"></colgroup><colgroup id="TBL-18-2g"><col 
+id="TBL-18-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-18-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-18-1-1"  
+class="td11"> <!--l. 121--><p class="noindent" ><span 
+class="ecbx-1200">Routine Directive</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-18-1-2"  
+class="td11"> <!--l. 121--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-18-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-18-2-1"  
+class="td11"> <!--l. 124--><p class="noindent" ><span 
+class="ectt-1200">ROUTE_ALL_INTERLEAVED</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-18-2-2"  
+class="td11"> <!--l. 124--><p class="noindent" >All    connections    receive    all
+  streams;  streams  are  interleaved
+  in one buffer.                            </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-18-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-18-3-1"  
+class="td11"> <!--l. 126--><p class="noindent" ><span 
+class="ectt-1200">ROUTE_ALL_STREAMS</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-18-3-2"  
+class="td11"> <!--l. 126--><p class="noindent" >All        connections        receive
+  all streams; streams are buffered
+  independently.                          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-18-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-18-4-1"  
+class="td11"> <!--l. 128--><p class="noindent" ><span 
+class="ectt-1200">ROUTE_CONNECTION_STREAMS</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-18-4-2"  
+class="td11"> <!--l. 128--><p class="noindent" >Each  connection  may  subscribe
+  to a set of streams; streams are
+  buffered independently.               </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.11: </td><td  
+class="content">Routing Control Directives</td></tr></table><!--tex4ht:label?: x17-288001r11 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 138--><p class="noindent" >The major difference between the <span 
+class="ectt-1200">pushBurst() </span>and <span 
+class="ectt-1200">pushBursts() </span>methods is the ability to
+manage how and when the data is transferred. Only burst traffic that is queued using <span 
+class="ectt-1200">pushBurst()</span>
+is controlled by the policy constraints, whereas, calls to <span 
+class="ectt-1200">pushBursts() </span>are directly sent
+downstream to the connected resource.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+
+  // this method will limit the maximum number of bursts that
+  // can be queued  before they are sent
+
+  shortBurstPort->setMaxBursts(size_t count);
+
+  // this method will enable threshold monitoring for the amount of sample
+  // data that exceeds this limit before sending data downstream
+
+  shortBurstPort->setByteThreshold(size_t bytes);
+
+  // this method will enable the latency time between the sending of
+  // available data downstream
+
+  shortBurstPort->setLatencyThreshold( long usec );
+
+]]></script></div>
+<!--l. 160--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">pushBurst() </span>method call for a vector data sample
+that is queued to the <a 
+href="mainli2.html#glo:port">Port</a>.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+
+  std::vector< BurstShortOut::NativeType > data;
+  my_transform(data);
+
+  BURSTIO::BurstSRI  sri;
+  BurstShortOut::BurstType burst;
+  burst.SRI = sri;
+  burst.EOS = false;
+  burst.T = burstio::utils::now();
+  burst.data.length(data.size());
+  for(int i=0; i< data.size(); i++ ) burst.data[i] = data[i];
+
+  // this queues a single burst
+  shortBurstPort->pushBurst( burst );
+
+  // or
+
+  std::vector< BurstShortOut::NativeType > data;
+  my_transform(data);
+
+  // this queues a single burst
+  shortBurstPort->pushBurst( data, sri, burstio::utils::now() );
+
+]]></script></div>
+<!--l. 190--><p class="noindent" >The following code snippet is an example of the <span 
+class="ectt-1200">pushBursts() </span>method call for a vector
+data sample. The bursts from this call are directly passed downstream to the connected
+resource.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+
+  std::vector< BurstShortOut::NativeType > data;
+  my_transform(data);
+
+  BurstShortOut::BurstSequenceType bursts;
+  bursts.length(1);
+  BurstShortOut::BurstType burst;
+  burst.SRI = sri;
+  burst.EOS = false;
+  burst.T = burstio::utils::now();
+  burst.data.length(data.size());
+  for(int i=0; i< data.size(); i++ ) burst.data[i] = data[i];
+  bursts[0] = burst;
+
+  // this pushes the burst directly downstream because
+  // it is a sequence of bursts
+  shortBurstPort->pushBursts(bursts);
+
+]]></script></div>
+<h4 class="subsectionHead"><span class="titlemark">15.3.3   </span> <a 
+ id="x17-28900015.3.3"></a>Burst Signal Related Information (SRI)</h4>
+<!--l. 3--><p class="noindent" ><span 
+class="ectt-1200">BurstSRI </span>objects are delivered with each data burst and describe the data payload and processing
+state from the data producer. <a 
+href="#x17-289001r12">Table 15.12</a> describes only the required fields of the data structure
+when passing burst data between resources.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 20--><p class="noindent" ><a 
+ id="x17-289001r12"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-19" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-19-1g"><col 
+id="TBL-19-1"></colgroup><colgroup id="TBL-19-2g"><col 
+id="TBL-19-2"></colgroup><colgroup id="TBL-19-3g"><col 
+id="TBL-19-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-19-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-1-1"  
+class="td11">          <span 
+class="ecbx-1200">Name              </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-1-2"  
+class="td11"> <!--l. 22--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>                             </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-1-3"  
+class="td11"> <!--l. 22--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-2-1"  
+class="td11">         <span 
+class="ectt-1200">hversion         </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-2-2"  
+class="td11"> <!--l. 24--><p class="noindent" >long                                    </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-2-3"  
+class="td11"> <!--l. 24--><p class="noindent" >Version   of   the   <span 
+class="ectt-1200">Stream</span><a 
+href="mainap14.html#sri"><span 
+class="ectt-1200">SRI</span></a>
+ header. This field is typically
+  ignored, so a default value of 1
+  is adequate.                          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-3-1"  
+class="td11">         <span 
+class="ectt-1200">streamID         </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-3-2"  
+class="td11"> <!--l. 26--><p class="noindent" >string                                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-3-3"  
+class="td11"> <!--l. 26--><p class="noindent" >Stream  <a 
+href="mainap14.html#id">ID</a>.  Unique  streams
+  can be delivered over the same
+  <a 
+href="mainli2.html#glo:port">Port</a>,  where  each  stream  is
+  identified  by  a  unique  string
+  (generated   or   passed   along
+  by  the  provides  side).  The
+  generation  of  this  stream  <a 
+href="mainap14.html#id">ID</a>
+  is <a 
+href="mainli2.html#glo:application">Application</a>-specific and not
+  controlled by the REDHAWK
+  Core Framework.                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-4-1"  
+class="td11">          <span 
+class="ectt-1200">xdelta          </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-4-2"  
+class="td11"> <!--l. 28--><p class="noindent" >double                                 </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-4-3"  
+class="td11"> <!--l. 28--><p class="noindent" >Delta  between  two  values  in
+  the  payload  vector.  In  the
+  case of time data, this is the
+  sampling  period.  In  the  case
+  of  spectral  data,  this  is  the
+  frequency  difference  between
+  two adjacent <a 
+href="mainap14.html#fft">FFT</a> bins.           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-5-1"  
+class="td11">           <span 
+class="ectt-1200">mode           </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-5-2"  
+class="td11"> <!--l. 30--><p class="noindent" >short                                   </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-5-3"  
+class="td11"> <!--l. 30--><p class="noindent" >0-Scalar, 1-Complex. Complex
+  data  is  passed  as  interleaved
+  I/Q  values  in  the  sequence.
+  The  type  for  the  sequence
+  remains the same for both real
+  and complex data.                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-6-1"  
+class="td11"> <span 
+class="ectt-1200">expectedStartofBurstTime </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-6-2"  
+class="td11"> <!--l. 32--><p class="noindent" >BULKIO::PrecisionUTCTime   </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-6-3"  
+class="td11"> <!--l. 32--><p class="noindent" >The  epoch  birth  date  of  the
+  first sample of the sequence.    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-19-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-19-7-1"  
+class="td11">         <span 
+class="ectt-1200">keywords         </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-19-7-2"  
+class="td11"> <!--l. 34--><p class="noindent" >sequence &#x003C;CF::DataType&#x003E;     </td><td  style="white-space:wrap; text-align:left;" id="TBL-19-7-3"  
+class="td11"> <!--l. 34--><p class="noindent" >User-defined  keywords.   This
+  is  a  sequence  of  structures
+  that  contain  an  <a 
+href="mainap14.html#id">ID</a>  of  type
+  string  and  a  value  of  type
+  <a 
+href="mainap14.html#corba">CORBA</a> Any. The content of
+  the <a 
+href="mainap14.html#corba">CORBA</a> Any can be any
+  type.                                   </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.12: </td><td  
+class="content">Burst<a 
+href="mainap14.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x17-289001r12 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h4 class="subsectionHead"><span class="titlemark">15.3.4   </span> <a 
+ id="x17-29000015.3.4"></a>Multi-out Ports</h4>
+<!--l. 3--><p class="noindent" >Each output <a 
+href="mainap14.html#burstio">BurstIO</a> <a 
+href="mainli2.html#glo:port">Port</a> type provides the ability to filter burst data from the resource based on
+stream <a 
+href="mainap14.html#id">ID</a> and connection <a 
+href="mainap14.html#id">ID</a>. To use the multi-out capablility of the <a 
+href="mainli2.html#glo:port">Ports</a>, a resource must
+include code similar to the following:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<structsequence id="connectionTable">
+     <struct id="connectionTable::connection_descriptor"
+                  name="connection_descriptor">
+       <simple id="connectionTable::connection_id" name="connection_id"
+                    type="string">
+         <kind kindtype="configure"/>
+       </simple>
+       <simple id="connectionTable::stream_id" name="stream_id" type="string">
+         <kind kindtype="configure"/>
+       </simple>
+       <simple id="connectionTable::port_name" name="port_name" type="string">
+         <kind kindtype="configure"/>
+       </simple>
+     </struct>
+     <configurationkind kindtype="configure"/>
+</structsequence>
+]]></script></div>
+<!--l. 24--><p class="noindent" >To steer a particular stream of data to a particular connection, pass the <span 
+class="ectt-1200">connectionTable</span>
+object to the <a 
+href="mainli2.html#glo:port">Port</a>&#8217;s <span 
+class="ectt-1200">updateConnectionFilter </span>method. With the routing mode set to
+<span 
+class="ectt-1200">ROUTE_CONNECTION_STREAMS</span>, the <a 
+href="mainli2.html#glo:port">Port</a> will then apply the filter state to any burst traffic as it is
+passed out the resource&#8217;s <a 
+href="mainap14.html#burstio">BurstIO</a> <a 
+href="mainli2.html#glo:port">Port</a>. For the burst to be passed to an existing connection, there
+must exist a match in the <a 
+href="mainli2.html#glo:port">Port</a>&#8217;s filters table for the burst&#8217;s stream <a 
+href="mainap14.html#id">ID</a> and connection <a 
+href="mainap14.html#id">ID</a> of the
+resource downstream.
+<!--l. 1--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.3.5   </span> <a 
+ id="x17-29100015.3.5"></a>Working with Complex Data</h4>
+<!--l. 3--><p class="noindent" >Each <span 
+class="ectt-1200">BurstPacket </span>of the incoming data provides the <span 
+class="ectt-1200">getComplex() </span>method to denote if the
+                                                                                         
+                                                                                         
+vector contains complex samples (It is comprised of real and imaginary parts.) Complex data is
+sent as alternating real and imaginary values. A developer can work with this data in any fashion;
+however, this section describes the common methods for converting the data into a more workable
+form.
+<!--l. 5--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.5.1   </span> <a 
+ id="x17-29200015.3.5.1"></a>Converting Complex Data in C++</h5>
+<!--l. 7--><p class="noindent" >In C++, the incoming <a 
+href="mainap14.html#burstio">BurstIO</a> data vector may be typecast into a std::vector of complex values.
+For example:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+BurstShortIn::BurstPacket *pkt =
+     myShortPort->getPacket(bulkio::Const::BLOCKING);
+if ( pkt->isComplex() ) {
+  BurstShortIn::ComplexType cplx_data = pkt->getComplexData();
+
+  // ... do some processing with cplx_data
+}
+
+]]></script></div>
+<!--l. 20--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.5.2   </span> <a 
+ id="x17-29300015.3.5.2"></a>Converting Complex Data in Python</h5>
+<!--l. 22--><p class="noindent" >The helper functions <span 
+class="ectt-1200">bulkioComplexToPythonComplexList </span>and
+<span 
+class="ectt-1200">pythonComplexListToBulkioComplex</span>, defined in the module
+<span 
+class="ectt-1200">ossie.utils.bulkio.bulkio_helpers</span>, provide an efficient translation to and from lists of Python
+complex numbers.
+<!--l. 26--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.5.3   </span> <a 
+ id="x17-29400015.3.5.3"></a>Converting Complex Data in Java</h5>
+<!--l. 28--><p class="noindent" >Unlike with C++ and Python, Java does not have an ubiquitous means for representing complex
+numbers; therefore, when using Java, users are free to map the incoming <a 
+href="mainap14.html#burstio">BurstIO</a> <span 
+class="ectt-1200">getData()</span>
+method to the complex data representation of their choosing.
+                                                                                         
+                                                                                         
+<!--l. 2--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.3.6   </span> <a 
+ id="x17-29500015.3.6"></a>Time Stamps</h4>
+<!--l. 4--><p class="noindent" >The following code segment provides an example of how to construct a <span 
+class="ectt-1200">BULKIO::PrecisionUTCTime</span>
+time stamp to be sent in the burst <a 
+href="mainap14.html#sri">SRI</a>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+ /**
+    * To create a time stamp from the current time of day
+    */
+
+  BULKIO::PrecisionUTCTime tstamp = burstio::utils::now();
+]]></script></div>
+<!--l. 1--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">15.3.7   </span> <a 
+ id="x17-29600015.3.7"></a>Port Statistics</h4>
+<!--l. 3--><p class="noindent" >All <a 
+href="mainap14.html#burstio">BurstIO</a> <a 
+href="mainli2.html#glo:port">Ports</a> support the <a 
+href="mainap14.html#bulkio">BulkIO</a> statistics interface with additional keywords to track
+burst-specific metrics. Statistics are tracked over a window of 10 <span 
+class="ectt-1200">pushBurst </span>calls. An input <a 
+href="mainli2.html#glo:port">Port</a>
+contains a single <span 
+class="ectt-1200">PortStatistics </span>structure, where as, an output <a 
+href="mainli2.html#glo:port">Port</a> contains a sequence of
+<span 
+class="ectt-1200">PortStatistics </span>structures; one structure per connection. For information about the
+<span 
+class="ectt-1200">BULKIO::Portstatistics</span>, refer to <a 
+href="#x17-28000015.2.7">Section 15.2.7</a>. The additional <a 
+href="mainap14.html#burstio">BurstIO</a> metrics for both input
+and output <a 
+href="mainli2.html#glo:port">Ports</a> are described in the following tables:
+<!--l. 5--><p class="noindent" ><a 
+href="#x17-296001r13">Table 15.13</a> describes the additional statistics structure for input <a 
+href="mainli2.html#glo:port">Ports</a>.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 7--><p class="noindent" ><a 
+ id="x17-296001r13"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-20" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-20-1g"><col 
+id="TBL-20-1"></colgroup><colgroup id="TBL-20-2g"><col 
+id="TBL-20-2"></colgroup><colgroup id="TBL-20-3g"><col 
+id="TBL-20-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-1-1"  
+class="td11"> <!--l. 11--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-1-2"  
+class="td11"> <!--l. 11--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-1-3"  
+class="td11"> <!--l. 11--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-2-1"  
+class="td11"> <!--l. 12--><p class="noindent" ><span 
+class="ectt-1200">BURSTS_PER_SECOND</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-2-2"  
+class="td11"> <!--l. 12--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-2-3"  
+class="td11"> <!--l. 12--><p class="noindent" >Average rate of burst transfer.      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-3-1"  
+class="td11"> <!--l. 13--><p class="noindent" ><span 
+class="ectt-1200">BURSTS_PER_PUSH</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-3-2"  
+class="td11"> <!--l. 13--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-3-3"  
+class="td11"> <!--l. 13--><p class="noindent" >Average  number  of  bursts  per
+  <span 
+class="ectt-1200">pushBursts </span>call.                       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-4-1"  
+class="td11"> <!--l. 14--><p class="noindent" ><span 
+class="ectt-1200">ELEMENTS_PER_PUSH</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-4-2"  
+class="td11"> <!--l. 14--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-4-3"  
+class="td11"> <!--l. 14--><p class="noindent" >Average  number  of  samples  per
+  bursts.                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-5-1"  
+class="td11"> <!--l. 15--><p class="noindent" ><span 
+class="ectt-1200">AVERAGE_LATENCY</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-5-2"  
+class="td11"> <!--l. 15--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-5-3"  
+class="td11"> <!--l. 15--><p class="noindent" >Average  amount  of  time  spent
+  waiting  to  queue  in  incoming
+  bursts.                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-6-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-6-1"  
+class="td11"> <!--l. 16--><p class="noindent" ><span 
+class="ectt-1200">QUEUE_FLUSHES</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-6-2"  
+class="td11"> <!--l. 16--><p class="noindent" >ulonglong           </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-6-3"  
+class="td11"> <!--l. 16--><p class="noindent" >Number of times the input queue
+  was flushed during the window.    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-7-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-7-1"  
+class="td11"> <!--l. 17--><p class="noindent" ><span 
+class="ectt-1200">DROPPED_RATIO</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-7-2"  
+class="td11"> <!--l. 17--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-7-3"  
+class="td11"> <!--l. 17--><p class="noindent" >Ratio of dropped bursts to total
+  bursts during the window.           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-8-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-8-1"  
+class="td11"> <!--l. 18--><p class="noindent" ><span 
+class="ectt-1200">FLUSH_COUNT</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-8-2"  
+class="td11"> <!--l. 18--><p class="noindent" >ulong                </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-8-3"  
+class="td11"> <!--l. 18--><p class="noindent" >Number of times the input queue
+  has been flushed in its lifetime.    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-20-9-"><td  style="white-space:wrap; text-align:left;" id="TBL-20-9-1"  
+class="td11"> <!--l. 19--><p class="noindent" ><span 
+class="ectt-1200">BURSTS_COUNT</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-9-2"  
+class="td11"> <!--l. 19--><p class="noindent" >ulong                </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-9-3"  
+class="td11"> <!--l. 19--><p class="noindent" >Total
+  number of bursts dropped during
+  the lifetime of a <a 
+href="mainli2.html#glo:component">Component</a>.       </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.13: </td><td  
+class="content">Additional <a 
+href="mainap14.html#burstio">BurstIO</a> metrics for input <a 
+href="mainli2.html#glo:port">Ports</a></td></tr></table><!--tex4ht:label?: x17-296001r13 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 26--><p class="noindent" ><a 
+href="#x17-296002r14">Table 15.14</a> describes the additional statistics structure for output <a 
+href="mainli2.html#glo:port">Ports</a>.
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 28--><p class="noindent" ><a 
+ id="x17-296002r14"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-21" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-21-1g"><col 
+id="TBL-21-1"></colgroup><colgroup id="TBL-21-2g"><col 
+id="TBL-21-2"></colgroup><colgroup id="TBL-21-3g"><col 
+id="TBL-21-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-21-1-1"  
+class="td11"> <!--l. 32--><p class="noindent" ><span 
+class="ecbx-1200">Name</span>                         </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-1-2"  
+class="td11"> <!--l. 32--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-1-3"  
+class="td11"> <!--l. 32--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-21-2-1"  
+class="td11"> <!--l. 33--><p class="noindent" ><span 
+class="ectt-1200">BURSTS_PER_SECOND</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-2-2"  
+class="td11"> <!--l. 33--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-2-3"  
+class="td11"> <!--l. 33--><p class="noindent" >Average rate of burst transfer.      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-21-3-1"  
+class="td11"> <!--l. 34--><p class="noindent" ><span 
+class="ectt-1200">BURSTS_PER_PUSH</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-3-2"  
+class="td11"> <!--l. 34--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-3-3"  
+class="td11"> <!--l. 34--><p class="noindent" >Average  number  of  bursts  per
+  <span 
+class="ectt-1200">pushBursts </span>call.                       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-21-4-1"  
+class="td11"> <!--l. 35--><p class="noindent" ><span 
+class="ectt-1200">ELEMENTS_PER_PUSH</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-4-2"  
+class="td11"> <!--l. 35--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-4-3"  
+class="td11"> <!--l. 35--><p class="noindent" >Average  number  of  samples  per
+  bursts.                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-21-5-1"  
+class="td11"> <!--l. 36--><p class="noindent" ><span 
+class="ectt-1200">AVERAGE_LATENCY</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-5-2"  
+class="td11"> <!--l. 36--><p class="noindent" >double               </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-5-3"  
+class="td11"> <!--l. 36--><p class="noindent" >Average  amount  of  time  spent
+  waiting  to  queue  in  incoming
+  bursts.                                    </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;15.14: </td><td  
+class="content">Additional <a 
+href="mainap14.html#burstio">BurstIO</a> metrics for output <a 
+href="mainli2.html#glo:port">Ports</a></td></tr></table><!--tex4ht:label?: x17-296002r14 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h4 class="subsectionHead"><span class="titlemark">15.3.8   </span> <a 
+ id="x17-29700015.3.8"></a>Examples</h4>
+<!--l. 4--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.8.1   </span> <a 
+ id="x17-29800015.3.8.1"></a>C++</h5>
+<!--l. 6--><p class="noindent" >The following example illustrates a <a 
+href="mainli2.html#glo:component">Component</a> that performs a transform on the incoming burst
+data and pushes the results downstream.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+
+  burstio::BurstShortIn::PacketType *pkt;
+  pkt = inShortPort->getPacket(bulkio::Const::NON_BLOCKING);
+
+  // check if a valid packet was returned
+  if ( pkt == NULL ) {
+     return NOOP;
+  }
+
+  // check for EOS
+  if ( pkt->getEOS() ) {
+     outShortPort->pushBurst(pkt->getSequence(), pkt->getSRI(), pkt->getEOS());
+  }
+
+  // do some processing.....to the burst contents
+  BurstShortOut::SequenceType  data =  do_some_magic(pkt->getSequence());
+
+  // we changed the data so calc new time stamp....
+  BULKIO::PrecisionUTCTime newTS = calc_timestamp(pkt->getTime());
+
+  outShortPort->pushBurst(data, pkt->getSRI(), newTS, pkt->getEOS());
+
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 34--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.8.2   </span> <a 
+ id="x17-29900015.3.8.2"></a>Java</h5>
+<!--l. 36--><p class="noindent" >The following example illustrates a <a 
+href="mainli2.html#glo:component">Component</a> that generates 10 bursts objects containing 100
+samples of data and sends the array downstream.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+
+  /**
+     This example demonstrates a Component that uses the pushBursts method
+        to generate data
+    */
+
+    int nbursts=10;
+    String sid = new String("stream-1-1");
+    BURSTIO.LongBurst [] bursts = new BURSTIO.LongBurst[nbursts];
+ // allocate space for 10 bursts to push downstream
+
+    // generate bursts with 100 samples of data for downstream
+    for ( int j=0; j < nbursts; j++ ) {
+      BURSTIO.LongBurst burst  = new BURSTIO.LongBurst();
+      burst.SRI = sri  make_sri( sid );
+// generate a Burst SRI object for use...
+      burst.EOS = false;
+      burst.T = burstio.Utils.now();
+      burst.data = generate_samples( 100 );
+      bursts[j] = burst;
+    }
+
+    longOutPort.pushBursts( bursts );
+
+
+]]></script></div>
+<!--l. 67--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">15.3.8.3   </span> <a 
+ id="x17-30000015.3.8.3"></a>Python</h5>
+<!--l. 69--><p class="noindent" >The following example illustrates a <a 
+href="mainli2.html#glo:component">Component</a> that generates burst samples that will be filtered
+out by the <a 
+href="mainli2.html#glo:port">Port</a>&#8217;s routing table when at least 10 bursts are queued for delivery.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+
+  from redhawk.burstioInterfaces import BURSTIO
+  from redhawk.burstio import *
+
+  def initialize(self):
+     #
+     # Send bursts to downstream resource using connection filtering
+     #  **you will need to set the routing table in a Property change event
+     #     callback for the resource's connection table object**
+     #
+
+     self.outShortPort.setRoutingMode( ROUTE_CONNECTION_STREAMS )
+     self.outShortPort.setMaxBursts(10);
+
+
+  def generate_burst_samples(self, nsamps=10 ):
+     #
+     # generate number of sample data..
+     return range(nsamps)
+
+
+  def process(self):
+     #
+     data = self.generate_burst_samples(100)
+     sri = burstio.utils.createSRI("test_stream_id")
+     sri.xdelta = 1.0/1000.0
+     sri.mode = 0
+
+     self.outShortPort.pushBurst( data, sri, burstio.utils.now() )
+
+     return NORMAL
+
+]]></script></div>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
@@ -1414,7 +2469,7 @@ href="mainch14.html#tailmainch14.html" >prev-tail</a>] [<a
 href="mainch15.html" >front</a>] [<a 
 href="main.html#mainch15.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainch15.html"></a>   
+ id="tailmainch15.html"></a>    
  
 <div class=license>  
 <hr> 

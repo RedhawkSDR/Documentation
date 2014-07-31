@@ -81,15 +81,15 @@ prerequisites must be met before beginning the following procedure:
       </li>
       <li class="itemize">Example Components installed:
            <ul class="itemize2">
-           <li class="itemize">Signal Generator
+           <li class="itemize">SigGen
            </li>
-           <li class="itemize">Hard Limit</li></ul>
+           <li class="itemize">HardLimit</li></ul>
       </li></ul>
 <h3 class="likesectionHead"><a 
  id="x5-11000"></a>Basic IDE Use</h3>
 <!--l. 29--><p class="noindent" >The following procedure discusses how to launch the REDHAWK IDE, how to
-create a signal generator, and how to test the input/output response of a
-Component.
+open the Chalkboard, how to create a signal generator, and how to test the
+input/output response of a Component.
 <!--l. 31--><p class="noindent" >To launch the REDHAWK IDE:
 <!--l. 33--><p class="noindent" >
       <ol  class="enumerate1" >
@@ -99,21 +99,17 @@ class="cmsy-10x-x-120">~</span><span
 class="phvro7t-x-x-120">/redhawk-ide/</span>,  start
       the IDE with the following commands:
       <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-          $ cd ~/redhawk-ide/eclipse
-        $ ./eclipse
+          cd ~/redhawk-ide/eclipse
+        ./eclipse
         ]]></script>
-                                                                          
-
-                                                                          
       </li>
       <li 
   class="enumerate" id="x5-11004x2">If prompted to specify a workspace location, select an appropriate location
       and select <span 
 class="phvb7t-x-x-120">OK</span>.
-      <!--l. 44--><p class="noindent" >If this is the first time running the IDE using this workspace, click
-      <span 
-class="phvb7t-x-x-120">Workbench </span>to close the splash screen and continue into the IDE
-      Workbench.
+                                                                          
+
+                                                                          
       </li>
       <li 
   class="enumerate" id="x5-11006x3">From the <span 
@@ -169,9 +165,6 @@ class="phvb7t-x-x-120">Plot Port Data</span>.
 class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
 class="phvb7t-x-x-120">Stop</span>.
       </li></ol>
-                                                                          
-
-                                                                          
 <!--l. 70--><p class="noindent" >To test the input/output response of a Component:
 <!--l. 72--><p class="noindent" >
       <ol  class="enumerate1" >
@@ -181,6 +174,9 @@ class="phvb7t-x-x-120">Chalkboard Palette</span>, drag the <span
 class="phvb7t-x-x-120">HardLimit </span>Component into the
       <span 
 class="phvb7t-x-x-120">Chalkboard </span>canvas.
+                                                                          
+
+                                                                          
            <ol  class="enumerate2" >
            <li 
   class="enumerate" id="x5-11024x1">If prompted to <span 
@@ -193,7 +189,8 @@ class="phvb7t-x-x-120">OK</span>.</li></ol>
   class="enumerate" id="x5-11026x2">Click-and-drag from <span 
 class="phvb7t-x-x-120">SigGen</span>&#8217;s <span 
 class="phvb7t-x-x-120">out </span>Port to the <span 
-class="phvb7t-x-x-120">HardLimit input</span>
+class="phvb7t-x-x-120">HardLimit dataDouble</span><span 
+class="phvb7t-x-x-120">_in</span>
       Port.
       </li>
       <li 
@@ -209,8 +206,11 @@ class="phvb7t-x-x-120">Start</span>.
       <li 
   class="enumerate" id="x5-11032x5">Right-click the <span 
 class="phvb7t-x-x-120">HardLimit</span>&#8217;s <span 
-class="phvb7t-x-x-120">output </span>Port, and click <span 
-class="phvb7t-x-x-120">Plot Port Data</span>.
+class="phvb7t-x-x-120">dataDouble</span><span 
+class="phvb7t-x-x-120">_out </span>Port, and click <span 
+class="phvb7t-x-x-120">Plot Port</span>
+      <span 
+class="phvb7t-x-x-120">Data</span>.
       <!--l. 83--><p class="noindent" ><div class="hint">
           <span 
 class="cmtt-12">Two \guilabel{Plot Port} views are now open, one for each of the plotted Ports.</span>
@@ -229,8 +229,9 @@ class="phvb7t-x-x-120">Properties </span>view, change the <span
 class="phvb7t-x-x-120">magnitude </span>to 5.
       <!--l. 90--><p class="noindent" >The <span 
 class="phvb7t-x-x-120">Plot Port </span>view for the <span 
-class="phvb7t-x-x-120">HardLimit output </span>Port is now limiting the
-      output to 1.
+class="phvb7t-x-x-120">HardLimit dataDouble</span><span 
+class="phvb7t-x-x-120">_out </span>Port is now limiting
+      the output to 1.
       </li></ol>
                                                                           
 

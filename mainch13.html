@@ -54,9 +54,9 @@ href="mainch12.html#tailmainch12.html" >prev-tail</a>] [<a
 href="#tailmainch13.html">tail</a>] [<a 
 href="main.html#mainch13.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;13</span><br /><a 
- id="x15-23000013"></a>Runtime Environment Inspection</h2>
+ id="x15-24700013"></a>Runtime Environment Inspection</h2>
 <h3 class="sectionHead"><span class="titlemark">13.1   </span> <a 
- id="x15-23100013.1"></a>Introduction</h3>
+ id="x15-24800013.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >During runtime, there are a large number of operations that are handled under the hood by the
 REDHAWK Core Framework. At times though, it becomes necessary to take a closer look at
 these underlying parts to ensure that they are working properly or to inspect what kind
@@ -64,7 +64,7 @@ of a state they are currently in. REDHAWK provides tools to help accomplish this
 task.
 <!--l. 10--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.2   </span> <a 
- id="x15-23200013.2"></a>REDHAWK Module</h3>
+ id="x15-24900013.2"></a>REDHAWK Module</h3>
 <!--l. 12--><p class="noindent" >A Python module called REDHAWK is provided with the capability to interact with running
 <a 
 href="mainli2.html#glo:domain">Domains</a>, <a 
@@ -82,26 +82,27 @@ the following command:
  information.
  &gt;&gt;> from ossie.utils import redhawk
 ]]></script></div>
-<!--l. 26--><p class="noindent" >The REDHAWK module is built on the same foundation as the Sandbox, and provides a
-compatible interface for domain objects. Sandbox objects, including plots, can be dynamically
+<!--l. 26--><p class="noindent" >The REDHAWK module is built on the same foundation as the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, and provides a
+compatible interface for domain objects. <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> objects, including plots, can be dynamically
 connected to <a 
 href="mainli2.html#glo:device">Devices</a>, <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
 href="mainli2.html#glo:component">Components</a> running in the domain.
-<!--l. 29--><p class="noindent" >Refer to  <a 
-href="mainch9.html#x11-1420009.4">Section 9.4</a> for details about interacting with <a 
+<!--l. 29--><p class="noindent" >Refer to <a 
+href="mainch9.html#x11-1550009.4">Section 9.4</a> for details about interacting with <a 
 href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:device">Devices</a> in
-Python.
-                                                                                         
-                                                                                         
+href="mainli2.html#glo:device">Devices</a> in Python.
 <!--l. 31--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">13.2.1   </span> <a 
- id="x15-23300013.2.1"></a>Attach</h4>
+ id="x15-25000013.2.1"></a>Attach</h4>
 <!--l. 33--><p class="noindent" >The module provides the ability to attach to a running <a 
 href="mainli2.html#glo:domain">Domain</a>.
 <!--l. 35--><p class="noindent" >This allows the user access to the underlying <a 
-href="mainap11.html#api">API</a> of the <a 
+href="mainap14.html#api">API</a> of the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> in addition to other
 useful functionality:
       <ul class="itemize1">
@@ -130,20 +131,22 @@ class="ectt-1200">createApplication() </span>function:
 &gt;&gt;> wave =
      domain.createApplication("/waveforms/wave/wave.sad.xml")
 ]]></script></div>
-<!--l. 57--><p class="noindent" >Upon success, the above call returns an <span 
-class="ectt-1200">Application </span>object which gives access to the external
+<!--l. 57--><p class="noindent" >Upon success, the above call returns an   <a 
+href="mainli2.html#glo:application"><span 
+class="ectt-1200">Application</span></a> object which gives access to the external
 resource <a 
-href="mainap11.html#api">API</a>. This allows for manual operation of the <a 
+href="mainap14.html#api">API</a>. This allows for manual operation of the <a 
 href="mainli2.html#glo:application">Application</a>. In addition, functions exist to
 allow the user to connect and disconnect <a 
 href="mainli2.html#glo:port">Ports</a>. Finally, in order to inspect the current conditions
 of the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, an <a 
-href="mainap11.html#api">API</a> function call is available. This shows any external <a 
+href="mainap14.html#api">API</a> function call is available. This shows any external <a 
 href="mainli2.html#glo:port">Ports</a>, <a 
 href="mainli2.html#glo:component">Components</a>
 that are in the <a 
-href="mainli2.html#glo:application">Application</a>, and their Properties.
+href="mainli2.html#glo:application">Application</a>, and their <a 
+href="mainli2.html#glo:property">Properties</a>.
                                                                                          
                                                                                          
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
@@ -188,18 +191,18 @@ class="ectt-1200">removeApplication() </span>method:
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">13.2.2   </span> <a 
- id="x15-23400013.2.2"></a>Kick Start</h4>
+ id="x15-25100013.2.2"></a>Kick Start</h4>
 <!--l. 102--><p class="noindent" >The kick <a 
 href="mainli2.html#glo:domain">Domain</a> feature allows for an easy way to launch <a 
 href="mainli2.html#glo:domain">Domain</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a> from
-within a Python script. With no arguments, the function will launch and return the <a 
+within a Python script. With no arguments, the function launches and returns the <a 
 href="mainli2.html#glo:domainmanager">Domain
 Manager</a> that is installed in <span 
 class="ectt-1200">$SDRROOT</span>. Additionally, all <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a> in <span 
 class="ectt-1200">$SDRROOT/dev/nodes</span>
-will be started.
+are started.
 <!--l. 106--><p class="noindent" >Other arguments to the function exist to control different aspects to how the <a 
 href="mainli2.html#glo:domain">Domain</a> is started. A
 list of specific <a 
@@ -232,26 +235,27 @@ INFO:DeviceManager_impl - Registering device GPP_localhost_
 &gt;&gt;> domain
 <ossie.utils.redhawk.core.Domain object at 0x2da6710>
 ]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 137--><p class="noindent" >The ability to search for <a 
+<!--l. 136--><p class="noindent" >The ability to search for <a 
 href="mainli2.html#glo:domain">Domains</a> is also available through the scan function which searches the
 <a 
 href="mainli2.html#glo:namingservice">Naming Service</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 &gt;&gt;> redhawk.scan()
 ['MY_DOMAIN']
-]]></script></div>
-<!--l. 144--><p class="noindent" >
+]]></script>
+                                                                                         
+                                                                                         
+</div>
+<!--l. 143--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.3   </span> <a 
- id="x15-23500013.2.3"></a>Domain State</h4>
-<!--l. 146--><p class="noindent" >The <a 
+ id="x15-25200013.2.3"></a>Domain State</h4>
+<!--l. 145--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy tracks the current state of the <a 
 href="mainli2.html#glo:domain">Domain</a>. For aspects of the <a 
 href="mainli2.html#glo:domain">Domain</a> state that
 may take a long time to process, scanning is deferred until the first access. If the Outgoing Domain
 Management (<a 
-href="mainap11.html#odm">ODM</a>) Channel is available, <a 
+href="mainap14.html#odm">ODM</a>) Channel is available, <a 
 href="mainli2.html#glo:device">Devices</a>, <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a>, and <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> are tracked
@@ -259,10 +263,10 @@ as they are added to and removed from the <a
 href="mainli2.html#glo:domain">Domain</a>. Otherwise, the <a 
 href="mainli2.html#glo:domain">Domain</a> is re-scanned on
 access to ensure that the state is accurate.
-<!--l. 151--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x15-23600013.2.3"></a>Applications</h5>
-<!--l. 153--><p class="noindent" >The <a 
+<!--l. 150--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.1   </span> <a 
+ id="x15-25300013.2.3.1"></a>Applications</h5>
+<!--l. 152--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> currently running via the <span 
 class="ectt-1200">apps </span>attribute:
@@ -270,13 +274,14 @@ class="ectt-1200">apps </span>attribute:
 &gt;&gt;> domain.apps
 [<ossie.utils.redhawk.core.App object at 0x<hex address&gt;&gt;, ...]
 ]]></script></div>
-<!--l. 160--><p class="noindent" >The <span 
-class="ectt-1200">App </span>class supports many of the Sandbox interfaces, such as <a 
+<!--l. 159--><p class="noindent" >The <span 
+class="ectt-1200">App </span>class supports many of the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> interfaces, such as <a 
 href="mainli2.html#glo:property">Properties</a>, <span 
 class="ectt-1200">connect() </span>and
 <span 
 class="ectt-1200">api()</span>.
-<!--l. 162--><p class="noindent" >The <a 
+<!--l. 161--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Components</a> within the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> are available via the <span 
 class="ectt-1200">comps </span>attribute:
@@ -285,16 +290,18 @@ class="ectt-1200">comps </span>attribute:
 &gt;&gt;> app.comps
 [<ossie.utils.redhawk.component.Component object at 0x<hex address&gt;&gt;, ...]
 ]]></script></div>
-<!--l. 170--><p class="noindent" >The REDHAWK module <span 
-class="ectt-1200">Component </span>class supports the same interfaces as Sandbox
-                                                                                         
-                                                                                         
+<!--l. 169--><p class="noindent" >The REDHAWK module <a 
+href="mainli2.html#glo:component"><span 
+class="ectt-1200">Component</span></a> class supports the same interfaces as <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>
 <a 
 href="mainli2.html#glo:component">Components</a>.
-<!--l. 172--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x15-23700013.2.3"></a>Device Managers</h5>
-<!--l. 174--><p class="noindent" >The <a 
+<!--l. 171--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.2   </span> <a 
+ id="x15-25400013.2.3.2"></a>Device Managers</h5>
+<!--l. 173--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a> registered with the <a 
 href="mainli2.html#glo:domain">Domain</a> via the <span 
@@ -304,7 +311,7 @@ attribute:
 &gt;&gt;> domain.devMgrs
 [<ossie.utils.redhawk.core.DeviceManager object at 0x<hex address&gt;&gt;, ...]
 ]]></script></div>
-<!--l. 181--><p class="noindent" >Each <a 
+<!--l. 180--><p class="noindent" >Each <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> maintains a list of its <a 
 href="mainli2.html#glo:device">Devices</a>, accessible via the <span 
 class="ectt-1200">devs </span>attribute:
@@ -312,10 +319,10 @@ class="ectt-1200">devs </span>attribute:
 &gt;&gt;> domain.devMgrs[0].devs
 [<ossie.utils.redhawk.device.ExecutableDevice object at 0x<hex address&gt;&gt;, ...]
 ]]></script></div>
-<!--l. 188--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x15-23800013.2.3"></a>Devices</h5>
-<!--l. 190--><p class="noindent" >The <a 
+<!--l. 187--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.3   </span> <a 
+ id="x15-25500013.2.3.3"></a>Devices</h5>
+<!--l. 189--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy provides a list of all <a 
 href="mainli2.html#glo:device">Devices</a> registered with the <a 
 href="mainli2.html#glo:domain">Domain</a> via the <span 
@@ -325,24 +332,28 @@ attribute:
 &gt;&gt;> domain.devices
 [<ossie.utils.redhawk.device.ExecutableDevice object at 0x<hex address&gt;&gt;, ...]
 ]]></script></div>
-<!--l. 197--><p class="noindent" >The <a 
+<!--l. 196--><p class="noindent" >The <a 
 href="mainli2.html#glo:device">Device</a> list is the concatenation of the <a 
 href="mainli2.html#glo:device">Devices</a> for all <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a>.
-<!--l. 199--><p class="noindent" >The REDHAWK module <span 
-class="ectt-1200">Device </span>class supports the same interfaces as Sandbox <a 
+<!--l. 198--><p class="noindent" >The REDHAWK module <a 
+href="mainli2.html#glo:device"><span 
+class="ectt-1200">Device</span></a> class supports the same interfaces as <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
 href="mainli2.html#glo:device">Devices</a>.
-<!--l. 201--><p class="noindent" >
+<!--l. 200--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.4   </span> <a 
- id="x15-23900013.2.4"></a>Using With the Sandbox</h4>
-                                                                                         
-                                                                                         
-<!--l. 203--><p class="noindent" >Sandbox and <a 
+ id="x15-25600013.2.4"></a>Using With the Sandbox</h4>
+<!--l. 202--><p class="noindent" ><a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> and <a 
 href="mainli2.html#glo:domain">Domain</a> objects are interoperable and can be connected together. This
 allows for inspection of different parts of the domain and more sophisticated testing of
 <a 
 href="mainli2.html#glo:component">Components</a>.
-<!--l. 206--><p class="noindent" >For example, to use a Sandbox plot to view the data coming from a device, enter the following
+<!--l. 205--><p class="noindent" >For example, to use a <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> plot to view the data coming from a device, enter the following
+                                                                                         
+                                                                                         
 commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 &gt;&gt;> from ossie.utils import sb
@@ -350,7 +361,7 @@ commands:
 &gt;&gt;> domain.devices[1].connect(plot)
 &gt;&gt;> plot.start()
 ]]></script></div>
-<!--l. 215--><p class="noindent" >Use the following commands to capture an approximately one second cut from a <a 
+<!--l. 214--><p class="noindent" >Use the following commands to capture an approximately one second cut from a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> to a
 file:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
@@ -361,11 +372,14 @@ file:
 &gt;&gt;> time.sleep(1.0)
 &gt;&gt;> sink.stop()
 ]]></script></div>
-<!--l. 226--><p class="noindent" >When the Sandbox exits, any connections made between Sandbox objects and <a 
+<!--l. 225--><p class="noindent" >When the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> exits, any connections made between <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> objects and <a 
 href="mainli2.html#glo:domain">Domain</a> objects are
 broken to limit interference with normal domain operation.
-<!--l. 228--><p class="noindent" >For more details on using the Sandbox, see  <a 
-href="mainch9.html#x11-1360009">Chapter 9</a>.
+<!--l. 227--><p class="noindent" >For more details on using the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
+href="mainch9.html#x11-1490009">Chapter 9</a>.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

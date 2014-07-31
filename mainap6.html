@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>F REDHAWK Packages</title> 
+<head><title>F Installing REDHAWK on Ubuntu</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -54,81 +54,214 @@ href="mainap5.html#tailmainap5.html" >prev-tail</a>] [<a
 href="#tailmainap6.html">tail</a>] [<a 
 href="main.html#mainap6.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;F</span><br /><a 
- id="x32-424000F"></a>REDHAWK Packages</h2> The following packages are recommended for a standard install
-of the REDHAWK framework for running REDHAWK applications:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">bulkioInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
+ id="x32-479000F"></a>Installing REDHAWK on Ubuntu</h2>
+<h3 class="sectionHead"><span class="titlemark">F.1   </span> <a 
+ id="x32-480000F.1"></a>Introduction</h3>
+<!--l. 5--><p class="noindent" >This appendix explains how to install the Core Framework, <a 
+href="mainap14.html#ide">IDE</a>, and Basic <a 
+href="mainli2.html#glo:component">Components</a> from
+source on a machine running the Ubuntu 14.04 LTS operating system.
+<!--l. 7--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">F.2   </span> <a 
+ id="x32-481000F.2"></a>Installing System Dependencies</h3>
+<!--l. 9--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x32-481002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo add-apt-repository ppa:redhawksdr/redhawk
+sudo apt-get update
+
+sudo apt-get install -y build-essential openmpi-bin libopenmpi-dev \
+python2.7 python2.7-dev uuid uuid-dev openjdk-7-jdk libtool \
+autotools-dev autoconf automake python-omniorb omnievents omniidl \
+omniidl-python omniorb omniorb-idl omniorb-nameserver libcos4-dev \
+libomnievents-dev libomniorb4-dev python-numpy python-omniorb \
+liblog4cxx10-dev xsdcxx libboost-dev libboost-system-dev \
+libboost-filesystem-dev libboost-regex-dev libboost-thread-dev vim \
+libxml2-utils python-jinja2 junit4 libcppunit-dev packagekit-gtk3-module
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">frontendInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">GPP-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">GPP-profile-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-sdrroot-dev-mgr-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-sdrroot-dom-mgr-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-sdrroot-dom-profile-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span></li></ul>
-<!--l. 16--><p class="noindent" >Here <span 
-class="ectt-1200">&#x003C;dist&#x003E; </span>and <span 
-class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the Linux distribution and architecture, respectively (e.g.
-el6 and x86_64). <span 
-class="ectt-1200">&#x003C;version&#x003E; </span>corresponds to the particular version of REDHAWK being
-installed. <div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  <span 
-class="ecbx-1200">Note: </span><span 
-class="ectt-1200">frontendInterfaces </span>is versioned separately from REDHAWK. </p></div></div>
-<!--l. 21--><p class="noindent" >The following additional packages are recommended for REDHAWK developers:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-basic-components-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-codegen-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-devel-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span></li></ul>
+      <li 
+  class="enumerate" id="x32-481004x2">To create a writable location for the compiled REDHAWK source, enter the following
+      commands.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+mkdir -p  /var/lib/redhawk/core
+mkdir -p  /var/lib/redhawk/sdr
+]]></script></div>
                                                                                          
                                                                                          
-<!--l. 29--><p class="noindent" >The following debugging symbol packages are provided:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">bulkioInterfaces-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">frontendInterfaces-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
+      <li 
+  class="enumerate" id="x32-481006x3">Add the following to <span 
+class="ectt-1200">.bashrc </span>to set <span 
+class="ectt-1200">OSSIEHOME</span>, <span 
+class="ectt-1200">SDRROOT</span>, <span 
+class="ectt-1200">PYTHONPATH</span>, <span 
+class="ectt-1200">JAVA_HOME</span>, and <span 
+class="ectt-1200">PATH</span>.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+echo "export OSSIEHOME=/var/lib/redhawk/core" &gt;&gt; ~/.bashrc
+echo "export SDRROOT=/var/lib/redhawk/sdr" &gt;&gt; ~/.bashrc
+echo "export PYTHONPATH=\${OSSIEHOME}/lib/python" &gt;&gt; ~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-<version number>" &gt;&gt; ~/.bashrc
+echo "export PATH=\${OSSIEHOME}/bin:\${JAVA_HOME}/bin:\$PATH" &gt;&gt; ~/.bashrc
+source ~/.bashrc
+]]></script></div>
+      </li></ol>
+<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  An example of <span 
+class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-&#x003C;version number&#x003E; </span>is
+<span 
+class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</span>. </p></div></div>
+<!--l. 47--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
+ id="x32-482000F.3"></a>Building REDHAWK</h3>
+<!--l. 49--><p class="noindent" >To build REDHAWK from source, you need core, gpp, bulkioInterfaces, and code-generator.
+<!--l. 51--><p class="noindent" >
+      <ol  class="enumerate1" >
+                                                                                         
+                                                                                         
+      <li 
+  class="enumerate" id="x32-482002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+mkdir git
+cd git
+git clone https://github.com/RedhawkSDR/framework-core
+cd framework-core/src
+./reconf;./configure;make;make install
+cd ../..
+
+git clone https://github.com/RedhawkSDR/framework-GPP.git
+cd framework-gpp/python
+./reconf;./configure;make;make install
+cd ../..
+
+git clone https://github.com/RedhawkSDR/framework-bulkioInterfaces.git
+cd framework-bulkioInterfaces
+./reconf;./configure;make;make install
+cd ..
+
+git clone https://github.com/RedhawkSDR/framework-codegen.git
+cd framework-codegen
+python setup.py install
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span></li></ul>
-<!--l. 37--><p class="noindent" >The following source packages are provided:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">bulkioInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.src.rpm</span>
+      <li 
+  class="enumerate" id="x32-482004x2">Update <span 
+class="ectt-1200">.bashrc </span>once again to run the bash scripts provided.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+echo ". /var/lib/redhawk/core/etc/profile.d/redhawk.sh" &gt;&gt; ~/.bashrc
+echo ". /var/lib/redhawk/core/etc/profile.d/redhawk-sdrroot.sh" \
+&gt;&gt; ~/.bashrc
+source ~/.bashrc
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">frontendInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.src.rpm</span>
+      <li 
+  class="enumerate" id="x32-482006x3">To create the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>, enter the following command.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+cp $SDRROOT/dom/domain/DomainManager.dmd.xml.template \
+$SDRROOT/dom/domain/DomainManager.dmd.xml
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">GPP-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.src.rpm</span>
+                                                                                         
+                                                                                         
+      <li 
+  class="enumerate" id="x32-482008x4">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+uuidgen
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.src.rpm</span>
+      <li 
+  class="enumerate" id="x32-482010x5">Copy the output to clipboard.
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-basic-components-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.src.rpm</span>
+      <li 
+  class="enumerate" id="x32-482012x6">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+vi $SDRROOT/dom/domain/DomainManager.dmd.xml
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-codegen-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.src.rpm</span></li></ul>
+      <li 
+  class="enumerate" id="x32-482014x7">Replace <span 
+class="ectt-1200">@UUID@ </span>with uuid from above, replace <span 
+class="ectt-1200">@NAME@ </span>with <span 
+class="ectt-1200">REDHAWK_DEV</span>.
+      </li>
+      <li 
+  class="enumerate" id="x32-482016x8">To add a user ubuntu, enter the following commands.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo /usr/sbin/groupadd redhawk
+sudo /usr/sbin/usermod -a -G redhawk <username>
+]]></script></div>
+      </li></ol>
+<!--l. 116--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
+ id="x32-483000F.4"></a>Setting Up omniORB.cfg</h3>
+<!--l. 118--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x32-483002x1">Enter the following command: <span 
+class="ectt-1200">sudo vi /etc/omniORB.cfg</span>.
+      </li>
+      <li 
+  class="enumerate" id="x32-483004x2">Comment out <span 
+class="ectt-1200">DefaultInitRef = corbaloc:: </span>using #
+      </li>
+      <li 
+  class="enumerate" id="x32-483006x3">Add the line <span 
+class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1</span>
+      </li>
+      <li 
+  class="enumerate" id="x32-483008x4">Add the line <span 
+class="ectt-1200">InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents</span>
+                                                                                         
+                                                                                         
+      </li>
+      <li 
+  class="enumerate" id="x32-483010x5">Restart <span 
+class="ectt-1200">omniNames </span>and <span 
+class="ectt-1200">omniEvents </span>by entering the following commands.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo /etc/init.d/omniorb-eventservice stop
+sudo /etc/init.d/omniorb4-nameserver stop
+sudo /etc/init.d/omniorb4-nameserver start
+sudo /etc/init.d/omniorb-eventservice start
+]]></script></div>
+      <!--l. 138--><p class="noindent" >An alternative:
+      <!--l. 140--><p class="noindent" >In bash type:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo service omniorb4-nameserver stop
+sudo service omniorb4-nameserver start
+sudo service omniorb-eventservice restart
+]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x32-483012x6">To have <span 
+class="ectt-1200">omniNames </span>and <span 
+class="ectt-1200">omniEvents </span>start on system boot, <span 
+class="ectt-1200">update-rc.d </span>and
+      <span 
+class="ectt-1200">sysv-rc-conf </span>might be viable options.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo update-rc.d omniorb4-nameserver defaults
+sudo update-rc.d omniorb-eventservice defaults
+]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x32-483014x7">To create a symbolic link for <span 
+class="ectt-1200">omniidl</span>, enter the following commands.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo ln -s /usr/lib/omniidl/omniidl \
+/usr/lib/python2.7/dist-packages/omniidl
+]]></script></div>
+      </li></ol>
+<!--l. 166--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h3 class="sectionHead"><span class="titlemark">F.5   </span> <a 
+ id="x32-484000F.5"></a>Extracting the <a 
+href="mainap14.html#ide">IDE</a></h3>
+<!--l. 168--><p class="noindent" >Refer to <a 
+href="mainch2.html#x4-150002.5">Section 2.5</a> for the REDHAWK <a 
+href="mainap14.html#ide">IDE</a> installation instructions for all Linux distributions.
+                                                                                         
+                                                                                         
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap7.html" >next</a>] [<a 
 href="mainap5.html" >prev</a>] [<a 

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>E Installing REDHAWK on Ubuntu</title> 
+<head><title>E Building the REDHAWK Framework from Source</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -54,213 +54,90 @@ href="mainap4.html#tailmainap4.html" >prev-tail</a>] [<a
 href="#tailmainap5.html">tail</a>] [<a 
 href="main.html#mainap5.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;E</span><br /><a 
- id="x31-418000E"></a>Installing REDHAWK on Ubuntu</h2>
+ id="x31-475000E"></a>Building the REDHAWK Framework from Source</h2>
 <h3 class="sectionHead"><span class="titlemark">E.1   </span> <a 
- id="x31-419000E.1"></a>Introduction</h3>
-<!--l. 5--><p class="noindent" >This appendix explains how to install the Core Framework, the IDE, and the Basic Components
-from source on an Ubuntu machine. (version of Ubuntu 12.04 LTS)
+ id="x31-476000E.1"></a>Installing build dependencies</h3>
+<!--l. 5--><p class="noindent" >Building REDHAWK from source requires a few additional dependencies beyond those required
+to run REDHAWK. The following procedure explains how to build REDHAWK from
+source.
 <!--l. 7--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x31-476002x1">First, ensure your system has the necessary dependency software provided by Red Hat
+      / <a 
+href="mainap14.html#centos">CentOS</a> and Fedora <a 
+href="mainap14.html#epel">EPEL</a> (refer to <a 
+href="mainch2.html#x4-110002.3">Section 2.3</a>).
+      </li>
+      <li 
+  class="enumerate" id="x31-476004x2">Install      dependencies      distributed      with      the      REDHAWK      tarball,
+      redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz.
+           <ul class="itemize1">
+           <li class="itemize">If  building  on  Red  Hat/  <a 
+href="mainap14.html#centos">CentOS</a>  5,  enter  the  following  commands  from  the
+           directory containing REDHAWK dependencies:
+           <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
+cd redhawk-yum-<version>-<dist>-<arch>
+sudo yum install jacorb* log4cxx* *omni* python-jinja2*
+]]></script></div>
+           </li>
+           <li class="itemize">If building on Red Hat/ <a 
+href="mainap14.html#centos">CentOS</a> 6, enter the following commands from the directory
+           containing REDHAWK dependencies:
+           <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
+cd redhawk-yum-<version>-<dist>-<arch>
+sudo yum install jacorb* *omni* python-jinja2*
+]]></script></div>
+           </li></ul>
+                                                                                         
+                                                                                         
+      </li></ol>
+<!--l. 37--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.2   </span> <a 
- id="x31-420000E.2"></a>Installing System Dependencies</h3>
-<!--l. 9--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x31-420002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo apt-get update
-
-sudo apt-get install -y build-essential openmpi-bin libopenmpi-dev \
-python2.7 python2.7-dev uuid uuid-dev openjdk-7-jdk libtool \
-autotools-dev autoconf automake python-omniorb omnievents omniidl \
-omniidl-python omniorb omniorb-idl omniorb-nameserver libcos4-dev \
-libomnievents-dev libomniorb4-dev python-numpy python-omniorb \
-liblog4cxx10-dev xsdcxx libboost-dev libboost-system-dev \
-libboost-filesystem-dev libboost-regex-dev libboost-thread-dev vim
+ id="x31-477000E.2"></a>Installing the Framework from Source</h3>
+<!--l. 39--><p class="noindent" >In order to install the Core Framework from source, the <span 
+class="ectt-1200">redhawk-src-1.10.0.tar.gz </span>must be
+downloaded.
+<!--l. 41--><p class="noindent" >You must set the <span 
+class="ectt-1200">OSSIEHOME </span>and <span 
+class="ectt-1200">SDRROOT </span>environment variables (recommended defaults shown
+below) before running the installation script. You must have write permission for the locations of
+<span 
+class="ectt-1200">OSSIEHOME </span>and <span 
+class="ectt-1200">SDRROOT </span>or the installation will not work.
+<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
+tasks. </p></div></div>
+<!--l. 47--><p class="noindent" >To compile the source, execute the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+export OSSIEHOME=/usr/local/redhawk/core
+export SDRROOT=/var/redhawk/sdr
+tar zxvf redhawk-src-1.10.0.tar.gz
+cd redhawk-src-1.10.0/
+./redhawk-install.sh
+. $OSSIEHOME/environment-setup
 ]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-420004x2">To create a writable location for the compiled REDHAWK source, enter the following
-      commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-mkdir -p  /var/lib/redhawk/core
-mkdir -p  /var/lib/redhawk/sdr
+<!--l. 58--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
+to <span 
+class="ectt-1200">.bashrc</span>: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+export OSSIEHOME=/usr/local/redhawk/core
+export SDRROOT=/var/redhawk/sdr
+. $OSSIEHOME/environment-setup
 ]]></script></div>
-      </li>
-                                                                                         
-                                                                                         
-      <li 
-  class="enumerate" id="x31-420006x3">Add the following to <span 
-class="ectt-1200">.bashrc </span>to set <span 
-class="ectt-1200">OSSIEHOME</span>, <span 
-class="ectt-1200">SDRROOT</span>, <span 
-class="ectt-1200">PYTHONPATH</span>, <span 
-class="ectt-1200">JAVA_HOME</span>, and <span 
-class="ectt-1200">PATH</span>.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-echo "export OSSIEHOME=/var/lib/redhawk/core" &gt;&gt; ~/.bashrc
-echo "export SDRROOT=/var/lib/redhawk/sdr" &gt;&gt; ~/.bashrc
-echo "export PYTHONPATH=\${OSSIEHOME}/lib/python" &gt;&gt; ~/.bashrc
-echo "export JAVA_HOME=/usr/bin/java" &gt;&gt; ~/.bashrc
-echo "export PATH=\${OSSIEHOME}/bin:\{$JAVA_HOME}/bin:\$PATH" &gt;&gt; ~/.bashrc
-source ~/.bashrc
-]]></script></div>
-      </li></ol>
-<!--l. 41--><p class="noindent" >
+</p></div></div>
+<!--l. 87--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.3   </span> <a 
- id="x31-421000E.3"></a>Building REDHAWK</h3>
-<!--l. 43--><p class="noindent" >To build REDHAWK from source, you need core, gpp, bulkioInterfaces, and code-generator.
-<!--l. 45--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x31-421002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-mkdir git
-cd git
-git clone https://github.com/RedhawkSDR/framework-core
-cd framework-core/src
-./reconf;./configure;make;make install
-cd ../..
-
-git clone https://github.com/RedhawkSDR/framework-GPP.git
-cd framework-gpp/python
-./reconf;./configure;make;make install
-cd ../..
-
-git clone https://github.com/RedhawkSDR/framework-bulkioInterfaces.git
-cd framework-bulkioInterfaces
-./reconf;./configure;make;make install
-cd ..
-
-git clone https://github.com/RedhawkSDR/framework-codegen.git
-cd framework-codegen
-python setup.py install
-]]></script>
+ id="x31-478000E.3"></a>Configuring omniORB</h3>
                                                                                          
                                                                                          
-      </div>
-      </li>
-      <li 
-  class="enumerate" id="x31-421004x2">Update <span 
-class="ectt-1200">.bashrc </span>once again to run the bash scripts provided.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-echo ". /var/lib/redhawk/core/etc/profile.d/redhawk.sh" &gt;&gt; ~/.bashrc
-echo ". /var/lib/redhawk/core/etc/profile.d/redhawk-sdrroot.sh" \
-&gt;&gt; ~/.bashrc
-source ~/.bashrc
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-421006x3">To create the domain manager, enter the following command.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-cp $SDRROOT/dom/domain/DomainManager.dmd.xml.template \
-$SDRROOT/dom/domain/DomainManager.dmd.xml
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-421008x4">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-uuidgen
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-421010x5">Copy the output to clipboard.
-      </li>
-      <li 
-  class="enumerate" id="x31-421012x6">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-vi $SDRROOT/dom/domain/DomainManager.dmd.xml
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-421014x7">Replace <span 
-class="ectt-1200">@UUID@ </span>with uuid from above, replace <span 
-class="ectt-1200">@NAME@ </span>with <span 
-class="ectt-1200">REDHAWK_DEV</span>.
-      </li>
-      <li 
-  class="enumerate" id="x31-421016x8">To add a user ubuntu, enter the following commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo /usr/sbin/groupadd redhawk
-sudo /usr/sbin/usermod -a -G redhawk <username>
-]]></script>
-                                                                                         
-                                                                                         
-      </div>
-      </li></ol>
-<!--l. 110--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">E.4   </span> <a 
- id="x31-422000E.4"></a>Setting Up omniORB.cfg</h3>
-<!--l. 112--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x31-422002x1">Enter the following command: <span 
-class="ectt-1200">sudo vi /etc/omniORB.cfg</span>.
-      </li>
-      <li 
-  class="enumerate" id="x31-422004x2">Comment out <span 
-class="ectt-1200">DefaultInitRef = corbaloc:: </span>using #
-      </li>
-      <li 
-  class="enumerate" id="x31-422006x3">Add the line <span 
-class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1</span>
-      </li>
-      <li 
-  class="enumerate" id="x31-422008x4">Add the line <span 
-class="ectt-1200">InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents</span>
-      </li>
-      <li 
-  class="enumerate" id="x31-422010x5">Restart omniNames and omniEvents by entering the following commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo /etc/init.d/omniorb-eventservice stop
-sudo /etc/init.d/omniorb4-nameserver stop
-sudo /etc/init.d/omniorb4-nameserver start
-sudo /etc/init.d/omniorb-eventservice start
-]]></script></div>
-      <!--l. 132--><p class="noindent" >An alternative:
-      <!--l. 134--><p class="noindent" >In bash type:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo service omniorb4-nameserver stop
-sudo service omniorb4-nameserver start
-sudo service omniorb-eventservice restart
-]]></script></div>
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x31-422012x6">To have omniNames and omniEvents start on system boot, <span 
-class="ectt-1200">update-rc.d </span>and <span 
-class="ectt-1200">sysv-rc-conf</span>
-      might be viable options.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo update-rc.d omniorb4-nameserver defaults
-sudo update-rc.d ominorb-eventservice defaults
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-422014x7">To create a symbolic link for omniidl, enter the following commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo ln -s /usr/lib/omniidl/omniidl \
-/usr/lib/python2.7/dist-packages/omniidl
-]]></script></div>
-      </li></ol>
-<!--l. 160--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">E.5   </span> <a 
- id="x31-423000E.5"></a>Extracting the IDE</h3>
-<!--l. 162--><p class="noindent" >The ide installation is not OS-version specific. This can be pulled from the corresponding centOS
-.zip.
-<!--l. 164--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x31-423002x1">Enter the following command.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-unzip redhawk-ide-<version>-linux.gtk.<arch>.zip
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x31-423004x2">Enter the following command to configure a node.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-python $SDRROOT/dev/devices/GPP/python/nodeconfig.py \
---domainname="REDHAWK_DEV"
-]]></script></div>
-                                                                                         
-                                                                                         
-      </li></ol>
+<!--l. 88--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
+<a 
+href="mainch2.html#x4-160002.6">Section 2.6</a> for information on how to edit the omniORB configuration file
+(<span 
+class="ectt-1200">/etc/omniORB.cfg</span>) to provide information about how to reach the <a 
+href="mainap14.html#corba">CORBA</a> event
+service.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

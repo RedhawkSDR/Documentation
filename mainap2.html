@@ -54,7 +54,8 @@ href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a
 href="#tailmainap2.html">tail</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;B</span><br /><a 
- id="x28-403000B"></a>Extending the REDHAWK IDE</h2>
+ id="x28-454000B"></a>Extending the REDHAWK <a 
+href="mainap14.html#ide">IDE</a></h2>
 <!--l. 18--><p class="noindent" >Eclipse provides the concept of <a 
 href="mainli2.html#glo:extensionPoint">Extension Points</a> and <a 
 href="mainli2.html#glo:extension">Extensions</a> to allow functionality to be
@@ -64,18 +65,18 @@ class="ectt-1200">plugin.xml file</span>. Double-clicking this file in
 the plug-in project opens it in a special editor. Select the <span 
 class="ecbx-1200">Extensions </span>tab to define extensions
 which are contributed by the plug-in and select the <span 
-class="ecbx-1200">Extensions Points </span>tab to see the extension
-points which the plug-in defines.
+class="ecbx-1200">Extensions Points </span>tab to display the
+extension points which the plug-in defines.
 <h3 class="sectionHead"><span class="titlemark">B.1   </span> <a 
- id="x28-404000B.1"></a>REDHAWK Extensions</h3>
+ id="x28-455000B.1"></a>REDHAWK Extensions</h3>
 <!--l. 28--><p class="noindent" >REDHAWK provides various extension points to extend its functionality through user
-contributions. For help on extension points and developing in Eclipse see  <a 
-href="mainap1.html#x27-396000A">Appendix
+contributions. For help on extension points and developing in Eclipse refer to <a 
+href="mainap1.html#x27-447000A">Appendix
 A</a>.
-<!--l. 33--><p class="noindent" >
+<!--l. 32--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.1   </span> <a 
- id="x28-405000B.1.1"></a>Code Generators</h4>
-<!--l. 35--><p class="noindent" ><span 
+ id="x28-456000B.1.1"></a>Code Generators</h4>
+<!--l. 34--><p class="noindent" ><span 
 class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.codegens <br 
 class="newline" /><span 
 class="ecbi-1200">Description: </span>Contribute a code generator for various REDHAWK resources.<br 
@@ -117,7 +118,7 @@ Specifies a new code generator:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">id </span>- Unique <a 
-href="mainap11.html#id">ID</a> for the generator.
+href="mainap14.html#id">ID</a> for the generator.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- Human readable label for generator.
@@ -152,14 +153,12 @@ class="ecbx-1200">runtimeVersion </span>- The runtime environment version.
 class="ecbx-1200">humanLanguage </span>- The human language.
       </li>
       <li class="itemize"><span 
-class="ecbx-1200">notDefaultable </span>- This should always be set to false if the generator will generate
-      code.
+class="ecbx-1200">notDefaultable </span>- This should always be set to false if the generator generates code.
       </li>
       <li class="itemize">(<span id="textcolor1"><span 
 class="ecti-1200">Deprecated</span></span>) <span 
-class="ecbx-1200">hasSettings </span>- This should be set to true if the generator has properties
-      for determining what code is output. This will require a custom properties page as
-      well.
+class="ecbx-1200">hasSettings </span>- This is set to true if the generator has properties for
+      determining what code is output. This requires a custom properties page as well.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">autoGenerate </span>- Whether or not the code generator should automatically generate
@@ -168,7 +167,7 @@ class="ecbx-1200">autoGenerate </span>- Whether or not the code generator should
       <li class="itemize"><span 
 class="ecbx-1200">associatedPerspectiveId </span>- The perspective id to associate with the code generator.
       When a new project or implementation is created using this generator, the option to
-      open this perspective will be offered.
+      open this perspective is offered.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
@@ -189,15 +188,15 @@ Provide a detailed human readable description of the code generator.
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">os </span>- Operating System <a 
-href="mainap11.html#id">ID</a>
+href="mainap14.html#id">ID</a>
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">default </span>- The default <a 
-href="mainap11.html#os">OS</a> if marked true
+href="mainap14.html#os">OS</a> if marked true
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">version </span>- <a 
-href="mainap11.html#os">OS</a> version</li></ul>
+href="mainap14.html#os">OS</a> version</li></ul>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT processor EMPTY>
 <!ATTLIST processor
@@ -211,7 +210,7 @@ class="ecbx-1200">proc_type </span>- Processor type
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">default </span>- The default <a 
-href="mainap11.html#os">OS</a> if marked true</li></ul>
+href="mainap14.html#os">OS</a> if marked true</li></ul>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT componenttype EMPTY>
 <!ATTLIST componenttype
@@ -222,7 +221,7 @@ href="mainap11.html#os">OS</a> if marked true</li></ul>
       <li class="itemize"><span 
 class="ecbx-1200">type </span>- <a 
 href="mainli2.html#glo:component">Component</a> Type to generate.</li></ul>
-<!--l. 133--><p class="noindent" ><span 
+<!--l. 132--><p class="noindent" ><span 
 class="ecbi-1200">Examples: </span>The following is an example of the extension point:
                                                                                          
                                                                                          
@@ -262,15 +261,16 @@ class="ecbi-1200">Examples: </span>The following is an example of the extension 
        </codegen>
     </extension>
 ]]></script></div>
-<!--l. 172--><p class="noindent" >
+<!--l. 171--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
- id="x28-406000B.1.2"></a>Port Handlers</h4>
+ id="x28-457000B.1.2"></a>Port Handlers</h4>
                                                                                          
                                                                                          
-<!--l. 173--><p class="noindent" ><span 
+<!--l. 172--><p class="noindent" ><span 
 class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.portGenerator<br 
 class="newline" /><span 
-class="ecbi-1200">Description: </span>Custom code generators used when generating code for ports <br 
+class="ecbi-1200">Description: </span>Custom code generators used when generating code for <a 
+href="mainli2.html#glo:port">Ports</a> <br 
 class="newline" /><span 
 class="ecbi-1200">Configuration Markup:</span><br 
 class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
@@ -295,7 +295,8 @@ class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">id </span>- Unique <a 
-href="mainap11.html#id">ID</a> for this port handler.
+href="mainap14.html#id">ID</a> for this <a 
+href="mainli2.html#glo:port">Port</a> handler.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">class </span>- Java class that implements<br 
@@ -307,7 +308,8 @@ class="ecbx-1200">name </span>- Human readable name.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">pullInputData </span>- Set this to true if the generated code requires data from Provides
-      ports to be pulled.
+      <a 
+href="mainli2.html#glo:port">Ports</a> to be pulled.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
@@ -322,7 +324,8 @@ class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">idlInterface </span>- The <a 
-href="mainap11.html#corba">CORBA</a> data type of the port output.</li></ul>
+href="mainap14.html#corba">CORBA</a> data type of the <a 
+href="mainli2.html#glo:port">Port</a> output.</li></ul>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT property (description)?>
 <!ATTLIST property
@@ -354,7 +357,8 @@ A user friendly description of the object.
                                                                                          
                                                                                          
 </div>
-<!--l. 242--><p class="noindent" >List of port interfaces.
+<!--l. 241--><p class="noindent" >List of <a 
+href="mainli2.html#glo:port">Port</a> interfaces.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT language EMPTY>
 <!ATTLIST language
@@ -364,7 +368,7 @@ A user friendly description of the object.
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- Name of the programming language to be generated.</li></ul>
-<!--l. 254--><p class="noindent" ><span 
+<!--l. 253--><p class="noindent" ><span 
 class="ecbi-1200">Examples: </span>The following is an example of the Port Handler extension point:<br 
 class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <extension point="gov.redhawk.ide.codegen.portGenerator">
@@ -394,10 +398,10 @@ class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="
 ]]></script></div>
                                                                                          
                                                                                          
-<!--l. 282--><p class="noindent" >
+<!--l. 281--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.3   </span> <a 
- id="x28-407000B.1.3"></a>Codegen Template</h4>
-<!--l. 283--><p class="noindent" ><span 
+ id="x28-458000B.1.3"></a>Codegen Template</h4>
+<!--l. 282--><p class="noindent" ><span 
 class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.codegenTemplate<br 
 class="newline" /><span 
 class="ecbi-1200">Description: </span>Provide a template for a code generator<br 
@@ -432,13 +436,13 @@ class="ecbx-1200">class </span>- The name of the class that provides the generat
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">codegenId </span>- The <a 
-href="mainap11.html#id">ID</a> of the code generator that this template will generate source.
+href="mainap14.html#id">ID</a> of the code generator that this template generates source.
       </li>
                                                                                          
                                                                                          
       <li class="itemize"><span 
 class="ecbx-1200">id </span>- Unique <a 
-href="mainap11.html#id">ID</a> for this template.
+href="mainap14.html#id">ID</a> for this template.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">name </span>- Human readable name of this template.
@@ -448,12 +452,12 @@ class="ecbx-1200">hasSettings </span>- This should be set to true if the generat
       what code is output. This may require a custom properties page as well.
       </li>
       <li class="itemize"><span 
-class="ecbx-1200">notDefaultable </span>- Set this to true if the generator will generate code and a user should
-      not be able to select it by default.
+class="ecbx-1200">notDefaultable </span>- Set this to true if the generator generates code and a user is not
+      able to select it by default.
       </li>
       <li class="itemize"><span 
-class="ecbx-1200">selectable </span>- Set this to false if the user should not be able to select the generator in
-      the drop down. This is mainly used to deprecate generators.
+class="ecbx-1200">selectable </span>- Set this to false if the user is not able to select the generator in the drop
+      down. This is mainly used to deprecate generators.
       </li>
       <li class="itemize">(<span id="textcolor2"><span 
 class="ecti-1200">Deprecated</span></span>) <span 
@@ -461,11 +465,13 @@ class="ecbx-1200">templateLocation </span>- Deprecated, do not use.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">portCodegenId </span>- <a 
-href="mainap11.html#id">ID</a> of the port generator to reference.
+href="mainap14.html#id">ID</a> of the <a 
+href="mainli2.html#glo:port">Port</a> generator to reference.
       </li>
       <li class="itemize"><span 
 class="ecbx-1200">usesPortTemplates </span>- This attribute is used to indicate whether or not this template
-      will delegate code generation to port generators if one is specified.</li></ul>
+      delegates code generation to <a 
+href="mainli2.html#glo:port">Port</a> generators if one is specified.</li></ul>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <!ELEMENT property (description)?>
 <!ATTLIST property
@@ -508,7 +514,7 @@ type (resource|device|service)
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ecbx-1200">type </span>- Type of resource to contribute.</li></ul>
-<!--l. 360--><p class="noindent" ><span 
+<!--l. 359--><p class="noindent" ><span 
 class="ecbi-1200">Examples: </span>The following is an example of the Template extension point: <br 
 class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
 <extension
@@ -575,26 +581,26 @@ class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="
 ]]></script>                                                                                         
                                                                                          
 </div>
-<!--l. 426--><p class="noindent" >
+<!--l. 425--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
- id="x28-408000B.2"></a>Building and installing</h3>
-<!--l. 427--><p class="noindent" >A code-generator project is an Eclipse Plug-in. Eclipse plug-ins are built into <a 
-href="mainap11.html#jar">JAR</a> files which
+ id="x28-459000B.2"></a>Building and installing</h3>
+<!--l. 426--><p class="noindent" >A code-generator project is an Eclipse Plug-in. Eclipse plug-ins are built into <a 
+href="mainap14.html#jar">JAR</a> files which
 can be distributed as is or wrapped up in a feature and deployed within an Eclipse
 Update-site.
-<!--l. 429--><p class="noindent" >For more details follow the directions for deploying a Control Panel in Section  <a 
-href="mainch24.html#x26-39300024.6">Section
-24.6</a>.
-<!--l. 432--><p class="noindent" >
+<!--l. 428--><p class="noindent" >For more details follow the directions for deploying a Control Panel in <a 
+href="mainch24.html#x26-44400024.6">Section 24.6</a>.
+<!--l. 431--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">B.3   </span> <a 
- id="x28-409000B.3"></a>Using JacORB</h3>
-<!--l. 433--><p class="noindent" >The REDHAWK IDE uses JacORB as its implementation for the <a 
-href="mainap11.html#corba">CORBA</a> standard. To use
+ id="x28-460000B.3"></a>Using JacORB</h3>
+<!--l. 432--><p class="noindent" >The REDHAWK <a 
+href="mainap14.html#ide">IDE</a> uses JacORB as its implementation for the <a 
+href="mainap14.html#corba">CORBA</a> standard. To use
 JacORB, the <span 
 class="ectt-1200">org.jacorb.systemFragment </span>and <span 
 class="ectt-1200">org.jacorb.systemFragment.feature </span>must be
 included in the product.
-<!--l. 437--><p class="noindent" >In addition, the following VM arguments must be placed in either the run configuration or the <span 
+<!--l. 436--><p class="noindent" >In addition, the following VM arguments must be placed in either the run configuration or the <span 
 class="ectt-1200">eclipse.ini</span>
 file: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB

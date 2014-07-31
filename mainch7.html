@@ -54,31 +54,31 @@ href="mainch6.html#tailmainch6.html" >prev-tail</a>] [<a
 href="#tailmainch7.html">tail</a>] [<a 
 href="main.html#mainch7.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;7</span><br /><a 
- id="x9-1090007"></a>Services</h2>
+ id="x9-1220007"></a>Services</h2>
 <h3 class="sectionHead"><span class="titlemark">7.1   </span> <a 
- id="x9-1100007.1"></a>Introduction</h3>
+ id="x9-1230007.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >In the context of REDHAWK, infrastructure software is managed by the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>.
 Infrastructure software can take two forms: hardware management and system <a 
 href="mainli2.html#glo:service">Services</a>. Hardware
-management was discussed in  <a 
-href="mainch8.html#x10-1200008">Chapter 8</a>. System <a 
-href="mainli2.html#glo:service">Services</a> are the equivalent to Linux services like
-an Hyper Text Transport Protocol (<a 
-href="mainap11.html#http">HTTP</a>) server; the <a 
+management is discussed in <a 
+href="mainch8.html#x10-1330008">Chapter 8</a>. System <a 
+href="mainli2.html#glo:service">Services</a> are the equivalent to Linux services like an
+Hyper Text Transport Protocol (<a 
+href="mainap14.html#http">HTTP</a>) server; the <a 
 href="mainli2.html#glo:service">Service</a> does not directly control
 hardware but is some facility that becomes automatically available when the host is
 started.
 <!--l. 12--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">7.2   </span> <a 
- id="x9-1110007.2"></a>Management</h3>
+ id="x9-1240007.2"></a>Management</h3>
 <!--l. 15--><p class="noindent" >A <a 
 href="mainli2.html#glo:service">Service</a> is managed through the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>. In  <a 
-href="mainch8.html#x10-1200008">Chapter 8</a>, <a 
-href="mainli2.html#glo:node">Nodes</a> were described as a
-<a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> instance and the set of <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>. In <a 
+href="mainch8.html#x10-1330008">Chapter 8</a>, <a 
+href="mainli2.html#glo:node">Nodes</a> are described as a <a 
+href="mainli2.html#glo:devicemanager">Device
+Manager</a> instance and the set of <a 
 href="mainli2.html#glo:device">Devices</a> and <a 
 href="mainli2.html#glo:service">Services</a> associated with that <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>
@@ -103,16 +103,16 @@ href="mainli2.html#glo:domain">Domain</a>&#8217;s naming
 context.
 <!--l. 24--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">7.3   </span> <a 
- id="x9-1120007.3"></a>Files Defining a Service</h3>
+ id="x9-1250007.3"></a>Files Defining a Service</h3>
 <!--l. 26--><p class="noindent" >A <a 
 href="mainli2.html#glo:service">Service</a>, much like a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
 href="mainli2.html#glo:device">Device</a>, is a binary file and a set of <a 
-href="mainap11.html#xml">XML</a> descriptors,
+href="mainap14.html#xml">XML</a> descriptors,
 normally just the <a 
-href="mainap11.html#spd">SPD</a> (describing the <a 
+href="mainap14.html#spd">SPD</a> (describing the <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s software package) and <a 
-href="mainap11.html#scd">SCD</a> (describing the
+href="mainap14.html#scd">SCD</a> (describing the
 <a 
 href="mainli2.html#glo:service">Service</a>&#8217;s interfaces). The <a 
 href="mainli2.html#glo:service">Service</a> file package resides in <span 
@@ -124,19 +124,19 @@ class="ectt-1200">devices </span>subdirectory.
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">7.4   </span> <a 
- id="x9-1130007.4"></a>Service API</h3>
+ id="x9-1260007.4"></a>Service API</h3>
 <!--l. 31--><p class="noindent" >REDHAWK does not include any standard <a 
 href="mainli2.html#glo:service">Service</a> interfaces; the <a 
-href="mainap11.html#sca">SCA</a> specification includes a
+href="mainap14.html#sca">SCA</a> specification includes a
 logging service, but in REDHAWK logging is performed through log4j/log4cxx, as described in
 <a 
-href="mainch18.html#x20-29000018">Chapter 18</a>, not a <a 
+href="mainch18.html#x20-32700018">Chapter 18</a>, not a <a 
 href="mainli2.html#glo:service">Service</a>. To use a <a 
 href="mainli2.html#glo:service">Service</a>, it either needs to use one of REDHAWK&#8217;s
 standard interfaces or it needs to implement a specialized interface supporting some specific
 behavior.
-<!--l. 36--><p class="noindent" >As discussed in  <a 
-href="#x9-1110007.2">Section 7.2</a>, a <a 
+<!--l. 36--><p class="noindent" >As discussed in <a 
+href="#x9-1240007.2">Section 7.2</a>, a <a 
 href="mainli2.html#glo:service">Service</a> is created and torn-down by the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>. Because
 there is no defined interface for the <a 
@@ -151,36 +151,13 @@ href="mainli2.html#glo:service">Service</a>. It is the <a
 href="mainli2.html#glo:service">Service</a>&#8217;s
 developer&#8217;s task to perform whatever cleanup functionality needs to be performed in response to
 the receipt of a signal from the operation system.
-<!--l. 43--><p class="noindent" >The <span 
-class="ectt-1200">PropertySet </span>interface is necessary to perform configuration of <a 
-href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:device">Devices</a>.
-Since the <a 
-href="mainli2.html#glo:service">Service</a> package is based on an <a 
-href="mainap11.html#spd">SPD</a> file, it is possible for the package to include a <a 
-href="mainap11.html#prf">PRF</a>
-file. To deal with instances where the <a 
-href="mainli2.html#glo:service">Service</a> includes <a 
-href="mainli2.html#glo:property">Properties</a>, the runtime environment will
-check the deployed <a 
-href="mainli2.html#glo:service">Service</a>&#8217;s interface; if the interface inherits from the <span 
-class="ectt-1200">PropertySet </span>interface, it
-allows the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> to contain property overload values for <a 
-href="mainli2.html#glo:service">Service</a> <a 
-href="mainli2.html#glo:property">Properties</a>. This feature
-of <a 
-href="mainli2.html#glo:service">Services</a> is optional and a system developer should not assume that any given <a 
-href="mainli2.html#glo:service">Service</a> supports
-the <span 
-class="ectt-1200">PropertySet </span>interface.
-<!--l. 48--><p class="noindent" >
+<!--l. 44--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">7.5   </span> <a 
- id="x9-1140007.5"></a>Finding a Service</h3>
-<!--l. 50--><p class="noindent" >In  <a 
-href="mainch11.html#x13-18800011">Chapter 11</a> <a 
+ id="x9-1270007.5"></a>Finding a Service</h3>
+<!--l. 46--><p class="noindent" >In <a 
+href="mainch11.html#x13-20500011">Chapter 11</a> <a 
 href="mainli2.html#glo:application">Application</a> descriptor files (<span 
-class="ectt-1200">sad.xml</span>) were described; these files describe a logical
+class="ectt-1200">sad.xml</span>) are described; these files describe a logical
 collection of <a 
 href="mainli2.html#glo:component">Components</a> that are deployed to support some system-level <a 
 href="mainli2.html#glo:application">Application</a>. In the
@@ -192,41 +169,42 @@ href="mainli2.html#glo:component">Component</a> in
 an <a 
 href="mainli2.html#glo:application">Application</a>, can interact with a <a 
 href="mainli2.html#glo:service">Service</a>.
-<!--l. 56--><p class="noindent" >The <span 
-class="ectt-1200">&#x003C;findby&#x003E; </span>tag allows the runtime environment to find different objects in the <a 
-href="mainli2.html#glo:domain">Domain</a>. All
-three tags available under <span 
+<!--l. 52--><p class="noindent" >The <span 
+class="ectt-1200">&#x003C;findby&#x003E; </span>tag allows the runtime environment to find different objects in the
+<a 
+href="mainli2.html#glo:domain">Domain</a>. All three tags available under <span 
 class="ectt-1200">findby </span>can be used in finding a <a 
-href="mainli2.html#glo:service">Service</a>: the <span 
-class="ectt-1200">&#x003C;stringifiedobjectref&#x003E;</span>
-tag, the <span 
+href="mainli2.html#glo:service">Service</a>: the
+<span 
+class="ectt-1200">&#x003C;stringifiedobjectref&#x003E; </span>tag, the <span 
 class="ectt-1200">&#x003C;namingservice&#x003E; </span>tag, and the <span 
-class="ectt-1200">&#x003C;domainfinder&#x003E; </span>tag.
-<!--l. 59--><p class="noindent" >
+class="ectt-1200">&#x003C;domainfinder&#x003E;</span>
+tag.
+<!--l. 55--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">7.5.1   </span> <a 
- id="x9-1150007.5.1"></a>Find by <span 
+ id="x9-1280007.5.1"></a>Find by <span 
 class="ectt-1200">stringifiedobjectref</span></h4>
-<!--l. 60--><p class="noindent" >The <span 
+<!--l. 56--><p class="noindent" >The <span 
 class="ectt-1200">&#x003C;stringifiedobjectref&#x003E; </span>tag allows someone to use the explicit Interoperable Object
-                                                                                         
-                                                                                         
 Reference (<a 
-href="mainap11.html#ior">IOR</a>) for a <a 
+href="mainap14.html#ior">IOR</a>) for a <a 
 href="mainli2.html#glo:service">Service</a> object to find the <a 
 href="mainli2.html#glo:service">Service</a>. Given that the <a 
-href="mainap11.html#ior">IOR</a> encodes specialized
+href="mainap14.html#ior">IOR</a> encodes specialized
 information such as the specific host that is running the object, its use is limited to static
 systems.
-<!--l. 63--><p class="noindent" >
+<!--l. 59--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">7.5.2   </span> <a 
- id="x9-1160007.5.2"></a>Find by <span 
+ id="x9-1290007.5.2"></a>Find by <span 
 class="ectt-1200">namingservice</span></h4>
-<!--l. 64--><p class="noindent" >The <span 
+<!--l. 60--><p class="noindent" >The <span 
 class="ectt-1200">&#x003C;namingservice&#x003E; </span>tag allows the specification of a <a 
 href="mainli2.html#glo:service">Service</a> based on its name binding on the
 <a 
 href="mainli2.html#glo:namingservice">Naming Service</a>. This is much more generic than the use of the <a 
-href="mainap11.html#ior">IOR</a>, but it implies substantial
+href="mainap14.html#ior">IOR</a>, but it implies substantial
 knowledge regarding the nature of the deployed <a 
 href="mainli2.html#glo:service">Service</a>, namely the binding name chosen in the
 <a 
@@ -234,11 +212,11 @@ href="mainli2.html#glo:devicemanager">Device Manager</a> and whatever deconflict
 href="mainli2.html#glo:devicemanager">Device Manager</a> might have used to make
 sure that the name binding is unique (such as adding an underscore and an instance
 number).
-<!--l. 67--><p class="noindent" >
+<!--l. 63--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">7.5.3   </span> <a 
- id="x9-1170007.5.3"></a>Find by <span 
+ id="x9-1300007.5.3"></a>Find by <span 
 class="ectt-1200">domainfinder</span></h4>
-<!--l. 68--><p class="noindent" >Of most interest with regards to connecting to <a 
+<!--l. 64--><p class="noindent" >Of most interest with regards to connecting to <a 
 href="mainli2.html#glo:service">Services</a> is the <span 
 class="ectt-1200">&#x003C;domainfinder&#x003E; </span>tag. The
 <span 
@@ -259,18 +237,18 @@ that no deconflicting strategy is used in the name; the registered name is the x
 name of the <a 
 href="mainli2.html#glo:service">Service</a>. An example of a <a 
 href="mainli2.html#glo:service">Service</a> name could be ApacheHttp or <a 
-href="mainap11.html#http">HTTP</a>
+href="mainap14.html#http">HTTP</a>
 <a 
 href="mainli2.html#glo:service">Service</a>.
-<!--l. 75--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x9-1180007.5.3"></a>Using <span 
+<!--l. 71--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">7.5.3.1   </span> <a 
+ id="x9-1310007.5.3.1"></a>Using <span 
 class="ectt-1200">servicename</span></h5>
-<!--l. 76--><p class="noindent" >The problem with using a <a 
+<!--l. 72--><p class="noindent" >The problem with using a <a 
 href="mainli2.html#glo:service">Service</a> name is that it limits the ability to connect to <a 
 href="mainli2.html#glo:service">Services</a> based on
 functionality. For example, the use of <a 
-href="mainap11.html#http">HTTP</a> <a 
+href="mainap14.html#http">HTTP</a> <a 
 href="mainli2.html#glo:service">Service</a> name means that there is a single
 <a 
 href="mainli2.html#glo:service">Service</a> in the entire <a 
@@ -284,29 +262,29 @@ specify its name. The solution to this problem is to use the <span
 class="ectt-1200">servicetype </span>type for the
 <span 
 class="ectt-1200">domainfinder</span>.
-                                                                                         
-                                                                                         
-<!--l. 82--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x9-1190007.5.3"></a>Using <span 
+<!--l. 78--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">7.5.3.2   </span> <a 
+ id="x9-1320007.5.3.2"></a>Using <span 
 class="ectt-1200">servicetype</span></h5>
-<!--l. 83--><p class="noindent" >The <span 
-class="ectt-1200">servicetype </span>type allows the user to specify the Interface Description Language (<a 
-href="mainap11.html#idl">IDL</a>)
-interface that is implemented by the <a 
-href="mainli2.html#glo:service">Service</a>. An example of an interface type is
-&#8220;<span 
+<!--l. 79--><p class="noindent" >The <span 
+class="ectt-1200">servicetype </span>type allows the user to specify the <a 
+href="mainap14.html#idl">IDL</a> interface that is implemented by the
+<a 
+href="mainli2.html#glo:service">Service</a>. An example of an interface type is &#8220;<span 
 class="ectt-1200">IDL:BULKIO/dataShort:1.0</span>&#8221; for the <span 
-class="ectt-1200">dataShort </span>interface in the <a 
-href="mainap11.html#bulkio">BulkIO</a> module. By using the
-<span 
-class="ectt-1200">servicetype </span>type, it is possible for a system user to request that the <a 
+class="ectt-1200">dataShort</span>
+interface in the <a 
+href="mainap14.html#bulkio">BulkIO</a> module. By using the <span 
+class="ectt-1200">servicetype </span>type, it is possible for a
+                                                                                         
+                                                                                         
+system user to request that the <a 
 href="mainli2.html#glo:component">Component</a> in a <a 
-href="mainli2.html#glo:waveformapplication">Waveform</a>
-be connected to any <a 
-href="mainli2.html#glo:service">Service</a> that can support a particular type of behavior. Normally, this interface
-would not be a generic bulk data type but some specialized interface designed to support some
-specific behavior.
+href="mainli2.html#glo:waveformapplication">Waveform</a> be connected to any <a 
+href="mainli2.html#glo:service">Service</a>
+that can support a particular type of behavior. Normally, this interface would not be a
+generic bulk data type but some specialized interface designed to support some specific
+behavior.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
