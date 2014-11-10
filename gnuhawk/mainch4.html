@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>4 Testing the GNUHAWK Installation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch5.html" >next</a>] [<a 
+href="mainch3.html" >prev</a>] [<a 
+href="mainch3.html#tailmainch3.html" >prev-tail</a>] [<a 
+href="#tailmainch4.html">tail</a>] [<a 
+href="main.html#mainch4.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;4</span><br /><a 
+ id="x6-190004"></a>Testing the GNUHAWK Installation</h2>
+<h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x6-200004.1"></a>Running a Sample Component in the Sandbox</h3>
+<!--l. 4--><p class="noindent" >To run a sample Component in the Sandbox, enter the following commands: <script type="syntaxhighlighter" class="brush: python"><![CDATA[
+python
+ &gt;&gt;> from ossie.utils import sb
+ &gt;&gt;> sb.IDELocation("/path/to/ide/eclipse")
+ &gt;&gt;> source = sb.launch ("sig_source_f")
+ &gt;&gt;> plot = sb.Plot()
+ &gt;&gt;> source.connect(plot) # On connect, a plot dialog will pop up
+ &gt;&gt;> sb.start()
+ &gt;&gt;> source.api()  #Look at the Components properties and interfaces
+ &gt;&gt;> source.waveform # Look at a specific property
+ &gt;&gt;> source.waveform = 105 # Change a specific property
+]]></script>
+<!--l. 19--><p class="noindent" >After <span 
+class="ectt-1200">sb.start()</span>, a sine wave is displayed in the plot varying from -100 to +100 in amplitude. The
+<span 
+class="ectt-1200">waveform </span>Property of the source Component defaults to a value of 101, which corresponds to the
+enumerated type value of <span 
+class="ectt-1200">SIN_WAVE</span>. Setting the <span 
+class="ectt-1200">waveform </span>Property to 105 results in a saw wave
+varying from 0 to +100.
+<!--l. 21--><p class="noindent" ><div class="note" style="background-color: gray">
+<span 
+class="ectt-1200">To use plotting, the path to the Eclipse directory of the installed IDE must be specfied in the Sandbox. (This can also be done by setting the \variable{RH\_IDE} environment variable to the absolute path of the Eclipse directory prior to starting the Python session).</span>
+</div>
+<!--l. 25--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x6-210004.2"></a>Quality Assurance (QA) Testing For GNUHAWK Components</h3>
+<!--l. 26--><p class="noindent" >A subset of GNU Radio QA tests are incorporated within the GNUHAWK baseline to test the provided
+                                                                                         
+                                                                                         
+GNUHAWK Components. In the <span 
+class="ectt-1200">gnuhawk/qa </span>subdirectory, <span 
+class="ectt-1200">runtests.py</span>, a Python script,
+performs all of the tests located in the <span 
+class="ectt-1200">gnuhawk/qa/tests </span>subdirectory. GNUHAWK provides
+the <span 
+class="ectt-1200">gnuhawk/qa/gnuradio </span>Python module, which sets up its own version of the QA test
+environment. The REDHAWK Python Sandbox capability is used to perform underlying tests.
+Most of the QA tests are unmodified from their original GNU Radio version. In a few cases,
+QA tests had to be modified to facilitate using the Sandbox Python environment for the
+test.
+<h3 class="sectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x6-220004.3"></a>Initial Setup For Quality Assurance (QA)</h3>
+<!--l. 36--><p class="noindent" >The <span 
+class="ectt-1200">qa/components </span>directory contains helper Components needed for the QA tests. Before running the QA
+tests the first time, these Components must be built. To build the Components, enter the following commands. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ cd gnuhawk-<version>/qa
+./reconf
+./configure --enable-deps=sdr
+ make
+]]></script>
+<!--l. 48--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x6-230004.4"></a>Running Quality Assurance (QA)</h3>
+<!--l. 49--><p class="noindent" >QA tests are run against the locally built Component executables found in the<br />
+<span 
+class="ectt-1200">gnuhawk-&#x003C;version&#x003E;/components </span>directory. They are not run against the installed Components in
+<span 
+class="ectt-1200">$SDRROOT/dom/components/gnuhawk</span>. It is not necessary to install the Components to run
+the QA tests. It is only necessary to build the GNUHAWK Components and the QA helper
+Components. To run all QA tests located in <span 
+class="ectt-1200">gnuhawk/qa/tests</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ ./runtests.py
+]]></script>
+To run a subset of QA tests located in <span 
+class="ectt-1200">gnuhawk/qa/tests</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ ./runtests.py qa_<string to match>*.py
+]]></script>
+To run a particular test located in <span 
+class="ectt-1200">gnuhawk/qa/tests</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+                                                                                         
+                                                                                         
+ ./runtests.py <qa test name>.py
+]]></script>
+To run a subset of tests within a particular test located in <span 
+class="ectt-1200">gnuhawk/qa/tests</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ ./runtests.py <qa test name>.py --prefix=<test prefix>
+]]></script>
+For example, to run the <span 
+class="ectt-1200">test_002 </span>contained in <span 
+class="ectt-1200">qa_int_to_float.py</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ ./runtests.py qa_int_to_float.py --prefix=test_002
+]]></script>
+                                                                                         
+                                                                                         
+<h3 class="sectionHead"><span class="titlemark">4.5   </span> <a 
+ id="x6-240004.5"></a>Troubleshooting</h3>
+<!--l. 89--><p class="noindent" >While running GNUHAWK Components, if unexpected behavior is observed, refer to the following
+possible causes and solutions.
+      <ul class="itemize1">
+      <li class="itemize">
+      <span 
+class="ecsx-1200">fft_filter_fff</span>
+      <span 
+class="ecsx-1200">and</span>
+      <span 
+class="ecsx-1200">qa_fft_filter</span>
+      <span 
+class="ecsx-1200">fails</span>
+      <span 
+class="ecsx-1200">on</span>
+      <span 
+class="ecsx-1200">32-bit</span>
+      <span 
+class="ecsx-1200">architectures</span>
+      <!--l. 93--><p class="noindent" >If the installed version of FFTW was not configured with the <span 
+class="ectt-1200">--enable-sse </span>flag, the
+      <span 
+class="ectt-1200">qa_fft_filter.py </span>test fails and the Component fails within a Waveform. On 32-bit architectures,
+      FFTW must be installed from source. The GNU Radio block <span 
+class="ectt-1200">gr_fft_filter_fff </span>uses the
+      underlying GNU Radio VOLK library, which requires SSE to be enabled. After downloading a
+      particular version of FFTW, install FFTW from source by entering the following commands: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+        tar zxvf fftw-<version>.tar.gz
+       ./configure --enable-float --enable-sse --enable-shared --disable-static
+       make
+       make check
+       make install
+      ]]></script>
+      </li>
+      <li class="itemize"><span 
+class="ecsx-1200">Component fails on start</span><br />
+      Components that have Properties that are sequences, for example, <span 
+class="ectt-1200">taps </span>in <span 
+class="ectt-1200">fft_filter_fff </span>and
+      <span 
+class="ectt-1200">k </span>in <span 
+class="ectt-1200">multiply_const_vff</span>, fail when passing empty vectors into the underlying GNU Radio
+      block. GNUHAWK Components with sequence Properties must have non-zero length for those
+      Properties.
+      </li>
+      <li class="itemize"><span 
+class="ecsx-1200">Source Component does not appear to be producing data</span><br />
+      Source Components, for example, <span 
+class="ectt-1200">glfsr_source</span>, <span 
+class="ectt-1200">noise_source</span>, <span 
+class="ectt-1200">sig_source</span>, and<br />
+      <span 
+class="ectt-1200">glfsr_source</span>, have a Property called <span 
+class="ectt-1200">transfer_size</span>. If this Property is not set, then data is
+      throttled internally within the Component. If there is unexpected behavior with the
+                                                                                         
+                                                                                         
+      rate of data being pushed, throttling may be the cause. With throttling, which is on
+      by default, data is pushed at the rate defined by SRI. To determine if throttling is
+      causing the issue, disable it by calling <span 
+class="ectt-1200">setThrottle(false) </span>in the <span 
+class="ectt-1200">createBlock</span>
+      method.
+      </li>
+      <li class="itemize"><span 
+class="ecsx-1200">./configure --with-components fails to find dependencies</span><br />
+      When building Components from source, the configuration fails if the GNUHAWK library is not
+      installed. Verify the GNUHAWK library is installed prior to running the commands to build the
+      GNUHAWK Components from source.</li></ul>
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch5.html" >next</a>] [<a 
+href="mainch3.html" >prev</a>] [<a 
+href="mainch3.html#tailmainch3.html" >prev-tail</a>] [<a 
+href="mainch4.html" >front</a>] [<a 
+href="main.html#mainch4.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch4.html"></a>  
+ 
+<div class=license> 
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

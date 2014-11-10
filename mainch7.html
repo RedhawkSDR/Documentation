@@ -35,8 +35,7 @@ window.attachEvent("onload", f);
 <div class="header"> 
 <ul class="navbar"> 
 <li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
-<li><a href="gettingstarted/main.html">Getting Started</a></li> 
-<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a class="active" href="documentation.html">Documentation</a></li> 
 <li><a href="download.html">Download</a></li> 
 <li><a href="community.html">Community</a></li> 
 </ul> 
@@ -54,15 +53,15 @@ href="mainch6.html#tailmainch6.html" >prev-tail</a>] [<a
 href="#tailmainch7.html">tail</a>] [<a 
 href="main.html#mainch7.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;7</span><br /><a 
- id="x9-1220007"></a>Services</h2>
+ id="x9-1300007"></a>Services</h2>
 <h3 class="sectionHead"><span class="titlemark">7.1   </span> <a 
- id="x9-1230007.1"></a>Introduction</h3>
+ id="x9-1310007.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >In the context of REDHAWK, infrastructure software is managed by the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>.
 Infrastructure software can take two forms: hardware management and system <a 
 href="mainli2.html#glo:service">Services</a>. Hardware
 management is discussed in <a 
-href="mainch8.html#x10-1330008">Chapter 8</a>. System <a 
+href="mainch8.html#x10-1410008">Chapter 8</a>. System <a 
 href="mainli2.html#glo:service">Services</a> are the equivalent to Linux services like an
 Hyper Text Transport Protocol (<a 
 href="mainap14.html#http">HTTP</a>) server; the <a 
@@ -71,11 +70,11 @@ hardware but is some facility that becomes automatically available when the host
 started.
 <!--l. 12--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">7.2   </span> <a 
- id="x9-1240007.2"></a>Management</h3>
+ id="x9-1320007.2"></a>Management</h3>
 <!--l. 15--><p class="noindent" >A <a 
 href="mainli2.html#glo:service">Service</a> is managed through the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>. In <a 
-href="mainch8.html#x10-1330008">Chapter 8</a>, <a 
+href="mainch8.html#x10-1410008">Chapter 8</a>, <a 
 href="mainli2.html#glo:node">Nodes</a> are described as a <a 
 href="mainli2.html#glo:devicemanager">Device
 Manager</a> instance and the set of <a 
@@ -103,7 +102,7 @@ href="mainli2.html#glo:domain">Domain</a>&#8217;s naming
 context.
 <!--l. 24--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">7.3   </span> <a 
- id="x9-1250007.3"></a>Files Defining a Service</h3>
+ id="x9-1330007.3"></a>Files Defining a Service</h3>
 <!--l. 26--><p class="noindent" >A <a 
 href="mainli2.html#glo:service">Service</a>, much like a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
@@ -124,19 +123,19 @@ class="ectt-1200">devices </span>subdirectory.
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">7.4   </span> <a 
- id="x9-1260007.4"></a>Service API</h3>
+ id="x9-1340007.4"></a>Service API</h3>
 <!--l. 31--><p class="noindent" >REDHAWK does not include any standard <a 
 href="mainli2.html#glo:service">Service</a> interfaces; the <a 
 href="mainap14.html#sca">SCA</a> specification includes a
 logging service, but in REDHAWK logging is performed through log4j/log4cxx, as described in
 <a 
-href="mainch18.html#x20-32700018">Chapter 18</a>, not a <a 
+href="mainch18.html#x20-33500018">Chapter 18</a>, not a <a 
 href="mainli2.html#glo:service">Service</a>. To use a <a 
 href="mainli2.html#glo:service">Service</a>, it either needs to use one of REDHAWK&#8217;s
 standard interfaces or it needs to implement a specialized interface supporting some specific
 behavior.
 <!--l. 36--><p class="noindent" >As discussed in <a 
-href="#x9-1240007.2">Section 7.2</a>, a <a 
+href="#x9-1320007.2">Section 7.2</a>, a <a 
 href="mainli2.html#glo:service">Service</a> is created and torn-down by the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>. Because
 there is no defined interface for the <a 
@@ -153,9 +152,9 @@ developer&#8217;s task to perform whatever cleanup functionality needs to be per
 the receipt of a signal from the operation system.
 <!--l. 44--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">7.5   </span> <a 
- id="x9-1270007.5"></a>Finding a Service</h3>
+ id="x9-1350007.5"></a>Finding a Service</h3>
 <!--l. 46--><p class="noindent" >In <a 
-href="mainch11.html#x13-20500011">Chapter 11</a> <a 
+href="mainch11.html#x13-21300011">Chapter 11</a> <a 
 href="mainli2.html#glo:application">Application</a> descriptor files (<span 
 class="ectt-1200">sad.xml</span>) are described; these files describe a logical
 collection of <a 
@@ -182,7 +181,7 @@ class="ectt-1200">&#x003C;domainfinder&#x003E;</span>
 tag.
 <!--l. 55--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">7.5.1   </span> <a 
- id="x9-1280007.5.1"></a>Find by <span 
+ id="x9-1360007.5.1"></a>Find by <span 
 class="ectt-1200">stringifiedobjectref</span></h4>
 <!--l. 56--><p class="noindent" >The <span 
 class="ectt-1200">&#x003C;stringifiedobjectref&#x003E; </span>tag allows someone to use the explicit Interoperable Object
@@ -197,7 +196,7 @@ systems.
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">7.5.2   </span> <a 
- id="x9-1290007.5.2"></a>Find by <span 
+ id="x9-1370007.5.2"></a>Find by <span 
 class="ectt-1200">namingservice</span></h4>
 <!--l. 60--><p class="noindent" >The <span 
 class="ectt-1200">&#x003C;namingservice&#x003E; </span>tag allows the specification of a <a 
@@ -214,7 +213,7 @@ sure that the name binding is unique (such as adding an underscore and an instan
 number).
 <!--l. 63--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">7.5.3   </span> <a 
- id="x9-1300007.5.3"></a>Find by <span 
+ id="x9-1380007.5.3"></a>Find by <span 
 class="ectt-1200">domainfinder</span></h4>
 <!--l. 64--><p class="noindent" >Of most interest with regards to connecting to <a 
 href="mainli2.html#glo:service">Services</a> is the <span 
@@ -242,7 +241,7 @@ href="mainap14.html#http">HTTP</a>
 href="mainli2.html#glo:service">Service</a>.
 <!--l. 71--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">7.5.3.1   </span> <a 
- id="x9-1310007.5.3.1"></a>Using <span 
+ id="x9-1390007.5.3.1"></a>Using <span 
 class="ectt-1200">servicename</span></h5>
 <!--l. 72--><p class="noindent" >The problem with using a <a 
 href="mainli2.html#glo:service">Service</a> name is that it limits the ability to connect to <a 
@@ -264,7 +263,7 @@ class="ectt-1200">servicetype </span>type for the
 class="ectt-1200">domainfinder</span>.
 <!--l. 78--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">7.5.3.2   </span> <a 
- id="x9-1320007.5.3.2"></a>Using <span 
+ id="x9-1400007.5.3.2"></a>Using <span 
 class="ectt-1200">servicetype</span></h5>
 <!--l. 79--><p class="noindent" >The <span 
 class="ectt-1200">servicetype </span>type allows the user to specify the <a 

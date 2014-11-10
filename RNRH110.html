@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head> <link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<title>Documentation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,1,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+
+<h2 class="likechapterHead"><a 
+ id="x1-1000"></a>REDHAWK Release Notes, Version 1.10</h2>
+<!--l. 6--><p class="noindent" >The effort in REDHAWK 1.10 focused on simplifying the user interaction within the IDE,
+improving how REDHAWK handles FrontEnd Interface Devices and logging, improving
+the scalability of the Core Framework, and adding a new interface to support bursty
+data.
+<h3 class="likesectionHead"><a 
+ id="x1-2000"></a>New Features and Functionality</h3>
+<!--l. 9--><p class="noindent" >The following new features and functionality were added in REDHAWK 1.10.
+<!--l. 11--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-3000"></a>IDE Changes</h4>
+      <ul class="itemize1">
+      <li class="itemize">The ability to connect to BulkIO CORBA connections using native omniORB libraries
+                                                                                         
+                                                                                         
+      has been added. This provides a significant increase in the bandwidth of the BulkIO
+      connections and aids in the plotting of high speed data.
+      </li>
+      <li class="itemize">A  Connect  Wizard  was  added  to  simplify  the  process  of  creating  connections
+      manually.
+      </li>
+      <li class="itemize">A one-step control panel generation button was added to simplify the process of
+      generating Control Panels.
+      </li>
+      <li class="itemize">A text filter box that accepts regular expressions was added to the Diagram Palettte
+      to simplify the process of finding Components.
+      </li>
+      <li class="itemize">The  ability  to  launch  additional  Components  into  running  Waveforms  was  added
+      to  simplify  testing  Waveforms.  This  feature  is  available  for  Waveforms  within  the
+      Sandbox AND on a Domain.
+      </li>
+      <li class="itemize">REDHAWK  Event  Channels  were  added  as  elements  displayed  within  the  SCA
+      Explorer.
+      </li>
+      <li class="itemize">The Event Viewer received the following improvements:
+           <ul class="itemize2">
+           <li class="itemize">The controls at the top of the Event Viewer were modified.
+           </li>
+           <li class="itemize">Channels are now added via the context menu from the SCA Explorer or the
+           CORBA Name browser view.
+           </li>
+           <li class="itemize">The name of the View now matches the name of the Event Channel to which
+           the View is connected.
+           </li>
+           <li class="itemize">Events are now sorted by time in reverse order (by default).
+           </li>
+           <li class="itemize">Clear and Scroll Lock buttons were added.</li></ul>
+      </li>
+      <li class="itemize">Options to deploy projects to the Target SDR via Hot Keys or a context menu were added
+      for flexibility.
+      </li>
+      <li class="itemize">The ability to add arbitrary arguments to the nodeBooter process for launching Domain
+      and Device Managers has been added.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">The Name Browser View was updated by adding icons for REDHAWK-related
+      Components that match those found in the SCA Explorer.
+      </li>
+      <li class="itemize">An Octave Wizard and code generator was added to simplify converting existing M-files
+      into REDHAWK C++ Components. The user imports an existing M-file, as well as any
+      required dependent M-files, and then maps the M-file&#8217;s inputs and outputs to REDHAWK
+      Ports and Properties.
+      </li>
+      <li class="itemize">The ability to plot dataSDDS Ports was added.
+      </li>
+      <li class="itemize">The IDE now displays non-PRF Runtime Properties as read-only.
+      </li>
+      <li class="itemize">The Snapshot Tool now provides the ability to create a Custom Connection ID to use when
+      acquiring samples.
+      </li>
+      <li class="itemize">The SRI View was created to enable the IDE to connect to an output Port and get the push
+      SRI call and display this information.
+      </li>
+      <li class="itemize">Many improvements were made in how REDHAWK handles FrontEnd Interface
+      Devices.
+           <ul class="itemize2">
+           <li class="itemize">An  Allocation  wizard  was  added  to  enable  users  to  allocate  a  tuner  on  a
+           FrontEnd Interface Device.
+           </li>
+           <li class="itemize">A FrontEnd Device Project wizard and code generator template was added to
+           enable users to quickly create FrontEnd compliant RX or TX tuner Devices.
+           </li>
+           <li class="itemize">The REDHAWK IDE can now be used to plot data being passed through a
+           FrontEnd Interface tuner.
+           </li>
+           <li class="itemize">The REDHAWK IDE can now be used to interact with FrontEnd Devices using
+           the SCA Explorer View. These interactions include exploring the Devices and
+           allocating and deallocating tuners and listeners.
+           </li>
+           <li class="itemize">The REDHAWK IDE can now be used to interact with FrontEnd Devices via a
+           Domain connection.
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">The REDHAWK IDE can now be used to interact with FrontEnd Devices using
+           the Eclipse Property view.</li></ul>
+      </li></ul>
+<!--l. 46--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-4000"></a>C++ Components/Devices Changes</h4>
+      <ul class="itemize1">
+      <li class="itemize">Logging   has   been   upgraded.   It   is   now   possible   to   perform   logging   on   a
+      per-Component basis rather than for the whole class. Also, new appenders have
+      been added that allow logging to be accessed through the network or the event
+      service.
+      </li>
+      <li class="itemize">Allocation callbacks have been added to C++ Devices. Instead of overloading the
+      <span 
+class="ectt-1200">allocateCapacity </span>call, individual callbacks can be created and registered against
+      any allocation Property on a Device.
+      </li>
+      <li class="itemize">FrontEnd Interface support has been extended for C++. A wizard in the IDE guides
+      a developer through the decisions necessary to establish the XML for a FrontEnd
+      Interfaces-compatible Device. Based on this XML, the code generators generate a
+      Device that contains specialized callbacks that reduce the implementation burden
+      on the developer.</li></ul>
+<!--l. 53--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-5000"></a>Python Changes</h4>
+<!--l. 55--><p class="noindent" >Property change callbacks can now be created and registered in the same way as C++ and
+Java.
+<!--l. 57--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-6000"></a>Interface Changes</h4>
+                                                                                         
+                                                                                         
+      <ul class="itemize1">
+      <li class="itemize">A  new  interface,  Burst  I/O,  has  been  created.  This  interface  supports  the  rapid
+      delivery of bursty data, or data whose SRI changes frequently. Use and support for
+      Burst I/O follows similar patterns to Bulk I/O. Support is available in C++, Python,
+      and Java.
+      </li>
+      <li class="itemize">Bulk  I/O  Port  implementations  now  support  multi-out  capabilities.  When  the
+      Component or Device contains the <span 
+class="ectt-1200">ConnectionTable </span>property, all Bulk I/O or Burst
+      I/O  Ports  on  the  Component  or  Device  support  the  pairing  of  stream  ID  and
+      connection ID.</li></ul>
+<!--l. 63--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-7000"></a>Tooling Changes</h4>
+      <ul class="itemize1">
+      <li class="itemize">The Sandbox now contains a <span 
+class="ectt-1200">SoundSink</span>. The <span 
+class="ectt-1200">SoundSink </span>creates audio based on
+      input coming through a Bulk I/O Port. The Sandbox also supports artificial event
+      channels, allowing Components that have event channel interfaces to connect to an
+      event channel outside the context of the event service.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">qtbrowse</span>, a tool to inspect running domains, has been updated to work with Qt4. A
+      new qt tool, <span 
+class="ectt-1200">rhlauncher</span>, has been created. This tool is a graphical convenience tool
+      for running domains.</li></ul>
+<!--l. 69--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-8000"></a>Core Framework Changes</h4>
+      <ul class="itemize1">
+      <li class="itemize">The Domain Manager can now be connected to other Domain Managers. When
+      this connection exists, if a <span 
+class="ectt-1200">usesdevice </span>relationship cannot be satisfied by the local
+      Domain, it will delegate the allocation to any other registered Domain.
+      </li>
+      <li class="itemize">The search algorithm used by the Application Factory for Devices suitable for an
+      Application&#8217;s Components has been substantially accelerated.</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 75--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-9000"></a>GNUHAWK Changes</h4>
+<!--l. 76--><p class="noindent" >GNUHAWK Components now support complex properties.
+<!--l. 78--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-10000"></a>Basic Components Changes</h4>
+<!--l. 83--><p class="noindent" >DataConverter 2.0 has been upgraded to DataConverter 3.0. Only DataConverter 3.0 is
+included with the Basic install. If you want to use DataConverter 2.0, you must download it
+separately and install from source.
+<!--l. 126--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-11000"></a>Upgrading from a Previous Version</h3>
+<!--l. 129--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-12000"></a>Upgrading from REDHAWK 1.9.X</h4>
+<!--l. 130--><p class="noindent" >REDHAWK 1.9.X projects can be imported and re-generated with the REDHAWK 1.10.X tooling
+without any modifications.
+<!--l. 132--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-13000"></a>Upgrading from REDHAWK 1.8.X</h4>
+<!--l. 134--><p class="noindent" >If you are upgrading from a previous 1.8.x version of REDHAWK, some software from the 1.8
+series dependencies must be uninstalled before installing the REDHAWK 1.10 series. The
+following procedure explains how to uninstall the software.
+<!--l. 136--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-13002x1">Enter the following command:
+                                                                                         
+                                                                                         
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo yum erase \
+  libomniORB4.1 omniORB-debuginfo omniORB-doc \
+  libomniORBpy3 omniORBpy-debuginfo omniORBpy-doc \
+  omniEvents-doc omniEvents-debuginfo \
+  apache-log4cxx apache-log4cxx-debuginfo
+]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x1-13004x2">Additionally, if you are using a Redhat/CentOS 5 system, enter the following
+      command:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo yum erase boost boost-debuginfo
+]]></script></div>
+      <!--l. 153--><p class="noindent" >This restores the system-provided boost (version 1.33).</li></ol>
+<!--l. 156--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-14000"></a>Regenerating 1.8 Components</h4>
+<!--l. 157--><p class="noindent" >If you generate an existing 1.8 Component in the 1.10 IDE, the IDE prompts you to upgrade
+the Component to use the new 1.10 Code Generator. If you select <span 
+class="phvb8t-x-x-120">Upgrade</span>, hidden
+project files are modified to indicate the new 1.10 Code Generator has been used.
+Once these project files are modified, it is difficult to revert back to use the 1.8-style
+Code Generators for this Component. If you select <span 
+class="phvb8t-x-x-120">Cancel</span>, the source code for the
+Component is not modified. Upgrading to the new 1.10 Code Generator offers the following
+benefits:
+      <ul class="itemize1">
+      <li class="itemize">New  component  pattern  shifts  BulkIO  and  BurstIO  implementation  from  code
+      generator to base classes to ease incorporating future BulkIO-related bug fixes and
+      enhancements.
+      </li>
+      <li class="itemize">New code generators support use of complex properties.
+      </li>
+      <li class="itemize">New code generators are now easily accessed from command line.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">New  Java  Component  pattern  mirrors  the  existing  Python  and  C++  Component
+      model with a generated base class and a <span 
+class="ectt-1200">serviceFunction </span>in the main class.
+      </li>
+      <li class="itemize">New logging structure is used for C++ Components.
+      </li>
+      <li class="itemize">Allocation callbacks are available on C++ Devices.</li></ul>
+<!--l. 169--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If the main Java Component class is not regenerated, the class does not take advantage of the
+newly generated base class. In order for the base class to compile when building the project, the
+class needs to have a method added to it. If the main Java component class is regenerated, all
+custom code added to it is not preserved. For more information, in the REDHAWK Manual, refer
+to Files Generated for Java Components. </p></div></div>
+ 
+</body></html> 
+
+                                                                                         
+
+

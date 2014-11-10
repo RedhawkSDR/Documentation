@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>5 Using GNUHAWK</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch4.html" >prev</a>] [<a 
+href="mainch4.html#tailmainch4.html" >prev-tail</a>] [<a 
+href="#tailmainch5.html">tail</a>] [<a 
+href="main.html#mainch5.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;5</span><br /><a 
+ id="x7-250005"></a>Using GNUHAWK</h2>
+<!--l. 2--><p class="noindent" >After you install REDHAWK and GNUHAWK, GNUHAWK Components provide the same functionality
+within the IDE and Sandbox that standard REDHAWK Components provide. For more information
+about using Components, creating Waveforms, using the IDE, and using the Sandbox, refer to the
+REDHAWK Manual.
+<!--l. 4--><p class="noindent" >GNUHAWK 1.10 introduces a new feature for GNUHAWK Components, the ability to set Stream
+IDs.
+<!--l. 6--><p class="noindent" ><div class="note" style="background-color: gray">
+<span 
+class="ectt-1200">The ability to set Stream IDs does not currently exist for standard REDHAWK Components.</span>
+</div>
+<h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x7-260005.1"></a>Setting Stream IDs</h3>
+<!--l. 11--><p class="noindent" >The default stream ID for all Components is <span 
+class="ectt-1200">&#x003C;SID&#x003E;_&#x003C;port number&#x003E;</span>.
+<!--l. 13--><p class="noindent" >If Components have multiple output Ports, it may be difficult to determine what Components a stream
+has traveled through at any given point. Therefore, for GNUHAWK Components with one input
+Port and multiple output Ports, you may want to set customized stream IDs. You set the
+customized stream ID by using the struct sequence Property, <span 
+class="ectt-1200">stream_id_map</span>. This struct
+sequence consists of the struct, <span 
+class="ectt-1200">stream_id_struct</span>, which has the following two simple string
+Properties.
+      <ul class="itemize1">
+      <li class="itemize">
+      <span 
+class="ectt-1200">port_name</span>,
+      the
+      name
+      of
+      the
+      Port
+      with
+      the
+      custom
+      stream
+      ID.
+      </li>
+                                                                                         
+                                                                                         
+      <li class="itemize"><span 
+class="ectt-1200">stream_id</span>, the stream ID value to be set. A custom string may be used, or you can use the
+      following helpful shortcuts:
+           <ul class="itemize2">
+           <li class="itemize">
+           <span 
+class="ectt-1200">%D</span>
+           produces
+           the
+           port
+           index
+           number
+           (example:
+           <span 
+class="ectt-1200">0_</span>)
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">%SID</span>
+           produces
+           the
+           stream
+           ID
+           from
+           the
+           incoming
+           port
+           (example:
+           <span 
+class="ectt-1200">sig_source_0_</span>)
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">%C</span>
+           produces
+           the
+           Component&#8217;s
+           instance
+           name
+           (example:
+           <span 
+class="ectt-1200">stream_to_streams_ff_2o_</span>)</li></ul>
+      <!--l. 23--><p class="noindent" ><div class="note" style="background-color: gray">
+      <span 
+class="ectt-1200">If this Property is not set for any of the out Ports, the default stream ID is used.</span>
+                                                                                         
+                                                                                         
+      </div>
+      </li></ul>
+<!--l. 52--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch4.html" >prev</a>] [<a 
+href="mainch4.html#tailmainch4.html" >prev-tail</a>] [<a 
+href="mainch5.html" >front</a>] [<a 
+href="main.html#mainch5.html" >up</a>] </p></div>
+<!--l. 52--><p class="noindent" ><a 
+ id="tailmainch5.html"></a>  
+ 
+<div class=license> 
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

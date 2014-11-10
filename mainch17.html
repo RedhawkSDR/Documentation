@@ -35,8 +35,7 @@ window.attachEvent("onload", f);
 <div class="header"> 
 <ul class="navbar"> 
 <li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
-<li><a href="gettingstarted/main.html">Getting Started</a></li> 
-<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a class="active" href="documentation.html">Documentation</a></li> 
 <li><a href="download.html">Download</a></li> 
 <li><a href="community.html">Community</a></li> 
 </ul> 
@@ -54,9 +53,9 @@ href="mainch16.html#tailmainch16.html" >prev-tail</a>] [<a
 href="#tailmainch17.html">tail</a>] [<a 
 href="main.html#mainch17.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;17</span><br /><a 
- id="x19-31500017"></a>Messaging</h2>
+ id="x19-32300017"></a>Messaging</h2>
 <h3 class="sectionHead"><span class="titlemark">17.1   </span> <a 
- id="x19-31600017.1"></a>Introduction</h3>
+ id="x19-32400017.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Messaging relies on <a 
 href="mainap14.html#corba">CORBA</a>&#8217;s event structure as a transport structure. In <a 
 href="mainap14.html#corba">CORBA</a>&#8217;s event <a 
@@ -97,7 +96,7 @@ class="ecbx-1200">Message</span></a>
 kind is a structure.
 <!--l. 17--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.2   </span> <a 
- id="x19-31700017.2"></a>Message Producer</h3>
+ id="x19-32500017.2"></a>Message Producer</h3>
 <!--l. 19--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> producer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
@@ -105,7 +104,7 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 21--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-317002x1">Add a Struct <a 
+  class="enumerate" id="x19-325002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Select the kind for the <a 
@@ -116,14 +115,14 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x19-317004x2">Add <span 
+  class="enumerate" id="x19-325004x2">Add <span 
 class="ecbx-1200">uses </span><a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap14.html#idl">IDL</a> Interface ExtendedEvent <span 
 class="cmmi-12">&#x003E; </span>MessageEvent
       </li>
       <li 
-  class="enumerate" id="x19-317006x3">Regenerate the <a 
+  class="enumerate" id="x19-325006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
                                                                                          
                                                                                          
@@ -154,7 +153,7 @@ Channel</a>, the following code examples send a <a
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 46--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.1   </span> <a 
- id="x19-31800017.2.1"></a>C++</h4>
+ id="x19-32600017.2.1"></a>C++</h4>
 <!--l. 48--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method of the
@@ -167,7 +166,7 @@ implementation file):
 ]]></script></div>
 <!--l. 57--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.2   </span> <a 
- id="x19-31900017.2.2"></a>Java</h4>
+ id="x19-32700017.2.2"></a>Java</h4>
 <!--l. 59--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method):
@@ -182,7 +181,7 @@ class="ectt-1200">serviceFunction() </span>method):
 ]]></script></div>
 <!--l. 68--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.2.3   </span> <a 
- id="x19-32000017.2.3"></a>Python</h4>
+ id="x19-32800017.2.3"></a>Python</h4>
 <!--l. 70--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">process() </span>method of the implementation
@@ -195,14 +194,14 @@ file):
 ]]></script></div>
 <!--l. 81--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.3   </span> <a 
- id="x19-32100017.3"></a>Message Consumer</h3>
+ id="x19-32900017.3"></a>Message Consumer</h3>
 <!--l. 83--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> consumer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
 href="mainli2.html#glo:component">Component</a>.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-321002x1">Add a Struct <a 
+  class="enumerate" id="x19-329002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Select the kind for the <a 
@@ -213,7 +212,7 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x19-321004x2">Add <span 
+  class="enumerate" id="x19-329004x2">Add <span 
 class="ecbx-1200">uses/provides </span>(bidirectional) <a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap14.html#idl">IDL</a> <br 
@@ -225,7 +224,7 @@ class="ectt-1200">MessageEvent</span>
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x19-321006x3">Regenerate the <a 
+  class="enumerate" id="x19-329006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 94--><p class="noindent" >The bidirectional <a 
 href="mainli2.html#glo:port">Port</a> is needed because in point-to-point connections, the <a 
@@ -278,7 +277,7 @@ Channel</a>, the following code examples process an incoming <a
 href="mainli2.html#glo:message">Message</a>.
 <!--l. 118--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.1   </span> <a 
- id="x19-32200017.3.1"></a>C++</h4>
+ id="x19-33000017.3.1"></a>C++</h4>
 <!--l. 120--><p class="noindent" >Given the asynchronous nature of events, a callback pattern was selected for the consumer.
 <!--l. 122--><p class="noindent" >In the <a 
 href="mainli2.html#glo:component">Component</a> header file, declare the following callback function:
@@ -306,7 +305,7 @@ href="mainli2.html#glo:component">Component</a> constructor, register the callba
 ]]></script></div>
 <!--l. 143--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.2   </span> <a 
- id="x19-32300017.3.2"></a>Java</h4>
+ id="x19-33100017.3.2"></a>Java</h4>
 <!--l. 145--><p class="noindent" >Add to the list of import packages: <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
   import org.omg.CORBA.Any;
  import org.ossie.properties.AnyUtils;
@@ -393,7 +392,7 @@ is not setup yet when the constructor is called. </p></div></div>
 ]]></script></div>
 <!--l. 225--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">17.3.3   </span> <a 
- id="x19-32400017.3.3"></a>Python</h4>
+ id="x19-33200017.3.3"></a>Python</h4>
 <!--l. 227--><p class="noindent" >To the <span 
 class="ectt-1200">initialize() </span>method, register the expected <a 
 href="mainli2.html#glo:message">Message</a> with a callback method:
@@ -421,7 +420,7 @@ class="ectt-1200">DEBUG</span>, or <span
 class="ectt-1200">TRACE</span>. </p></div></div>
 <!--l. 245--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.4   </span> <a 
- id="x19-32500017.4"></a>Viewing Messages</h3>
+ id="x19-33300017.4"></a>Viewing Messages</h3>
 <!--l. 247--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> are events with their payload definition tied to structures in <a 
 href="mainli2.html#glo:component">Component</a> <a 
@@ -465,7 +464,7 @@ href="mainli2.html#glo:eventchannel">Event Channel</a> in a terminal window:
 ]]></script></div>
 <!--l. 286--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">17.5   </span> <a 
- id="x19-32600017.5"></a>Connecting Producers and Consumers</h3>
+ id="x19-33400017.5"></a>Connecting Producers and Consumers</h3>
 <!--l. 288--><p class="noindent" >Producers and consumers can be connected either point-to-point or through an <a 
 href="mainli2.html#glo:eventchannel">Event
 Channel</a>.
@@ -501,11 +500,11 @@ href="mainli2.html#glo:application">Application</a> can also support point-to-po
 href="mainli2.html#glo:eventchannel">Event Channel</a>:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x19-326002x1">Add producer and consumer <a 
+  class="enumerate" id="x19-334002x1">Add producer and consumer <a 
 href="mainli2.html#glo:component">Components</a>
       </li>
       <li 
-  class="enumerate" id="x19-326004x2">For point-to-point messaging, connect output <span 
+  class="enumerate" id="x19-334004x2">For point-to-point messaging, connect output <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> , <span 
 class="ectt-1200">message_out </span>in
@@ -515,14 +514,14 @@ href="mainli2.html#glo:port">Port</a> of the receive <a
 href="mainli2.html#glo:component">Component</a>.
       </li>
       <li 
-  class="enumerate" id="x19-326006x3">For messaging via an <a 
+  class="enumerate" id="x19-334006x3">For messaging via an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>, add an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> and connect to
       it
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x19-326008x1">In the <a 
+  class="enumerate" id="x19-334008x1">In the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> Diagram, under <span 
 class="ecbx-1200">Palette </span><span 
 class="cmmi-12">&#x003E; </span><span 
@@ -562,7 +561,7 @@ href="mainli2.html#glo:eventchannel">Event Channel</a> <span
 class="ectt-1200">testchan</span>.</li></ul>
            </li>
            <li 
-  class="enumerate" id="x19-326010x2">Connect the Uses (Output) <span 
+  class="enumerate" id="x19-334010x2">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the sending <a 
 href="mainli2.html#glo:component">Component</a>, called
@@ -571,7 +570,7 @@ class="ectt-1200">message_out </span>in my example, to the <a
 href="mainli2.html#glo:eventchannel">Event Channel</a>.
            </li>
            <li 
-  class="enumerate" id="x19-326012x3">Connect the Uses (Output) <span 
+  class="enumerate" id="x19-334012x3">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the receiving <a 
 href="mainli2.html#glo:component">Component</a>, called

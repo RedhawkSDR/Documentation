@@ -35,8 +35,7 @@ window.attachEvent("onload", f);
 <div class="header"> 
 <ul class="navbar"> 
 <li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
-<li><a href="gettingstarted/main.html">Getting Started</a></li> 
-<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a class="active" href="documentation.html">Documentation</a></li> 
 <li><a href="download.html">Download</a></li> 
 <li><a href="community.html">Community</a></li> 
 </ul> 
@@ -76,7 +75,7 @@ on using the REDHAWK <a
 href="mainap14.html#ide">IDE</a>, refer to the REDHAWK <a 
 href="mainap14.html#ide">IDE</a> chapters of this document (Starting
 at <a 
-href="mainch19.html#x21-34500019">Chapter 19</a>).
+href="mainch19.html#x21-35300019">Chapter 19</a>).
 <!--l. 9--><p class="noindent" >Modifying particular files is discouraged for two reasons:
       <ol  class="enumerate1" >
       <li 
@@ -483,7 +482,7 @@ class="ectt-1200">configure()</span></h4>
 <!--l. 39--><p class="noindent" >The <span 
 class="ectt-1200">configure() </span>method is used by the REDHAWK Core Framework and is discussed in more
 detail in <a 
-href="#x6-840004.8.2.5">Section 4.8.2.5</a>. <a 
+href="#x6-920004.8.2.5">Section 4.8.2.5</a>. <a 
 href="mainli2.html#glo:component">Components</a> of all three languages inherit the <span 
 class="ectt-1200">configure() </span>method from
 their respective <span 
@@ -558,43 +557,190 @@ href="mainap14.html#corba">CORBA</a> is the manipulation of
 <span 
 class="ectt-1200">CORBA::Any </span>types for access to <a 
 href="mainap14.html#sri">SRI</a> Keywords.
-<!--l. 6--><p class="noindent" >This section provides an example of how to manipulate <span 
-class="ectt-1200">CORBA::Any </span>types and how this knowledge
-can be applied to the manipulation of <a 
+<!--l. 6--><p class="noindent" >This section provides examples, in C++, Python and Java, of how to manipulate <span 
+class="ectt-1200">CORBA::Any</span>
+types, how to add <a 
+href="mainap14.html#sri">SRI</a> keywords, how to verify <a 
+href="mainap14.html#sri">SRI</a> keywords, and how this knowledge can be
+applied to the manipulation of <a 
 href="mainap14.html#sri">SRI</a>.
 <!--l. 8--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.1   </span> <a 
  id="x6-600004.6.1"></a>Manipulating <span 
 class="ectt-1200">CORBA::Any </span>Types</h4>
-<!--l. 10--><p class="noindent" >The following code is an example of how to set a value in a <span 
+<!--l. 9--><p class="noindent" >This section provides examples of how to set and get <span 
+class="ectt-1200">CORBA::Any </span>values in C++, Python, and
+Java.
+<!--l. 11--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.1.1   </span> <a 
+ id="x6-610004.6.1.1"></a>C++ Implementation</h5>
+<!--l. 12--><p class="noindent" >The following code is an example of how to set a value in a <span 
 class="ectt-1200">CORBA::Any </span>in C++:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 CORBA::Any anyVar;
 CORBA::Long longVar = 1000;
 anyVar &lt;&lt;= longVar;
 ]]></script></div>
-<!--l. 18--><p class="noindent" >The following code is an example of how to get a value from a <span 
+<!--l. 20--><p class="noindent" >The following code is an example of how to get a value from a <span 
 class="ectt-1200">CORBA::Any </span>in C++:
-                                                                                         
-                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // variable named "anyVar" of type CORBA::Any has already
 // been defined with a value
 CORBA::Long longVar;
 anyVar &gt;&gt;= longVar;
 ]]></script></div>
-<!--l. 27--><p class="noindent" >
+<!--l. 29--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.1.2   </span> <a 
+ id="x6-620004.6.1.2"></a>Python Implementation</h5>
+<!--l. 31--><p class="noindent" >The following code is an example of how to set a value in a <span 
+class="ectt-1200">CORBA::Any </span>in Python:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+from omniORB import any
+longVar = 1000
+anyVar = any.to_any(longVar)
+]]></script></div>
+<!--l. 38--><p class="noindent" >The following code is an example of how to get a value from a <span 
+class="ectt-1200">CORBA::Any </span>in Python:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+longVar = any.from_any(anyVar)
+]]></script></div>
+<!--l. 43--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.1.3   </span> <a 
+ id="x6-630004.6.1.3"></a>Java Implementation</h5>
+<!--l. 44--><p class="noindent" >The following code is an example of how to set a value in a <span 
+class="ectt-1200">CORBA::Any </span>in Java:
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+import org.ossie.properties.AnyUtils;
+import org.omg.CORBA.Any;
+import org.omg.CORBA.TCKind;
+
+long longVar = 1000L;
+Any anyVar = AnyUtils.toAny(longVar,TCKind.tk_long);
+]]></script></div>
+<!--l. 54--><p class="noindent" >The following code is an example of how to get a value from a <span 
+class="ectt-1200">CORBA::Any </span>in Java:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+longVar = (Integer)AnyUtils.convertAny(anyVar);
+]]></script></div>
+<!--l. 60--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.2   </span> <a 
- id="x6-610004.6.2"></a>Working with SRI</h4>
-<!--l. 29--><p class="noindent" >The following C++ functions are examples of how to add and modify keywords (keywords are
+ id="x6-640004.6.2"></a>Adding SRI Keywords in C++, Python, and Java</h4>
+<!--l. 61--><p class="noindent" >Given a <a 
+href="mainli2.html#glo:component">Component</a> with simple <a 
+href="mainli2.html#glo:property">Properties</a> <span 
+class="ectt-1200">chan_rf </span>and <span 
+class="ectt-1200">col_rf </span>that are of type double and have
+an initial value of <span 
+class="ectt-1200">-1</span>, and a <a 
+href="mainap14.html#bulkio">BulkIO</a> StreamSRI instance named <span 
+class="ectt-1200">sri</span>, here are implementations in
+C++, Python and Java, of pushing out those <a 
+href="mainli2.html#glo:property">Property</a> values as the keywords <span 
+class="ectt-1200">COL_RF </span>and
 <span 
-class="ectt-1200">CORBA::String_member </span>and <span 
-class="ectt-1200">CORBA::Any pairs</span>).
-<!--l. 31--><p class="noindent" >
+class="ectt-1200">CHAN_RF</span>.
+<!--l. 63--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.2.1   </span> <a 
- id="x6-620004.6.2.1"></a>Adding a Modified SRI Keyword to the SRI</h5>
+ id="x6-650004.6.2.1"></a>C++ Implementation</h5>
                                                                                          
                                                                                          
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+sri.keywords.length(0);
+int index = 0;
+
+if (this->chan_rf != -1.0) {
+    sri.keywords.length(index + 1);
+    sri.keywords[index].id = "CHAN_RF";
+    sri.keywords[index].value &lt;&lt;= this->chan_rf;
+    index++;
+}
+
+if (this->col_rf != -1.0) {
+    sri.keywords.length(index + 1);
+    sri.keywords[index].id = "COL_RF";
+    sri.keywords[index].value &lt;&lt;= this->col_rf;
+    index++;
+}
+]]></script></div>
+<!--l. 83--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.2.2   </span> <a 
+ id="x6-660004.6.2.2"></a>Python Implementation</h5>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+keywords = []
+if self.chan_rf != -1:
+    keywords.append(CF.DataType("CHAN_RF", any.to_any(self.chan_rf)))
+if self.col_rf != -1:
+    keywords.append(CF.DataType("COL_RF", any.to_any(self.col_rf)))
+self.sri.keywords = keywords
+]]></script></div>
+<!--l. 93--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.2.3   </span> <a 
+ id="x6-670004.6.2.3"></a>Java Implementation</h5>
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+double chan_rf = this.chan_rf.getValue();
+double col_rf = this.col_rf.getValue();
+int count = 0;
+if (chan_rf != -1) {
+    count++;
+}
+if (col_rf != -1) {
+    count++;
+}
+sri.keywords = new DataType[count];
+int index = 0;
+if (chan_rf != -1) {
+    sri.keywords[index] = new DataType("CHAN_RF", AnyUtils.toAny(chan_rf, TCKind.tk_double));
+    index++;
+}
+if (col_rf != -1) {
+    sri.keywords[index] = new DataType("COL_RF", AnyUtils.toAny(col_rf, TCKind.tk_double));
+    index++;
+}
+]]></script></div>
+<!--l. 116--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">4.6.3   </span> <a 
+ id="x6-680004.6.3"></a>Verifying SRI Keywords</h4>
+<!--l. 118--><p class="noindent" >It is possible to verify the keywords and values being pushed out by connecting a <span 
+class="ectt-1200">DataSink()</span>
+<a 
+href="mainli2.html#glo:component">Component</a> in the Python <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>. This assumes there is at least one <a 
+href="mainap14.html#bulkio">BulkIO</a> output <a 
+href="mainli2.html#glo:port">Port</a> for the
+test <a 
+href="mainli2.html#glo:component">Component</a>, and a <span 
+class="ectt-1200">pushSRI() </span>call is made on that <a 
+href="mainli2.html#glo:port">Port</a>. The following code demonstrates this
+verification:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> from ossie.utils import sb
+&gt;&gt;> comp = sb.launch("<component name>")
+&gt;&gt;> sink = sb.DataSink()
+&gt;&gt;> comp.connect(sink)
+&gt;&gt;> sb.start()
+&gt;&gt;> print sink.sri().keywords
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 129--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">4.6.4   </span> <a 
+ id="x6-690004.6.4"></a>Working with SRI in C++</h4>
+<!--l. 131--><p class="noindent" >Here is a useful example in C++ of a template function that allows the addition or modification of
+<a 
+href="mainap14.html#sri">SRI</a> keywords of different types. The keywords are <span 
+class="ectt-1200">CORBA::String_member </span>and <span 
+class="ectt-1200">CORBA::Any</span>
+<span 
+class="ectt-1200">pairs</span>.
+<!--l. 133--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.4.1   </span> <a 
+ id="x6-700004.6.4.1"></a>Adding a Modified SRI Keyword to the SRI</h5>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 template <typename CORBAXX> bool addModifyKeyword(
       BULKIO::StreamSRI *sri,
@@ -618,9 +764,11 @@ template <typename CORBAXX> bool addModifyKeyword(
          return true;
 }
 ]]></script></div>
-<!--l. 57--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">4.6.2.2   </span> <a 
- id="x6-630004.6.2.2"></a>Getting a Keyword Position from an ID</h5>
+<!--l. 159--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.4.2   </span> <a 
+ id="x6-710004.6.4.2"></a>Getting a Keyword Position from an ID</h5>
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 int getKeywordPos(BULKIO::StreamSRI *sri,
   CORBA::String_member id) {
@@ -633,11 +781,9 @@ int getKeywordPos(BULKIO::StreamSRI *sri,
      return -1;
 }
 ]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 72--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">4.6.2.3   </span> <a 
- id="x6-640004.6.2.3"></a>Getting a Keyword Value from an ID</h5>
+<!--l. 174--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.4.3   </span> <a 
+ id="x6-720004.6.4.3"></a>Getting a Keyword Value from an ID</h5>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 template <typename MYTYPE> MYTYPE getKeywordValueByID(
   BULKIO::StreamSRI *sri, CORBA::String_member id) {
@@ -652,9 +798,11 @@ template <typename MYTYPE> MYTYPE getKeywordValueByID(
      return value;
 }
 ]]></script></div>
-<!--l. 89--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">4.6.2.4   </span> <a 
- id="x6-650004.6.2.4"></a>Getting a Keyword Value Given a Position</h5>
+<!--l. 191--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">4.6.4.4   </span> <a 
+ id="x6-730004.6.4.4"></a>Getting a Keyword Value Given a Position</h5>
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 template <typename MYTYPE> MYTYPE getKeywordValueAtPos(
   BULKIO::StreamSRI *sri, int pos) {
@@ -666,10 +814,8 @@ template <typename MYTYPE> MYTYPE getKeywordValueAtPos(
 }
 ]]></script></div>
 <!--l. 1--><p class="noindent" >
-                                                                                         
-                                                                                         
 <h3 class="sectionHead"><span class="titlemark">4.7   </span> <a 
- id="x6-660004.7"></a>Properties in Depth</h3>
+ id="x6-740004.7"></a>Properties in Depth</h3>
 <!--l. 3--><p class="noindent" >Properties are defined by their structure and contents. The structure of a property may be of type
 Simple, Simple Sequence, Struct, or Struct sequences. The contents of these structures may be one
 of many primitive types, such as "string" or "float". In addition, the contents of the property
@@ -694,10 +840,12 @@ manner (though simplified by using language-native numeric types instead of comp
 types).
 <!--l. 15--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.1   </span> <a 
- id="x6-670004.7.1"></a>Supported Primitive Types</h4>
+ id="x6-750004.7.1"></a>Supported Primitive Types</h4>
+                                                                                         
+                                                                                         
 <!--l. 16--><p class="noindent" >The following primitive data types (either as Simples or Simple Sequences) are supported:
       <ul class="itemize1">
-      <li class="itemize">Boolean
+      <li class="itemize">boolean
       </li>
       <li class="itemize">octet
       </li>
@@ -706,8 +854,6 @@ types).
       <li class="itemize">double
       </li>
       <li class="itemize">short
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">ushort
       </li>
@@ -724,12 +870,14 @@ types).
       <li class="itemize">objref
       </li>
       <li class="itemize">char</li></ul>
+                                                                                         
+                                                                                         
 <!--l. 35--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.2   </span> <a 
- id="x6-680004.7.2"></a>Supported Complex Types</h4>
+ id="x6-760004.7.2"></a>Supported Complex Types</h4>
 <!--l. 36--><p class="noindent" >The following data types (either as Simples or Simple Sequences) may be set to complex:
       <ul class="itemize1">
-      <li class="itemize">Boolean
+      <li class="itemize">boolean
       </li>
       <li class="itemize">octet
       </li>
@@ -738,8 +886,6 @@ types).
       <li class="itemize">double
       </li>
       <li class="itemize">short
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">ushort
       </li>
@@ -752,7 +898,7 @@ types).
       <li class="itemize">ulongong</li></ul>
 <!--l. 51--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.3   </span> <a 
- id="x6-690004.7.3"></a>Representation in XML</h4>
+ id="x6-770004.7.3"></a>Representation in XML</h4>
 <!--l. 52--><p class="noindent" >Although the REDHAWK <a 
 href="mainap14.html#ide">IDE</a> supports the creation of appropriate <a 
 href="mainap14.html#xml">XML</a> elements in the
@@ -760,6 +906,8 @@ href="mainap14.html#xml">XML</a> elements in the
 href="mainli2.html#glo:component">Component</a> PRF file, <a 
 href="mainap14.html#xml">XML</a> tags may be edited through other means.
 <!--l. 54--><p class="noindent" >A Simple property element takes the form:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
   <simple id="complexULongLong" mode="readwrite" type="ulonglong">
      <value>4</value>
@@ -776,8 +924,6 @@ href="mainap14.html#xml">XML</a> tags may be edited through other means.
      <action type="external"/>
   </simple>
 ]]></script></div>
-                                                                                         
-                                                                                         
 <!--l. 75--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The presence of a &#x003C;complex&#x003E; attribute (set to "true") and the presence of "+j" in the &#x003C;value&#x003E;
 element distinguishes a complex property from a primitive property. The &#x003C;value&#x003E; element must
 follow the A+jB format strictly, where "A" corresponds to the real component of the complex
@@ -787,15 +933,15 @@ of "jB" is acceptable if the real component is equal to 0. Also, complex values 
 negative imaginary components must be expressed as "A-jB", in alternative to "A+j-B". </p></div></div>
 <!--l. 82--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.4   </span> <a 
- id="x6-700004.7.4"></a>C++ Resource Code</h4>
+ id="x6-780004.7.4"></a>C++ Resource Code</h4>
 <!--l. 84--><p class="noindent" ><a 
-href="#x6-70001r1">Table 4.1</a> shows the mapping of C++ data types to their corresponding <a 
+href="#x6-78001r1">Table 4.1</a> shows the mapping of C++ data types to their corresponding <a 
 href="mainap14.html#bulkio">BulkIO</a> types:
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 85--><p class="noindent" ><a 
- id="x6-70001r1"></a><hr class="float"><div class="float" 
+ id="x6-78001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -855,7 +1001,7 @@ class="td11"> <!--l. 100--><p class="noindent" >CORBA::ULongLong                
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;4.1: </td><td  
 class="content">Mapping of <a 
-href="mainap14.html#bulkio">BulkIO</a> Data Type to C++ Type</td></tr></table><!--tex4ht:label?: x6-70001r1 -->
+href="mainap14.html#bulkio">BulkIO</a> Data Type to C++ Type</td></tr></table><!--tex4ht:label?: x6-78001r1 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -863,7 +1009,7 @@ href="mainap14.html#bulkio">BulkIO</a> Data Type to C++ Type</td></tr></table><!
 <!--l. 105--><p class="noindent" >In C++, a std::complex value sets/gets complex properties. For example, a complex float property
 is represented as std::complex&#x003C;float&#x003E;.
 <h5 class="subsubsectionHead"><span class="titlemark">4.7.4.1   </span> <a 
- id="x6-710004.7.4.1"></a>exampleComponent_base.h</h5>
+ id="x6-790004.7.4.1"></a>exampleComponent_base.h</h5>
 <!--l. 110--><p class="noindent" >The following examples of the generated initialization of variables represent a complex float
 property and a complex float sequence property.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -872,7 +1018,7 @@ std::vector<std::complex<float> > complexFloatSequence;
 ]]></script></div>
 <!--l. 117--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.7.4.2   </span> <a 
- id="x6-720004.7.4.2"></a>exampleComponent_base.cpp</h5>
+ id="x6-800004.7.4.2"></a>exampleComponent_base.cpp</h5>
 <!--l. 118--><p class="noindent" >Autogenerated initialization code is created in the <span 
 class="ectt-1200">loadProperties </span>method.
 <!--l. 120--><p class="noindent" >The API for the addProperty method when using complex types is the same as the addProperty
@@ -909,7 +1055,7 @@ addProperty(complexFloatSequence,
 ]]></script></div>
 <!--l. 148--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.7.5   </span> <a 
- id="x6-730004.7.5"></a>Python Resource Code</h4>
+ id="x6-810004.7.5"></a>Python Resource Code</h4>
 <!--l. 150--><p class="noindent" >To set/get complex properties in Python, use the Python complex module. For example, a complex
 float property value can be set using either of the following methods:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
@@ -917,14 +1063,14 @@ myComplexValue = complex(1.0, 2.0)
 myComplexValue = 1+2j
 ]]></script></div>
 <!--l. 158--><p class="noindent" >As with primitive types, the Python data types listed in <a 
-href="#x6-73001r2">Table 4.2</a> are used in conjunction
+href="#x6-81001r2">Table 4.2</a> are used in conjunction
 with their corresponding types. Of course, explicit typing of variables is unnecessary in
 Python.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 161--><p class="noindent" ><a 
- id="x6-73001r2"></a><hr class="float"><div class="float" 
+ id="x6-81001r2"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -981,13 +1127,13 @@ class="td11"> dataUlongLong     </td><td  style="white-space:wrap; text-align:le
 class="td11"> <!--l. 176--><p class="noindent" >long                  </td></tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;4.2: </td><td  
-class="content">Mapping of Property Type to Python Type</td></tr></table><!--tex4ht:label?: x6-73001r2 -->
+class="content">Mapping of Property Type to Python Type</td></tr></table><!--tex4ht:label?: x6-81001r2 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h5 class="subsubsectionHead"><span class="titlemark">4.7.5.1   </span> <a 
- id="x6-740004.7.5.1"></a>exampleComponent_base.py</h5>
+ id="x6-820004.7.5.1"></a>exampleComponent_base.py</h5>
 <!--l. 183--><p class="noindent" >The following code contains an example of a complex property initialization as autogenerated by
 the REDHAWK code generators.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
@@ -1020,7 +1166,7 @@ complexFloatSequence = simpleseq_property(id_="complexFloatSequence",
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">4.7.6   </span> <a 
- id="x6-750004.7.6"></a>Java Resource Code</h4>
+ id="x6-830004.7.6"></a>Java Resource Code</h4>
 <!--l. 215--><p class="noindent" >Unlike C++ and Python, which have widely-accepted standard practices for handling complex
 numbers (std::complex and Python&#8217;s built-in complex, respectively), Java does not have a
 ubiquitous means for representing complex numbers. REDHAWK, therefore, provides a set of data
@@ -1049,7 +1195,7 @@ type.
                                                                                          
                                                                                          
 <!--l. 235--><p class="noindent" ><a 
- id="x6-75001r3"></a><hr class="float"><div class="float" 
+ id="x6-83001r3"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -1071,7 +1217,7 @@ class="ecbx-1200">Java Type</span>      </td>
 class="hline"><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-1"  
 class="td11"> dataBoolean      </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-2-2"  
-class="td11"> <!--l. 241--><p class="noindent" >Boolean             </td></tr><tr  
+class="td11"> <!--l. 241--><p class="noindent" >boolean             </td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-1"  
 class="td11"> dataOctet </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-3-2"  
 class="td11"> <!--l. 242--><p class="noindent" >byte</td>
@@ -1109,13 +1255,13 @@ class="td11"> <!--l. 250--><p class="noindent" >long                  </td></tr>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;4.3: </td><td  
 class="content">Mapping of <a 
-href="mainap14.html#bulkio">BulkIO</a> Type to Java Type</td></tr></table><!--tex4ht:label?: x6-75001r3 -->
+href="mainap14.html#bulkio">BulkIO</a> Type to Java Type</td></tr></table><!--tex4ht:label?: x6-83001r3 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h5 class="subsubsectionHead"><span class="titlemark">4.7.6.1   </span> <a 
- id="x6-760004.7.6.1"></a>exampleComponent.java</h5>
+ id="x6-840004.7.6.1"></a>exampleComponent.java</h5>
 <!--l. 257--><p class="noindent" >The following code contains an example of a complex property initialization as autogenerated by
 the REDHAWK code generators.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
@@ -1153,7 +1299,7 @@ public final SimpleSequenceProperty<complexFloat> complexFloatSequence =
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.8   </span> <a 
- id="x6-770004.8"></a>Resource Interface: <span 
+ id="x6-850004.8"></a>Resource Interface: <span 
 class="ectt-1200">query()</span>/ <span 
 class="ectt-1200">configure()</span></h3>
 <!--l. 3--><p class="noindent" >Each <a 
@@ -1183,12 +1329,12 @@ href="mainli2.html#glo:property">Properties</a> with write privileges can only b
 <span 
 class="ectt-1200">configure() </span>method. Additional information on <a 
 href="mainli2.html#glo:property">Properties</a> can be found in <a 
-href="mainch12.html#x14-23400012.2.3">Section 12.2.3</a> with
+href="mainch12.html#x14-24200012.2.3">Section 12.2.3</a> with
 examples in <a 
-href="mainch12.html#x14-24200012.3.3">Section 12.3.3</a>.
+href="mainch12.html#x14-25000012.3.3">Section 12.3.3</a>.
 <!--l. 7--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.1   </span> <a 
- id="x6-780004.8.1"></a><span 
+ id="x6-860004.8.1"></a><span 
 class="ectt-1200">query()</span></h4>
 <!--l. 8--><p class="noindent" >The <span 
 class="ectt-1200">query() </span>method returns a list of Identifier (<a 
@@ -1219,7 +1365,7 @@ ossie.cf.CF.DataType(
                                                                                          
 <!--l. 30--><p class="noindent" >The <span 
 class="ectt-1200">query() </span>result in the code example depicts five <a 
-href="mainli2.html#glo:property">Properties</a> of types Boolean, long, long, long,
+href="mainli2.html#glo:property">Properties</a> of types boolean, long, long, long,
 and short, respectively. The values of each of these <a 
 href="mainli2.html#glo:property">Properties</a> are set to <span 
 class="ectt-1200">True</span>, <span 
@@ -1238,7 +1384,7 @@ class="ectt-1200">prf.xml</span>
 file.
 <!--l. 33--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.2   </span> <a 
- id="x6-790004.8.2"></a>Specializing Component Configuration</h4>
+ id="x6-870004.8.2"></a>Specializing Component Configuration</h4>
 <!--l. 35--><p class="noindent" >The REDHAWK library base classes provide a complete implementation of <span 
 class="ectt-1200">configure()</span>, with the
 creation of specific <a 
@@ -1260,7 +1406,7 @@ href="mainli2.html#glo:property">Property</a> values
       <li class="itemize">Exception throwing for invalid input</li></ul>
 <!--l. 45--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.8.2.1   </span> <a 
- id="x6-800004.8.2.1"></a>Property Change Listeners</h5>
+ id="x6-880004.8.2.1"></a>Property Change Listeners</h5>
 <!--l. 47--><p class="noindent" >Often, it is useful to trigger additional actions when the value of a <a 
 href="mainli2.html#glo:property">Property</a> changes. <a 
 href="mainli2.html#glo:component">Components</a>
@@ -1283,7 +1429,7 @@ href="mainli2.html#glo:property">Property</a> or call additional functions; howe
 avoid computationally expensive or blocking operations.
 <!--l. 51--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.8.2.2   </span> <a 
- id="x6-810004.8.2.2"></a>C++</h5>
+ id="x6-890004.8.2.2"></a>C++</h5>
 <!--l. 53--><p class="noindent" >C++ <a 
 href="mainli2.html#glo:component">Components</a> support notification of <a 
 href="mainli2.html#glo:property">Property</a> value changes using member function callbacks.
@@ -1330,7 +1476,7 @@ CORBA::Long) instead of the C++ type (for example, long, which varies in size de
 platform).
 <!--l. 82--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.8.2.3   </span> <a 
- id="x6-820004.8.2.3"></a>Python</h5>
+ id="x6-900004.8.2.3"></a>Python</h5>
 <!--l. 84--><p class="noindent" >Like C++, Python <a 
 href="mainli2.html#glo:component">Components</a> allow registering listeners by <a 
 href="mainli2.html#glo:property">Property</a>. The callback is typically a
@@ -1359,7 +1505,7 @@ self.addPropertyChangeListener("freqMHz", self.freqMHz_changed)
 ]]></script></div>
 <!--l. 101--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.8.2.4   </span> <a 
- id="x6-830004.8.2.4"></a>Java</h5>
+ id="x6-910004.8.2.4"></a>Java</h5>
                                                                                          
                                                                                          
 <!--l. 103--><p class="noindent" >Java <a 
@@ -1403,7 +1549,7 @@ this.freqMHz.addPropertyListener(new ChangeListener<Float>() {
 ]]></script></div>
 <!--l. 125--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.8.2.5   </span> <a 
- id="x6-840004.8.2.5"></a>Overriding the <span 
+ id="x6-920004.8.2.5"></a>Overriding the <span 
 class="ectt-1200">configure() </span>Method</h5>
 <!--l. 129--><p class="noindent" >For the vast majority of cases, the standard <span 
 class="ectt-1200">configure() </span>implementation is sufficient. Developers
@@ -1419,7 +1565,7 @@ href="mainli2.html#glo:component">Component</a> developer.
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.9   </span> <a 
- id="x6-850004.9"></a>Including External Libraries</h3>
+ id="x6-930004.9"></a>Including External Libraries</h3>
 <!--l. 2--><p class="noindent" >This section details how to link a C++ <a 
 href="mainli2.html#glo:component">Component</a> with a library. Two examples are given: using a
 pkg-config (<span 
@@ -1430,7 +1576,7 @@ pkg-config file is not available, or if you wish to directly supply the compiler
 use the second method.
 <!--l. 4--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.9.1   </span> <a 
- id="x6-860004.9.1"></a>Adding a Library by Referencing a pkg-config File</h4>
+ id="x6-940004.9.1"></a>Adding a Library by Referencing a pkg-config File</h4>
 <!--l. 5--><p class="noindent" >To add a library by referencing a pkg-config (<span 
 class="ectt-1200">.pc</span>) file, edit the <span 
 class="ectt-1200">configure.ac </span>file in your
@@ -1458,7 +1604,7 @@ export PKG_CONFIG_PATH=/custom/path:$PKG_CONFIG_PATH
                                                                                          
 <!--l. 27--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.9.2   </span> <a 
- id="x6-870004.9.2"></a>Adding a Library Directly</h4>
+ id="x6-950004.9.2"></a>Adding a Library Directly</h4>
 <!--l. 28--><p class="noindent" >To add a library, edit the <span 
 class="ectt-1200">Makefile.am </span>file in your component&#8217;s implementation directory. Append
 compiler and linker flags to the end of the CXXFLAGS and LDADD lines, respectively. For

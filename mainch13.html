@@ -35,8 +35,7 @@ window.attachEvent("onload", f);
 <div class="header"> 
 <ul class="navbar"> 
 <li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="index.html">Home</a></li> 
-<li><a href="gettingstarted/main.html">Getting Started</a></li> 
-<li><a class="active" href="main.html">Documentation</a></li> 
+<li><a class="active" href="documentation.html">Documentation</a></li> 
 <li><a href="download.html">Download</a></li> 
 <li><a href="community.html">Community</a></li> 
 </ul> 
@@ -54,9 +53,9 @@ href="mainch12.html#tailmainch12.html" >prev-tail</a>] [<a
 href="#tailmainch13.html">tail</a>] [<a 
 href="main.html#mainch13.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;13</span><br /><a 
- id="x15-24700013"></a>Runtime Environment Inspection</h2>
+ id="x15-25500013"></a>Runtime Environment Inspection</h2>
 <h3 class="sectionHead"><span class="titlemark">13.1   </span> <a 
- id="x15-24800013.1"></a>Introduction</h3>
+ id="x15-25600013.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >During runtime, there are a large number of operations that are handled under the hood by the
 REDHAWK Core Framework. At times though, it becomes necessary to take a closer look at
 these underlying parts to ensure that they are working properly or to inspect what kind
@@ -64,7 +63,7 @@ of a state they are currently in. REDHAWK provides tools to help accomplish this
 task.
 <!--l. 10--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.2   </span> <a 
- id="x15-24900013.2"></a>REDHAWK Module</h3>
+ id="x15-25700013.2"></a>REDHAWK Module</h3>
 <!--l. 12--><p class="noindent" >A Python module called REDHAWK is provided with the capability to interact with running
 <a 
 href="mainli2.html#glo:domain">Domains</a>, <a 
@@ -91,14 +90,14 @@ href="mainli2.html#glo:device">Devices</a>, <a
 href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
 href="mainli2.html#glo:component">Components</a> running in the domain.
 <!--l. 29--><p class="noindent" >Refer to <a 
-href="mainch9.html#x11-1550009.4">Section 9.4</a> for details about interacting with <a 
+href="mainch9.html#x11-1630009.4">Section 9.4</a> for details about interacting with <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:device">Devices</a> in Python.
 <!--l. 31--><p class="noindent" >
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">13.2.1   </span> <a 
- id="x15-25000013.2.1"></a>Attach</h4>
+ id="x15-25800013.2.1"></a>Attach</h4>
 <!--l. 33--><p class="noindent" >The module provides the ability to attach to a running <a 
 href="mainli2.html#glo:domain">Domain</a>.
 <!--l. 35--><p class="noindent" >This allows the user access to the underlying <a 
@@ -191,7 +190,7 @@ class="ectt-1200">removeApplication() </span>method:
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">13.2.2   </span> <a 
- id="x15-25100013.2.2"></a>Kick Start</h4>
+ id="x15-25900013.2.2"></a>Kick Start</h4>
 <!--l. 102--><p class="noindent" >The kick <a 
 href="mainli2.html#glo:domain">Domain</a> feature allows for an easy way to launch <a 
 href="mainli2.html#glo:domain">Domain</a> and <a 
@@ -248,7 +247,7 @@ href="mainli2.html#glo:namingservice">Naming Service</a>.
 </div>
 <!--l. 143--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.3   </span> <a 
- id="x15-25200013.2.3"></a>Domain State</h4>
+ id="x15-26000013.2.3"></a>Domain State</h4>
 <!--l. 145--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy tracks the current state of the <a 
 href="mainli2.html#glo:domain">Domain</a>. For aspects of the <a 
@@ -265,7 +264,7 @@ href="mainli2.html#glo:domain">Domain</a> is re-scanned on
 access to ensure that the state is accurate.
 <!--l. 150--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.2.3.1   </span> <a 
- id="x15-25300013.2.3.1"></a>Applications</h5>
+ id="x15-26100013.2.3.1"></a>Applications</h5>
 <!--l. 152--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> currently running via the <span 
@@ -300,7 +299,7 @@ href="mainli2.html#glo:component">Components</a>.
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><span class="titlemark">13.2.3.2   </span> <a 
- id="x15-25400013.2.3.2"></a>Device Managers</h5>
+ id="x15-26200013.2.3.2"></a>Device Managers</h5>
 <!--l. 173--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
 href="mainli2.html#glo:devicemanager">Device Managers</a> registered with the <a 
@@ -321,7 +320,7 @@ class="ectt-1200">devs </span>attribute:
 ]]></script></div>
 <!--l. 187--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.2.3.3   </span> <a 
- id="x15-25500013.2.3.3"></a>Devices</h5>
+ id="x15-26300013.2.3.3"></a>Devices</h5>
 <!--l. 189--><p class="noindent" >The <a 
 href="mainli2.html#glo:domain">Domain</a> proxy provides a list of all <a 
 href="mainli2.html#glo:device">Devices</a> registered with the <a 
@@ -343,7 +342,7 @@ href="mainli2.html#glo:Sandbox">Sandbox</a> <a
 href="mainli2.html#glo:device">Devices</a>.
 <!--l. 200--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.4   </span> <a 
- id="x15-25600013.2.4"></a>Using With the Sandbox</h4>
+ id="x15-26400013.2.4"></a>Using With the Sandbox</h4>
 <!--l. 202--><p class="noindent" ><a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> and <a 
 href="mainli2.html#glo:domain">Domain</a> objects are interoperable and can be connected together. This
@@ -379,7 +378,7 @@ href="mainli2.html#glo:domain">Domain</a> objects are
 broken to limit interference with normal domain operation.
 <!--l. 227--><p class="noindent" >For more details on using the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch9.html#x11-1490009">Chapter 9</a>.
+href="mainch9.html#x11-1570009">Chapter 9</a>.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

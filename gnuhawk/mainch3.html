@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>3 Building and Installing GNUHAWK from Source</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch4.html" >next</a>] [<a 
+href="mainch2.html" >prev</a>] [<a 
+href="mainch2.html#tailmainch2.html" >prev-tail</a>] [<a 
+href="#tailmainch3.html">tail</a>] [<a 
+href="main.html#mainch3.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;3</span><br /><a 
+ id="x5-110003"></a>Building and Installing GNUHAWK from Source</h2>
+<!--l. 3--><p class="noindent" >The GNUHAWK source baseline consists of a compatibility library of GNU Radio base classes, along with
+GNU Radio version 3.6.2. The source tree utilizes GNU&#8217;s Auto Tools to configure and build the compilation
+environment for the compatibility library, the VOLK library, the GNU Radio Blocks, and their supporting files. <div class="note" style="background-color: gray">
+<span 
+class="ectt-1200">To install GNUHAWK, users must have root or sudo access.</span>
+</div>
+<h3 class="sectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x5-120003.1"></a>Dependencies</h3>
+<!--l. 9--><p class="noindent" >GNUHAWK has runtime and build dependencies.
+<!--l. 11--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.1.1   </span> <a 
+ id="x5-130003.1.1"></a>Runtime Dependencies</h4>
+<!--l. 12--><p class="noindent" >The following packages must be installed to run GNUHAWK.
+      <ul class="itemize1">
+      <li class="itemize">REDHAWK Core Framework 1.10.0
+      </li>
+      <li class="itemize">REDHAWK BULKIO Libraries 1.10.0
+      </li>
+      <li class="itemize">FFTW 3.2.1 or newer (This includes both the FFTW and FFTW-devel rpms.) For more
+      information about installing REDHAWK, refer to the Installation chapter of the REDHAWK
+      Manual.</li></ul>
+<!--l. 20--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.1.2   </span> <a 
+ id="x5-140003.1.2"></a>Build Dependencies</h4>
+<!--l. 21--><p class="noindent" >The following dependencies are required to build the underlying VOLK GNU Radio library.
+      <ul class="itemize1">
+      <li class="itemize">cmake
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">gsl-devel
+      </li>
+      <li class="itemize">orc-devel
+      </li>
+      <li class="itemize">python-cheetah
+      </li>
+      <li class="itemize">fftw-devel (for 64-bit architectures)
+      </li>
+      <li class="itemize">FFTW  (for  32-bit  architectures)  <div class="note" style="background-color: gray">
+      <span 
+class="ectt-1200">FFTW must be configured with the \variable{-{}-enable-sse} flag.  This  requires installing FFTW from source with the following configure call:</span>
+      <span 
+class="ectt-1200">\vspace{12 pt}</span>
+      <span 
+class="ectt-1200">\begin{terminalCode}</span>
+      <span 
+class="ectt-1200">./configure --enable-float --enable-sse --enable-shared --disable-static</span>
+      <span 
+class="ectt-1200">\end{terminalCode}</span>
+      <span 
+class="ectt-1200">For FFTW to install properly, certain environment variables need to be set in \filename{.bashrc}.</span>
+      <span 
+class="ectt-1200">\begin{itemize}</span>
+      <span 
+class="ectt-1200">\item For installation on 32-bit architecture, set the following environment variables:</span>
+      <span 
+class="ectt-1200">\begin{terminalCode}</span>
+      <span 
+class="ectt-1200">export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH</span>
+      <span 
+class="ectt-1200">export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH</span>
+      <span 
+class="ectt-1200">\end{terminalCode}</span>
+      <span 
+class="ectt-1200">\item For installation on Ubuntu, set the following environment variables:</span>
+      <span 
+class="ectt-1200">\begin{terminalCode}</span>
+      <span 
+class="ectt-1200">export LD_LIBRARY_PATH=${OSSIEHOME}/lib64:$LD_LIBRARY_PATH</span>
+      <span 
+class="ectt-1200">export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH</span>
+      <span 
+class="ectt-1200">\end{terminalCode}</span>
+      <span 
+class="ectt-1200">\end{itemize}</span>
+      </div>
+      </li></ul>
+                                                                                         
+                                                                                         
+<!--l. 51--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x5-150003.2"></a>Directory Structure of GNUHAWK Source</h3>
+<!--l. 52--><p class="noindent" >The GNUHAWK source is structured as follows:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">components </span>contains the GNUHAWK Components.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">include </span>contains the GNUHAWK include files installed to support the GNUHAWK library.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">gnuradio </span>contains the GNU Radio baseline, version 3.6.2.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">qa/components </span>contains the supporting Components for QA tests.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">qa/gnuradio </span>contains the GNUHAWK version of the GNU Radio python module needed
+      to perform QA testing.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">qa/tests </span>contains the QA tests to be run, most of which are unmodified from the original
+      GNU Radio tests.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">src </span>contains the source code needed to build the library, including Makefile.am files used
+      to build the original GNU Radio blocks and supporting classes.</li></ul>
+<!--l. 63--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x5-160003.3"></a>Building GNUHAWK Library from Source</h3>
+<!--l. 64--><p class="noindent" >To build the GNUHAWK library from source, enter the following commands:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ rpm2cpio gnuhawk-<version>.<os>.src.rpm | cpio -idmv
+ tar zxvf gnuhawk-<version>.tar.gz
+ cd gnuhawk-<version>
+ ./reconf
+ ./configure
+                                                                                         
+                                                                                         
+ make
+ make install
+]]></script>
+Where
+<span 
+class="ectt-1200">&#x003C;version&#x003E;</span>
+corresponds
+to
+the
+associated
+REDHAWK
+version
+and
+<span 
+class="ectt-1200">&#x003C;os&#x003E;</span>
+corresponds
+to
+the
+associated
+Linux
+distribution.
+The
+library
+is
+installed
+in
+<span 
+class="ectt-1200">$SDRROOT/dom/deps/gnuhawk/lib</span>.
+<!--l. 78--><p class="noindent" ><div class="note" style="background-color: gray">
+<span 
+class="ectt-1200">For 32-bit architectures, the GNUHAWK library and Components must be installed</span>
+<span 
+class="ectt-1200">from source due to the need to create a specialized build of FFTW.  The</span>
+<span 
+class="ectt-1200">standard FFTW RPM for 32-bit architectures is not built with Streaming SIMD</span>
+<span 
+class="ectt-1200">Extensions (SSE) enabled.</span>
+</div>
+<!--l. 85--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
+ id="x5-170003.4"></a>Building GNUHAWK Components from Source</h3>
+                                                                                         
+                                                                                         
+<!--l. 86--><p class="noindent" >To build GNUHAWK Components from source, enter the following commands in the <span 
+class="ectt-1200">gnuhawk-&#x003C;version&#x003E;</span>
+directory created in the previous step
+<!--l. 89--><p class="noindent" ><div class="note" style="background-color: gray">
+<span 
+class="ectt-1200">The GNUHAWK library must be installed prior to running the following commands; otherwise, the build process fails.</span>
+</div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ cd components
+ ./reconf
+ ./configure  --enable-deps=sdr
+ make
+ make install
+]]></script>
+The Components are installed in <span 
+class="ectt-1200">$SDRROOT/dom/components/gnuhawk</span>.
+<!--l. 102--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
+ id="x5-180003.5"></a>Location of Installed Files</h3>
+      <ul class="itemize1">
+      <li class="itemize">
+      GNUHAWK
+      library
+      is
+      installed
+      in
+      <span 
+class="ectt-1200">$SDRROOT/dom/deps/gnuhawk/lib</span>.
+      </li>
+      <li class="itemize">
+      GNU
+      Radio&#8217;s
+      VOLK
+      (Vector-Optimized
+                                                                                         
+                                                                                         
+      Library
+      of
+      Kernels)
+      library
+      is
+      installed
+      in<br />
+      <span 
+class="ectt-1200">$SDRROOT/dom/deps/gnuhawk/lib</span>.
+      </li>
+      <li class="itemize">GNUHAWK Components are installed in <span 
+class="ectt-1200">$SDRROOT/dom/components/gnuhawk</span>. The following
+      subdirectories contain Components that use GNU Radio blocks.
+           <ul class="itemize2">
+           <li class="itemize">
+           <span 
+class="ectt-1200">atsc</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">digital</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">fft</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">filter</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/coding</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/converter</span>
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/demodulation</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/ecc</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/filter</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/fmdet_cf</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/level</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/math</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/misc</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/modulation</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/modulator</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/ofdm</span>
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/sink</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/slicedice</span>.
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/source</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">gr/sync</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">noaa</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">pager</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">vocoder</span>
+           </li>
+           <li class="itemize">
+           <span 
+class="ectt-1200">wavelet</span>
+           </li></ul>
+      </li></ul>
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch4.html" >next</a>] [<a 
+href="mainch2.html" >prev</a>] [<a 
+href="mainch2.html#tailmainch2.html" >prev-tail</a>] [<a 
+href="mainch3.html" >front</a>] [<a 
+href="main.html#mainch3.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch3.html"></a>  
+ 
+<div class=license> 
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 
