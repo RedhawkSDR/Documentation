@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>6 Launching the RBDS Waveform on the BeagleBone Black</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch5.html" >prev</a>] [<a 
+href="mainch5.html#tailmainch5.html" >prev-tail</a>] [<a 
+href="#tailmainch6.html">tail</a>] [<a 
+href="main.html#mainch6.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;6</span><br /><a 
+ id="x8-350006"></a>Launching the RBDS Waveform on the BeagleBone Black</h2>
+<!--l. 4--><p class="noindent" >This chapter explains how to run the RBDS Waveform on the BeagleBone Black.
+<h3 class="sectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x8-360006.1"></a>Connecting the IDE to the BeagleBone Black REDHAWK Domain</h3>
+<!--l. 8--><p class="noindent" >The following procedure explains how to connect the IDE to the BeagleBone Black REDHAWK
+Domain.
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-36002x1">Start the Domain Manager on the BeagleBone Black. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ nodeBooter -D &
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x8-36004x2">Start the IDE on the development computer.
+      </li>
+      <li 
+  class="enumerate" id="x8-36006x3">In the SCA Explorer view, click <span 
+class="ecbx-1200">New Domain Connect</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-36008x4">In the Domain Name section, enter <span 
+class="ectt-1200">REDHAWK_DEV</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-36010x5">In the Name Service Initial Reference section, enter <span 
+class="ectt-1200">corbaname::&#x003C;beaglebone black</span>
+      <span 
+class="ectt-1200">IP&#x003E;</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-36012x6">Click  <span 
+class="ecbx-1200">Finish</span>.
+      </li></ol>
+<!--l. 23--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">6.2   </span> <a 
+ id="x8-370006.2"></a>Launch the Device Manager and the RBDS Waveform </h3>
+<!--l. 25--><p class="noindent" >
+                                                                                         
+                                                                                         
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-37002x1">On the BeagleBone Black, to launch the <span 
+class="ectt-1200">rtlNode</span>, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ nodeBooter -d /nodes/rtlNode/DeviceManager.dcd.xml &
+      ]]></script>
+      The REDHAWK Device Manager is launched.
+      </li>
+      <li 
+  class="enumerate" id="x8-37004x2">On the development computer, in <span 
+class="ecbx-1200">SCA Explorer</span>, expand the <span 
+class="ecbx-1200">Domain Manager</span>, expand
+      <span 
+class="ecbx-1200">Device Managers</span>, and verify the <span 
+class="ectt-1200">rtlNode </span>is displayed.
+      <!--l. 35--><p class="noindent" >If the Domain is not displayed or not connected, refer to <a 
+href="#x8-360006.1">Section 6.1</a>.
+      </li>
+      <li 
+  class="enumerate" id="x8-37006x3">Right-click the <span 
+class="ecbx-1200">Domain Manager </span>and select <span 
+class="ecbx-1200">Launch Waveform</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-37008x4">Select the <span 
+class="ectt-1200">RBDS_wf </span>Waveform, click <span 
+class="ecbx-1200">Next</span>, and click <span 
+class="ecbx-1200">Next </span>again.
+      </li>
+      <li 
+  class="enumerate" id="x8-37010x5">Click <span 
+class="ecbx-1200">Finish </span>and run the Waveform.
+      <!--l. 40--><p class="noindent" >The RBDS Waveform and Components are now properly launched and running on the
+      BeagleBone Black. The RBDS Messages are connected to the Event Channel,
+      <span 
+class="ecbx-1200">RBDS_Channel</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-37012x6">To view the RBDS messages, enter the following command from a terminal on the development computer: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ eventviewer REDHAWK_DEV RBDS_Channel
+      ]]></script>
+      </li></ol>
+<!--l. 46--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If messages are not displayed in the eventviewer terminal, you may need to manually set the gain
+for the RTL Device. (The messages may not be displayed because the signal strength is too high,
+which can overwhelm the RTL Automatic Gain Control.) First, you must verify data is flowing into
+the RBDSDecoder. In the running Waveform, right-click the <span 
+class="ectt-1200">dataShort_out </span>Port from the
+<span 
+class="ectt-1200">DifferentialDecoder </span>in the Waveform, and select <span 
+class="ecbx-1200">Plot Port Data</span>. If data is flowing into the
+RBDSDecoder, then use the following procedure to set the gain manually for the RTL
+Device.
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-37014x1">
+      In
+      the
+      IDE,
+                                                                                         
+                                                                                         
+      in
+      the
+      SCA
+      Explorer
+      view,
+      select
+      <span 
+class="ecbx-1200">DeviceManagers</span>,
+      <span 
+class="ecbx-1200">rtlNode</span>,
+      <span 
+class="ecbx-1200">RTL2832U</span>,
+      <span 
+class="ecbx-1200">FrontEnd</span>
+      <span 
+class="ecbx-1200">Tuners</span>,
+      <span 
+class="ecbx-1200">RX_DIGITIZER</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-37016x2">
+      Left-click
+      the
+      allocated
+      tuner,
+      and
+      from
+      the
+      Properties
+      tab,
+      set
+      the
+      <span 
+class="ecbx-1200">Value</span>
+      for
+      the
+      <span 
+class="ecbx-1200">AGC</span>
+      Property
+      to
+      <span 
+class="ectt-1200">False</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-37018x3">
+      Then
+      set
+      the
+      <span 
+class="ecbx-1200">Value</span>
+      for
+                                                                                         
+                                                                                         
+      the
+      <span 
+class="ecbx-1200">Gain</span>
+      <span 
+class="ecbx-1200">Property</span>
+      to
+      <span 
+class="ectt-1200">0.0</span>.</li></ol>
+</p></div></div>
+<!--l. 55--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If running a Node on the BeagleBone Black and a Node on the development computer, the
+Device&#8217;s Nodes may have the same name (for example, <span 
+class="ectt-1200">GPP</span>). This causes problems when you select
+the Devices on which to run certain Components. To change the displayed name of Devices in a
+Node, you must edit line 15 of <span 
+class="ectt-1200">$SDRROOT/dev/nodes/DevMgr_arm/DeviceManager.dcd.xml </span>on
+the BeagleBone Black as follows:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<usagename>NEW_NAME</usagename>
+]]></script>
+<!--l. 63--><p class="noindent" >After making the change, re-launch the Device. When selecting from the list of Nodes in the <span 
+class="ecbx-1200">SCA</span>
+<span 
+class="ecbx-1200">Explorer</span>, the Node name is now displayed as <span 
+class="ectt-1200">NEW_NAME</span>. </p></div></div>
+                                                                                         
+                                                                                         
+<!--l. 56--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch5.html" >prev</a>] [<a 
+href="mainch5.html#tailmainch5.html" >prev-tail</a>] [<a 
+href="mainch6.html" >front</a>] [<a 
+href="main.html#mainch6.html" >up</a>] </p></div>
+<!--l. 56--><p class="noindent" ><a 
+ id="tailmainch6.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

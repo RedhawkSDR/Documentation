@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>3 Installing REDHAWK on the BeagleBone Black</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 94--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch4.html" >next</a>] [<a 
+href="mainch2.html" >prev</a>] [<a 
+href="mainch2.html#tailmainch2.html" >prev-tail</a>] [<a 
+href="#tailmainch3.html">tail</a>] [<a 
+href="main.html#mainch3.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;3</span><br /><a 
+ id="x5-140003"></a>Installing REDHAWK on the BeagleBone Black</h2>
+<!--l. 96--><p class="noindent" >This chapter explains how to install REDHAWK on the BeagleBone Black by building from
+source.
+<!--l. 98--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  Building REDHAWK on the BeagleBone may take several hours (approximately four). </p></div></div>
+<!--l. 102--><p class="noindent" >To access the BeagleBone Black, <span 
+class="ectt-1200">ssh </span>in from your development computer using the BeagleBone IP
+address assigned in <a 
+href="mainch2.html#x4-130002.3">Section 2.3</a>. The default username is <span 
+class="ectt-1200">ubuntu </span>and the default password is
+<span 
+class="ectt-1200">temppwd</span>. For example, if the BeagleBone&#8217;s IP address is 192.168.1.125, you enter the
+following:
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ ssh -X ubuntu@192.168.1.125
+]]></script>
+<!--l. 110--><p class="noindent" >The following steps explain how to build and install REDHAWK on the BeagleBone
+Black.
+<!--l. 112--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> You must execute these steps on the BeagleBone Black running the previously set up Ubuntu
+microSD card. For more information about setting up Ubuntu on the microSD card, refer to
+<a 
+href="mainch2.html#x4-120002.2">Section 2.2</a>. </p></div></div>
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x5-14002x1"><a 
+href="#x5-150003.1">Install the Dependencies</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14004x2"><a 
+href="#x5-160003.2">Edit /etc/hosts</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14006x3"><a 
+href="#x5-170003.3">Edit /etc/omniorb.cfg</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14008x4"><a 
+href="#x5-180003.4">Restart omniNames and omniEvents</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14010x5"><a 
+href="#x5-190003.5">Create a Symbolic Link for omniidl</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14012x6"><a 
+href="#x5-200003.6">Download and Install the REDHAWK framework</a>.
+                                                                                         
+                                                                                         
+      </li>
+      <li 
+  class="enumerate" id="x5-14014x7"><a 
+href="#x5-220003.8">Download and Install BulkIO interfaces</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14016x8"><a 
+href="#x5-230003.9">Download and Install the GPP</a>.
+      </li>
+      <li 
+  class="enumerate" id="x5-14018x9"><a 
+href="#x5-210003.7">Change Ownership of SDRROOT</a>.</li></ol>
+<h3 class="sectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x5-150003.1"></a>Install the Dependencies</h3>
+<!--l. 130--><p class="noindent" >To install the dependencies for REDHAWK, enter the following commands.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo apt-get update
+$ sudo apt-get install -y build-essential openmpi-bin \
+libopenmpi-dev python2.7 python2.7-dev uuid uuid-dev \
+openjdk-7-jdk libtool autotools-dev autoconf automake \
+python-omniorb omnievents omniidl omniidl-python omniorb \
+omniorb-idl omniorb-nameserver libcos4-dev \
+libomnievents-dev libomniorb4-dev python-numpy \
+python-omniorb liblog4cxx10-dev xsdcxx libboost-dev \
+libboost-system-dev libboost-filesystem-dev \
+libboost-regex-dev libboost-thread-dev vim \
+libxml2-utils python-jinja2 junit4 libcppunit-dev \
+packagekit-gtk3-module
+]]></script>
+<!--l. 147--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x5-160003.2"></a>Edit /etc/hosts</h3>
+<!--l. 149--><p class="noindent" >Edit
+the
+                                                                                         
+                                                                                         
+<span 
+class="ectt-1200">/etc/hosts</span>
+file
+so
+that
+omniNames
+works
+correctly.
+The
+new
+<span 
+class="ectt-1200">/etc/hosts</span>
+file
+must
+read
+as
+follows:
+<br />
+<span 
+class="ectt-1200">127.0.0.1 localhost localhost.localdomain</span>
+<span 
+class="ectt-1200">&#x003C;ip_address of BeagleBone Black&#x003E; &#x003C;hostname of BeagleBone Black&#x003E; localhost</span>
+<div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For example, if the IP address is 192.168.1.125 and the hostname is arm, the second line reads as
+follows:   <span 
+class="ectt-1200">192.168.1.125 arm localhost </span></p></div></div>
+<!--l. 156--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x5-170003.3"></a>Edit /etc/omniORB.cfg</h3>
+<!--l. 158--><p class="noindent" >The omniORB configuration file (<span 
+class="ectt-1200">/etc/omniORB.cfg</span>) on the BeagleBone Black must be edited to
+provide information about how to reach the CORBA event service. Edit <span 
+class="ectt-1200">/etc/omniORB.cfg</span>
+by entering the following command and then making the following edits to the file. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo vi /etc/omniORB.cfg
+]]></script>
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x5-17002x1">
+      Delete
+      line
+      377,
+      <span 
+class="ectt-1200">DefaultInitRef</span>
+      <span 
+class="ectt-1200">=</span>
+                                                                                         
+                                                                                         
+      <span 
+class="ectt-1200">corbaloc::</span>
+      </li>
+      <li 
+  class="enumerate" id="x5-17004x2">
+      Add
+      the
+      line
+      <span 
+class="ectt-1200">InitRef</span>
+      <span 
+class="ectt-1200">=</span>
+      <span 
+class="ectt-1200">NameService=corbaname::&#x003C;ip_address</span>
+      <span 
+class="ectt-1200">of</span>
+      <span 
+class="ectt-1200">BeagleBone</span>
+      <span 
+class="ectt-1200">Black&#x003E;</span>
+      </li>
+      <li 
+  class="enumerate" id="x5-17006x3">
+      Add
+      the
+      line
+      <span 
+class="ectt-1200">InitRef</span>
+      <span 
+class="ectt-1200">=</span>
+      <span 
+class="ectt-1200">EventService=corbaloc::&#x003C;ip_address</span>
+      <span 
+class="ectt-1200">of</span>
+      <span 
+class="ectt-1200">BeagleBone</span>
+      <span 
+class="ectt-1200">Black&#x003E;:11169/omniEvents</span></li></ol>
+<!--l. 168--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
+ id="x5-180003.4"></a>Restart omniNames and omniEvents</h3>
+<!--l. 170--><p class="noindent" >You must restart omniNames and omniEvents so the changes take effect. Do so by entering the
+following commands.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo /etc/init.d/omniorb-eventservice stop
+$ sudo /etc/init.d/omniorb4-nameserver stop
+$ sudo /etc/init.d/omniorb4-nameserver start
+$ sudo /etc/init.d/omniorb-eventservice start
+                                                                                         
+                                                                                         
+]]></script>
+<!--l. 181--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
+ id="x5-190003.5"></a>Create a Symbolic Link for omniidl</h3>
+<!--l. 184--><p class="noindent" >To create a symbolic link for omniidl, enter the following command.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo ln -s /usr/lib/omniidl/omniidl /usr/lib/python2.7/dist-packages/omniidl
+]]></script>
+<!--l. 190--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.6   </span> <a 
+ id="x5-200003.6"></a>Download and Install the REDHAWK Framework</h3>
+<!--l. 192--><p class="noindent" >To download and install the REDHAWK framework, enter the following commands.
+<div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If <span 
+class="ectt-1200">boost </span>is less than 1.49, you must replace <span 
+class="ectt-1200">./configure --disable-java</span>
+<span 
+class="ectt-1200">--with-boost-libdir=/usr/lib/arm-linux-gnueabihf </span>with the following: <span 
+class="ectt-1200">./configure</span>
+<span 
+class="ectt-1200">--disable-java</span>. </p></div></div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ git clone https://github.com/RedhawkSDR/framework-core
+$ cd framework-core/src
+$ git checkout 1.10.0
+$ ./reconf
+$ ./configure --disable-java \
+           --with-boost-libdir=\
+    /usr/lib/arm-linux-gnueabihf
+$ make
+$ sudo make install
+$ chmod +x ./etc/profile.d/*
+$ sudo cp ./etc/profile.d/* /etc/profile.d
+$ . /etc/profile.d/redhawk.sh
+                                                                                         
+                                                                                         
+$ . /etc/profile.d/redhawk-sdrroot.sh
+$ cd ../..
+]]></script>
+<!--l. 214--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.7   </span> <a 
+ id="x5-210003.7"></a>Change Ownership of SDRROOT</h3>
+<!--l. 217--><p class="noindent" >To change ownership of SDRROOT, enter the following command. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo chown -R ubuntu.ubuntu $SDRROOT
+]]></script>
+<!--l. 222--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.8   </span> <a 
+ id="x5-220003.8"></a>Download and Install BulkIOInterfaces</h3>
+<!--l. 224--><p class="noindent" >To download and install BulkIO Interfaces, enter the following commands. <div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If <span 
+class="ectt-1200">boost </span>is less than 1.49, you
+must replace <span 
+class="ectt-1200">./configure --disable-java --with-boost-libdir=/usr/lib/arm-linux-gnueabihf</span>
+with the following: <span 
+class="ectt-1200">./configure --disable-java</span>. </p></div></div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ git clone https://github.com/RedhawkSDR/framework-bulkioInterfaces.git
+$ cd framework-bulkioInterfaces
+$ git checkout 1.10.0
+$ ./reconf
+$ ./configure --disable-java \
+           --with-boost-libdir=\
+    /usr/lib/arm-linux-gnueabihf
+$ make
+$ sudo make install
+$ cd ..
+]]></script>
+                                                                                         
+                                                                                         
+<!--l. 242--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">3.9   </span> <a 
+ id="x5-230003.9"></a>Download and Install the GPP</h3>
+<!--l. 244--><p class="noindent" >To download and install the GPP, enter the following commands. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ git clone https://github.com/RedhawkSDR/framework-GPP.git
+$ cd framework-GPP/python
+$ git checkout 1.10.0
+$ ./reconf
+$ ./configure
+$ make install
+$ cd ../..
+]]></script>
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch4.html" >next</a>] [<a 
+href="mainch2.html" >prev</a>] [<a 
+href="mainch2.html#tailmainch2.html" >prev-tail</a>] [<a 
+href="mainch3.html" >front</a>] [<a 
+href="main.html#mainch3.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch3.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

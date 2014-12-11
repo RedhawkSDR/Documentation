@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>4 Installing the RBDS Waveform Dependencies on the BeagleBone Black</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch5.html" >next</a>] [<a 
+href="mainch3.html" >prev</a>] [<a 
+href="mainch3.html#tailmainch3.html" >prev-tail</a>] [<a 
+href="#tailmainch4.html">tail</a>] [<a 
+href="main.html#mainch4.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;4</span><br /><a 
+ id="x6-240004"></a>Installing the RBDS Waveform Dependencies on the BeagleBone Black</h2>
+<!--l. 3--><p class="noindent" >This chapter explains how to install the RBDS Waveform dependencies on the BeagleBone Black.
+The following steps are required to install the RBDS Waveform dependencies on the BeagleBone
+Black.
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x6-24002x1">
+      <a 
+href="#x6-250004.1">Install
+      the
+      RTL-SDR
+      Library</a>.
+      </li>
+      <li 
+  class="enumerate" id="x6-24004x2">
+      <a 
+href="#x6-260004.2">Install
+      FrontEndInterfaces</a>.
+      </li>
+      <li 
+  class="enumerate" id="x6-24006x3">
+      <a 
+href="#x6-270004.3">Install
+      LiquidDSP</a>.
+      </li>
+      <li 
+  class="enumerate" id="x6-24008x4">
+      <a 
+href="#x6-280004.4">Clone
+      the
+      RBDS
+      Waveform</a>.
+      </li>
+      <li 
+  class="enumerate" id="x6-24010x5">
+      <a 
+href="#x6-290004.5">Install
+      the
+      RTL
+      Node</a>.
+      </li>
+                                                                                         
+                                                                                         
+      <li 
+  class="enumerate" id="x6-24012x6">
+      <a 
+href="#x6-300004.6">Build
+      the
+      RBDS
+      Components</a>.
+      </li>
+      <li 
+  class="enumerate" id="x6-24014x7">
+      <a 
+href="#x6-310004.7">Build
+      the
+      RTL2832U
+      Device</a>.
+      </li>
+      <li 
+  class="enumerate" id="x6-24016x8">
+      <a 
+href="mainch6.html#x8-360006.1">Connect
+      the
+      IDE
+      to
+      the
+      BeagleBone
+      Black
+      Redhawk
+      Domain</a>.</li></ol>
+<h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x6-250004.1"></a>Installing the RTL-SDR Library</h3>
+<!--l. 18--><p class="noindent" >The RTL-SDR Library is necessary to read in data from the RTL-SDR Dongle used by the
+<span 
+class="ectt-1200">RTL2832U </span>Device. To install the <span 
+class="ectt-1200">RTL-SDR Library</span>, enter the following commands. (The final
+command reboots the BeagleBone Black so the changes take effect.)
+<!--l. 20--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For this project implementation, version 0.5.2 of rtl-sdr was used. </p></div></div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo apt-get install libusb-1.0 libusb-1.0-0-dev
+$ git clone git://git.osmocom.org/rtl-sdr.git
+$ cd rtl-sdr/
+$ git checkout v0.5.2
+                                                                                         
+                                                                                         
+$ autoreconf -i
+$ ./configure
+$ make
+$ sudo make install
+$ sudo make install-udev-rules
+$ sudo reboot
+]]></script>
+<!--l. 37--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x6-260004.2"></a>Installing FrontEndInterfaces</h3>
+<!--l. 39--><p class="noindent" ><span 
+class="ectt-1200">FrontEndInterfaces </span>is necessary to run the <span 
+class="ectt-1200">RTL2832U </span>Device. To install <span 
+class="ectt-1200">FrontEndInterfaces</span>,
+enter the following commands. <div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If <span 
+class="ectt-1200">boost </span>is less than 1.49, you must replace <span 
+class="ectt-1200">./configure</span>
+<span 
+class="ectt-1200">--disable-java --with-boost-libdir=/usr/lib/arm-linux-gnueabihf </span>with the following:
+<span 
+class="ectt-1200">./configure --disable-java</span>. </p></div></div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ git clone https://github.com/RedhawkSDR/frontendInterfaces.git
+$ cd frontendInterfaces
+$ git checkout 2.2.0
+$ ./reconf
+$ ./configure --disable-java \
+           --with-boost-libdir=\
+    /usr/lib/arm-linux-gnueabihf
+$ make
+$ sudo make install
+$ cd ..
+]]></script>
+<!--l. 58--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h3 class="sectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x6-270004.3"></a>Installing LiquidDSP</h3>
+<!--l. 60--><p class="noindent" >The LiquidDSP library is required to build the <span 
+class="ectt-1200">FilterDecimate </span>and <span 
+class="ectt-1200">FMDemodulator </span>Components.
+The following procedure explains how to install LiquidDSP.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ $ git clone git://github.com/RedhawkSDR/liquid-dsp.git
+ $ cd liquid-dsp
+ $ git checkout 1.2.0-redhawk
+ $ ./bootstrap.sh
+ $ ./configure
+ $ make
+ $ make install
+ $ cd ..
+]]></script>
+<!--l. 73--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x6-280004.4"></a>Cloning the RBDS Waveform</h3>
+<!--l. 75--><p class="noindent" >The RBDS Waveform needs to be installed in $SDRROOT. The following
+procedure explains how to clone and install the RBDS Waveform. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ $ git clone git://github.com/RedhawkSDR/RBDS_wf.git
+ $ cd RBDS_wf
+ $ git checkout 1.0.0
+ $ mkdir -p $SDRROOT/dom/waveforms/RBDS_wf/
+ $ cp RBDS_wf.sad.xml $SDRROOT/dom/waveforms/RBDS_wf/
+ $ cd ..
+]]></script>
+The RBDS Waveform is now installed in $SDRROOT.
+<h3 class="sectionHead"><span class="titlemark">4.5   </span> <a 
+ id="x6-290004.5"></a>Installing the RTL Node</h3>
+<!--l. 87--><p class="noindent" >The <span 
+class="ectt-1200">rtlNode </span>is required to launch the <span 
+class="ectt-1200">RTL2832U </span>and <span 
+class="ectt-1200">GPP </span>Devices. The following procedure
+                                                                                         
+                                                                                         
+explains how to install the <span 
+class="ectt-1200">rtlNode</span>.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+ $ git clone git://github.com/RedhawkSDR/rtlNode.git
+ $ cd rtlNode
+ $ git checkout 1.0.0
+ $ mkdir -p $SDRROOT/dev/nodes/rtlNode/
+ $ cp DeviceManager.dcd.xml $SDRROOT/dev/nodes/rtlNode/
+ $ chmod 644 $SDRROOT/dev/nodes/rtlNode/DeviceManager.dcd.xml
+ $ cd ..
+]]></script>
+The <span 
+class="ectt-1200">rtlNode </span>points to the <span 
+class="ectt-1200">GPP </span>generated by <span 
+class="ectt-1200">nodeconfig </span>in <a 
+href="mainch5.html#x7-330005.1">Section 5.1</a>.
+<!--l. 100--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">4.6   </span> <a 
+ id="x6-300004.6"></a>Building the RBDS Components</h3>
+<!--l. 102--><p class="noindent" >The following Components must be built from source:
+      <ul class="itemize1">
+      <li class="itemize">
+      <span 
+class="ectt-1200">BPSK</span>
+      </li>
+      <li class="itemize">
+      <span 
+class="ectt-1200">DifferentialDecoder</span>
+      </li>
+      <li class="itemize">
+      <span 
+class="ectt-1200">FilterDecimate</span>
+      </li>
+      <li class="itemize">
+      <span 
+class="ectt-1200">FMDemodulator</span>
+      </li>
+                                                                                         
+                                                                                         
+      <li class="itemize">
+      <span 
+class="ectt-1200">FrequencyDivider</span>
+      </li>
+      <li class="itemize">
+      <span 
+class="ectt-1200">Mixer</span>
+      </li>
+      <li class="itemize">
+      <span 
+class="ectt-1200">RBDSDecoder</span></li></ul>
+<!--l. 113--><p class="noindent" >These Components are needed to make the RBDS Waveform. The following steps describe how to
+build and install the Components.
+<!--l. 115--><p class="noindent" >To build a Component from source, enter the following commands for each Component.
+<!--l. 117--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Each Component has two implementations. They are named <span 
+class="ectt-1200">cpp </span>and <span 
+class="ectt-1200">cpp_arm</span>. The <span 
+class="ectt-1200">cpp_arm</span>
+implementation is needed for the BeagleBone Black. </p></div></div>
+<!--l. 121--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If <span 
+class="ectt-1200">boost </span>is less than 1.49, you must replace <span 
+class="ectt-1200">./configure --with-boost-libdir=/usr/lib/arm-linux-gnueabihf</span>
+with the following: <span 
+class="ectt-1200">./configure</span>. </p></div></div>
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ git clone git://github.com/RedhawkSDR/<component name>.git
+$ cd <component name>
+$ git checkout 1.0.0
+$ cd cpp_arm
+$ ./reconf
+$ ./configure --with-boost-libdir=\
+    /usr/lib/arm-linux-gnueabihf
+$ make
+$ make install
+$ cd ../..
+]]></script>
+The Components are now ready to execute.
+                                                                                         
+                                                                                         
+<h3 class="sectionHead"><span class="titlemark">4.7   </span> <a 
+ id="x6-310004.7"></a>Building the RTL2832U Device</h3>
+<!--l. 141--><p class="noindent" >To build the <span 
+class="ectt-1200">RTL2832U </span>Device from source, complete the following steps.
+<!--l. 143--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x6-31002x1">
+      To
+      clone
+      the
+      <span 
+class="ectt-1200">RTL2832U</span>
+      Device
+      and
+      configure
+      it,
+      enter
+      the
+      following
+      commands.
+      <!--l. 146--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">   If <span 
+class="ectt-1200">boost </span>is less than 1.49, you must replace <span 
+class="ectt-1200">./configure</span>
+      <span 
+class="ectt-1200">--with-boost-libdir=/usr/lib/arm-linux-gnueabihf </span>with the following: <span 
+class="ectt-1200">./configure</span>. </p></div></div>
+      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ git clone git://github.com/RedhawkSDR/RTL2832U.git
+      $ cd RTL2832U
+      $ git checkout 1.0.0
+      $ cd cpp_arm
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x6-31004x2">Edit <span 
+class="ectt-1200">Makefile.am </span>so the <span 
+class="ectt-1200">RTL2832U </span>Device builds correctly. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ vi Makefile.am
+      ]]></script>
+      Edit line 48 to read: <span 
+class="ectt-1200">RTL2832U_LDADD = $(PROJECTDEPS_LIBS) $(BOOST_LDFLAGS)</span>
+      <span 
+class="ectt-1200">$(BOOST_THREAD_LIB) $(BOOST_REGEX_LIB) $(BOOST_SYSTEM_LIB) $(INTERFACEDEPS_LIBS)</span>
+      <span 
+class="ectt-1200">$(redhawk_LDADD_auto) $(LIBRTLSDR_LIBS) -luuid</span>
+                                                                                         
+                                                                                         
+      </li>
+      <li 
+  class="enumerate" id="x6-31006x3">Build and install the <span 
+class="ectt-1200">RTL2832U </span>Device. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ ./reconf
+      $ ./configure --with-boost-libdir=\
+               /usr/lib/arm-linux-gnueabihf
+      $ make
+      $ make install
+      $ cd ../..
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x6-31008x4">Change the name of the Device Manager <span 
+class="ectt-1200">prf </span>file and edit the
+      <span 
+class="ectt-1200">spd </span>file to point to the newly named Device Manager <span 
+class="ectt-1200">prf </span>file. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ cd $SDRROOT/dev/mgr
+      $ cp DeviceManager.Linux.x86_64.prf.xml DeviceManager.Linux.armv7l.prf.xml
+      $ vi DeviceManager.Linux.armv7l.prf.xml
+      ]]></script>
+      Edit line 43: <span 
+class="ectt-1200">&#x003C;value&#x003E;armv7l&#x003C;/value&#x003E;</span>
+      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ vi DeviceManager.spd.xml
+      ]]></script>
+      Edit line 48: <span 
+class="ectt-1200">&#x003C;localfile name="DeviceManager.Linux.armv7l.prf.xml"/&#x003E;</span>
+      Edit line 55: <span 
+class="ectt-1200">&#x003C;processor name="armv7l"/&#x003E;</span>
+      </li>
+      <li 
+  class="enumerate" id="x6-31010x5">Edit the Domain Manager <span 
+class="ectt-1200">spd </span>file to correctly identify the processor type. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ vi $SDRROOT/dom/mgr/DomainManager.spd.xml
+      ]]></script>
+      Edit line 40: <span 
+class="ectt-1200">&#x003C;processor name="armv7l"/&#x003E;</span>
+      The <span 
+class="ectt-1200">RTL2832U </span>is now ready to execute.</li></ol>
+<!--l. 201--><p class="noindent" >All required RBDS Waveform dependencies are now installed on the BeagleBone Black.
+                                                                                         
+                                                                                         
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch5.html" >next</a>] [<a 
+href="mainch3.html" >prev</a>] [<a 
+href="mainch3.html#tailmainch3.html" >prev-tail</a>] [<a 
+href="mainch4.html" >front</a>] [<a 
+href="main.html#mainch4.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailmainch4.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 

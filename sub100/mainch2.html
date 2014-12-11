@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>2 Setting up the microSD Card for the BeagleBone Black</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,2,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+<link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<div class="pattern left"></div> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="../index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a class="active" href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch3.html" >next</a>] [<a 
+href="mainch1.html" >prev</a>] [<a 
+href="mainch1.html#tailmainch1.html" >prev-tail</a>] [<a 
+href="#tailmainch2.html">tail</a>] [<a 
+href="main.html#mainch2.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;2</span><br /><a 
+ id="x4-100002"></a>Setting up the microSD Card for the BeagleBone Black</h2>
+<h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x4-110002.1"></a>Determining the Location of the microSD Card</h3>
+<!--l. 7--><p class="noindent" >Before installing anything on the microSD card, you must first determine which device the system
+has assigned to the microSD card. The following procedure explains how to determine the device
+the system assigned to the microSD card.
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x4-11002x1">Before plugging in the microSD card, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ sudo fdisk -l > /tmp/fdisk.1
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x4-11004x2">Plug in the microSD card, and enter the following comamnd: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ sudo fdisk -l > /tmp/fdisk.2
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x4-11006x3">To determine which device was added to the system, enter the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ diff /tmp/fdisk.1 /tmp/fdisk.2
+      ]]></script>
+      The device identified in the Disk line is the added device.</li></ol>
+<!--l. 23--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x4-120002.2"></a>Installing Ubuntu 14.04 on a microSD Card for the BeagleBone Black</h3>
+<!--l. 25--><p class="noindent" >To install Ubuntu 14.04 on a microSD card, from the development computer, enter the following
+commands.
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-06-05.tar.xz
+$ tar xf ubuntu-14.04-console-armhf-2014-06-05.tar.xz
+$ cd ubuntu-14.04-console-armhf-2014-06-05
+$ sudo ./setup_sdcard.sh --mmc /dev/sd*esc\textit{X}*end --dtb beaglebone
+                                                                                         
+                                                                                         
+]]></script>
+<!--l. 34--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  <span 
+class="ectt-1200">/dev/sd</span><span 
+class="ecit-1200">X </span>is the location of your microSD card determined in <a 
+href="#x4-110002.1">Section 2.1</a>. For example,
+<span 
+class="ectt-1200">/dev/sdb</span>. </p></div></div>
+<!--l. 38--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The script that sets up the microSD card, <span 
+class="ectt-1200">./setup_sdcard.sh</span>, has certain prerequisites that are
+dependent on the version of Linux the development computer is running. If your development
+computer does not meet these prerequisites, the script prompts you to install them. After
+installing the prerequisites, it is necessary to re-run the script to set up the microSD card.
+</p></div></div>
+If the remainder of the microSD card is not accessible, expand the partition. (Refer to
+<a 
+href="http://elinux.org/Beagleboard:Expanding\_File\_System\_Partition\_On\_A\_microSD" class="url" ><span 
+class="ectt-1200">http://elinux.org/Beagleboard:Expanding\_File\_System\_Partition\_On\_A\_microSD</span></a>).
+<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  For more information about copying Ubuntu 14.04 to a microSD card, refer to
+<a 
+href="http://elinux.org/BeagleBoardUbuntu" class="url" ><span 
+class="ectt-1200">http://elinux.org/BeagleBoardUbuntu</span></a>. </p></div></div>
+<!--l. 48--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x4-130002.3"></a>Assigning a Static IP Address</h3>
+<!--l. 50--><p class="noindent" >Determining the dynamic IP address assigned to the BeagleBone Black is complicated and
+cumbersome; therefore, assigning the BeagleBone Black a static IP address is a best engineering
+practice. The following procedure enables you to assign a static IP address to the BeagleBone
+Black by editing the <span 
+class="ectt-1200">interfaces </span>file on the microSD card prior to installing it on the BeagleBone
+Black.
+<!--l. 53--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x4-13002x1">Enter the following command to create a directory on the development
+      computer where the file system of the microSD card can be mounted. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $ sudo mkdir -p /media/rootfs
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x4-13004x2">Enter the following command to mount the microSD card to the newly created directory. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $  sudo mount /dev/sd*esc\textit{X}*end2 /media/rootfs
+      ]]></script>
+                                                                                         
+                                                                                         
+      </li>
+      <li 
+  class="enumerate" id="x4-13006x3">To assign the static IP address, edit <span 
+class="ectt-1200">/media/rootfs/etc/network/interfaces </span>by entering the following command. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $  sudo vim /media/rootfs/etc/network/interfaces
+      ]]></script>
+           <ol  class="enumerate2" >
+           <li 
+  class="enumerate" id="x4-13008x1">On the line reading <span 
+class="ectt-1200">iface eth0 inet dhcp</span>, replace <span 
+class="ectt-1200">dhcp </span>with <span 
+class="ectt-1200">static</span>.
+           </li>
+           <li 
+  class="enumerate" id="x4-13010x2">
+           Add
+           the
+           following
+           lines
+           after
+           <span 
+class="ectt-1200">iface</span>
+           <span 
+class="ectt-1200">eth0</span>
+           <span 
+class="ectt-1200">inet</span>
+           <span 
+class="ectt-1200">static</span>:
+           <span 
+class="ectt-1200">address</span>
+           <span 
+class="ectt-1200">&#x003C;desired</span>
+           <span 
+class="ectt-1200">ip</span>
+           <span 
+class="ectt-1200">address</span>
+           <span 
+class="ectt-1200">for</span>
+           <span 
+class="ectt-1200">BeagleBone</span>
+           <span 
+class="ectt-1200">Black&#x003E;</span>
+           <span 
+class="ectt-1200">gateway</span>
+           <span 
+class="ectt-1200">&#x003C;gateway</span>
+           <span 
+class="ectt-1200">for</span>
+           <span 
+class="ectt-1200">your</span>
+           <span 
+class="ectt-1200">network&#x003E;</span>
+           <span 
+class="ectt-1200">netmask</span>
+           <span 
+class="ectt-1200">&#x003C;netmask</span>
+           <span 
+class="ectt-1200">for</span>
+           <span 
+class="ectt-1200">your</span>
+           <span 
+class="ectt-1200">network&#x003E;</span>
+           <span 
+class="ectt-1200">network</span>
+           <span 
+class="ectt-1200">&#x003C;network</span>
+           <span 
+class="ectt-1200">prefix</span>
+           <span 
+class="ectt-1200">for</span>
+           <span 
+class="ectt-1200">your</span>
+                                                                                         
+                                                                                         
+           <span 
+class="ectt-1200">network</span>
+           <span 
+class="ectt-1200">=</span>
+           <span 
+class="ectt-1200">gateway</span>
+           <span 
+class="ectt-1200">AND</span>
+           <span 
+class="ectt-1200">netmask&#x003E;</span>
+           <span 
+class="ectt-1200">broadcast</span>
+           <span 
+class="ectt-1200">&#x003C;broadcast</span>
+           <span 
+class="ectt-1200">for</span>
+           <span 
+class="ectt-1200">your</span>
+           <span 
+class="ectt-1200">network&#x003E;</span>
+           <span 
+class="ectt-1200">dns-nameservers</span>
+           <span 
+class="ectt-1200">8.8.8.8</span>
+           </li></ol>
+      <!--l. 76--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> An example of the changes to <span 
+class="ectt-1200">/media/rootfs/etc/network/interfaces </span>is:
+      <span 
+class="ectt-1200">iface eth0 inet static</span>
+      <span 
+class="ectt-1200">address 192.168.1.125</span>
+      <span 
+class="ectt-1200">gateway 192.168.1.1</span>
+      <span 
+class="ectt-1200">netmask 255.255.255.0</span>
+      <span 
+class="ectt-1200">network 192.168.1.0</span>
+      <span 
+class="ectt-1200">broadcast 192.168.1.255</span>
+      <span 
+class="ectt-1200">dns-nameservers 8.8.8.8</span>
+      </p></div></div>
+      </li>
+      <li 
+  class="enumerate" id="x4-13012x4">To unmount the microSD card, enter the following command. <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      $  sudo umount -f /media/rootfs
+      ]]></script>
+      </li>
+      <li 
+  class="enumerate" id="x4-13014x5">Plug the microSD card into the BeagleBone Black.
+      <!--l. 92--><p class="noindent" >Ubuntu is installed on the BeagleBone Black.</li></ol>
+<!--l. 94--><div class="crosslinks"><p class="noindent">[<a 
+href="mainch3.html" >next</a>] [<a 
+href="mainch1.html" >prev</a>] [<a 
+href="mainch1.html#tailmainch1.html" >prev-tail</a>] [<a 
+href="mainch2.html" >front</a>] [<a 
+href="main.html#mainch2.html" >up</a>] </p></div>
+<!--l. 94--><p class="noindent" ><a 
+ id="tailmainch2.html"></a>  
+ 
+<div class=license>  
+<hr> 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. 
+ 
+</div> 
+</body></html> 
