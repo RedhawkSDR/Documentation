@@ -62,62 +62,50 @@ source.
 <!--l. 7--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x31-484002x1">First, ensure your system has the necessary dependency software provided by Red Hat
-      / <a 
+  class="enumerate" id="x31-484002x1">First, ensure your system has the necessary dependency software provided by <a 
+href="mainap14.html#rhel">RHEL</a> /
+      <a 
 href="mainap14.html#centos">CentOS</a> and Fedora <a 
 href="mainap14.html#epel">EPEL</a> (refer to <a 
 href="mainch2.html#x4-110002.3">Section 2.3</a>).
       </li>
       <li 
-  class="enumerate" id="x31-484004x2">Install      dependencies      distributed      with      the      REDHAWK      tarball,
-      redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz.
-           <ul class="itemize1">
-           <li class="itemize">If  building  on  Red  Hat/  <a 
-href="mainap14.html#centos">CentOS</a>  5,  enter  the  following  commands  from  the
-           directory containing REDHAWK dependencies:
-           <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x31-484004x2">Install                dependencies                distributed                with                the
+      REDHAWK tarball, redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz by entering the
+      following commands from the directory containing REDHAWK dependencies:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
-cd redhawk-yum-<version>-<dist>-<arch>
-sudo yum install jacorb* log4cxx* *omni* python-jinja2*
-]]></script></div>
-           </li>
-           <li class="itemize">If building on Red Hat/ <a 
-href="mainap14.html#centos">CentOS</a> 6, enter the following commands from the directory
-           containing REDHAWK dependencies:
-           <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
-cd redhawk-yum-<version>-<dist>-<arch>
+cd redhawk-<version>-<dist>-<arch>
 sudo yum install jacorb* *omni* python-jinja2*
 ]]></script></div>
-           </li></ul>
-                                                                                         
-                                                                                         
       </li></ol>
-<!--l. 37--><p class="noindent" >
+<!--l. 21--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.2   </span> <a 
  id="x31-485000E.2"></a>Installing the Framework from Source</h3>
-<!--l. 39--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="ectt-1200">redhawk-src-1.10.0.tar.gz </span>must be
+<!--l. 23--><p class="noindent" >In order to install the Core Framework from source, the <span 
+class="ectt-1200">redhawk-src-1.10.1.tar.gz </span>must be
 downloaded.
-<!--l. 41--><p class="noindent" >You must set the <span 
+<!--l. 25--><p class="noindent" >You must set the <span 
 class="ectt-1200">OSSIEHOME </span>and <span 
 class="ectt-1200">SDRROOT </span>environment variables (recommended defaults shown
 below) before running the installation script. You must have write permission for the locations of
 <span 
 class="ectt-1200">OSSIEHOME </span>and <span 
 class="ectt-1200">SDRROOT </span>or the installation will not work.
-<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
+                                                                                         
+                                                                                         
+<!--l. 27--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
 tasks. </p></div></div>
-<!--l. 47--><p class="noindent" >To compile the source, execute the following commands:
+<!--l. 31--><p class="noindent" >To compile the source, execute the following commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export OSSIEHOME=/usr/local/redhawk/core
 export SDRROOT=/var/redhawk/sdr
-tar zxvf redhawk-src-1.10.0.tar.gz
-cd redhawk-src-1.10.0/
+tar zxvf redhawk-src-1.10.1.tar.gz
+cd redhawk-src-1.10.1/
 ./redhawk-install.sh
 . $OSSIEHOME/environment-setup
 ]]></script></div>
-<!--l. 58--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
+<!--l. 42--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
 to <span 
 class="ectt-1200">.bashrc</span>: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export OSSIEHOME=/usr/local/redhawk/core
@@ -125,12 +113,10 @@ export SDRROOT=/var/redhawk/sdr
 . $OSSIEHOME/environment-setup
 ]]></script></div>
 </p></div></div>
-<!--l. 87--><p class="noindent" >
+<!--l. 71--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.3   </span> <a 
  id="x31-486000E.3"></a>Configuring omniORB</h3>
-                                                                                         
-                                                                                         
-<!--l. 88--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
+<!--l. 72--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
 <a 
 href="mainch2.html#x4-160002.6">Section 2.6</a> for information on how to edit the omniORB configuration file
 (<span 
