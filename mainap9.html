@@ -53,9 +53,9 @@ href="mainap8.html#tailmainap8.html" >prev-tail</a>] [<a
 href="#tailmainap9.html">tail</a>] [<a 
 href="main.html#mainap9.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;I</span><br /><a 
- id="x35-499000I"></a>Device Structures</h2>
+ id="x35-498000I"></a>Device Structures</h2>
 <h3 class="sectionHead"><span class="titlemark">I.1   </span> <a 
- id="x35-500000I.1"></a>Introduction</h3>
+ id="x35-499000I.1"></a>Introduction</h3>
 <!--l. 7--><p class="noindent" ><a 
 href="mainli2.html#glo:device">Devices</a> are proxies that run on a host but interact with installed hardware.
 <!--l. 9--><p class="noindent" >The <a 
@@ -63,14 +63,14 @@ href="mainap14.html#sca">SCA</a> defines three <span
 class="ectt-1200">Device </span>types:
       <ul class="itemize1">
       <li class="itemize"><a 
-href="#x35-501000I.2">Device</a>
+href="#x35-500000I.2">Device</a>
       </li>
       <li class="itemize"><a 
-href="#x35-508000I.3">Loadable Device</a>, which inherits from <a 
+href="#x35-507000I.3">Loadable Device</a>, which inherits from <a 
 href="mainli2.html#glo:device">Device</a>
       </li>
       <li class="itemize"><a 
-href="#x35-511000I.4">Executable Device</a>, which inherits from Loadable <a 
+href="#x35-510000I.4">Executable Device</a>, which inherits from Loadable <a 
 href="mainli2.html#glo:device">Device</a></li></ul>
 <!--l. 16--><p class="noindent" >All Devices inherit from <span 
 class="ectt-1200">Resource</span>. This chapter describes the methods for each of the Device
@@ -91,7 +91,7 @@ off <a
 href="mainli2.html#glo:component">Component</a> processes. Because of this, a higher-level language provides sufficient
 performance.
 <!--l. 24--><p class="noindent" >In addition, there is an <a 
-href="#x35-514000I.5">Aggregate Device</a> that creates a composite device by loosely coupling
+href="#x35-513000I.5">Aggregate Device</a> that creates a composite device by loosely coupling
 together Devices in a parent-child relationship.
 <!--l. 26--><p class="noindent" >For reference information about the various <a 
 href="mainli2.html#glo:device">Device</a> types, refer to Section 3.1.3.3 (Base <a 
@@ -100,7 +100,7 @@ Interfaces) of the <a
 href="mainap14.html#sca">SCA</a> Specification with REDHAWK Additions 2.2.2, R 1.10.0.
 <!--l. 28--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">I.2   </span> <a 
- id="x35-501000I.2"></a>Device class</h3>
+ id="x35-500000I.2"></a>Device class</h3>
                                                                                          
                                                                                          
 <!--l. 30--><p class="noindent" >The Basic <a 
@@ -140,7 +140,7 @@ class="ectt-1200">ENABLED </span>or <span
 class="ectt-1200">DISABLED</span>).
 <!--l. 37--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">I.2.1   </span> <a 
- id="x35-502000I.2.1"></a><span 
+ id="x35-501000I.2.1"></a><span 
 class="ectt-1200">allocateCapacity()</span></h4>
 <!--l. 38--><p class="noindent" >In REDHAWK 1.10, the implementation of capacity allocation for C++ and Java <a 
 href="mainli2.html#glo:device">Devices</a> vary in
@@ -171,7 +171,7 @@ href="mainap14.html#xml">XML</a> file:
 ]]></script></div>
 <!--l. 57--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">I.2.1.1   </span> <a 
- id="x35-503000I.2.1.1"></a>C++ and Java Device Capacity Allocation</h5>
+ id="x35-502000I.2.1.1"></a>C++ and Java Device Capacity Allocation</h5>
 <!--l. 58--><p class="noindent" >When the <a 
 href="mainli2.html#glo:applicationfactory">Application Factory</a> calls the <span 
 class="ectt-1200">allocateCapacity() </span>method on a <a 
@@ -197,7 +197,7 @@ class="ectt-1200">allocateCapacity() </span>method may be overridden in their <a
 href="mainli2.html#glo:device">Device</a> implementation.
 <!--l. 66--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">I.2.1.2   </span> <a 
- id="x35-504000I.2.1.2"></a>Python Device Capacity Allocation</h5>
+ id="x35-503000I.2.1.2"></a>Python Device Capacity Allocation</h5>
 <!--l. 67--><p class="noindent" >The <span 
 class="ectt-1200">Device </span>base class in device.py (distributed as a part of the REDHAWK Core Framework)
 provides a means for defining custom allocate methods for particular allocation <a 
@@ -226,13 +226,13 @@ def allocate_memCapacity(self, value):
 ]]></script></div>
 <!--l. 85--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">I.2.2   </span> <a 
- id="x35-505000I.2.2"></a><span 
+ id="x35-504000I.2.2"></a><span 
 class="ectt-1200">deallocateCapacity()</span></h4>
 <!--l. 86--><p class="noindent" >
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><span class="titlemark">I.2.2.1   </span> <a 
- id="x35-506000I.2.2.1"></a>C++ and Java Capacity Deallocation</h5>
+ id="x35-505000I.2.2.1"></a>C++ and Java Capacity Deallocation</h5>
 <!--l. 87--><p class="noindent" >The <span 
 class="ectt-1200">deallocateCapacity() </span>method essentially reverses the process implemented in
 the <span 
@@ -240,7 +240,7 @@ class="ectt-1200">allocateCapacity() </span>method (i.e., the available capacity
 incremented).
 <!--l. 89--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">I.2.2.2   </span> <a 
- id="x35-507000I.2.2.2"></a>Python deallocate_ Methods</h5>
+ id="x35-506000I.2.2.2"></a>Python deallocate_ Methods</h5>
 <!--l. 90--><p class="noindent" >Similar to the Python <a 
 href="mainli2.html#glo:device">Device</a>&#8217;s support for custom allocation methods, custom deallocation
 methods may be created by adding a method named <span 
@@ -266,7 +266,7 @@ def deallocate_memCapacity(self, value):
 ]]></script></div>
 <!--l. 106--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">I.3   </span> <a 
- id="x35-508000I.3"></a>Loadable Device class</h3>
+ id="x35-507000I.3"></a>Loadable Device class</h3>
 <!--l. 108--><p class="noindent" >The Loadable <a 
 href="mainli2.html#glo:device">Device</a> methods, <span 
 class="ectt-1200">load() </span>and <span 
@@ -281,7 +281,7 @@ System&#8217;s mount point.
                                                                                          
                                                                                          
 <h4 class="subsectionHead"><span class="titlemark">I.3.1   </span> <a 
- id="x35-509000I.3.1"></a><span 
+ id="x35-508000I.3.1"></a><span 
 class="ectt-1200">load()</span></h4>
 <!--l. 113--><p class="noindent" >When the <span 
 class="ectt-1200">load() </span>method is called on a Loadable <a 
@@ -312,7 +312,7 @@ href="mainli2.html#glo:device">Device</a> (e.g.,
 class="ectt-1200">$SDRROOT/dev/.DeviceManager_/GPP_1/component/myComponent/myComponent.py</span>).
 <!--l. 120--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">I.3.2   </span> <a 
- id="x35-510000I.3.2"></a><span 
+ id="x35-509000I.3.2"></a><span 
 class="ectt-1200">unload()</span></h4>
 <!--l. 121--><p class="noindent" >The <span 
 class="ectt-1200">unload() </span>method removes loaded files from the physical device that the Loadable <a 
@@ -320,7 +320,7 @@ href="mainli2.html#glo:device">Device</a>
 proxy represents.
 <!--l. 123--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">I.4   </span> <a 
- id="x35-511000I.4"></a>Executable Device class</h3>
+ id="x35-510000I.4"></a>Executable Device class</h3>
 <!--l. 125--><p class="noindent" >The Executable <a 
 href="mainli2.html#glo:device">Device</a> methods, <span 
 class="ectt-1200">execute() </span>and <span 
@@ -344,7 +344,7 @@ process for the particular <a
 href="mainli2.html#glo:device">Device</a>&#8217;s hardware implementation.
 <!--l. 131--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">I.4.1   </span> <a 
- id="x35-512000I.4.1"></a><span 
+ id="x35-511000I.4.1"></a><span 
 class="ectt-1200">execute()</span></h4>
 <!--l. 132--><p class="noindent" >The <span 
 class="ectt-1200">execute() </span>method is called by the <a 
@@ -366,7 +366,7 @@ href="mainli2.html#glo:device">Device</a> returns to
 wait for commands.
 <!--l. 136--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">I.4.2   </span> <a 
- id="x35-513000I.4.2"></a><span 
+ id="x35-512000I.4.2"></a><span 
 class="ectt-1200">terminate()</span></h4>
 <!--l. 137--><p class="noindent" >The <span 
 class="ectt-1200">terminate() </span>method exists to kill processes that have been started by the <a 
@@ -379,7 +379,7 @@ class="ectt-1200">terminate() </span>method simply sends a kill command to the g
 href="mainap14.html#pid">PID</a> and waits for it to die.
 <!--l. 140--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">I.5   </span> <a 
- id="x35-514000I.5"></a>Aggregate Device class</h3>
+ id="x35-513000I.5"></a>Aggregate Device class</h3>
 <!--l. 142--><p class="noindent" >Aggregate <a 
 href="mainli2.html#glo:device">Device</a> allows the creation of <a 
 href="mainli2.html#glo:device">Devices</a> that are tied together as composite <a 

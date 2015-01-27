@@ -53,14 +53,14 @@ href="mainap12.html#tailmainap12.html" >prev-tail</a>] [<a
 href="#tailmainap13.html">tail</a>] [<a 
 href="main.html#mainap13.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;M</span><br /><a 
- id="x39-576000M"></a>Troubleshooting</h2>
+ id="x39-575000M"></a>Troubleshooting</h2>
 <h3 class="sectionHead"><span class="titlemark">M.1   </span> <a 
- id="x39-577000M.1"></a>Introduction</h3>
+ id="x39-576000M.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This appendix explains how to troubleshoot and resolve <span 
 class="ectt-1200">omniNames/omniEvents </span>failures.
 <!--l. 6--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">M.2   </span> <a 
- id="x39-578000M.2"></a>Performing a Hard Reset Using the <span 
+ id="x39-577000M.2"></a>Performing a Hard Reset Using the <span 
 class="ectt-1200">cleanomni </span>Script</h3>
 <!--l. 9--><p class="noindent" >The <span 
 class="ectt-1200">cleanomni </span>script is used to perform a hard reset of <span 
@@ -81,7 +81,7 @@ sudo /etc/init.d/omniEvents start
 ]]></script></div>
 <!--l. 26--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">M.3   </span> <a 
- id="x39-579000M.3"></a>Diagnosing Problems Using the <span 
+ id="x39-578000M.3"></a>Diagnosing Problems Using the <span 
 class="ectt-1200">rh_net_diag </span>Script</h3>
 <!--l. 27--><p class="noindent" >The <span 
 class="ectt-1200">rh_net_diag </span>script is a Python script used to diagnose various omniORB-related problems
@@ -135,12 +135,12 @@ class="ectt-1200">omniNames </span>is running.
            <li class="itemize">Check if <span 
 class="ectt-1200">omniEvents </span>is running and if it is running locally. If it is not running
            at all, refer to <a 
-href="#x39-578000M.2">Section M.2</a>. If it is not running locally, assume it is running on
+href="#x39-577000M.2">Section M.2</a>. If it is not running locally, assume it is running on
            another host.
            </li>
            <li class="itemize">Retrieve entries currently stored in the <a 
 href="mainli2.html#glo:namingservice">Naming Service</a>. Refer to <a 
-href="#x39-582000M.6">Section M.6</a> for
+href="#x39-581000M.6">Section M.6</a> for
            further assistance.
            </li>
            <li class="itemize">Check <span 
@@ -167,7 +167,7 @@ href="mainli2.html#glo:namingservice">Naming Service</a>.
            <li class="itemize">Check if <span 
 class="ectt-1200">omniEvents </span>is running and if it is running locally. If it is not running
            at all, refer to <a 
-href="#x39-578000M.2">Section M.2</a>. If it is not running locally, assume it is running on
+href="#x39-577000M.2">Section M.2</a>. If it is not running locally, assume it is running on
            another host.
            </li>
            <li class="itemize">Check <span 
@@ -190,12 +190,12 @@ class="ectt-1200">/etc/omniORB.cfg</span>.
 class="ectt-1200">InitRef </span>is valid, attempt to retrieve entries currently stored in the <a 
 href="mainli2.html#glo:namingservice">Naming
            Service</a>. Refer to <a 
-href="#x39-582000M.6">Section M.6</a> for further assistance.
+href="#x39-581000M.6">Section M.6</a> for further assistance.
            </li>
            <li class="itemize">Check if <span 
 class="ectt-1200">omniEvents </span>is running and if it is running locally. If it is not running
            at all, refer to <a 
-href="#x39-578000M.2">Section M.2</a>. If it is not running locally, assume it is running on
+href="#x39-577000M.2">Section M.2</a>. If it is not running locally, assume it is running on
            another host.
            </li>
            <li class="itemize">Try to connect to the <a 
@@ -212,7 +212,7 @@ href="mainli2.html#glo:devicemanager">Device Manager</a>, then the Java componen
                                                                                          
 <!--l. 78--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">M.4   </span> <a 
- id="x39-580000M.4"></a>Performing a Soft Reset of omniNames and omniEvents</h3>
+ id="x39-579000M.4"></a>Performing a Soft Reset of omniNames and omniEvents</h3>
 <!--l. 80--><p class="noindent" >If the runtime-error indicates a <a 
 href="mainli2.html#glo:namingservice">Naming Service</a> failure, enter the following command to attempt a
 soft reset on <span 
@@ -233,8 +233,8 @@ class="ectt-1200">omniNames</span>
 service appears to fail after reporting a successful start, a reconfiguration and hard reset of
 <span 
 class="ectt-1200">omniNames </span>may be necessary. For more information, refer to <a 
-href="#x39-582000M.6">Section M.6</a> and <a 
-href="#x39-578000M.2">Section M.2</a>. </p></div></div>
+href="#x39-581000M.6">Section M.6</a> and <a 
+href="#x39-577000M.2">Section M.2</a>. </p></div></div>
 <!--l. 95--><p class="noindent" >A restart of <span 
 class="ectt-1200">omniEvents </span>may be necessary when restarting <span 
 class="ectt-1200">omniNames</span>. To perform a soft reset of
@@ -245,7 +245,7 @@ sudo /sbin/service omniEvents restart
 ]]></script></div>
 <!--l. 101--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">M.5   </span> <a 
- id="x39-581000M.5"></a>Setting Omni Log Levels</h3>
+ id="x39-580000M.5"></a>Setting Omni Log Levels</h3>
 <!--l. 103--><p class="noindent" >When diagnosing <span 
 class="ectt-1200">omniNames/omniEvents </span>problems, it is often useful to set the omni
 logging levels. Use the following procedure to set the omni logging levels (requires root
@@ -253,13 +253,13 @@ permissions):
 <!--l. 105--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x39-581002x1">Open the <span 
+  class="enumerate" id="x39-580002x1">Open the <span 
 class="ectt-1200">/etc/omniORB.cfg </span>file.
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x39-581004x2">Set a traceLevel value. For example: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x39-580004x2">Set a traceLevel value. For example: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 traceLevel = 10
 ]]></script></div>
       </li></ol>
@@ -278,10 +278,10 @@ class="ectt-1200">/var/log/omniORB </span>and
 class="ectt-1200">/var/lib/omniEvents</span>.
 <!--l. 119--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">M.6   </span> <a 
- id="x39-582000M.6"></a>Common Causes for omniNames Failure</h3>
+ id="x39-581000M.6"></a>Common Causes for omniNames Failure</h3>
 <!--l. 121--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">M.6.1   </span> <a 
- id="x39-583000M.6.1"></a>IP Version 6 Conflicts</h4>
+ id="x39-582000M.6.1"></a>IP Version 6 Conflicts</h4>
 <!--l. 123--><p class="noindent" >Certain combinations of IP Version 6 (IPv6) configurations and <span 
 class="ectt-1200">/etc/omniORB.cfg </span>configurations
 can cause <span 
@@ -314,7 +314,7 @@ class="ectt-1200">::1</span>.</li></ul>
                                                                                          
 <!--l. 135--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">M.6.1.1   </span> <a 
- id="x39-584000M.6.1.1"></a>Preventing IPv6 <span 
+ id="x39-583000M.6.1.1"></a>Preventing IPv6 <span 
 class="ectt-1200">localhost </span>Resolution</h5>
 <!--l. 137--><p class="noindent" >Below is an example <span 
 class="ectt-1200">/etc/hosts </span>file from an older <a 
@@ -357,7 +357,7 @@ systems, depending on IPv6 configurations, may automatically repopulate IPv6 loc
 on reboot.
 <!--l. 165--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">M.6.2   </span> <a 
- id="x39-585000M.6.2"></a>Invalid IP Addresses in <span 
+ id="x39-584000M.6.2"></a>Invalid IP Addresses in <span 
 class="ectt-1200">/etc/hosts</span></h4>
 <!--l. 167--><p class="noindent" >Invalid entries in the <span 
 class="ectt-1200">/etc/hosts </span>file may induce an <span 

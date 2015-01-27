@@ -53,16 +53,16 @@ href="mainap4.html#tailmainap4.html" >prev-tail</a>] [<a
 href="#tailmainap5.html">tail</a>] [<a 
 href="main.html#mainap5.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;E</span><br /><a 
- id="x31-483000E"></a>Building the REDHAWK Framework from Source</h2>
+ id="x31-482000E"></a>Building the REDHAWK Framework from Source</h2>
 <h3 class="sectionHead"><span class="titlemark">E.1   </span> <a 
- id="x31-484000E.1"></a>Installing build dependencies</h3>
+ id="x31-483000E.1"></a>Installing build dependencies</h3>
 <!--l. 5--><p class="noindent" >Building REDHAWK from source requires a few additional dependencies beyond those required
 to run REDHAWK. The following procedure explains how to build REDHAWK from
 source.
 <!--l. 7--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x31-484002x1">First, ensure your system has the necessary dependency software provided by <a 
+  class="enumerate" id="x31-483002x1">First, ensure your system has the necessary dependency software provided by <a 
 href="mainap14.html#rhel">RHEL</a> /
       <a 
 href="mainap14.html#centos">CentOS</a> and Fedora <a 
@@ -70,7 +70,7 @@ href="mainap14.html#epel">EPEL</a> (refer to <a
 href="mainch2.html#x4-110002.3">Section 2.3</a>).
       </li>
       <li 
-  class="enumerate" id="x31-484004x2">Install                dependencies                distributed                with                the
+  class="enumerate" id="x31-483004x2">Install                dependencies                distributed                with                the
       REDHAWK tarball, redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz by entering the
       following commands from the directory containing REDHAWK dependencies:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -81,9 +81,9 @@ sudo yum install jacorb* *omni* python-jinja2*
       </li></ol>
 <!--l. 21--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.2   </span> <a 
- id="x31-485000E.2"></a>Installing the Framework from Source</h3>
+ id="x31-484000E.2"></a>Installing the Framework from Source</h3>
 <!--l. 23--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="ectt-1200">redhawk-src-1.10.1.tar.gz </span>must be
+class="ectt-1200">redhawk-src-1.10.2.tar.gz </span>must be
 downloaded.
 <!--l. 25--><p class="noindent" >You must set the <span 
 class="ectt-1200">OSSIEHOME </span>and <span 
@@ -100,8 +100,8 @@ tasks. </p></div></div>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export OSSIEHOME=/usr/local/redhawk/core
 export SDRROOT=/var/redhawk/sdr
-tar zxvf redhawk-src-1.10.1.tar.gz
-cd redhawk-src-1.10.1/
+tar zxvf redhawk-src-1.10.2.tar.gz
+cd redhawk-src-1.10.2/
 ./redhawk-install.sh
 . $OSSIEHOME/environment-setup
 ]]></script></div>
@@ -115,7 +115,7 @@ export SDRROOT=/var/redhawk/sdr
 </p></div></div>
 <!--l. 71--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.3   </span> <a 
- id="x31-486000E.3"></a>Configuring omniORB</h3>
+ id="x31-485000E.3"></a>Configuring omniORB</h3>
 <!--l. 72--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
 <a 
 href="mainch2.html#x4-160002.6">Section 2.6</a> for information on how to edit the omniORB configuration file

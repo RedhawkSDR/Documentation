@@ -53,20 +53,20 @@ href="mainap5.html#tailmainap5.html" >prev-tail</a>] [<a
 href="#tailmainap6.html">tail</a>] [<a 
 href="main.html#mainap6.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;F</span><br /><a 
- id="x32-487000F"></a>Installing REDHAWK on Ubuntu</h2>
+ id="x32-486000F"></a>Installing REDHAWK on Ubuntu</h2>
 <h3 class="sectionHead"><span class="titlemark">F.1   </span> <a 
- id="x32-488000F.1"></a>Introduction</h3>
+ id="x32-487000F.1"></a>Introduction</h3>
 <!--l. 5--><p class="noindent" >This appendix explains how to install the Core Framework, <a 
 href="mainap14.html#ide">IDE</a>, and Basic <a 
 href="mainli2.html#glo:component">Components</a> from
 source on a machine running the Ubuntu 14.04 LTS operating system.
 <!--l. 7--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.2   </span> <a 
- id="x32-489000F.2"></a>Installing System Dependencies</h3>
+ id="x32-488000F.2"></a>Installing System Dependencies</h3>
 <!--l. 9--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x32-489002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x32-488002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo add-apt-repository ppa:redhawksdr/redhawk
 sudo apt-get update
 
@@ -81,46 +81,58 @@ libxml2-utils python-jinja2 junit4 libcppunit-dev packagekit-gtk3-module
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-489004x2">To create a writable location for the compiled REDHAWK source, enter the following
+  class="enumerate" id="x32-488004x2">To create a writable location for the compiled REDHAWK source, enter the following
       commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-mkdir -p  /var/lib/redhawk/core
-mkdir -p  /var/lib/redhawk/sdr
-]]></script></div>
+sudo mkdir -p  /var/lib/redhawk/core
+sudo mkdir -p  /var/lib/redhawk/sdr
+sudo chown -R <username> /var/lib/redhawk
+]]></script>
                                                                                          
                                                                                          
+      </div>
       </li>
       <li 
-  class="enumerate" id="x32-489006x3">Add the following to <span 
+  class="enumerate" id="x32-488006x3">Add the following to <span 
 class="ectt-1200">.bashrc </span>to set <span 
 class="ectt-1200">OSSIEHOME</span>, <span 
 class="ectt-1200">SDRROOT</span>, <span 
 class="ectt-1200">PYTHONPATH</span>, <span 
-class="ectt-1200">JAVA_HOME</span>, and <span 
-class="ectt-1200">PATH</span>.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+class="ectt-1200">JAVA_HOME</span>, <span 
+class="ectt-1200">PATH</span>, and
+      <span 
+class="ectt-1200">LD_LIBRARY_PATH</span>. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 echo "export OSSIEHOME=/var/lib/redhawk/core" &gt;&gt; ~/.bashrc
 echo "export SDRROOT=/var/lib/redhawk/sdr" &gt;&gt; ~/.bashrc
 echo "export PYTHONPATH=\${OSSIEHOME}/lib/python" &gt;&gt; ~/.bashrc
 echo "export JAVA_HOME=/usr/lib/jvm/java-<version number>" &gt;&gt; ~/.bashrc
 echo "export PATH=\${OSSIEHOME}/bin:\${JAVA_HOME}/bin:\$PATH" &gt;&gt; ~/.bashrc
+echo "export LD_LIBRARY_PATH=\$OSSIEHOME/lib64:\$OSSIEHOME/lib:\$LD_LIBRARY_PATH" &gt;&gt; ~/.bashrc
 source ~/.bashrc
 ]]></script></div>
       </li></ol>
-<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  An example of <span 
+<!--l. 45--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  An example of <span 
 class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-&#x003C;version number&#x003E; </span>is
 <span 
-class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</span>. </p></div></div>
-<!--l. 47--><p class="noindent" >
+class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</span>. If <span 
+class="ectt-1200">openjdk </span>has been freshly installed in step
+1 above, the installed <span 
+class="ectt-1200">java-7-openjdk </span>can be found using the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo updatedb
+sudo locate java-7-openjdk
+]]></script></div>
+</p></div></div>
+<!--l. 53--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
- id="x32-490000F.3"></a>Building REDHAWK</h3>
-<!--l. 49--><p class="noindent" >To build REDHAWK from source, you need core, gpp, bulkioInterfaces, and code-generator.
-<!--l. 51--><p class="noindent" >
+ id="x32-489000F.3"></a>Building REDHAWK</h3>
+<!--l. 55--><p class="noindent" >To build REDHAWK from source, you need core, gpp, bulkioInterfaces, and code-generator.
+<!--l. 57--><p class="noindent" >
       <ol  class="enumerate1" >
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x32-490002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x32-489002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 mkdir git
 cd git
 git clone https://github.com/RedhawkSDR/framework-core
@@ -149,7 +161,7 @@ python setup.py install
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-490004x2">Update <span 
+  class="enumerate" id="x32-489004x2">Update <span 
 class="ectt-1200">.bashrc </span>once again to run the bash scripts provided.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 echo ". /var/lib/redhawk/core/etc/profile.d/redhawk.sh" &gt;&gt; ~/.bashrc
@@ -159,7 +171,7 @@ source ~/.bashrc
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-490006x3">To create the <a 
+  class="enumerate" id="x32-489006x3">To create the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>, enter the following command.
                                                                                          
                                                                                          
@@ -169,56 +181,56 @@ $SDRROOT/dom/domain/DomainManager.dmd.xml
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-490008x4">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x32-489008x4">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 uuidgen
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-490010x5">Copy the output to clipboard.
+  class="enumerate" id="x32-489010x5">Copy the output to clipboard.
       </li>
       <li 
-  class="enumerate" id="x32-490012x6">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x32-489012x6">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 vi $SDRROOT/dom/domain/DomainManager.dmd.xml
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-490014x7">Replace <span 
+  class="enumerate" id="x32-489014x7">Replace <span 
 class="ectt-1200">@UUID@ </span>with uuid from above, replace <span 
 class="ectt-1200">@NAME@ </span>with <span 
 class="ectt-1200">REDHAWK_DEV</span>.
       </li>
       <li 
-  class="enumerate" id="x32-490016x8">To add a user ubuntu, enter the following commands.
+  class="enumerate" id="x32-489016x8">To add a user ubuntu, enter the following commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo /usr/sbin/groupadd redhawk
 sudo /usr/sbin/usermod -a -G redhawk <username>
 ]]></script></div>
       </li></ol>
-<!--l. 121--><p class="noindent" >
+<!--l. 127--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
- id="x32-491000F.4"></a>Setting Up omniORB.cfg</h3>
-<!--l. 123--><p class="noindent" >
+ id="x32-490000F.4"></a>Setting Up omniORB.cfg</h3>
+<!--l. 129--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x32-491002x1">Enter the following command: <span 
+  class="enumerate" id="x32-490002x1">Enter the following command: <span 
 class="ectt-1200">sudo vi /etc/omniORB.cfg</span>.
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x32-491004x2">Comment out <span 
+  class="enumerate" id="x32-490004x2">Comment out <span 
 class="ectt-1200">DefaultInitRef = corbaloc:: </span>using #
       </li>
       <li 
-  class="enumerate" id="x32-491006x3">Add the line <span 
+  class="enumerate" id="x32-490006x3">Add the line <span 
 class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1</span>
       </li>
       <li 
-  class="enumerate" id="x32-491008x4">Add the line <span 
+  class="enumerate" id="x32-490008x4">Add the line <span 
 class="ectt-1200">InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents</span>
       </li>
       <li 
-  class="enumerate" id="x32-491010x5">Restart <span 
+  class="enumerate" id="x32-490010x5">Restart <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>by entering the following commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -227,8 +239,8 @@ sudo /etc/init.d/omniorb4-nameserver stop
 sudo /etc/init.d/omniorb4-nameserver start
 sudo /etc/init.d/omniorb-eventservice start
 ]]></script></div>
-      <!--l. 143--><p class="noindent" >An alternative:
-      <!--l. 145--><p class="noindent" >In bash type:
+      <!--l. 149--><p class="noindent" >An alternative:
+      <!--l. 151--><p class="noindent" >In bash type:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo service omniorb4-nameserver stop
 sudo service omniorb4-nameserver start
@@ -236,7 +248,7 @@ sudo service omniorb-eventservice restart
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-491012x6">To have <span 
+  class="enumerate" id="x32-490012x6">To have <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>start on system boot, <span 
 class="ectt-1200">update-rc.d </span>and
@@ -248,7 +260,7 @@ sudo update-rc.d omniorb-eventservice defaults
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x32-491014x7">To create a symbolic link for <span 
+  class="enumerate" id="x32-490014x7">To create a symbolic link for <span 
 class="ectt-1200">omniidl</span>, enter the following commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo ln -s /usr/lib/omniidl/omniidl \
@@ -257,11 +269,11 @@ sudo ln -s /usr/lib/omniidl/omniidl \
                                                                                          
                                                                                          
       </li></ol>
-<!--l. 171--><p class="noindent" >
+<!--l. 177--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.5   </span> <a 
- id="x32-492000F.5"></a>Extracting the <a 
+ id="x32-491000F.5"></a>Extracting the <a 
 href="mainap14.html#ide">IDE</a></h3>
-<!--l. 173--><p class="noindent" >Refer to <a 
+<!--l. 179--><p class="noindent" >Refer to <a 
 href="mainch2.html#x4-150002.5">Section 2.5</a> for the REDHAWK <a 
 href="mainap14.html#ide">IDE</a> installation instructions for all Linux distributions.
                                                                                          

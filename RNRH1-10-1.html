@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head> <link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif"> 
+<script> 
+function f() {  
+document.getElementById('main_content_wrap').focus(); 
+} 
+if (window.addEventListener) { 
+window.addEventListener("load", f, false); 
+} else if (window.attachEvent) { 
+window.attachEvent("onload", f); 
+} 
+</script> 
+<div class="header"> 
+<ul class="navbar"> 
+<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li> <li><a href="../index.html">Home</a></li> 
+<li><a href="../documentation.html">Documentation</a></li> 
+<li><a href="../download.html">Download</a></li> 
+<li><a href="../community.html">Community</a></li> 
+</ul> 
+<div class="pattern right"></div> 
+<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a> 
+<noscript><div class ="NoScript">WARNING: JAVASCRIPT is not enabled. JAVASCRIPT is required for viewing code snippets.</div></noscript> 
+</div> 
+<!-- Custom MAIN CONTENT --> 
+<div id="main_content_wrap" tabindex="0" class="outer"> 
+<section id="main_content" class="inner"> 
+<title>Documentation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,1,next,javascript,charset="utf-8" --> 
+<meta name="src" content="main.tex"> 
+<link rel="stylesheet" type="text/css" href="main.css"> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJava.js"></script> 
+<script type="text/javascript" src="scripts/shBrushPython.js"></script> 
+<script type="text/javascript" src="scripts/shBrushBash.js"></script> 
+<script type="text/javascript" src="scripts/shBrushXml.js"></script> 
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" /> 
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"> 
+SyntaxHighlighter.all() 
+</script> 
+ </head><body 
+>
+                                                                                         
+                                                                                         
+                                                                                         <!--l. 1--><p class="noindent" >
+                                                                                         <!--l. 1--><p class="noindent" >
+<div class="tableofcontents">
+&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-2000" id="QQ2-1-2">Core Framework Fixes and Improvements</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-3000" id="QQ2-1-3">IDE Fixes and Improvements</a></span>
+</div>
+<h2 class="likechapterHead"><a 
+ id="x1-1000"></a>REDHAWK Version 1.10.1 Release Notes </h2>
+<!--l. 4--><p class="noindent" >The effort in REDHAWK Version 1.10.1 focused on fixing bugs and improving the reliability of the
+core framework and IDE.
+<h3 class="likesectionHead"><a 
+ id="x1-2000"></a>Core Framework Fixes and Improvements</h3>
+      <ul class="itemize1">
+      <li class="itemize">Fixed a resource starvation issue with the Device Manager and Domain Manager.
+      </li>
+      <li class="itemize">Fixed issue that prevented updating Components from 1.8 to 1.10.
+      </li>
+      <li class="itemize">Fixed issue that caused a deadlock in certain Application creation failures.
+      </li>
+      <li class="itemize">Fixed  issue  that  caused  remote  Domain  registrations  to  not  be  written  to  the
+      persistence store.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Fixed issue that caused the <span 
+class="ectt-1200">AllocationManager </span>to return incorrect values.
+      </li>
+      <li class="itemize">Fixed issue that caused improper handling of individual Property failures in Python
+      <span 
+class="ectt-1200">query()</span>.
+      </li>
+      <li class="itemize">Improved the performance in Python Property handling.
+      </li>
+      <li class="itemize">Added the ability for the same Property change listener method in Python to monitor
+      multiple Properties.
+      </li>
+      <li class="itemize">Fixed issue that caused the <span 
+class="ectt-1200">LD_LIBRARY_PATH </span>and <span 
+class="ectt-1200">OCTAVE_PATH </span>to update incorrectly
+      in C++ Loadable Devices.
+      </li>
+      <li class="itemize">Fixed issue that caused a resource leak in C++ Loadable Devices.
+      </li>
+      <li class="itemize">Fixed issue that caused some Component processes to be orphaned and exhaust
+      resources.
+      </li>
+      <li class="itemize">Fixed issue that caused the system to exit if an ApplicationFactory was not found in
+      <span 
+class="ectt-1200">createApplication()</span>.
+      </li>
+      <li class="itemize">Restored public access to currentSRIs for C++ output Ports.
+      </li>
+      <li class="itemize">Fixed
+      issue that caused a potential deadlock situation between <span 
+class="ectt-1200">getCurrentQueueDepth()</span>
+      and <span 
+class="ectt-1200">pushPacket() </span>for Python input Ports.
+      </li>
+      <li class="itemize">Fixed issue that caused a potential deadlock situation on last packet for C++ input
+      Ports.
+      </li>
+      <li class="itemize">Fixed  issue  that  caused  thread  safety  to  not  be  enforced  in  <span 
+class="ectt-1200">connections() </span>and
+      <span 
+class="ectt-1200">statistics() </span>for Java output ports.
+      </li>
+      <li class="itemize">Fixed issue that caused active stream IDs from Python input Ports to not be reported
+      in statistics.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Improved thread safety for Octave Components.
+      </li>
+      <li class="itemize">Fixed bugs in creating Octave Components with Simple Sequence Properties.
+      </li>
+      <li class="itemize">Fixed  parsing  of  logging  config  file  for  setting  Component  working  directory  with
+      Octave Components.
+      </li>
+      <li class="itemize">Fixed issue with the <span 
+class="ectt-1200">build.sh </span>script that caused C++ Components or Devices to not
+      install properly.
+      </li>
+      <li class="itemize">Fixed the test to determine if the OS version dependency matches the Device OS
+      version.
+      </li>
+      <li class="itemize">Fixed  the  timestamp  used  for  the  logging  of  events  for  C++  Components.  The
+      timestamp was being set to the time that the application was started instead of the
+      actual time of the event.
+      </li>
+      <li class="itemize">Fix provided to <span 
+class="ectt-1200">log4py </span>to properly support <span 
+class="ectt-1200">log4cxx </span>configuration options, which can
+      begin with upper or lower case letters. Prior to the fix, only options that started with
+      lowercase letters were recognized.
+      </li>
+      <li class="itemize">Fixed host collocation problem involving Components that contained soft package
+      dependencies.
+      </li>
+      <li class="itemize">Fixed memory leaks caused by using <span 
+class="ectt-1200">TypeCode_ptr </span>instead of <span 
+class="ectt-1200">TypeCode_var </span>for
+      variables.</li></ul>
+<!--l. 36--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-3000"></a>IDE Fixes and Improvements</h3>
+      <ul class="itemize1">
+      <li class="itemize">Fixed permission error with IDE plotting in the Python Sandox. The error occurred
+      only when the IDE was installed via RPM.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Fixed issue that caused the Chalkboard to be opened multiple times.
+      </li>
+      <li class="itemize">Fixed issue that caused errors to occur when releasing Components/Waveforms in
+      the Sandbox.
+      </li>
+      <li class="itemize">Fixed issue that caused errors in the IDE when connecting external Ports within the
+      IDE Sandbox.
+      </li>
+      <li class="itemize">Fixed  issue  that  caused  Waveforms  to  timeout  and  not  launch  when  launching
+      multiple Waveforms in the Sandbox at the same time.
+      </li>
+      <li class="itemize">Fixed issue that caused the <span 
+class="ectt-1200">build.sh </span>script created at the root of a Component or
+      Device project to be overwritten by the IDE.
+      </li>
+      <li class="itemize">Fixed  issue  that  caused  the  DataList  for  a  BULKIO  Port  to  not  correctly  handle
+      complex data.
+      </li>
+      <li class="itemize">Fixed issue that caused the FrontEnd Interface Wizard to not consistently present
+      the default options.
+      </li>
+      <li class="itemize">Fixed issue that caused only one tuner to be deallocated when <span 
+class="phvb8t-x-x-120">Deallocate All </span>was
+      selected from the context menu of a FrontEnd Device.
+      </li>
+      <li class="itemize">Fixed issue that caused the IDE to not display an error message if a FrontEnd tuner
+      allocation failed.
+      </li>
+      <li class="itemize">Fixed issue that caused an error in the IDE when comments were added to the XML
+      editor for a Waveform (SAD file).
+      </li>
+      <li class="itemize">Fixed issue that allowed users to create an invalid Waveform name when creating a
+      new Waveform project.
+      </li>
+      <li class="itemize">Fixed issue that caused an error when users attempted to launch a Domain before
+      the SDR and IDL libraries were loaded.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Fixed issue that caused the IDE to generate incorrect XML for a struct sequence if
+      the kind (configurationkind) was not selected.
+      </li>
+      <li class="itemize">Fixed issue that caused the IDE to fail to reflect Domain activity if many Waveforms
+      were torn down in rapid succession.
+      </li>
+      <li class="itemize">Fixed  issue  that  caused  the  IDE  to  fail  to  include  <span 
+class="ectt-1200">execparams </span>when  launching
+      Components.
+      </li>
+      <li class="itemize">Fixed issue that caused the IDE to crash on CentOS 6.6.</li></ul>
+ 
+ <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
+
+                                                                                         
+
+
