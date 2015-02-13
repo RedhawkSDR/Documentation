@@ -106,12 +106,13 @@ echo "export OSSIEHOME=/var/lib/redhawk/core" &gt;&gt; ~/.bashrc
 echo "export SDRROOT=/var/lib/redhawk/sdr" &gt;&gt; ~/.bashrc
 echo "export PYTHONPATH=\${OSSIEHOME}/lib/python" &gt;&gt; ~/.bashrc
 echo "export JAVA_HOME=/usr/lib/jvm/java-<version number>" &gt;&gt; ~/.bashrc
-echo "export PATH=\${OSSIEHOME}/bin:\${JAVA_HOME}/bin:\$PATH" &gt;&gt; ~/.bashrc
+echo "export PATH=\${OSSIEHOME}/bin:\${JAVA_HOME}/bin:\$PATH" \
+  &gt;&gt; ~/.bashrc
 echo "export LD_LIBRARY_PATH=\$OSSIEHOME/lib64:\$OSSIEHOME/lib:\$LD_LIBRARY_PATH" &gt;&gt; ~/.bashrc
 source ~/.bashrc
 ]]></script></div>
       </li></ol>
-<!--l. 45--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  An example of <span 
+<!--l. 46--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  An example of <span 
 class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-&#x003C;version number&#x003E; </span>is
 <span 
 class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</span>. If <span 
@@ -123,99 +124,29 @@ sudo updatedb
 sudo locate java-7-openjdk
 ]]></script></div>
 </p></div></div>
-<!--l. 53--><p class="noindent" >
+<!--l. 54--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
  id="x32-489000F.3"></a>Building REDHAWK</h3>
-<!--l. 55--><p class="noindent" >To build REDHAWK from source, you need core, gpp, bulkioInterfaces, and code-generator.
-<!--l. 57--><p class="noindent" >
-      <ol  class="enumerate1" >
-                                                                                         
-                                                                                         
-      <li 
-  class="enumerate" id="x32-489002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-mkdir git
-cd git
-git clone https://github.com/RedhawkSDR/framework-core
-cd framework-core/src
-./reconf;./configure;make;make install
-cd ../..
-
-git clone https://github.com/RedhawkSDR/framework-GPP.git
-cd framework-GPP/python
-./reconf;./configure;make;make install
-cd ../..
-
-git clone https://github.com/RedhawkSDR/framework-bulkioInterfaces.git
-cd framework-bulkioInterfaces
-./reconf;./configure;make;make install
-cd ..
-
-git clone https://github.com/RedhawkSDR/burstioInterfaces.git
-cd burstioInterfaces
-./reconf;./configure;make;make install
-cd ..
-
-git clone https://github.com/RedhawkSDR/framework-codegen.git
-cd framework-codegen
-python setup.py install
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x32-489004x2">Update <span 
-class="ectt-1200">.bashrc </span>once again to run the bash scripts provided.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-echo ". /var/lib/redhawk/core/etc/profile.d/redhawk.sh" &gt;&gt; ~/.bashrc
-echo ". /var/lib/redhawk/core/etc/profile.d/redhawk-sdrroot.sh" \
-&gt;&gt; ~/.bashrc
-source ~/.bashrc
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x32-489006x3">To create the <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a>, enter the following command.
-                                                                                         
-                                                                                         
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-cp $SDRROOT/dom/domain/DomainManager.dmd.xml.template \
-$SDRROOT/dom/domain/DomainManager.dmd.xml
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x32-489008x4">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-uuidgen
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x32-489010x5">Copy the output to clipboard.
-      </li>
-      <li 
-  class="enumerate" id="x32-489012x6">Enter the following command. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-vi $SDRROOT/dom/domain/DomainManager.dmd.xml
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x32-489014x7">Replace <span 
-class="ectt-1200">@UUID@ </span>with uuid from above, replace <span 
-class="ectt-1200">@NAME@ </span>with <span 
-class="ectt-1200">REDHAWK_DEV</span>.
-      </li>
-      <li 
-  class="enumerate" id="x32-489016x8">To add a user ubuntu, enter the following commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+<!--l. 55--><p class="noindent" >To compile the source, create a group named redhawk and add your username to the group,
+execute the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+tar zxvf redhawk-src-1.10.2.tar.gz
+cd redhawk-src-1.10.2/
+./redhawk-install.sh
+. $OSSIEHOME/environment-setup
 sudo /usr/sbin/groupadd redhawk
 sudo /usr/sbin/usermod -a -G redhawk <username>
 ]]></script></div>
-      </li></ol>
-<!--l. 127--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 66--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
  id="x32-490000F.4"></a>Setting Up omniORB.cfg</h3>
-<!--l. 129--><p class="noindent" >
+<!--l. 68--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x32-490002x1">Enter the following command: <span 
 class="ectt-1200">sudo vi /etc/omniORB.cfg</span>.
-                                                                                         
-                                                                                         
       </li>
       <li 
   class="enumerate" id="x32-490004x2">Comment out <span 
@@ -239,8 +170,8 @@ sudo /etc/init.d/omniorb4-nameserver stop
 sudo /etc/init.d/omniorb4-nameserver start
 sudo /etc/init.d/omniorb-eventservice start
 ]]></script></div>
-      <!--l. 149--><p class="noindent" >An alternative:
-      <!--l. 151--><p class="noindent" >In bash type:
+      <!--l. 88--><p class="noindent" >An alternative:
+      <!--l. 90--><p class="noindent" >In bash type:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo service omniorb4-nameserver stop
 sudo service omniorb4-nameserver start
@@ -254,6 +185,8 @@ class="ectt-1200">omniEvents </span>start on system boot, <span
 class="ectt-1200">update-rc.d </span>and
       <span 
 class="ectt-1200">sysv-rc-conf </span>might be viable options.
+                                                                                         
+                                                                                         
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo update-rc.d omniorb4-nameserver defaults
 sudo update-rc.d omniorb-eventservice defaults
@@ -266,14 +199,12 @@ class="ectt-1200">omniidl</span>, enter the following commands.
 sudo ln -s /usr/lib/omniidl/omniidl \
 /usr/lib/python2.7/dist-packages/omniidl
 ]]></script></div>
-                                                                                         
-                                                                                         
       </li></ol>
-<!--l. 177--><p class="noindent" >
+<!--l. 116--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">F.5   </span> <a 
  id="x32-491000F.5"></a>Extracting the <a 
 href="mainap14.html#ide">IDE</a></h3>
-<!--l. 179--><p class="noindent" >Refer to <a 
+<!--l. 118--><p class="noindent" >Refer to <a 
 href="mainch2.html#x4-150002.5">Section 2.5</a> for the REDHAWK <a 
 href="mainap14.html#ide">IDE</a> installation instructions for all Linux distributions.
                                                                                          

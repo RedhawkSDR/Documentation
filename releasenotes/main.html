@@ -56,7 +56,7 @@ href="#x1-2000" id="QQ2-1-2">IDE Fixes and Improvements</a></span>
 </div>
 <h2 class="likechapterHead"><a 
  id="x1-1000"></a>REDHAWK Version 1.10.2 Release Notes </h2>
-<!--l. 4--><p class="noindent" >The effort in REDHAWK Version 1.10.2 focused on fixing bugs and improving the reliability of
+<!--l. 4--><p class="noindent" >The effort in REDHAWK Version 1.10.2 focused on fixing bugs and improving the reliability of the
 IDE.
 <h3 class="likesectionHead"><a 
  id="x1-2000"></a>IDE Fixes and Improvements</h3>
@@ -67,7 +67,27 @@ class="ectt-1200">CF::PortSupplier</span>.
       </li>
       <li class="itemize">Fixed issue that caused Services/Devices with <span 
 class="ectt-1200">execparams </span>to fail to launch in the
-      Sandbox.</li></ul>
+      Sandbox.
+      </li>
+      <li class="itemize">Fixed  issue  with  the  code  generation  for  control  panels  that  caused  compilation
+      errors.
+      </li>
+                                                                                         
+                                                                                         
+      <li class="itemize">Improved  performance  by  eliminating  redundant  CORBA  checks  of  Components
+      and Devices in the Sandbox.
+      </li>
+      <li class="itemize">Fixed an issue that caused the IDE to release Components/Waveforms in a Domain
+      at shutdown if they had been edited in the Chalkboard.
+      </li>
+      <li class="itemize">Improved the IDE so it now performs a <span 
+class="ectt-1200">build clean </span>before a full build after code
+      generation has been performed.
+      </li>
+      <li class="itemize">Improved code generation for C++ projects so that it uses the <span 
+class="ectt-1200">build.sh </span>in the root of
+      the project for build operations instead of the <span 
+class="ectt-1200">build.sh </span>in the implementation folder.</li></ul>
  
  <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
 
