@@ -58,12 +58,12 @@ href="main.html#mainch15.html" >up</a>] </p></div>
  id="x17-27300015.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >Data flow between REDHAWK resources (<a 
 href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:device">Devices</a>) is managed through two sets
-of interfaces: <a 
-href="mainap14.html#bulkio">BulkIO</a> and Burst Input/Output (<a 
-href="mainap14.html#burstio">BurstIO</a>). The <a 
-href="mainap14.html#bulkio">BulkIO</a> module is designed for
-streaming data and maximizes the efficiency for bulk data transfers between resources, where as,
+href="mainli2.html#glo:device">Devices</a>) is managed through two
+sets of interfaces: <a 
+href="mainap14.html#bulkio">BulkIO</a> and <a 
+href="mainap14.html#burstio">BurstIO</a>. The <a 
+href="mainap14.html#bulkio">BulkIO</a> module is designed for streaming
+data and maximizes the efficiency for bulk data transfers between resources, where as,
 <a 
 href="mainap14.html#burstio">BurstIO</a> is designed for applications that require small and possibly non-contiguous
 chunks of data transfers. Both interfaces also allow for the association of metadata, Signal
@@ -1884,7 +1884,7 @@ href="mainli2.html#glo:port">Port</a>.
   my_transform(data);
 
   BURSTIO::BurstSRI  sri;
-  BurstShortOut::BurstType burst;
+  burstio::BurstShortOut::BurstType burst;
   burst.SRI = sri;
   burst.EOS = false;
   burst.T = burstio::utils::now();
@@ -1916,7 +1916,7 @@ resource.
 
   BurstShortOut::BurstSequenceType bursts;
   bursts.length(1);
-  BurstShortOut::BurstType burst;
+  burstio::BurstShortOut::BurstType burst;
   burst.SRI = sri;
   burst.EOS = false;
   burst.T = burstio::utils::now();

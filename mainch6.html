@@ -926,8 +926,8 @@ example, to allocate a tuner to receive, centered at 1 MHz with a bandwidth of 1
 tolerance in the requested values, and a sample rate of 2 kHz, the following functionality can be
 used: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 &gt;&gt;> import frontend
-&gt;&gt;> allocation = frontend.createTunerAllocation(tuner_type='RX',
-    allocation_id='someid',center_frequency=1e6,
+&gt;&gt;> allocation = frontend.createTunerAllocation(tuner_type="RX",
+    allocation_id="someid",center_frequency=1e6,
     bandwidth=1e3,bandwidth_tolerance=0.1,
     sample_rate=2e3,sample_rate_tolerance=0.1)
 &gt;&gt;> retval = dev.allocateCapacity(allocation)
@@ -944,7 +944,7 @@ href="mainap14.html#id">ID</a>:
                                                                                          
                                                                                          
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> dev.connect(comp, connectionId='someid')
+&gt;&gt;> dev.connect(comp, connectionId="someid")
 ]]></script></div>
 <!--l. 209--><p class="noindent" >To deallocate the tuner, use the following call:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -953,14 +953,14 @@ href="mainap14.html#id">ID</a>:
 <!--l. 215--><p class="noindent" >To allocate a listener to a specific allocated tuner, use the following call:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 &gt;&gt;> listen_alloc = frontend.createTunerListenerAllocation(allocation_id,
-      'some id listener')
+      "some id listener")
 &gt;&gt;> retval = dev.allocateCapacity(listen_alloc)
 ]]></script></div>
 <!--l. 223--><p class="noindent" >To allocate a listener to any tuner with a particular set of values, use the following
 call:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> allocation=frontend.createTunerGenericListenerAllocation(tuner_type='RX',
-      allocation_id='someidanotherlistener',center_frequency=1e6,
+&gt;&gt;> allocation=frontend.createTunerGenericListenerAllocation(tuner_type="RX",
+      allocation_id="someidanotherlistener",center_frequency=1e6,
       bandwidth=1e3,bandwidth_tolerance=0.1,sample_rate=2e3,
       sample_rate_tolerance=0.1)
 &gt;&gt;> retval = dev.allocateCapacity(allocation)

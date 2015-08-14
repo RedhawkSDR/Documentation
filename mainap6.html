@@ -130,8 +130,8 @@ sudo locate java-7-openjdk
 <!--l. 55--><p class="noindent" >To compile the source, create a group named redhawk and add your username to the group,
 execute the following commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar zxvf redhawk-src-1.10.2.tar.gz
-cd redhawk-src-1.10.2/
+tar zxvf redhawk-src-<version>.tar.gz
+cd redhawk-src-<version>/
 ./redhawk-install.sh
 . $OSSIEHOME/environment-setup
 sudo /usr/sbin/groupadd redhawk
@@ -154,7 +154,7 @@ class="ectt-1200">DefaultInitRef = corbaloc:: </span>using #
       </li>
       <li 
   class="enumerate" id="x32-490006x3">Add the line <span 
-class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1</span>
+class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1:2809</span>
       </li>
       <li 
   class="enumerate" id="x32-490008x4">Add the line <span 

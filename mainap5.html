@@ -72,19 +72,19 @@ href="mainch2.html#x4-110002.3">Section 2.3</a>).
       <li 
   class="enumerate" id="x31-483004x2">Install      dependencies      distributed      with      the      REDHAWK      tarball,
       <span 
-class="ectt-1200">redhawk-yum-1.10.2-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz </span>by  entering  the  following  commands
-      from the directory containing REDHAWK dependencies:
+class="ectt-1200">redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz   </span>by    entering    the    following
+      commands from the directory containing REDHAWK dependencies:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar xzvf redhawk-yum-1.10.2-<dist>-<arch>.tar.gz
-cd redhawk-1.10.2-<dist>-<arch>
-sudo yum install jacorb* *omni* python-jinja2*
+tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
+cd redhawk-<version>-<dist>-<arch>
+sudo yum install *omni*
 ]]></script></div>
       </li></ol>
 <!--l. 21--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.2   </span> <a 
  id="x31-484000E.2"></a>Installing the Framework from Source</h3>
 <!--l. 23--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="ectt-1200">redhawk-src-1.10.2.tar.gz </span>must be
+class="ectt-1200">redhawk-src-&#x003C;version&#x003E;.tar.gz </span>must be
 downloaded.
 <!--l. 25--><p class="noindent" >You must set the <span 
 class="ectt-1200">OSSIEHOME </span>and <span 
@@ -101,8 +101,8 @@ tasks. </p></div></div>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export OSSIEHOME=/usr/local/redhawk/core
 export SDRROOT=/var/redhawk/sdr
-tar zxvf redhawk-src-1.10.2.tar.gz
-cd redhawk-src-1.10.2/
+tar zxvf redhawk-src-<version>.tar.gz
+cd redhawk-src-<version>/
 ./redhawk-install.sh
 . $OSSIEHOME/environment-setup
 ]]></script></div>

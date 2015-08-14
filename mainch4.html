@@ -214,16 +214,26 @@ class="ectt-1200">main.cpp </span>-  Contains  the  main  routine  for  the  pro
 href="mainli2.html#glo:component">Component</a> is instantiated. Modification of this file is not recommended.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">port_impl.h </span>- Contains the <a 
+class="ectt-1200">port_impl.h </span>(Optional) - This file is only generated for <a 
+href="mainli2.html#glo:port">Ports</a> that utilize interfaces
+      other than <a 
+href="mainap14.html#bulkio">BulkIO</a>, Burst Input/Output (<a 
+href="mainap14.html#burstio">BurstIO</a>), <a 
+href="mainap14.html#fei">FEI</a> and Messaging. Contains the
+      <a 
 href="mainli2.html#glo:port">Port</a>-related code for the <a 
-href="mainli2.html#glo:component">Component</a>. Modification of this
-      file is discouraged.
+href="mainli2.html#glo:component">Component</a>. Modification of this file is discouraged.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">port_impl.cpp </span>- Contains the <a 
-href="mainli2.html#glo:port">Port</a>-related code for the <a 
-href="mainli2.html#glo:component">Component</a>. Modification of
-      this file is discouraged.
+class="ectt-1200">port_impl.cpp </span>(Optional) - This file is only generated for <a 
+href="mainli2.html#glo:port">Ports</a> that utilize interfaces
+      other than <a 
+href="mainap14.html#bulkio">BulkIO</a>, <a 
+href="mainap14.html#burstio">BurstIO</a>, <a 
+href="mainap14.html#fei">FEI</a> and Messaging. Contains the <a 
+href="mainli2.html#glo:port">Port</a>-related code for
+      the <a 
+href="mainli2.html#glo:component">Component</a>. Modification of this file is discouraged.
       </li>
       <li class="itemize"><span 
 class="ectt-1200">struct_props.h </span>- Contains support classes for struct <a 
@@ -245,28 +255,24 @@ href="mainli2.html#glo:component">Component</a> based
       on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:port">Ports</a> and <a 
-href="mainli2.html#glo:property">Properties</a>. Most of the <a 
-href="mainli2.html#glo:port">Port</a>-related interface code
-      resides in <span 
-class="ectt-1200">port_impl.h/cpp</span>. Modification of <span 
-class="ectt-1200">componentName_base.h </span>is discouraged.
+href="mainli2.html#glo:property">Properties</a>. Modification of <span 
+class="ectt-1200">componentName_base.h </span>is
+      discouraged.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">componentName_base.cpp </span>- Provides interface implementations for the <a 
-href="mainli2.html#glo:component">Component</a>
-      based on the <a 
+class="ectt-1200">componentName_base.cpp           </span>-                  Provides                  interface
+      implementations for the <a 
+href="mainli2.html#glo:component">Component</a> based on the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:port">Ports</a> and <a 
-href="mainli2.html#glo:property">Properties</a>. Most of the <a 
-href="mainli2.html#glo:port">Port</a>-related interface code
-      resides in <span 
-class="ectt-1200">port_impl.h/cpp</span>. Modification of <span 
+href="mainli2.html#glo:property">Properties</a>.
+      Modification of <span 
 class="ectt-1200">componentName_base.cpp </span>is discouraged.</li></ul>
+                                                                                         
+                                                                                         
 <!--l. 75--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.3   </span> <a 
  id="x6-460004.2.3"></a>Files Generated for Python Components</h4>
-                                                                                         
-                                                                                         
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">componentName.py </span>- The appropriate place for developers to add their own processing
@@ -313,10 +319,10 @@ method.
 custom main class Java file, regenerate the main Java class to get the new 1.10 code
 pattern, and for example, move source from the run() method to the serviceFunction()
 method to integrate the custom code in the 1.8 main class into the new main class. </p></div></div>
+                                                                                         
+                                                                                         
 <!--l. 97--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first">  If <span 
 class="ectt-1200">componentName.java </span>is regenerated, any custom code added to it is removed. </p></div></div>
-                                                                                         
-                                                                                         
 <!--l. 101--><p class="noindent" >Add this class to the <span 
 class="ectt-1200">componentName.java </span>right before the last line which is "}"
 <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
@@ -363,9 +369,9 @@ the constructor. Within a Python <a
 href="mainli2.html#glo:component">Component</a>, <a 
 href="mainli2.html#glo:port">Ports</a> are initialized in the <span 
 class="ectt-1200">initialize()</span>
+                                                                                         
+                                                                                         
 method.
-                                                                                         
-                                                                                         
 <!--l. 14--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.3   </span> <a 
  id="x6-510004.3.3"></a><span 
@@ -409,44 +415,39 @@ href="mainli2.html#glo:application">Application</a>.
 class="ectt-1200">run()</span></h4>
 <!--l. 25--><p class="noindent" >Found within a Python <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base class, a Java <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s base class, and a C++
-<a 
+href="mainli2.html#glo:component">Component</a>&#8217;s base class, and a
+C++ <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s base header file. The <span 
-class="ectt-1200">run() </span>method makes continuous calls to a C++ or Java
-<a 
+class="ectt-1200">run() </span>method makes continuous calls to a
+C++ or Java <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
-class="ectt-1200">serviceFunction()</span>, which is the main piece of executable code that defines the
-<a 
+class="ectt-1200">serviceFunction()</span>, which is the main piece of executable
+code that defines the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s core functionality. In Python, the <span 
-class="ectt-1200">run() </span>method makes continuous calls to the
-<a 
+class="ectt-1200">run() </span>method
+makes continuous calls to the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">process() </span>method. The <span 
-class="ectt-1200">run() </span>method handles various return states generated by
-the <span 
-class="ectt-1200">serviceFunction()</span>.
+class="ectt-1200">run() </span>method
+handles various return states generated by the <span 
+class="ectt-1200">serviceFunction() </span>or the <span 
+class="ectt-1200">process()</span>
+method.
 <!--l. 27--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.6   </span> <a 
  id="x6-540004.3.6"></a><span 
 class="ectt-1200">pushPacket() </span>and <span 
 class="ectt-1200">pushSRI()</span></h4>
-<!--l. 28--><p class="noindent" >Found within a C++ <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s <span 
-class="ectt-1200">port_impl.h/cpp </span>files, a Python <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s base class, and
-files within a Java <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s <span 
-class="ectt-1200">ports </span>package. The <span 
+                                                                                         
+                                                                                         
+<!--l. 28--><p class="noindent" >The <span 
 class="ectt-1200">pushPacket() </span>and <span 
-class="ectt-1200">pushSRI()</span>
-methods are <a 
+class="ectt-1200">pushSRI() </span>methods are <a 
 href="mainap14.html#corba">CORBA</a>-enabled <a 
-href="mainap14.html#rpc">RPC</a>s used for data and metadata transfer between <a 
-href="mainap14.html#bulkio">BulkIO</a>
-<a 
+href="mainap14.html#rpc">RPC</a>s used for data and
+metadata transfer between <a 
+href="mainap14.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Ports</a>.
-                                                                                         
-                                                                                         
 <!--l. 30--><p class="noindent" >Both methods are called within the <span 
 class="ectt-1200">serviceFunction() </span>(<span 
 class="ectt-1200">process() </span>in the case of Python)
@@ -511,9 +512,9 @@ these dependencies ensures that a <a
 href="mainli2.html#glo:component">Component</a> is deployed to an appropriate <a 
 href="mainli2.html#glo:device">Device</a> at
 runtime.
+                                                                                         
+                                                                                         
 <!--l. 2--><p class="noindent" >
-                                                                                         
-                                                                                         
 <h3 class="sectionHead"><span class="titlemark">4.5   </span> <a 
  id="x6-580004.5"></a>BulkIO Data Queuing</h3>
 <!--l. 4--><p class="noindent" >Generated <a 

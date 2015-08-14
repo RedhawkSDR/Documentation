@@ -255,7 +255,7 @@ class="ectt-1200">SDRROOT</span>.
 href="mainli2.html#glo:device">Device</a> from the current working directory
 using the path:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_dev = sb.launch('./MyDevice.spd.xml')
+&gt;&gt;> my_dev = sb.launch("./MyDevice.spd.xml")
 ]]></script></div>
 <!--l. 56--><p class="noindent" >The following example demonstrates how to launch a <a 
 href="mainli2.html#glo:device">Device</a> named <span 
@@ -279,7 +279,7 @@ passing a Python dictionary of parameter names and values to the keyword argumen
 <span 
 class="ectt-1200">execparams</span>:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp = sb.launch('MyComponent', execparams={'EXECPARAM_1': 'value'})
+&gt;&gt;> my_comp = sb.launch("MyComponent", execparams={"EXECPARAM_1": "value"})
 ]]></script></div>
 <!--l. 75--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">9.4.4.2   </span> <a 
@@ -301,9 +301,9 @@ href="mainli2.html#glo:property">Property</a> names and values to the keyword ar
 <span 
 class="ectt-1200">configure</span>:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> siggen = sb.launch('SigGen', configure={'sample_rate':100e3,
-...                                         'frequency':22e3,
-...                                         'shape':'square'})
+&gt;&gt;> siggen = sb.launch("SigGen", configure={"sample_rate":100e3,
+...                                         "frequency":22e3,
+...                                         "shape":"square"})
 ]]></script></div>
 <!--l. 86--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">9.4.4.3   </span> <a 
@@ -315,7 +315,7 @@ the file system. A particular implementation may be specified by passing the imp
 the <span 
 class="ectt-1200">impl </span>argument:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> siggen = sb.launch('SigGen', impl='cpp')
+&gt;&gt;> siggen = sb.launch("SigGen", impl="cpp")
 ]]></script></div>
 <!--l. 95--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">9.4.4.4   </span> <a 
@@ -329,7 +329,7 @@ console.
 <!--l. 100--><p class="noindent" >To launch a <a 
 href="mainli2.html#glo:component">Component</a> and attach gdb to the process, enter the following command:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp = sb.launch('./MyComponent.spd.xml', debugger='gdb')
+&gt;&gt;> my_comp = sb.launch("./MyComponent.spd.xml", debugger="gdb")
 ]]></script></div>
 <!--l. 106--><p class="noindent" >The <a 
 href="mainli2.html#glo:component">Component</a> and gdb are run in separate processes. Exiting gdb closes the window, but the
@@ -352,7 +352,7 @@ href="mainli2.html#glo:property">Properties</a> can
 be accessed as attributes on the <a 
 href="mainli2.html#glo:component">Component</a> object:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp.string_prop = 'Hello World!'
+&gt;&gt;> my_comp.string_prop = "Hello World!"
 &gt;&gt;> my_comp.long_prop
 1
 ]]></script></div>
@@ -419,7 +419,7 @@ href="mainli2.html#glo:component">Component</a>&#8217;s <a
 href="mainap14.html#prf">PRF</a> support assignment using the
 enumerated name as a Python string:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> siggen.shape = 'triangle'
+&gt;&gt;> siggen.shape = "triangle"
 ]]></script></div>
                                                                                          
                                                                                          
@@ -429,8 +429,8 @@ enumerated name as a Python string:
 <!--l. 177--><p class="noindent" >Struct <a 
 href="mainli2.html#glo:property">Properties</a> can be set with a Python dictionary:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp.struct_prop = {'item_string: 'value',
-...                        'item_long': 100}
+&gt;&gt;> my_comp.struct_prop = {"item_string": "value",
+...                        "item_long": 100}
 ]]></script></div>
 <!--l. 184--><p class="noindent" >The dictionary keys are the <a 
 href="mainap14.html#id">ID</a>s of the simple <a 
@@ -440,7 +440,7 @@ href="mainli2.html#glo:property">Properties</a>. Any struct
 members that are not in the dictionary retain their current values.
 <!--l. 188--><p class="noindent" >Individual struct members may be set directly, using the simple property name:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp.struct_prop.item_string = 'new value'
+&gt;&gt;> my_comp.struct_prop.item_string = "new value"
 ]]></script></div>
 <!--l. 194--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Setting a struct member as an attribute uses the simple property&#8217;s name, while setting the
 member via a dictionary uses the simple property&#8217;s id. </p></div></div>
@@ -478,8 +478,8 @@ href="mainli2.html#glo:property">Property</a>:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 &gt;&gt;> my_comp.struct_seq
 [{'a':'first', 'b':1}, {'a':'second', 'b':2}]
-&gt;&gt;> my_comp.struct_seq[0].a = 'new value'
-&gt;&gt;> my_comp.struct_seq[1] = {'a':'third', 'b':3}
+&gt;&gt;> my_comp.struct_seq[0].a = "new value"
+&gt;&gt;> my_comp.struct_seq[1] = {"a":"third", "b":3}
 &gt;&gt;> my_comp.struct_seq
 [{'a':'new value', 'b':1}, {'a':'third', 'b':3}]
 ]]></script></div>
@@ -497,7 +497,7 @@ href="mainli2.html#glo:component">Components</a> also support setting multiple <
 href="mainli2.html#glo:property">Property</a> values at once using a
 Python dictionary:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp.configure({'long_prop':1, 'string_prop':'new value'})
+&gt;&gt;> my_comp.configure({"long_prop":1, "string_prop":"new value"})
 ]]></script></div>
 <!--l. 243--><p class="noindent" >The keys may be either the <a 
 href="mainli2.html#glo:property">Property</a> names or <a 
@@ -542,10 +542,10 @@ href="mainli2.html#glo:property">Properties</a>, including a
 struct <a 
 href="mainli2.html#glo:property">Property</a>:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> caps = {'long_cap': 1000,
-...         'float_cap': 1.0,
-...         'struct_cap': {'ushort_item': 0,
-...                        'bool_item': False}}
+&gt;&gt;> caps = {"long_cap": 1000,
+...         "float_cap": 1.0,
+...         "struct_cap": {"ushort_item": 0,
+...                        "bool_item": False}}
 &gt;&gt;> my_dev.allocateCapacity(caps)
 True
 &gt;&gt;> my_dev.deallocateCapacity(caps)
@@ -615,7 +615,7 @@ href="mainli2.html#glo:Sandbox">Sandbox</a>:
                                                                                          
                                                                                          
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp = sb.launch('<component name>')
+&gt;&gt;> my_comp = sb.launch("<component name>")
 &gt;&gt;> my_comp
 <local component '<component name>_1' at 0x<hex address&gt;&gt;
 &gt;&gt;> my_comp.api()
@@ -685,7 +685,7 @@ class="ectt-1200">providesPortName </span>must be specified as arguments to the 
 specifies <span 
 class="ectt-1200">providesPortName </span>as an argument.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> another_comp = sb.launch('repeater')
+&gt;&gt;> another_comp = sb.launch("repeater")
 &gt;&gt;> my_comp.connect(another_comp)
 True
 ]]></script></div>
@@ -696,7 +696,7 @@ or provides side have matching types), an error occurs. To resolve the ambiguity
 class="ectt-1200">usesPortName </span>and/or <span 
 class="ectt-1200">providesPortName </span>needs to be specified as arguments to the function.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> my_comp.connect(another_comp, providesPortName='float_in_1')
+&gt;&gt;> my_comp.connect(another_comp, providesPortName="float_in_1")
 ]]></script></div>
 <!--l. 383--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">9.4.7.2   </span> <a 
@@ -762,7 +762,7 @@ class="ectt-1200">DataSource </span>module. The most significant difference betw
 modules is the presence of a file name in the <span 
 class="ectt-1200">FileSource </span>constructor.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> input_file = sb.FileSource('~/short_file.tmp', dataFormat='short')
+&gt;&gt;> input_file = sb.FileSource("~/short_file.tmp", dataFormat="short")
 ]]></script></div>
                                                                                          
                                                                                          
@@ -774,8 +774,8 @@ href="mainap14.html#sri">SRI</a> keywords may be generated and sent with data fr
 class="ectt-1200">DataSource </span>module.
 <!--l. 41--><p class="noindent" >An example generate/send can be seen below:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> kw = sb.SRIKeyword("SOME_RF",155000000.0,'double')
-&gt;&gt;> kw2 = sb.SRIKeyword("EFFECTIVE_BITS_PER_SAMPLE",16,'long')
+&gt;&gt;> kw = sb.SRIKeyword("SOME_RF",155000000.0,"double")
+&gt;&gt;> kw2 = sb.SRIKeyword("EFFECTIVE_BITS_PER_SAMPLE",16,"long")
 &gt;&gt;> keywords = [kw, kw2]
 &gt;&gt;> input_data = sb.DataSource()
 &gt;&gt;> data = range(1000)
@@ -873,7 +873,7 @@ class="ectt-1200">DataSink </span>has an associated <span
 class="ectt-1200">FileSink</span>
 module for writing data to a file:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> output_file = sb.FileSink('~/some_file.tmp')
+&gt;&gt;> output_file = sb.FileSink("~/some_file.tmp")
 &gt;&gt;> another_comp.connect(output_file)
 ]]></script></div>
 <!--l. 122--><p class="noindent" >
@@ -909,7 +909,7 @@ href="mainli2.html#glo:Sandbox">Sandbox</a>.
 <!--l. 142--><p class="noindent" >This can be done through the <span 
 class="ectt-1200">IDELocation() </span>function:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> sb.IDELocation('/path/to/ide/eclipse')
+&gt;&gt;> sb.IDELocation("/path/to/ide/eclipse")
 ]]></script></div>
 <!--l. 148--><p class="noindent" >This can also be done by setting the <span 
 class="ectt-1200">RH_IDE </span>environment variable prior to starting the Python
@@ -943,7 +943,7 @@ class="ecbx-1200">Show Raster </span>in the upper
 <h5 class="subsubsectionHead"><span class="titlemark">9.5.3.3   </span> <a 
  id="x11-1950009.5.3.3"></a>File Data Plotting Example</h5>
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> input_file = sb.FileSource('~/short_file.tmp', dataFormat='short')
+&gt;&gt;> input_file = sb.FileSource("~/short_file.tmp", dataFormat="short")
 &gt;&gt;> my_plot = sb.Plot()
 &gt;&gt;> input_file.connect(my_plot)
 &gt;&gt;> input_file.start()
@@ -1178,7 +1178,7 @@ href="mainap14.html#ide">IDE</a>, use the <span
 class="ectt-1200">IDELocation()</span>
 function:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;> sb.IDELocation('/path/to/ide/eclipse')
+&gt;&gt;> sb.IDELocation("/path/to/ide/eclipse")
 ]]></script></div>
 <!--l. 135--><p class="noindent" >The path to the <span 
 class="ectt-1200">eclipse </span>directory of the installed <a 
@@ -1260,7 +1260,7 @@ class="ectt-1200">proc() </span>function. The following
 command is an example of the <span 
 class="ectt-1200">proc() </span>function call with sample arguments:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-&gt;&gt;>sb.proc(`my_component','input_file',sink='output_file',sourceFmt='16t',sinkFmt='8u',sampleRate=10000,execparams={`execprop1':5},configure={`prop2':4},providesPortName='input',usesPortName='output',timeout=10)
+&gt;&gt;>sb.proc("my_component","input_file",sink="output_file",sourceFmt="16t",sinkFmt="8u",sampleRate=10000,execparams={"execprop1":5},configure={"prop2":4},providesPortName="input",usesPortName="output",timeout=10)
 ]]></script></div>
 <!--l. 55--><p class="noindent" >The arguments for the <span 
 class="ectt-1200">proc() </span>function are described in <a 
