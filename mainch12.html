@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>12 Component Control</title> 
+<head><title>12 Runtime Environment Inspection</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,397 +53,372 @@ href="mainch11.html#tailmainch11.html" >prev-tail</a>] [<a
 href="#tailmainch12.html">tail</a>] [<a 
 href="main.html#mainch12.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;12</span><br /><a 
- id="x14-23700012"></a>Component Control</h2>
+ id="x14-27900012"></a>Runtime Environment Inspection</h2>
 <h3 class="sectionHead"><span class="titlemark">12.1   </span> <a 
- id="x14-23800012.1"></a>Introduction</h3>
-<!--l. 6--><p class="noindent" >In the execution of <a 
-href="mainli2.html#glo:component">Components</a> it becomes critical to give the user custom access to certain
-aspects of its control and configuration. This allows for the ability to make runtime changes on
-pieces of software that are deployed.
-<!--l. 9--><p class="noindent" >Control of <a 
-href="mainli2.html#glo:component">Components</a> is handled by inheriting from the <span 
-class="ectt-1200">CF::Resource </span>interface, which in
-turn inherits from <span 
-class="ectt-1200">CF::LifeCycle</span>, <span 
-class="ectt-1200">CF::PortSupplier</span>, <span 
-class="ectt-1200">CF::PropertySet</span>, and
-<span 
-class="ectt-1200">CF::TestableObject</span>. <span 
-class="ectt-1200">CF::Resource </span>thus implements a wide range of methods including
-<span 
-class="ectt-1200">initialize()</span>, <span 
-class="ectt-1200">releaseObject()</span>, <span 
-class="ectt-1200">getPort()</span>, <span 
-class="ectt-1200">configure()</span>, <span 
-class="ectt-1200">query()</span>, <span 
-class="ectt-1200">runTest()</span>,
-<span 
-class="ectt-1200">start() </span>and <span 
-class="ectt-1200">stop()</span>. These methods allow the user to manipulate and customize their
-<a 
-href="mainli2.html#glo:component">Components</a> to achieve the exact behavior they desire in all phases of the <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s life
-cycle.
-<!--l. 14--><p class="noindent" >
+ id="x14-28000012.1"></a>Introduction</h3>
+<!--l. 6--><p class="noindent" >During runtime, there are a large number of operations that are handled under the hood by the
+REDHAWK Core Framework. At times though, it becomes necessary to take a closer look at
+these underlying parts to ensure that they are working properly or to inspect what kind
+of a state they are currently in. REDHAWK provides tools to help accomplish this
+task.
+<!--l. 10--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">12.2   </span> <a 
- id="x14-23900012.2"></a>Overview of Functionality</h3>
-<!--l. 16--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.2.1   </span> <a 
- id="x14-24000012.2.1"></a>Life Cycle</h4>
-<!--l. 18--><p class="noindent" >The set up and tear down of resources are handled through the Life Cycle interface. The method
-<span 
-class="ectt-1200">initialize() </span>is used to get a <a 
-href="mainli2.html#glo:component">Component</a> into its known initial state, by allocating data or setting
-structures to their proper initial values. <span 
-class="ectt-1200">releaseObject() </span>is used to tear down a <a 
-href="mainli2.html#glo:component">Component</a> by
-freeing up any resources used by the <a 
-href="mainli2.html#glo:component">Component</a>. <span 
-class="ectt-1200">initialize() </span>can be thought of as a
-framework-level constructor, while <span 
-class="ectt-1200">releaseObject() </span>can be thought of as a framework level
-destructor. As such, they are generally called at the beginning and end of the <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s
-respective life cycle.
-<!--l. 24--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.2.2   </span> <a 
- id="x14-24100012.2.2"></a>Port Supplier</h4>
-                                                                                         
-                                                                                         
-<!--l. 26--><p class="noindent" >Access to <a 
-href="mainli2.html#glo:port">Ports</a> are controlled through the <a 
-href="mainli2.html#glo:port">Port</a> Supplier interface where <span 
-class="ectt-1200">getPort() </span>is used to
-obtain a specific uses (output) or provides (input) <a 
-href="mainli2.html#glo:port">Port</a>. The method is passed a string containing
-the name of the desired <a 
-href="mainli2.html#glo:port">Port</a>, and then an object reference to that <a 
-href="mainli2.html#glo:port">Port</a> is returned. If no <a 
-href="mainli2.html#glo:port">Ports</a> are
-found, an <span 
-class="ectt-1200">UnknownPort </span>exception is thrown. This allows the user to obtain an object that provides
-the ability to receive data in and push data out of the <a 
-href="mainli2.html#glo:component">Component</a>. Each <a 
-href="mainli2.html#glo:component">Component</a> can
-have zero to many input and output <a 
-href="mainli2.html#glo:port">Ports</a> which are specified in the <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap14.html#scd">SCD</a>
-file.
-<!--l. 32--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.2.3   </span> <a 
- id="x14-24200012.2.3"></a>Property Set</h4>
-<!--l. 35--><p class="noindent" ><a 
-href="mainli2.html#glo:property">Property</a> control is handled through the <span 
-class="ectt-1200">configure() </span>and <span 
-class="ectt-1200">query() </span>methods. The <span 
-class="ectt-1200">configure()</span>
-method takes in a list of <a 
-href="mainap14.html#id">ID</a> and value pairs and attempts to set them. An Invalid Configuration
-error is thrown if no <a 
-href="mainli2.html#glo:property">Properties</a> in the list are able to be set. A Partial Configuration error is
-thrown if at least one, but not all <a 
-href="mainli2.html#glo:property">Properties</a> are set. The <span 
-class="ectt-1200">query() </span>method serves as the getter for
-the <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainli2.html#glo:property">Properties</a>. If the <span 
-class="ectt-1200">query() </span>method is passed an empty list, it returns all of the
+ id="x14-28100012.2"></a>REDHAWK Module</h3>
+<!--l. 12--><p class="noindent" >A Python module called REDHAWK is provided with the capability to interact with running
 <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainli2.html#glo:property">Properties</a>. Otherwise, it returns any valid <a 
-href="mainli2.html#glo:property">Properties</a> based on the <a 
-href="mainap14.html#id">ID</a> and value pair
-passed in as a parameter.
-<!--l. 42--><p class="noindent" >
+href="mainli2.html#glo:domain">Domains</a>, <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
+href="mainli2.html#glo:component">Components</a>. This allows for individual control and assessment
+over all aspects of a runtime environment.
+<!--l. 15--><p class="noindent" >In order to use the REDHAWK utility module, begin a Python session from a terminal and enter
+the following command:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ $ python
+ Python 2.6.6 (r266:84292, Aug 28 2012, 10:55:56)
+ [GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
+ Type "help", "copyright", "credits" or "license" for more
+ information.
+ &gt;&gt;> from ossie.utils import redhawk
+]]></script></div>
+<!--l. 26--><p class="noindent" >The REDHAWK module is built on the same foundation as the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, and provides a
+compatible interface for domain objects. <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> objects, including plots, can be dynamically
+connected to <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
+href="mainli2.html#glo:component">Components</a> running in the domain.
+<!--l. 29--><p class="noindent" >Refer to <a 
+href="mainch10.html#x12-20700010.2.3">Section 10.2.3</a> for details about interacting with <a 
+href="mainli2.html#glo:component">Components</a> and <a 
+href="mainli2.html#glo:device">Devices</a> in
+Python.
+                                                                                         
+                                                                                         
+<!--l. 31--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">12.2.1   </span> <a 
+ id="x14-28200012.2.1"></a>Attach</h4>
+<!--l. 33--><p class="noindent" >The module provides the ability to attach to a running <a 
+href="mainli2.html#glo:domain">Domain</a>.
+<!--l. 35--><p class="noindent" >This allows the user access to the underlying <a 
+href="mainap9.html#api">API</a> of the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> in addition to other
+useful functionality:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">createApplication() </span>- install/create a particular <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">removeApplication() </span>- release a particular <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a></li></ul>
+<!--l. 42--><p class="noindent" >To attach to an existing <a 
+href="mainli2.html#glo:domain">Domain</a>, the name must be passed as an argument.
+<!--l. 44--><p class="noindent" >Assuming the <a 
+href="mainli2.html#glo:domain">Domain</a> name is <span 
+class="ectt-1200">MY_DOMAIN</span>, start a Python script and enter:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ &gt;&gt;> domain = redhawk.attach("MY_DOMAIN")
+]]></script></div>
+<!--l. 50--><p class="noindent" >Note that if there is only 1 Domain visible, no argument is needed for the attach call:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ &gt;&gt;> domain = redhawk.attach()
+]]></script></div>
+<!--l. 56--><p class="noindent" >Once attached to the running <a 
+href="mainli2.html#glo:domain">Domain</a>, <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> that are installed in the <span 
+class="ectt-1200">$SDRROOT </span>can easily be
+launched using the <span 
+class="ectt-1200">createApplication() </span>function:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> wave =
+     domain.createApplication("/waveforms/wave/wave.sad.xml")
+]]></script></div>
+<!--l. 63--><p class="noindent" >Upon success, the above call returns an   <a 
+href="mainli2.html#glo:application"><span 
+class="ectt-1200">Application</span></a> object which gives access to the external
+resource <a 
+href="mainap9.html#api">API</a>. This allows for manual operation of the <a 
+href="mainli2.html#glo:application">Application</a>. In addition, functions exist to
+allow the user to connect and disconnect <a 
+href="mainli2.html#glo:port">Ports</a>. Finally, in order to inspect the current conditions
+of the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, an <a 
+href="mainap9.html#api">API</a> function call is available. This shows any external <a 
+href="mainli2.html#glo:port">Ports</a>, <a 
+href="mainli2.html#glo:component">Components</a>
+that are in the <a 
+href="mainli2.html#glo:application">Application</a>, and their <a 
+href="mainli2.html#glo:property">Properties</a>.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> wave
+<ossie.utils.redhawk.core.App object at 0x2bfb350>
+&gt;&gt;> wave.api()
+Waveform [wave_025_090314360_1]
+---------------------------------------------------
+External Ports ==============
+Provides (Input) Ports ==============
+Port Name     Port Interface
+---------     --------------
+external_in   IDL:BULKIO/dataChar
+
+
+Uses (Output) Ports ==============
+Port Name     Port Interface
+---------     --------------
+external_out  IDL:BULKIO/UsesPortStatisticsProvider
+
+
+Components ==============
+1. Sink
+2. Source (Assembly Controller)
+
+
+Properties ==============
+Property Name    (Data Type)      [Default Value]   Current Value
+-------------    -----------      ---------------   -------------
+sample_size      (long/SL/32t)    None              None
+
+]]></script></div>
+<!--l. 100--><p class="noindent" >Once finished, the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> needs to be removed from the <a 
+href="mainli2.html#glo:domain">Domain</a> by using the
+<span 
+class="ectt-1200">removeApplication() </span>method:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.removeApplication(wave)
+]]></script></div>
+<!--l. 106--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h4 class="subsectionHead"><span class="titlemark">12.2.2   </span> <a 
+ id="x14-28300012.2.2"></a>Starting a Domain from within a Python session</h4>
+<!--l. 108--><p class="noindent" >Normally, the REDHAWK Python package is used to either interact with a running <a 
+href="mainli2.html#glo:domain">Domain</a>, or to
+launch some Sandbox <a 
+href="mainli2.html#glo:component">Components</a>, as seen in Chapter <a 
+href="mainch10.html#x12-20200010">10<!--tex4ht:ref: chap:Sandbox --></a>. However, sometimes it may be required
+to launch a <a 
+href="mainli2.html#glo:domain">Domain</a> from a Python script.
+<!--l. 111--><p class="noindent" >To help in such a scenario, the REDHAWK Python package includes some helper functions. The
+<span 
+class="ectt-1200">kickDomain </span>feature allows for an easy way to launch <a 
+href="mainli2.html#glo:domain">Domain</a> and <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> from within a
+Python script. With no arguments, the function launches and returns the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> that is
+installed in <span 
+class="ectt-1200">$SDRROOT</span>. Additionally, all <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> in <span 
+class="ectt-1200">$SDRROOT/dev/nodes </span>are
+started.
+<!--l. 116--><p class="noindent" >Other arguments to the function exist to control different aspects to how the <a 
+href="mainli2.html#glo:domain">Domain</a> is started. A
+list of specific <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> to start can be passed if the user does not want to start all
+available. If the <span 
+class="ectt-1200">$SDRROOT </span>that the user wishes to use is not in the standard location, a path can be
+supplied to direct the function to the desired place in the file system. Standard out and logging to
+a file can also be set.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain = redhawk.kickDomain()
+INFO:DomainManager - Starting Domain Manager
+INFO:DeviceManager - Starting Device Manager with
+     /nodes/DevMgr_localhost.localdomain/DeviceManager.dcd.xml
+INFO:DomainManager - Starting ORB!
+INFO:DeviceManager_impl - Connecting to Domain Manager
+     MY_DOMAIN/MY_DOMAIN
+INFO:DeviceManager - Starting ORB!
+&gt;&gt;> INFO:DCE:9d9bcc38-d654-43b1-8b74-1dc024318b6f:Registering
+     Device
+INFO:DeviceManager_impl - Registering device GPP_localhost_
+     localdomain on
+     Device Manager DevMgr_localhost.localdomain
+INFO:DeviceManager_impl - Initializing device GPP_localhost_
+     localdomain on
+     Device Manager DevMgr_localhost.localdomain
+INFO:DeviceManager_impl - Registering device GPP_localhost_
+     localdomain on
+     Domain Manager
+
+&gt;&gt;> domain
+<ossie.utils.redhawk.core.Domain object at 0x2da6710>
+]]></script></div>
+<!--l. 146--><p class="noindent" >The ability to search for <a 
+href="mainli2.html#glo:domain">Domains</a> is also available through the scan function which searches the
+                                                                                         
+                                                                                         
+<a 
+href="mainli2.html#glo:namingservice">Naming Service</a>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> redhawk.scan()
+['MY_DOMAIN']
+]]></script></div>
+<!--l. 153--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">12.2.3   </span> <a 
+ id="x14-28400012.2.3"></a>Domain State</h4>
+<!--l. 155--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy tracks the current state of the <a 
+href="mainli2.html#glo:domain">Domain</a>. For aspects of the <a 
+href="mainli2.html#glo:domain">Domain</a> state that
+may take a long time to process, scanning is deferred until the first access. If the <a 
+href="mainap9.html#odm">ODM</a> Channel is
+available, <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a>, and <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> are tracked as they are added to and removed
+from the <a 
+href="mainli2.html#glo:domain">Domain</a>. Otherwise, the <a 
+href="mainli2.html#glo:domain">Domain</a> is re-scanned on access to ensure that the state is
+accurate.
+<!--l. 160--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">12.2.3.1   </span> <a 
+ id="x14-28500012.2.3.1"></a>Applications</h5>
+<!--l. 163--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> currently running via the <span 
+class="ectt-1200">apps </span>attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.apps
+[<ossie.utils.redhawk.core.App object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 170--><p class="noindent" >The <span 
+class="ectt-1200">App </span>class supports many of the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> interfaces, such as <a 
+href="mainli2.html#glo:property">Properties</a>, <span 
+class="ectt-1200">connect() </span>and
+<span 
+class="ectt-1200">api()</span>.
+<!--l. 172--><p class="noindent" >The <a 
+href="mainli2.html#glo:component">Components</a> within the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> are available via the <span 
+class="ectt-1200">comps </span>attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> app = domain.apps[0]
+&gt;&gt;> app.comps
+[<ossie.utils.redhawk.component.Component object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 180--><p class="noindent" >The REDHAWK module <a 
+href="mainli2.html#glo:component"><span 
+class="ectt-1200">Component</span></a> class supports the same interfaces as <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
+href="mainli2.html#glo:component">Components</a>,
+as seen in Chapter <a 
+href="mainch10.html#x12-20200010">10<!--tex4ht:ref: chap:Sandbox --></a>. Much like in the Sandbox, <a 
+href="mainli2.html#glo:port">Ports</a>, <a 
+href="mainli2.html#glo:property">Properties</a>, and any other feature of a
+                                                                                         
+                                                                                         
+<a 
+href="mainli2.html#glo:component">Component</a> is equally accessible from the Python environment, regardless of how the <a 
+href="mainli2.html#glo:component">Component</a>
+was deployed.
+<!--l. 183--><p class="noindent" >For example, if one were to want to plot the output of a <a 
+href="mainli2.html#glo:component">Component</a> running on the
+Domain:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> from ossie.utils import redhawk, sb
+&gt;&gt;> dom=redhawk.attach()
+&gt;&gt;> for app in dom.apps:
+...  if app.name == "my_app":
+...   break
+
+&gt;&gt;> for comp in app.comps:
+...  if comp.name == "my_comp":
+...   break
+
+&gt;&gt;> plot = sb.LinePlot()
+&gt;&gt;> plot.start()
+&gt;&gt;> comp.connect(plot)
+]]></script></div>
+<!--l. 201--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">12.2.3.2   </span> <a 
+ id="x14-28600012.2.3.2"></a>Device Managers</h5>
+<!--l. 203--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> registered with the <a 
+href="mainli2.html#glo:domain">Domain</a> via the <span 
+class="ectt-1200">devMgrs</span>
+attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.devMgrs
+[<ossie.utils.redhawk.core.DeviceManager object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 210--><p class="noindent" >Each <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> maintains a list of its <a 
+href="mainli2.html#glo:device">Devices</a>, accessible via the <span 
+class="ectt-1200">devs </span>attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.devMgrs[0].devs
+[<ossie.utils.redhawk.device.ExecutableDevice object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 217--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">12.2.3.3   </span> <a 
+ id="x14-28700012.2.3.3"></a>Devices</h5>
+<!--l. 219--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy provides a list of all <a 
+href="mainli2.html#glo:device">Devices</a> registered with the <a 
+href="mainli2.html#glo:domain">Domain</a> via the <span 
+class="ectt-1200">devices</span>
+attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.devices
+[<ossie.utils.redhawk.device.ExecutableDevice object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 226--><p class="noindent" >The <a 
+href="mainli2.html#glo:device">Device</a> list is the concatenation of the <a 
+href="mainli2.html#glo:device">Devices</a> for all <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a>.
+<!--l. 228--><p class="noindent" >The REDHAWK module <a 
+href="mainli2.html#glo:device"><span 
+class="ectt-1200">Device</span></a> class supports the same interfaces as <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
+href="mainli2.html#glo:device">Devices</a>.
+<!--l. 230--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">12.2.4   </span> <a 
- id="x14-24300012.2.4"></a>Testable Object</h4>
-<!--l. 44--><p class="noindent" >In the Testable Object interface, <span 
-class="ectt-1200">runTest() </span>is defined to provide a means to perform stand-alone
-testing of a <a 
-href="mainli2.html#glo:component">Component</a>. Test <a 
-href="mainap14.html#id">ID</a>s and a set of test values are passed in as parameters, with the test
-results returned in the test values parameter. This method gives the <a 
-href="mainli2.html#glo:component">Component</a> the ability to
-be &#8220;black box&#8221; tested where an input is provided in an attempt to match the actual
-output with the desired output without any knowledge of the <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s internal
-structure.
-<h3 class="sectionHead"><span class="titlemark">12.3   </span> <a 
- id="x14-24400012.3"></a>Examples</h3>
-<!--l. 48--><p class="noindent" >This section provides code examples of the methods described above for each of the supported
-programming languages.
-                                                                                         
-                                                                                         
-<!--l. 50--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.3.1   </span> <a 
- id="x14-24500012.3.1"></a><span 
-class="ectt-1200">CF::LifeCycle</span></h4>
-<!--l. 52--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">12.3.1.1   </span> <a 
- id="x14-24600012.3.1.1"></a><span 
-class="ectt-1200">initialize()</span></h5>
-<!--l. 54--><p class="noindent" ><span 
-class="ecbx-1200">C++</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-try {
-     this->initialize();
-} catch (CF::LifeCycle::InitializeError e){
-     // error reporting
-}
-
-]]></script></div>
-<!--l. 65--><p class="noindent" ><span 
-class="ecbx-1200">Python</span>
+ id="x14-28800012.2.4"></a>Using With the Sandbox</h4>
+<!--l. 232--><p class="noindent" >As shown briefly in section <a 
+href="#x14-28500012.2.3.1">12.2.3.1<!--tex4ht:ref: subsubsec:apps --></a>, <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> and <a 
+href="mainli2.html#glo:domain">Domain</a> objects are interoperable and can be
+connected together. This allows for inspection of different parts of the domain and more
+sophisticated testing of <a 
+href="mainli2.html#glo:component">Components</a>.
+<!--l. 235--><p class="noindent" >For example, to use a <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> plot to view the data coming from a device, enter the following
+commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-try:
-     self.initialize()
-except:
-     # error reporting
+&gt;&gt;> from ossie.utils import sb
+&gt;&gt;> plot = sb.LinePlot()
+&gt;&gt;> domain.devices[1].connect(plot)
+&gt;&gt;> plot.start()
 ]]></script></div>
-<!--l. 74--><p class="noindent" ><span 
-class="ecbx-1200">Java</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-try {
-     this.initialize();
-} catch (InitializeError e) {
-     // error reporting
-}
-]]></script></div>
-<!--l. 84--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">12.3.1.2   </span> <a 
- id="x14-24700012.3.1.2"></a><span 
-class="ectt-1200">releaseObject()</span></h5>
-                                                                                         
-                                                                                         
-<!--l. 86--><p class="noindent" ><span 
-class="ecbx-1200">C++</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-try {
-     this->releaseObject();
-} catch (CF::LifeCycle::ReleaseError e){
-     // error reporting
-}
-]]></script></div>
-<!--l. 96--><p class="noindent" ><span 
-class="ecbx-1200">Python</span>
+<!--l. 244--><p class="noindent" >Use the following commands to capture an approximately one second cut from a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> to a
+file:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-try:
-     self.releaseObject()
-except:
-     # error reporting
-]]></script></div>
-<!--l. 105--><p class="noindent" ><span 
-class="ecbx-1200">Java</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-try {
-     this.releaseObject();
-} catch (ReleaseError e) {
-     // error reporting
-}
-]]></script></div>
-<!--l. 115--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.3.2   </span> <a 
- id="x14-24800012.3.2"></a><span 
-class="ectt-1200">CF::PortSupplier</span></h4>
-<!--l. 117--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">12.3.2.1   </span> <a 
- id="x14-24900012.3.2.1"></a><span 
-class="ectt-1200">getPort()</span></h5>
-<!--l. 119--><p class="noindent" ><span 
-class="ecbx-1200">C++</span>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-try {
-     CORBA::Object_var port = this->getPort("my_port");
-} catch (CF::PortSupplier::UnknownPort e){
-     // error reporting
-}
-]]></script></div>
-<!--l. 129--><p class="noindent" ><span 
-class="ecbx-1200">Python</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-try:
-     port = self.getPort("my_port")
-except:
-     # error reporting
-]]></script></div>
-<!--l. 138--><p class="noindent" ><span 
-class="ecbx-1200">Java</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-try {
-     org.omg.CORBA.Object port = this.getPort("my_port");
-} catch (UnknownPort e) {
-     // error reporting
-}
-]]></script></div>
-<!--l. 148--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.3.3   </span> <a 
- id="x14-25000012.3.3"></a><span 
-class="ectt-1200">CF::PropertySet</span></h4>
-<!--l. 152--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">12.3.3.1   </span> <a 
- id="x14-25100012.3.3.1"></a><span 
-class="ectt-1200">configure()</span></h5>
-<!--l. 154--><p class="noindent" ><span 
-class="ecbx-1200">C++</span>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-CF::Properties props;
-props.length(2);
-
-CF::DataType string_var;
-string_var.id = "string_prop";
-string_var.value &lt;&lt;= "my string prop";
-props[0] = string_var;
-
-CF::DataType long_var;
-long_var.id = "long_prop";
-long_var.value &lt;&lt;= 1234;
-props[1] = long_var;
-
-try {
-     this->configure(props);
-} catch (CF::PropertySet::InvalidConfiguration e) {
-     // error reporting
-} catch (CF::PropertySet::PartialConfiguration e) {
-     // error reporting
-}
-]]></script></div>
-<!--l. 179--><p class="noindent" ><span 
-class="ecbx-1200">Python</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-prop = CF.DataType(id="prop", value=CORBA.Any(CORBA.TC_long, 1))
-try:
-     self.configure([prop])
-except:
-     # error reporting
-]]></script></div>
-<!--l. 189--><p class="noindent" ><span 
-class="ecbx-1200">Java</span>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-DataType[] props = new DataType[2];
-props[0] = new DataType("prop",
-     AnyUtils.toAny("my prop", TCKind.tk_string));
-props[1] = new DataType("prop2",
-     AnyUtils.toAny(
-     AnyUtils.convertString("123", "long"), TCKind.tk_long));
-try {
-     this.configure(props);
-} catch (InvalidConfiguration e) {
-     // error reporting
-} catch (PartialConfiguration e) {
-     // error reporting
-}
-]]></script></div>
-<!--l. 207--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">12.3.3.2   </span> <a 
- id="x14-25200012.3.3.2"></a><span 
-class="ectt-1200">query()</span></h5>
-<!--l. 209--><p class="noindent" ><span 
-class="ecbx-1200">C++</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-CF::Properties props;
-try {
-  // queries all properties
-  this->query(props);
-  for (unsigned int i = 0; i < props.length(); i++){
-       // iterates through returned properties and prints ids
-       std::cout &lt;&lt; props[i].id &lt;&lt; std::endl;
-  }
-} catch (CF::UnknownProperties e) {
-  // error reporting
-}
-]]></script></div>
-<!--l. 225--><p class="noindent" ><span 
-class="ecbx-1200">Python</span>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-try:
-  # queries all properties
-  props = self.query([])
-  for prop in props:
-     # iterates through returned properties and prints ids
-     print prop.id
-except:
-  # error reporting
-]]></script></div>
-<!--l. 238--><p class="noindent" ><span 
-class="ecbx-1200">Java</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-PropertiesHolder props =
-     new PropertiesHolder(new CF.DataType[0]);
-try {
-     // queries all properties
-     this.query(props);
-     for (int i = 0; i < props.value.length; i ++){
-         // iterates through returned properties and prints ids
-         System.out.println(props.value[i].id);
-     }
-} catch (UnknownProperties e1) {
-     // error reporting
-}
-]]></script></div>
-<!--l. 255--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">12.3.4   </span> <a 
- id="x14-25300012.3.4"></a><span 
-class="ectt-1200">CF::TestableObject</span></h4>
-<!--l. 257--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">12.3.4.1   </span> <a 
- id="x14-25400012.3.4.1"></a><span 
-class="ectt-1200">runTest()</span></h5>
-<!--l. 259--><p class="noindent" ><span 
-class="ecbx-1200">C++</span>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-CF::Properties props;
-props.length(1);
-
-CF::DataType test_var;
-test_var.id = "prop";
-test_var.value &lt;&lt;= 1234;
-props[0] = test_var;
-
-try {
-     this->runTest(0, props);
-} catch (CF::TestableObject::UnknownTest e) {
-     // error reporting
-} catch (CF::UnknownProperties e){
-     // error reporting
-}
-]]></script></div>
-<!--l. 279--><p class="noindent" ><span 
-class="ecbx-1200">Python</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-prop = CF.DataType(id="prop", value=CORBA.Any(CORBA.TC_long, 1))
-try:
-  self.runTest(0, [prop])
-except:
-  # error reporting
-]]></script></div>
-<!--l. 289--><p class="noindent" ><span 
-class="ecbx-1200">Java</span>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-DataType[] props = new DataType[1];
-props[0] = new DataType("prop",
-     AnyUtils.toAny("my prop", TCKind.tk_string));
-PropertiesHolder holders = new PropertiesHolder(props);
-try {
-     this.runTest(0, holders);
-} catch (UnknownTest e) {
-     // error reporting
-} catch (UnknownProperties e) {
-     // error reporting
-}
+&gt;&gt;> import time
+&gt;&gt;> sink = sb.FileSink("/data/tuner_out.dat")
+&gt;&gt;> domain.apps[0].connect(sink, usesPortName="tuner_out")
+&gt;&gt;> sink.start()
+&gt;&gt;> time.sleep(1.0)
+&gt;&gt;> sink.stop()
 ]]></script></div>
                                                                                          
                                                                                          
+<!--l. 255--><p class="noindent" >When the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> exits, any connections made between <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> objects and <a 
+href="mainli2.html#glo:domain">Domain</a> objects are
+broken to limit interference with normal domain operation.
+<!--l. 257--><p class="noindent" >For more details on using the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
+href="mainch10.html#x12-20200010">Chapter 10</a>.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
@@ -453,7 +428,7 @@ href="mainch11.html#tailmainch11.html" >prev-tail</a>] [<a
 href="mainch12.html" >front</a>] [<a 
 href="main.html#mainch12.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainch12.html"></a>    
+ id="tailmainch12.html"></a>   
  
 <div class=license>  
 <hr> 

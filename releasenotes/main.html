@@ -52,45 +52,627 @@ SyntaxHighlighter.all()
                                                                                          <!--l. 1--><p class="noindent" >
 <div class="tableofcontents">
 &#x00A0;<span class="likesectionToc" ><a 
-href="#x1-2000" id="QQ2-1-2">IDE Fixes and Improvements</a></span>
+href="#x1-2000" id="QQ2-1-2">New Features and Functionality</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-20000" id="QQ2-1-20">Upgrading from a Previous Version</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-24000" id="QQ2-1-24">Improvements and Fixes</a></span>
 </div>
 <h2 class="likechapterHead"><a 
- id="x1-1000"></a>REDHAWK Version 1.10.2 Release Notes </h2>
-<!--l. 4--><p class="noindent" >The effort in REDHAWK Version 1.10.2 focused on fixing bugs and improving the reliability of the
-IDE.
-<h3 class="likesectionHead"><a 
- id="x1-2000"></a>IDE Fixes and Improvements</h3>
+ id="x1-1000"></a>REDHAWK Release Notes, Version 2.0</h2>
+<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.0 focused on improving system management, establishing a core set
+of REDHAWK assets, and enhancing Integrated Development Environment (IDE) real estate. A
+brief summary of the changes include:
       <ul class="itemize1">
-      <li class="itemize">Ports  can  now  be  added  to  Services  that  have  an  interface  that  inherits  from
+      <li class="itemize">Increased  code  generation  flexibility  for  REDHAWK  Component  software,  and
+      integration patterns for external capabilities as resources into a REDHAWK domain.
+      </li>
+      <li class="itemize">Increased scalability of REDHAWK to allow for delegation of assets to be used by
+      concurrent domain environments.
+      </li>
+      <li class="itemize">Improved  visibility  into  the  REDHAWK  domain  to  support  end  user  requests  for
+      increased domain introspection and additional command and control.
+      </li>
+      <li class="itemize">Provided a new script to transition projects into namespaced projects.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Standardized  interfaces  for  integrating  RF  devices  into  a  REDHAWK  domain.
+      Provided additional development and integration tooling to support the end user&#8217;s
+      integration of device proxies.
+      </li>
+      <li class="itemize">Addressed issues and defects as provided by different end user communities.
+      </li>
+      <li class="itemize">Enhanced  the  user  experience  by  extending  the  REDHAWK  IDE  with  data
+      presentation tools and visual interaction capabilities.
+      </li></ul>
+<h3 class="likesectionHead"><a 
+ id="x1-2000"></a>New Features and Functionality</h3>
+<!--l. 19--><p class="noindent" >The following new features and functionality were added in REDHAWK 2.0.
+<!--l. 21--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-3000"></a>IDE Changes</h4>
+<!--l. 22--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-4000"></a>New Property Support</h5>
+      <ul class="itemize1">
+      <li class="itemize">Added support for <span 
+class="ectt-1200">simple sequences </span>in <span 
+class="ectt-1200">structs</span>, <span 
+class="ectt-1200">struct sequences</span>.
+      </li>
+      <li class="itemize">Added support for the new Property kind, <span 
+class="ectt-1200">property</span>, and the <span 
+class="ectt-1200">commandline </span>attribute.
+      </li>
+      <li class="itemize">IDE helps upgrade old <span 
+class="ectt-1200">configure </span>or <span 
+class="ectt-1200">execparams </span>during code generation.</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 29--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-5000"></a>Shared Libraries</h5>
+      <ul class="itemize1">
+      <li class="itemize">Added wizard for creating new REDHAWK shared library projects for C++.</li></ul>
+<!--l. 34--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-6000"></a>Namespaces</h5>
+      <ul class="itemize1">
+      <li class="itemize">All REDHAWK project types support namespaces by using names with dots (for
+      example, <span 
+class="ectt-1200">a.b.c</span>).</li></ul>
+<!--l. 39--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-7000"></a>Diagrams</h5>
+      <ul class="itemize1">
+      <li class="itemize">Waveform and Node diagrams have been completely re-implemented.
+      </li>
+      <li class="itemize">Waveform diagrams have more intuitive Find By support.
+      </li>
+      <li class="itemize">Waveform diagrams have new support for FrontEnd <span 
+class="phvro8t-x-x-120">usesdevice </span>relationships.
+      </li>
+      <li class="itemize">A diagram was added for the Sandbox Device manager.
+      </li>
+      <li class="itemize">Diagrams support visualizing Port statistics with color.
+      </li>
+      <li class="itemize">Diagrams support visualizing dead/unreachable domain Components with color.
+      </li>
+      <li class="itemize">Diagrams provide visual help making connections by coloring suggested Ports.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Diagrams   provide   visual   feedback   while   Components   are   still   starting   up.
+      Components are initially gray, and when launching is complete, the Component&#8217;s
+      background color changes to blue.
+      </li>
+      <li class="itemize">Diagrams allow expanding/collapsing shapes to hide complexity.</li></ul>
+<!--l. 52--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-8000"></a>Eclipse</h5>
+      <ul class="itemize1">
+      <li class="itemize">Based on the latest version of Eclipse (Mars, version 4.5).</li></ul>
+<!--l. 57--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-9000"></a>FrontEnd Device Creation</h5>
+      <ul class="itemize1">
+      <li class="itemize">Wizards now support creating Java and Python FrontEnd Devices.</li></ul>
+<!--l. 62--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-10000"></a>Logging</h5>
+      <ul class="itemize1">
+      <li class="itemize">The IDE supports changing the log level of Components and Devices at runtime.
+      </li>
+      <li class="itemize">The exit code for Components launched in the Sandbox is now reported in their
+      console.</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 68--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-11000"></a>Port Descriptions</h5>
+      <ul class="itemize1">
+      <li class="itemize">Added support for adding Port descriptions in the SCD file.
+      </li>
+      <li class="itemize">Display of Port descriptions in the Properties view for Ports and in various tooltips.</li></ul>
+<!--l. 75--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-12000"></a>Core Framework Changes</h4>
+      <ul class="itemize1">
+      <li class="itemize">BulkIO stream-based API
+           <ul class="itemize2">
+           <li class="itemize">Provide  structures  to  manage  data  flows  based  on  streams  rather  than
+           individual data pushes.
+           </li>
+           <li class="itemize">Allow the retrieval of arbitrary amounts of information from the incoming data
+           flow.</li></ul>
+      </li>
+      <li class="itemize">Domain Awareness
+           <ul class="itemize2">
+           <li class="itemize">Provide Components with a pointer as part of the base class to their Domain
+           Manager and Application objects.
+           </li>
+           <li class="itemize">Provide  Devices  with  a  pointer  as  part  of  the  base  class  to  their  Domain
+           Manager and Device Manager.</li></ul>
+      </li>
+      <li class="itemize">Connection Manager
+           <ul class="itemize2">
+           <li class="itemize">Provide better visibility into and management of system-level connections.</li></ul>
+      </li>
+      <li class="itemize">Event Channel Manager
+                                                                                         
+                                                                                         
+           <ul class="itemize2">
+           <li class="itemize">Simplify the creation, interaction with, and management of Event Channels.</li></ul>
+      </li>
+      <li class="itemize">Network Allocation/NIC selection
+           <ul class="itemize2">
+           <li class="itemize">Provide  the  allocated  NIC  as  part  of  the  base  class  to  a  Component  that
+           requested system bandwidth on deployment.</li></ul>
+      </li>
+      <li class="itemize">New GPP
+           <ul class="itemize2">
+           <li class="itemize">Written in C++, so it is more responsive.
+           </li>
+           <li class="itemize">Detects when Components segfault and issues a system notification.
+           </li>
+           <li class="itemize">Automatically manages system capacity. (Component benchmarking no longer
+           needed to support deployment across different host computers).
+           </li>
+           <li class="itemize">Supports <span 
+class="ectt-1200">affinity </span>by default.
+               <ul class="itemize3">
+               <li class="itemize">Co-locates the Component process with its allocated NIC onto the same
+               socket.
+               </li>
+               <li class="itemize">Co-locates the Components onto the same Node onto the same socket
+               (when possible) to minimize data transfer impact.</li></ul>
+           </li></ul>
+      </li>
+      <li class="itemize">Simple sequences can now be members of Property structures.
+      </li>
+      <li class="itemize">Support for namespaces (Components, Devices, Services, and Waveforms).
+      </li>
+      <li class="itemize">Added <span 
+class="ectt-1200">getPortset </span>to return a list of all the Ports that a Component or Device
+      supports.
+      </li>
+      <li class="itemize">New features that simplify current behavior or tooling.
+           <ul class="itemize2">
+           <li class="itemize">Single-call Application deployment.
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">Consolidated Properties from <span 
+class="ectt-1200">configure </span>and <span 
+class="ectt-1200">execparam </span>kinds to <span 
+class="ectt-1200">Property</span>.
+           </li>
+           <li class="itemize">Deprecated the need for <span 
+class="ectt-1200">event </span>Property kind by supporting Property change
+           events for all Properties.
+           </li>
+           <li class="itemize">Added  Property  change  event  registration  to  better  manage  Property  event
+           consumption.
+           </li>
+           <li class="itemize">Simplified  the  default  behavior  for  newly-generated  RF  Device  (FrontEnd
+           Interfaces).
+           </li>
+           <li class="itemize">Extended FrontEnd Device code generators to Python and Java.
+           </li>
+           <li class="itemize">Created a "REDHAWK constructor" in Components that is invoked after the
+           Component default Properties have been set.
+           </li>
+           <li class="itemize">De-conflicted environment configuration colliding dependencies on co-located
+           Components.
+           </li>
+           <li class="itemize">Extended upgraded logging support to Python and Java.
+           </li>
+           <li class="itemize">Improved Event Service cleanup scripts to remove the need to run them as
+           root.
+           </li>
+           <li class="itemize">Enhanced C++ API for inspecting and modifying Properties and SRI keywords.</li></ul>
+      </li></ul>
+<!--l. 129--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-13000"></a>Core Asset Changes</h4>
+<!--l. 131--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-14000"></a>Namespaces</h5>
+                                                                                         
+                                                                                         
+      <ul class="itemize1">
+      <li class="itemize">REDHAWK Basic Assets are now distributed in the "rh" namespace.
+      </li>
+      <li class="itemize">Components, Devices, Shared Libraries, and Waveforms are all members of the "rh"
+      namespace.
+      </li>
+      <li class="itemize">Device dependencies have not been added to the "rh" namespace (<span 
+class="ectt-1200">uhd</span>, <span 
+class="ectt-1200">librtlsdr</span>,
+      and <span 
+class="ectt-1200">libRfSimulators)</span>.</li></ul>
+<!--l. 138--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-15000"></a>New Assets</h5>
+      <ul class="itemize1">
+      <li class="itemize">Basic  Components:  An  asset  for  doing  PSK  demodulation,  <span 
+class="ectt-1200">psk_soft </span>is  now
+      included.   New   Components   for   reading   and   writing   files,   <span 
+class="ectt-1200">FileReader  </span>and
       <span 
-class="ectt-1200">CF::PortSupplier</span>.
+class="ectt-1200">FileWriter</span>, are now included. <span 
+class="ectt-1200">FileReader </span>and <span 
+class="ectt-1200">FileWriter </span>demonstrate the new
+      domain awareness feature available to all Components. <span 
+class="ectt-1200">DataReader </span>and <span 
+class="ectt-1200">DataWriter</span>
+      are  deprecated.  An  asset  for  decoding  RBDS  information  from  FM  broadcast,
+      <span 
+class="ectt-1200">RBDSDecoder</span>, is now included. Components for sending and receiving data using
+      the VITA49 protocol, <span 
+class="ectt-1200">SourceVITA49 </span>and <span 
+class="ectt-1200">SinkVITA49</span>, are now included.
       </li>
-      <li class="itemize">Fixed issue that caused Services/Devices with <span 
-class="ectt-1200">execparams </span>to fail to launch in the
-      Sandbox.
+      <li class="itemize">Basic  Devices:  An  FEI  Device  for  simulating  FM  channels  with  RDS  data,
+      <span 
+class="ectt-1200">FmRdsSimulator</span>, is now included.
       </li>
-      <li class="itemize">Fixed  issue  with  the  code  generation  for  control  panels  that  caused  compilation
-      errors.
+      <li class="itemize">Basic  Waveforms:  A  set  of  Waveforms  that  collectively  demonstrate  usage  of
+      all  Basic  Components.  These  include:  <span 
+class="ectt-1200">basic_Components_demo</span>,  <span 
+class="ectt-1200">FM_mono_demo</span>,
+      <span 
+class="ectt-1200">FM_RBDS_demo</span>,      <span 
+class="ectt-1200">short_file_to_float_file</span>,      <span 
+class="ectt-1200">socket_loopback_demo</span>,      and
+      <span 
+class="ectt-1200">VITA49_loopback_demo</span>.
       </li>
+      <li class="itemize">Shared   Libraries:   A   shared   library   used   by   <span 
+class="ectt-1200">FileReader  </span>and   <span 
+class="ectt-1200">FileWriter</span>,
+      <span 
+class="ectt-1200">blueFileLib</span>,  is  now  included.  A  shared  library  used  by  <span 
+class="ectt-1200">SourceVITA49 </span>and
+      <span 
+class="ectt-1200">SinkVITA49</span>, <span 
+class="ectt-1200">VITA49</span>, is now available.
+      </li>
+      <li class="itemize">Device    Dependencies:    A    Device    dependency    used    by    <span 
+class="ectt-1200">FmRdsSimulator</span>,
+      <span 
+class="ectt-1200">libRfSimulators</span>, is now included.</li></ul>
                                                                                          
                                                                                          
-      <li class="itemize">Improved  performance  by  eliminating  redundant  CORBA  checks  of  Components
-      and Devices in the Sandbox.
+<!--l. 147--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-16000"></a>New Features</h5>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>has been completely overhauled to use the new BulkIO stream API.
       </li>
-      <li class="itemize">Fixed an issue that caused the IDE to release Components/Waveforms in a Domain
-      at shutdown if they had been edited in the Chalkboard.
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>has a new feature to produce SRI metadata at RF values when appropriate
+      keyword is present in the stream.
       </li>
-      <li class="itemize">Improved the IDE so it now performs a <span 
-class="ectt-1200">build clean </span>before a full build after code
-      generation has been performed.
+      <li class="itemize"><span 
+class="ectt-1200">SigGen </span>has new Properties to allow specifying values for <span 
+class="ectt-1200">CHAN_RF </span>and <span 
+class="ectt-1200">COL_RF </span>SRI
+      keywords.
       </li>
-      <li class="itemize">Improved code generation for C++ projects so that it uses the <span 
-class="ectt-1200">build.sh </span>in the root of
-      the project for build operations instead of the <span 
-class="ectt-1200">build.sh </span>in the implementation folder.</li></ul>
- 
- <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
-
+      <li class="itemize"><span 
+class="ectt-1200">SigGen </span>also has a new Property to allow specifying SRI blocking.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sinksocket </span>has been expanded to support multiple outbound socket connections.
+      This update includes a new API that is not backwards compatible.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SinkVITA49 </span>now includes TCP functionality.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">dsp </span>shared library expanded to provide additional functions useful for <span 
+class="ectt-1200">agc</span>.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">RTL2832U </span>now includes a feature to protect against usb timeout when used from
+      within a virtual machine.
+      </li>
+      <li class="itemize">All Devices include a script that can be used to generate a Node for the Device.</li></ul>
+<!--l. 160--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-17000"></a>Renamed Shared Libraries</h5>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">REDHAWK-VITA49Libraries_V1 </span>has been renamed <span 
+class="ectt-1200">VITA49</span>.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">REDHAWKDevUtils_v1 </span>has been renamed <span 
+class="ectt-1200">REDHAWKDevUtils</span>.</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 166--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-18000"></a>Removed Assets</h5>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">DataWriter </span>and <span 
+class="ectt-1200">DataReader </span>have been deprecated by <span 
+class="ectt-1200">FileWriter </span>and <span 
+class="ectt-1200">FileReader</span>,
+      respectively.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">whitenoise </span>has   been   deprecated   by   <span 
+class="ectt-1200">SigGen</span>,   which   includes   a   whitenoise
+      generation mode.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">BurstDeserializer</span>, <span 
+class="ectt-1200">freqfilter</span>, <span 
+class="ectt-1200">medianfilter</span>, and <span 
+class="ectt-1200">unwrap </span>have been removed.</li></ul>
+<!--l. 173--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-19000"></a>Packages</h5>
+      <ul class="itemize1">
+      <li class="itemize">Basic Components includes all Components.
+      </li>
+      <li class="itemize">Basic Waveforms includes all Waveforms.
+      </li>
+      <li class="itemize">Basic Devices includes all Devices.
+      </li>
+      <li class="itemize">Component shared library dependencies are not packaged together.
+      </li>
+      <li class="itemize">Device dependencies are not packaged together.</li></ul>
+<!--l. 229--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-20000"></a>Upgrading from a Previous Version</h3>
+                                                                                         
+                                                                                         
+<!--l. 232--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-21000"></a>Upgrading from REDHAWK 1.9.X</h4>
+<!--l. 233--><p class="noindent" >REDHAWK 1.9.X projects can be imported and re-generated with the REDHAWK 1.10.X tooling
+without any modifications.
+<!--l. 235--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-22000"></a>Upgrading from REDHAWK 1.8.X</h4>
+<!--l. 237--><p class="noindent" >If you are upgrading from a previous 1.8.x version of REDHAWK, some software from the 1.8
+series dependencies must be uninstalled before installing the REDHAWK 1.10 series. The
+following procedure explains how to uninstall the software.
+<!--l. 239--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-22002x1">Enter the following command:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo yum erase \
+  libomniORB4.1 omniORB-debuginfo omniORB-doc \
+  libomniORBpy3 omniORBpy-debuginfo omniORBpy-doc \
+  omniEvents-doc omniEvents-debuginfo \
+  apache-log4cxx apache-log4cxx-debuginfo
+]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x1-22004x2">Additionally, if you are using a Redhat/CentOS 5 system, enter the following
+      command:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+$ sudo yum erase boost boost-debuginfo
+]]></script></div>
+      <!--l. 256--><p class="noindent" >This restores the system-provided boost (version 1.33).</li></ol>
+<!--l. 259--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-23000"></a>Regenerating 1.8 Components</h4>
+<!--l. 260--><p class="noindent" >If you generate an existing 1.8 Component in the 1.10 IDE, the IDE prompts you to upgrade
+                                                                                         
+                                                                                         
+the Component to use the new 1.10 Code Generator. If you select <span 
+class="phvb8t-x-x-120">Upgrade</span>, hidden
+project files are modified to indicate the new 1.10 Code Generator has been used.
+Once these project files are modified, it is difficult to revert back to use the 1.8-style
+Code Generators for this Component. If you select <span 
+class="phvb8t-x-x-120">Cancel</span>, the source code for the
+Component is not modified. Upgrading to the new 1.10 Code Generator offers the following
+benefits:
+      <ul class="itemize1">
+      <li class="itemize">New  Component  pattern  shifts  BulkIO  and  BurstIO  implementation  from  code
+      generator to base classes to ease incorporating future BulkIO-related bug fixes and
+      enhancements.
+      </li>
+      <li class="itemize">New code generators support use of complex Properties.
+      </li>
+      <li class="itemize">New code generators are now easily accessed from command line.
+      </li>
+      <li class="itemize">New  Java  Component  pattern  mirrors  the  existing  Python  and  C++  Component
+      model with a generated base class and a <span 
+class="ectt-1200">serviceFunction </span>in the main class.
+      </li>
+      <li class="itemize">New logging structure is used for C++ Components.
+      </li>
+      <li class="itemize">Allocation callbacks are available on C++ Devices.</li></ul>
+<!--l. 272--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If the main Java Component class is not regenerated, the class does not take advantage of the
+newly generated base class. In order for the base class to compile when building the project, the
+class needs to have a method added to it. If the main Java Component class is regenerated, all
+custom code added to it is not preserved. For more information, in the REDHAWK Manual, refer
+to Files Generated for Java Components. </p></div></div>
+<!--l. 276--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-24000"></a>Improvements and Fixes</h3>
+<!--l. 277--><p class="noindent" >The following improvements and fixes were completed in REDHAWK 2.0.
+                                                                                         
+                                                                                         
+<!--l. 279--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-25000"></a>IDE Improvements</h4>
+<!--l. 280--><p class="noindent" >The following IDE improvements were completed in REDHAWK 2.0.
+      <ul class="itemize1">
+      <li class="itemize">When selecting IDLs (when dealing with Ports or with Services), the IDE now filters
+      uncommon or potentially problematic IDLs unless the user selects to show all.
+      </li>
+      <li class="itemize">The XML editor (instead of a text editor) is now used when opening REDHAWK XML
+      files from the Target SDR or from a domain.
+      </li>
+      <li class="itemize">Warning messages for the IDE detecting that the <span 
+class="ectt-1200">localfile/codefile </span>(for an SPD
+      implementation) were missing on disk have been improved.
+      </li>
+      <li class="itemize">The   IDE   can   handle   receiving   a   null   reference   to   a   Component   from   the
+      Waveform.  This  supports  inspecting  some  domains,  which  were  not  exhibiting
+      REDHAWK-compliant behavior.
+      </li>
+      <li class="itemize">The IDE uses WebKit on CentOS 6.6+ to improve the display of pop-up context help.
+      </li>
+      <li class="itemize">Tooltips  to  display  Property  descriptions  were  added  to  the  FrontEnd  Tuner
+      Allocation dialog.
+      </li>
+      <li class="itemize">If  an  error  occurs  while  the  IDE  is  determining  what  files  to  generate  during
+      code generation, the IDE will display the command it tried to execute to facilitate
+      diagnosing problems/error reporting.
+      </li>
+      <li class="itemize">Ports have been moved to a separate tab in the SPD editor, and that tab is included
+      in the SCD editor.
+      </li>
+      <li class="itemize">After  performing  code  generation,  the  IDE  places  the  code  generator  version  in
+      the SPD file in the <span 
+class="ectt-1200">type </span>attribute of <span 
+class="ectt-1200">softpkg</span>. This helps identify what version of
+      REDHAWK a particular asset was originally created for.
+      </li>
+      <li class="itemize">The  IDE  can  handle  an  <span 
+class="ectt-1200">UnknownPort </span>exception  when  it  requests  a  Port  from  a
+      Component that is listed in its SCD file. This supports inspecting some Components,
+      which were not exhibiting REDHAWK-compliant behavior.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">The  IDE  now  installs  and  builds  C++  Components,  Devices,  and  Services  by
+      invoking <span 
+class="ectt-1200">build.sh </span>at the top level of the project. This applies to new projects and
+      projects that have their <span 
+class="ectt-1200">build.sh </span>regenerated with code generation.
+      </li>
+      <li class="itemize">The IDE performs a clean build after code generation to help prevent stale build
+      artifacts.
+      </li>
+      <li class="itemize">The IDE supports setting Group ID in the Tuner Allocation dialog.
+      </li>
+      <li class="itemize">Added  an  advanced  option  to  uninstall  the  existing  Waveform  factory  when
+      launching a Waveform.
+      </li>
+      <li class="itemize">Advanced  launch  options  are  available  when  launching  Components,  Devices,
+      Services,  Waveforms,  and  Nodes  in  the  Sandbox,  including  setting  Properties,
+      auto-start, timeouts, and log level.
+      </li>
+      <li class="itemize">The IDE honors the BulkIO SRI <span 
+class="ectt-1200">blocking </span>flag by default when plotting. This setting
+      can be overridden in the plot settings.
+      </li>
+      <li class="itemize">When  plotting,  individual  streams  can  be  hidden.  Additionally,  the  color  of  the
+      streams can be changed.
+      </li>
+      <li class="itemize">When  the  IDE  creates  connections  to  plot  or  monitor  data,  it  now  prefixes  its
+      connections with <span 
+class="ectt-1200">IDE_ </span>so they can be better identified.
+      </li>
+      <li class="itemize">The IDE provides the ability to toggle between showing RF and IF values on plot
+      axes.
+      </li>
+      <li class="itemize">The  IDE  supports  connecting  to  multiple  domains  with  the  same  name,  but  on
+      different machines (previously, the names had to be unique).
+      </li>
+      <li class="itemize">The IDE now thins plot data based on refresh rate. This helps when plotting Ports
+      with very high/very low data rates. The setting is adjustable in the plot settings.</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 306--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-26000"></a>IDE Fixes</h4>
+<!--l. 307--><p class="noindent" >The following IDE bug fixes were completed in REDHAWK 2.0.
+      <ul class="itemize1">
+      <li class="itemize">Exporting multiple projects to the Target SDR via the context menu on projects only
+      exported the first project in the selection.
+      </li>
+      <li class="itemize">Before performing code generation, the IDE may have shown several warnings in
+      the SPD editor that code generation had not yet been performed. These warnings
+      sometimes remained even after performing code generation.
+      </li>
+      <li class="itemize">Sequence Properties of <span 
+class="ectt-1200">complex </span>type were not treated correctly resulting in issues
+      displaying or setting the Properties at runtime.
+      </li>
+      <li class="itemize">When a domain was launched via the IDE, the console always showed the domain
+      name as <span 
+class="ectt-1200">REDHAWK_DEV </span>regardless of its actual name.
+      </li>
+      <li class="itemize">Domain Waveforms opened with the Chalkboard editor might get started/stopped
+      twice when the Waveform was started/stopped.
+      </li>
+      <li class="itemize">REDHAWK C++ Service projects might have warnings/errors related to not being
+      able to find included code. These are cleared up by new settings applied by code
+      generation and by completing a build.
+      </li>
+      <li class="itemize">On  Ubuntu,  after  building  the  first  time,  the  IDE  would  report  errors  such  as
+      <span 
+class="ectt-1200">installing ./config.sub</span>,  <span 
+class="ectt-1200">installing ./install.sh</span>,  etc.  This  is  corrected  for
+      legacy projects during code generation.
+      </li>
+      <li class="itemize">The install location of a Waveform or Node was being determined by the project
+      name when it should have been based on the name in the XML.
+      </li>
+      <li class="itemize">For  existing  REDHAWK  projects,  some  settings  were  not  updated  during  code
+      generation.  These  included  environment  variables  (like  <span 
+class="ectt-1200">OSSIEHOME</span>)  and  error
+      parsers.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">The IDE would automatically overwrite the <span 
+class="ectt-1200">build.sh </span>file at the top of a project for
+      legacy projects. This is now corrected by code generation.
+      </li>
+      <li class="itemize">The IDE would automatically overwrite the <span 
+class="ectt-1200">.spec </span>file at the top of a project for legacy
+      projects. This is now corrected by code generation.
+      </li>
+      <li class="itemize">The FrontEnd Tuner Allocation dialog did not validate entires correctly.
+      </li>
+      <li class="itemize">The  IDE  now  handles  any  <span 
+class="ectt-1200">CORBA COMM_FAILURE </span>errors  that  occur  while  shutting
+      down a Device Manager.
+      </li>
+      <li class="itemize">The IDE now correctly parses forward-declarations in IDL files.
+      </li>
+      <li class="itemize">The  SPD  editor  did  not  allow  saving  changes  in  the  code  section  for  a  selected
+      implementation.
+      </li>
+      <li class="itemize">The  IDE  was  adding  spaces  into  complex  number  expressions  in  Properties  in
+      XML  (for  example,  <span 
+class="ectt-1200">1 + j3 </span>rather  than  <span 
+class="ectt-1200">1+j3</span>),  which  caused  an  error  in  the  Core
+      Framework.
+      </li>
+      <li class="itemize">Under certain scenarios, the IDE might release domain Waveforms that had been
+      opened with the Chalkboard editor when the IDE was closed.
+      </li>
+      <li class="itemize">The IDE now allows setting an <span 
+class="ectt-1200">enum </span>Property in the Waveform Property Editor.
+      </li>
+      <li class="itemize">Properties with kinds <span 
+class="ectt-1200">event </span>and <span 
+class="ectt-1200">allocate </span>were marked as an error.
+      </li>
+      <li class="itemize">Data saturation while plotting could cause the plots to go blank and stay blank even
+      after data returned to a valid range.
+      </li>
+      <li class="itemize">The Project Explorer showed arrows next to closed projects.
+      </li>
+      <li class="itemize">The IDE did not correctly add values for <span 
+class="ectt-1200">struct </span>sequences in the PRF/SAD XML
+      files.
                                                                                          
 
 

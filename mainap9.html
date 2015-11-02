@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>I Device Structures</title> 
+<head><title>I List of Acronyms</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -46,379 +46,620 @@ window.attachEvent("onload", f);
 <!-- Custom MAIN CONTENT --> 
 <div id="main_content_wrap" tabindex="0" class="outer"> 
 <section id="main_content" class="inner"> 
-<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="mainap10.html" >next</a>] [<a 
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainli2.html" >next</a>] [<a 
 href="mainap8.html" >prev</a>] [<a 
 href="mainap8.html#tailmainap8.html" >prev-tail</a>] [<a 
 href="#tailmainap9.html">tail</a>] [<a 
 href="main.html#mainap9.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;I</span><br /><a 
- id="x35-498000I"></a>Device Structures</h2>
-<h3 class="sectionHead"><span class="titlemark">I.1   </span> <a 
- id="x35-499000I.1"></a>Introduction</h3>
-<!--l. 7--><p class="noindent" ><a 
-href="mainli2.html#glo:device">Devices</a> are proxies that run on a host but interact with installed hardware.
-<!--l. 9--><p class="noindent" >The <a 
-href="mainap14.html#sca">SCA</a> defines three <span 
-class="ectt-1200">Device </span>types:
-      <ul class="itemize1">
-      <li class="itemize"><a 
-href="#x35-500000I.2">Device</a>
-      </li>
-      <li class="itemize"><a 
-href="#x35-507000I.3">Loadable Device</a>, which inherits from <a 
-href="mainli2.html#glo:device">Device</a>
-      </li>
-      <li class="itemize"><a 
-href="#x35-510000I.4">Executable Device</a>, which inherits from Loadable <a 
-href="mainli2.html#glo:device">Device</a></li></ul>
-<!--l. 16--><p class="noindent" >All Devices inherit from <span 
-class="ectt-1200">Resource</span>. This chapter describes the methods for each of the Device
-types.
-<!--l. 18--><p class="noindent" >It is expected that developers define their own <a 
-href="mainli2.html#glo:device">Devices</a> that implement a customized version of
-each of these inherited methods. REDHAWK provides a <a 
-href="mainap14.html#gpp">GPP</a>, which is an Executable <a 
-href="mainli2.html#glo:device">Device</a> that
-serves as a useful implementation example. Note that the <a 
-href="mainap14.html#gpp">GPP</a> is written in Python. It is often
-the case that <a 
-href="mainli2.html#glo:device">Devices</a> (being hardware proxies rather than actual hardware) do not
-execute performance-critical tasks, since the primary goal of the <a 
-href="mainap14.html#gpp">GPP</a> <a 
-href="mainli2.html#glo:device">Device</a> is to spawn
-off <a 
-href="mainli2.html#glo:component">Component</a> processes. Because of this, a higher-level language provides sufficient
-performance.
-<!--l. 24--><p class="noindent" >In addition, there is an <a 
-href="#x35-513000I.5">Aggregate Device</a> that creates a composite device by loosely coupling
-together Devices in a parent-child relationship.
-<!--l. 26--><p class="noindent" >For reference information about the various <a 
-href="mainli2.html#glo:device">Device</a> types, refer to Section 3.1.3.3 (Base <a 
-href="mainli2.html#glo:device">Device</a>
-Interfaces) of the <a 
-href="mainap14.html#sca">SCA</a> Specification with REDHAWK Additions 2.2.2, R 1.10.0.
-<!--l. 28--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">I.2   </span> <a 
- id="x35-500000I.2"></a>Device class</h3>
-                                                                                         
-                                                                                         
-<!--l. 30--><p class="noindent" >The Basic <a 
-href="mainli2.html#glo:device">Device</a> methods are <span 
-class="ectt-1200">allocateCapacity() </span>and <span 
-class="ectt-1200">deallocateCapacity()</span>. These methods
-facilitate <a 
-href="mainli2.html#glo:device">Device</a> management of available capacities so that the <a 
-href="mainli2.html#glo:applicationfactory">Application Factory</a> can determine
-the suitability for deployment of a <a 
-href="mainli2.html#glo:component">Component</a> on a particular <a 
-href="mainli2.html#glo:device">Device</a>. A <a 
-href="mainli2.html#glo:component">Component</a> can specify
-the need for a particular quantity of a specific resource, such as memory available, in
-order for it to be deployed on particular <a 
-href="mainli2.html#glo:device">Device</a>. This allows hardware resources to be
-monitored as they are allocated to different <a 
-href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:application">Applications</a> to prevent
-allocation failure and to ensure that <a 
-href="mainli2.html#glo:component">Components</a> have the capacity they need to operate
-properly.
-<!--l. 35--><p class="noindent" ><a 
-href="mainli2.html#glo:device">Devices</a> also need to maintain the current state of the hardware through <span 
-class="ectt-1200">usageState </span>(<span 
-class="ectt-1200">IDLE</span>,
-<span 
-class="ectt-1200">ACTIVE </span>or <span 
-class="ectt-1200">BUSY</span>), <span 
-class="ectt-1200">adminState </span>(<span 
-class="ectt-1200">LOCKED</span>, <span 
-class="ectt-1200">UNLOCKED </span>or <span 
-class="ectt-1200">SHUTTING_DOWN</span>), and <span 
-class="ectt-1200">operationalState</span>
-(<span 
-class="ectt-1200">ENABLED </span>or <span 
-class="ectt-1200">DISABLED</span>).
-<!--l. 37--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">I.2.1   </span> <a 
- id="x35-501000I.2.1"></a><span 
-class="ectt-1200">allocateCapacity()</span></h4>
-<!--l. 38--><p class="noindent" >In REDHAWK 1.10, the implementation of capacity allocation for C++ and Java <a 
-href="mainli2.html#glo:device">Devices</a> vary in
-comparison to that of Python <a 
-href="mainli2.html#glo:device">Devices</a>. Python <a 
-href="mainli2.html#glo:device">Devices</a> provide an additional level of support that
-is not provided in C++ and Java <a 
-href="mainli2.html#glo:device">Devices</a>.
-<!--l. 41--><p class="noindent" >An allocatable capacity is defined as a <a 
-href="mainli2.html#glo:property">Property</a> in the <a 
-href="mainli2.html#glo:device">Device</a>&#8217;s <a 
-href="mainap14.html#prf">PRF</a> file.
-<!--l. 43--><p class="noindent" >Below is an example of an allocation <a 
-href="mainli2.html#glo:property">Property</a> in the <a 
-href="mainap14.html#gpp">GPP</a>&#8217;s <a 
-href="mainap14.html#prf">PRF</a> <a 
-href="mainap14.html#xml">XML</a> file:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-  <simple id="DCE:8dcef419-b440-4bcf-b893-cab79b6024fb"
-         mode="readwrite" name="memCapacity" type="long">
-     <description>Amount of RAM in the GPP not allocated to
-         an application</description>
-     <units>MiB</units>
-     <kind kindtype="allocation"/>
-     <kind kindtype="event"/>
-     <action type="external"/>
-  </simple>
-]]></script></div>
-<!--l. 57--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">I.2.1.1   </span> <a 
- id="x35-502000I.2.1.1"></a>C++ and Java Device Capacity Allocation</h5>
-<!--l. 58--><p class="noindent" >When the <a 
-href="mainli2.html#glo:applicationfactory">Application Factory</a> calls the <span 
-class="ectt-1200">allocateCapacity() </span>method on a <a 
-href="mainli2.html#glo:device">Device</a>, it provides the
-                                                                                         
-                                                                                         
-type and the amount of a resource that is requested. For example, the <a 
-href="mainli2.html#glo:applicationfactory">Application Factory</a> may
-call <span 
-class="ectt-1200">allocateCapacity() </span>to allocate 1 MB of memory on a <a 
-href="mainli2.html#glo:device">Device</a>. The <span 
-class="ectt-1200">allocateCapacity()</span>
-method checks if the requested amount of memory is less than the available memory. If so, the
-amount of memory is decremented by the amount requested and the <span 
-class="ectt-1200">allocateCapacity() </span>method
-returns true. The <span 
-class="ectt-1200">allocateCapacity() </span>returns false if it does not have the capacity for the
-request.
-<!--l. 64--><p class="noindent" >If a developer wishes to implement different behavior in C++ or Java <a 
-href="mainli2.html#glo:device">Devices</a>, the
-<span 
-class="ectt-1200">allocateCapacity() </span>method may be overridden in their <a 
-href="mainli2.html#glo:device">Device</a> implementation.
-<!--l. 66--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">I.2.1.2   </span> <a 
- id="x35-503000I.2.1.2"></a>Python Device Capacity Allocation</h5>
-<!--l. 67--><p class="noindent" >The <span 
-class="ectt-1200">Device </span>base class in device.py (distributed as a part of the REDHAWK Core Framework)
-provides a means for defining custom allocate methods for particular allocation <a 
-href="mainli2.html#glo:property">Properties</a>. To do
-so, a method is added to the <a 
-href="mainli2.html#glo:device">Device</a> implementation named <span 
-class="ectt-1200">allocate_ </span>followed by the name of the
-allocation <a 
-href="mainli2.html#glo:property">Property</a>. The example code below demonstrates the <span 
-class="ectt-1200">allocation() </span>method for the
-<span 
-class="ectt-1200">memCapacity </span>allocation <a 
-href="mainli2.html#glo:property">Property</a> of the <a 
-href="mainap14.html#gpp">GPP</a>.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-# overrides allocateCapacity for memCapacity
-def allocate_memCapacity(self, value):
-     # see if calculated capacity and measured capacity
-     # is available
-     if value > self.memCapacity or value > self.memFree:
-         return False
-
-     self.memCapacity = self.memCapacity - value
-     self._log.debug("Remaining capacity %s", self.memCapacity)
-     return True
-]]></script></div>
-<!--l. 85--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">I.2.2   </span> <a 
- id="x35-504000I.2.2"></a><span 
-class="ectt-1200">deallocateCapacity()</span></h4>
-<!--l. 86--><p class="noindent" >
-                                                                                         
-                                                                                         
-<h5 class="subsubsectionHead"><span class="titlemark">I.2.2.1   </span> <a 
- id="x35-505000I.2.2.1"></a>C++ and Java Capacity Deallocation</h5>
-<!--l. 87--><p class="noindent" >The <span 
-class="ectt-1200">deallocateCapacity() </span>method essentially reverses the process implemented in
-the <span 
-class="ectt-1200">allocateCapacity() </span>method (i.e., the available capacity for the given resource is
-incremented).
-<!--l. 89--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">I.2.2.2   </span> <a 
- id="x35-506000I.2.2.2"></a>Python deallocate_ Methods</h5>
-<!--l. 90--><p class="noindent" >Similar to the Python <a 
-href="mainli2.html#glo:device">Device</a>&#8217;s support for custom allocation methods, custom deallocation
-methods may be created by adding a method named <span 
-class="ectt-1200">deallocate_ </span>followed by the allocation
+ id="x29-493000I"></a>List of Acronyms</h2>
+  <dl class="list1"><dt class="list">
 <a 
-href="mainli2.html#glo:property">Property</a> name. The example code below demonstrates the <span 
-class="ectt-1200">deallocation() </span>method for the
-<span 
-class="ectt-1200">memCapacity </span>allocation <a 
-href="mainli2.html#glo:property">Property</a> of the <a 
-href="mainap14.html#gpp">GPP</a>.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-# overrides deallocateCapacity for memCapacity
-def deallocate_memCapacity(self, value):
-     self._log.debug("deallocate_memCapacity(%s)", value)
-     # make sure this is not over the actual capacity
-     # (due to an update of the memThreshold)
-     if self.memCapacity + value > self.memThresholdValue:
-         self.memCapacity = self.memThresholdValue
-     else:
-         self.memCapacity = self.memCapacity + value
-     self._log.debug("Remaining capacity %s", self.memCapacity)
-]]></script></div>
-<!--l. 106--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">I.3   </span> <a 
- id="x35-507000I.3"></a>Loadable Device class</h3>
-<!--l. 108--><p class="noindent" >The Loadable <a 
-href="mainli2.html#glo:device">Device</a> methods, <span 
-class="ectt-1200">load() </span>and <span 
-class="ectt-1200">unload()</span>, facilitate file copying from the File System
-to the physical hardware represented by the <a 
-href="mainli2.html#glo:device">Device</a> proxy. This ability is commonly used to
-manage <a 
-href="mainli2.html#glo:component">Components</a> binaries. During the runtime, a cache for each <a 
-href="mainli2.html#glo:device">Device</a> is created at its File
-System&#8217;s mount point.
-<!--l. 112--><p class="noindent" >
+ id="ajax"></a><span 
+class="ecsx-1200">AJAX</span> </dt><dd 
+class="list">
+  <!--l. 4--><p class="noindent" >Asynchronous
+  JavaScript
+  and
+  <a 
+href="#xml">XML</a>
+  </dd><dt class="list">
+<a 
+ id="api"></a><span 
+class="ecsx-1200">API</span> </dt><dd 
+class="list">
+  <!--l. 5--><p class="noindent" >Application
+  Programming
+  Interface
+  </dd><dt class="list">
+<a 
+ id="ast"></a><span 
+class="ecsx-1200">AST</span> </dt><dd 
+class="list">
+  <!--l. 6--><p class="noindent" >Abstract
+  Syntax
+  Tree
+  </dd><dt class="list">
+<a 
+ id="bulkio"></a><span 
+class="ecsx-1200">BulkIO</span> </dt><dd 
+class="list">
+  <!--l. 7--><p class="noindent" >Bulk
+  Input/Output
+  </dd><dt class="list">
+<a 
+ id="burstio"></a><span 
+class="ecsx-1200">BurstIO</span> </dt><dd 
+class="list">
+  <!--l. 8--><p class="noindent" >Burst
+  Input/Output
+  </dd><dt class="list">
                                                                                          
                                                                                          
-<h4 class="subsectionHead"><span class="titlemark">I.3.1   </span> <a 
- id="x35-508000I.3.1"></a><span 
-class="ectt-1200">load()</span></h4>
-<!--l. 113--><p class="noindent" >When the <span 
-class="ectt-1200">load() </span>method is called on a Loadable <a 
-href="mainli2.html#glo:device">Device</a>, the Loadable <a 
-href="mainli2.html#glo:device">Device</a> copies the file
-indicated by the provided filename onto the hardware that the proxy represents. If the Loadable
 <a 
-href="mainli2.html#glo:device">Device</a> is also an Executable <a 
-href="mainli2.html#glo:device">Device</a>, this method may be a prerequisite to calling the <span 
-class="ectt-1200">execute()</span>
-method.
-<!--l. 116--><p class="noindent" >For example, a Loadable <a 
-href="mainli2.html#glo:device">Device</a> <span 
-class="ectt-1200">Foo </span>is a proxy for a receiver <span 
-class="ectt-1200">Bar</span>, <span 
-class="ectt-1200">Foo</span>&#8217;s <span 
-class="ectt-1200">load() </span>method must
-support copying the local code (perhaps on a desktop computer) to be run on the receiver to the
-<span 
-class="ectt-1200">Bar</span>&#8217;s file system.
-<!--l. 118--><p class="noindent" >In the case of the <a 
-href="mainap14.html#gpp">GPP</a>, the executable files associated with a <a 
-href="mainli2.html#glo:component">Component</a>
-are copied to the directory associated with the running <a 
-href="mainap14.html#gpp">GPP</a> <a 
-href="mainli2.html#glo:device">Device</a> (e.g.,
-<span 
-class="ectt-1200">$SDRROOT/dev/.DeviceManager_/GPP_1/component/myComponent/myComponent.py</span>).
-<!--l. 120--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">I.3.2   </span> <a 
- id="x35-509000I.3.2"></a><span 
-class="ectt-1200">unload()</span></h4>
-<!--l. 121--><p class="noindent" >The <span 
-class="ectt-1200">unload() </span>method removes loaded files from the physical device that the Loadable <a 
-href="mainli2.html#glo:device">Device</a>
-proxy represents.
-<!--l. 123--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">I.4   </span> <a 
- id="x35-510000I.4"></a>Executable Device class</h3>
-<!--l. 125--><p class="noindent" >The Executable <a 
-href="mainli2.html#glo:device">Device</a> methods, <span 
-class="ectt-1200">execute() </span>and <span 
-class="ectt-1200">terminate()</span>, take care of the life cycle of an
-executable program that is run on the <a 
-href="mainli2.html#glo:device">Device</a> hardware. They provide a mechanism for starting up
-and executing a software process or thread on a <a 
-href="mainli2.html#glo:device">Device</a>.
-<!--l. 128--><p class="noindent" >If the <a 
-href="mainli2.html#glo:device">Device</a> is running the Linux <a 
-href="mainap14.html#os">OS</a>, the <span 
-class="ectt-1200">execute() </span>method calls a <span 
-class="ectt-1200">fork() </span>function to start a
+ id="cdt"></a><span 
+class="ecsx-1200">CDT</span> </dt><dd 
+class="list">
+  <!--l. 9--><p class="noindent" >C/C++
+  Developer
+  Tools
+  </dd><dt class="list">
 <a 
-href="mainli2.html#glo:component">Component</a> process. For Executable <a 
-href="mainli2.html#glo:device">Devices</a> that do not execute code using a <span 
-class="ectt-1200">fork() </span>statement,
-the developer would be required to implement the necessary code for executing a <a 
-href="mainli2.html#glo:component">Component</a>
-process for the particular <a 
-href="mainli2.html#glo:device">Device</a>&#8217;s hardware implementation.
-<!--l. 131--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">I.4.1   </span> <a 
- id="x35-511000I.4.1"></a><span 
-class="ectt-1200">execute()</span></h4>
-<!--l. 132--><p class="noindent" >The <span 
-class="ectt-1200">execute() </span>method is called by the <a 
-href="mainli2.html#glo:applicationfactory">Application Factory</a> when a <a 
-href="mainli2.html#glo:component">Component</a> process needs to
-be started. In the case of the <a 
-href="mainap14.html#gpp">GPP</a> <a 
-href="mainli2.html#glo:device">Device</a>, the <span 
-class="ectt-1200">execute() </span>method uses the provides arguments
+ id="centos"></a><span 
+class="ecsx-1200">CentOS</span> </dt><dd 
+class="list">
+  <!--l. 10--><p class="noindent" >Community
+  Enterprise
+  Operating
+  System
+  </dd><dt class="list">
+<a 
+ id="cf"></a><span 
+class="ecsx-1200">CF</span> </dt><dd 
+class="list">
+  <!--l. 11--><p class="noindent" >Core
+  Framework
+  </dd><dt class="list">
+<a 
+ id="corba"></a><span 
+class="ecsx-1200">CORBA</span> </dt><dd 
+class="list">
+  <!--l. 12--><p class="noindent" >Common
+  Object
+  Request
+  Broker
+  Architecture
+  </dd><dt class="list">
+<a 
+ id="cvs"></a><span 
+class="ecsx-1200">CVS</span> </dt><dd 
+class="list">
+  <!--l. 13--><p class="noindent" >Concurrent
+  Versions
+  System
+  </dd><dt class="list">
+<a 
+ id="dcd"></a><span 
+class="ecsx-1200">DCD</span> </dt><dd 
+class="list">
+  <!--l. 14--><p class="noindent" >Device
+  Configuration
+  Descriptor
                                                                                          
                                                                                          
-(indicating the <a 
-href="mainli2.html#glo:component">Component</a> name and <a 
-href="mainli2.html#glo:property">Property</a> overrides from the <a 
-href="mainap14.html#sad">SAD</a> file) to formulate a Linux
-command-line execution statement. After starting the <a 
-href="mainli2.html#glo:component">Component</a> process, the <a 
-href="mainli2.html#glo:device">Device</a> returns to
-wait for commands.
-<!--l. 136--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">I.4.2   </span> <a 
- id="x35-512000I.4.2"></a><span 
-class="ectt-1200">terminate()</span></h4>
-<!--l. 137--><p class="noindent" >The <span 
-class="ectt-1200">terminate() </span>method exists to kill processes that have been started by the <a 
-href="mainli2.html#glo:device">Device</a>. In the
-example of the <a 
-href="mainap14.html#gpp">GPP</a> <a 
-href="mainli2.html#glo:device">Device</a>, the <span 
-class="ectt-1200">terminate() </span>method simply sends a kill command to the given
+  </dd><dt class="list">
 <a 
-href="mainap14.html#pid">PID</a> and waits for it to die.
-<!--l. 140--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">I.5   </span> <a 
- id="x35-513000I.5"></a>Aggregate Device class</h3>
-<!--l. 142--><p class="noindent" >Aggregate <a 
-href="mainli2.html#glo:device">Device</a> allows the creation of <a 
-href="mainli2.html#glo:device">Devices</a> that are tied together as composite <a 
-href="mainli2.html#glo:device">Devices</a>. The
-purpose or behavior of a composite <a 
-href="mainli2.html#glo:device">Device</a> is not defined by either the <a 
-href="mainap14.html#sca">SCA</a> or REDHAWK
-specifications beyond stating that a particular <a 
-href="mainli2.html#glo:device">Device</a> contains the reference to a set of child
+ id="dce"></a><span 
+class="ecsx-1200">DCE</span> </dt><dd 
+class="list">
+  <!--l. 15--><p class="noindent" >Distributed
+  Computing
+  Environment
+  </dd><dt class="list">
 <a 
-href="mainli2.html#glo:device">Devices</a>. This relationship is manifested through an additional interface with the <span 
-class="ectt-1200">addDevice </span>and
-<span 
-class="ectt-1200">removeDevice() </span>functions.
-<!--l. 146--><p class="noindent" >When a <a 
-href="mainli2.html#glo:device">Device</a> implements the aggregate <a 
-href="mainli2.html#glo:device">Device</a> interface, it is possible to define other
+ id="ddc"></a><span 
+class="ecsx-1200">DDC</span> </dt><dd 
+class="list">
+  <!--l. 16--><p class="noindent" >Digital
+  Down
+  Converter
+  </dd><dt class="list">
 <a 
-href="mainli2.html#glo:device">Devices</a> as composite parts of the <a 
-href="mainli2.html#glo:device">Device</a> with the aggregate <a 
-href="mainli2.html#glo:device">Device</a> interface. This
-composite relationship is specified in the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> configuration file. When a
+ id="dmd"></a><span 
+class="ecsx-1200">DMD</span> </dt><dd 
+class="list">
+  <!--l. 17--><p class="noindent" >Domain
+  Manager
+  Configuration
+  Descriptor
+  </dd><dt class="list">
 <a 
-href="mainli2.html#glo:device">Device</a> is specified as a composite part of another <a 
-href="mainli2.html#glo:device">Device</a>, the child <a 
-href="mainli2.html#glo:device">Device</a> is handed the
-reference to the parent aggregate <a 
-href="mainli2.html#glo:device">Device</a>, and the child <a 
-href="mainli2.html#glo:device">Device</a> registers itself with the
-parent <a 
-href="mainli2.html#glo:device">Device</a>. What the aggregate <a 
-href="mainli2.html#glo:device">Device</a> does with this reference to a child <a 
-href="mainli2.html#glo:device">Device</a> is
-implementation-specific.
+ id="dpd"></a><span 
+class="ecsx-1200">DPD</span> </dt><dd 
+class="list">
+  <!--l. 18--><p class="noindent" >Device
+  Package
+  Descriptor
+  </dd><dt class="list">
+<a 
+ id="dsp"></a><span 
+class="ecsx-1200">DSP</span> </dt><dd 
+class="list">
+  <!--l. 19--><p class="noindent" >Digital
+  Signal
+  Processing
+  </dd><dt class="list">
+<a 
+ id="dtd"></a><span 
+class="ecsx-1200">DTD</span> </dt><dd 
+class="list">
+  <!--l. 20--><p class="noindent" >Document
+  Type
+  Definition
                                                                                          
                                                                                          
-<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="mainap10.html" >next</a>] [<a 
+  </dd><dt class="list">
+<a 
+ id="efs"></a><span 
+class="ecsx-1200">EFS</span> </dt><dd 
+class="list">
+  <!--l. 21--><p class="noindent" >Eclipse
+  File
+  System
+  </dd><dt class="list">
+<a 
+ id="emf"></a><span 
+class="ecsx-1200">EMF</span> </dt><dd 
+class="list">
+  <!--l. 22--><p class="noindent" >Eclipse
+  Modeling
+  Framework
+  </dd><dt class="list">
+<a 
+ id="eos"></a><span 
+class="ecsx-1200">EOS</span> </dt><dd 
+class="list">
+  <!--l. 23--><p class="noindent" >End
+  of
+  Stream
+  </dd><dt class="list">
+<a 
+ id="epel"></a><span 
+class="ecsx-1200">EPEL</span> </dt><dd 
+class="list">
+  <!--l. 24--><p class="noindent" >Extra
+  Packages
+  for
+  Enterprise
+  Linux
+  </dd><dt class="list">
+<a 
+ id="fei"></a><span 
+class="ecsx-1200">FEI</span> </dt><dd 
+class="list">
+  <!--l. 25--><p class="noindent" >Front
+  End
+  Interfaces
+  </dd><dt class="list">
+<a 
+ id="fft"></a><span 
+class="ecsx-1200">FFT</span> </dt><dd 
+class="list">
+  <!--l. 26--><p class="noindent" >Fast
+  Fourier
+  Transform
+                                                                                         
+                                                                                         
+  </dd><dt class="list">
+<a 
+ id="fpga"></a><span 
+class="ecsx-1200">FPGA</span> </dt><dd 
+class="list">
+  <!--l. 27--><p class="noindent" >Field-programmable
+  gate
+  array
+  </dd><dt class="list">
+<a 
+ id="fm"></a><span 
+class="ecsx-1200">FM</span> </dt><dd 
+class="list">
+  <!--l. 28--><p class="noindent" >Frequency
+  Modulation
+  </dd><dt class="list">
+<a 
+ id="gmf"></a><span 
+class="ecsx-1200">GMF</span> </dt><dd 
+class="list">
+  <!--l. 29--><p class="noindent" >Graphical
+  Modeling
+  Framework
+  </dd><dt class="list">
+<a 
+ id="gpp"></a><span 
+class="ecsx-1200">GPP</span> </dt><dd 
+class="list">
+  <!--l. 30--><p class="noindent" >General
+  Purpose
+  Processor
+  </dd><dt class="list">
+<a 
+ id="gui"></a><span 
+class="ecsx-1200">GUI</span> </dt><dd 
+class="list">
+  <!--l. 31--><p class="noindent" >Graphical
+  User
+  Interface
+  </dd><dt class="list">
+<a 
+ id="http"></a><span 
+class="ecsx-1200">HTTP</span> </dt><dd 
+class="list">
+  <!--l. 32--><p class="noindent" >Hyper
+  Text
+  Transport
+  Protocol
+                                                                                         
+                                                                                         
+  </dd><dt class="list">
+<a 
+ id="ide"></a><span 
+class="ecsx-1200">IDE</span> </dt><dd 
+class="list">
+  <!--l. 33--><p class="noindent" >Integrated
+  Development
+  Environment
+  </dd><dt class="list">
+<a 
+ id="idm"></a><span 
+class="ecsx-1200">IDM</span> </dt><dd 
+class="list">
+  <!--l. 34--><p class="noindent" >Incoming
+  Domain
+  Management
+  </dd><dt class="list">
+<a 
+ id="if"></a><span 
+class="ecsx-1200">IF</span> </dt><dd 
+class="list">
+  <!--l. 35--><p class="noindent" >Intermediate
+  Frequency
+  </dd><dt class="list">
+<a 
+ id="ior"></a><span 
+class="ecsx-1200">IOR</span> </dt><dd 
+class="list">
+  <!--l. 36--><p class="noindent" >Interoperable
+  Object
+  Reference
+  </dd><dt class="list">
+<a 
+ id="id"></a><span 
+class="ecsx-1200">ID</span> </dt><dd 
+class="list">
+  <!--l. 37--><p class="noindent" >Identifier
+  </dd><dt class="list">
+<a 
+ id="idl"></a><span 
+class="ecsx-1200">IDL</span> </dt><dd 
+class="list">
+  <!--l. 38--><p class="noindent" >Interface
+  Description
+  Language
+  </dd><dt class="list">
+<a 
+ id="jar"></a><span 
+class="ecsx-1200">JAR</span> </dt><dd 
+class="list">
+                                                                                         
+                                                                                         
+  <!--l. 39--><p class="noindent" >Java
+  ARchive
+  </dd><dt class="list">
+<a 
+ id="jdt"></a><span 
+class="ecsx-1200">JDT</span> </dt><dd 
+class="list">
+  <!--l. 40--><p class="noindent" >Java
+  Developer
+  Tools
+  </dd><dt class="list">
+<a 
+ id="jee"></a><span 
+class="ecsx-1200">JEE</span> </dt><dd 
+class="list">
+  <!--l. 41--><p class="noindent" >Java
+  Platform,
+  Enterprise
+  Edition
+  </dd><dt class="list">
+<a 
+ id="jtrs"></a><span 
+class="ecsx-1200">JTRS</span> </dt><dd 
+class="list">
+  <!--l. 42--><p class="noindent" >Joint
+  Tactical
+  Radio
+  System
+  </dd><dt class="list">
+<a 
+ id="mb"></a><span 
+class="ecsx-1200">MB</span> </dt><dd 
+class="list">
+  <!--l. 43--><p class="noindent" >Megabyte
+  </dd><dt class="list">
+<a 
+ id="noop"></a><span 
+class="ecsx-1200">NOOP</span> </dt><dd 
+class="list">
+  <!--l. 44--><p class="noindent" >No
+  Operation
+  </dd><dt class="list">
+<a 
+ id="odm"></a><span 
+class="ecsx-1200">ODM</span> </dt><dd 
+class="list">
+  <!--l. 45--><p class="noindent" >Outgoing
+  Domain
+  Management
+                                                                                         
+                                                                                         
+  </dd><dt class="list">
+<a 
+ id="os"></a><span 
+class="ecsx-1200">OS</span> </dt><dd 
+class="list">
+  <!--l. 46--><p class="noindent" >Operating
+  System
+  </dd><dt class="list">
+<a 
+ id="osgi"></a><span 
+class="ecsx-1200">OSGi</span> </dt><dd 
+class="list">
+  <!--l. 47--><p class="noindent" >Open
+  Services
+  Gateway
+  initiative
+  </dd><dt class="list">
+<a 
+ id="pde"></a><span 
+class="ecsx-1200">PDE</span> </dt><dd 
+class="list">
+  <!--l. 48--><p class="noindent" >Plug-in
+  Development
+  Environment
+  </dd><dt class="list">
+<a 
+ id="pid"></a><span 
+class="ecsx-1200">PID</span> </dt><dd 
+class="list">
+  <!--l. 49--><p class="noindent" >Process
+  Identifier
+  </dd><dt class="list">
+<a 
+ id="posix"></a><span 
+class="ecsx-1200">POSIX</span> </dt><dd 
+class="list">
+  <!--l. 50--><p class="noindent" >Portable
+  Operating
+  System
+  Interface
+  </dd><dt class="list">
+<a 
+ id="prf"></a><span 
+class="ecsx-1200">PRF</span> </dt><dd 
+class="list">
+  <!--l. 51--><p class="noindent" >Properties
+  File
+  </dd><dt class="list">
+                                                                                         
+                                                                                         
+<a 
+ id="psd"></a><span 
+class="ecsx-1200">PSD</span> </dt><dd 
+class="list">
+  <!--l. 52--><p class="noindent" >Power
+  Spectral
+  Density
+  </dd><dt class="list">
+<a 
+ id="pydev"></a><span 
+class="ecsx-1200">PyDev</span> </dt><dd 
+class="list">
+  <!--l. 53--><p class="noindent" >Python
+  Development
+  </dd><dt class="list">
+<a 
+ id="rcp"></a><span 
+class="ecsx-1200">RCP</span> </dt><dd 
+class="list">
+  <!--l. 55--><p class="noindent" >Rich
+  Client
+  Platform
+  </dd><dt class="list">
+<a 
+ id="rf"></a><span 
+class="ecsx-1200">RF</span> </dt><dd 
+class="list">
+  <!--l. 56--><p class="noindent" >Radio
+  Frequency
+  </dd><dt class="list">
+<a 
+ id="rhel"></a><span 
+class="ecsx-1200">RHEL</span> </dt><dd 
+class="list">
+  <!--l. 57--><p class="noindent" >Red
+  Hat
+  Enterprise
+  Linux
+  </dd><dt class="list">
+<a 
+ id="rpc"></a><span 
+class="ecsx-1200">RPC</span> </dt><dd 
+class="list">
+  <!--l. 58--><p class="noindent" >Remote
+  Procedure
+  Call
+  </dd><dt class="list">
+<a 
+ id="rpm"></a><span 
+class="ecsx-1200">RPM</span> </dt><dd 
+class="list">
+                                                                                         
+                                                                                         
+  <!--l. 59--><p class="noindent" >Red
+  Hat
+  Package
+  Manager
+  </dd><dt class="list">
+<a 
+ id="sad"></a><span 
+class="ecsx-1200">SAD</span> </dt><dd 
+class="list">
+  <!--l. 61--><p class="noindent" >Software
+  Assembly
+  Descriptor
+  </dd><dt class="list">
+<a 
+ id="sca"></a><span 
+class="ecsx-1200">SCA</span> </dt><dd 
+class="list">
+  <!--l. 62--><p class="noindent" >Software
+  Communications
+  Architecture
+  </dd><dt class="list">
+<a 
+ id="scd"></a><span 
+class="ecsx-1200">SCD</span> </dt><dd 
+class="list">
+  <!--l. 63--><p class="noindent" >Software
+  Component
+  Descriptor
+  </dd><dt class="list">
+<a 
+ id="sdr"></a><span 
+class="ecsx-1200">SDR</span> </dt><dd 
+class="list">
+  <!--l. 64--><p class="noindent" >Software-Defined
+  Radio
+  </dd><dt class="list">
+<a 
+ id="spd"></a><span 
+class="ecsx-1200">SPD</span> </dt><dd 
+class="list">
+  <!--l. 65--><p class="noindent" >Software
+  Package
+  Descriptor
+  </dd><dt class="list">
+<a 
+ id="sri"></a><span 
+class="ecsx-1200">SRI</span> </dt><dd 
+class="list">
+                                                                                         
+                                                                                         
+  <!--l. 66--><p class="noindent" >Signal
+  Related
+  Information
+  </dd><dt class="list">
+<a 
+ id="svn"></a><span 
+class="ecsx-1200">SVN</span> </dt><dd 
+class="list">
+  <!--l. 67--><p class="noindent" >Subversion
+  </dd><dt class="list">
+<a 
+ id="swt"></a><span 
+class="ecsx-1200">SWT</span> </dt><dd 
+class="list">
+  <!--l. 68--><p class="noindent" >Standard
+  Widget
+  Toolkit
+  </dd><dt class="list">
+<a 
+ id="udp"></a><span 
+class="ecsx-1200">UDP</span> </dt><dd 
+class="list">
+  <!--l. 69--><p class="noindent" >User
+  Datagram
+  Protocol
+  </dd><dt class="list">
+<a 
+ id="ui"></a><span 
+class="ecsx-1200">UI</span> </dt><dd 
+class="list">
+  <!--l. 70--><p class="noindent" >User
+  Interface
+  </dd><dt class="list">
+<a 
+ id="uri"></a><span 
+class="ecsx-1200">URI</span> </dt><dd 
+class="list">
+  <!--l. 71--><p class="noindent" >Uniform
+  Resource
+  Identifier
+  </dd><dt class="list">
+<a 
+ id="url"></a><span 
+class="ecsx-1200">URL</span> </dt><dd 
+class="list">
+  <!--l. 72--><p class="noindent" >Uniform
+  Resource
+  Locator
+                                                                                         
+                                                                                         
+  </dd><dt class="list">
+<a 
+ id="uuid"></a><span 
+class="ecsx-1200">UUID</span> </dt><dd 
+class="list">
+  <!--l. 73--><p class="noindent" >Universally
+  Unique
+  Identifier
+  </dd><dt class="list">
+<a 
+ id="vlan"></a><span 
+class="ecsx-1200">VLAN</span> </dt><dd 
+class="list">
+  <!--l. 74--><p class="noindent" >Virtual
+  Local
+  Area
+  Network
+  </dd><dt class="list">
+<a 
+ id="vm"></a><span 
+class="ecsx-1200">VM</span> </dt><dd 
+class="list">
+  <!--l. 75--><p class="noindent" >Virtual
+  Machine
+  </dd><dt class="list">
+<a 
+ id="war"></a><span 
+class="ecsx-1200">WAR</span> </dt><dd 
+class="list">
+  <!--l. 76--><p class="noindent" >Web
+  ARchive
+  </dd><dt class="list">
+<a 
+ id="xml"></a><span 
+class="ecsx-1200">XML</span> </dt><dd 
+class="list">
+  <!--l. 77--><p class="noindent" >Extensible
+  Markup
+  Language
+  </dd><dt class="list">
+<a 
+ id="xsd"></a><span 
+class="ecsx-1200">XSD</span> </dt><dd 
+class="list">
+  <!--l. 78--><p class="noindent" >XML
+  Schema
+  Definition</dd></dl>
+                                                                                         
+                                                                                         
+<!--l. 1--><p class="noindent" ><a 
+ id="likesection.1"></a><a 
+ id="Q1-29-685"></a><!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainli2.html" >next</a>] [<a 
 href="mainap8.html" >prev</a>] [<a 
 href="mainap8.html#tailmainap8.html" >prev-tail</a>] [<a 
 href="mainap9.html" >front</a>] [<a 

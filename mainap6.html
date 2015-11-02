@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>F Installing REDHAWK on Ubuntu</title> 
+<head><title>F REDHAWK Persona Device Pattern</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,160 +53,593 @@ href="mainap5.html#tailmainap5.html" >prev-tail</a>] [<a
 href="#tailmainap6.html">tail</a>] [<a 
 href="main.html#mainap6.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;F</span><br /><a 
- id="x32-486000F"></a>Installing REDHAWK on Ubuntu</h2>
+ id="x26-458000F"></a>REDHAWK Persona Device Pattern</h2>
 <h3 class="sectionHead"><span class="titlemark">F.1   </span> <a 
- id="x32-487000F.1"></a>Introduction</h3>
-<!--l. 5--><p class="noindent" >This appendix explains how to install the Core Framework, <a 
-href="mainap14.html#ide">IDE</a>, and Basic <a 
-href="mainli2.html#glo:component">Components</a> from
-source on a machine running the Ubuntu 14.04 LTS operating system.
-<!--l. 7--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">F.2   </span> <a 
- id="x32-488000F.2"></a>Installing System Dependencies</h3>
-<!--l. 9--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x32-488002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo add-apt-repository ppa:redhawksdr/redhawk
-sudo apt-get update
-
-sudo apt-get install -y build-essential openmpi-bin libopenmpi-dev \
-python2.7 python2.7-dev uuid uuid-dev openjdk-7-jdk libtool \
-autotools-dev autoconf automake python-omniorb omnievents omniidl \
-omniidl-python omniorb omniorb-idl omniorb-nameserver libcos4-dev \
-libomnievents-dev libomniorb4-dev python-numpy python-omniorb \
-liblog4cxx10-dev xsdcxx libboost-dev libboost-system-dev \
-libboost-filesystem-dev libboost-regex-dev libboost-thread-dev vim \
-libxml2-utils python-jinja2 junit4 libcppunit-dev packagekit-gtk3-module
-]]></script></div>
+ id="x26-459000F.1"></a>Introduction</h3>
+<!--l. 36--><p class="noindent" >In REDHAWK, you can manage and maintain the lifecycle of <a 
+href="mainli2.html#glo:programdev">Programmable Devices</a>, such as
+<a 
+href="mainap9.html#fpga">FPGA</a>s, by implementing a specific design pattern: the Persona Pattern. This design pattern is
+rooted heavily in the concept of REDHAWK <a 
+href="mainli2.html#glo:device">Devices</a>, proxies used to interface physical hardware
+with the REDHAWK Framework.
+<!--l. 38--><p class="noindent" >To accurately represent the dynamic nature of <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a>, two unique roles have
+been established: the Programmable role and the Persona role. These roles are represented in
+REDHAWK as two separate REDHAWK <a 
+href="mainli2.html#glo:device">Devices</a>: <a 
+href="mainli2.html#glo:programdev">Programmable Devices</a> and <a 
+href="mainli2.html#glo:personadev">Persona
+Devices</a>.
+<!--l. 42--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.1.1   </span> <a 
+ id="x26-460000F.1.1"></a>Potential Benefits</h4>
+<!--l. 43--><p class="noindent" ><a 
+href="mainli2.html#glo:personadev">Persona Devices</a> provide the following benefits:
+      <ul class="itemize1">
+      <li class="itemize">Enables  the  REDHAWK  Framework  to  manage  and  maintain  the  lifecycle  of
+      <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a>.
       </li>
-      <li 
-  class="enumerate" id="x32-488004x2">To create a writable location for the compiled REDHAWK source, enter the following
-      commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo mkdir -p  /var/lib/redhawk/core
-sudo mkdir -p  /var/lib/redhawk/sdr
-sudo chown -R <username> /var/lib/redhawk
-]]></script>
+      <li class="itemize">Ability   to   add/remove   <a 
+href="mainli2.html#glo:proghdwr">Programmable   Hardware</a>   loads   without   the   need   to
+      modify/rebuild source.
+      </li>
+      <li class="itemize">Reduced development time and costs.
+      </li>
+      <li class="itemize">Support for reuse and portability.
+      </li>
+      <li class="itemize">Scalability across embedded, lightweight, and heavyweight architectures.</li></ul>
                                                                                          
                                                                                          
-      </div>
-      </li>
-      <li 
-  class="enumerate" id="x32-488006x3">Add the following to <span 
-class="ectt-1200">.bashrc </span>to set <span 
-class="ectt-1200">OSSIEHOME</span>, <span 
-class="ectt-1200">SDRROOT</span>, <span 
-class="ectt-1200">PYTHONPATH</span>, <span 
-class="ectt-1200">JAVA_HOME</span>, <span 
-class="ectt-1200">PATH</span>, and
-      <span 
-class="ectt-1200">LD_LIBRARY_PATH</span>. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-echo "export OSSIEHOME=/var/lib/redhawk/core" &gt;&gt; ~/.bashrc
-echo "export SDRROOT=/var/lib/redhawk/sdr" &gt;&gt; ~/.bashrc
-echo "export PYTHONPATH=\${OSSIEHOME}/lib/python" &gt;&gt; ~/.bashrc
-echo "export JAVA_HOME=/usr/lib/jvm/java-<version number>" &gt;&gt; ~/.bashrc
-echo "export PATH=\${OSSIEHOME}/bin:\${JAVA_HOME}/bin:\$PATH" \
-  &gt;&gt; ~/.bashrc
-echo "export LD_LIBRARY_PATH=\$OSSIEHOME/lib64:\$OSSIEHOME/lib:\$LD_LIBRARY_PATH" &gt;&gt; ~/.bashrc
-source ~/.bashrc
-]]></script></div>
-      </li></ol>
-<!--l. 46--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  An example of <span 
-class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-&#x003C;version number&#x003E; </span>is
-<span 
-class="ectt-1200">JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</span>. If <span 
-class="ectt-1200">openjdk </span>has been freshly installed in step
-1 above, the installed <span 
-class="ectt-1200">java-7-openjdk </span>can be found using the following commands:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo updatedb
-sudo locate java-7-openjdk
-]]></script></div>
-</p></div></div>
 <!--l. 54--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
- id="x32-489000F.3"></a>Building REDHAWK</h3>
-<!--l. 55--><p class="noindent" >To compile the source, create a group named redhawk and add your username to the group,
-execute the following commands:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar zxvf redhawk-src-<version>.tar.gz
-cd redhawk-src-<version>/
-./redhawk-install.sh
-. $OSSIEHOME/environment-setup
-sudo /usr/sbin/groupadd redhawk
-sudo /usr/sbin/usermod -a -G redhawk <username>
-]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 66--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
- id="x32-490000F.4"></a>Setting Up omniORB.cfg</h3>
+<h3 class="sectionHead"><span class="titlemark">F.2   </span> <a 
+ id="x26-461000F.2"></a>Theory of Operation</h3>
+<!--l. 55--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.2.1   </span> <a 
+ id="x26-462000F.2.1"></a>The Programmable and Persona Roles</h4>
+<!--l. 56--><p class="noindent" >The Programmable role and the Persona role attempt to model the polymorphic behavior of
+<a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a> within the REDHAWK Framework. The Programmable role can be
+thought of as a controller that may also provide generic functionality, whereas the Persona
+role can be thought of as a standalone representation of a single hardware load. This
+delineation provides two distinct areas to accurately define functionality and assign
+responsibilities.
+<!--l. 62--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">F.2.1.1   </span> <a 
+ id="x26-463000F.2.1.1"></a>The Programmable Role</h5>
+<!--l. 63--><p class="noindent" >The Programmable role has a handful of responsibilities associated with it, but most important are
+its controller responsibilities. The Programmable role has the ability to control which <a 
+href="mainli2.html#glo:persona">Persona</a> has
+permission to load the <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a> while also blocking subsequent <a 
+href="mainli2.html#glo:persona">Personas</a> from
+attempting to re-program loaded, running hardware. This simple controller role may also be
+extended to contain generic functionality that is common among all <a 
+href="mainli2.html#glo:persona">Personas</a> or that does not
+apply to the Persona role.
 <!--l. 68--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">F.2.1.2   </span> <a 
+ id="x26-464000F.2.1.2"></a>The Persona Role</h5>
+<!--l. 69--><p class="noindent" >The Persona role is responsible for defining the hardware load and any interfaces pertaining to that
+specific load. This may include register definitions and/or data IO channels. The Persona role
+supplies the bulk of the control over the <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a>, representing the state of the
+loaded <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a>.
+<!--l. 72--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.2.2   </span> <a 
+ id="x26-465000F.2.2"></a>REDHAWK Devices</h4>
+                                                                                         
+                                                                                         
+<!--l. 73--><p class="noindent" >The Programmable and Persona roles can be implemented via REDHAWK <a 
+href="mainli2.html#glo:device">Devices</a>. Representing
+these roles as their own independent <a 
+href="mainli2.html#glo:device">Devices</a> allows for more granular control and for a more
+precise representation of each role without needing to shoe-horn the two independent roles together
+into a single, complex entity.
+<!--l. 75--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x26-465001r1"></a>
+                                                                                         
+                                                                                         
+<!--l. 77--><p class="noindent" ><img 
+src="images/personadevices/personadiagram.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.1: </td><td  
+class="content">Relationship between Programmable Devices and Persona Devices</td></tr></table><!--tex4ht:label?: x26-465001r1 -->
+                                                                                         
+                                                                                         
+<!--l. 79--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<h5 class="subsubsectionHead"><span class="titlemark">F.2.2.1   </span> <a 
+ id="x26-466000F.2.2.1"></a>REDHAWK Programmable Device</h5>
+<!--l. 82--><p class="noindent" >The Programmable role may be implemented in REDHAWK as a standard REDHAWK executable
+<a 
+href="mainli2.html#glo:device">Device</a>. The <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> is responsible for launching this <a 
+href="mainli2.html#glo:device">Device</a>, following the typical
+REDHAWK <a 
+href="mainli2.html#glo:device">Device</a> lifecycle. What makes the <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> unique is that it provides
+hooks for maintaining and managing the lifecycle of the <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> registered to
+it.
+<!--l. 85--><p class="noindent" >REDHAWK <a 
+href="mainli2.html#glo:programdev">Programmable Devices</a> also implement functionality to instantiate REDHAWK
+<a 
+href="mainli2.html#glo:personadev">Persona Devices</a> from shared libraries. This is achieved by using <span 
+class="ectt-1200">dlopen </span>to load the shared library
+and <span 
+class="ectt-1200">dlsym </span>to access/instantiate the <a 
+href="mainli2.html#glo:device">Device</a> object contained within the shared library. This
+mechanism occurs when the following requirements are met:
+      <ul class="itemize1">
+      <li class="itemize">Programmable/Persona     <a 
+href="mainli2.html#glo:device">Devices</a>     are     associated     together     using     the
+      <span 
+class="ectt-1200">compositepartofdevice </span>tag in <a 
+href="mainap9.html#dcd">DCD</a> file.
+      </li>
+      <li class="itemize">Aggregate (parent) <a 
+href="mainli2.html#glo:device">Device</a> is an executable <a 
+href="mainli2.html#glo:device">Device</a>.
+      </li>
+      <li class="itemize">Composite (child) <a 
+href="mainli2.html#glo:device">Device</a> is a shared library.</li></ul>
+<!--l. 94--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">F.2.2.2   </span> <a 
+ id="x26-467000F.2.2.2"></a>REDHAWK Persona Device</h5>
+<!--l. 95--><p class="noindent" >A REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Device</a> is simply the <a 
+href="mainap9.html#xml">XML</a> representation of one specific behavior that may
+be assigned to a <a 
+href="mainli2.html#glo:programdev">Programmable Device</a>. This <a 
+href="mainap9.html#xml">XML</a> representation may include unique properties
+and/or <a 
+href="mainli2.html#glo:port">Ports</a> that are only relevant to the <a 
+href="mainli2.html#glo:persona">Persona</a>. Each <a 
+href="mainli2.html#glo:personadev">Persona Device</a> is visible in the
+REDHAWK <a 
+href="mainli2.html#glo:domain">Domain</a>, which allows for run-time configuration of <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> in a standardized
+way.
+<!--l. 98--><p class="noindent" >REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> may be built as shared objects rather than executables, therefore,
+allowing <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> to exist within the same process space as a <a 
+href="mainli2.html#glo:programdev">Programmable
+Device</a>.
+<!--l. 102--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x26-467001r2"></a>
+                                                                                         
+                                                                                         
+<!--l. 104--><p class="noindent" ><img 
+src="images/personadevices/persona_load.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.2: </td><td  
+class="content">Dynamic Loading of Persona Devices onto a Programmable Device</td></tr></table><!--tex4ht:label?: x26-467001r2 -->
+                                                                                         
+                                                                                         
+<!--l. 106--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<h4 class="subsectionHead"><span class="titlemark">F.2.3   </span> <a 
+ id="x26-468000F.2.3"></a>Associating Programmable/Persona Devices</h4>
+<!--l. 109--><p class="noindent" ><a 
+href="mainli2.html#glo:programdev">Programmable Devices</a> and <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> are linked together via the REDHAWK <a 
+href="mainap9.html#dcd">DCD</a> files.
+Within these <a 
+href="mainap9.html#dcd">DCD</a> files, the aggregate <a 
+href="mainli2.html#glo:device">Device</a> relationship tag defines which <a 
+href="mainli2.html#glo:personadev">Persona
+Devices</a> should be associated to a <a 
+href="mainli2.html#glo:programdev">Programmable Device</a>. The advantage of describing this
+relationship within the <a 
+href="mainap9.html#dcd">DCD</a> file comes with the added ability to dynamically add/remove/
+modify the possible personalities of <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a> without the need to rebuild
+source.
+<!--l. 116--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">F.2.3.1   </span> <a 
+ id="x26-469000F.2.3.1"></a>Aggregate Persona Device</h5>
+<!--l. 117--><p class="noindent" >In the <a 
+href="mainap9.html#sca">SCA</a> 2.2.2, aggregate <a 
+href="mainli2.html#glo:device">Devices</a> are defined as <a 
+href="mainli2.html#glo:device">Devices</a> that are loosely coupled
+together within a parent-child relationship. The extent of this relationship is left up to
+the developer and the Persona Pattern attempts to take full advantage of this loose
+coupling.
+<!--l. 121--><p class="noindent" >Because a single piece of <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a> can take on many personalities, the
+<a 
+href="mainli2.html#glo:programdev">Programmable Device</a> is said to have a one-to-many relationship with its loads. The <a 
+href="mainap9.html#dcd">DCD</a> file, via
+the aggregate relationship tags, enables users to properly define this one-to-many relationship
+between a single <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> and many available <a 
+href="mainli2.html#glo:personadev">Persona Devices</a>.
+<!--l. 125--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">F.2.3.2   </span> <a 
+ id="x26-470000F.2.3.2"></a>DCD File Example</h5>
+<!--l. 126--><p class="noindent" >In the following example <a 
+href="mainap9.html#dcd">DCD</a> file, the <span 
+class="ectt-1200">compositepartofdevice </span>tag is used to associate
+<span 
+class="ectt-1200">TestPersonaChild1 </span>and <span 
+class="ectt-1200">TestPersonaChild2 </span>to <span 
+class="ectt-1200">PersonaParent1</span>.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+       ...
+<componentfiles>
+  <componentfile id="test_persona_parent" type="SPD">
+     <localfile name="/devices/programmable/programmable.spd.xml"/>
+  </componentfile>
+  <componentfile id="test_persona_child" type="SPD">
+     <localfile name="/devices/persona_device/persona_device.spd.xml"/>
+  </componentfile>
+</componentfiles>
+<partitioning>
+  <componentplacement>
+     <componentfileref refid="test_persona_parent"/>
+     <componentinstantiation id="persona_node:persona_parent_1">
+       <usagename>persona_parent_1</usagename>
+     </componentinstantiation>
+  </componentplacement>
+  <componentplacement>
+     <componentfileref refid="test_persona_child"/>
+     <compositepartofdevice refid="persona_node:persona_parent_1"/>
+     <componentinstantiation id="persona_node:persona_child_1">
+       <usagename>test_persona_child_1</usagename>
+     </componentinstantiation>
+  </componentplacement>
+  <componentfileref refid="test_persona_child"/>
+     <compositepartofdevice refid="persona_node:persona_parent_1"/>
+     <componentinstantiation id="persona_node:persona_child_2">
+       <usagename>test_persona_child_2</usagename>
+     </componentinstantiation>
+  </componentplacement>
+</partitioning>
+       ...
+
+]]></script></div>
+<!--l. 165--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.2.4   </span> <a 
+ id="x26-471000F.2.4"></a>Hardware-Accelerated Components</h4>
+<!--l. 166--><p class="noindent" ><a 
+href="mainli2.html#glo:hrdwracccomp">Hardware-Accelerated Components</a> are REDHAWK <a 
+href="mainli2.html#glo:component">Components</a> that are proxies into only a
+                                                                                         
+                                                                                         
+portion of hardware. An example for <a 
+href="mainap9.html#fpga">FPGA</a>s is having multiple demodulator <a 
+href="mainli2.html#glo:component">Components</a> within
+the fabric that all have their own register sets and data IO channels. Each individual register set
+and/or data IO channel may be represented within a single REDHAWK <a 
+href="mainli2.html#glo:component">Component</a> that has a
+dependency on a specific behavior or <a 
+href="mainli2.html#glo:persona">Persona</a>.
+<!--l. 168--><p class="noindent" >The pattern used for <a 
+href="mainli2.html#glo:hrdwracccomp">Hardware-Accelerated Components</a> is very similar to the pattern used for
+<a 
+href="mainli2.html#glo:personadev">Persona Devices</a>. These <a 
+href="mainli2.html#glo:component">Components</a> may be built as shared libraries and share state the same way
+Programmable and Persona <a 
+href="mainli2.html#glo:device">Devices</a> share state.
+<!--l. 170--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x26-471001r3"></a>
+                                                                                         
+                                                                                         
+<!--l. 172--><p class="noindent" ><img 
+src="images/personadevices/full_load.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;F.3: </td><td  
+class="content">Dynamic Loading of Hardware-Accelerated Components to a Persona Device</td></tr></table><!--tex4ht:label?: x26-471001r3 -->
+                                                                                         
+                                                                                         
+<!--l. 174--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
+ id="x26-472000F.3"></a>Code-Generation Support</h3>
+<!--l. 177--><p class="noindent" >The <a 
+href="mainli2.html#glo:persona">Persona</a> code-generation support includes templates for both the <a 
+href="mainli2.html#glo:personadev">Persona Device</a> and the
+<a 
+href="mainli2.html#glo:programdev">Programmable Device</a>. These templates have been setup to allow for the easy redefinition of the
+entry-point method to share state from <a 
+href="mainli2.html#glo:device">Device</a>-to-<a 
+href="mainli2.html#glo:device">Device</a> as well as <a 
+href="mainli2.html#glo:device">Device</a>-to-<a 
+href="mainli2.html#glo:component">Component</a>. The
+code generation provides the following benefits:
+      <ul class="itemize1">
+      <li class="itemize">Provides  C++  and  Python  templates  for  Persona/Programmable  <a 
+href="mainli2.html#glo:device">Devices</a>  and
+      <a 
+href="mainli2.html#glo:hrdwracccomp">Hardware-Accelerated Components</a>.
+      </li>
+      <li class="itemize">Allows for custom definition of the entry-point method to pass state and/or other
+      parameters from <a 
+href="mainli2.html#glo:device">Device</a>-to-<a 
+href="mainli2.html#glo:device">Device</a> as well as <a 
+href="mainli2.html#glo:device">Device</a>-to-<a 
+href="mainli2.html#glo:component">Component</a>.
+      </li>
+      <li class="itemize">Generic shared library functionality tucked into base classes for ease of development.
+      </li>
+      <li class="itemize">Manages   and   maintains   generic   functionality   between   <a 
+href="mainli2.html#glo:device">Device</a>-to-<a 
+href="mainli2.html#glo:device">Device</a>   and
+      <a 
+href="mainli2.html#glo:device">Device</a>-to-<a 
+href="mainli2.html#glo:component">Component</a> behavior.</li></ul>
+<!--l. 187--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">F.4   </span> <a 
+ id="x26-473000F.4"></a>Persona Pattern Development</h3>
+<!--l. 188--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.4.1   </span> <a 
+ id="x26-474000F.4.1"></a>Programmable Device Development</h4>
+<!--l. 189--><p class="noindent" >Developing REDHAWK <a 
+href="mainli2.html#glo:programdev">Programmable Devices</a> is based heavily on interfacing with a
+manufacturer&#8217;s driver/<a 
+href="mainap9.html#api">API</a> and/or custom drivers/<a 
+href="mainap9.html#api">API</a>s. If the driver/<a 
+href="mainap9.html#api">API</a> is to be shared, the
+<a 
+href="mainli2.html#glo:programdev">Programmable Device</a> may be responsible for the initial construction/opening of the
+driver/<a 
+href="mainap9.html#api">API</a> and the destruction/closing at the end of the lifecycle. The REDHAWK
+<a 
+href="mainli2.html#glo:programdev">Programmable Device</a> must also include properties that exist on that specific hardware (for
+example, temperatures) and any allocation properties that may exist (for example, tuner
+                                                                                         
+                                                                                         
+cards using <a 
+href="mainap9.html#fei">FEI</a> 2.0). Any <a 
+href="mainli2.html#glo:personadev">Persona Device</a> that attempts to reserve the hardware may
+configure/allocate these properties to put the <a 
+href="mainli2.html#glo:device">Device</a> into a known usable state for that
+<a 
+href="mainli2.html#glo:persona">Persona</a>.
+<!--l. 193--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.4.2   </span> <a 
+ id="x26-475000F.4.2"></a>Persona Device Development</h4>
+<!--l. 194--><p class="noindent" >Developing <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> uses the code-generation support to abstract away the hooks
+and functionality used to associate <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> with their parent <a 
+href="mainli2.html#glo:programdev">Programmable
+Device</a>.
+<!--l. 197--><p class="noindent" ><a 
+href="mainli2.html#glo:personadev">Persona Devices</a>, in theory, must contain any <a 
+href="mainli2.html#glo:port">Ports</a> and/or properties that are strictly
+related to the hardware personality. These <a 
+href="mainli2.html#glo:port">Ports</a> and properties must be unique to the
+load and must not overlap with the <a 
+href="mainli2.html#glo:programdev">Programmable Device</a>. The <a 
+href="mainli2.html#glo:personadev">Persona Device</a> may
+then choose to access the driver/<a 
+href="mainap9.html#api">API</a> as needed for operations such as reading/writing
+registers.
+<!--l. 200--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.4.3   </span> <a 
+ id="x26-476000F.4.3"></a>System Developers</h4>
+<!--l. 201--><p class="noindent" >System developers may assign the <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> behavior on the fly while also maintaining
+<a 
+href="mainli2.html#glo:persona">Persona</a> sets for a specific <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> dynamically. The relationship definition between
+<a 
+href="mainli2.html#glo:personadev">Persona Devices</a> and <a 
+href="mainli2.html#glo:programdev">Programmable Devices</a> is defined at the <a 
+href="mainli2.html#glo:node">Node</a> level within the <a 
+href="mainap9.html#dcd">DCD</a> file.
+With <a 
+href="mainli2.html#glo:programdev">Programmable Devices</a> and <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> defined, a system developer may
+chose to create/modify <a 
+href="mainap9.html#dcd">DCD</a> files to dynamically add/remove/modify the <a 
+href="mainli2.html#glo:persona">Personas</a> that
+may be loaded onto the <a 
+href="mainli2.html#glo:proghdwr">Programmable Hardware</a> without the need to generate/build
+source.
+<!--l. 205--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">F.5   </span> <a 
+ id="x26-477000F.5"></a>When to Use the Persona Pattern</h3>
+<!--l. 206--><p class="noindent" ><a 
+href="mainli2.html#glo:personadev">Persona Devices</a> are useful for programming hardware dynamically but may not be ideal
+for every <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> situation. The following cases describe some common
+scenarios and explain why the Persona Pattern may or may not be practical for the
+scenarios.
+                                                                                         
+                                                                                         
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ecbx-1200">Case 1: </span>You have a single <a 
+href="mainap9.html#fpga">FPGA</a> that you want to always operate as X.
+      </li>
+      <li class="itemize"><span 
+class="ecbx-1200">Solution: </span>Develop  a  single  REDHAWK  <a 
+href="mainli2.html#glo:device">Device</a>  without  <a 
+href="mainli2.html#glo:personadev">Persona  Devices</a>.  In  this
+      scenario, a single <a 
+href="mainli2.html#glo:device">Device</a> is adequate enough to represent both the hardware and the
+      programmable behavior of the hardware. We are essentially treating the hardware and
+      programmable behavior as a single unit because that behavior is static.</li></ul>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ecbx-1200">Case 2: </span>You have a single <a 
+href="mainap9.html#fpga">FPGA</a> that you want to operate like X, Y, and Z, where
+      X, Y, and Z do not exhibit any of the same behavior.
+      </li>
+      <li class="itemize"><span 
+class="ecbx-1200">Solution: </span>Develop  a  REDHAWK  <a 
+href="mainli2.html#glo:programdev">Programmable  Device</a>  that  interfaces  with  the
+      hardware and develop X, Y, and Z REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> that represent the
+      unique behaviors. Using <a 
+href="mainli2.html#glo:persona">Persona</a> X, Y, and Z allows for all differences between X,
+      Y, and Z to be represented properly while also allowing generic functionality to be
+      retained within the <a 
+href="mainli2.html#glo:programdev">Programmable Device</a>.</li></ul>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ecbx-1200">Case 3: </span>You have a single <a 
+href="mainap9.html#fpga">FPGA</a> that you want to operate like X1, X2, and X3, where
+      X1, X2, and X3 exhibit common behavior.
+      </li>
+      <li class="itemize"><span 
+class="ecbx-1200">Solution: </span>There are multiple solutions and the best solution depends on the specific
+      use-case and whether the behaviors are similar. Some possible solutions include:
+           <ul class="itemize2">
+           <li class="itemize">Solution 1: Develop a REDHAWK <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> that interfaces with
+           the hardware and develop a REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Device</a> for each behavior. This
+           requires the most amount of effort but will yield the most amount of flexibility if
+           the behaviors wind up not being as similar as originally expected
+           </li>
+           <li class="itemize">Solution 2: Develop a single REDHAWK <a 
+href="mainli2.html#glo:device">Device</a> that interfaces with the hardware
+           and maps the differences in X1, X2, and X3 behavior via the standard REDHAWK
+           properties.  This  simplest  solution  can  quickly  yield  "spaghetti"  code  if  the
+           house-keeping becomes more complex.
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">Solution 3: Develop a REDHAWK <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> that interfaces with
+           the hardware and develop a dynamic REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Device</a> that can be
+           configured to represent X1, X2, and/or X3. This approach allows the REDHAWK
+           <a 
+href="mainli2.html#glo:programdev">Programmable  Device</a>  to  maintain  its  appropriate  role  while  offloading  the
+           housekeeping code to the dynamic REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Device</a>. This option also
+           lends itself to adding additional REDHAWK <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> further down the
+           road to include a new behavior that was not originally intended.</li></ul>
+      </li></ul>
+<!--l. 237--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">F.6   </span> <a 
+ id="x26-478000F.6"></a>Sharing Hardware Driver/API</h3>
+<!--l. 238--><p class="noindent" >When using a single driver/<a 
+href="mainap9.html#api">API</a>, it is possible to pass a single instance of the driver/<a 
+href="mainap9.html#api">API</a> to each
+<a 
+href="mainli2.html#glo:personadev">Persona Device</a> and/or <a 
+href="mainli2.html#glo:hrdwracccomp">Hardware-Accelerated Component</a>. The <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> is the layer
+closest to the physical hardware and is typically in charge of opening/instantiating the
+driver/<a 
+href="mainap9.html#api">API</a>.
+<!--l. 241--><p class="noindent" >The REDHAWK Framework allows for Softpkg dependencies, packages used to distribute
+shared libraries/headers amongst numerous resources. The Persona Pattern does not
+mandate the use of Softpkg, but it may be beneficial to create a REDHAWK Softpkg
+dependency for the driver/<a 
+href="mainap9.html#api">API</a> libraries/headers instead of manually including/linking
+headers/libraries.
+<!--l. 246--><p class="noindent" >Once the headers and libraries are shared, it is possible to share a single instance of the
+library/<a 
+href="mainap9.html#api">API</a> by using one of the following options.
+<!--l. 248--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.6.1   </span> <a 
+ id="x26-479000F.6.1"></a>Option 1: Modifying the <span 
+class="ectt-1200">construct </span>Method</h4>
+<!--l. 249--><p class="noindent" >Because <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> are shared objects, you can modify the entry-point method into those
+shared objects and append any additional arguments. The following procedure explains how to
+modify the <span 
+class="ectt-1200">construct </span>method.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x32-490002x1">Enter the following command: <span 
-class="ectt-1200">sudo vi /etc/omniORB.cfg</span>.
+  class="enumerate" id="x26-479002x1">For the <a 
+href="mainli2.html#glo:programdev">Programmable Device</a>, update any entry-point <span 
+class="ectt-1200">typedefs </span>and pass in additional
+      arguments to the entry-point method.
       </li>
       <li 
-  class="enumerate" id="x32-490004x2">Comment out <span 
-class="ectt-1200">DefaultInitRef = corbaloc:: </span>using #
-      </li>
-      <li 
-  class="enumerate" id="x32-490006x3">Add the line <span 
-class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1:2809</span>
-      </li>
-      <li 
-  class="enumerate" id="x32-490008x4">Add the line <span 
-class="ectt-1200">InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents</span>
-      </li>
-      <li 
-  class="enumerate" id="x32-490010x5">Restart <span 
-class="ectt-1200">omniNames </span>and <span 
-class="ectt-1200">omniEvents </span>by entering the following commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo /etc/init.d/omniorb-eventservice stop
-sudo /etc/init.d/omniorb4-nameserver stop
-sudo /etc/init.d/omniorb4-nameserver start
-sudo /etc/init.d/omniorb-eventservice start
-]]></script></div>
-      <!--l. 88--><p class="noindent" >An alternative:
-      <!--l. 90--><p class="noindent" >In bash type:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo service omniorb4-nameserver stop
-sudo service omniorb4-nameserver start
-sudo service omniorb-eventservice restart
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x32-490012x6">To have <span 
-class="ectt-1200">omniNames </span>and <span 
-class="ectt-1200">omniEvents </span>start on system boot, <span 
-class="ectt-1200">update-rc.d </span>and
-      <span 
-class="ectt-1200">sysv-rc-conf </span>might be viable options.
+  class="enumerate" id="x26-479004x2">For the <a 
+href="mainli2.html#glo:personadev">Persona Devices</a>, update the extern C <span 
+class="ectt-1200">construct </span>method as follows:</li></ol>
                                                                                          
                                                                                          
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo update-rc.d omniorb4-nameserver defaults
-sudo update-rc.d omniorb-eventservice defaults
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+extern "C" {
+  Device_impl* construct(int argc,
+        char* argv[],
+        Device_impl*  myParent,
+        MyNewArg1Ptr* myNewArg1,
+        MyNewArg2Ptr* myNewArg2){
+     .
+     .
+     // Standard construct logic
+     .
+     .
+
+     // Use myNewArg1 and myNewArg2 here
+     devicePtr->setMyArg1(myNewArg1);
+     devicePtr->setMyArg2(myNewArg2);
+  }
+}
 ]]></script></div>
+<!--l. 275--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">F.6.2   </span> <a 
+ id="x26-480000F.6.2"></a>Option 2: Defining a Programmable Device Interface</h4>
+<!--l. 276--><p class="noindent" >The following procedure explains how to define a <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> interface.
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x26-480002x1">Create a <a 
+href="mainli2.html#glo:programdev">Programmable Device</a> interface that exposes desired state.
       </li>
       <li 
-  class="enumerate" id="x32-490014x7">To create a symbolic link for <span 
-class="ectt-1200">omniidl</span>, enter the following commands.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo ln -s /usr/lib/omniidl/omniidl \
-/usr/lib/python2.7/dist-packages/omniidl
+  class="enumerate" id="x26-480004x2">Include the interface with the <a 
+href="mainli2.html#glo:personadev">Persona Devices</a> and cast the parent reference into the
+      interface.
+      </li>
+      <li 
+  class="enumerate" id="x26-480006x3">Update the <a 
+href="mainli2.html#glo:personadev">Persona Device</a> entry-point <span 
+class="ectt-1200">construct </span>method as follows:</li></ol>
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+extern "C" {
+  Device_impl* construct(int argc,
+        char* argv[],
+        Device_impl* myParent) {
+     .
+     .
+     // Standard construct logic
+     .
+     .
+
+     // Cast Programmable Device into interface
+     Interface myDevice = static_cast<Interface>(myParent);
+
+     // Give Programmable Device interface to Persona
+     devicePtr->setMyDeviceInterface(myDevice);
+  }
+}
 ]]></script></div>
-      </li></ol>
-<!--l. 116--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">F.5   </span> <a 
- id="x32-491000F.5"></a>Extracting the <a 
-href="mainap14.html#ide">IDE</a></h3>
-<!--l. 118--><p class="noindent" >Refer to <a 
-href="mainch2.html#x4-150002.5">Section 2.5</a> for the REDHAWK <a 
-href="mainap14.html#ide">IDE</a> installation instructions for all Linux distributions.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
@@ -216,7 +649,7 @@ href="mainap5.html#tailmainap5.html" >prev-tail</a>] [<a
 href="mainap6.html" >front</a>] [<a 
 href="main.html#mainap6.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainap6.html"></a>  
+ id="tailmainap6.html"></a>   
  
 <div class=license>  
 <hr> 

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>G REDHAWK Packages</title> 
+<head><title>G Known Compatibility Issues</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,82 +53,47 @@ href="mainap6.html#tailmainap6.html" >prev-tail</a>] [<a
 href="#tailmainap7.html">tail</a>] [<a 
 href="main.html#mainap7.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;G</span><br /><a 
- id="x33-492000G"></a>REDHAWK Packages</h2>
-<!--l. 4--><p class="noindent" ><span 
-class="ecbx-1200">Note: </span>In the packages identified in this appendix, <span 
-class="ectt-1200">&#x003C;dist&#x003E; </span>and <span 
-class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the Linux
-distribution and architecture, respectively (For example, el6 and x86_64). <span 
-class="ectt-1200">&#x003C;version&#x003E; </span>corresponds
-to the version of REDHAWK being installed.
-<!--l. 6--><p class="noindent" >The following REDHAWK packages are recommended for a standard install of the REDHAWK
-Framework for runtime-only use:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">bulkioInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
+ id="x27-481000G"></a>Known Compatibility Issues</h2>
+<h3 class="sectionHead"><span class="titlemark">G.1   </span> <a 
+ id="x27-482000G.1"></a>Compiling REDHAWK and REDHAWK C++<br 
+class="newline" />Components in RHEL/CentOS 6.4</h3>
+<!--l. 4--><p class="noindent" >Due to a bug in the boost header files at the time <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 6.4 was released, REDHAWK
+and REDHAWK C++ projects do not compile using the system-installed gcc version 4.4.7
+(<a 
+href="https://bugzilla.redhat.com/show_bug.cgi?id=921792" class="url" ><span 
+class="ectt-1200">https://bugzilla.redhat.com/show_bug.cgi?id=921792</span></a>). If your system is configured to
+receive the latest <a 
+href="mainap9.html#os">OS</a> updates, performing a yum update resolves this issue. The issue is corrected
+in boost-1.41.0-17 and later.
+<!--l. 6--><p class="noindent" >You may verify your version of the boost header libraries by entering:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+rpm -q boost-devel
+]]></script></div>
+<!--l. 12--><p class="noindent" >If an up-to-date repository is not available, the boost file <span 
+class="ectt-1200">/usr/include/boost/exception_</span>
+<span 
+class="ectt-1200">ptr.hpp </span>may be patched. The following procedure explains how to patch the boost
+file.
+<!--l. 14--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x27-482002x1">Enter the following command.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo vi /usr/include/boost/exception_ptr.hpp
+]]></script></div>
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">burstioInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">frontendInterfaces-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">GPP-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">GPP-profile-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">jacorb-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-sdrroot-dev-mgr-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-sdrroot-dom-mgr-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-sdrroot-dom-profile-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-ide-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span></li></ul>
-<!--l. 22--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> <span 
-class="ectt-1200">frontendInterfaces </span>is versioned separately from REDHAWK. </p></div></div>
+      <li 
+  class="enumerate" id="x27-482004x2">Add the following destructor code starting at line 92.
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+~exception_ptr() throw()
+{
+}
+]]></script></div>
+      </li></ol>
                                                                                          
                                                                                          
-<!--l. 26--><p class="noindent" >The following additional packages are recommended for REDHAWK developers:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-basic-components-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-basic-components-devel-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-codegen-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-devel-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span></li></ul>
-<!--l. 35--><p class="noindent" >The following debugging symbol packages are provided:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">bulkioInterfaces-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">burstioInterfaces-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">frontendInterfaces-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-basic-components-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">redhawk-debuginfo-&#x003C;version&#x003E;.&#x003C;dist&#x003E;.&#x003C;arch&#x003E;.rpm</span></li></ul>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

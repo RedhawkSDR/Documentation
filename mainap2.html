@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>B Extending the REDHAWK IDE</title> 
+<head><title>B Building REDHAWK from Source</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,559 +53,79 @@ href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a
 href="#tailmainap2.html">tail</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;B</span><br /><a 
- id="x28-461000B"></a>Extending the REDHAWK <a 
-href="mainap14.html#ide">IDE</a></h2>
-<!--l. 18--><p class="noindent" >Eclipse provides the concept of <a 
-href="mainli2.html#glo:extensionPoint">Extension Points</a> and <a 
-href="mainli2.html#glo:extension">Extensions</a> to allow functionality to be
-contributed to plug-ins, by several other plug-ins.
-<!--l. 21--><p class="noindent" >Extensions and Extension Points are defined via the <span 
-class="ectt-1200">plugin.xml file</span>. Double-clicking this file in
-the plug-in project opens it in a special editor. Select the <span 
-class="ecbx-1200">Extensions </span>tab to define extensions
-which are contributed by the plug-in and select the <span 
-class="ecbx-1200">Extensions Points </span>tab to display the
-extension points which the plug-in defines.
+ id="x22-404000B"></a>Building REDHAWK from Source</h2>
 <h3 class="sectionHead"><span class="titlemark">B.1   </span> <a 
- id="x28-462000B.1"></a>REDHAWK Extensions</h3>
-<!--l. 28--><p class="noindent" >REDHAWK provides various extension points to extend its functionality through user
-contributions. For help on extension points and developing in Eclipse refer to <a 
-href="mainap1.html#x27-455000A">Appendix
-A</a>.
-<!--l. 32--><p class="noindent" >
+ id="x22-405000B.1"></a>Building the Framework</h3>
+<!--l. 5--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.1   </span> <a 
- id="x28-463000B.1.1"></a>Code Generators</h4>
-<!--l. 34--><p class="noindent" ><span 
-class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.codegens <br 
-class="newline" /><span 
-class="ecbi-1200">Description: </span>Contribute a code generator for various REDHAWK resources.<br 
-class="newline" /><span 
-class="ecbi-1200">Configuration Markup:</span><br 
-class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT extension (codegen)*>
-<!ATTLIST extension
-  id    CDATA #IMPLIED
-  point CDATA #REQUIRED
-  name  CDATA #IMPLIED
->
-]]></script></div>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT codegen (description? , processor* ,
-  operatingSystem+ , componenttype+)>
-<!ATTLIST codegen
-  id                      CDATA #REQUIRED
-  name                    CDATA #REQUIRED
-  class                   CDATA #REQUIRED
-  language                (Python|Java|C++|*)
-  icon                    CDATA #IMPLIED
-  languageVersion         CDATA #IMPLIED
-  compiler                CDATA #IMPLIED
-  compilerVersion         CDATA #IMPLIED
-  runtime                 CDATA #IMPLIED
-  runtimeVersion          CDATA #IMPLIED
-  humanLanguage           CDATA #IMPLIED
-  notDefaultable          (true | false)
-  hasSettings             (true | false)
-  autoGenerate            (true | false)
-  associatedPerspectiveId IDREF #IMPLIED
-  priority                (high|normal|low) "normal"
->
-]]></script></div>
-Specifies a new code generator:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">id </span>- Unique <a 
-href="mainap14.html#id">ID</a> for the generator.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">name </span>- Human readable label for generator.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">class </span>- The main generator class.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">language </span>- The programming language supported by this codegen plugin.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">icon </span>- Icon / graphical representation of the generator.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">languageVersion </span>- Value to be inserted for the language version.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">compiler </span>- The compiler of the code generator.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">compilerVersion </span>- Version of the compiler.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">runtime </span>- The runtime environment.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">runtimeVersion </span>- The runtime environment version.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">humanLanguage </span>- The human language.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">notDefaultable </span>- This should always be set to false if the generator generates code.
-      </li>
-      <li class="itemize">(<span id="textcolor1"><span 
-class="ecti-1200">Deprecated</span></span>) <span 
-class="ecbx-1200">hasSettings </span>- This is set to true if the generator has properties for
-      determining what code is output. This requires a custom properties page as well.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">autoGenerate </span>- Whether or not the code generator should automatically generate
-      code for the implementation. This is intended for manual codegens only.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">associatedPerspectiveId </span>- The perspective id to associate with the code generator.
-      When a new project or implementation is created using this generator, the option to
-      open this perspective is offered.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT description (#PCDATA)>
-]]></script></div>
-Provide a detailed human readable description of the code generator.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT operatingSystem EMPTY>
-<!ATTLIST operatingSystem
-  os      CDATA #REQUIRED
-  default (true | false)
-  version CDATA #IMPLIED
->
-]]></script></div>
-                                                                                         
-                                                                                         
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">os </span>- Operating System <a 
-href="mainap14.html#id">ID</a>
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">default </span>- The default <a 
-href="mainap14.html#os">OS</a> if marked true
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">version </span>- <a 
-href="mainap14.html#os">OS</a> version</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT processor EMPTY>
-<!ATTLIST processor
-  proc_type CDATA #REQUIRED
-  default   (true | false)
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">proc_type </span>- Processor type
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">default </span>- The default <a 
-href="mainap14.html#os">OS</a> if marked true</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT componenttype EMPTY>
-<!ATTLIST componenttype
-  type (resource|device|service)
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">type </span>- <a 
-href="mainli2.html#glo:component">Component</a> Type to generate.</li></ul>
-<!--l. 132--><p class="noindent" ><span 
-class="ecbi-1200">Examples: </span>The following is an example of the extension point:
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
- <extension
-           point="gov.redhawk.ide.codegen.codegens">
-       <codegen
-              associatedPerspectiveId=
-                   "org.eclipse.jdt.ui.JavaPerspective"
-              autoGenerate="false"
-              class="gov.redhawk.ide.codegen.jet.java.JavaGenerator"
-              compiler="/usr/bin/javac"
-              compilerVersion="1.5"
-              humanLanguage="EN"
-              id="gov.redhawk.ide.codegen.jet.java.JavaGenerator"
-              language="Java"
-              languageVersion="1.5"
-              name="Java Code Generator"
-              notDefaultable="false"
-              priority="high"
-              runtime="/usr/bin/java"
-              runtimeVersion="1.5">
-           <description>
-              This is the Jet generator for
-                Java components and devices.
-           </description>
-           <operatingSystem
-                  default="true"
-                  os="Linux">
-           </operatingSystem>
-           <componenttype
-                  type="resource">
-           </componenttype>
-           <componenttype
-                  type="device">
-           </componenttype>
-       </codegen>
-    </extension>
-]]></script></div>
-<!--l. 171--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
- id="x28-464000B.1.2"></a>Port Handlers</h4>
-                                                                                         
-                                                                                         
-<!--l. 172--><p class="noindent" ><span 
-class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.portGenerator<br 
-class="newline" /><span 
-class="ecbi-1200">Description: </span>Custom code generators used when generating code for <a 
-href="mainli2.html#glo:port">Ports</a> <br 
-class="newline" /><span 
-class="ecbi-1200">Configuration Markup:</span><br 
-class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT extension (portHandler)+>
-<!ATTLIST extension
-  point CDATA #REQUIRED
-  id    CDATA #IMPLIED
-  name  CDATA #IMPLIED
->
-]]></script></div>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT portHandler (description , property* ,
-  interfaces , language+)+>
-<!ATTLIST portHandler
-  id            CDATA #REQUIRED
-  class         CDATA #REQUIRED
-  name          CDATA #REQUIRED
-  pullInputData (true | false) "true"
-  priority      (LOW|MEDIUM|HIGH) "LOW"
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">id </span>- Unique <a 
-href="mainap14.html#id">ID</a> for this <a 
-href="mainli2.html#glo:port">Port</a> handler.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">class </span>- Java class that implements<br 
-class="newline" /><span 
-class="ectt-1200">gov.redhawk.ide.codegen.IScaPortCodegenTemplate</span>
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">name </span>- Human readable name.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">pullInputData </span>- Set this to true if the generated code requires data from Provides
+ id="x22-406000B.1.1"></a>Installing build dependencies</h4>
+<!--l. 6--><p class="noindent" >Building REDHAWK from source requires a few additional dependencies beyond those required
+to run REDHAWK. The following procedure explains how to build REDHAWK from
+source.
+<!--l. 8--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x22-406002x1">First, ensure your system has the necessary dependency software provided by <a 
+href="mainap9.html#rhel">RHEL</a> /
       <a 
-href="mainli2.html#glo:port">Ports</a> to be pulled.
+href="mainap9.html#centos">CentOS</a> and Fedora <a 
+href="mainap9.html#epel">EPEL</a> (refer to <a 
+href="mainch2.html#x4-120002.3">Section 2.3</a>).
       </li>
-      <li class="itemize"><span 
-class="ecbx-1200">priority </span>- Priority of the generator.</li></ul>
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT portInterface EMPTY>
-<!ATTLIST portInterface
-  idlInterface CDATA #REQUIRED
->
+      <li 
+  class="enumerate" id="x22-406004x2">Install                dependencies                distributed                with                the
+      REDHAWK tarball, redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz by entering the
+      following commands from the directory containing REDHAWK dependencies:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
+cd redhawk-<version>-<dist>-<arch>
+sudo yum install *omni*
 ]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">idlInterface </span>- The <a 
-href="mainap14.html#corba">CORBA</a> data type of the <a 
-href="mainli2.html#glo:port">Port</a> output.</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT property (description)?>
-<!ATTLIST property
-  key           CDATA #REQUIRED
-  default_value CDATA #REQUIRED
-  name          CDATA #REQUIRED
-  required      (true | false)
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">key </span>- The key/id of the property.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">default_value </span>- The default value for the property.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">name </span>- A user friendly name for the property.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">required </span>- True if the property is required.</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT description (#PCDATA)>
-]]></script></div>
-A user friendly description of the object.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT interfaces (portInterface)+>
-]]></script>
+      </li></ol>
+<!--l. 22--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
+ id="x22-407000B.1.2"></a>Installing the Framework from Source</h4>
                                                                                          
                                                                                          
-</div>
-<!--l. 241--><p class="noindent" >List of <a 
-href="mainli2.html#glo:port">Port</a> interfaces.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT language EMPTY>
-<!ATTLIST language
-  name (Python|C++|Java|Blank)
->
+<!--l. 24--><p class="noindent" >In order to install the Core Framework from source, the <span 
+class="ectt-1200">redhawk-src-&#x003C;version&#x003E;.tar.gz </span>must be
+downloaded.
+<!--l. 26--><p class="noindent" >You must set the <span 
+class="ectt-1200">OSSIEHOME </span>and <span 
+class="ectt-1200">SDRROOT </span>environment variables (recommended defaults shown
+below) before running the installation script. You must have write permission for the locations of
+<span 
+class="ectt-1200">OSSIEHOME </span>and <span 
+class="ectt-1200">SDRROOT </span>or the installation will not work.
+<!--l. 28--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
+tasks. </p></div></div>
+<!--l. 32--><p class="noindent" >To compile the source, execute the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+export OSSIEHOME=/usr/local/redhawk/core
+export SDRROOT=/var/redhawk/sdr
+tar zxvf redhawk-src-<version>.tar.gz
+cd redhawk-src-<version>/
+./redhawk-install.sh
+. $OSSIEHOME/environment-setup
 ]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">name </span>- Name of the programming language to be generated.</li></ul>
-<!--l. 253--><p class="noindent" ><span 
-class="ecbi-1200">Examples: </span>The following is an example of the Port Handler extension point:<br 
-class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<extension point="gov.redhawk.ide.codegen.portGenerator">
-       <portHandler
-              class=
-        "gov.redhawk.ide.codegen.jet.java.ports.PullPortTemplate"
-              id="gov.redhawk.ide.codegen.jet.java.portHandler"
-              name="Default Java Port Generator"
-              pullInputData="true">
-           <description>
-              This is the default REDHAWK provided port generator.
-              It uses the Pull Data pattern for port generation.
-           </description>
-           <interfaces>
-              <portInterface
-                     idlInterface="IDL:BULKIO/.*:1.0">
-              </portInterface>
-              <portInterface
-                     idlInterface="IDL:REDHAWK/.*:1.0">
-              </portInterface>
-           </interfaces>
-           <language
-                  name="Java">
-           </language>
-       </portHandler>
-</extension>
+<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
+to <span 
+class="ectt-1200">.bashrc</span>: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+export OSSIEHOME=/usr/local/redhawk/core
+export SDRROOT=/var/redhawk/sdr
+. $OSSIEHOME/environment-setup
 ]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 281--><p class="noindent" >
+</p></div></div>
+<!--l. 72--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">B.1.3   </span> <a 
- id="x28-465000B.1.3"></a>Codegen Template</h4>
-<!--l. 282--><p class="noindent" ><span 
-class="ecbi-1200">Identifier: </span>gov.redhawk.ide.codegen.codegenTemplate<br 
-class="newline" /><span 
-class="ecbi-1200">Description: </span>Provide a template for a code generator<br 
-class="newline" /><span 
-class="ecbi-1200">Configuration Markup:</span><br 
-class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT extension (template)*>
-<!ATTLIST extension
-  id    CDATA #IMPLIED
-  point CDATA #REQUIRED
-  name  CDATA #IMPLIED
->
-]]></script></div>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT template (description , property* , componenttype+)*>
-<!ATTLIST template
-  class             CDATA #REQUIRED
-  codegenId         IDREF #REQUIRED
-  id                CDATA #REQUIRED
-  name              CDATA #REQUIRED
-  hasSettings       (true | false)
-  notDefaultable    (true | false) "false"
-  selectable        (true | false) "true"
-  templateLocation  CDATA #IMPLIED
-  portCodegenId     IDREF #IMPLIED
-  usesPortTemplates (true | false)
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">class </span>- The name of the class that provides the generated code.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">codegenId </span>- The <a 
-href="mainap14.html#id">ID</a> of the code generator that this template generates source.
-      </li>
-                                                                                         
-                                                                                         
-      <li class="itemize"><span 
-class="ecbx-1200">id </span>- Unique <a 
-href="mainap14.html#id">ID</a> for this template.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">name </span>- Human readable name of this template.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">hasSettings </span>- This should be set to true if the generator has properties for determining
-      what code is output. This may require a custom properties page as well.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">notDefaultable </span>- Set this to true if the generator generates code and a user is not
-      able to select it by default.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">selectable </span>- Set this to false if the user is not able to select the generator in the drop
-      down. This is mainly used to deprecate generators.
-      </li>
-      <li class="itemize">(<span id="textcolor2"><span 
-class="ecti-1200">Deprecated</span></span>) <span 
-class="ecbx-1200">templateLocation </span>- Deprecated, do not use.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">portCodegenId </span>- <a 
-href="mainap14.html#id">ID</a> of the <a 
-href="mainli2.html#glo:port">Port</a> generator to reference.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">usesPortTemplates </span>- This attribute is used to indicate whether or not this template
-      delegates code generation to <a 
-href="mainli2.html#glo:port">Port</a> generators if one is specified.</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT property (description)?>
-<!ATTLIST property
-  key           CDATA #REQUIRED
-  default_value CDATA #REQUIRED
-  name          CDATA #REQUIRED
-  required      (true | false)
-  deprecated    (true | false) "false"
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">key </span>- The key/id of the property.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">default_value </span>- The default value for the property.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">name </span>- A user friendly name for the property.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">required </span>- True if the property is required.
-      </li>
-      <li class="itemize"><span 
-class="ecbx-1200">deprecated </span>- True if the property is now considered deprecated.</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT description (#PCDATA)>
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">description </span>- A user friendly description of the object.</li></ul>
-<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<!ELEMENT componenttype EMPTY>
-<!ATTLIST componenttype
-type (resource|device|service)
->
-]]></script></div>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ecbx-1200">type </span>- Type of resource to contribute.</li></ul>
-<!--l. 359--><p class="noindent" ><span 
-class="ecbi-1200">Examples: </span>The following is an example of the Template extension point: <br 
-class="newline" /><div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
-<extension
-           point="gov.redhawk.ide.codegen.codegenTemplate">
-  <template
-       class=
-         "gov.redhawk.ide.codegen.jet.java.pattern.LegacyTemplate"
-       codegenId=
-         "gov.redhawk.ide.codegen.jet.java.JavaGenerator"
-       hasSettings="true"
-       id="gov.redhawk.ide.codegen.jet.java.pattern.LegacyTemplate"
-       name="Legacy Project"
-       notDefaultable="true"
-       selectable="false"
-       usesPortTemplates="false">
-     <description>
-       This is the template for previously generated projects
-       prior to template definitions.
-     </description>
-     <property
-         default_value="FALSE"
-         deprecated="true"
-         key="auto_start"
-         name="Auto start"
-         required="true">
-       <description>
-            When this property is set,
-            the generated codes initialize function is
-            tied to the start function,
-            which in turn starts the processing thread.
-            When the property is not set,
-            the start function needs to be explicitly
-            called to start the processing thread.
-       </description>
-     </property>
-     <property
-         default_value="TRUE"
-         key="queued_ports"
-         name="Enable queued ports"
-         required="true">
-       <description>
-         Set this to true to use queues for sending and
-         receiving port data
-       </description>
-     </property>
-     <property
-         default_value=""
-         key="java_package"
-         name="Name of the Java package"
-         required="true">
-       <description>
-         The package that the generated component
-         should be named.
-       </description>
-     </property>
-     <componenttype
-        type="resource">
-     </componenttype>
-     <componenttype
-         type="device">
-     </componenttype>
- </template>
-</extension>
-]]></script>                                                                                         
-                                                                                         
-</div>
-<!--l. 425--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
- id="x28-466000B.2"></a>Building and installing</h3>
-<!--l. 426--><p class="noindent" >A code-generator project is an Eclipse Plug-in. Eclipse plug-ins are built into <a 
-href="mainap14.html#jar">JAR</a> files which
-can be distributed as is or wrapped up in a feature and deployed within an Eclipse
-Update-site.
-<!--l. 428--><p class="noindent" >For more details follow the directions for deploying a Control Panel in <a 
-href="mainch24.html#x26-45200024.6">Section 24.6</a>.
-<!--l. 431--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">B.3   </span> <a 
- id="x28-467000B.3"></a>Using JacORB</h3>
-<!--l. 432--><p class="noindent" >The REDHAWK <a 
-href="mainap14.html#ide">IDE</a> uses JacORB as its implementation for the <a 
-href="mainap14.html#corba">CORBA</a> standard. To use
-JacORB, the <span 
-class="ectt-1200">org.jacorb.systemFragment </span>and <span 
-class="ectt-1200">org.jacorb.systemFragment.feature </span>must be
-included in the product.
-<!--l. 436--><p class="noindent" >In addition, the following VM arguments must be placed in either the run configuration or the <span 
-class="ectt-1200">eclipse.ini</span>
-file: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
--Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB
--Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton
--Dorg.omg.PortableInterceptor.ORBInitializerClass.standard_init=org.jacorb.orb.standardInterceptors.IORInterceptorInitializer
-]]></script></div>
+ id="x22-408000B.1.3"></a>Configuring omniORB</h4>
+<!--l. 73--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
+<a 
+href="mainch2.html#x4-170002.6">Section 2.6</a> for information on how to edit the omniORB configuration file
+(<span 
+class="ectt-1200">/etc/omniORB.cfg</span>) to provide information about how to reach the <a 
+href="mainap9.html#corba">CORBA</a> event
+service.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
@@ -615,7 +135,7 @@ href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a
 href="mainap2.html" >front</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainap2.html"></a>  
+ id="tailmainap2.html"></a>   
  
 <div class=license>  
 <hr> 

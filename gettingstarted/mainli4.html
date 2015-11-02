@@ -86,147 +86,197 @@ prerequisites must be met before beginning the following procedure:
       </li></ul>
 <h3 class="likesectionHead"><a 
  id="x5-11000"></a>Basic IDE Use</h3>
-<!--l. 29--><p class="noindent" >The following procedure discusses how to launch the REDHAWK IDE, how to
-open the Chalkboard, how to create a signal generator, and how to test the
+<!--l. 29--><p class="noindent" >The following sections discuss how to launch the REDHAWK IDE, how to open
+the Chalkboard, how to create a signal generator, and how to test the
 input/output response of a Component.
-<!--l. 31--><p class="noindent" >To launch the REDHAWK IDE:
+<!--l. 31--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x5-12000"></a>Launching the REDHAWK IDE</h4>
 <!--l. 33--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x5-11002x1">Assuming  the  REDHAWK  IDE  is  installed  in  <span 
-class="cmsy-10x-x-120">~</span><span 
-class="phvro7t-x-x-120">/redhawk-ide/</span>,  start
-      the IDE with the following commands:
-      <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-          cd ~/redhawk-ide/eclipse
-        ./eclipse
-        ]]></script>
-      </li>
-      <li 
-  class="enumerate" id="x5-11004x2">If prompted to specify a workspace location, select an appropriate location
-      and select <span 
-class="phvb7t-x-x-120">OK</span>.
+  class="enumerate" id="x5-12002x1">Start the REDHAWK IDE with the following command: <script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+      rhide
+      ]]></script>
                                                                           
 
                                                                           
       </li>
       <li 
-  class="enumerate" id="x5-11006x3">From the <span 
-class="phvb7t-x-x-120">SCA Explorer </span>view expand <span 
+  class="enumerate" id="x5-12004x2">If prompted to specify a workspace location, select an appropriate location
+      and select <span 
+class="phvb7t-x-x-120">OK</span>.
+      </li></ol>
+<!--l. 43--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x5-13000"></a>Opening the Chalkboard</h4>
+<!--l. 44--><p class="noindent" >From the <span 
+class="phvb7t-x-x-120">REDHAWK Explorer </span>view expand <span 
 class="phvb7t-x-x-120">Sandbox</span>, and double-click
-      <span 
+<span 
 class="phvb7t-x-x-120">Chalkboard</span>.
-      <!--l. 49--><p class="noindent" ><img 
+<!--l. 47--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+
+<!--l. 49--><p class="noindent" ><img 
 src="images/REDHAWK_DoubleClickChalkboard.png" alt="PIC"  
-></li></ol>
-<!--l. 52--><p class="noindent" >To create a signal generator:
-<!--l. 55--><p class="noindent" >
+>
+                                                                          
+
+                                                                          
+<!--l. 50--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<h4 class="likesubsectionHead"><a 
+ id="x5-14000"></a>Creating a signal generator</h4>
+<!--l. 54--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x5-11008x1">From the <span 
+  class="enumerate" id="x5-14002x1">From the <span 
 class="phvb7t-x-x-120">Chalkboard Palette</span>, drag the <span 
-class="phvb7t-x-x-120">SigGen </span>Component into the
-      <span 
+class="phvb7t-x-x-120">SigGen (python) </span>Component into
+      the <span 
 class="phvb7t-x-x-120">Chalkboard </span>canvas.
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-11010x1">If prompted to <span 
-class="phvb7t-x-x-120">Select Implementation</span>, select <span 
-class="phvb7t-x-x-120">Python</span>, and click
-           <span 
-class="phvb7t-x-x-120">OK</span>.</li></ol>
+  class="enumerate" id="x5-14004x1">In  the  <span 
+class="phvb7t-x-x-120">Palette</span>,  if  the  <span 
+class="phvb7t-x-x-120">SigGen  </span>Component  is  not  displayed,
+           under <span 
+class="phvb7t-x-x-120">Components</span>, left-click the <span 
+class="phvb7t-x-x-120">rh </span>folder to display the list of
+           available Components.
+           </li>
+           <li 
+  class="enumerate" id="x5-14006x2">If  the  Python  implementation  is  not  displayed,  expand  the
+           list  of  implementations  by  left-clicking  the  arrow  to  the  left  of
+           the Component name. After the list is displayed, left-click the
+           desired implementation.
+           </li>
+           <li 
+  class="enumerate" id="x5-14008x3">When the Component is finished loading, its background color
+           is blue.</li></ol>
       </li>
       <li 
-  class="enumerate" id="x5-11012x2">Right-click the <span 
+  class="enumerate" id="x5-14010x2">Right-click the <span 
 class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
 class="phvb7t-x-x-120">Start</span>.
       </li>
       <li 
-  class="enumerate" id="x5-11014x3">Right-click the <span 
+  class="enumerate" id="x5-14012x3">Right-click the <span 
 class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
 class="phvb7t-x-x-120">Show Properties</span>
       <span 
 class="phvb7t-x-x-120">View</span>.
       </li>
       <li 
-  class="enumerate" id="x5-11016x4">From the <span 
+  class="enumerate" id="x5-14014x4">From the <span 
 class="phvb7t-x-x-120">Properties </span>view, change the <span 
 class="phvb7t-x-x-120">frequency </span>to 20Hz.
       </li>
       <li 
-  class="enumerate" id="x5-11018x5">Right-click <span 
-class="phvb7t-x-x-120">SigGen</span>&#8217;s <span 
-class="phvb7t-x-x-120">out </span>Port, and click <span 
-class="phvb7t-x-x-120">Plot Port Data</span>.
+  class="enumerate" id="x5-14016x5">From the <span 
+class="phvb7t-x-x-120">Properties </span>view, change the <span 
+class="phvb7t-x-x-120">magnitude </span>to 1.
       </li>
       <li 
-  class="enumerate" id="x5-11020x6">Right-click the <span 
-class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
-class="phvb7t-x-x-120">Stop</span>.
-      </li></ol>
-<!--l. 70--><p class="noindent" >To test the input/output response of a Component:
-<!--l. 72--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x5-11022x1">From the <span 
-class="phvb7t-x-x-120">Chalkboard Palette</span>, drag the <span 
-class="phvb7t-x-x-120">HardLimit </span>Component into the
-      <span 
-class="phvb7t-x-x-120">Chalkboard </span>canvas.
+  class="enumerate" id="x5-14018x6">Right-click <span 
+class="phvb7t-x-x-120">SigGen</span>&#8217;s <span 
+class="phvb7t-x-x-120">dataFloat</span><span 
+class="phvb7t-x-x-120">_out </span>Port, and click <span 
+class="phvb7t-x-x-120">Plot Port Data</span>.
                                                                           
 
                                                                           
+      </li>
+      <li 
+  class="enumerate" id="x5-14020x7">Right-click the <span 
+class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
+class="phvb7t-x-x-120">Stop</span>.</li></ol>
+<!--l. 69--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x5-15000"></a>Testing the input/output response of a Component</h4>
+<!--l. 71--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x5-15002x1">From the <span 
+class="phvb7t-x-x-120">Chalkboard Palette</span>, drag the <span 
+class="phvb7t-x-x-120">HardLimit (python) </span>Component
+      into the <span 
+class="phvb7t-x-x-120">Chalkboard </span>canvas.
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-11024x1">If prompted to <span 
-class="phvb7t-x-x-120">Select Implementation</span>, select <span 
-class="phvb7t-x-x-120">Python </span>and click
-           <span 
-class="phvb7t-x-x-120">OK</span>.</li></ol>
+  class="enumerate" id="x5-15004x1">In  the  <span 
+class="phvb7t-x-x-120">Palette</span>,  if  the  <span 
+class="phvb7t-x-x-120">HardLimit  </span>Component  is  not  displayed,
+           under <span 
+class="phvb7t-x-x-120">Components</span>, left-click the <span 
+class="phvb7t-x-x-120">rh </span>folder to display the list of
+           available Components.
+           </li>
+           <li 
+  class="enumerate" id="x5-15006x2">If  the  Python  implementation  is  not  displayed,  expand  the
+           list  of  implementations  by  left-clicking  the  arrow  to  the  left  of
+           the Component name. After the list is displayed, left-click the
+           desired implementation.
+           </li>
+           <li 
+  class="enumerate" id="x5-15008x3">When the Component is finished loading, its background color
+           is blue.</li></ol>
       </li>
       <li 
-  class="enumerate" id="x5-11026x2">Click-and-drag from <span 
+  class="enumerate" id="x5-15010x2">Click-and-drag from <span 
 class="phvb7t-x-x-120">SigGen</span>&#8217;s <span 
-class="phvb7t-x-x-120">out </span>Port to the <span 
-class="phvb7t-x-x-120">HardLimit dataDouble</span><span 
-class="phvb7t-x-x-120">_in</span>
-      Port.
+class="phvb7t-x-x-120">dataFloat</span><span 
+class="phvb7t-x-x-120">_out </span>Port to the <span 
+class="phvb7t-x-x-120">HardLimit</span>
+      <span 
+class="phvb7t-x-x-120">dataFloat</span><span 
+class="phvb7t-x-x-120">_in </span>Port.
       </li>
       <li 
-  class="enumerate" id="x5-11028x3">Right-click the <span 
+  class="enumerate" id="x5-15012x3">Right-click the <span 
 class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
 class="phvb7t-x-x-120">Start</span>.
       </li>
       <li 
-  class="enumerate" id="x5-11030x4">Right-click the <span 
+  class="enumerate" id="x5-15014x4">Right-click the <span 
 class="phvb7t-x-x-120">HardLimit </span>Component, and click <span 
 class="phvb7t-x-x-120">Start</span>.
+                                                                          
+
+                                                                          
       </li>
       <li 
-  class="enumerate" id="x5-11032x5">Right-click the <span 
+  class="enumerate" id="x5-15016x5">Right-click the <span 
 class="phvb7t-x-x-120">HardLimit</span>&#8217;s <span 
-class="phvb7t-x-x-120">dataDouble</span><span 
+class="phvb7t-x-x-120">dataFloat</span><span 
 class="phvb7t-x-x-120">_out </span>Port, and click <span 
 class="phvb7t-x-x-120">Plot Port</span>
       <span 
 class="phvb7t-x-x-120">Data</span>.
-      <!--l. 83--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  Two <span 
+      <!--l. 84--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  Two <span 
 class="phvb7t-x-x-120">Plot Port </span>views are now open, one for each of the plotted Ports. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x5-11034x6">Right-click the <span 
+  class="enumerate" id="x5-15018x6">Right-click the <span 
 class="phvb7t-x-x-120">SigGen </span>Component, and click <span 
 class="phvb7t-x-x-120">Show Properties</span>
       <span 
 class="phvb7t-x-x-120">View</span>.
       </li>
       <li 
-  class="enumerate" id="x5-11036x7">From the <span 
+  class="enumerate" id="x5-15020x7">From the <span 
 class="phvb7t-x-x-120">Properties </span>view, change the <span 
 class="phvb7t-x-x-120">magnitude </span>to 5.
-      <!--l. 90--><p class="noindent" >The <span 
+      <!--l. 91--><p class="noindent" >The <span 
 class="phvb7t-x-x-120">Plot Port </span>view for the <span 
-class="phvb7t-x-x-120">HardLimit dataDouble</span><span 
+class="phvb7t-x-x-120">HardLimit dataFloat</span><span 
 class="phvb7t-x-x-120">_out </span>Port is now limiting
       the output to 1.
       </li></ol>
@@ -240,7 +290,7 @@ href="mainli3.html#tailmainli3.html" >prev-tail</a>] [<a
 href="mainli4.html" >front</a>] [<a 
 href="main.html#mainli4.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainli4.html"></a>  
+ id="tailmainli4.html"></a>   
  
 <div class=license> 
 <hr> 

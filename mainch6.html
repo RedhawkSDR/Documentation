@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>6 Working with Devices</title> 
+<head><title>6 Waveforms</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,1737 +53,535 @@ href="mainch5.html#tailmainch5.html" >prev-tail</a>] [<a
 href="#tailmainch6.html">tail</a>] [<a 
 href="main.html#mainch6.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;6</span><br /><a 
- id="x8-1110006"></a>Working with Devices</h2>
-<!--l. 5--><p class="noindent" ><a 
-href="mainli2.html#glo:device">Devices</a> in REDHAWK are generally used as proxies for hardware. As such, <a 
-href="mainli2.html#glo:device">Devices</a> can be used to
-interact with the physical world, to run a Component, or to interface with <a 
-href="mainap14.html#fpga">FPGA</a>s. The following
-sections explain how to use <a 
-href="mainli2.html#glo:device">Devices</a> to interact with the physical world, to run <a 
-href="mainli2.html#glo:component">Components</a>, or to
-interface with <a 
-href="mainap14.html#fpga">FPGA</a>s :
-      <ul class="itemize1">
-      <li class="itemize"><a 
-href="#x8-1120006.1">Section 6.1</a> Using Devices to Interact with Hardware
-      </li>
-      <li class="itemize"><a 
-href="#x8-1260006.2">Section 6.2</a> Using Devices to Run Components
-      </li>
-      <li class="itemize"><a 
-href="#x8-1270006.3">Section 6.3</a> Using Devices to Interface with <a 
-href="mainap14.html#fpga">FPGA</a>s</li></ul>
-<h3 class="sectionHead"><span class="titlemark">6.1   </span> <a 
- id="x8-1120006.1"></a>Using Devices to Interact with Hardware</h3>
-<!--l. 24--><p class="noindent" >REDHAWK <a 
-href="mainli2.html#glo:device">Devices</a> can be used to interact with hardware receivers and digitizers, for example, a
-data acquisition board or a USRP. To have a REDHAWK <a 
-href="mainli2.html#glo:component">Component</a> use a REDHAWK <a 
-href="mainli2.html#glo:device">Device</a>,
-you can establish a <span 
-class="ecti-1200">usesdevice </span>relationship between a <a 
-href="mainli2.html#glo:component">Component</a> and a <a 
-href="mainli2.html#glo:device">Device</a>. The <span 
-class="ecti-1200">usesdevice</span>
-relationship requires the <a 
-href="mainli2.html#glo:component">Component</a> to only use that particular type of <a 
-href="mainli2.html#glo:device">Device</a>. For more
-information on the <span 
-class="ecti-1200">usesdevice </span>relationship refer to <a 
-href="mainch11.html#x13-23000011.4.7">Section 11.4.7</a>. The REDHAWK distribution
-includes two <a 
-href="mainli2.html#glo:device">Devices</a> that can be used out-of-the-box, Osmocom&#8217;s <span 
-class="ectt-1200">rtl-sdr </span>and Ettus&#8217;s
-<span 
-class="ectt-1200">USRP</span>.
-<!--l. 91--><p class="noindent" ><a 
-href="mainli2.html#glo:device">Devices</a> may be used within the <a 
-href="mainli2.html#glo:Sandbox">Sandbox</a> or within a <a 
-href="mainli2.html#glo:domain">Domain</a>, in which case <a 
-href="mainli2.html#glo:device">Devices</a> are deployed
-by a <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> at startup. The lifecycles of the <a 
-href="mainli2.html#glo:device">Devices</a> used within the <a 
-href="mainli2.html#glo:Sandbox">Sandbox</a> follow the
-same lifecycle as the scripting environment; when the scripting environment is shutdown, the
+ id="x8-1400006"></a>Waveforms</h2>
+<!--l. 4--><p class="noindent" >This chapter discusses the construction and execution of <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> within REDHAWK. An
 <a 
-href="mainli2.html#glo:device">Devices</a> are shutdown. The lifecycles of <a 
-href="mainli2.html#glo:device">Devices</a> deployed by a <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> follow the lifecycle
-of the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>; when a <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> is started, the <a 
-href="mainli2.html#glo:device">Devices</a> associated with that <a 
-href="mainli2.html#glo:devicemanager">Device
-Manager</a> are launched, and when the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> is shutdown, the associated <a 
-href="mainli2.html#glo:device">Devices</a> are
-released.
-<!--l. 93--><p class="noindent" >The configuration of a <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>&#8217;s <a 
-href="mainli2.html#glo:device">Devices</a> is controlled through an <a 
-href="mainap14.html#xml">XML</a> file called a Device
-Configuration Descriptor (<a 
-href="mainap14.html#dcd">DCD</a>) file. Any one <a 
-href="mainap14.html#dcd">DCD</a> file associated with a <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> instance
-is often referred to as a <a 
-href="mainli2.html#glo:node">Node</a>.
-<!--l. 95--><p class="noindent" >When a <a 
-href="mainli2.html#glo:node">Node</a> is deployed, the <a 
-href="mainli2.html#glo:device">Devices</a> associated with the <a 
-href="mainli2.html#glo:node">Node</a> become available to the <a 
+href="mainli2.html#glo:application">Application</a> is the software object that represents a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, which is a collection of
+<a 
+href="mainap9.html#xml">XML</a> files describing the inter connection of and configuration of <a 
+href="mainli2.html#glo:component">Components</a>. It is
+possible to launch <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> in the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> as well as in the REDHAWK <a 
+href="mainli2.html#glo:domain">Domain</a>. This
+chapter discusses the mechanisms for launching a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> as a running <a 
+href="mainli2.html#glo:application">Application</a> in a
+<a 
 href="mainli2.html#glo:domain">Domain</a>.
+<!--l. 9--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> To complete the procedures in this chapter, the <span 
+class="ectt-1200">SigGen </span>and <span 
+class="ectt-1200">HardLimit </span><a 
+href="mainli2.html#glo:component">Components</a> must be
+installed in <span 
+class="ectt-1200">$SDRROOT/dom/components</span>. </p></div></div>
+<h3 class="sectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x8-1410006.1"></a>Waveform Editor</h3>
+<!--l. 15--><p class="noindent" >The following sections further describe the definition of the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> as well as its creation and
+manipulation within the <a 
+href="mainap9.html#ide">IDE</a>. Like the <a 
+href="mainap9.html#prf">PRF</a>, <a 
+href="mainap9.html#scd">SCD</a>, and <a 
+href="mainap9.html#spd">SPD</a> <a 
+href="mainap9.html#xml">XML</a> files of a <a 
+href="mainli2.html#glo:component">Component</a>, a
 <a 
-href="mainli2.html#glo:application">Applications</a> can contain <span 
-class="ecti-1200">usesdevice </span>relationships. In other words, elements in the <a 
-href="mainap14.html#sad">SAD</a> <a 
-href="mainap14.html#xml">XML</a> file
-can declare that the <a 
-href="mainli2.html#glo:application">Application</a> requires the use of a particular type of <a 
-href="mainli2.html#glo:device">Device</a>. When the
-<a 
-href="mainli2.html#glo:application">Application</a> is deployed by the <a 
-href="mainli2.html#glo:domain">Domain</a>, the <a 
-href="mainli2.html#glo:domain">Domain</a> searches through the deployed <a 
-href="mainli2.html#glo:device">Devices</a> for
-                                                                                         
-                                                                                         
-any one <a 
-href="mainli2.html#glo:device">Device</a> that can satisfy the declared dependency. Any <a 
-href="mainli2.html#glo:device">Device</a> that satisfies an
-<a 
-href="mainli2.html#glo:application">Application</a> dependency may become busy and unavailable for use by other <a 
-href="mainli2.html#glo:application">Applications</a>.
-When the <a 
-href="mainli2.html#glo:application">Application</a> is released, the <a 
-href="mainli2.html#glo:device">Device</a> is brought back into the pool of available
-<a 
-href="mainli2.html#glo:device">Devices</a>.
-<!--l. 97--><p class="noindent" >Given the radio nature of REDHAWK, the interaction between the REDHAWK environment and
-Radio Frequency (<a 
-href="mainap14.html#rf">RF</a>) devices has been standardized through a common <a 
-href="mainap14.html#api">API</a>, known as FrontEnd
-Interfaces (<a 
-href="mainap14.html#fei">FEI</a>).
-<!--l. 1--><p class="noindent" >If you have <a 
-href="mainap14.html#rf">RF</a> FrontEnd hardware that you want to model in REDHAWK, you can use the
-<a 
-href="mainap14.html#fei">FEI</a> module to facilitate this process. The <a 
-href="mainap14.html#fei">FEI</a> module contains interfaces designed to
-standardize the interaction (allocation, operation, and development) of tuner <a 
-href="mainli2.html#glo:device">Devices</a> within
-the REDHAWK Core Framework (between <a 
-href="mainli2.html#glo:application">Applications</a> and radio hardware). This
-standard breaks the tie between the <a 
-href="mainli2.html#glo:application">Application</a> and the hardware and provides more
-flexibility.
-<!--l. 3--><p class="noindent" >The <a 
-href="mainap14.html#fei">FEI</a> module defines a number of interfaces to enable users to interact with several different
-generic types of tuners, including:
-      <ul class="itemize1">
-      <li class="itemize">Receiver (RX) tuner
-      </li>
-      <li class="itemize">Receiver Digitizer (RX_DIGITIZER) tuner
-      </li>
-      <li class="itemize">Channelizer (CHANNELIZER) tuner
-      </li>
-      <li class="itemize">Digital Down Converter (<a 
-href="mainap14.html#ddc">DDC</a>) tuner
-      </li>
-      <li class="itemize">Receiver Digitizer Channelizer (RX_DIGITIZER_CHANNELIZER) tuner
-      </li>
-      <li class="itemize">Transmitter (TX) tuner</li></ul>
-<!--l. 14--><p class="noindent" >For more information about tuner types, refer to <a 
-href="mainap10.html#x36-519000J.2">Section J.2</a>.
-<!--l. 16--><p class="noindent" >Before you can interact with the tuners, you must create a REDHAWK <a 
-href="mainli2.html#glo:device">Device</a> that is <a 
-href="mainap14.html#fei">FEI</a>
-compliant. The following procedure explains how to make a REDHAWK <a 
-href="mainli2.html#glo:device">Device</a> that is compliant
-with <a 
-href="mainap14.html#fei">FEI</a> version 2.2.
-                                                                                         
-                                                                                         
+href="mainli2.html#glo:waveformapplication">Waveform</a> is completely represented by its Software Assembly Descriptor (<a 
+href="mainap9.html#sad">SAD</a>) file (<span 
+class="ectt-1200">*.sad.xml</span>).
+The REDHAWK <a 
+href="mainap9.html#ide">IDE</a> provides a means of modifying the <a 
+href="mainap9.html#xml">XML</a> files without the need to directly
+edit this file by hand.
 <!--l. 18--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.1.1   </span> <a 
- id="x8-1130006.1.1"></a>Creating an <a 
-href="mainap14.html#fei">FEI</a> Device in the <a 
-href="mainap14.html#ide">IDE</a></h4>
-<!--l. 19--><p class="noindent" >The following steps explain how to create an <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> in the <a 
-href="mainap14.html#ide">IDE</a>.
-<!--l. 21--><p class="noindent" >
+ id="x8-1420006.1.1"></a>Overview Tab</h4>
+<!--l. 20--><p class="noindent" >Within the Overview tab, the name, <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>, and external <a 
+href="mainli2.html#glo:port">Ports</a> of a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> are
+defined.
+<!--l. 22--><p class="noindent" >The <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> is a <a 
+href="mainli2.html#glo:component">Component</a> instance in the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> that is designated as the
+<a 
+href="mainli2.html#glo:component">Component</a> where the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>-level <span 
+class="ectt-1200">start()</span>, <span 
+class="ectt-1200">stop()</span>, <span 
+class="ectt-1200">configure()</span>, and <span 
+class="ectt-1200">query() </span>calls are
+delegated. In complex <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>, the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> can be used to orchestrate the life cycle
+of <a 
+href="mainli2.html#glo:component">Components</a>. In trivial <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>, the identity of the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> is of less
+importance.
+<!--l. 25--><p class="noindent" >External <a 
+href="mainli2.html#glo:port">Ports</a> are used to make <a 
+href="mainli2.html#glo:component">Component</a> <a 
+href="mainli2.html#glo:port">Ports</a> available to other <a 
+href="mainli2.html#glo:application">Applications</a>, facilitating
+inter-<a 
+href="mainli2.html#glo:application">Application</a> connectivity.
+<!--l. 28--><p class="noindent" >Developers use the Overview tab to set the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> for the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> and describe the
+<a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>.
+<!--l. 30--><p class="noindent" >The following steps explain how to set the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> and describe the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>.
+                                                                                         
+                                                                                         
+<!--l. 32--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-113002x1"><a 
-href="#x8-1140006.1.1.1">Use the FEI Wizard to create an FEI Device Project</a>.
+  class="enumerate" id="x8-142002x1">On the Overview tab of the Waveform, from the <span 
+class="ecbx-1200">Controller </span>drop-down menu, ensure
+      <span 
+class="ectt-1200">SigGen_1 </span>is selected.
       </li>
       <li 
-  class="enumerate" id="x8-113004x2"><a 
-href="#x8-1150006.1.1.2">Edit an FEI Device Project</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-113006x3"><a 
-href="#x8-1160006.1.1.3">Generate and customize the source code</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-113008x4"><a 
-href="#x8-1170006.1.1.4">Install the FEI Device</a>.</li></ol>
-<!--l. 1--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.1.1   </span> <a 
- id="x8-1140006.1.1.1"></a>Using the <a 
-href="mainap14.html#fei">FEI</a> Wizard to Create an <a 
-href="mainap14.html#fei">FEI</a> Device</h5>
-<!--l. 3--><p class="noindent" >The <a 
-href="mainap14.html#fei"><span 
-class="ecbx-1200">FEI</span></a> <span 
-class="ecbx-1200">Wizard </span>enables users to quickly create an <a 
-href="mainap14.html#fei">FEI</a> compliant RX or TX tuner <a 
-href="mainli2.html#glo:device">Device</a>. In the
-wizard, the user specifies the physical properties of the <a 
-href="mainli2.html#glo:device">Device</a>, including whether the <a 
-href="mainli2.html#glo:device">Device</a>
-ingests or outputs GPS and if the <a 
-href="mainli2.html#glo:device">Device</a> has digital or analog input and output <a 
-href="mainli2.html#glo:port">Ports</a>.
-Additionally, the user can choose to augment the required tuner status <a 
-href="mainli2.html#glo:property">Properties</a> with additional
-optional <a 
-href="mainli2.html#glo:property">Properties</a>. The following procedure explains how to use the <span 
-class="ecbx-1200">FrontEnd Interfaces</span>
+  class="enumerate" id="x8-142004x2">In the <span 
+class="ecbx-1200">Description </span>field, enter a description for the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>.</li></ol>
+<!--l. 37--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x8-142005r1"></a>
+                                                                                         
+                                                                                         
+<!--l. 40--><p class="noindent" ><img 
+src="images/REDHAWK_Waveform_Overview_Tab.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.1: </td><td  
+class="content">Waveform Overview Tab</td></tr></table><!--tex4ht:label?: x8-142005r1 -->
+                                                                                         
+                                                                                         
+<!--l. 42--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<h4 class="subsectionHead"><span class="titlemark">6.1.2   </span> <a 
+ id="x8-1430006.1.2"></a>Diagram Tab</h4>
+<!--l. 46--><p class="noindent" >Most of the work done on <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> takes place within the Diagram tab. The Diagram tab is very
+similar to the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>/Chalkboard. Unlike the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, only <a 
+href="mainli2.html#glo:component">Components</a> that exist
+within the <span 
+class="ectt-1200">$SDRROOT </span>can be added to the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>. The Palette contains a list of
+<a 
+href="mainli2.html#glo:component">Components</a> residing within the <span 
+class="ectt-1200">$SDRROOT</span>. From the Diagram tab, external <a 
+href="mainli2.html#glo:port">Ports</a> of the
+<a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> can be indicated and the role of <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> can be assigned to a
+<a 
+href="mainli2.html#glo:component">Component</a>.
+<!--l. 52--><p class="noindent" >From the Diagram tab, <a 
+href="mainli2.html#glo:property">Properties</a> of <a 
+href="mainli2.html#glo:component">Components</a> can be set. When these <a 
+href="mainli2.html#glo:property">Properties</a> are set, they
+become specific to the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> and are written to the <span 
+class="ectt-1200">*.sad.xml </span>file, which describes this
+<a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>.
+<!--l. 55--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.2.1   </span> <a 
+ id="x8-1440006.1.2.1"></a>Start Order</h5>
+<!--l. 57--><p class="noindent" >Each of the <a 
+href="mainli2.html#glo:component">Components</a> within the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> contain a number with a circle around it which
+represents that <a 
+href="mainli2.html#glo:component">Component</a>&#8217;s start order. The start order represents the order in which its <span 
+class="ectt-1200">start()</span>
+method is called by the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>. The only <a 
+href="mainli2.html#glo:component">Component</a> that does not have a start
+order is the <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>, which always has an assumed start order of 0. The
+<a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> has a yellow circle containing 0. The start order may be changed by
+right-clicking a <a 
+href="mainli2.html#glo:component">Component</a> and selecting <span 
+class="ecbx-1200">Move Start Order Earlier </span>or <span 
+class="ecbx-1200">Move Start</span>
 <span 
-class="ecbx-1200">Wizard</span>.
-<!--l. 5--><p class="noindent" >
+class="ecbx-1200">Order Later </span>from the context menu. The <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> may be changed by
+right-clicking a <a 
+href="mainli2.html#glo:component">Component</a> and selecting <span 
+class="ecbx-1200">Set As </span><a 
+href="mainli2.html#glo:assemblycontroller"><span 
+class="ecbx-1200">Assembly Controller</span></a> from the context
+menu.
+<!--l. 63--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.1.3   </span> <a 
+ id="x8-1450006.1.3"></a>SAD File Tab</h4>
+<!--l. 65--><p class="noindent" >The information put into the Overview and Diagram tabs is represented within the <a 
+href="mainap9.html#xml">XML</a> of the
+<a 
+href="mainap9.html#sad">SAD</a> file. The <a 
+href="mainap9.html#xml">XML</a> can be edited manually, but it is not recommended. Each of the <a 
+href="mainli2.html#glo:component">Components</a>
+used within the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> are referenced within the <a 
+href="mainap9.html#sad">SAD</a> file by pointing to the file location of the
+<a 
+href="mainli2.html#glo:component">Component</a>&#8217;s <a 
+href="mainap9.html#spd">SPD</a> file.
+<!--l. 69--><p class="noindent" >Instructions for inspecting the <a 
+href="mainap9.html#sad">SAD</a> file are below:
+<!--l. 71--><p class="noindent" >
+                                                                                         
+                                                                                         
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-114002x1">To open the <span 
-class="ecbx-1200">FrontEnd Interfaces Wizard</span>, select <span 
+  class="enumerate" id="x8-145002x1">Open the <span 
+class="ectt-1200">myWaveform.sad.xml </span>tab of the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> Editor.
+      </li>
+      <li 
+  class="enumerate" id="x8-145004x2">Look through the <a 
+href="mainap9.html#sad">SAD</a> file and identify:
+           <ol  class="enumerate2" >
+           <li 
+  class="enumerate" id="x8-145006x1">The location of the two <a 
+href="mainap9.html#spd">SPD</a> files used in this <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> (remember that this file
+           location is in reference to the <span 
+class="ectt-1200">$SDRROOT</span>)
+           </li>
+           <li 
+  class="enumerate" id="x8-145008x2">The <a 
+href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>
+           </li>
+           <li 
+  class="enumerate" id="x8-145010x3">The connection between the two <a 
+href="mainli2.html#glo:component">Components</a>
+           </li>
+           <li 
+  class="enumerate" id="x8-145012x4">The external <a 
+href="mainli2.html#glo:port">Port</a> is set in the Diagram Tab
+           </li>
+           <li 
+  class="enumerate" id="x8-145014x5">The start order of each <a 
+href="mainli2.html#glo:component">Component</a>
+           </li>
+           <li 
+  class="enumerate" id="x8-145016x6">The <a 
+href="mainli2.html#glo:property">Property</a> is changed on the <span 
+class="ectt-1200">SigGen </span><a 
+href="mainli2.html#glo:component">Component</a></li></ol>
+      </li>
+      <li 
+  class="enumerate" id="x8-145018x3">Before continuing, return to the Diagram tab and change the <span 
+class="ecbx-1200">dataDouble_out </span><a 
+href="mainli2.html#glo:port">Port</a> so that
+      it is no longer marked as an external <a 
+href="mainli2.html#glo:port">Port</a>.</li></ol>
+<!--l. 85--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">6.2   </span> <a 
+ id="x8-1460006.2"></a>Create and Deploy a Sample Waveform</h3>
+<!--l. 87--><p class="noindent" >This section describes the process of creating a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, deploying this <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> to the staging
+area, starting a <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> and a <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>, creating an instance of an <a 
+href="mainli2.html#glo:application">Application</a>
+representing this <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, releasing the <a 
+href="mainli2.html#glo:application">Application</a>, and shutting down the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>
+and <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a>.
+<!--l. 89--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> normally remain running during the creation/destruction
+of different <a 
+href="mainli2.html#glo:application">Applications</a>.
+<!--l. 91--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.2.1   </span> <a 
+ id="x8-1470006.2.1"></a>Create a Sample Waveform</h4>
+                                                                                         
+                                                                                         
+<!--l. 93--><p class="noindent" >Below is a description of how to create a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>:
+<!--l. 95--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-147002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Other</span>.
-      <!--l. 8--><p class="noindent" >The <span 
-class="ecbx-1200">Select a wizard </span>dialog is displayed (<a 
-href="#x8-114003r1">Figure 6.1</a>).
-      <!--l. 10--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-114003r1"></a> <img 
-src="images/ide/usingChap/FEIDevices/selectawizardDiag2.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.1: </td><td  
-class="content">Select a Wizard Dialog</td></tr></table><!--tex4ht:label?: x8-114003r1 -->
-      <!--l. 15--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+class="ecbx-1200">REDHAWK </span><a 
+href="mainli2.html#glo:waveformapplication"><span 
+class="ecbx-1200">Waveform</span></a> <span 
+class="ecbx-1200">Project</span>
       </li>
       <li 
-  class="enumerate" id="x8-114005x2">Select <span 
-class="ecbx-1200">SCA Front End Device Project </span>and click <span 
-class="ecbx-1200">Next</span>.
-      <!--l. 19--><p class="noindent" >The <span 
-class="ecbx-1200">Create an SCA Device Project </span>dialog is displayed (<a 
-href="#x8-114006r2">Figure 6.2</a>).
-                                                                                         
-                                                                                         
-      <!--l. 21--><p class="noindent" ><hr class="figure"><div class="figure" 
+  class="enumerate" id="x8-147004x2">Set the <span 
+class="ecbx-1200">Project name </span>to <span 
+class="ecti-1200">demo</span>
+      </li>
+      <li 
+  class="enumerate" id="x8-147006x3">Select <span 
+class="ecbx-1200">Finish</span></li></ol>
+<!--l. 101--><p class="noindent" >This opens an editor on the demo.sad.xml file.
+<!--l. 103--><p class="noindent" >To add <a 
+href="mainli2.html#glo:component">Components</a> to this <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>:
+<!--l. 105--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-147008x1">Select the <span 
+class="ecbx-1200">Diagram </span>tab
+      </li>
+      <li 
+  class="enumerate" id="x8-147010x2">In the <span 
+class="ecbx-1200">Palette</span>, drag the <span 
+class="ectt-1200">SigGen </span><a 
+href="mainli2.html#glo:component">Component</a> onto the diagram
+      </li>
+      <li 
+  class="enumerate" id="x8-147012x3">In the <span 
+class="ecbx-1200">Palette</span>, drag the <span 
+class="ectt-1200">HardLimit </span><a 
+href="mainli2.html#glo:component">Component</a> onto the diagram
+      </li>
+      <li 
+  class="enumerate" id="x8-147014x4">Drag a connection between the <span 
+class="ectt-1200">SigGen_1 </span><span 
+class="ecbx-1200">dataFloat_out </span><a 
+href="mainli2.html#glo:port">Port</a> and the <span 
+class="ectt-1200">HardLimit_1</span>
+      <span 
+class="ecbx-1200">dataFloat_in </span><a 
+href="mainli2.html#glo:port">Port</a>
+      </li>
+      <li 
+  class="enumerate" id="x8-147016x5">The <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> looks like <a 
+href="#x8-147017r2">Figure 6.2</a>: <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x8-114006r2"></a> <img 
-src="images/ide/usingChap/FEIDevices/NewDevProjDiag.png" alt="PIC"  
+ id="x8-147017r2"></a> <img 
+src="images/Demo_waveform.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.2: </td><td  
-class="content">Create an SCA Device Project Dialog</td></tr></table><!--tex4ht:label?: x8-114006r2 -->
-      <!--l. 26--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+class="content">Demo Waveform</td></tr></table><!--tex4ht:label?: x8-147017r2 -->
+      <!--l. 116--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x8-114008x3">In the <span 
-class="ecbx-1200">Project name </span>field, enter a project name and click <span 
-class="ecbx-1200">Next</span>.
-      <!--l. 30--><p class="noindent" >The <span 
-class="ecbx-1200">New Implementation </span>dialog is displayed (<a 
-href="#x8-114009r3">Figure 6.3</a>).
-      <!--l. 32--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-114009r3"></a> <img 
-src="images/ide/usingChap/FEIDevices/NewImplDiag2.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.3: </td><td  
-class="content">New Implementation Dialog</td></tr></table><!--tex4ht:label?: x8-114009r3 -->
-      <!--l. 37--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x8-114011x4">Select the programming language used, the code generation template, and <a 
-href="mainap14.html#id">ID</a> for the
+  class="enumerate" id="x8-147019x6">If <span 
+class="ectt-1200">SigGen_1 </span>does not have a yellow 0, right-click the <a 
+href="mainli2.html#glo:component">Component</a> and select <span 
+class="ecbx-1200">Set As</span>
       <a 
-href="mainli2.html#glo:device">Device</a>&#8217;s implementation; enter a description for this implementation; and click
-      <span 
-class="ecbx-1200">Next</span>.
-      <!--l. 41--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  In REDHAWK version 1.10, only C++ <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Devices</a> can be generated. </p></div></div>
-      <!--l. 45--><p class="noindent" >The <span 
-class="ecbx-1200">FrontEnd Interfaces </span><a 
-href="mainli2.html#glo:device"><span 
-class="ecbx-1200">Device</span></a> <span 
-class="ecbx-1200">Type Selection </span>dialog is displayed (<a 
-href="#x8-114012r4">Figure
-      6.4</a>).
-      <!--l. 47--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-114012r4"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEIDevTypSelDiag.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.4: </td><td  
-class="content">The FrontEnd Interfaces <a 
-href="mainli2.html#glo:device">Device</a> Type Selection Dialog</td></tr></table><!--tex4ht:label?: x8-114012r4 -->
-      <!--l. 52--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+href="mainli2.html#glo:assemblycontroller"><span 
+class="ecbx-1200">Assembly Controller</span></a>
       </li>
       <li 
-  class="enumerate" id="x8-114014x5">Optionally, under <span 
-class="ecbx-1200">GPS Usage</span>, specify how GPS data is used. You have two
-      options:
-           <ul class="itemize1">
-           <li class="itemize">If the <a 
-href="mainli2.html#glo:device">Device</a> will ingest GPS data, select the <span 
-class="ecbx-1200">This device will ingest GPS</span>
-           <span 
-class="ecbx-1200">data </span>checkbox.
-           </li>
-           <li class="itemize">If the <a 
-href="mainli2.html#glo:device">Device</a> will output GPS data, select the <span 
-class="ecbx-1200">This device will output GPS</span>
-           <span 
-class="ecbx-1200">data </span>checkbox.</li></ul>
-      </li>
-      <li 
-  class="enumerate" id="x8-114016x6">Under <span 
-class="ecbx-1200">Tuner Type</span>, specify the type of tuner. You have three options:
-           <ul class="itemize1">
-           <li class="itemize">If the <a 
-href="mainli2.html#glo:device">Device</a> will only receive data, select the <span 
-class="ecbx-1200">Receive only (default) </span>radio
-           button.
-                                                                                         
-                                                                                         
-           </li>
-           <li class="itemize">If the <a 
-href="mainli2.html#glo:device">Device</a> will only transmit data, select the <span 
-class="ecbx-1200">Transmit only </span>radio button.
-           </li>
-           <li class="itemize">If the <a 
-href="mainli2.html#glo:device">Device</a> will both receive and transmit data, select the <span 
-class="ecbx-1200">Both receive and</span>
-           <span 
-class="ecbx-1200">transmit </span>radio button.</li></ul>
-      </li>
-      <li 
-  class="enumerate" id="x8-114018x7">Click <span 
-class="ecbx-1200">Next</span>.
-      <!--l. 71--><p class="noindent" >The <span 
-class="ecbx-1200">FrontEnd Interface Tuner Options </span>dialog is displayed (<a 
-href="#x8-114019r5">Figure 6.5</a>).
-      <!--l. 73--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-114019r5"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEITunOptDiag.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.5: </td><td  
-class="content">The FrontEnd Interface Tuner Options Dialog</td></tr></table><!--tex4ht:label?: x8-114019r5 -->
-      <!--l. 78--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x8-114021x8">Under <span 
-class="ecbx-1200">Receiver Properties</span>, specify the receiver input and output types. You have the
-      following options:
-           <ul class="itemize1">
-           <li class="itemize">For analog input, select <span 
-class="ecbx-1200">Analog Input (default) </span>and indicate the <span 
-class="ecbx-1200">Number of</span>
-           <span 
-class="ecbx-1200">Analog input ports</span>.
-           </li>
-           <li class="itemize">For digital input, select <span 
-class="ecbx-1200">Digital Input </span>and indicate the <span 
-class="ecbx-1200">Digital Input Type</span>.
-           </li>
-           <li class="itemize">For analog output, select <span 
-class="ecbx-1200">Analog Output</span>.
-           </li>
-           <li class="itemize">For digital output, select <span 
-class="ecbx-1200">Digital Output (default) </span>and indicate the <span 
-class="ecbx-1200">Digital</span>
-           <span 
-class="ecbx-1200">Output Type</span>. By default, the <span 
-class="ecbx-1200">Multi-out </span>checkbox is selected to only route
-           <a 
-href="mainap14.html#bulkio">BulkIO</a> streams over <a 
-href="mainli2.html#glo:port">Port</a> connections associated with the stream. Deselect this
-           checkbox if <a 
-href="mainap14.html#bulkio">BulkIO</a> streams should be routed over all <a 
-href="mainli2.html#glo:port">Port</a> connections.</li></ul>
-      </li>
-      <li 
-  class="enumerate" id="x8-114023x9">Click <span 
-class="ecbx-1200">Next</span>.
-      <!--l. 91--><p class="noindent" >The <span 
-class="ecbx-1200">FrontEnd Interfaces Tuner Status Customization </span>dialog is displayed (<a 
-href="#x8-114024r6">Figure
-      6.6</a>).
-      <!--l. 93--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-114024r6"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEITunStatDiag.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.6: </td><td  
-class="content">The FrontEnd Interfaces Tuner Status Customization Dialog</td></tr></table><!--tex4ht:label?: x8-114024r6 -->
-      <!--l. 98--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x8-114026x10">You have the following options:
-           <ul class="itemize1">
-           <li class="itemize">If you want to add pre-defined optional tuner status <a 
-href="mainli2.html#glo:property">Properties</a>, click <span 
-class="ecbx-1200">+</span>, select
-           the checkboxes for the <a 
-href="mainli2.html#glo:property">Properties</a>, and click <span 
-class="ecbx-1200">OK</span>.
-           </li>
-           <li class="itemize">If  you  want  to  remove  previously  added  pre-defined  optional  tuner  status
-           <a 
-href="mainli2.html#glo:property">Properties</a>, under <span 
-class="ecbx-1200">Tuner Status Property Selection</span>, select the <a 
-href="mainli2.html#glo:property">Properties</a> you
-           want to remove, and click <span 
-class="ecbx-1200">X</span>. If a required <a 
-href="mainli2.html#glo:property">Property</a> is selected, the <span 
-class="ecbx-1200">X </span>button is
-           disabled.
-           </li>
-           <li class="itemize">If you are finished selecting tuner status <a 
-href="mainli2.html#glo:property">Properties</a>, click <span 
-class="ecbx-1200">Finish</span>.</li></ul>
-      <!--l. 114--><p class="noindent" >The <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> project is created, and the Overview tab of the project is displayed (<a 
-href="#x8-114027r7">Figure
-      6.7</a>).
-      <!--l. 116--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-114027r7"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEIDevOverview.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.7: </td><td  
-class="content">The <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> Overview tab</td></tr></table><!--tex4ht:label?: x8-114027r7 -->
-      <!--l. 121--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li></ol>
-<!--l. 125--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.1.2   </span> <a 
- id="x8-1150006.1.1.2"></a>Editing a FrontEnd Interfaces Device Project</h5>
-<!--l. 128--><p class="noindent" >After completing the wizard, you can add <a 
-href="mainli2.html#glo:port">Ports</a>, <a 
-href="mainli2.html#glo:property">Properties</a>, and descriptions to an <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a>
-using the same processes used for all other <a 
-href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:device">Devices</a>. For more information about
-adding <a 
-href="mainli2.html#glo:port">Ports</a>, refer to <a 
-href="mainch19.html#x21-36400019.4.1.1">Section 19.4.1.1</a>. For more information about adding <a 
-href="mainli2.html#glo:property">Properties</a>, refer to
-<a 
-href="mainch19.html#x21-36500019.4.1.2">Section 19.4.1.2</a>.
-<!--l. 131--><p class="noindent" >It may be useful to add a <a 
-href="mainli2.html#glo:property">Property</a> used to uniquely identify the target <a 
-href="mainli2.html#glo:device">Device</a>, such as an IP
-address.
-<!--l. 134--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> When editing a FrontEnd <a 
-href="mainli2.html#glo:device">Device</a> Project:
-      <ul class="itemize1">
-      <li class="itemize">Do not rename <a 
-href="mainli2.html#glo:property">Properties</a> that were generated using the wizard.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Do not modify the pre-populated values generated in the wizard (for example, the
-      <a 
-href="mainli2.html#glo:property">Property</a>,  <span 
-class="ectt-1200">device_kind</span>).  You  may,  however,  add  default  values  to  the  <a 
-href="mainli2.html#glo:property">Properties</a>
-      without pre-populated values, such as <span 
-class="ectt-1200">device_model</span>.
-      </li>
-      <li class="itemize">Do not change pre-defined <a 
-href="mainap14.html#fei">FEI</a> Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a> that were generated in the
-      wizard. You may, however, add user-defined <a 
-href="mainap14.html#fei">FEI</a> Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a>.
-      </li>
-      <li class="itemize">Before  adding  user-defined  <a 
-href="mainap14.html#fei">FEI</a>  Tuner  Status  <a 
-href="mainli2.html#glo:property">Properties</a>,  check  to  see  if  relevant
-      pre-defined <a 
-href="mainap14.html#fei">FEI</a> Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a> are already available. Use pre-defined <a 
-href="mainap14.html#fei">FEI</a>
-      Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a> whenever possible.
-      </li></ul>
-</p></div></div>
-<!--l. 156--><p class="noindent" >The following procedure explains how to add or remove pre-defined optional <a 
-href="mainap14.html#fei">FEI</a> Tuner
-Status <a 
-href="mainli2.html#glo:property">Properties</a> using the <span 
-class="ecbx-1200">FrontEnd Interfaces Tuner Status Customization</span>
-dialog.
-<!--l. 160--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-115002x1">From the Overview tab of the project, click the <span 
-class="ecbx-1200">Edit FrontEnd </span><a 
-href="mainli2.html#glo:property"><span 
-class="ecbx-1200">Properties</span></a> icon.
-      <!--l. 163--><p class="noindent" >The <span 
-class="ecbx-1200">FrontEnd Interfaces Tuner Status Customization </span>dialog is displayed (<a 
-href="#x8-115003r8">Figure
-      6.8</a>), showing the pre-defined, required, and optional <a 
-href="mainap14.html#fei">FEI</a> Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a> of
-      the <a 
-href="mainli2.html#glo:device">Device</a>.
-      <!--l. 167--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-115003r8"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEITunStatDiag.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.8: </td><td  
-class="content">The FrontEnd Interfaces Tuner Status Customization Dialog</td></tr></table><!--tex4ht:label?: x8-115003r8 -->
-      <!--l. 172--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x8-115005x2">To add pre-defined optional <a 
-href="mainap14.html#fei">FEI</a> Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a>, click <span 
-class="ecbx-1200">+</span>, select the checkboxes for
-      the <a 
-href="mainli2.html#glo:property">Properties</a>, and click <span 
-class="ecbx-1200">OK</span>.
-      </li>
-      <li 
-  class="enumerate" id="x8-115007x3">To remove previously added pre-defined optional <a 
-href="mainap14.html#fei">FEI</a> Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a>, under Tuner
-      Status <a 
-href="mainli2.html#glo:property">Property</a> Selection, select the <a 
-href="mainli2.html#glo:property">Properties</a> you want to remove, and click <span 
-class="ecbx-1200">X</span>. If a
-      required <a 
-href="mainli2.html#glo:property">Property</a> is selected, the <span 
-class="ecbx-1200">X </span>button is disabled.
-      </li>
-      <li 
-  class="enumerate" id="x8-115009x4">When you are finished selecting Tuner Status <a 
-href="mainli2.html#glo:property">Properties</a>, click <span 
-class="ecbx-1200">Finish</span>.</li></ol>
-                                                                                         
-                                                                                         
-<!--l. 37--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.1.3   </span> <a 
- id="x8-1160006.1.1.3"></a>Generating and Customizing the Source Code</h5>
-<!--l. 40--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-116002x1">On the <span 
-class="ecbx-1200">Overview </span>tab for the project, click the <span 
-class="ecbx-1200">Generate All Implementations</span>
-      icon to generate the source code.
-      <!--l. 44--><p class="noindent" >The <span 
-class="ecbx-1200">Regenerate Files </span>dialog is displayed (<a 
-href="#x8-116003r9">Figure 6.9</a>).
-      <!--l. 46--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-116003r9"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEIRegenFiles.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.9: </td><td  
-class="content">The Regenerate Files Dialog</td></tr></table><!--tex4ht:label?: x8-116003r9 -->
-      <!--l. 51--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x8-116005x2">Select the files to be generated and click <span 
-class="ecbx-1200">OK</span>.
-      <!--l. 55--><p class="noindent" >Files are generated that define the classes for the <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a>. The <a 
-href="mainap14.html#fei">FEI</a> base class inherits
-      from the <span 
-class="ectt-1200">FrontendTunerDevice </span>class to provide much of the <a 
-href="mainap14.html#fei">FEI</a> capability. The generated
-      <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> class must be modified or customized to interact with the target <a 
-href="mainli2.html#glo:device">Device</a>. During
-      generation, intentional compiler warnings are inserted in the main class to indicate where
-      modifications must take place for allocation and deallocation to work properly. The output of
-      the make command, including the compiler warnings, is displayed in the Console view
-      (<a 
-href="#x8-116006r10">Figure 6.10</a>).
-      <!--l. 64--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-116006r10"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEICompilerWarns.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.10: </td><td  
-class="content"><a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> Compiler Warnings</td></tr></table><!--tex4ht:label?: x8-116006r10 -->
-      <!--l. 69--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      <!--l. 71--><p class="noindent" >There are four functions that must be implemented for allocation and deallocation to work
-      properly, each with an intentional compiler warning inserted in place of the function
-      implementation. These functions are <span 
-class="ectt-1200">deviceEnable</span>, <span 
-class="ectt-1200">deviceDisable</span>,   <span 
-class="ectt-1200">deviceSetTuning</span>,
-      and <span 
-class="ectt-1200">deviceDeleteTuning</span>. During allocation of an <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a>,   <span 
-class="ectt-1200">deviceSetTuning </span>is called
-      and, if successful, <span 
-class="ectt-1200">deviceEnable </span>is called. During deallocation, <span 
-class="ectt-1200">deviceDisable </span>is called
-      followed by a call to <span 
-class="ectt-1200">deviceDeleteTuning</span>.
-      </li>
-      <li 
-  class="enumerate" id="x8-116008x3">Add source code to allocate and setup a tuner channel.
-      <!--l. 80--><p class="noindent" >The following table explains what is expected in each function/method.
-      <!--l. 82--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  Each of the following functions have <span 
-class="ectt-1200">fts </span>and <span 
-class="ectt-1200">tuner_id </span>passed in as parameters. The
-      <span 
-class="ectt-1200">tuner_id </span>parameter specifies which tuner channel to operate on, and <span 
-class="ectt-1200">fts </span>is a reference to
-      the <a 
-href="mainap14.html#fei">FEI</a> tuner status associated with the specified tuner channel. Additionally,
-      <span 
-class="ectt-1200">deviceSetTuning </span>has a parameter called <span 
-class="ectt-1200">request</span>, which defines the parameters of the
-      tuning request. For more information about tuner status elements, refer to <a 
-href="mainap10.html#x36-547000J.6.1">Section J.6.1</a>. </p></div></div>
-                                                                                         
-                                                                                         
-      <div class="table">
-      <!--l. 105--><p class="noindent" ><a 
- id="x8-116009r1"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
-> <!--tex4ht:inline--><div class="tabular"> <table id="TBL-5" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-5-1g"><col 
-id="TBL-5-1"></colgroup><colgroup id="TBL-5-2g"><col 
-id="TBL-5-2"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-1-1"  
-class="td11"> <!--l. 108--><p class="noindent" ><span 
-class="ecbx-1200">Function/Method</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-1-2"  
-class="td11"> <!--l. 108--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                                                     </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-2-1"  
-class="td11"> <!--l. 110--><p class="noindent" ><span 
-class="ectt-1200">deviceEnable</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-2-2"  
-class="td11"> <!--l. 110--><p class="noindent" >Command the hardware to enable the output and begin
-  generating data. Also, update the <a 
-href="mainap14.html#fei">FEI</a> tuner status element
-  <span 
-class="ectt-1200">fts.enabled </span>to  reflect  the  current  state  of  the  tuner
-  output.                                                                    </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-3-1"  
-class="td11"> <!--l. 112--><p class="noindent" ><span 
-class="ectt-1200">deviceDisable</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-3-2"  
-class="td11"> <!--l. 112--><p class="noindent" >Command the hardware to disable the output and stop
-  generating data. Also, update the <a 
-href="mainap14.html#fei">FEI</a> tuner status element
-  <span 
-class="ectt-1200">fts.enabled </span>to  reflect  the  current  state  of  the  tuner
-  output.                                                                    </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-4-1"  
-class="td11"> <!--l. 114--><p class="noindent" > <span 
-class="ectt-1200">deviceSetTuning</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-4-2"  
-class="td11"> <!--l. 114--><p class="noindent" >Validate that the request parameters can be satisfied by
-  the tuner indicated by <span 
-class="ectt-1200">tuner_id</span>. There are several helper
-  functions                                       (<span 
-class="ectt-1200">validateRequest</span>,
-  <span 
-class="ectt-1200">validateRequestVsSRI</span>, <span 
-class="ectt-1200">validateRequestVsRFInfo</span>, and
-  <span 
-class="ectt-1200">validateRequestVsDevice</span>)  provided  in  the  inherited
-  <span 
-class="ectt-1200">FrontendTunerDevice </span>class  of  the  <a 
-href="mainli2.html#glo:device">Device</a>  to  assist  in
-  validation. Then, either configure the hardware with the
-  tuner request, or throw a <span 
-class="ectt-1200">BadParameterException </span>if the
-  request is outside of the capabilities of the tuner. Update
-  the                                                         appropriate
-  <a 
-href="mainap14.html#fei">FEI</a>  tuner  status  elements  (i.e.  <span 
-class="ectt-1200">fts.center_frequency</span>,
-  <span 
-class="ectt-1200">fts.bandwidth</span>, <span 
-class="ectt-1200">fts.sample_rate</span>) with the actual values
-  queried from the hardware rather than with the requested
-  values. Push new <a 
-href="mainap14.html#sri">SRI</a> within this function. Finally, when
-  using  the  multi-out  capability  for  <a 
-href="mainap14.html#bulkio">BulkIO</a>  <a 
-href="mainli2.html#glo:port">Ports</a>,  it  is
-  recommended  that  the  <span 
-class="ectt-1200">matchAllocationIdToStreamId</span>
- function be called at this point with the stream <a 
-href="mainap14.html#id">ID</a> and
-  Allocation <a 
-href="mainap14.html#id">ID</a>. Return <span 
-class="ectt-1200">True </span>upon successful configuration
-  of the tuner according to the request, or <span 
-class="ectt-1200">False </span>otherwise.  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-5-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-5-1"  
-class="td11"> <!--l. 116--><p class="noindent" ><span 
-class="ectt-1200">deviceDeleteTuning</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-5-2"  
-class="td11"> <!--l. 116--><p class="noindent" >Prior to <span 
-class="ectt-1200">deallocateCapacity </span>return, a <span 
-class="ectt-1200">pushPacket </span>call
-  with
-  <a 
-href="mainap14.html#eos">EOS</a> set to <span 
-class="ectt-1200">True </span>must be called, and <span 
-class="ectt-1200">deviceDeleteTuning</span>
- is where this should occur. Also, update the appropriate
-  <a 
-href="mainap14.html#fei">FEI</a>  tuner  status  elements  (i.e  <span 
-class="ectt-1200">fts.center_frequency</span>,
-  <span 
-class="ectt-1200">fts.bandwidth</span>,  <span 
-class="ectt-1200">fts.sample_rate</span>)  if  desired.  Return
-  <span 
-class="ectt-1200">True </span>upon success, or <span 
-class="ectt-1200">False </span>otherwise.                          </td>
-</tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;6.1: </td><td  
-class="content">Functions/methods in the generated code</td></tr></table><!--tex4ht:label?: x8-116009r1 -->
-      </td></tr></table></div><hr class="endfloat" />
-      </div>
-      <!--l. 128--><p class="noindent" >In addition to the code required for allocation and deallocation, information used to identify
-                                                                                         
-                                                                                         
-      the target <a 
-href="mainli2.html#glo:device">Device</a> at run-time must be added to the main class. The recommended method
-      for dynamically identifying a target <a 
-href="mainli2.html#glo:device">Device</a> is through configuration of a <a 
-href="mainli2.html#glo:property">Property</a>. For
-      example, configuring a <a 
-href="mainli2.html#glo:property">Property</a> with an IP address or some other unique identifier allows the
-      <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> to identify the specific target <a 
-href="mainli2.html#glo:device">Device</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-116011x4">Add source code to dynamically identify the target <a 
-href="mainli2.html#glo:device">Device</a>.
-      <!--l. 134--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If all information necessary to identify the target <a 
-href="mainli2.html#glo:device">Device</a> is static (cannot be configured by
-      the user), you may skip this step. </p></div></div>
-      <!--l. 138--><p class="noindent" >The <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> must be initialized according to the capabilities of the target <a 
-href="mainli2.html#glo:device">Device</a>.
-      Capabilities include the number and type of tuner channels and the tuning capabilities of
-      each channel, such as the frequency range or available sample rates.
-      <!--l. 143--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If the capabilities of the target <a 
-href="mainli2.html#glo:device">Device</a> are known and static, initialization can occur
-      independently from target <a 
-href="mainli2.html#glo:device">Device</a> identification, and may occur at the time of construction.
-      Otherwise, if the target <a 
-href="mainli2.html#glo:device">Device</a> must be queried for information regarding capabilities,
-      initialization must occur immediately following target <a 
-href="mainli2.html#glo:device">Device</a> identification. The
-      recommended method for triggering initialization is to use a configure callback method for a
-      <a 
-href="mainli2.html#glo:property">Property</a> that indicates the target <a 
-href="mainli2.html#glo:device">Device</a>. </p></div></div>
-      <!--l. 152--><p class="noindent" >During initialization, the <span 
-class="ectt-1200">FrontendTunerDevice </span>class&#8217; <span 
-class="ectt-1200">setNumChannels </span>method must be
-      called with the number of tuner channels of the <a 
-href="mainli2.html#glo:device">Device</a>. The <span 
-class="ectt-1200">setNumChannels </span>method sets
-      the size of the <a 
-href="mainap14.html#fei">FEI</a> tuner status struct sequence (<span 
-class="ectt-1200">frontend_tuner_status</span>) to
-      the correct number of tuners, and also sets the size of additional data structures
-      internal to the <span 
-class="ectt-1200">FrontendTunerDevice </span>class. (For more information about the
-      functions and data structures provided by the <a 
-href="mainap14.html#fei">FEI</a> library, refer to <a 
-href="#x8-1280006.4">Section 6.4</a>.
-      After the number of channels is set, initialize the values for each entry in the
-      <span 
-class="ectt-1200">frontend_tuner_status </span>struct sequence. Specifically, initialize the tuner type and available
-      frequency, bandwidth, sample rate, and/or gain values (if applicable) for each
-      channel.
-      </li>
-      <li 
-  class="enumerate" id="x8-116013x5">Add source code to initialize the <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a>.
-      <!--l. 162--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If the <a 
-href="mainli2.html#glo:device">Device</a> requires data structures in addition to the <span 
-class="ectt-1200">frontend_tuner_status </span>struct
-      sequence (output data buffer, <a 
-href="mainap14.html#sri">SRI</a> changed flag, timestamps, <a 
-href="mainli2.html#glo:device">Device</a> capabilities,
-      stream <a 
-href="mainap14.html#id">ID</a>, and so forth), you should also initialize the data structures at this time. </p></div></div>
-      <!--l. 167--><p class="noindent" >The generated code includes the tuner <a 
-href="mainli2.html#glo:port">Port</a> and <span 
-class="ectt-1200">RFInfo </span><a 
-href="mainli2.html#glo:port">Port</a> functions applicable to the
-      <a 
-href="mainli2.html#glo:device">Device</a>. Many of these functions have a default implementation that may be sufficient for the
-      <a 
-href="mainli2.html#glo:device">Device</a>, but must be modified if not sufficient.
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x8-116015x6">Add source code to implement <a 
-href="mainap14.html#fei">FEI</a>-related <a 
-href="mainli2.html#glo:port">Port</a> functions.
-      <!--l. 173--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If using an <span 
-class="ectt-1200">RFInfo </span><a 
-href="mainli2.html#glo:port">Port</a>, it may be useful to store the <span 
-class="ectt-1200">RFInfo </span>packet as part of the <a 
-href="mainli2.html#glo:device">Device</a>
-      because it is not stored within the <a 
-href="mainli2.html#glo:port">Port</a>. </p></div></div>
-      </li></ol>
-<!--l. 179--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.1.4   </span> <a 
- id="x8-1170006.1.1.4"></a>Installing the <a 
-href="mainap14.html#fei">FEI</a> Device</h5>
-<!--l. 182--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-117002x1">Build the project and export it to the <a 
-href="mainli2.html#glo:targetSDR">Target SDR</a>.</li></ol>
-<!--l. 187--><p class="noindent" >After the <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> is installed, you can use it in a REDHAWK system.
-<!--l. 189--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">6.1.2   </span> <a 
- id="x8-1180006.1.2"></a>Interacting with an <a 
-href="mainap14.html#fei">FEI</a> Device with the Python Package</h4>
-<!--l. 191--><p class="noindent" >The Python package contains helpers that simplify the allocation/deallocation of <a 
-href="mainap14.html#fei">FEI</a> tuners. For
-example, to allocate a tuner to receive, centered at 1 MHz with a bandwidth of 1kHz, a 10%
-tolerance in the requested values, and a sample rate of 2 kHz, the following functionality can be
-used: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> import frontend
-&gt;&gt;> allocation = frontend.createTunerAllocation(tuner_type="RX",
-    allocation_id="someid",center_frequency=1e6,
-    bandwidth=1e3,bandwidth_tolerance=0.1,
-    sample_rate=2e3,sample_rate_tolerance=0.1)
-&gt;&gt;> retval = dev.allocateCapacity(allocation)
-]]></script></div>
-<!--l. 201--><p class="noindent" >where <span 
-class="ectt-1200">dev </span>is a referenced to the <a 
-href="mainli2.html#glo:device">Device</a> object and <span 
-class="ectt-1200">retval </span>is <span 
-class="ectt-1200">True </span>if the allocation
-succeeded.
-<!--l. 203--><p class="noindent" >To connect to an allocated tuner, use the allocation <a 
-href="mainap14.html#id">ID</a> as the connection <a 
-href="mainap14.html#id">ID</a>:
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> dev.connect(comp, connectionId="someid")
-]]></script></div>
-<!--l. 209--><p class="noindent" >To deallocate the tuner, use the following call:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> dev.deallocateCapacity(allocation)
-]]></script></div>
-<!--l. 215--><p class="noindent" >To allocate a listener to a specific allocated tuner, use the following call:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> listen_alloc = frontend.createTunerListenerAllocation(allocation_id,
-      "some id listener")
-&gt;&gt;> retval = dev.allocateCapacity(listen_alloc)
-]]></script></div>
-<!--l. 223--><p class="noindent" >To allocate a listener to any tuner with a particular set of values, use the following
-call:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-&gt;&gt;> allocation=frontend.createTunerGenericListenerAllocation(tuner_type="RX",
-      allocation_id="someidanotherlistener",center_frequency=1e6,
-      bandwidth=1e3,bandwidth_tolerance=0.1,sample_rate=2e3,
-      sample_rate_tolerance=0.1)
-&gt;&gt;> retval = dev.allocateCapacity(allocation)
-]]></script></div>
-<!--l. 233--><p class="noindent" >Deallocation of listeners follows the same pattern as the deallocation of tuners.
-<!--l. 235--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">6.1.3   </span> <a 
- id="x8-1190006.1.3"></a>Using an <a 
-href="mainap14.html#fei">FEI</a> Device with the <a 
-href="mainap14.html#ide">IDE</a></h4>
-<!--l. 237--><p class="noindent" >After you have created the <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a>, it must be deployed before you can begin to use it. The
-following procedure explains how to deploy the <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a>.
-<!--l. 241--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-119002x1">Create a new <a 
-href="mainli2.html#glo:node">Node</a> or use an existing <a 
-href="mainli2.html#glo:node">Node</a> and add your <a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Device</a> to the <a 
-href="mainli2.html#glo:node">Node</a>. For
-                                                                                         
-                                                                                         
-      information about creating <a 
-href="mainli2.html#glo:node">Nodes</a>, refer to <a 
-href="mainch8.html#x10-1480008.2.5">Section 8.2.5</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-119004x2">Launch the <a 
-href="mainli2.html#glo:node">Node</a> (also known as a <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>) onto a running <a 
-href="mainli2.html#glo:domain">Domain</a>.
-      <!--l. 245--><p class="noindent" >The <a 
-href="mainli2.html#glo:node">Node</a> is displayed in the <a 
-href="mainli2.html#glo:SCA Explorer View"><span 
-class="ecbx-1200">SCA Explorer View</span></a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-119006x3">From the <a 
-href="mainli2.html#glo:SCA Explorer View"><span 
-class="ecbx-1200">SCA Explorer View</span></a>, expand the <a 
-href="mainli2.html#glo:node">Node</a> and navigate to your <a 
-href="mainli2.html#glo:device">Device</a>.
-      <!--l. 248--><p class="noindent" >The available tuners are displayed with a Tuning fork icon within a folder under your
-      <a 
-href="mainli2.html#glo:device">Device</a> (<a 
-href="#x8-119007r11">Figure 6.11</a>).
-      <!--l. 250--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-119007r11"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEItuningfork.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.11: </td><td  
-class="content">Available <a 
-href="mainap14.html#fei">FEI</a> Tuners</td></tr></table><!--tex4ht:label?: x8-119007r11 -->
-      <!--l. 255--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li></ol>
-<!--l. 259--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.3.1   </span> <a 
- id="x8-1200006.1.3.1"></a>Allocating a FrontEnd Tuner</h5>
-<!--l. 260--><p class="noindent" >FrontEnd Tuner <a 
-href="mainli2.html#glo:device">Devices</a> are idle until a successful allocation has been made. Allocation is the
-process where a specific tuner is requested for use, and initial setup of the tuner is performed. The
-following procedure explains how to allocate a FrontEnd tuner.
-<!--l. 262--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-120002x1">Right-click the <span 
-class="ecbx-1200">FrontEnd Tuners </span>folder and select <span 
-class="ecbx-1200">Allocate </span>(<a 
-href="#x8-120003r12">Figure 6.12</a>).
-      <!--l. 265--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-120003r12"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEITunerAllocate.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.12: </td><td  
-class="content">Allocating an <a 
-href="mainap14.html#fei">FEI</a> Tuner</td></tr></table><!--tex4ht:label?: x8-120003r12 -->
-      <!--l. 270--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      <!--l. 272--><p class="noindent" >The <span 
-class="ecbx-1200">Tuner Allocation </span>dialog is displayed (<a 
-href="#x8-120004r13">Figure 6.13</a>). In this dialog, you specify the
-      desired tuner <a 
-href="mainli2.html#glo:property">Properties</a> such as frequency, bandwidth, and so forth.
-      <!--l. 274--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-120004r13"></a> <img 
-src="images/ide/usingChap/FEIDevices/TunerAllocationDialog.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.13: </td><td  
-class="content">The Tuner Allocation dialog</td></tr></table><!--tex4ht:label?: x8-120004r13 -->
-      <!--l. 279--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x8-120006x2">Verify the <span 
-class="ecbx-1200">Allocate a Tuner </span>radio button is selected.
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x8-120008x3">Optionally, in the <span 
-class="ecbx-1200">Your Allocation </span><a 
-href="mainap14.html#id"><span 
-class="ecbx-1200">ID</span></a> field, modify the text if needed.
-      </li>
-      <li 
-  class="enumerate" id="x8-120010x4">In <span 
-class="ecbx-1200">Tuner Type</span>, select the appropriate tuner type. You have the following options:
-           <ul class="itemize1">
-           <li class="itemize">RX_DIGITIZER
-           </li>
-           <li class="itemize">CHANNELIZER
-           </li>
-           <li class="itemize"><a 
-href="mainap14.html#ddc">DDC</a>
-           </li>
-           <li class="itemize">RX
-           </li>
-           <li class="itemize">RX_DIGITIZER_CHANNELIZER
-           </li>
-           <li class="itemize">TX</li></ul>
-      <!--l. 295--><p class="noindent" >For more information about tuner types, refer to <a 
-href="mainap10.html#x36-519000J.2">Section J.2</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-120012x5">In <span 
-class="ecbx-1200">Center Frequency (MHz)</span>, specify the center frequency. <div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  Bandwidth and sample rate
-      must be specified during allocation. For an allocation to be successful, the tuner must be able
-      to provide a value that is greater than or equal to the requested value without
-      exceeding the appropriate tolerance value specified. Requesting a bandwidth or sample
-      rate of zero (0.0) indicates to the tuner that any value is acceptable and that
-      the tolerance values can be ignored. Requesting 0 typically results in the lowest
-      value the tuner is capable of providing while still satisfying the remainder of the
-      allocation request. If the <span 
-class="ecbx-1200">Any Value </span>checkbox is selected, a value of 0 is requested. </p></div></div>
-      </li>
-      <li 
-  class="enumerate" id="x8-120014x6">In <span 
-class="ecbx-1200">Bandwidth (MHz)</span>, specify the bandwidth, or if a specific bandwidth is not required,
-      select the <span 
-class="ecbx-1200">Any Value </span>checkbox.
-      </li>
-      <li 
-  class="enumerate" id="x8-120016x7">In <span 
-class="ecbx-1200">Sample Rate (Msps)</span>, specify the sample rate, or if a specific sample rate is not
-      required, select the <span 
-class="ecbx-1200">Any Value </span>checkbox.
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x8-120018x8">Optionally, in <span 
-class="ecbx-1200">Bandwidth Tolerance (%)</span>, enter the bandwidth tolerance. For more
-      information about Bandwidth Tolerance, refer to <a 
-href="mainap10.html#x36-549000J.6.1.2">Section J.6.1.2</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-120020x9">Optionally, in <span 
-class="ecbx-1200">Sample Rate Tolerance (%)</span>, enter the sample rate tolerance. For more
-      information about Sample Rate Tolerance, refer to <a 
-href="mainap10.html#x36-549000J.6.1.2">Section J.6.1.2</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-120022x10">Optionally, in <a 
-href="mainap14.html#rf"><span 
-class="ecbx-1200">RF</span></a> <span 
-class="ecbx-1200">Flow </span><a 
-href="mainap14.html#id"><span 
-class="ecbx-1200">ID</span></a>, enter the tag for the analog feed for which you are looking. For
-      more information about <a 
-href="mainap14.html#rf">RF</a> Flow <a 
-href="mainap14.html#id">ID</a>, refer to <a 
-href="mainap10.html#x36-548000J.6.1.1">Section J.6.1.1</a>.
-      </li>
-      <li 
-  class="enumerate" id="x8-120024x11">Click Finish.
-      <!--l. 316--><p class="noindent" >The tuner is allocated and is displayed under the <span 
-class="ecbx-1200">FrontEnd Tuners </span>folder with the
-      truncated Allocation <a 
-href="mainap14.html#id">ID</a> and an active tuning fork icon (<a 
-href="#x8-120025r14">Figure 6.14</a>). If you left-click or
-      hover over the allocated tuner, the full Allocation <a 
-href="mainap14.html#id">ID</a> is displayed. A successful allocation
-      tunes the hardware to the requested frequency and establishes a <a 
-href="mainap14.html#bulkio">BulkIO</a> data stream
-      containing the content. In the case of a multi-out <a 
-href="mainap14.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Port</a>, the data stream will only be
-      pushed over a connection with a Connection <a 
-href="mainap14.html#id">ID</a> that is identical to the Allocation <a 
-href="mainap14.html#id">ID</a>
-      associated with the data stream. In cases where the <a 
-href="mainap14.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Port</a> is not a multi-out
-      <a 
-href="mainli2.html#glo:port">Port</a>, all data streams are pushed over all connections, regardless of Connection
-      <a 
-href="mainap14.html#id">ID</a>.
-      <!--l. 318--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-120025r14"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEITunerAllocated.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.14: </td><td  
-class="content">Allocated Tuner</td></tr></table><!--tex4ht:label?: x8-120025r14 -->
-      <!--l. 323--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li></ol>
-<!--l. 327--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.3.2   </span> <a 
- id="x8-1210006.1.3.2"></a>Deallocating a Tuner</h5>
-<!--l. 328--><p class="noindent" >If a tuner was previously allocated, you can deallocate it. The following procedure explains how to
-deallocate a tuner.
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-121002x1">Right-click the allocated FrontEnd tuner and select <span 
-class="ecbx-1200">Deallocate </span>(<a 
-href="#x8-121003r15">Figure 6.15</a>).
-      <!--l. 332--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-121003r15"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEITunerDeallocate.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.15: </td><td  
-class="content">Deallocating a Tuner</td></tr></table><!--tex4ht:label?: x8-121003r15 -->
-      <!--l. 337--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-                                                                                         
-                                                                                         
-      <!--l. 339--><p class="noindent" >The tuner is deallocated and displays an inactive tuning fork icon and status of
-      Unallocated.</li></ol>
-<!--l. 342--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.3.3   </span> <a 
- id="x8-1220006.1.3.3"></a>Attaching a Listener to a Tuned Receiver</h5>
-<!--l. 343--><p class="noindent" >It may be necessary to attach a listener to a tuned receiver if the <a 
-href="mainap14.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Port</a> is a multi-out <a 
-href="mainli2.html#glo:port">Port</a>.
-Allocations consume a tuner, and <a 
-href="mainli2.html#glo:device">Devices</a> have a limited number of physical tuners. If
-there is a tuner that fits your needs and it is already allocated, you can listen without
-consuming that limited resource, or you may want to add a listener to interact with already
-running operational systems to view data plots. A listener is attached through listener
-allocation, which, similar to tuner allocation, uses a unique Allocation <a 
-href="mainap14.html#id">ID</a> to identify
-the listener. The Connection <a 
-href="mainap14.html#id">ID</a> of the associated connection should always match the
-Allocation <a 
-href="mainap14.html#id">ID</a> of the listener allocation, and it is required to match in the case of multi-out
-<a 
-href="mainli2.html#glo:port">Ports</a>.
-<!--l. 354--><p class="noindent" >The following procedure explains how to attach a listener to a receiver.
-<!--l. 356--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-122002x1">Right-click the allocated FrontEnd tuner and select <span 
-class="ecbx-1200">Add Listener</span><span 
-class="ecbx-1200">&#x2026; </span>(<a 
-href="#x8-122003r16">Figure 6.16</a>).
-      <!--l. 359--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-122003r16"></a> <img 
-src="images/ide/usingChap/FEIDevices/FEIAddListener.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.16: </td><td  
-class="content">Adding a Listener</td></tr></table><!--tex4ht:label?: x8-122003r16 -->
-      <!--l. 364--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      <!--l. 366--><p class="noindent" >The <span 
-class="ecbx-1200">Listener Allocation </span>dialog is displayed (<a 
-href="#x8-122004r17">Figure 6.17</a>).
-      <!--l. 368--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-122004r17"></a> <img 
-src="images/ide/usingChap/FEIDevices/ListenerAllocationDiag.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.17: </td><td  
-class="content">The Listener Allocation dialog</td></tr></table><!--tex4ht:label?: x8-122004r17 -->
-      <!--l. 373--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x8-122006x2">In <span 
-class="ecbx-1200">Your Allocation </span><a 
-href="mainap14.html#id"><span 
-class="ecbx-1200">ID</span></a>, modify the text if needed.
-      </li>
-      <li 
-  class="enumerate" id="x8-122008x3">Click Finish.
-      <!--l. 378--><p class="noindent" >The Listener is attached to the receiver and is displayed under the active FrontEnd tuner
-      (<a 
-href="#x8-122009r18">Figure 6.18</a>).
-      <!--l. 380--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-122009r18"></a> <img 
-src="images/ide/usingChap/FEIDevices/ListenerAttached.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.18: </td><td  
-class="content">Attached Listener</td></tr></table><!--tex4ht:label?: x8-122009r18 -->
-      <!--l. 385--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x8-122011x4">Expand the tuner to verify the Listener is attached.
-      </li></ol>
-<!--l. 392--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.3.4   </span> <a 
- id="x8-1230006.1.3.4"></a>Deallocating a Listener</h5>
-<!--l. 393--><p class="noindent" >If a listener was previously allocated, you can deallocate it. The following procedure explains how
-to deallocate a listener.
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-123002x1">Right-click the allocated listener and select <span 
-class="ecbx-1200">Deallocate </span>(<a 
-href="#x8-123003r19">Figure 6.19</a>).
-      <!--l. 397--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-123003r19"></a> <img 
-src="images/ide/usingChap/FEIDevices/ListenerDeallocate.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.19: </td><td  
-class="content">Deallocating a Listener</td></tr></table><!--tex4ht:label?: x8-123003r19 -->
-      <!--l. 402--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      <!--l. 404--><p class="noindent" >The listener is deallocated.</li></ol>
-<!--l. 407--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.3.5   </span> <a 
- id="x8-1240006.1.3.5"></a>Controlling a Tuned Receiver</h5>
-<!--l. 409--><p class="noindent" ><a 
-href="mainap14.html#fei">FEI</a> <a 
-href="mainli2.html#glo:device">Devices</a> provide the ability to control an allocated tuner using a FrontEnd Tuner <a 
-href="mainli2.html#glo:port">Port</a>. You
-can modify tuner parameters, such as center frequency, bandwidth, gain, and sample rate (digital
-tuners only). The following procedure explains how to control an allocated tuner using the
-<a 
-href="mainli2.html#glo:property">Properties</a> View in the <a 
-href="mainap14.html#ide">IDE</a>.
-<!--l. 412--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x8-124002x1">Select the allocated tuner.
-      </li>
-      <li 
-  class="enumerate" id="x8-124004x2">From the Menu, select <span 
-class="ecbx-1200">Window </span><span 
+  class="enumerate" id="x8-147021x7">Press Ctrl+S to save or select <span 
+class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Show View </span><span 
-class="cmmi-12">&#x003E; </span><a 
-href="mainli2.html#glo:property"><span 
-class="ecbx-1200">Properties</span></a>.
-      <!--l. 416--><p class="noindent" >The <a 
-href="mainli2.html#glo:property">Properties</a> View of the allocated tuner is displayed (<a 
-href="#x8-124005r20">Figure 6.20</a>). <a 
-href="mainli2.html#glo:property">Properties</a> that
-      cannot be modified are displayed with gray text; <a 
-href="mainli2.html#glo:property">Properties</a> that can be modified are
-      displayed with black text.
-      <!--l. 420--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-124005r20"></a> <img 
-src="images/ide/usingChap/FEIDevices/TunerProps.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.20: </td><td  
-class="content"><a 
-href="mainli2.html#glo:property">Properties</a> View of an allocated tuner</td></tr></table><!--tex4ht:label?: x8-124005r20 -->
-      <!--l. 425--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-                                                                                         
-                                                                                         
+class="ecbx-1200">Save</span>
       </li>
       <li 
-  class="enumerate" id="x8-124007x3">For the <a 
-href="mainli2.html#glo:property">Property</a> you want to modify, click in the <span 
-class="ecbx-1200">Value </span>column and enter or select a new
-      value.
-      </li>
-      <li 
-  class="enumerate" id="x8-124009x4">Press <span 
-class="ecbx-1200">Enter </span>to have the change take affect or <span 
-class="ecbx-1200">Esc </span>to cancel.
-      <!--l. 432--><p class="noindent" >The Tuner <a 
-href="mainli2.html#glo:port">Port</a> function used to modify the chosen <a 
-href="mainli2.html#glo:property">Property</a> is executed with the
-      value entered. If successful, the <a 
-href="mainli2.html#glo:property">Properties</a> View updates and displays the new
-      value.</li></ol>
-<!--l. 437--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.3.6   </span> <a 
- id="x8-1250006.1.3.6"></a>Plotting a Tuned Receiver</h5>
-<!--l. 439--><p class="noindent" >The process described in <a 
-href="mainch22.html#x24-43200022.4">Section 22.4</a> only applies if the <a 
-href="mainli2.html#glo:port">Port</a> is not a multi-out <a 
-href="mainli2.html#glo:port">Port</a>. If the <a 
-href="mainli2.html#glo:port">Port</a> is
-not a multi-out <a 
-href="mainli2.html#glo:port">Port</a>, all connections to the <a 
-href="mainap14.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Port</a> receive all data streams, which
-means the plot will also receive all data streams. In the case of multi-out <a 
-href="mainli2.html#glo:port">Ports</a>, only
-connections with a Connection <a 
-href="mainap14.html#id">ID</a> that matches an Allocation <a 
-href="mainap14.html#id">ID</a> associated with either a
-tuner allocation or a listener allocation receive data from the associated allocation.
-For a plot to receive data from a multi-out <a 
-href="mainli2.html#glo:port">Port</a>, a listener allocation must be made.
-In the <a 
-href="mainap14.html#ide">IDE</a>, plotting an allocated tuner rather than a <a 
-href="mainli2.html#glo:port">Port</a> automatically attaches a
-listener.
-<!--l. 447--><p class="noindent" >The following procedure explains how to plot an allocated tuner in the <a 
-href="mainap14.html#ide">IDE</a>.
-<!--l. 449--><p class="noindent" >
+  class="enumerate" id="x8-147023x8">Close the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> editor by selecting the <span 
+class="ecbx-1200">X </span>or by selecting <span 
+class="ecbx-1200">File </span><span 
+class="cmmi-12">&#x003E; </span><span 
+class="ecbx-1200">Close All</span></li></ol>
+                                                                                         
+                                                                                         
+<!--l. 122--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.2.2   </span> <a 
+ id="x8-1480006.2.2"></a>Export the Waveform</h4>
+<!--l. 124--><p class="noindent" >Below is a description of how to export the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> in the <a 
+href="mainap9.html#ide">IDE</a>:
+<!--l. 126--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-125002x1">Right-click the allocated FrontEnd tuner and select <span 
-class="ecbx-1200">Plot Port Data</span>, or any other
-      <span 
-class="ecbx-1200">Plot Port </span>option. (<a 
-href="#x8-125003r21">Figure 6.21</a>).
-      <!--l. 454--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-125003r21"></a> <img 
-src="images/ide/usingChap/FEIDevices/TunerPlotting.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.21: </td><td  
-class="content">Plotting an Allocated Tuner</td></tr></table><!--tex4ht:label?: x8-125003r21 -->
-      <!--l. 459--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      <!--l. 461--><p class="noindent" >If the FrontEnd tuner has multiple <a 
-href="mainap14.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Ports</a>, the <span 
-class="ecbx-1200">Ambiguous Data </span><a 
-href="mainli2.html#glo:port"><span 
-class="ecbx-1200">Port</span></a> dialog is
-      displayed. (<a 
-href="#x8-125004r22">Figure 6.22</a>).
-      <!--l. 465--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x8-125004r22"></a> <img 
-src="images/ide/usingChap/FEIDevices/AmbiguousDataPort.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.22: </td><td  
-class="content">Ambiguous Data <a 
-href="mainli2.html#glo:port">Port</a> dialog</td></tr></table><!--tex4ht:label?: x8-125004r22 -->
-      <!--l. 470--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+  class="enumerate" id="x8-148002x1">In the <a 
+href="mainli2.html#glo:Project Explorer View"><span 
+class="ecbx-1200">Project Explorer View</span></a> (typically on the left-side) select <span 
+class="ecti-1200">demo</span>
       </li>
       <li 
-  class="enumerate" id="x8-125006x2">If applicable, select the <a 
-href="mainli2.html#glo:port">Port</a> to plot and click <span 
-class="ecbx-1200">OK</span>.
-                                                                                         
-                                                                                         
+  class="enumerate" id="x8-148004x2">Drag the <span 
+class="ecti-1200">demo </span>project onto the <a 
+href="mainli2.html#glo:targetSDR"><span 
+class="ecbx-1200">Target SDR</span></a> in the <a 
+href="mainli2.html#glo:REDHAWK Explorer View"><span 
+class="ecbx-1200">REDHAWK Explorer View</span></a>.</li></ol>
+<!--l. 131--><p class="noindent" >This installs the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> into <span 
+class="ectt-1200">$SDRROOT/dom/waveforms</span>. If a permissions denied error is
+encountered, ensure that the <span 
+class="ectt-1200">$SDRROOT </span>is set up per the installation instructions in <a 
+href="mainap2.html#x22-407000B.1.2">Section
+B.1.2</a>.
+<!--l. 135--><p class="noindent" >Verify that the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> is installed:
+<!--l. 137--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-148006x1">In the <a 
+href="mainli2.html#glo:REDHAWK Explorer View"><span 
+class="ecbx-1200">REDHAWK Explorer View</span></a> expand <a 
+href="mainli2.html#glo:targetSDR"><span 
+class="ecbx-1200">Target SDR</span></a>.
       </li>
       <li 
-  class="enumerate" id="x8-125008x3">For more information about interacting with the plots, refer to <a 
-href="mainch19.html#x21-37700019.4.6">Section 19.4.6</a>.
-      </li></ol>
-<!--l. 479--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">6.2   </span> <a 
- id="x8-1260006.2"></a>Using Devices to Run Components</h3>
-<!--l. 481--><p class="noindent" >The <a 
-href="mainli2.html#glo:Sandbox">Sandbox</a> runs <a 
-href="mainli2.html#glo:component">Components</a> without needing a <a 
-href="mainli2.html#glo:device">Device</a> proxy; it forks the <a 
-href="mainli2.html#glo:component">Component</a>
-process and manages its lifecycle. When running in a <a 
-href="mainli2.html#glo:domain">Domain</a>, however, the deployment of
+  class="enumerate" id="x8-148008x2">Expand <a 
+href="mainli2.html#glo:waveformapplication"><span 
+class="ecbx-1200">Waveforms</span></a>.
+      </li>
+      <li 
+  class="enumerate" id="x8-148010x3">Verify that the <span 
+class="ecti-1200">demo </span><a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> is shown.</li></ol>
+<!--l. 143--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.2.3   </span> <a 
+ id="x8-1490006.2.3"></a>Run the Waveform on the Runtime Environment</h4>
+<!--l. 145--><p class="noindent" >This section provides an overview of how to launch a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> as an <a 
+href="mainli2.html#glo:application">Application</a> and release an
 <a 
-href="mainli2.html#glo:component">Components</a> in an <a 
-href="mainli2.html#glo:application">Application</a> requires the <a 
-href="mainli2.html#glo:domain">Domain</a> to search for available host computers that
-can run the <a 
-href="mainli2.html#glo:component">Components</a> in the <a 
-href="mainli2.html#glo:application">Application</a>. The search requires each host computer
-to have a program that can publicize the host computer&#8217;s capabilities (For example,
-operating system, processor type, or available memory). This proxy is referred to as an
-Executable <a 
-href="mainli2.html#glo:device">Device</a>. REDHAWK includes a default Executable <a 
-href="mainli2.html#glo:device">Device</a>, the General Purpose
-Processor (<a 
-href="mainap14.html#gpp">GPP</a>), which is automatically configured by the <span 
-class="ectt-1200">nodeconfig.py </span>script whenever a
-new <a 
-href="mainli2.html#glo:node">Node</a> is installed on the host computer. <a 
-href="mainap14.html#gpp">GPP</a> is written in Python and can serve
-any kind of host computer that can run the Python interpreter. In cases where a more
-specialized proxy is required, REDHAWK includes base classes that can be extended in
-Python or C++. However, a detailed discussion of this process is beyond the scope of this
-document.
-<!--l. 483--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  REDHAWK contains generic structures for working with <a 
-href="mainli2.html#glo:device">Devices</a> beyond the scope of
-the information presented in this chapter. For more information, refer to <a 
-href="mainap9.html#x35-498000I">Appendix I</a>. </p></div></div>
-<!--l. 487--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">6.3   </span> <a 
- id="x8-1270006.3"></a>Using Devices to Interface with <a 
-href="mainap14.html#fpga">FPGA</a>s</h3>
-<!--l. 489--><p class="noindent" >Many <a 
-href="mainap14.html#sdr">SDR</a> systems depend on custom hardware solutions implemented on <a 
-href="mainap14.html#fpga">FPGA</a>s
-and GPUs. REDHAWK has developed a design pattern to interface with these custom
-hardware solutions that enables users and the REDHAWK Framework alike to change
-the behavior of an <a 
-href="mainap14.html#fpga">FPGA</a> at run-time to meet the needs of the <a 
-href="mainli2.html#glo:application">Application</a>. For more
-information about this design pattern, known as the Persona Pattern, refer to <a 
-href="mainap11.html#x37-550000K">Appendix
-K</a>.
+href="mainli2.html#glo:application">Application</a>.
+<!--l. 147--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.2.3.1   </span> <a 
+ id="x8-1500006.2.3.1"></a>Launching a Domain</h5>
+<!--l. 149--><p class="noindent" >Begin by starting a <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> (<a 
+href="mainch11.html#x13-23900011.1.1">Section 11.1.1</a>).
                                                                                          
                                                                                          
-<!--l. 491--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">6.4   </span> <a 
- id="x8-1280006.4"></a>Functions and Data Structures Provided by the <br 
-class="newline" />FrontEnd Interfaces Library and Code Generators</h3>
-<div class="table">
-                                                                                         
-                                                                                         
-<!--l. 507--><p class="noindent" ><a 
- id="x8-128001r2"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-<div class="tabular"> <table id="TBL-6" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-6-1g"><col 
-id="TBL-6-1"></colgroup><colgroup id="TBL-6-2g"><col 
-id="TBL-6-2"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-1-1"  
-class="td11"> <!--l. 510--><p class="noindent" ><span 
-class="ecbx-1200">Function/Data Structure</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-2"  
-class="td11"> <!--l. 510--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                                           </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-2-1"  
-class="td11"> <!--l. 512--><p class="noindent" ><span 
-class="ectt-1200">setNumChannels</span>               </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-2-2"  
-class="td11"> <!--l. 512--><p class="noindent" >Used to size various <span 
-class="ectt-1200">FrontendTunerDevice </span>class
-  data structures.                                              </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-3-1"  
-class="td11"> <!--l. 515--><p class="noindent" ><span 
-class="ectt-1200">frontend_tuner_status</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-2"  
-class="td11"> <!--l. 515--><p class="noindent" >This  is  the  FrontEnd  tuner  status  <a 
-href="mainli2.html#glo:property">Property</a>,
-  which  is  a  vector  of  structs.  The  indices  match
-  the  <span 
-class="ectt-1200">tuner_id </span>or  index  of  the  tuner  used  by
-  the  FrontEnd  Tuner  <a 
-href="mainli2.html#glo:device">Device</a>.  The  developer  is
-  responsible for maintaining all fields with the sole
-  exception  of  the  <span 
-class="ectt-1200">allocation_id_csv</span>,  which  is
-  managed internally by the <span 
-class="ectt-1200">FrontendTunerDevice</span>
- class.                                                            </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-4-1"  
-class="td11"> <!--l. 521--><p class="noindent" ><span 
-class="ectt-1200">getControlAllocationId</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-4-2"  
-class="td11"> <!--l. 521--><p class="noindent" >Returns the control Allocation <a 
-href="mainap14.html#id">ID</a> for the tuner
-  specified, or an empty string if not allocated.        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-5-1"  
-class="td11"> <!--l. 524--><p class="noindent" ><span 
-class="ectt-1200">getTunerMapping</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-5-2"  
-class="td11"> <!--l. 524--><p class="noindent" >Returns the tuner <a 
-href="mainap14.html#id">ID</a> or tuner index of the tuner
-  associated  with  the  Allocation  <a 
-href="mainap14.html#id">ID</a>,  or  -1  if  the
-  Allocation <a 
-href="mainap14.html#id">ID</a> is not associated with any tuner.     </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-6-1"  
-class="td11"> <!--l. 528--><p class="noindent" ><span 
-class="ectt-1200">create</span>                       </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-6-2"  
-class="td11"> <!--l. 528--><p class="noindent" >Returns a <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a> object constructed using the
-  <span 
-class="ectt-1200">frontend_tuner_status </span>for  a  tuner,  including
-  the                       required                       <a 
-href="mainap14.html#sri">SRI</a>
-  keywords.  Only  required  FrontEnd  tuner  status
-  fields are used in constructing the <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a>, and
-  any additional information that affects <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a>
- must be manually modified. In the case of <a 
-href="mainap14.html#ddc">DDC</a>
-  tuners,  there  is  an  optional  parameter  accepted
-  by  create  for  specifying  the  collector  frequency
-  since this information cannot be gathered from the
-  <span 
-class="ectt-1200">frontend_tuner_status struct</span>.                      </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-7-1"  
-class="td11"> <!--l. 537--><p class="noindent" ><span 
-class="ectt-1200">print</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a>                     </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-7-2"  
-class="td11"> <!--l. 537--><p class="noindent" >Used for debug purposes to print the values of a
-  <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a> object to stdout.                              </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-8-1"  
-class="td11"> <!--l. 540--><p class="noindent" ><span 
-class="ectt-1200">addModifyKeyword</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-8-2"  
-class="td11"> <!--l. 540--><p class="noindent" >Used to add a keyword to a <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a> object, or
-  modify an existing keyword.                              </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-9-1"  
-class="td11"> <!--l. 543--><p class="noindent" ><span 
-class="ectt-1200">uuidGenerator</span>                </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-9-2"  
-class="td11"> <!--l. 543--><p class="noindent" >Used to generate a new <a 
-href="mainap14.html#uuid">UUID</a> string.                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-10-1"  
-class="td11"> <!--l. 545--><p class="noindent" ><span 
-class="ectt-1200">floatingPointCompare</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-10-2"  
-class="td11"> <!--l. 545--><p class="noindent" >Used  to  handle  potential  errors  introduced  by
-  floating-point  math.  Default  precision  is  to  the
-  tenths place, and there is an optional parameter
-  that can be used to specify a different precision.    </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-11-1"  
-class="td11"> <!--l. 549--><p class="noindent" ><span 
-class="ectt-1200">matchAllocationIdToStreamId</span>  </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-11-2"  
-class="td11"> <!--l. 549--><p class="noindent" >Only available when multi-out <a 
-href="mainli2.html#glo:port">Ports</a> are specified.
-  Multi-out capability of a <a 
-href="mainap14.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Port</a> only pushes
-  stream  data  with  a  particular  stream  <a 
-href="mainap14.html#id">ID</a>  to
-  connections  that  have  a  connection  <a 
-href="mainap14.html#id">ID</a>  that
-  matches the Allocation <a 
-href="mainap14.html#id">ID</a>. It is recommended that
-  this function be called in <span 
-class="ectt-1200">deviceSetTuning</span>.         </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-12-1"  
-class="td11"> <!--l. 554--><p class="noindent" ><span 
-class="ectt-1200">validateRequest</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-12-2"  
-class="td11"> <!--l. 554--><p class="noindent" >Used to verify that a value falls within the specified
-  range.  This  function  is  overloaded  to  accept  a
-  range as well, to verify that it falls within a second
-  range.                                                           </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-13-1"  
-class="td11"> <!--l. 558--><p class="noindent" ><span 
-class="ectt-1200">validateRequestVsSRI</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-13-2"  
-class="td11"> <!--l. 558--><p class="noindent" >Used  to  check  that  the  input  data  stream  can
-  support the allocation request. The output mode
-  (<span 
-class="ectt-1200">True </span>if complex output) is used when determining
-  the necessary sample rate required to satisfy the
-  request. The entire frequency band of the request
-  must
-  be available for <span 
-class="ectt-1200">True </span>to be returned, not just the
-  center frequency. <span 
-class="ectt-1200">True </span>is returned upon success,
-  otherwise <span 
-class="ectt-1200">FRONTEND::BadParameterException </span>is
-  thrown.        If        the        <span 
-class="ectt-1200">CHAN_RF     </span>and
-  <span 
-class="ectt-1200">FRONTEND::BANDWIDTH </span>keywords are not found in
-  the  <a 
-href="mainap14.html#sri">SRI</a>,  <span 
-class="ectt-1200">FRONTEND::BadParameterException </span>is
-  thrown.                                                         </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-14-1"  
-class="td11"> <!--l. 567--><p class="noindent" ><span 
-class="ectt-1200">validateRequestVsRFInfo</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-14-2"  
-class="td11"> <!--l. 567--><p class="noindent" >Used  to  check  that  the  analog  capabilities  can
-  support the allocation request. The mode (<span 
-class="ectt-1200">True </span>if
-  complex) is used when determining the necessary
-  sample rate required to satisfy the request. The
-  entire  frequency  band  of  the  request  must  be
-  available  for  <span 
-class="ectt-1200">True </span>to  be  returned,  not  just  the
-  center frequency. <span 
-class="ectt-1200">True </span>is returned upon success,
-  otherwise <span 
-class="ectt-1200">FRONTEND::BadParameterException </span>is
-  thrown.                                                         </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-6-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-15-1"  
-class="td11"> <!--l. 574--><p class="noindent" ><span 
-class="ectt-1200">validateRequestVsDevice</span>      </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-15-2"  
-class="td11"> <!--l. 574--><p class="noindent" >Used   to   check   that   the   input   data   stream
-  and   the   <a 
-href="mainli2.html#glo:device">Device</a>   can   support   an   allocation
-  request.  The  mode  (<span 
-class="ectt-1200">True </span>if  complex  output)
-  is  used  when  determining  the  necessary  sample
-  rate   required   to   satisfy   the   request.   The
-  entire  frequency  band  of  the  request  must  be
-  available  for  <span 
-class="ectt-1200">True </span>to  be  returned,  not  just  the
-  center frequency. <span 
-class="ectt-1200">True </span>is returned upon success,
-  otherwise <span 
-class="ectt-1200">FRONTEND::BadParameterException </span>is
-  thrown.  This  function  is  overloaded  to  accept
-  <span 
-class="ectt-1200">RFInfoPkt </span>for an analog input data stream, and
-  <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a>     for        a        digital        input
-  data stream. For <span 
-class="ectt-1200">Stream</span><a 
-href="mainap14.html#sri"><span 
-class="ectt-1200">SRI</span></a>, if the <span 
-class="ectt-1200">CHAN_RF </span>and
-  <span 
-class="ectt-1200">FRONTEND::BANDWIDTH </span>keywords are not found in
-  the  <a 
-href="mainap14.html#sri">SRI</a>,  <span 
-class="ectt-1200">FRONTEND::BadParameterException </span>is
-  thrown.                                                         </td>
-</tr></table>                                                                                         
-                                                                                         
-</div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;6.2: </td><td  
-class="content">Functions and data structures provided by <a 
-href="mainap14.html#fei">FEI</a> library</td></tr></table><!--tex4ht:label?: x8-128001r2 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
-<h3 class="sectionHead"><span class="titlemark">6.5   </span> <a 
- id="x8-1290006.5"></a>Miscellaneous FrontEnd Tuner Library Implementation Details</h3>
-      <ul class="itemize1">
-      <li class="itemize">The tolerances specified in an allocation request are checked after <span 
-class="ectt-1200">deviceSetTuning</span>
-      returns <span 
-class="ectt-1200">True </span>using the <span 
-class="ectt-1200">frontend_tuner_status </span>values, and then deallocates if the
-      tolerances  are  not  met.  The  allocation  fails  without  attempting  the  allocation  on
-      additional tuner channels that may be able to satisfy the request. Optionally, the
-      developer can check the tolerances within the <span 
-class="ectt-1200">deviceSetTuning </span>function and return
-      False without configuring the tuner to indicate that the tuner could not meet the
-      request. At this point, the <span 
-class="ectt-1200">allocateCapacity </span>function will continue attempting to
-      allocate using the next tuner channel that is available.
+<!--l. 152--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.2.3.2   </span> <a 
+ id="x8-1510006.2.3.2"></a>Launch the Waveform</h5>
+<!--l. 154--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-151002x1">In the <a 
+href="mainli2.html#glo:REDHAWK Explorer View"><span 
+class="ecbx-1200">REDHAWK Explorer View</span></a> right-click the <span 
+class="ecbx-1200">REDHAWK_DEV </span><a 
+href="mainli2.html#glo:domain">Domain</a>
+      connection.
       </li>
-      <li class="itemize">An allocation request can specify zero (0) for either the bandwidth or sample rate or
-      both if a specific value is not required. (This is the Any Value option.) The result of a
-      successful allocation will be the lowest bandwidth or sample rate that the <a 
-href="mainli2.html#glo:device">Device</a> can
-      provide while meeting the other requirements in the allocation request.</li></ul>
+      <li 
+  class="enumerate" id="x8-151004x2">Select <span 
+class="ecbx-1200">Launch Waveform...</span>
+      </li>
+      <li 
+  class="enumerate" id="x8-151006x3">Select the <span 
+class="ecti-1200">demo </span><a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, then select <span 
+class="ecbx-1200">Finish</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-151008x4">To start the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, select the <span 
+class="ecbx-1200">Start Waveform </span>(green triangle) button in the
+      toolbar.</li></ol>
+<!--l. 161--><p class="noindent" >This opens the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> explorer. A <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> is displayed in the <a 
+href="mainli2.html#glo:REDHAWK Explorer"><span 
+class="ecbx-1200">REDHAWK Explorer</span></a> by
+expanding the <span 
+class="ecbx-1200">REDHAWK_DEV </span><a 
+href="mainli2.html#glo:domain">Domain</a> connection and the <a 
+href="mainli2.html#glo:waveformapplication"><span 
+class="ecbx-1200">Waveforms</span></a> folder.
+<!--l. 164--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.2.3.3   </span> <a 
+ id="x8-1520006.2.3.3"></a>Open a Plot</h5>
+<!--l. 165--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-152002x1">Left-click the <span 
+class="ecbx-1200">dataFloat_out </span><a 
+href="mainli2.html#glo:port">Port</a> to select it.
+      </li>
+      <li 
+  class="enumerate" id="x8-152004x2">Right-click the <a 
+href="mainli2.html#glo:port">Port</a> to open the <a 
+href="mainli2.html#glo:port">Port</a> context menu.
+      </li>
+      <li 
+  class="enumerate" id="x8-152006x3">Select <span 
+class="ecbx-1200">Plot </span><a 
+href="mainli2.html#glo:port"><span 
+class="ecbx-1200">Port</span></a> <span 
+class="ecbx-1200">Data</span>. This opens a plot showing the plot data.
+      </li>
+      <li 
+  class="enumerate" id="x8-152008x4">To clearly view the sinusoid wave in the plot, reduce the frequency produced by <span 
+class="ectt-1200">SigGen</span>.
+      </li>
+      <li 
+  class="enumerate" id="x8-152010x5">Open the <a 
+href="mainli2.html#glo:property"><span 
+class="ecbx-1200">Properties</span></a> View and change the frequency <a 
+href="mainli2.html#glo:property">Property</a> to a value of <span 
+class="ecti-1200">50</span>.</li></ol>
                                                                                          
                                                                                          
-<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+<!--l. 174--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.2.3.4   </span> <a 
+ id="x8-1530006.2.3.4"></a>Stop and Release the Application</h5>
+<!--l. 176--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-153002x1">Select  the  <span 
+class="ecbx-1200">Stop  Waveform </span>(red  square)  button  in  the  toolbar.  The  plot  stops
+      updating.
+      </li>
+      <li 
+  class="enumerate" id="x8-153004x2">Select the <span 
+class="ecbx-1200">Release Waveform </span>(red <span 
+class="ecbx-1200">X</span>) button in the toolbar. The <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> explorer
+      closes.</li></ol>
+<!--l. 181--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.2.3.5   </span> <a 
+ id="x8-1540006.2.3.5"></a>Shutdown the Domain</h5>
+<!--l. 183--><p class="noindent" >Finally, shutdown the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> (<a 
+href="mainch11.html#x13-24000011.1.2">Section 11.1.2</a>).
+                                                                                         
+                                                                                         
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
 href="mainch7.html" >next</a>] [<a 
 href="mainch5.html" >prev</a>] [<a 
 href="mainch5.html#tailmainch5.html" >prev-tail</a>] [<a 
 href="mainch6.html" >front</a>] [<a 
 href="main.html#mainch6.html" >up</a>] </p></div>
-<!--l. 1--><p class="noindent" ><a 
- id="tailmainch6.html"></a>  
+<!--l. 2--><p class="noindent" ><a 
+ id="tailmainch6.html"></a>    
  
 <div class=license>  
 <hr> 

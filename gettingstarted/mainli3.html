@@ -81,9 +81,9 @@ python
 an instance of a Component by passing its name as an argument:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sb.catalog()
-['SigGen', 'HardLimit']
->>> sigGen = sb.launch('SigGen')
->>> hardLimit = sb.launch('HardLimit')
+['rh.HardLimit', 'rh.SigGen']
+>>> sigGen = sb.launch("rh.SigGen")
+>>> hardLimit = sb.launch("rh.HardLimit")
 ]]></script>
 <!--l. 33--><p class="noindent" >The REDHAWK IDE plotting tool can be used in the Sandbox to display data
 graphically. The path to the Eclipse directory of the installed IDE must be
@@ -91,10 +91,10 @@ specified in the Sandbox (this can also be done by setting the RH_IDE
 environment variable to the REDHAWK path prior to starting the python
 session):
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
->>> sb.IDELocation('/path/to/ide/eclipse')
+>>> sb.IDELocation("/path/to/ide/eclipse")
 >>> plot = sb.Plot()
 ]]></script>
-<!--l. 40--><p class="noindent" >The two Components need to be connected, and hardLimit must be connected
+<!--l. 40--><p class="noindent" >The two Components need to be connected, and HardLimit must be connected
 to the plotter to display the results.
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sigGen.connect(hardLimit)
@@ -103,14 +103,14 @@ to the plotter to display the results.
                                                                           
 >>> hardLimit.connect(plot)
 ]]></script>
-<!--l. 47--><p class="noindent" >Once the hardLimit Component is connected to the plotter, a window appears
+<!--l. 47--><p class="noindent" >Once the HardLimit Component is connected to the plotter, a window appears
 that plots any data coming from the output Port. Once the Sandbox is started,
 the plot begins to display data:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> sb.start()
 ]]></script>
 <!--l. 53--><p class="noindent" >Component Properties can be modified as attributes of the Component. The
-hardLimit Property upper_limit can be changed to set an upper limit on the data
+HardLimit Property upper_limit can be changed to set an upper limit on the data
 that is displayed:
 <script type="syntaxhighlighter" class="brush: python"><![CDATA[
 >>> hardLimit.upper_limit = .8

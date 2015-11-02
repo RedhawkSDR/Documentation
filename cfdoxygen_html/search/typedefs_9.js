@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['nativesequencetype',['NativeSequenceType',['../classbulkio_1_1OutPort.html#aab93071ce1eb14a4d9175e60b9144cee',1,'bulkio::OutPort::NativeSequenceType()'],['../classbulkio_1_1OutFilePort.html#ad541c46d8cd62c874b61d8b73134a4ec',1,'bulkio::OutFilePort::NativeSequenceType()'],['../classbulkio_1_1OutXMLPort.html#a271753fd4f67f21006f9ccd8ef6153de',1,'bulkio::OutXMLPort::NativeSequenceType()']]],
+  ['nativetype',['NativeType',['../classbulkio_1_1OutPortBase.html#a90374e620f11387eb5b426652bf43501',1,'bulkio::OutPortBase::NativeType()'],['../classbulkio_1_1OutPort.html#affeb5673dfa398939ef31a72076ff019',1,'bulkio::OutPort::NativeType()'],['../classbulkio_1_1OutFilePort.html#ac4a5f44a3b284efdef95b1c532acb152',1,'bulkio::OutFilePort::NativeType()'],['../classbulkio_1_1OutXMLPort.html#acde8e7e275a5c7874a966ba16009365d',1,'bulkio::OutXMLPort::NativeType()'],['../classbulkio_1_1InPort.html#aa2f5ead174f79ca405f87b8f60ee3888',1,'bulkio::InPort::NativeType()'],['../classbulkio_1_1InStringPort.html#a41f7e5c155cb40c5940012d746ac354b',1,'bulkio::InStringPort::NativeType()']]]
+];
