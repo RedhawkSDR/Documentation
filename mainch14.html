@@ -136,26 +136,19 @@ href="mainap9.html#ide">IDE</a> by entering the following command:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 rhide
 ]]></script></div>
-      <!--l. 16--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> If you launch the REDHAWK <a 
-href="mainap9.html#ide">IDE</a> and the current working directory is not in
-      the eclipse executable path, this may cause issues with the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>. </p></div></div>
-      <!--l. 22--><p class="noindent" >At startup, the program may prompt for a <a 
-href="mainli2.html#glo:workspace">Workspace</a> location. In Eclipse and
-      the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>, a <a 
-href="mainli2.html#glo:workspace">Workspace</a> is a logical collection of projects under active
-      development.
-      </li>
-      <li 
-  class="enumerate" id="x16-309004x2">If prompted for a <a 
-href="mainli2.html#glo:workspace">Workspace</a> location, set the workspace to where you intend to store source
-      code.
-      <!--l. 26--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first">  If you upgraded from 1.8.x or 1.9.x, it is recommended that you set the workspace in 1.10 to
-      a different workspace than the workspace used in those previous versions of REDHAWK. If
-      you set the workspace to the same workspace that you used in 1.8.x or 1.9.x, you must delete
+      <!--l. 16--><p class="noindent" >At startup, the <a 
+href="mainap9.html#ide">IDE</a> may prompt for a <a 
+href="mainli2.html#glo:workspace">Workspace</a> location. The <a 
+href="mainli2.html#glo:workspace">Workspace</a> stores many of
       the <a 
-href="mainli2.html#glo:domain">Domain</a> from <a 
+href="mainap9.html#ide">IDE</a>&#8217;s settings and also acts as a logical collection of projects under development. The
+      <a 
+href="mainap9.html#ide">IDE</a> creates new projects in the workspace by default.
+      <!--l. 20--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first">  If you upgraded from 1.8.x or 1.9.x, it is recommended that you use a different workspace
+      location rather than reusing a previous version&#8217;s workspace. If you set the workspace to
+      the same workspace that you used in 1.8.x or 1.9.x, you must delete the <a 
+href="mainli2.html#glo:domain">Domain</a>
+      from <a 
 href="mainli2.html#glo:REDHAWK Explorer"><span 
 class="ecbx-1200">REDHAWK Explorer</span></a> before launching the <a 
 href="mainli2.html#glo:domain">Domain</a> from <a 
@@ -169,13 +162,13 @@ href="mainli2.html#glo:PyDev">PyDev</a> is an external product that comes bundle
 href="mainap9.html#ide">IDE</a> and provides a
 Python <a 
 href="mainap9.html#ide">IDE</a> for Eclipse, which may be used in Python, Jython, and IronPython development.
-                                                                                         
-                                                                                         
 <!--l. 6--><p class="noindent" >PyDev&#8217;s many features include:
       <ul class="itemize1">
       <li class="itemize">Code completion
       </li>
       <li class="itemize">Code completion with auto import
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">Type hinting
       </li>
@@ -210,13 +203,13 @@ class="ectt-1200">http://pydev.org/manual.html</span></a></li></ul>
 <!--l. 28--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> PyDev&#8217;s default configuration causes some files within REDHAWK to appear as if they are
 invalid. To address these problems, refer to <a 
 href="#x16-31100014.2">Section 14.2</a>. </p></div></div>
-                                                                                         
-                                                                                         
 <h3 class="sectionHead"><span class="titlemark">14.2   </span> <a 
  id="x16-31100014.2"></a>Configuring PyDev for REDHAWK Development</h3>
 <!--l. 3--><p class="noindent" >Every time a new workspace is used, PyDev is automatically configured. If you want to manually
 configure PyDev, use the following procedure:
 <!--l. 6--><p class="noindent" >
+                                                                                         
+                                                                                         
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x16-311002x1">Start the REDHAWK <a 
@@ -262,8 +255,6 @@ class="ecbx-1200">&#x2026;</span>
       </li>
       <li 
   class="enumerate" id="x16-311016x8">Enter the following information into the dialog box. Remove any new lines.
-                                                                                         
-                                                                                         
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 bulkio.bulkioInterfaces.BULKIO,
 bulkio.bulkioInterfaces.BULKIO__POA,
@@ -280,6 +271,8 @@ ossie.cf.StandardEvent__POA
       <li 
   class="enumerate" id="x16-311018x9">Click <span 
 class="ecbx-1200">OK</span>.</li></ol>
+                                                                                         
+                                                                                         
 <!--l. 39--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">14.2.1   </span> <a 
  id="x16-31200014.2.1"></a>PyDev: Undefined variable or imports</h4>
@@ -306,8 +299,6 @@ href="mainli2.html#glo:view">Views</a> in the Eclipse context.
 href="mainap9.html#ide">IDE</a> <a 
 href="mainli2.html#glo:workbench">Workbench</a> is the <a 
 href="mainli2.html#glo:editor">Editor</a> window, which is empty at initial startup. The
-                                                                                         
-                                                                                         
 <a 
 href="mainli2.html#glo:editor">Editor</a> is the primary window used when developing code within the REDHAWK <a 
 href="mainap9.html#ide">IDE</a>. An Eclipse
@@ -336,6 +327,8 @@ referred to as a <a
 href="mainli2.html#glo:perspective">Perspective</a>. By changing <a 
 href="mainli2.html#glo:perspective">Perspectives</a> throughout the development process, a
 developer may optimize his/her work environment based on the requirements of the particular task
+                                                                                         
+                                                                                         
 at hand. The default <a 
 href="mainli2.html#glo:perspective">Perspective</a> in the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> is the REDHAWK <a 
@@ -379,8 +372,6 @@ class="ecbx-1200">Window </span><span
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Reset Perspective</span><span 
 class="ecbx-1200">&#x2026;</span></li></ol>
-                                                                                         
-                                                                                         
 <!--l. 57--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">14.3.2   </span> <a 
  id="x16-31500014.3.2"></a>The REDHAWK Perspective</h4>
@@ -403,6 +394,8 @@ class="ecbx-1200">Project  Explorer  View</span></a>:  Provides  a  hierarchical
 href="mainli2.html#glo:Outline View"><span 
 class="ecbx-1200">Outline View</span></a>: Displays an outline of a structured file that is currently open in the
       editor area.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:Properties View"><span 
@@ -463,8 +456,6 @@ src="images/REDHAWK_SCA_Explorer_View.png" alt="PIC"
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;14.2: </td><td  
 class="content">The REDHAWK Explorer View</td></tr></table><!--tex4ht:label?: x16-315001r2 -->
       <!--l. 94--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:CORBA Name Browser View"><a 
@@ -500,6 +491,8 @@ src="images/REDHAWK_Name_Browser.png" alt="PIC"
 class="content">The CORBA Name Browser View</td></tr></table><!--tex4ht:label?: x16-315002r3 -->
       <!--l. 106--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li></ul>
+                                                                                         
+                                                                                         
 <!--l. 109--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">14.3.3   </span> <a 
  id="x16-31600014.3.3"></a>Programming Language Specific Perspectives</h4>
@@ -540,8 +533,6 @@ href="mainli2.html#glo:editor">Editors</a> and <a
 href="mainli2.html#glo:view">Views</a> provided with the REDHAWK
 <a 
 href="mainap9.html#ide">IDE</a>.
-                                                                                         
-                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">14.4.1   </span> <a 
  id="x16-31800014.4.1"></a>SoftPkg Editor</h4>
 <!--l. 5--><p class="noindent" ><hr class="figure"><div class="figure" 
