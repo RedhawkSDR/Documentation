@@ -54,9 +54,7 @@ SyntaxHighlighter.all()
 &#x00A0;<span class="likesectionToc" ><a 
 href="#x1-2000" id="QQ2-1-2">New Features and Functionality</a></span>
 <br />&#x00A0;<span class="likesectionToc" ><a 
-href="#x1-20000" id="QQ2-1-20">Upgrading from a Previous Version</a></span>
-<br />&#x00A0;<span class="likesectionToc" ><a 
-href="#x1-24000" id="QQ2-1-24">Improvements and Fixes</a></span>
+href="#x1-20000" id="QQ2-1-20">Improvements and Fixes</a></span>
 </div>
 <h2 class="likechapterHead"><a 
  id="x1-1000"></a>REDHAWK Release Notes, Version 2.0</h2>
@@ -74,10 +72,10 @@ experience. A brief summary of the changes include:
       increased domain introspection and additional command and control.
       </li>
       <li class="itemize">Provided a new script to transition projects into namespaced projects.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">Standardized  interfaces  for  integrating  RF  devices  into  a  REDHAWK  domain.
+                                                                                         
+                                                                                         
       Provided additional development and integration tooling to support the end user&#8217;s
       integration of device proxies.
       </li>
@@ -108,11 +106,11 @@ class="ectt-1200">commandline </span>attribute.
       <li class="itemize">IDE helps upgrade old <span 
 class="ectt-1200">configure </span>or <span 
 class="ectt-1200">execparams </span>during code generation.</li></ul>
-                                                                                         
-                                                                                         
 <!--l. 29--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
  id="x1-5000"></a>Shared Libraries</h5>
+                                                                                         
+                                                                                         
       <ul class="itemize1">
       <li class="itemize">Added wizard for creating new REDHAWK shared library projects for C++.</li></ul>
 <!--l. 34--><p class="noindent" >
@@ -140,12 +138,12 @@ class="phvro8t-x-x-120">usesdevice </span>relationships.
       <li class="itemize">Diagrams support visualizing dead/unreachable domain Components with color.
       </li>
       <li class="itemize">Diagrams provide visual help making connections by coloring suggested Ports.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">Diagrams   provide   visual   feedback   while   Components   are   still   starting   up.
       Components are initially gray, and when launching is complete, the Component&#8217;s
       background color changes to blue.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">Diagrams allow expanding/collapsing shapes to hide complexity.</li></ul>
 <!--l. 52--><p class="noindent" >
@@ -428,85 +426,15 @@ class="ectt-1200">unwrap </span>have been removed.</li></ul>
       <li class="itemize">Component shared library dependencies are not packaged together.
       </li>
       <li class="itemize">Device dependencies are not packaged together.</li></ul>
-<!--l. 229--><p class="noindent" >
-<h3 class="likesectionHead"><a 
- id="x1-20000"></a>Upgrading from a Previous Version</h3>
                                                                                          
                                                                                          
-<!--l. 232--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-21000"></a>Upgrading from REDHAWK 1.9.X and 1.10.X</h4>
-<!--l. 233--><p class="noindent" >REDHAWK 1.9.X and 1.10.X projects can be imported and re-generated with the REDHAWK
-2.0.X tooling without any modifications.
-<!--l. 235--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-22000"></a>Upgrading from REDHAWK 1.8.X</h4>
-<!--l. 237--><p class="noindent" >If you are upgrading from a previous 1.8.x version of REDHAWK, some software from the 1.8
-series dependencies must be uninstalled before installing the REDHAWK 2.0 series. The
-following procedure explains how to uninstall the software.
-<!--l. 239--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x1-22002x1">Enter the following command:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo yum erase \
-  libomniORB4.1 omniORB-debuginfo omniORB-doc \
-  libomniORBpy3 omniORBpy-debuginfo omniORBpy-doc \
-  omniEvents-doc omniEvents-debuginfo \
-  apache-log4cxx apache-log4cxx-debuginfo
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x1-22004x2">Additionally, if you are using a Redhat/CentOS 5 system, enter the following
-      command:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-$ sudo yum erase boost boost-debuginfo
-]]></script></div>
-      <!--l. 256--><p class="noindent" >This restores the system-provided boost (version 1.33).</li></ol>
-<!--l. 259--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-23000"></a>Regenerating 1.8 Components</h4>
-<!--l. 260--><p class="noindent" >If you generate an existing 1.8 Component in the 2.0 IDE, the IDE prompts you to upgrade
-                                                                                         
-                                                                                         
-the Component to use the new 2.0 Code Generator. If you select <span 
-class="phvb8t-x-x-120">Upgrade</span>, hidden
-project files are modified to indicate the new 2.0 Code Generator has been used.
-Once these project files are modified, it is difficult to revert back to use the 1.8-style
-Code Generators for this Component. If you select <span 
-class="phvb8t-x-x-120">Cancel</span>, the source code for the
-Component is not modified. Upgrading to the new 2.0 Code Generator offers the following
-benefits:
-      <ul class="itemize1">
-      <li class="itemize">New  Component  pattern  shifts  BulkIO  and  BurstIO  implementation  from  code
-      generator to base classes to ease incorporating future BulkIO-related bug fixes and
-      enhancements.
-      </li>
-      <li class="itemize">New code generators support use of complex Properties.
-      </li>
-      <li class="itemize">New code generators are now easily accessed from command line.
-      </li>
-      <li class="itemize">New  Java  Component  pattern  mirrors  the  existing  Python  and  C++  Component
-      model with a generated base class and a <span 
-class="ectt-1200">serviceFunction </span>in the main class.
-      </li>
-      <li class="itemize">New logging structure is used for C++ Components.
-      </li>
-      <li class="itemize">Allocation callbacks are available on C++ Devices.</li></ul>
-<!--l. 272--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If the main Java Component class is not regenerated, the class does not take advantage of the
-newly generated base class. In order for the base class to compile when building the project, the
-class needs to have a method added to it. If the main Java Component class is regenerated, all
-custom code added to it is not preserved. For more information, in the REDHAWK Manual, refer
-to Files Generated for Java Components. </p></div></div>
 <!--l. 276--><p class="noindent" >
 <h3 class="likesectionHead"><a 
- id="x1-24000"></a>Improvements and Fixes</h3>
+ id="x1-20000"></a>Improvements and Fixes</h3>
 <!--l. 277--><p class="noindent" >The following improvements and fixes were completed in REDHAWK 2.0.
-                                                                                         
-                                                                                         
 <!--l. 279--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
- id="x1-25000"></a>IDE Improvements</h4>
+ id="x1-21000"></a>IDE Improvements</h4>
 <!--l. 280--><p class="noindent" >The following IDE improvements were completed in REDHAWK 2.0.
       <ul class="itemize1">
       <li class="itemize">When selecting IDLs (when dealing with Ports or with Services), the IDE now filters
@@ -534,6 +462,8 @@ class="ectt-1200">localfile/codefile </span>(for an SPD
       </li>
       <li class="itemize">Ports have been moved to a separate tab in the SPD editor, and that tab is included
       in the SCD editor.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">After  performing  code  generation,  the  IDE  places  the  code  generator  version  in
       the SPD file in the <span 
@@ -545,8 +475,6 @@ class="ectt-1200">softpkg</span>. This helps identify what version of
 class="ectt-1200">UnknownPort </span>exception  when  it  requests  a  Port  from  a
       Component that is listed in its SCD file. This supports inspecting some Components,
       which were not exhibiting REDHAWK-compliant behavior.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">The  IDE  now  installs  and  builds  C++  Components,  Devices,  and  Services  by
       invoking <span 
@@ -579,17 +507,17 @@ class="ectt-1200">IDE_ </span>so they can be better identified.
       </li>
       <li class="itemize">The IDE provides the ability to toggle between showing RF and IF values on plot
       axes.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">The  IDE  supports  connecting  to  multiple  domains  with  the  same  name,  but  on
       different machines (previously, the names had to be unique).
       </li>
       <li class="itemize">The IDE now thins plot data based on refresh rate. This helps when plotting Ports
       with very high/very low data rates. The setting is adjustable in the plot settings.</li></ul>
-                                                                                         
-                                                                                         
 <!--l. 306--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
- id="x1-26000"></a>IDE Fixes</h4>
+ id="x1-22000"></a>IDE Fixes</h4>
 <!--l. 307--><p class="noindent" >The following IDE bug fixes were completed in REDHAWK 2.0.
       <ul class="itemize1">
       <li class="itemize">Exporting multiple projects to the Target SDR via the context menu on projects only
@@ -619,6 +547,8 @@ class="ectt-1200">REDHAWK_DEV </span>regardless of its actual name.
 class="ectt-1200">installing ./config.sub</span>,  <span 
 class="ectt-1200">installing ./install.sh</span>,  etc.  This  is  corrected  for
       legacy projects during code generation.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">The install location of a Waveform or Node was being determined by the project
       name when it should have been based on the name in the XML.
@@ -627,8 +557,6 @@ class="ectt-1200">installing ./install.sh</span>,  etc.  This  is  corrected  fo
       generation.  These  included  environment  variables  (like  <span 
 class="ectt-1200">OSSIEHOME</span>)  and  error
       parsers.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">The IDE would automatically overwrite the <span 
 class="ectt-1200">build.sh </span>file at the top of a project for
@@ -667,12 +595,483 @@ class="ectt-1200">allocate </span>were marked as an error.
       </li>
       <li class="itemize">Data saturation while plotting could cause the plots to go blank and stay blank even
       after data returned to a valid range.
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">The Project Explorer showed arrows next to closed projects.
       </li>
       <li class="itemize">The IDE did not correctly add values for <span 
 class="ectt-1200">struct </span>sequences in the PRF/SAD XML
       files.
+      </li>
+      <li class="itemize">A drag-drop onto the Services folder under Target SDR will now install the project
+      being dropped.
+      </li></ul>
+<!--l. 337--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-23000"></a>Core Framework Improvements</h4>
+      <ul class="itemize1">
+      <li class="itemize">Generate a warning when the received message cannot be processed.
+      </li>
+      <li class="itemize">Improved the message callback structure in Java.
+      </li>
+      <li class="itemize">Issuing the SIGUSR1 signal on the Domain Manager process cleans up open file
+      handles.
+      </li>
+      <li class="itemize">Added an executable flag to the file information structure returned by <span 
+class="ectt-1200">list()</span>.
+      </li>
+      <li class="itemize">Improved the handling of shared libraries and soft package dependencies.
+      </li>
+      <li class="itemize">Added support for enumerated types in IDL parser to support initializer values in the
+      generated code.
+      </li>
+      <li class="itemize">Added a description field to Ports.
+      </li>
+      <li class="itemize">The <span 
+class="ectt-1200">__version__ </span>member added to the Python package.
+      </li>
+      <li class="itemize">The Sandbox performs an improved search for implementations when launching a
+      Component.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Components that are launched through the Sandbox and segfault trigger a message
+      to the user.
+      </li>
+      <li class="itemize">The  <span 
+class="ectt-1200">IOR </span>string  has  been  moved  to  the  end  of  the  command  line,  making  the
+      command line from a Component more readable.
+      </li>
+      <li class="itemize">Read-only Properties can now be initialized.
+      </li>
+      <li class="itemize">A logging message has been added when a C++ or Java Property callback does not
+      trigger under conditions that would trigger a Python implementation.
+      </li>
+      <li class="itemize">A   Domain   Manager   setting   keeps   Components   and   Waveforms   from   being
+      registered on the name service.
+      </li>
+      <li class="itemize">The FEI base classes automatically update active/idle/busy state and tuner status.
+      </li>
+      <li class="itemize">Added complex data in support of digital signal processing algorithms.
+      </li>
+      <li class="itemize">Added features and increased performance of data transfers between REDHAWK
+      resources.
+      </li></ul>
+<!--l. 360--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-24000"></a>Core Framework Fixes</h4>
+      <ul class="itemize1">
+      <li class="itemize">When loading a package, if a file is deleted in a subdirectory from a directory load,
+      the directory is reloaded.
+      </li>
+      <li class="itemize">The execute bit is maintained when loading a package.
+      </li>
+      <li class="itemize">When setting a file pointer fails, an error is thrown.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">The tilde (&#x02DC;) is supported to reference the home directory when launching from the
+      Sandbox.
+      </li>
+      <li class="itemize">Partial configuration on Device startup is no longer fatal for Device registration.
+      </li>
+      <li class="itemize">Support for <span 
+class="ectt-1200">complex char </span>in Java any utils.
+      </li>
+      <li class="itemize">Device  Manager/Domain  Manager  Properties  are  available  through  the  Python
+      interface.
+      </li>
+      <li class="itemize">The Python Property <span 
+class="ectt-1200">change callback </span>for complex Properties is passed complex
+      values rather than dictionaries.
+      </li>
+      <li class="itemize">The Domain Manager responds gracefully when the name service is not running.
+      </li>
+      <li class="itemize">The  Domain  Manager  logging  level  is  passed  to  Components  if  no  logging
+      configuration is provided.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">__MATH__ </span>no longer fails if the first argument is not a constant.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">longlong </span>definition has been added to xml schema definition.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">DataSource </span>in the Sandbox allows the setting of <span 
+class="ectt-1200">subsize</span>.
+      </li>
+      <li class="itemize">Errors during message callback do not disable the message processing thread.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">rh_net_diag </span>provides a correct description of how to fix the configuration for Linux
+      domain sockets.
+      </li>
+      <li class="itemize">Components that never registered with an Application are not released.
+      </li>
+      <li class="itemize">If the default value for a sequence <span 
+class="ectt-1200">Property </span>is not given, it is set to a zero-length
+      list.
+      </li></ul>
+                                                                                         
+                                                                                         
+<!--l. 383--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-25000"></a>Core Asset Improvements</h4>
+      <ul class="itemize1">
+      <li class="itemize">All asset <span 
+class="ectt-1200">README.md </span>files have been updated to include source build and installation
+      instructions.
+      </li>
+      <li class="itemize">Port descriptions have been added to all Components and Devices.
+      </li>
+      <li class="itemize">All Components have been updated to use consistent Port types (short for integers, float
+      for floating-point, and octet for bits).
+           <ul class="itemize2">
+           <li class="itemize"><span 
+class="ectt-1200">SigGen </span>produces short and float output instead of double.
+           </li>
+           <li class="itemize">All <span 
+class="ectt-1200">HardLimit </span>Port types have changed from double to float.
+           </li>
+           <li class="itemize">All <span 
+class="ectt-1200">fcalc </span>Port types have changed from double to float.</li></ul>
+      </li>
+      <li class="itemize">All Components have been updated to follow a consistent Port naming convention.
+           <ul class="itemize2">
+           <li class="itemize">Exception: <span 
+class="ectt-1200">fcalc </span>does not follow the Port naming convention. This was done
+           for simplicity because the equation includes the Port names.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">AmFmPmBasebandDemod</span>,  <span 
+class="ectt-1200">TuneFilterDecimate</span>,  and  <span 
+class="ectt-1200">HardLimit </span>all  have  Port
+           name changes.</li></ul>
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">HardLimit </span>Property types have changed from double to float to reflect the Port type
+      change.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SigGen</span>, <span 
+class="ectt-1200">HardLimit</span>, <span 
+class="ectt-1200">AmFmPmBasebandDemod</span>, <span 
+class="ectt-1200">TuneFilterDecimate</span>, and <span 
+class="ectt-1200">fcalc </span>are not API
+      backwards compatible due to changes in Port names, Port types, or Property
+      types.
+      </li>
+      <li class="itemize">All shared library (formerly soft package) dependencies have been repackaged using the
+      new code generators.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Assets have been updated to use the new shared library dependencies: <span 
+class="ectt-1200">agc</span>,
+      <span 
+class="ectt-1200">AmFmPmBasebandDemod</span>, <span 
+class="ectt-1200">ArbitraryRateResampler</span>, <span 
+class="ectt-1200">autocorrelate</span>, <span 
+class="ectt-1200">fastfilter</span>, <span 
+class="ectt-1200">psd</span>, and
+      <span 
+class="ectt-1200">TuneFilterDecimate</span>.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">fcalc </span>has improved logging.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>base classes were regenerated.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>updated to use <span 
+class="ectt-1200">propertyListeners </span>rather than the legacy <span 
+class="ectt-1200">propertyChangeListeners</span>.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>updated to use Property helper functions provided by CF rather than manually dealing
+      with CORBA values.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>has improved logging.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>provides additional status with a readonly Property that indicates the
+      actual output rate (input rate/decimation factor).
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>base classes were regenerated.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">HardLimit </span>base classes were regenerated.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">DataConverter </span>improved Property descriptions.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sinksocket </span>base classes were regenerated.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>base classes were regenerated.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>has improved logging messages.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>code was cleaned up and overhauled.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>build files updated to include dependency on <span 
+class="ectt-1200">uuid </span>package.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>and <span 
+class="ectt-1200">SinkVITA49 </span>common files updated to be in sync once again.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SinkVITA49 </span>no longer has a restriction on the loopback (<span 
+class="ectt-1200">lo</span>) interface.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SinkVITA49 </span>has updated packet size calculations.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">RedhawkDevUtils </span>shared library updated to support boost filesystem v2 and
+      v3.
+      </li>
+      <li class="itemize">Duplicate code for arm processor support was removed from <span 
+class="ectt-1200">RTL2832U</span>.
+      </li>
+      <li class="itemize">Unit tests were improved for many assets.
+           <ul class="itemize2">
+           <li class="itemize"><span 
+class="ectt-1200">ArbitraryRateResampler </span>unit test fixed to no longer run two instances of the
+           same Component.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">autocorrelate </span>unit test expanded to work with numpy &#x003E;= 1.5.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">fastfilter </span>unit test overhauled to break out helper functions.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">fastfilter </span>unit test expanded to work with newer versions of scipy.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">SigGen </span>unit test expanded to test each Port.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">psd </span>unit test expanded to check the handling of EOS, validate SRI pushed with
+           <span 
+class="ectt-1200">CHAN_RF </span>keyword present, and confirm toggling the Property that specifies RF
+           values in SRI produces correct SRI.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>unit test expanded to check floating round off errors in
+           the calculation of the window function that would cause NaN in output, check
+           ocsilator error due to the accumulation of floating point errors, and check that
+           identical input produces repeatable output.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>unit  tests  updated  with  improved  estimation  of  output
+           samples.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">HardLimit </span>unit test for disconnect/reconnect fixed to reconnect before second
+           push of data.
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">DataConverter </span>unit test expanded to work with newer versions of scipy.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">DataConverter </span>unit test expanded to check timestamp extrapolation in BulkIO
+           base classes when converting between float and double.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sinksocket </span>unit  test  updated  to  remove  dependency  on  <span 
+class="ectt-1200">sourcesocket</span>,  use
+           <span 
+class="ectt-1200">tearDown </span>and  <span 
+class="ectt-1200">tearDown </span>functions,  and  provide  additional  information  in  the
+           case of a test failure.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sinksocket </span>unit test fixed tear down order to avoid misleading/erroneous error
+           message.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>unit  test  updated  to  remove  dependency  on  <span 
+class="ectt-1200">sinksocket</span>,  and
+           provide additional information in the case of a test failure.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>unit test fixed testing of arbitrary byte swapping, and tear down
+           order to avoid misleading/erroneous error message.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>unit test reorganized to ensure tear down always executes, even
+           after failed unit test.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>unit test fixed to launch local copy (rather than one in <span 
+class="ectt-1200">SDRROOT</span>),
+           and properly configure component.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>unit test updated to use <span 
+class="ectt-1200">setUp </span>and <span 
+class="ectt-1200">tearDown </span>functions.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">SinkVITA49 </span>unit test fixed to launch local copy (rather than one in <span 
+class="ectt-1200">SDRROOT</span>).
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">SinkVITA49 </span>unit test updated to use <span 
+class="ectt-1200">setUp </span>and <span 
+class="ectt-1200">tearDown </span>functions, and add a
+           data test.
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">SinkVITA49 </span>unit test completely overhauled.</li></ul>
+      </li></ul>
+<!--l. 450--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-26000"></a>Core Asset Fixes</h4>
+                                                                                         
+                                                                                         
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">USRP_UHD </span>has been updated to fix a bug causing bad SRI to be sent after multiple
+      allocations.
+      </li>
+      <li class="itemize">Build  files  for  <span 
+class="ectt-1200">USRP_UHD </span>have  been  updated  to  check  for  uuid  package  during
+      configure rather than simply failing to build.
+      </li>
+      <li class="itemize">Property change listeners were updated to use the actual data type of each Property for
+      portability across platforms:
+           <ul class="itemize2">
+           <li class="itemize"><span 
+class="ectt-1200">ArbitraryRateResampler</span>
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">autocorrelate</span>
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate</span>
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sinksocket</span>
+           </li>
+           <li class="itemize"><span 
+class="ectt-1200">sourcesocket</span></li></ul>
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">agc </span>fixed power level property to work properly.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SigGen </span>fixed the invalid registration of Stream ID property change listener.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SigGen </span>fixed C++, Python and Java implementations of whitenoise generation with odd
+      numbers of transfer length.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>fixed SRI bug where time and frequency were flipped.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">psd </span>fixed bug with update to Property that specifies the number of output frames to
+      average together for one frame of psd output.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>fixed to reliably send EOS for small input packet sizes.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>fixed to clear state after EOS is received.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>fixed incorrect data type or <span 
+class="ectt-1200">COL_RF </span>and <span 
+class="ectt-1200">CHAN_RF </span>keywords from long
+      to double.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>fixed to clean state between stream pushes.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sinksocket </span>fixed clean up order that caused core dump at exit.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sinksocket </span>fixed to only assign defined enumerated values to status Property.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>fixed to only assign defined enumerated values to status Property.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>fixed to properly initialize all values.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>fixed to use cached values in <span 
+class="ectt-1200">serviceFunction </span>rather than mix of cached
+      and real-time.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>fixed to resize data buffer properly after invalid configuration.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">sourcesocket </span>fixed to use data types for byte swapping that have a universal number of
+      bytes across architectures.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed connection error with UDP streams.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed initial calculation of the number of buffers.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed error with double size for <span 
+class="ectt-1200">pushPacket</span>.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed error where the work queue was never sufficiently big in order to push
+      data for small packet size.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed to initialize xstart value in SRI.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed to correctly compare unsigned and signed values.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">SourceVITA49 </span>fixed broken logging statements.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">VITA49 </span>shared library updated to allow compilation in Ubuntu14.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">fftlib-devel </span>and <span 
+class="ectt-1200">dsp-devel </span>shared library package files have corrected ownership.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">dsp </span>shared library includes fix for floating point precision error that causes NaN to be a
+      window coefficient for the Kaiser-Bessel window for large window sizes.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">dsp </span>shared library includes modification to the tuner to cope with floating point round off
+      errors that introduced escalating gain error into the oscilator.</li></ul>
+ 
+ <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
+
                                                                                          
 
 
