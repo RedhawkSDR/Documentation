@@ -53,9 +53,9 @@ href="mainap6.html#tailmainap6.html" >prev-tail</a>] [<a
 href="#tailmainap7.html">tail</a>] [<a 
 href="main.html#mainap7.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;G</span><br /><a 
- id="x27-481000G"></a>Known Compatibility Issues</h2>
+ id="x27-482000G"></a>Known Compatibility Issues</h2>
 <h3 class="sectionHead"><span class="titlemark">G.1   </span> <a 
- id="x27-482000G.1"></a>Compiling REDHAWK and REDHAWK C++<br 
+ id="x27-483000G.1"></a>Compiling REDHAWK and REDHAWK C++<br 
 class="newline" />Components in RHEL/CentOS 6.4</h3>
 <!--l. 4--><p class="noindent" >Due to a bug in the boost header files at the time <a 
 href="mainap9.html#rhel">RHEL</a>/<a 
@@ -79,13 +79,13 @@ file.
 <!--l. 14--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x27-482002x1">Enter the following command.
+  class="enumerate" id="x27-483002x1">Enter the following command.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo vi /usr/include/boost/exception_ptr.hpp
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x27-482004x2">Add the following destructor code starting at line 92.
+  class="enumerate" id="x27-483004x2">Add the following destructor code starting at line 92.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 ~exception_ptr() throw()
 {

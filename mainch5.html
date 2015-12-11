@@ -53,9 +53,9 @@ href="mainch4.html#tailmainch4.html" >prev-tail</a>] [<a
 href="#tailmainch5.html">tail</a>] [<a 
 href="main.html#mainch5.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;5</span><br /><a 
- id="x7-870005"></a>Connections</h2>
+ id="x7-880005"></a>Connections</h2>
 <h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
- id="x7-880005.1"></a>Introduction</h3>
+ id="x7-890005.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >When discussing connections, there are several terms that are thrown around in REDHAWK: uses,
 provides, <a 
 href="mainli2.html#glo:port">Port</a>, interfaces, <a 
@@ -64,7 +64,7 @@ the key concepts that enable a REDHAWK-based system to easily interact with othe
 systems and external tools developed outside the scope of REDHAWK.
 <!--l. 9--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
- id="x7-890005.2"></a>The Connection Process</h3>
+ id="x7-900005.2"></a>The Connection Process</h3>
 <!--l. 10--><p class="noindent" >All connections take a client-server pattern. All calls are made from the client to the server. It is
 the role of the server to provide a set of functions that can be called by the client. It is the role of
 the client to understand what interfaces the server provides and to invoke (use) them. This is the
@@ -117,7 +117,7 @@ class="ectt-1200">connectPort() </span>call.
                                                                                          
 <!--l. 28--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.3   </span> <a 
- id="x7-900005.3"></a>Why Ports?</h3>
+ id="x7-910005.3"></a>Why Ports?</h3>
 <!--l. 30--><p class="noindent" >It seems burdensome to connect <a 
 href="mainli2.html#glo:component">Components</a> through <a 
 href="mainli2.html#glo:port">Port</a> objects; this is an additional level of
@@ -127,7 +127,7 @@ href="mainli2.html#glo:component">Components</a> have more than one input or out
 href="mainli2.html#glo:port">Port</a>.
 <!--l. 47--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.4   </span> <a 
- id="x7-910005.4"></a>Port Access</h3>
+ id="x7-920005.4"></a>Port Access</h3>
 <!--l. 48--><p class="noindent" >A <a 
 href="mainli2.html#glo:port">Port</a> belongs to a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
@@ -135,7 +135,7 @@ href="mainli2.html#glo:device">Device</a> (<a
 href="mainli2.html#glo:device">Devices</a> are specialized <a 
 href="mainli2.html#glo:component">Components</a> - more on that in
 <a 
-href="mainch7.html#x9-1550007">Chapter 7</a>). To retrieve a <a 
+href="mainch7.html#x9-1560007">Chapter 7</a>). To retrieve a <a 
 href="mainli2.html#glo:port">Port</a>, an external entity needs to call <span 
 class="ectt-1200">getPort() </span>on the <a 
 href="mainli2.html#glo:component">Component</a> that
@@ -158,7 +158,7 @@ href="mainli2.html#glo:devicemanager">Device
 Manager</a>.
 <!--l. 56--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.5   </span> <a 
- id="x7-920005.5"></a>Dynamic Connections</h3>
+ id="x7-930005.5"></a>Dynamic Connections</h3>
 <!--l. 58--><p class="noindent" >Unless a <a 
 href="mainli2.html#glo:component">Component</a> is in the process of being terminated, it is valid to retrieve a <a 
 href="mainli2.html#glo:port">Port</a> reference at
@@ -194,7 +194,7 @@ connections. This means of dynamic connecting is essential for REDHAWK&#8217;s p
 mechanism.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.6   </span> <a 
- id="x7-930005.6"></a>Standardized Data Interfaces</h3>
+ id="x7-940005.6"></a>Standardized Data Interfaces</h3>
 <!--l. 4--><p class="noindent" >Data flow between REDHAWK resources (<a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:device">Devices</a>) is managed through two
@@ -214,7 +214,7 @@ href="mainap9.html#bulkio">BulkIO</a> and <a
 href="mainap9.html#burstio">BurstIO</a> implmementations and the interfaces they
 provide.
 <h3 class="sectionHead"><span class="titlemark">5.7   </span> <a 
- id="x7-940005.7"></a>BulkIO</h3>
+ id="x7-950005.7"></a>BulkIO</h3>
 <!--l. 4--><p class="noindent" ><a 
 href="mainap9.html#bulkio">BulkIO</a> is designed to provide a standardized methodology and to maximize efficiency for bulk
 data transfers between REDHAWK resources (<a 
@@ -256,7 +256,7 @@ execution.
                                                                                          
 <!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.1   </span> <a 
- id="x7-950005.7.1"></a>Data Transfers</h4>
+ id="x7-960005.7.1"></a>Data Transfers</h4>
 <!--l. 3--><p class="noindent" >Data transfers happen through the <span 
 class="ectt-1200">pushPacket() </span>method call of a REDHAWK <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
@@ -277,7 +277,7 @@ implementation.
                                                                                          
                                                                                          
 <a 
- id="x7-95001r1"></a>
+ id="x7-96001r1"></a>
                                                                                          
                                                                                          
 <!--l. 10--><p class="noindent" ><img 
@@ -286,7 +286,7 @@ src="images/REDHAWK_bulkio_dataflow.png" alt="PIC"
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;5.1: </td><td  
 class="content"><a 
-href="mainap9.html#bulkio">BulkIO</a> Data Flow via pushPacket()</td></tr></table><!--tex4ht:label?: x7-95001r1 -->
+href="mainap9.html#bulkio">BulkIO</a> Data Flow via pushPacket()</td></tr></table><!--tex4ht:label?: x7-96001r1 -->
                                                                                          
                                                                                          
 <!--l. 12--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
@@ -330,7 +330,7 @@ class="ectt-1200">omniORB::giopMaxMsgSize() </span>function call or the <span
 class="ectt-1200">bulkio::Const::MAX_TRANSFER_BYTES</span>
 value.
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.1.1   </span> <a 
- id="x7-960005.7.1.1"></a>Vector Data</h5>
+ id="x7-970005.7.1.1"></a>Vector Data</h5>
 <!--l. 23--><p class="noindent" >A <a 
 href="mainli2.html#glo:component">Component</a> usually ingests and egresses data from its <a 
 href="mainli2.html#glo:port">Ports</a> in the service function. A
@@ -341,7 +341,7 @@ href="mainli2.html#glo:port">Port</a> using the <span
 class="ectt-1200">getPacket()</span>
 method. This method returns a <span 
 class="ectt-1200">dataTransfer </span>object (described in <a 
-href="#x7-96001r1">Table 5.1</a>) from the input
+href="#x7-97001r1">Table 5.1</a>) from the input
 <a 
 href="mainli2.html#glo:port">Port</a>&#8217;s data queue or a null/None value if the queue is empty.
 <!--l. 25--><p class="noindent" >The following code snippet is an example of the <span 
@@ -371,7 +371,7 @@ class="ectt-1200">getPacket() </span>method.
                                                                                          
                                                                                          
 <!--l. 62--><p class="noindent" ><a 
- id="x7-96001r1"></a><hr class="float"><div class="float" 
+ id="x7-97001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -463,7 +463,7 @@ href="mainli2.html#glo:component">Component</a> does not
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.1: </td><td  
-class="content">DataTransfer Member Descriptions</td></tr></table><!--tex4ht:label?: x7-96001r1 -->
+class="content">DataTransfer Member Descriptions</td></tr></table><!--tex4ht:label?: x7-97001r1 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -472,7 +472,7 @@ class="content">DataTransfer Member Descriptions</td></tr></table><!--tex4ht:lab
 class="ectt-1200">pushPacket() </span>method call for vector data with
 sample parameters. The <span 
 class="ectt-1200">pushPacket() </span>parameters for vector data are described in <a 
-href="#x7-96002r2">Table
+href="#x7-97002r2">Table
 5.2</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
@@ -488,7 +488,7 @@ href="#x7-96002r2">Table
                                                                                          
                                                                                          
 <!--l. 104--><p class="noindent" ><a 
- id="x7-96002r2"></a><hr class="float"><div class="float" 
+ id="x7-97002r2"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -551,18 +551,18 @@ href="mainap9.html#sri">SRI</a>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.2: </td><td  
 class="content"><span 
-class="ectt-1200">pushPacket() </span>Parameter Descriptions for Vector Data </td></tr></table><!--tex4ht:label?: x7-96002r2 -->
+class="ectt-1200">pushPacket() </span>Parameter Descriptions for Vector Data </td></tr></table><!--tex4ht:label?: x7-97002r2 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.1.2   </span> <a 
- id="x7-970005.7.1.2"></a>String Data/XML Document</h5>
+ id="x7-980005.7.1.2"></a>String Data/XML Document</h5>
 <!--l. 123--><p class="noindent" >The following code snippet is an example of the <span 
 class="ectt-1200">pushPacket() </span>method call for string data with
 sample parameters. The <span 
 class="ectt-1200">pushPacket() </span>parameters for string data are described in <a 
-href="#x7-97001r3">Table
+href="#x7-98001r3">Table
 5.3</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
@@ -577,7 +577,7 @@ href="#x7-97001r3">Table
                                                                                          
                                                                                          
 <!--l. 135--><p class="noindent" ><a 
- id="x7-97001r3"></a><hr class="float"><div class="float" 
+ id="x7-98001r3"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -634,18 +634,18 @@ href="mainap9.html#sri">SRI</a>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.3: </td><td  
 class="content"><span 
-class="ectt-1200">pushPacket() </span>Parameter Descriptions for String Data</td></tr></table><!--tex4ht:label?: x7-97001r3 -->
+class="ectt-1200">pushPacket() </span>Parameter Descriptions for String Data</td></tr></table><!--tex4ht:label?: x7-98001r3 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.1.3   </span> <a 
- id="x7-980005.7.1.3"></a>URL/File Data</h5>
+ id="x7-990005.7.1.3"></a>URL/File Data</h5>
 <!--l. 154--><p class="noindent" >The following code snippet is an example of the <span 
 class="ectt-1200">pushPacket() </span>method call for file transfers with
 sample parameters. The <span 
 class="ectt-1200">pushPacket() </span>parameters for file transfers are described in <a 
-href="#x7-98001r4">Table
+href="#x7-99001r4">Table
 5.4</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
@@ -663,7 +663,7 @@ href="#x7-98001r4">Table
                                                                                          
                                                                                          
 <!--l. 169--><p class="noindent" ><a 
- id="x7-98001r4"></a><hr class="float"><div class="float" 
+ id="x7-99001r4"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -730,7 +730,7 @@ href="mainap9.html#sri">SRI</a>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.4: </td><td  
 class="content"><span 
-class="ectt-1200">pushPacket() </span>Parameter Descriptions for File Transfers</td></tr></table><!--tex4ht:label?: x7-98001r4 -->
+class="ectt-1200">pushPacket() </span>Parameter Descriptions for File Transfers</td></tr></table><!--tex4ht:label?: x7-99001r4 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -747,14 +747,14 @@ href="mainap9.html#uri">URI</a>) that either points to the local file system or 
 href="mainap9.html#sdr">SDR</a> file system. To
 support portability, use of the <a 
 href="mainap9.html#sdr">SDR</a> file system is recommended. <a 
-href="#x7-98002r5">Table 5.5</a> describes the <a 
+href="#x7-99002r5">Table 5.5</a> describes the <a 
 href="mainap9.html#uri">URI</a>
 options in greater detail.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 193--><p class="noindent" ><a 
- id="x7-98002r5"></a><hr class="float"><div class="float" 
+ id="x7-99002r5"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -816,13 +816,13 @@ href="mainli2.html#glo:service">Service</a>    </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.5: </td><td  
-class="content">URI Options</td></tr></table><!--tex4ht:label?: x7-98002r5 -->
+class="content">URI Options</td></tr></table><!--tex4ht:label?: x7-99002r5 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.1.4   </span> <a 
- id="x7-990005.7.1.4"></a>SDDS Stream Definition</h5>
+ id="x7-1000005.7.1.4"></a>SDDS Stream Definition</h5>
 <!--l. 211--><p class="noindent" >The SDDS Stream Definition object defines a multicast connection source for data from a network
 interface. The methods for the SDDS Stream Definition interface do not follow the normal <a 
 href="mainap9.html#bulkio">BulkIO</a>
@@ -831,7 +831,7 @@ class="ectt-1200">pushPacket() </span>convention. Instead this interface defines
 class="ectt-1200">attach() </span>and <span 
 class="ectt-1200">detach() </span>methods as
 described in the code snippet below and <a 
-href="#x7-99001r6">Table 5.6</a>.
+href="#x7-100001r6">Table 5.6</a>.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 
  /**
@@ -853,7 +853,7 @@ href="#x7-99001r6">Table 5.6</a>.
                                                                                          
                                                                                          
 <!--l. 232--><p class="noindent" ><a 
- id="x7-99001r6"></a><hr class="float"><div class="float" 
+ id="x7-100001r6"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -897,7 +897,7 @@ class="td11"> SDDSStreamDefinition  </td><td  style="white-space:wrap; text-alig
 class="td11"> <!--l. 244--><p class="noindent" >Stream       definition       object
   describing  a  multicast  address
   (<a 
-href="#x7-99002r7">Table 5.7</a>).                              </td>
+href="#x7-100002r7">Table 5.7</a>).                              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-11-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-11-6-1"  
@@ -934,7 +934,7 @@ class="td11"> <!--l. 253--><p class="noindent" >Attachment   identifier   return
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.6: </td><td  
-class="content">Parameter Descriptions for SDDS Stream Definition Interface </td></tr></table><!--tex4ht:label?: x7-99001r6 -->
+class="content">Parameter Descriptions for SDDS Stream Definition Interface </td></tr></table><!--tex4ht:label?: x7-100001r6 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -943,7 +943,7 @@ class="content">Parameter Descriptions for SDDS Stream Definition Interface </td
                                                                                          
                                                                                          
 <!--l. 260--><p class="noindent" ><a 
- id="x7-99002r7"></a><hr class="float"><div class="float" 
+ id="x7-100002r7"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -1022,26 +1022,26 @@ class="td11"> <!--l. 280--><p class="noindent" >Allows for user-defined values t
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.7: </td><td  
-class="content">SDDS Stream Definition Member Descriptions</td></tr></table><!--tex4ht:label?: x7-99002r7 -->
+class="content">SDDS Stream Definition Member Descriptions</td></tr></table><!--tex4ht:label?: x7-100002r7 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h4 class="subsectionHead"><span class="titlemark">5.7.2   </span> <a 
- id="x7-1000005.7.2"></a>Signal Related Information (SRI)</h4>
+ id="x7-1010005.7.2"></a>Signal Related Information (SRI)</h4>
 <!--l. 3--><p class="noindent" ><a 
 href="mainap9.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload. Section <a 
-href="mainch4.html#x6-700004.6">4.6<!--tex4ht:ref: sri_keywords --></a> provides
+href="mainch4.html#x6-710004.6">4.6<!--tex4ht:ref: sri_keywords --></a> provides
 guidance on how to manipulate keyworks in <a 
 href="mainap9.html#sri">SRI</a>. The <a 
 href="mainap9.html#sri">SRI</a> data structure fields are described in
 <a 
-href="#x7-100001r8">Table 5.8</a>.
+href="#x7-101001r8">Table 5.8</a>.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 22--><p class="noindent" ><a 
- id="x7-100001r8"></a><hr class="float"><div class="float" 
+ id="x7-101001r8"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -1179,7 +1179,7 @@ href="mainap9.html#corba">CORBA</a> Any can be any type.  </td>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.8: </td><td  
 class="content"><a 
-href="mainap9.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x7-100001r8 -->
+href="mainap9.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x7-101001r8 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -1221,7 +1221,7 @@ href="mainli2.html#glo:component">Component</a> A to <a
 href="mainli2.html#glo:component">Component</a>
 C.
 <h4 class="subsectionHead"><span class="titlemark">5.7.3   </span> <a 
- id="x7-1010005.7.3"></a>Stream API</h4>
+ id="x7-1020005.7.3"></a>Stream API</h4>
 <!--l. 3--><p class="noindent" >The <a 
 href="mainap9.html#bulkio">BulkIO</a> stream API provides a high-level interface to sending and receiving data via <a 
 href="mainap9.html#bulkio">BulkIO</a>
@@ -1240,7 +1240,7 @@ from by a single thread. However, it is safe to use multiple streams simultaneou
 href="mainap9.html#bulkio">BulkIO</a> stream API is C++ only.
 <!--l. 13--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.1   </span> <a 
- id="x7-1020005.7.3.1"></a>Output Streams</h5>
+ id="x7-1030005.7.3.1"></a>Output Streams</h5>
 <!--l. 15--><p class="noindent" >Each numeric output port type has a corresponding stream type (e.g., <span 
 class="ectt-1200">bulkio::OutFloatStream</span>
                                                                                          
@@ -1292,7 +1292,7 @@ stream.close();
                                                                                          
 <!--l. 57--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.2   </span> <a 
- id="x7-1030005.7.3.2"></a>Input Streams</h5>
+ id="x7-1040005.7.3.2"></a>Input Streams</h5>
 <!--l. 59--><p class="noindent" >An input stream encapsulates <a 
 href="mainap9.html#sri">SRI</a> and all received packets associated with that stream ID.
 Buffering and overlap are built in, removing the need for client code to implement these features.
@@ -1311,11 +1311,11 @@ reached.
 account. For example, requesting 1024 samples from a complex stream returns 1024 complex pairs,
 which is equivalent to 2048 scalar values.
 <!--l. 65--><p class="noindent" >There are two ways of retrieving an input stream: <a 
-href="#x7-1040005.7.3.3">Section 5.7.3.3</a> or <a 
-href="#x7-1050005.7.3.4">Section 5.7.3.4</a>.
+href="#x7-1050005.7.3.3">Section 5.7.3.3</a> or <a 
+href="#x7-1060005.7.3.4">Section 5.7.3.4</a>.
 <!--l. 67--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.3   </span> <a 
- id="x7-1040005.7.3.3"></a>Stream Polling</h5>
+ id="x7-1050005.7.3.3"></a>Stream Polling</h5>
 <!--l. 70--><p class="noindent" >When the input stream is not known, or multiple streams are being serviced by a single thread, the
 input port&#8217;s <span 
 class="ectt-1200">pollStreams() </span>family of methods allow you to wait for one or more streams to be
@@ -1350,7 +1350,7 @@ bulkio::InFloatPort::StreamList streams = dataFloat_in->pollStreams(1024, bulkio
 ]]></script></div>
 <!--l. 96--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.4   </span> <a 
- id="x7-1050005.7.3.4"></a>Stream Callback</h5>
+ id="x7-1060005.7.3.4"></a>Stream Callback</h5>
 <!--l. 99--><p class="noindent" >As opposed to polling, callback functions may be registered with the input port to be
 notified when a new stream has been created. This pattern is probably a better fit for
 most use cases, since a <a 
@@ -1375,7 +1375,7 @@ void MyComponent_i::constructor()
 ]]></script></div>
 <!--l. 121--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.5   </span> <a 
- id="x7-1060005.7.3.5"></a>Data Blocks</h5>
+ id="x7-1070005.7.3.5"></a>Data Blocks</h5>
 <!--l. 123--><p class="noindent" >In <a 
 href="mainap9.html#bulkio">BulkIO</a> input stream-based code, data is retrieved from data streams as blocks. Each input
 stream data type has a corresponding data block type, such as <span 
@@ -1383,7 +1383,7 @@ class="ectt-1200">bulkio::FloatDataBlock</span>. Data
 blocks can be retrieved on a per-packet basis, or they can be retrieved as a definite-sized buffer,
 with or without overlap.
 <!--l. 127--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1070005.7.3.5"></a><span 
+ id="x7-1080005.7.3.5"></a><span 
 class="ecbx-1200">Reading Data Blocks</span></span>
 The <span 
 class="ectt-1200">read() </span>family of methods synchronously fetch data from a stream. The basic <span 
@@ -1432,7 +1432,7 @@ size_t skipped = stream.skip(256);
 <!--l. 169--><p class="noindent" >The returned value is the number of samples that were dropped. If the streams ends or the
 component is stopped, this may be less than the requested value.
 <!--l. 171--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1080005.7.3.5"></a><span 
+ id="x7-1090005.7.3.5"></a><span 
 class="ecbx-1200">Non-Blocking Read</span></span>
 The <span 
 class="ectt-1200">read() </span>family of methods is always blocking. For non-blocking reads, use <span 
@@ -1448,14 +1448,14 @@ all remaining queued data in the stream will be returned.
                                                                                          
 <!--l. 181--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.6   </span> <a 
- id="x7-1090005.7.3.6"></a>Interacting with Data Blocks</h5>
+ id="x7-1100005.7.3.6"></a>Interacting with Data Blocks</h5>
 <!--l. 183--><p class="noindent" >Data blocks contain the data as an array of sample data, as well as the <a 
 href="mainap9.html#sri">SRI</a> that describes the
 data. The memory is managed automatically inside the object to minimize copies, so there is no
 need to explicitly delete data blocks. A variety of functions are contains in data blocks that help
 the developer manage and interact with the data block&#8217;s contents.
 <!--l. 187--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1100005.7.3.6"></a><span 
+ id="x7-1110005.7.3.6"></a><span 
 class="ecbx-1200">Verifying Correctness</span></span>
 The boolean not (!) operator returns true if a block is invalid. This occurs when the stream is
 unable to read the requested data, such as when the component receives a <span 
@@ -1469,7 +1469,7 @@ if (!block) {
 // Operate on the block
 ]]></script></div>
 <!--l. 199--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1110005.7.3.6"></a><span 
+ id="x7-1120005.7.3.6"></a><span 
 class="ecbx-1200">Metadata</span></span>
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -1502,7 +1502,7 @@ if (block.sriChangeFlags() & bulkio::XDELTA) {
 }
 ]]></script></div>
 <!--l. 223--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1120005.7.3.6"></a><span 
+ id="x7-1130005.7.3.6"></a><span 
 class="ecbx-1200">Scalar Data</span></span>
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -1517,7 +1517,7 @@ for (size_t index = 0; index < block.size(); ++index) {
 }
 ]]></script></div>
 <!--l. 237--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1130005.7.3.6"></a><span 
+ id="x7-1140005.7.3.6"></a><span 
 class="ecbx-1200">Complex Data</span></span>
 If the input stream is complex, the returned data buffer should be treated as complex data.
 Data block objects provide convenience methods to make it easy to work with complex
@@ -1544,7 +1544,7 @@ if (block.complex()) {
 }
 ]]></script></div>
 <!--l. 257--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1140005.7.3.6"></a><span 
+ id="x7-1150005.7.3.6"></a><span 
 class="ecbx-1200">Time Stamps</span></span>
 Because a single data block may span multiple input packets, it can contain than one time stamp.
 Data blocks returned from an input stream are guaranteed to have at least one time
@@ -1576,7 +1576,7 @@ class="ectt-1200">xdelta </span>and the number of samples to calculate a time st
 Only the first time stamp in a data block can be synthetic.
 <!--l. 278--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.7   </span> <a 
- id="x7-1150005.7.3.7"></a>Ignoring Streams</h5>
+ id="x7-1160005.7.3.7"></a>Ignoring Streams</h5>
 <!--l. 280--><p class="noindent" >Some components may prefer to only handle one stream at a time. Unwanted input streams can be
 disabled, typically in a new stream callback:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1586,7 +1586,7 @@ stream.disable();
 due to unhandled data.
 <!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.4   </span> <a 
- id="x7-1160005.7.4"></a>Multi-out Ports</h4>
+ id="x7-1170005.7.4"></a>Multi-out Ports</h4>
 <!--l. 3--><p class="noindent" >A multi-out <a 
 href="mainli2.html#glo:port">Port</a> allows a <a 
 href="mainli2.html#glo:component">Component</a> to select specific streams to be sent over specific connections
@@ -1632,7 +1632,7 @@ stream ID and connection ID match.
 href="mainli2.html#glo:port">Ports</a>. </p></div></div>
 <!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.5   </span> <a 
- id="x7-1170005.7.5"></a>Working with Complex Data</h4>
+ id="x7-1180005.7.5"></a>Working with Complex Data</h4>
 <!--l. 3--><p class="noindent" >If the StreamSRI mode field of the incoming data is set to 1, the associated input data is complex
 (i.e., it is comprised of real and imaginary parts). Complex data is sent as alternating real
 and imaginary values. A developer can work with this data in any fashion; however,
@@ -1642,7 +1642,7 @@ form.
                                                                                          
 <!--l. 5--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.5.1   </span> <a 
- id="x7-1180005.7.5.1"></a>Converting Complex Data in C++</h5>
+ id="x7-1190005.7.5.1"></a>Converting Complex Data in C++</h5>
 <!--l. 7--><p class="noindent" >In C++, the incoming <a 
 href="mainap9.html#bulkio">BulkIO</a> data vector may be typecast into a std::vector of std::complex
 values. For example:
@@ -1656,7 +1656,7 @@ myOutput->pushPacket(*output, tmp->T, tmp->EOS, tmp->streamID);
 ]]></script></div>
 <!--l. 18--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.5.2   </span> <a 
- id="x7-1190005.7.5.2"></a>Converting Complex Data in Python</h5>
+ id="x7-1200005.7.5.2"></a>Converting Complex Data in Python</h5>
 <!--l. 20--><p class="noindent" >The helper functions <span 
 class="ectt-1200">bulkioComplexToPythonComplexList </span>and
 <span 
@@ -1666,14 +1666,14 @@ class="ectt-1200">ossie.utils.bulkio.bulkio_helpers</span>, provide an efficient
 complex numbers.
 <!--l. 23--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.5.3   </span> <a 
- id="x7-1200005.7.5.3"></a>Converting Complex Data in Java</h5>
+ id="x7-1210005.7.5.3"></a>Converting Complex Data in Java</h5>
 <!--l. 25--><p class="noindent" >Unlike with C++ and Python, Java does not have a ubiquitous means for representing complex
 numbers; therefore, when using Java, users are free to map the incoming <a 
 href="mainap9.html#bulkio">BulkIO</a> data to the
 complex data representation of their choosing.
 <!--l. 2--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.6   </span> <a 
- id="x7-1210005.7.6"></a>Time Stamps</h4>
+ id="x7-1220005.7.6"></a>Time Stamps</h4>
 <!--l. 4--><p class="noindent" ><a 
 href="mainap9.html#bulkio">BulkIO</a> uses <span 
 class="ectt-1200">BULKIO::PrecisionUTCTime </span>time stamps that denote the time since 12:00 AM
@@ -1692,7 +1692,7 @@ href="mainap9.html#sri">SRI</a>.
 ]]></script></div>
 <!--l. 16--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.6.1   </span> <a 
- id="x7-1220005.7.6.1"></a>Timestamp Operators (C++)</h5>
+ id="x7-1230005.7.6.1"></a>Timestamp Operators (C++)</h5>
 <!--l. 17--><p class="noindent" >In C++, <span 
 class="ectt-1200">BULKIO::PrecisionUTCTime </span>supports common arithmetic, comparison and stream
 operators.
@@ -1733,7 +1733,7 @@ operators.
 ]]></script></div>
 <!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.7   </span> <a 
- id="x7-1230005.7.7"></a>Port Statistics</h4>
+ id="x7-1240005.7.7"></a>Port Statistics</h4>
 <!--l. 3--><p class="noindent" >All <a 
 href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
@@ -1741,12 +1741,12 @@ href="mainli2.html#glo:port">Ports</a> contain a read only attribute called stat
 class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
 href="mainli2.html#glo:port">Port</a>.
 <a 
-href="#x7-123001r9">Table 5.9</a> contains a description of a statistics structure
+href="#x7-124001r9">Table 5.9</a> contains a description of a statistics structure
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 7--><p class="noindent" ><a 
- id="x7-123001r9"></a><hr class="float"><div class="float" 
+ id="x7-124001r9"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -1835,7 +1835,7 @@ href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.9: </td><td  
-class="content">Fields in Returned Port Statistics</td></tr></table><!--tex4ht:label?: x7-123001r9 -->
+class="content">Fields in Returned Port Statistics</td></tr></table><!--tex4ht:label?: x7-124001r9 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -1856,14 +1856,14 @@ sequence in the <span
 class="ectt-1200">pushPacket() </span>call) and seeing its effects on the performance of the connection is
 also instructive.
 <h4 class="subsectionHead"><span class="titlemark">5.7.8   </span> <a 
- id="x7-1240005.7.8"></a>Examples</h4>
+ id="x7-1250005.7.8"></a>Examples</h4>
 <!--l. 3--><p class="noindent" >These two examples illustrate high-speed data exchange between two C++ <a 
 href="mainli2.html#glo:component">Components</a> and basic
 data manipulation through the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>.
 <!--l. 5--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.8.1   </span> <a 
- id="x7-1250005.7.8.1"></a>High-speed data</h5>
+ id="x7-1260005.7.8.1"></a>High-speed data</h5>
 <!--l. 7--><p class="noindent" >In this example, two C++ <a 
 href="mainli2.html#glo:component">Components</a> are created: a source and a sink. We will then deploy these
 <a 
@@ -1873,7 +1873,7 @@ them.
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-125002x1">Create  a  C++  <a 
+  class="enumerate" id="x7-126002x1">Create  a  C++  <a 
 href="mainli2.html#glo:component">Component</a>  called  <span 
 class="ecti-1200">source  </span>with  a  uses  <a 
 href="mainli2.html#glo:port">Port</a>  called  <span 
@@ -1889,7 +1889,7 @@ class="ecti-1200">100000</span>. Generate the <a
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x7-125004x2">Open the file <span 
+  class="enumerate" id="x7-126004x2">Open the file <span 
 class="ectt-1200">source.h </span>and add the following member to the <span 
 class="ectt-1200">source_i </span>class:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1897,7 +1897,7 @@ class="ectt-1200">source_i </span>class:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x7-125006x3">Open the file <span 
+  class="enumerate" id="x7-126006x3">Open the file <span 
 class="ectt-1200">source.cpp </span>and edit it in the following ways:
                                                                                          
                                                                                          
@@ -1909,7 +1909,7 @@ class="ectt-1200">source_i </span>constructor: <div class="minipage"><script typ
            </li></ul>
       </li>
       <li 
-  class="enumerate" id="x7-125008x4">In <span 
+  class="enumerate" id="x7-126008x4">In <span 
 class="ectt-1200">serviceFunction() </span>comment-out the <span 
 class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1940,13 +1940,13 @@ class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x7-125010x5">Compile the <a 
+  class="enumerate" id="x7-126010x5">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="ectt-1200">source </span>and install it on <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a>.
       </li>
       <li 
-  class="enumerate" id="x7-125012x6">Create a C++ <a 
+  class="enumerate" id="x7-126012x6">Create a C++ <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="ecti-1200">sink </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -1958,16 +1958,16 @@ href="mainli2.html#glo:component">Component</a> code.
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x7-125014x7">Open the file <span 
+  class="enumerate" id="x7-126014x7">Open the file <span 
 class="ectt-1200">sink.cpp </span>and edit it in the following ways:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x7-125016x1">In <span 
+  class="enumerate" id="x7-126016x1">In <span 
 class="ectt-1200">serviceFunction()</span>, comment-out the <span 
 class="ectt-1200">LOG_DEBUG </span>statement
            </li>
            <li 
-  class="enumerate" id="x7-125018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x7-126018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
   ::BULKIO_dataShort_In_i::dataTransfer *tmp =
      this->input->getPacket(-1);
  if (tmp == NULL) {
@@ -1980,7 +1980,7 @@ class="ectt-1200">LOG_DEBUG </span>statement
            </li></ol>
       </li>
       <li 
-  class="enumerate" id="x7-125020x8">Compile the <a 
+  class="enumerate" id="x7-126020x8">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="ectt-1200">sink </span>and install it on <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a>.
@@ -2026,7 +2026,7 @@ class="ectt-1200">_get_statistics()</span>. The resulting data rate is
 now different.
 <!--l. 111--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.8.2   </span> <a 
- id="x7-1260005.7.8.2"></a>Octet Ports</h5>
+ id="x7-1270005.7.8.2"></a>Octet Ports</h5>
 <!--l. 113--><p class="noindent" >Octets are unsigned 8-bit units of data. In Java and C++, these map easily. However, that is not
 the case in Python, which treats a sequence of characters as a string. The following is an example
 of pushing Octet data out of a dataOctet port,
@@ -2038,7 +2038,7 @@ of pushing Octet data out of a dataOctet port,
 ]]></script></div>
 <!--l. 125--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.8.3   </span> <a 
- id="x7-1270005.7.8.3"></a>Data manipulation</h5>
+ id="x7-1280005.7.8.3"></a>Data manipulation</h5>
 <!--l. 127--><p class="noindent" >In this example, a Python <a 
 href="mainli2.html#glo:component">Component</a> is created that takes vectors of floats as inputs, multiplies
 the vector by some arbitrary number, and then outputs the resulting vector. This example
@@ -2050,7 +2050,7 @@ href="mainli2.html#glo:component">Component</a>.
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x7-127002x1">Create a Python <a 
+  class="enumerate" id="x7-128002x1">Create a Python <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="ecti-1200">mult  </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -2069,7 +2069,7 @@ class="ecti-1200">1</span>. Generate the <a
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x7-127004x2">Open the file <span 
+  class="enumerate" id="x7-128004x2">Open the file <span 
 class="ectt-1200">mult.py </span>and add the following lines:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   data, T, EOS, streamID, sri, sriChanged, inputQueueFlushed =
@@ -2088,7 +2088,7 @@ class="ectt-1200">mult.py </span>and add the following lines:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x7-127006x3">Save the project and drag the <span 
+  class="enumerate" id="x7-128006x3">Save the project and drag the <span 
 class="ectt-1200">mult </span>project to <a 
 href="mainli2.html#glo:REDHAWK Explorer"><span 
 class="ecbx-1200">REDHAWK Explorer</span></a> <span 
@@ -2097,7 +2097,7 @@ href="mainli2.html#glo:targetSDR">Target
       SDR</a>.
       </li>
       <li 
-  class="enumerate" id="x7-127008x4">Start a Python session in a command line terminal and run the following commands:
+  class="enumerate" id="x7-128008x4">Start a Python session in a command line terminal and run the following commands:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> mult = sb.launch("mult")
@@ -2114,7 +2114,7 @@ href="mainli2.html#glo:targetSDR">Target
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x7-127010x5">The multiplication factor can be changed while the <a 
+  class="enumerate" id="x7-128010x5">The multiplication factor can be changed while the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> is up.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> mult.factor = 2
@@ -2125,10 +2125,10 @@ href="mainli2.html#glo:Sandbox">Sandbox</a> is up.
       </li></ol>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.8   </span> <a 
- id="x7-1280005.8"></a>Messaging</h3>
+ id="x7-1290005.8"></a>Messaging</h3>
 <!--l. 4--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.1   </span> <a 
- id="x7-1290005.8.1"></a>Introduction</h4>
+ id="x7-1300005.8.1"></a>Introduction</h4>
 <!--l. 6--><p class="noindent" >Messaging relies on <a 
 href="mainap9.html#corba">CORBA</a>&#8217;s event structure as a transport structure. In <a 
 href="mainap9.html#corba">CORBA</a>&#8217;s event <a 
@@ -2169,7 +2169,7 @@ class="ecbx-1200">Message</span></a>
 kind is a structure.
 <!--l. 17--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.2   </span> <a 
- id="x7-1300005.8.2"></a>Message Producer</h4>
+ id="x7-1310005.8.2"></a>Message Producer</h4>
 <!--l. 19--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> producer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
@@ -2179,7 +2179,7 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 21--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-130002x1">Add a Struct <a 
+  class="enumerate" id="x7-131002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Choose an <a 
@@ -2194,7 +2194,7 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x7-130004x2">Add <span 
+  class="enumerate" id="x7-131004x2">Add <span 
 class="ecbx-1200">uses </span><a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap9.html#idl"><span 
@@ -2205,7 +2205,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ectt-1200">MessageEvent</span>
       </li>
       <li 
-  class="enumerate" id="x7-130006x3">Regenerate the <a 
+  class="enumerate" id="x7-131006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 32--><p class="noindent" >For the purposes of the following examples, assume that the structure is as follows:
       <ul class="itemize1">
@@ -2240,7 +2240,7 @@ href="mainli2.html#glo:message">Message</a>.
                                                                                          
 <!--l. 49--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.2.1   </span> <a 
- id="x7-1310005.8.2.1"></a>C++</h5>
+ id="x7-1320005.8.2.1"></a>C++</h5>
 <!--l. 51--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method of the
@@ -2253,7 +2253,7 @@ implementation file):
 ]]></script></div>
 <!--l. 60--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.2.2   </span> <a 
- id="x7-1320005.8.2.2"></a>Java</h5>
+ id="x7-1330005.8.2.2"></a>Java</h5>
 <!--l. 62--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method):
@@ -2266,7 +2266,7 @@ class="ectt-1200">serviceFunction() </span>method):
 ]]></script></div>
 <!--l. 71--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.2.3   </span> <a 
- id="x7-1330005.8.2.3"></a>Python</h5>
+ id="x7-1340005.8.2.3"></a>Python</h5>
 <!--l. 73--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">process() </span>method of the implementation
@@ -2281,14 +2281,14 @@ file):
                                                                                          
 <!--l. 84--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.3   </span> <a 
- id="x7-1340005.8.3"></a>Message Consumer</h4>
+ id="x7-1350005.8.3"></a>Message Consumer</h4>
 <!--l. 87--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> consumer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
 href="mainli2.html#glo:component">Component</a>.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-134002x1">Add a Struct <a 
+  class="enumerate" id="x7-135002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Enter the <a 
@@ -2304,7 +2304,7 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x7-134004x2">Add <span 
+  class="enumerate" id="x7-135004x2">Add <span 
 class="ecbx-1200">uses/provides </span>(bidirectional) <a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap9.html#idl"><span 
@@ -2316,7 +2316,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ectt-1200">MessageEvent</span>
       </li>
       <li 
-  class="enumerate" id="x7-134006x3">Regenerate the <a 
+  class="enumerate" id="x7-135006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 99--><p class="noindent" >The bidirectional <a 
 href="mainli2.html#glo:port">Port</a> is needed because in point-to-point connections, the <a 
@@ -2378,7 +2378,7 @@ href="mainap9.html#id">ID</a> "foo" will trigger the callback function
 class="ectt-1200">messageReceived()</span>. </p></div></div>
 <!--l. 126--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.3.1   </span> <a 
- id="x7-1350005.8.3.1"></a>C++</h5>
+ id="x7-1360005.8.3.1"></a>C++</h5>
 <!--l. 128--><p class="noindent" >Given the asynchronous nature of events, a callback pattern was selected for the consumer.
 <!--l. 130--><p class="noindent" >In the <a 
 href="mainli2.html#glo:component">Component</a> header file, declare the following callback function:
@@ -2403,7 +2403,7 @@ class="ectt-1200">constructor() </span>method, register the callback function:
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.3.2   </span> <a 
- id="x7-1360005.8.3.2"></a>Java</h5>
+ id="x7-1370005.8.3.2"></a>Java</h5>
 <!--l. 151--><p class="noindent" >Java callbacks use the <span 
 class="ectt-1200">org.ossie.events.MessageListener </span>interface, which has a single
 <span 
@@ -2437,7 +2437,7 @@ your callback: <div class="minipage"><script type="syntaxhighlighter" class="bru
 ]]></script></div>
 <!--l. 177--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.3.3   </span> <a 
- id="x7-1370005.8.3.3"></a>Python</h5>
+ id="x7-1380005.8.3.3"></a>Python</h5>
 <!--l. 179--><p class="noindent" >In the <span 
 class="ectt-1200">constructor() </span>method, register the expected <a 
 href="mainli2.html#glo:message">Message</a> with a callback method:
@@ -2457,7 +2457,7 @@ class="ectt-1200">messageReceived()</span>:
 ]]></script></div>
 <!--l. 194--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.4   </span> <a 
- id="x7-1380005.8.4"></a>Viewing Messages</h4>
+ id="x7-1390005.8.4"></a>Viewing Messages</h4>
 <!--l. 196--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> are events with their payload definition tied to structures in <a 
 href="mainli2.html#glo:component">Component</a> <a 
@@ -2501,7 +2501,7 @@ href="mainli2.html#glo:eventchannel">Event Channel</a> in a terminal window:
 ]]></script></div>
 <!--l. 235--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.5   </span> <a 
- id="x7-1390005.8.5"></a>Connecting Producers and Consumers</h4>
+ id="x7-1400005.8.5"></a>Connecting Producers and Consumers</h4>
 <!--l. 237--><p class="noindent" >Producers and consumers can be connected either point-to-point or through an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> in
 the IDE.
@@ -2538,11 +2538,11 @@ href="mainli2.html#glo:eventchannel">Event
 Channel</a>:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-139002x1">Add producer and consumer <a 
+  class="enumerate" id="x7-140002x1">Add producer and consumer <a 
 href="mainli2.html#glo:component">Components</a>.
       </li>
       <li 
-  class="enumerate" id="x7-139004x2">For point-to-point messaging, connect the output <span 
+  class="enumerate" id="x7-140004x2">For point-to-point messaging, connect the output <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a>, <span 
 class="ectt-1200">message_out</span>
@@ -2552,14 +2552,14 @@ href="mainli2.html#glo:port">Port</a> of the receive <a
 href="mainli2.html#glo:component">Component</a>.
       </li>
       <li 
-  class="enumerate" id="x7-139006x3">For messaging via an <a 
+  class="enumerate" id="x7-140006x3">For messaging via an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>, add an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> and connect to
       it.
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x7-139008x1">In the <a 
+  class="enumerate" id="x7-140008x1">In the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> Diagram, under <span 
 class="ecbx-1200">Palette </span><span 
 class="cmmi-12">&#x003E; </span><span 
@@ -2575,13 +2575,13 @@ class="ecbx-1200">Event</span>
 class="ecbx-1200">Channel</span></a> dialog is displayed. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x7-139009r2"></a> <a 
- id="x7-1390071"></a><img 
+ id="x7-140009r2"></a> <a 
+ id="x7-1400071"></a><img 
 src="images/NewEventChannel.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;5.2: </td><td  
-class="content">New Event Channel</td></tr></table><!--tex4ht:label?: x7-139009r2 -->
+class="content">New Event Channel</td></tr></table><!--tex4ht:label?: x7-140009r2 -->
                <!--l. 276--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
                                                                                          
                                                                                          
@@ -2595,7 +2595,7 @@ class="ecbx-1200">Event Channel</span></a> is
                </li></ul>
            </li>
            <li 
-  class="enumerate" id="x7-139011x2">Connect the Uses (Output) <span 
+  class="enumerate" id="x7-140011x2">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the sending <a 
 href="mainli2.html#glo:component">Component</a>,
@@ -2604,7 +2604,7 @@ class="ectt-1200">message_out </span>in this example, to the <a
 href="mainli2.html#glo:eventchannel">Event Channel</a>.
            </li>
            <li 
-  class="enumerate" id="x7-139013x3">Connect the Uses (Output) <span 
+  class="enumerate" id="x7-140013x3">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the receiving <a 
 href="mainli2.html#glo:component">Component</a>,
