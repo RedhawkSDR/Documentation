@@ -55,45 +55,25 @@ href="main.html#mainap7.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;G</span><br /><a 
  id="x27-482000G"></a>Known Compatibility Issues</h2>
 <h3 class="sectionHead"><span class="titlemark">G.1   </span> <a 
- id="x27-483000G.1"></a>Compiling REDHAWK and REDHAWK C++<br 
-class="newline" />Components in RHEL/CentOS 6.4</h3>
-<!--l. 4--><p class="noindent" >Due to a bug in the boost header files at the time <a 
-href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> 6.4 was released, REDHAWK
-and REDHAWK C++ projects do not compile using the system-installed gcc version 4.4.7
+ id="x27-483000G.1"></a>Installing REDHAWK on RHEL/CentOS 6.5</h3>
+<!--l. 4--><p class="noindent" >The Java 7 OpenJDK RPMs shipped with RHEL/CentOS 6.5 contained a bug that prevents
+REDHAWK from installing via RPM. The issue does not affect building or installing REDHAWK
+from source. The issue was addressed by RedHat in later updates, and is corrected as of Java 7
+update 51 (<a 
+href="https://bugzilla.redhat.com/show_bug.cgi?id=1030634" class="url" ><span 
+class="ectt-1200">https://bugzilla.redhat.com/show_bug.cgi?id=1030634</span></a>). Installing the latest
+updated for RHEL/CentOS 6.5 will correct the issue.
+<!--l. 6--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">G.2   </span> <a 
+ id="x27-484000G.2"></a>Compiling REDHAWK and REDHAWK C++<br 
+class="newline" />Components on RHEL/CentOS 6.4</h3>
+<!--l. 7--><p class="noindent" >The boost header files shipped with RHEL/CentOS 6.4 contained a bug that
+prevents REDHAWK and REDHAWK C++ projects from compiling. The issue was
+addressed by RedHat in later updates, and is corrected as of boost 1.41.0 release 17
 (<a 
 href="https://bugzilla.redhat.com/show_bug.cgi?id=921792" class="url" ><span 
-class="ectt-1200">https://bugzilla.redhat.com/show_bug.cgi?id=921792</span></a>). If your system is configured to
-receive the latest <a 
-href="mainap9.html#os">OS</a> updates, performing a yum update resolves this issue. The issue is corrected
-in boost-1.41.0-17 and later.
-<!--l. 6--><p class="noindent" >You may verify your version of the boost header libraries by entering:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-rpm -q boost-devel
-]]></script></div>
-<!--l. 12--><p class="noindent" >If an up-to-date repository is not available, the boost file <span 
-class="ectt-1200">/usr/include/boost/exception_</span>
-<span 
-class="ectt-1200">ptr.hpp </span>may be patched. The following procedure explains how to patch the boost
-file.
-<!--l. 14--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x27-483002x1">Enter the following command.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo vi /usr/include/boost/exception_ptr.hpp
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x27-483004x2">Add the following destructor code starting at line 92.
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-~exception_ptr() throw()
-{
-}
-]]></script></div>
-      </li></ol>
-                                                                                         
-                                                                                         
+class="ectt-1200">https://bugzilla.redhat.com/show_bug.cgi?id=921792</span></a>). Installing the latest updates for
+RHEL/CentOS 6.4 will correct the issue.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
