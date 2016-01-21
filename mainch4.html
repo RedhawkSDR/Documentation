@@ -1032,8 +1032,8 @@ class="ectt-1200">Makefile.am </span>file in your component&#8217;s implementati
 compiler and linker flags to the end of the CXXFLAGS and LDADD lines, respectively. For
 example:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-MyComponent_CXXFLAGS = ... -I/usr/local/include/foo
-MyComponent_LDADD = ... -L/usr/local/lib64 -lfoo
+MyComponent_CXXFLAGS += -I/usr/local/include/foo
+MyComponent_LDADD += -L/usr/local/lib64 -lfoo
 ]]></script></div>
                                                                                          
                                                                                          
