@@ -115,8 +115,16 @@ href="mainap9.html#ide">IDE</a> provides an environment for deploying and mainta
 <a 
 href="mainli2.html#glo:application">Applications</a> onto fielded systems. Furthermore, the pluggable nature of Eclipse allows system
 developers to add customized system user-interface modules.
+<!--l. 22--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The REDHAWK Explorer is a lighter-weight application that includes a subset of the
+REDHAWK <a 
+href="mainap9.html#ide">IDE</a>&#8217;s functionality. The REDHAWK Explorer can be used to connect to a running
                                                                                          
                                                                                          
+REDHAWK <a 
+href="mainli2.html#glo:domain">Domain</a>, navigate the contents, launch and view <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>, and so forth. It provides
+no development functionality, only runtime interaction with REDHAWK <a 
+href="mainli2.html#glo:domain">Domains</a>. </p></div></div>
 <h3 class="sectionHead"><span class="titlemark">14.1   </span> <a 
  id="x16-31000014.1"></a>Launching the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> for the First Time</h3>
@@ -163,12 +171,12 @@ href="mainap9.html#ide">IDE</a> and provides a
 Python <a 
 href="mainap9.html#ide">IDE</a> for Eclipse, which may be used in Python, Jython, and IronPython development.
 <!--l. 6--><p class="noindent" >PyDev&#8217;s many features include:
+                                                                                         
+                                                                                         
       <ul class="itemize1">
       <li class="itemize">Code completion
       </li>
       <li class="itemize">Code completion with auto import
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">Type hinting
       </li>
@@ -203,13 +211,13 @@ class="ectt-1200">http://pydev.org/manual.html</span></a></li></ul>
 <!--l. 28--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> PyDev&#8217;s default configuration causes some files within REDHAWK to appear as if they are
 invalid. To address these problems, refer to <a 
 href="#x16-31200014.2">Section 14.2</a>. </p></div></div>
+                                                                                         
+                                                                                         
 <h3 class="sectionHead"><span class="titlemark">14.2   </span> <a 
  id="x16-31200014.2"></a>Configuring PyDev for REDHAWK Development</h3>
 <!--l. 3--><p class="noindent" >Every time a new workspace is used, PyDev is automatically configured. If you want to manually
 configure PyDev, use the following procedure:
 <!--l. 6--><p class="noindent" >
-                                                                                         
-                                                                                         
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x16-312002x1">Start the REDHAWK <a 
@@ -255,6 +263,8 @@ class="ecbx-1200">&#x2026;</span>
       </li>
       <li 
   class="enumerate" id="x16-312016x8">Enter the following information into the dialog box. Remove any new lines.
+                                                                                         
+                                                                                         
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 bulkio.bulkioInterfaces.BULKIO,
 bulkio.bulkioInterfaces.BULKIO__POA,
@@ -271,8 +281,6 @@ ossie.cf.StandardEvent__POA
       <li 
   class="enumerate" id="x16-312018x9">Click <span 
 class="ecbx-1200">OK</span>.</li></ol>
-                                                                                         
-                                                                                         
 <!--l. 39--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">14.2.1   </span> <a 
  id="x16-31300014.2.1"></a>PyDev: Undefined variable or imports</h4>
@@ -299,6 +307,8 @@ href="mainli2.html#glo:view">Views</a> in the Eclipse context.
 href="mainap9.html#ide">IDE</a> <a 
 href="mainli2.html#glo:workbench">Workbench</a> is the <a 
 href="mainli2.html#glo:editor">Editor</a> window, which is empty at initial startup. The
+                                                                                         
+                                                                                         
 <a 
 href="mainli2.html#glo:editor">Editor</a> is the primary window used when developing code within the REDHAWK <a 
 href="mainap9.html#ide">IDE</a>. An Eclipse
@@ -327,8 +337,6 @@ referred to as a <a
 href="mainli2.html#glo:perspective">Perspective</a>. By changing <a 
 href="mainli2.html#glo:perspective">Perspectives</a> throughout the development process, a
 developer may optimize his/her work environment based on the requirements of the particular task
-                                                                                         
-                                                                                         
 at hand. The default <a 
 href="mainli2.html#glo:perspective">Perspective</a> in the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> is the REDHAWK <a 
@@ -372,6 +380,8 @@ class="ecbx-1200">Window </span><span
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Reset Perspective</span><span 
 class="ecbx-1200">&#x2026;</span></li></ol>
+                                                                                         
+                                                                                         
 <!--l. 57--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">14.3.2   </span> <a 
  id="x16-31600014.3.2"></a>The REDHAWK Perspective</h4>
@@ -394,8 +404,6 @@ class="ecbx-1200">Project  Explorer  View</span></a>:  Provides  a  hierarchical
 href="mainli2.html#glo:Outline View"><span 
 class="ecbx-1200">Outline View</span></a>: Displays an outline of a structured file that is currently open in the
       editor area.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:Properties View"><span 
@@ -456,6 +464,8 @@ src="images/REDHAWK_Explorer_View.png" alt="PIC"
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;14.2: </td><td  
 class="content">The REDHAWK Explorer View</td></tr></table><!--tex4ht:label?: x16-316001r2 -->
       <!--l. 94--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><a 
 href="mainli2.html#glo:CORBA Name Browser View"><a 
@@ -491,8 +501,6 @@ src="images/REDHAWK_Name_Browser.png" alt="PIC"
 class="content">The CORBA Name Browser View</td></tr></table><!--tex4ht:label?: x16-316002r3 -->
       <!--l. 106--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li></ul>
-                                                                                         
-                                                                                         
 <!--l. 109--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">14.3.3   </span> <a 
  id="x16-31700014.3.3"></a>Programming Language Specific Perspectives</h4>
@@ -533,6 +541,8 @@ href="mainli2.html#glo:editor">Editors</a> and <a
 href="mainli2.html#glo:view">Views</a> provided with the REDHAWK
 <a 
 href="mainap9.html#ide">IDE</a>.
+                                                                                         
+                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">14.4.1   </span> <a 
  id="x16-31900014.4.1"></a>SoftPkg Editor</h4>
 <!--l. 5--><p class="noindent" ><hr class="figure"><div class="figure" 
@@ -1370,17 +1380,17 @@ href="mainli2.html#glo:port">Ports</a>. Any unsupported or erroneous
 connection that the <a 
 href="mainap9.html#ide">IDE</a> can detect is marked with an appropriate indicator. Hovering over the
 indicator provides information concerning the error.
-<!--l. 166--><p class="noindent" >To add a <span 
-class="ecti-1200">usesdevice </span>dependency to a <a 
-href="mainli2.html#glo:waveformapplication">Waveform</a>:
+<!--l. 166--><p class="noindent" >To add a dependency on a FrontEnd Tuner <a 
+href="mainli2.html#glo:device">Device</a> that the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> needs to use at runtime (a
+<span 
+class="ecti-1200">usesdevice </span>in the XML):
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x16-327020x1">From the <span 
 class="ecbx-1200">Palette</span>, in the <span 
 class="ecbx-1200">Advanced </span>folder, select <span 
-class="ecbx-1200">Use FrontEnd Tuner </span><a 
-href="mainli2.html#glo:device"><span 
-class="ecbx-1200">Device</span></a>
+class="ecbx-1200">Use FrontEnd Tuner Device</span>
       and drag it onto the diagram. <span 
 class="ecbx-1200">The Select Target Device </span>dialog is displayed.
       <!--l. 172--><p class="noindent" ><hr class="figure"><div class="figure" 
@@ -1397,10 +1407,13 @@ class="content">Select Target Device</td></tr></table><!--tex4ht:label?: x16-327
       </li>
       <li 
   class="enumerate" id="x16-327023x2">Select the FrontEnd Tuner <a 
-href="mainli2.html#glo:device">Device</a> you want to use and click <span 
+href="mainli2.html#glo:device">Device</a> you want to use. This will complete some of the
+      information in the subsequent wizard pages. Alternatively, select <span 
+class="ecbx-1200">Generic FrontEnd</span>
+      <span 
+class="ecbx-1200">Device </span>for defaults. Click <span 
 class="ecbx-1200">Next</span>. The <span 
-class="ecbx-1200">Allocate Tuner</span>
-      dialog is displayed.
+class="ecbx-1200">Allocate Tuner </span>dialog is displayed.
       <!--l. 182--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
@@ -1445,19 +1458,21 @@ src="images/ide/usingChap/editorAndViews/IdentifyPorts.png" alt="PIC"
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;14.17: </td><td  
 class="content">Identify Ports</td></tr></table><!--tex4ht:label?: x16-327029r17 -->
       <!--l. 198--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+                                                                                         
+                                                                                         
       </li>
       <li 
-  class="enumerate" id="x16-327031x5">Enter the uses and provides <a 
-href="mainli2.html#glo:port">Ports</a> and click <span 
-class="ecbx-1200">Finish</span>. The Use FrontEnd Tuner <a 
-href="mainli2.html#glo:device">Device</a> is
-      displayed in the diagram. When you launch the <a 
+  class="enumerate" id="x16-327031x5">Enter the names of any uses and provides <a 
+href="mainli2.html#glo:port">Ports</a> that you want to use from the target <a 
+href="mainli2.html#glo:device">Device</a>
+      and click <span 
+class="ecbx-1200">Finish</span>. The <span 
+class="ecbx-1200">Use FrontEnd Tuner Device </span>is displayed in the diagram. When
+      you launch the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, the FrontEnd Tuner <a 
-href="mainli2.html#glo:device">Device</a> must
-      be available in order for the <a 
+href="mainli2.html#glo:device">Device</a> must be available in order for the
+      <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> to run.
-                                                                                         
-                                                                                         
       <!--l. 204--><p class="noindent" >The <span 
 class="ectt-1200">sad.xml </span>tab displays the raw <a 
 href="mainap9.html#xml">XML</a> data, which describes this <a 
@@ -2029,7 +2044,7 @@ class="ecbx-1200">IF </span>and <span
 class="ecbx-1200">RF </span>radio buttons enable you to toggle between Intermediate Frequency (<a 
 href="mainap9.html#if">IF</a>) and
       <a 
-href="mainap9.html#rf">RF</a> frequency values on <a 
+href="mainap9.html#rf">RF</a> frequency values for the x-axis on <a 
 href="mainap9.html#fft">FFT</a> plots.
       </li>
       <li class="itemize"><span 
