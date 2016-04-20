@@ -135,7 +135,7 @@ href="mainli2.html#glo:device">Device</a> (<a
 href="mainli2.html#glo:device">Devices</a> are specialized <a 
 href="mainli2.html#glo:component">Components</a> - more on that in
 <a 
-href="mainch7.html#x9-1560007">Chapter 7</a>). To retrieve a <a 
+href="mainch7.html#x9-1720007">Chapter 7</a>). To retrieve a <a 
 href="mainli2.html#glo:port">Port</a>, an external entity needs to call <span 
 class="ectt-1200">getPort() </span>on the <a 
 href="mainli2.html#glo:component">Component</a> that
@@ -197,17 +197,17 @@ mechanism.
  id="x7-940005.6"></a>Standardized Data Interfaces</h3>
 <!--l. 4--><p class="noindent" >Data flow between REDHAWK resources (<a 
 href="mainli2.html#glo:component">Components</a> and <a 
-href="mainli2.html#glo:device">Devices</a>) is managed through two
-sets of interfaces: <a 
+href="mainli2.html#glo:device">Devices</a>) is managed through two sets
+of interfaces: <a 
 href="mainap9.html#bulkio">BulkIO</a> and <a 
 href="mainap9.html#burstio">BurstIO</a>. The <a 
-href="mainap9.html#bulkio">BulkIO</a> module is designed for streaming
-data and maximizes the efficiency for bulk data transfers between resources, where as,
-<a 
-href="mainap9.html#burstio">BurstIO</a> is designed for applications that require small and possibly non-contiguous
-chunks of data transfers. Both interfaces also allow for the association of metadata, Signal
+href="mainap9.html#bulkio">BulkIO</a> module is designed for streaming data and
+maximizes the efficiency for bulk data transfers between resources, where as, <a 
+href="mainap9.html#burstio">BurstIO</a> is designed
+for applications that require small and possibly non-contiguous chunks of data transfers. Both
+interfaces also allow for the association of metadata, Signal Related Information (Signal
 Related Information (<a 
-href="mainap9.html#sri">SRI</a>), and a Precision Time Stamp, which describe the content
+href="mainap9.html#sri">SRI</a>)), and a Precision Time Stamp, which describe the content
 being transferred in support of content processing. The following 3 sections detail the
 capabilites for both <a 
 href="mainap9.html#bulkio">BulkIO</a> and <a 
@@ -1031,11 +1031,11 @@ class="content">SDDS Stream Definition Member Descriptions</td></tr></table><!--
  id="x7-1010005.7.2"></a>Signal Related Information (SRI)</h4>
 <!--l. 3--><p class="noindent" ><a 
 href="mainap9.html#sri">SRI</a> is delivered with the data (when in-band) that describes the data payload. Section <a 
-href="mainch4.html#x6-710004.6">4.6<!--tex4ht:ref: sri_keywords --></a> provides
-guidance on how to manipulate keyworks in <a 
+href="#x7-1020005.7.2.1">5.7.2.1<!--tex4ht:ref: sri_keywords --></a>
+provides guidance on how to manipulate keyworks in <a 
 href="mainap9.html#sri">SRI</a>. The <a 
-href="mainap9.html#sri">SRI</a> data structure fields are described in
-<a 
+href="mainap9.html#sri">SRI</a> data structure fields are
+described in <a 
 href="#x7-101001r8">Table 5.8</a>.
 <div class="table">
                                                                                          
@@ -1184,14 +1184,14 @@ href="mainap9.html#sri">SRI</a> fields</td></tr></table><!--tex4ht:label?: x7-10
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
-<!--l. 48--><p class="noindent" ><a 
+<!--l. 47--><p class="noindent" ><a 
 href="mainap9.html#sri">SRI</a> is transferred over a connection by the uses-side invoking the provides-side function
 <span 
 class="ectt-1200">pushSRI()</span>. The <span 
 class="ectt-1200">pushSRI() </span>function contains a single argument, an instance of an <a 
 href="mainap9.html#sri">SRI</a>
 object.
-<!--l. 51--><p class="noindent" >Each provides-side <a 
+<!--l. 50--><p class="noindent" >Each provides-side <a 
 href="mainli2.html#glo:port">Port</a> that implements a <a 
 href="mainap9.html#bulkio">BulkIO</a> interface expects that <a 
 href="mainap9.html#sri">SRI</a> regarding data being
@@ -1205,7 +1205,7 @@ href="mainap9.html#bulkio">BulkIO</a> connection does not explicitly invoke a
 class="ectt-1200">pushSRI() </span>call before any data is sent out, the auto-generated code creates a trivial <a 
 href="mainap9.html#sri">SRI</a> message
 with normalized values.
-<!--l. 55--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
+<!--l. 54--><p class="noindent" >Part of the hard-coded behavior on the uses-side <a 
 href="mainap9.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a> is to issue a <span 
 class="ectt-1200">pushSRI() </span>when a new
@@ -1220,8 +1220,122 @@ class="ectt-1200">pushSRI() </span>method call is automatically made from <a
 href="mainli2.html#glo:component">Component</a> A to <a 
 href="mainli2.html#glo:component">Component</a>
 C.
+<h5 class="subsubsectionHead"><span class="titlemark">5.7.2.1   </span> <a 
+ id="x7-1020005.7.2.1"></a>SRI Keywords</h5>
+<!--l. 4--><p class="noindent" ><a 
+href="mainap9.html#sri">SRI</a> is metadata to describe the payload being pushed (for example, sampling period). While it is
+possible to describe some generic parameters, signal specific parameters are be stored in a
+generalized structure called <a 
+href="mainap9.html#sri">SRI</a> Keywords. <a 
+href="mainap9.html#sri">SRI</a> keywords are passed as a sequence of key/value
+pairs ( <span 
+class="ectt-1200">CF::DataType</span>) of type <span 
+class="ectt-1200">CF::Properties</span>. In <a 
+href="mainli2.html#glo:property">Properties</a>, the keys are strings, and the values
+are a <a 
+href="mainap9.html#corba">CORBA</a> type called <span 
+class="ectt-1200">CORBA::Any</span>. <span 
+class="ectt-1200">CORBA::Any </span>is a structure that can be used to marshal a
+wide variety of types. REDHAWK has developed helper APIs to interact with the keyword
+sequence.
+<!--l. 10--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">5.7.2.2   </span> <a 
+ id="x7-1030005.7.2.2"></a>Adding SRI Keywords in C++, Python, and Java</h5>
+<!--l. 11--><p class="noindent" >Given a <a 
+href="mainli2.html#glo:component">Component</a> with simple <a 
+href="mainli2.html#glo:property">Properties</a> <span 
+class="ectt-1200">chan_rf </span>and <span 
+class="ectt-1200">col_rf </span>that are of type double and have
+an initial value of <span 
+class="ectt-1200">-1</span>, and a <a 
+href="mainap9.html#bulkio">BulkIO</a> StreamSRI instance named <span 
+class="ectt-1200">sri</span>, the following implementations
+in C++, Python and Java, push out those <a 
+href="mainli2.html#glo:property">Property</a> values as the keywords <span 
+class="ectt-1200">COL_RF </span>and
+<span 
+class="ectt-1200">CHAN_RF</span>.
+                                                                                         
+                                                                                         
+<!--l. 13--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1040005.7.2.2"></a><span 
+class="ecbx-1200">C++ Implementation</span></span>
+The <span 
+class="ectt-1200">redhawk::PropertyMap </span>property map enables you to manipulate the sequence of keywords.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+#include <ossie/PropertyMap.h>
+
+redhawk::PropertyMap &tmp = redhawk::PropertyMap::cast(sri.keywords);
+tmp["CHAN_RF"] = chan_rf;
+tmp["COL_RF"] = col_rf;
+]]></script></div>
+<!--l. 23--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1050005.7.2.2"></a><span 
+class="ecbx-1200">Python Implementation</span></span>
+<span 
+class="ectt-1200">omniORB </span>helpers <span 
+class="ectt-1200">any.to_any </span>are used to convert a Python type to a <span 
+class="ectt-1200">CORBA::Any</span>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+from omniORB import any
+
+self.sri.keywords.append(CF.DataType("CHAN_RF", any.to_any(self.chan_rf)))
+self.sri.keywords.append(CF.DataType("COL_RF", any.to_any(self.col_rf)))
+]]></script></div>
+<!--l. 33--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1060005.7.2.2"></a><span 
+class="ecbx-1200">Java Implementation</span></span>
+The <span 
+class="ectt-1200">AnyUtils </span>package is used to convert a Java type to a <span 
+class="ectt-1200">CORBA::Any</span>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+import org.ossie.properties.AnyUtils;
+
+double chan_rf = this.chan_rf.getValue();
+double col_rf = this.col_rf.getValue();
+sri.keywords = new DataType[2];
+sri.keywords[0] = new DataType("CHAN_RF", AnyUtils.toAny(chan_rf, TCKind.tk_double));
+sri.keywords[1] = new DataType("COL_RF", AnyUtils.toAny(col_rf, TCKind.tk_double));
+]]></script></div>
+<!--l. 45--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h5 class="subsubsectionHead"><span class="titlemark">5.7.2.3   </span> <a 
+ id="x7-1070005.7.2.3"></a>Verifying SRI Keywords</h5>
+<!--l. 47--><p class="noindent" >It is possible to verify the keywords and values being pushed out by connecting a <span 
+class="ectt-1200">DataSink()</span>
+<a 
+href="mainli2.html#glo:component">Component</a> in the Python <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>. This assumes there is at least one <a 
+href="mainap9.html#bulkio">BulkIO</a> output <a 
+href="mainli2.html#glo:port">Port</a> for the
+test <a 
+href="mainli2.html#glo:component">Component</a>, and a <span 
+class="ectt-1200">pushSRI() </span>call is made on that <a 
+href="mainli2.html#glo:port">Port</a>. The following code demonstrates this
+verification:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> from ossie.utils import sb
+&gt;&gt;> comp = sb.launch("<component name>")
+&gt;&gt;> sink = sb.DataSink()
+&gt;&gt;> comp.connect(sink)
+&gt;&gt;> sb.start()
+&gt;&gt;> print sink.sri().keywords
+]]></script></div>
+<!--l. 58--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1080005.7.2.3"></a><span 
+class="ecbx-1200">Retrieving SRI in C++</span></span>
+Because <span 
+class="ectt-1200">redhawk::PropertyMap </span>maps the <span 
+class="ectt-1200">CORBA::Any</span>, retrieving the contents requires the use of
+getters. Assuming that the content of a particular keyword is a double,
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+redhawk::PropertyMap &tmp = redhawk::PropertyMap::cast(sri.keywords);
+chan_rf = tmp["CHAN_RF"].toDouble();
+]]></script></div>
+<!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.3   </span> <a 
- id="x7-1020005.7.3"></a>Stream API</h4>
+ id="x7-1090005.7.3"></a>Stream API</h4>
 <!--l. 3--><p class="noindent" >The <a 
 href="mainap9.html#bulkio">BulkIO</a> stream API provides a high-level interface to sending and receiving data via <a 
 href="mainap9.html#bulkio">BulkIO</a>
@@ -1235,27 +1349,27 @@ around by value or safely stored in other data structures.
 href="mainap9.html#bulkio">BulkIO</a> port types support the stream API. UDP multicast (SDDS and VITA49) and
 string-based (string, file and XML) interfaces do not.
 <!--l. 9--><p class="noindent" >Most stream methods are not thread-safe; it is assumed that each stream will be written to or read
+                                                                                         
+                                                                                         
 from by a single thread. However, it is safe to use multiple streams simultaneously.
-<!--l. 11--><p class="noindent" >In 2.0.0, the <a 
-href="mainap9.html#bulkio">BulkIO</a> stream API is C++ only.
-<!--l. 13--><p class="noindent" >
+<!--l. 11--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The <a 
+href="mainap9.html#bulkio">BulkIO</a> stream API is C++-only in REDHAWK 2.0.1. </p></div></div>
+<!--l. 15--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.1   </span> <a 
- id="x7-1030005.7.3.1"></a>Output Streams</h5>
-<!--l. 15--><p class="noindent" >Each numeric output port type has a corresponding stream type (e.g., <span 
+ id="x7-1100005.7.3.1"></a>Output Streams</h5>
+<!--l. 17--><p class="noindent" >Each numeric output port type has a corresponding stream type (e.g., <span 
 class="ectt-1200">bulkio::OutFloatStream</span>
-                                                                                         
-                                                                                         
 for <span 
 class="ectt-1200">bulkio::OutFloatPort</span>) that provides the interface for sending stream data. Using streams
 ensures that data is always associated with an active <a 
 href="mainap9.html#sri">SRI</a> and simplifies management of stream
 lifetime.
-<!--l. 17--><p class="noindent" >Create an output stream via the port:
+<!--l. 19--><p class="noindent" >Create an output stream via the port:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // Create a new stream with id "my_stream_id" and default SRI
 bulkio::OutFloatStream stream = dataFloat_out->createStream("my_stream_id");
 ]]></script></div>
-<!--l. 24--><p class="noindent" >Output streams provide convenience methods for modifying common <a 
+<!--l. 26--><p class="noindent" >Output streams provide convenience methods for modifying common <a 
 href="mainap9.html#sri">SRI</a> fields:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // Stream is complex data at a sample rate of 250Ksps, centered at 91.1MHz
@@ -1263,14 +1377,14 @@ stream.complex(true);
 stream.xdelta(1.0 / 250000.0);
 stream.setKeyword("CHAN_RF", 91.1e6);
 ]]></script></div>
-<!--l. 33--><p class="noindent" >The <a 
+<!--l. 35--><p class="noindent" >The <a 
 href="mainap9.html#sri">SRI</a> can be updated in its entirety with the <span 
 class="ectt-1200">sri() </span>method. Updates to the <a 
 href="mainap9.html#sri">SRI</a> are stored and
 pushed before the next packet goes out.
-<!--l. 35--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> It is not necessary to manually call <span 
+<!--l. 37--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> It is not necessary to manually call <span 
 class="ectt-1200">pushSRI() </span>when using streams. </p></div></div>
-<!--l. 39--><p class="noindent" >Data is sent with the <span 
+<!--l. 41--><p class="noindent" >Data is sent with the <span 
 class="ectt-1200">write() </span>method:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // Assume data is of type std::vector<float>
@@ -1279,53 +1393,80 @@ stream.write(data, bulkio::time::utils::now());
 // Assume buffer is a pointer to std::complex<float>
 stream.write(buffer, size, bulkio::time::utils::now());
 ]]></script></div>
-<!--l. 49--><p class="noindent" >Complex data should be written with a vector of or pointer to <span 
+                                                                                         
+                                                                                         
+<!--l. 51--><p class="noindent" >Complex data should be written with a vector of or pointer to <span 
 class="ectt-1200">std::complex </span>values to ensure that
 an integral number of samples is sent. When writing scalar data to a complex stream, make sure
 that the size is a multiple of 2.
-<!--l. 51--><p class="noindent" >Closing an output stream sends and end-of-stream packet and dissociates the stream from the
+<!--l. 53--><p class="noindent" >Closing an output stream sends and end-of-stream packet and dissociates the stream from the
 output port.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 stream.close();
 ]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 57--><p class="noindent" >
+<!--l. 59--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.2   </span> <a 
- id="x7-1040005.7.3.2"></a>Input Streams</h5>
-<!--l. 59--><p class="noindent" >An input stream encapsulates <a 
+ id="x7-1110005.7.3.2"></a>Input Streams</h5>
+<!--l. 61--><p class="noindent" >An input stream encapsulates <a 
 href="mainap9.html#sri">SRI</a> and all received packets associated with that stream ID.
 Buffering and overlap are built in, removing the need for client code to implement these features.
 Each numeric input port type has a corresponding stream type (e.g., <span 
 class="ectt-1200">bulkio::InFloatStream </span>for
 <span 
 class="ectt-1200">bulkio::InFloatPort</span>).
-<!--l. 61--><p class="noindent" >Input streams are created automatically by the input port when an <a 
+<!--l. 63--><p class="noindent" >Input streams are created automatically by the input port when an <a 
 href="mainap9.html#sri">SRI</a> is received
 with a new stream ID. Only one stream per port can exist with a given stream ID;
 in the event that an input stream has an unacknowledged end-of-stream waiting, a
 new <a 
 href="mainap9.html#sri">SRI</a> with the same stream ID will be queued until the end-of-stream has been
 reached.
-<!--l. 63--><p class="noindent" >Methods that accept or return a number of samples take the input stream&#8217;s complex mode into
+<!--l. 65--><p class="noindent" >Methods that accept or return a number of samples take the input stream&#8217;s complex mode into
 account. For example, requesting 1024 samples from a complex stream returns 1024 complex pairs,
 which is equivalent to 2048 scalar values.
-<!--l. 65--><p class="noindent" >There are two ways of retrieving an input stream: <a 
-href="#x7-1050005.7.3.3">Section 5.7.3.3</a> or <a 
-href="#x7-1060005.7.3.4">Section 5.7.3.4</a>.
-<!--l. 67--><p class="noindent" >
+<!--l. 67--><p class="noindent" >There are two ways of retrieving an input stream: <a 
+href="#x7-1120005.7.3.3">Section 5.7.3.3</a> or <a 
+href="#x7-1140005.7.3.4">Section 5.7.3.4</a>.
+<!--l. 69--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.3   </span> <a 
- id="x7-1050005.7.3.3"></a>Stream Polling</h5>
-<!--l. 70--><p class="noindent" >When the input stream is not known, or multiple streams are being serviced by a single thread, the
-input port&#8217;s <span 
-class="ectt-1200">pollStreams() </span>family of methods allow you to wait for one or more streams to be
-ready to read. Like <span 
-class="ectt-1200">getPacket()</span>, <span 
-class="ectt-1200">pollStreams </span>takes a timeout argument to set the maximum
-wait time.
-<!--l. 72--><p class="noindent" >The ready streams are returned as a list:
+ id="x7-1120005.7.3.3"></a>Stream Polling</h5>
+<!--l. 72--><p class="noindent" >For the basic case, the <span 
+class="ectt-1200">getCurrentStream() </span>method returns the next input stream that is ready
+for reading. Similar to <span 
+class="ectt-1200">getPacket()</span>, the next packet in the queue is consulted; however, if any
+stream has buffered data from a prior read (such as when using fixed-sized reads), it is given
+priority. Developers accustomed to using <span 
+class="ectt-1200">getPacket() </span>will find that <span 
+class="ectt-1200">getCurrentStream()</span>
+provides a familiar flow, while extending the available functionality.
                                                                                          
                                                                                          
+<!--l. 76--><p class="noindent" >The optional timeout argument is identical to the timeout argument for <span 
+class="ectt-1200">getPacket</span>. If the timeout
+is omitted, <span 
+class="ectt-1200">getCurrentStream() </span>defaults to blocking mode:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+// Wait indefinitely for a stream to become ready
+bulkio::InFloatStream stream = dataFloat_in->getCurrentStream();
+if (!stream) {
+  return NOOP;
+}
+]]></script></div>
+<!--l. 87--><p class="noindent" >If there are no streams ready, such as when the timeout expires or the <a 
+href="mainli2.html#glo:component">Component</a> receives a
+<span 
+class="ectt-1200">stop() </span>call, the returned stream will be invalid. The boolean not (!) operator returns true if the
+stream is invalid; no other operations are safe to call on an invalid stream.
+<!--l. 90--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1130005.7.3.3"></a><span 
+class="ecbx-1200">Advanced Polling</span></span>
+For more advanced use, the input port&#8217;s <span 
+class="ectt-1200">pollStreams() </span>family of methods allow you to wait for
+one or more streams to be ready to read. Like <span 
+class="ectt-1200">getCurrentStream()</span>, <span 
+class="ectt-1200">pollStreams </span>takes a timeout
+argument to set the maximum wait time.
+<!--l. 94--><p class="noindent" >The ready streams are returned as a list:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // Wait up to 1/8th second for a stream to be ready
 bulkio::InFloatPort::StreamList streams = dataFloat_in->pollStreams(0.125);
@@ -1335,36 +1476,34 @@ if (streams.empty()) {
 for (bulkio::InFloatPort::StreamList::iterator stream = streams.begin();
       stream != streams.end();
       ++stream) {
-  // Read data from each stream; note that stream is an iterator
-  bulkio::FloatDataBlock block = stream->read();
+  // Handle each stream; note that stream is an iterator
+  LOG_TRACE(Component_i, Reading stream  &lt;&lt; stream->streamID());
 }
 ]]></script></div>
-<!--l. 88--><p class="noindent" >If no streams are ready, the returned list is empty. <span 
+<!--l. 110--><p class="noindent" >If no streams are ready, the returned list is empty. <span 
 class="ectt-1200">pollStreams() </span>returns as soon as one stream is
 ready.
-<!--l. 90--><p class="noindent" >If a minimum number of samples is required, it may be provided in the <span 
+<!--l. 112--><p class="noindent" >If a minimum number of samples is required, it may be provided in the <span 
 class="ectt-1200">pollStreams()</span>
 call:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 bulkio::InFloatPort::StreamList streams = dataFloat_in->pollStreams(1024, bulkio::Const::BLOCKING);
 ]]></script></div>
-<!--l. 96--><p class="noindent" >
+<!--l. 118--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.4   </span> <a 
- id="x7-1060005.7.3.4"></a>Stream Callback</h5>
-<!--l. 99--><p class="noindent" >As opposed to polling, callback functions may be registered with the input port to be
-notified when a new stream has been created. This pattern is probably a better fit for
-most use cases, since a <a 
-href="mainli2.html#glo:component">Component</a> developer has no way of controlling when new data
-arrives.
-<!--l. 102--><p class="noindent" >The callback has no return value and takes a single argument, the input stream type:
+ id="x7-1140005.7.3.4"></a>Stream Callback</h5>
+<!--l. 121--><p class="noindent" >As opposed to polling, callback functions may be registered with the input port to be notified when
+a new stream has been created. Using a callback supports more sophisticated patterns, such as
+handling each stream in a separate thread or disabling unwanted streams.
+<!--l. 124--><p class="noindent" >The callback has no return value and takes a single argument, the input stream type:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 void MyComponent_i::newStreamCreated(bulkio::InFloatStream newStream) {
   // Store the stream in the component, set up supporting data structures, etc.
 }
 ]]></script></div>
-<!--l. 110--><p class="noindent" >Register the callback with the port in the REDHAWK constructor:
-                                                                                         
-                                                                                         
+<!--l. 132--><p class="noindent" >Register the callback with the port in the REDHAWK constructor:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 void MyComponent_i::constructor()
 {
@@ -1373,17 +1512,19 @@ void MyComponent_i::constructor()
   ...
 }
 ]]></script></div>
-<!--l. 121--><p class="noindent" >
+<!--l. 143--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.5   </span> <a 
- id="x7-1070005.7.3.5"></a>Data Blocks</h5>
-<!--l. 123--><p class="noindent" >In <a 
+ id="x7-1150005.7.3.5"></a>Data Blocks</h5>
+<!--l. 145--><p class="noindent" >In <a 
 href="mainap9.html#bulkio">BulkIO</a> input stream-based code, data is retrieved from data streams as blocks. Each input
 stream data type has a corresponding data block type, such as <span 
 class="ectt-1200">bulkio::FloatDataBlock</span>. Data
 blocks can be retrieved on a per-packet basis, or they can be retrieved as a definite-sized buffer,
 with or without overlap.
-<!--l. 127--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1080005.7.3.5"></a><span 
+                                                                                         
+                                                                                         
+<!--l. 149--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1160005.7.3.5"></a><span 
 class="ecbx-1200">Reading Data Blocks</span></span>
 The <span 
 class="ectt-1200">read() </span>family of methods synchronously fetch data from a stream. The basic <span 
@@ -1392,27 +1533,25 @@ the next packet worth of data for the stream, blocking if necessary:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 bulkio::FloatDataBlock block = stream.read();
 ]]></script></div>
-<!--l. 135--><p class="noindent" >You may request a set amount of data by supplying the number of samples:
+<!--l. 157--><p class="noindent" >You may request a set amount of data by supplying the number of samples:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 bulkio::FloatDataBlock block = stream.read(1024);
 ]]></script></div>
-<!--l. 141--><p class="noindent" >The <span 
+<!--l. 163--><p class="noindent" >The <span 
 class="ectt-1200">read() </span>call blocks until at least the requested number of samples is available. Packets are
 combined or split as necessary to return the correct amount of data. The returned block may
 contain less than the requested number of samples if the stream has ended or the component is
 stopped.
-<!--l. 143--><p class="noindent" >For algorithms that require data to overlap between iterations, you may also pass the number of
+<!--l. 165--><p class="noindent" >For algorithms that require data to overlap between iterations, you may also pass the number of
 samples to consume:
-                                                                                         
-                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // Read with 1K samples with 50% overlap
 bulkio::FloatDataBlock block = dataFloat_in->read(1024, 512);
 ]]></script></div>
-<!--l. 150--><p class="noindent" >The input stream&#8217;s read pointer is advanced up to the consume length. The next call to <span 
+<!--l. 172--><p class="noindent" >The input stream&#8217;s read pointer is advanced up to the consume length. The next call to <span 
 class="ectt-1200">read()</span>
 will return data starting at that point.
-<!--l. 152--><p class="noindent" >If the an end-of-stream flag is received, or the component is interrupted, <span 
+<!--l. 174--><p class="noindent" >If the an end-of-stream flag is received, or the component is interrupted, <span 
 class="ectt-1200">read() </span>may return early.
 In the overlap case, if end-of-stream is reached before receiving the requested number of samples,
 all remaining data is consumed and no further reads are possible.
@@ -1423,16 +1562,18 @@ if (!block) {
   }
 }
 ]]></script></div>
-<!--l. 162--><p class="noindent" >Data can be dropped with <span 
+<!--l. 184--><p class="noindent" >Data can be dropped with <span 
 class="ectt-1200">skip()</span>:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 // Drop the next 256 samples
 size_t skipped = stream.skip(256);
 ]]></script></div>
-<!--l. 169--><p class="noindent" >The returned value is the number of samples that were dropped. If the streams ends or the
+<!--l. 191--><p class="noindent" >The returned value is the number of samples that were dropped. If the streams ends or the
 component is stopped, this may be less than the requested value.
-<!--l. 171--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1090005.7.3.5"></a><span 
+<!--l. 193--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1170005.7.3.5"></a><span 
 class="ecbx-1200">Non-Blocking Read</span></span>
 The <span 
 class="ectt-1200">read() </span>family of methods is always blocking. For non-blocking reads, use <span 
@@ -1440,26 +1581,26 @@ class="ectt-1200">tryread()</span>:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 bulkio::FloatDataBlock block = stream.tryread(2048);
 ]]></script></div>
-<!--l. 179--><p class="noindent" ><span 
+<!--l. 201--><p class="noindent" ><span 
 class="ectt-1200">tryread() </span>will only return a valid block of data if the entire request can be satisfied, or if no more
 data will be received. In the case that the stream has ended or that component has been stopped,
 all remaining queued data in the stream will be returned.
-                                                                                         
-                                                                                         
-<!--l. 181--><p class="noindent" >
+<!--l. 203--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.6   </span> <a 
- id="x7-1100005.7.3.6"></a>Interacting with Data Blocks</h5>
-<!--l. 183--><p class="noindent" >Data blocks contain the data as an array of sample data, as well as the <a 
+ id="x7-1180005.7.3.6"></a>Interacting with Data Blocks</h5>
+<!--l. 205--><p class="noindent" >Data blocks contain the data as an array of sample data, as well as the <a 
 href="mainap9.html#sri">SRI</a> that describes the
 data. The memory is managed automatically inside the object to minimize copies, so there is no
 need to explicitly delete data blocks. A variety of functions are contains in data blocks that help
 the developer manage and interact with the data block&#8217;s contents.
-<!--l. 187--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1110005.7.3.6"></a><span 
+<!--l. 209--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1190005.7.3.6"></a><span 
 class="ecbx-1200">Verifying Correctness</span></span>
 The boolean not (!) operator returns true if a block is invalid. This occurs when the stream is
 unable to read the requested data, such as when the component receives a <span 
 class="ectt-1200">stop() </span>call.
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 bulkio::FloatDataBlock block = stream.read();
 // Check if a valid block was returned
@@ -1468,8 +1609,8 @@ if (!block) {
 }
 // Operate on the block
 ]]></script></div>
-<!--l. 199--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1120005.7.3.6"></a><span 
+<!--l. 221--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1200005.7.3.6"></a><span 
 class="ecbx-1200">Metadata</span></span>
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -1479,13 +1620,11 @@ href="mainap9.html#sri">SRI</a> at the time the data was received
       <li class="itemize"><span 
 class="ectt-1200">xdelta() </span>returns the <a 
 href="mainap9.html#sri">SRI</a> xdelta</li></ul>
-<!--l. 206--><p class="noindent" >Occasionally, the input stream&#8217;s state may change between data blocks. To handle this situation,
+<!--l. 228--><p class="noindent" >Occasionally, the input stream&#8217;s state may change between data blocks. To handle this situation,
 the data block provides methods to check these conditions:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">inputQueueFlushed()</span>
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">sriChanged()</span>
@@ -1501,8 +1640,10 @@ if (block.sriChangeFlags() & bulkio::XDELTA) {
   // Update processing...
 }
 ]]></script></div>
-<!--l. 223--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1130005.7.3.6"></a><span 
+                                                                                         
+                                                                                         
+<!--l. 245--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1210005.7.3.6"></a><span 
 class="ecbx-1200">Scalar Data</span></span>
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -1516,14 +1657,12 @@ for (size_t index = 0; index < block.size(); ++index) {
   data[index] = std::abs(data[index]);
 }
 ]]></script></div>
-<!--l. 237--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1140005.7.3.6"></a><span 
+<!--l. 259--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1220005.7.3.6"></a><span 
 class="ecbx-1200">Complex Data</span></span>
 If the input stream is complex, the returned data buffer should be treated as complex data.
 Data block objects provide convenience methods to make it easy to work with complex
 data:
-                                                                                         
-                                                                                         
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">complex() </span>returns true if the data is complex (i.e., <a 
@@ -1542,20 +1681,23 @@ if (block.complex()) {
      data[index] = std::conj(data[index]);
   }
 }
-]]></script></div>
-<!--l. 257--><p class="noindent" ><span class="paragraphHead"><a 
- id="x7-1150005.7.3.6"></a><span 
+]]></script>
+                                                                                         
+                                                                                         
+</div>
+<!--l. 279--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x7-1230005.7.3.6"></a><span 
 class="ecbx-1200">Time Stamps</span></span>
 Because a single data block may span multiple input packets, it can contain than one time stamp.
 Data blocks returned from an input stream are guaranteed to have at least one time
 stamp.
-<!--l. 261--><p class="noindent" >Time stamps are accessed with the <span 
+<!--l. 283--><p class="noindent" >Time stamps are accessed with the <span 
 class="ectt-1200">getTimestamps() </span>method:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 std::list<bulkio::SampleTimestamp> timestamps = block.getTimestamps();
 BULKIO::PrecisionUTCTime time = timestamps.front().time;
 ]]></script></div>
-<!--l. 268--><p class="noindent" >The <span 
+<!--l. 290--><p class="noindent" >The <span 
 class="ectt-1200">bulkio::SampleTimestamp </span>class contains three fields:
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -1564,29 +1706,29 @@ class="ectt-1200">BULKIO::PrecisionUTCTime </span>time stamp
       </li>
       <li class="itemize"><span 
 class="ectt-1200">offset </span>- the sample number at which this time stamp applies
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">synthetic </span>- is true if the time stamp was calculated based on a prior data block</li></ul>
-<!--l. 276--><p class="noindent" >When the start of a data block does not match up exactly with a packet, the input stream will use
+<!--l. 298--><p class="noindent" >When the start of a data block does not match up exactly with a packet, the input stream will use
 the last known time stamp, the <a 
 href="mainap9.html#sri">SRI</a> <span 
 class="ectt-1200">xdelta </span>and the number of samples to calculate a time stamp.
 Only the first time stamp in a data block can be synthetic.
-<!--l. 278--><p class="noindent" >
+<!--l. 300--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.3.7   </span> <a 
- id="x7-1160005.7.3.7"></a>Ignoring Streams</h5>
-<!--l. 280--><p class="noindent" >Some components may prefer to only handle one stream at a time. Unwanted input streams can be
+ id="x7-1240005.7.3.7"></a>Ignoring Streams</h5>
+<!--l. 302--><p class="noindent" >Some components may prefer to only handle one stream at a time. Unwanted input streams can be
 disabled, typically in a new stream callback:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 stream.disable();
 ]]></script></div>
-<!--l. 286--><p class="noindent" >All data for the stream will be discarded until end-of-stream is reached, preventing queue backups
+                                                                                         
+                                                                                         
+<!--l. 308--><p class="noindent" >All data for the stream will be discarded until end-of-stream is reached, preventing queue backups
 due to unhandled data.
 <!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.4   </span> <a 
- id="x7-1170005.7.4"></a>Multi-out Ports</h4>
+ id="x7-1250005.7.4"></a>Multi-out Ports</h4>
 <!--l. 3--><p class="noindent" >A multi-out <a 
 href="mainli2.html#glo:port">Port</a> allows a <a 
 href="mainli2.html#glo:component">Component</a> to select specific streams to be sent over specific connections
@@ -1595,8 +1737,6 @@ href="mainli2.html#glo:port">Ports</a>. To use multi-out <a
 href="mainli2.html#glo:port">Ports</a>, a <a 
 href="mainli2.html#glo:component">Component</a> must include the following
 property:
-                                                                                         
-                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 <structsequence id="connectionTable">
      <struct id="connectionTable::connection_descriptor"
@@ -1630,19 +1770,19 @@ href="mainli2.html#glo:port">Port</a> is listed on the connection table, then da
 stream ID and connection ID match.
 <!--l. 28--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The multi-out capability is supported only for BulkIO and BurstIO output (uses) <a 
 href="mainli2.html#glo:port">Ports</a>. </p></div></div>
+                                                                                         
+                                                                                         
 <!--l. 1--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.5   </span> <a 
- id="x7-1180005.7.5"></a>Working with Complex Data</h4>
+ id="x7-1260005.7.5"></a>Working with Complex Data</h4>
 <!--l. 3--><p class="noindent" >If the StreamSRI mode field of the incoming data is set to 1, the associated input data is complex
 (i.e., it is comprised of real and imaginary parts). Complex data is sent as alternating real
 and imaginary values. A developer can work with this data in any fashion; however,
 this section provides common methods for converting the data into a more workable
 form.
-                                                                                         
-                                                                                         
 <!--l. 5--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.5.1   </span> <a 
- id="x7-1190005.7.5.1"></a>Converting Complex Data in C++</h5>
+ id="x7-1270005.7.5.1"></a>Converting Complex Data in C++</h5>
 <!--l. 7--><p class="noindent" >In C++, the incoming <a 
 href="mainap9.html#bulkio">BulkIO</a> data vector may be typecast into a std::vector of std::complex
 values. For example:
@@ -1656,7 +1796,7 @@ myOutput->pushPacket(*output, tmp->T, tmp->EOS, tmp->streamID);
 ]]></script></div>
 <!--l. 18--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.5.2   </span> <a 
- id="x7-1200005.7.5.2"></a>Converting Complex Data in Python</h5>
+ id="x7-1280005.7.5.2"></a>Converting Complex Data in Python</h5>
 <!--l. 20--><p class="noindent" >The helper functions <span 
 class="ectt-1200">bulkioComplexToPythonComplexList </span>and
 <span 
@@ -1665,88 +1805,33 @@ class="ectt-1200">pythonComplexListToBulkioComplex</span>, defined in the module
 class="ectt-1200">ossie.utils.bulkio.bulkio_helpers</span>, provide an efficient translation to and from lists of Python
 complex numbers.
 <!--l. 23--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.5.3   </span> <a 
- id="x7-1210005.7.5.3"></a>Converting Complex Data in Java</h5>
+ id="x7-1290005.7.5.3"></a>Converting Complex Data in Java</h5>
 <!--l. 25--><p class="noindent" >Unlike with C++ and Python, Java does not have a ubiquitous means for representing complex
 numbers; therefore, when using Java, users are free to map the incoming <a 
 href="mainap9.html#bulkio">BulkIO</a> data to the
 complex data representation of their choosing.
 <!--l. 2--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.7.6   </span> <a 
- id="x7-1220005.7.6"></a>Time Stamps</h4>
+ id="x7-1300005.7.6"></a>Time Stamps</h4>
 <!--l. 4--><p class="noindent" ><a 
 href="mainap9.html#bulkio">BulkIO</a> uses <span 
 class="ectt-1200">BULKIO::PrecisionUTCTime </span>time stamps that denote the time since 12:00 AM
-January 1, 1970 (Unix epoch).
-<!--l. 6--><p class="noindent" >The following code segment provides an example of how to construct a time stamp to be sent in
-                                                                                         
-                                                                                         
-the <a 
-href="mainap9.html#sri">SRI</a>.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
- /**
-    * To create a time stamp from the current time of day
-    */
-
-  BULKIO::PrecisionUTCTime tstamp = bulkio::time::utils::now();
-]]></script></div>
-<!--l. 16--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">5.7.6.1   </span> <a 
- id="x7-1230005.7.6.1"></a>Timestamp Operators (C++)</h5>
-<!--l. 17--><p class="noindent" >In C++, <span 
-class="ectt-1200">BULKIO::PrecisionUTCTime </span>supports common arithmetic, comparison and stream
-operators.
-<!--l. 19--><p class="noindent" >Adding an offset to a time stamp:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  /**
-    * Add 1/8th of a second to the current time
-    */
-  BULKIO::PrecisionUTCTime time1 = bulkio::time::utils::now();
-  time1 += 0.125;
-]]></script></div>
-<!--l. 29--><p class="noindent" >Subtracting two time stamps returns the difference in seconds:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  /**
-    * Check if time2 is less than a second after time1
-    */
-  if (time2 - time1 < 1.0) {
-     ...
-  }
-]]></script></div>
-<!--l. 40--><p class="noindent" >Comparing two time stamps:
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  /**
-    * Check if the second time stamp occurs before the first
-    */
-  if (time2 < time1) {
-     ...
-  }
-]]></script></div>
-<!--l. 51--><p class="noindent" >Stream formatting (output format is &#8220;YYYY:MM:DD::HH::MM::SS.SSSSSS&#8221;):
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  /**
-    * Write the current time out to the console
-    */
-  std::cout &lt;&lt; bulkio::time::utils::now() &lt;&lt; std::endl;
-]]></script></div>
-<!--l. 1--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">5.7.7   </span> <a 
- id="x7-1240005.7.7"></a>Port Statistics</h4>
-<!--l. 3--><p class="noindent" >All <a 
-href="mainap9.html#bulkio">BulkIO</a> <a 
-href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
+January 1, 1970 (Unix epoch) in Coordinated Universal Time (<a 
+href="mainap9.html#utc">UTC</a>). The time stamp contains
+several elements. In <a 
+href="mainap9.html#bulkio">BulkIO</a>, a time stamp corresponds to the dateofbirth of the first element
+in the data being pushed. Table <a 
+href="#x7-130001r9">5.9<!--tex4ht:ref: table:timestampelement --></a> describes the different elements making up the
 <span 
-class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
-href="mainli2.html#glo:port">Port</a>.
-<a 
-href="#x7-124001r9">Table 5.9</a> contains a description of a statistics structure
+class="ectt-1200">BULKIO::PrecisionUTCTime </span>structure.
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 7--><p class="noindent" ><a 
- id="x7-124001r9"></a><hr class="float"><div class="float" 
+<!--l. 22--><p class="noindent" ><a 
+ id="x7-130001r9"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
@@ -1759,48 +1844,271 @@ id="TBL-14-2"></colgroup><colgroup id="TBL-14-3g"><col
 id="TBL-14-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-14-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-1-1"  
+class="td11"> <!--l. 25--><p class="noindent" ><span 
+class="ecbx-1200">Identifier</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-1-2"  
+class="td11"> <!--l. 25--><p class="noindent" ><span 
+class="ecbx-1200">Value</span>                                                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-1-3"  
+class="td11"> <!--l. 25--><p class="noindent" ><span 
+class="ecbx-1200">Type</span>       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-1"  
+class="td11"> <!--l. 27--><p class="noindent" ><span 
+class="ectt-1200">tcmode</span>            </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-2-2"  
+class="td11"> <!--l. 27--><p class="noindent" >timecode mode                                           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-3"  
+class="td11"> <!--l. 27--><p class="noindent" >short         </td></tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-1"  
+class="td11"> <!--l. 28--><p class="noindent" ><span 
+class="ectt-1200">tcstatus</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-3-2"  
+class="td11"> <!--l. 28--><p class="noindent" >timecode status </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-3"  
+class="td11"> <!--l. 28--><p class="noindent" >short</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-1"  
+class="td11"> <!--l. 29--><p class="noindent" ><span 
+class="ectt-1200">toff</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-4-2"  
+class="td11"> <!--l. 29--><p class="noindent" >Fractional sample offset                                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-3"  
+class="td11"> <!--l. 29--><p class="noindent" >double       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-1"  
+class="td11"> <!--l. 30--><p class="noindent" ><span 
+class="ectt-1200">twsec</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-5-2"  
+class="td11"> <!--l. 30--><p class="noindent" >Number of seconds since 12:00 AM January 1,
+  1970 (Unix epoch)                                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-3"  
+class="td11"> <!--l. 30--><p class="noindent" >double       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-1"  
+class="td11"> <!--l. 31--><p class="noindent" ><span 
+class="ectt-1200">tfsec</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-14-6-2"  
+class="td11"> <!--l. 31--><p class="noindent" >Number of fractional seconds (0.0 to 1.0) to be
+  added to <span 
+class="ectt-1200">twsec</span>                           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-3"  
+class="td11"> <!--l. 31--><p class="noindent" >double       </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.9: </td><td  
+class="content">Elements in BULKIO::PrecisionUTCTime</td></tr></table><!--tex4ht:label?: x7-130001r9 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 42--><p class="noindent" >Two of the elements described in Table <a 
+href="#x7-130001r9">5.9<!--tex4ht:ref: table:timestampelement --></a> correspond to predefined values. <span 
+class="ectt-1200">tcstatus </span>can
+only take two values, <span 
+class="ectt-1200">TCS_INVALID </span>(0), and <span 
+class="ectt-1200">TCS_VALID </span>(1), showing whether the time
+stamp is valid or not. Invalid time stamps do not contain valid time data and should
+be ignored. <span 
+class="ectt-1200">tcmode </span>is the method by which the timestamp was obtained, but this use
+has since been deprecated, and this value is ignored. The default value for <span 
+class="ectt-1200">tcmode </span>is
+1.
+<!--l. 48--><p class="noindent" >The following code segments provide examples of how to construct a time stamp to be sent in the
+<span 
+class="ectt-1200">pushPacket() </span>call. The <span 
+class="ectt-1200">now() </span>method returns the current time of day.
+<!--l. 50--><p class="noindent" >C++: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+BULKIO::PrecisionUTCTime tstamp = bulkio::time::utils::now();
+]]></script></div>
+<!--l. 55--><p class="noindent" >Python: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+tstamp = bulkio.timestamp.now()
+]]></script></div>
+<!--l. 60--><p class="noindent" >Java: <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+BULKIO.PrecisionUTCTime tstamp = bulkio.time.utils.now();
+]]></script></div>
+<h5 class="subsubsectionHead"><span class="titlemark">5.7.6.1   </span> <a 
+ id="x7-1310005.7.6.1"></a>Timestamp Operators (C++)</h5>
+<!--l. 66--><p class="noindent" >In C++, <span 
+class="ectt-1200">BULKIO::PrecisionUTCTime </span>supports common arithmetic, comparison and stream
+operators.
+<!--l. 68--><p class="noindent" >Adding an offset to a time stamp:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+/**
+ * Add 1/8th of a second to the current time
+ */
+BULKIO::PrecisionUTCTime time1 = bulkio::time::utils::now();
+time1 += 0.125;
+]]></script></div>
+<!--l. 78--><p class="noindent" >Subtracting two time stamps returns the difference in seconds:
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+/**
+ * Check if time2 is less than a second after time1
+ */
+if (time2 - time1 < 1.0) {
+  ...
+}
+]]></script></div>
+<!--l. 89--><p class="noindent" >Comparing two time stamps:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+/**
+ * Check if the second time stamp occurs before the first
+ */
+if (time2 < time1) {
+  ...
+}
+]]></script></div>
+<!--l. 100--><p class="noindent" >Stream formatting (output format is &#8220;YYYY:MM:DD::HH::MM::SS.SSSSSS&#8221;):
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+/**
+ * Write the current time out to the console
+ */
+std::cout &lt;&lt; bulkio::time::utils::now() &lt;&lt; std::endl;
+]]></script></div>
+<!--l. 109--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">5.7.6.2   </span> <a 
+ id="x7-1320005.7.6.2"></a>Timestamp Operators (Python)</h5>
+<!--l. 110--><p class="noindent" >In Python, <span 
+class="ectt-1200">BULKIO.PrecisionUTCTime </span>supports common arithmetic, comparison and string
+conversion operators.
+<!--l. 112--><p class="noindent" >Adding an offset to a time stamp:
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+# Add 1/8th of a second to the current time
+tstamp = bulkio.timestamp.now()
+tstamp += 0.125
+]]></script></div>
+<!--l. 120--><p class="noindent" >Subtracting two time stamps returns the difference in seconds:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+# Check if time2 is less than a second after time1
+if (time2 - time1) < 1.0:
+  ...
+]]></script></div>
+<!--l. 128--><p class="noindent" >Comparing two time stamps:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+# Check if the second time stamp occurs before the first
+if time2 < time1:
+  ...
+]]></script></div>
+<!--l. 136--><p class="noindent" >String formatting (output format is &#8220;YYYY:MM:DD::HH::MM::SS.SSSSSS&#8221;):
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+# Write the current time out to the console
+print str(bulkio.timestamp.now())
+]]></script></div>
+<!--l. 143--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">5.7.6.3   </span> <a 
+ id="x7-1330005.7.6.3"></a>Timestamp Helpers (Java)</h5>
+<!--l. 144--><p class="noindent" >In Java, the <span 
+class="ectt-1200">bulkio.time.utils </span>class provides static helper methods for common arithmetic,
+comparison and string conversion operations.
+<!--l. 146--><p class="noindent" >Adding an offset to a time stamp with <span 
+class="ectt-1200">increment() </span>modifies the original time stamp:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+// Add 1/8th of a second to the current time
+BULKIO.PrecisionUTCTime tstamp = bulkio.time.utils.now();
+bulkio.time.utils.increment(tstamp, 0.125);
+]]></script>
+                                                                                         
+                                                                                         
+</div>
+<!--l. 154--><p class="noindent" >Adding an offset to a time stamp with <span 
+class="ectt-1200">add() </span>returns a new time stamp with the result, leaving the
+original time stamp unmodified:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+// Add a second to the current time
+BULKIO.PrecisionUTCTime time1 = bulkio.time.utils.now();
+BULKIO.PrecisionUTCTime time2 = bulkio.time.utils.add(time1, 1.0);
+]]></script></div>
+<!--l. 162--><p class="noindent" >Calculating the difference in seconds between two time stamps:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+// Check if time2 is less than a second after time1
+if (bulkio.time.utils.difference(time2, time1) < 1.0) {
+  ...
+}
+]]></script></div>
+<!--l. 171--><p class="noindent" >Comparing two time stamps:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+// Check if the second time stamp occurs before the first
+if (bulkio.time.utils.compare(time2, time1) < 0) {
+  ...
+}
+]]></script></div>
+<!--l. 180--><p class="noindent" >The <span 
+class="ectt-1200">compare() </span>method follows the same rules as <span 
+class="ectt-1200">java.util.Comparator</span>.
+<!--l. 182--><p class="noindent" >String formatting (output format is &#8220;YYYY:MM:DD::HH::MM::SS.SSSSSS&#8221;):
+<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
+// Write the current time out to the console
+System.out.println(bulkio.time.utils.now());
+]]></script></div>
+<!--l. 1--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">5.7.7   </span> <a 
+ id="x7-1340005.7.7"></a>Port Statistics</h4>
+                                                                                         
+                                                                                         
+<!--l. 3--><p class="noindent" >All <a 
+href="mainap9.html#bulkio">BulkIO</a> <a 
+href="mainli2.html#glo:port">Ports</a> contain a read only attribute called statistics. The statistics attribute is of type
+<span 
+class="ectt-1200">BULKIO::PortStatistics</span>, and it contains information regarding the performance of the <a 
+href="mainli2.html#glo:port">Port</a>.
+<a 
+href="#x7-134001r10">Table 5.10</a> contains a description of a statistics structure
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 7--><p class="noindent" ><a 
+ id="x7-134001r10"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"></colgroup><colgroup id="TBL-15-2g"><col 
+id="TBL-15-2"></colgroup><colgroup id="TBL-15-3g"><col 
+id="TBL-15-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-1-1"  
 class="td11"> <!--l. 11--><p class="noindent" ><span 
-class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-1-2"  
+class="ecbx-1200">Name</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-1-2"  
 class="td11"> <!--l. 11--><p class="noindent" ><span 
-class="ecbx-1200">Type</span>                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-1-3"  
+class="ecbx-1200">Type</span>                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-1-3"  
 class="td11"> <!--l. 11--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-1"  
-class="td11"> <!--l. 12--><p class="noindent" >portName                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-2"  
-class="td11"> <!--l. 12--><p class="noindent" >string                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-2-3"  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-2-1"  
+class="td11"> <!--l. 12--><p class="noindent" >portName                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-2-2"  
+class="td11"> <!--l. 12--><p class="noindent" >string                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-2-3"  
 class="td11"> <!--l. 12--><p class="noindent" >Name of this <a 
 href="mainli2.html#glo:port">Port</a>                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-1"  
-class="td11"> <!--l. 13--><p class="noindent" >elementsPerSecond       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-2"  
-class="td11"> <!--l. 13--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-3-3"  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-3-1"  
+class="td11"> <!--l. 13--><p class="noindent" >elementsPerSecond       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-3-2"  
+class="td11"> <!--l. 13--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-3-3"  
 class="td11"> <!--l. 13--><p class="noindent" >A   moving   average   describing
   the  rate  at  which  elements  are
   arriving.                                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-1"  
-class="td11"> <!--l. 14--><p class="noindent" >bitsPerSecond             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-2"  
-class="td11"> <!--l. 14--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-4-3"  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-4-1"  
+class="td11"> <!--l. 14--><p class="noindent" >bitsPerSecond             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-4-2"  
+class="td11"> <!--l. 14--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-4-3"  
 class="td11"> <!--l. 14--><p class="noindent" >This                                    is
   the same as elementsPerSecond *
   bits per elements.                      </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-1"  
-class="td11"> <!--l. 15--><p class="noindent" >callsPerSecond            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-2"  
-class="td11"> <!--l. 15--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-5-3"  
+ style="vertical-align:baseline;" id="TBL-15-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-5-1"  
+class="td11"> <!--l. 15--><p class="noindent" >callsPerSecond            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-5-2"  
+class="td11"> <!--l. 15--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-5-3"  
 class="td11"> <!--l. 15--><p class="noindent" >Number  of  <span 
 class="ectt-1200">pushPacket() </span>calls
   per second.                              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-1"  
-class="td11"> <!--l. 16--><p class="noindent" >streamIDs                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-2"  
-class="td11"> <!--l. 16--><p class="noindent" >CF::StringSequence     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-6-3"  
+ style="vertical-align:baseline;" id="TBL-15-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-6-1"  
+class="td11"> <!--l. 16--><p class="noindent" >streamIDs                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-6-2"  
+class="td11"> <!--l. 16--><p class="noindent" >CF::StringSequence     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-6-3"  
 class="td11"> <!--l. 16--><p class="noindent" >List  of  all  stream  ids  where  a
   <span 
 class="ectt-1200">pushSRI() </span>has  occurred  but  no
@@ -1808,16 +2116,16 @@ class="ectt-1200">pushSRI() </span>has  occurred  but  no
 href="mainap9.html#eos">EOS</a> has been received.              </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-7-1"  
-class="td11"> <!--l. 17--><p class="noindent" >averageQueueDepth     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-7-2"  
-class="td11"> <!--l. 17--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-7-3"  
+ style="vertical-align:baseline;" id="TBL-15-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-7-1"  
+class="td11"> <!--l. 17--><p class="noindent" >averageQueueDepth     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-7-2"  
+class="td11"> <!--l. 17--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-7-3"  
 class="td11"> <!--l. 17--><p class="noindent" >Moving average calculation of the
   percentage queue depth.             </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-8-1"  
-class="td11"> <!--l. 18--><p class="noindent" >timeSinceLastCall        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-8-2"  
-class="td11"> <!--l. 18--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-8-3"  
+ style="vertical-align:baseline;" id="TBL-15-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-8-1"  
+class="td11"> <!--l. 18--><p class="noindent" >timeSinceLastCall        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-8-2"  
+class="td11"> <!--l. 18--><p class="noindent" >float                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-8-3"  
 class="td11"> <!--l. 18--><p class="noindent" >The
   elapsed time, in seconds, since the
   last packet was transferred via a
@@ -1825,17 +2133,17 @@ class="td11"> <!--l. 18--><p class="noindent" >The
 class="ectt-1200">pushPacket() </span>call                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-14-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-9-1"  
-class="td11"> <!--l. 19--><p class="noindent" >keywords                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-9-2"  
+ style="vertical-align:baseline;" id="TBL-15-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-9-1"  
+class="td11"> <!--l. 19--><p class="noindent" >keywords                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-9-2"  
 class="td11"> <!--l. 19--><p class="noindent" >sequence
-  &#x003C;CF::DataType&#x003E;       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-14-9-3"  
+  &#x003C;CF::DataType&#x003E;       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-15-9-3"  
 class="td11"> <!--l. 19--><p class="noindent" >Additional statistics information
   provided by the <a 
 href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr></table></div>
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.9: </td><td  
-class="content">Fields in Returned Port Statistics</td></tr></table><!--tex4ht:label?: x7-124001r9 -->
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;5.10: </td><td  
+class="content">Fields in Returned Port Statistics</td></tr></table><!--tex4ht:label?: x7-134001r10 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -1856,14 +2164,14 @@ sequence in the <span
 class="ectt-1200">pushPacket() </span>call) and seeing its effects on the performance of the connection is
 also instructive.
 <h4 class="subsectionHead"><span class="titlemark">5.7.8   </span> <a 
- id="x7-1250005.7.8"></a>Examples</h4>
+ id="x7-1350005.7.8"></a>Examples</h4>
 <!--l. 3--><p class="noindent" >These two examples illustrate high-speed data exchange between two C++ <a 
 href="mainli2.html#glo:component">Components</a> and basic
 data manipulation through the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>.
 <!--l. 5--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.8.1   </span> <a 
- id="x7-1260005.7.8.1"></a>High-speed data</h5>
+ id="x7-1360005.7.8.1"></a>High-speed data</h5>
 <!--l. 7--><p class="noindent" >In this example, two C++ <a 
 href="mainli2.html#glo:component">Components</a> are created: a source and a sink. We will then deploy these
 <a 
@@ -1873,7 +2181,7 @@ them.
 <!--l. 10--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-126002x1">Create  a  C++  <a 
+  class="enumerate" id="x7-136002x1">Create  a  C++  <a 
 href="mainli2.html#glo:component">Component</a>  called  <span 
 class="ecti-1200">source  </span>with  a  uses  <a 
 href="mainli2.html#glo:port">Port</a>  called  <span 
@@ -1889,7 +2197,7 @@ class="ecti-1200">100000</span>. Generate the <a
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x7-126004x2">Open the file <span 
+  class="enumerate" id="x7-136004x2">Open the file <span 
 class="ectt-1200">source.h </span>and add the following member to the <span 
 class="ectt-1200">source_i </span>class:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1897,7 +2205,7 @@ class="ectt-1200">source_i </span>class:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x7-126006x3">Open the file <span 
+  class="enumerate" id="x7-136006x3">Open the file <span 
 class="ectt-1200">source.cpp </span>and edit it in the following ways:
                                                                                          
                                                                                          
@@ -1909,7 +2217,7 @@ class="ectt-1200">source_i </span>constructor: <div class="minipage"><script typ
            </li></ul>
       </li>
       <li 
-  class="enumerate" id="x7-126008x4">In <span 
+  class="enumerate" id="x7-136008x4">In <span 
 class="ectt-1200">serviceFunction() </span>comment-out the <span 
 class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1940,13 +2248,13 @@ class="ectt-1200">LOG_DEBUG </span>statement and add the following lines:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x7-126010x5">Compile the <a 
+  class="enumerate" id="x7-136010x5">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="ectt-1200">source </span>and install it on <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a>.
       </li>
       <li 
-  class="enumerate" id="x7-126012x6">Create a C++ <a 
+  class="enumerate" id="x7-136012x6">Create a C++ <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="ecti-1200">sink </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -1958,16 +2266,16 @@ href="mainli2.html#glo:component">Component</a> code.
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x7-126014x7">Open the file <span 
+  class="enumerate" id="x7-136014x7">Open the file <span 
 class="ectt-1200">sink.cpp </span>and edit it in the following ways:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x7-126016x1">In <span 
+  class="enumerate" id="x7-136016x1">In <span 
 class="ectt-1200">serviceFunction()</span>, comment-out the <span 
 class="ectt-1200">LOG_DEBUG </span>statement
            </li>
            <li 
-  class="enumerate" id="x7-126018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+  class="enumerate" id="x7-136018x2">Add the following lines: <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
   ::BULKIO_dataShort_In_i::dataTransfer *tmp =
      this->input->getPacket(-1);
  if (tmp == NULL) {
@@ -1980,7 +2288,7 @@ class="ectt-1200">LOG_DEBUG </span>statement
            </li></ol>
       </li>
       <li 
-  class="enumerate" id="x7-126020x8">Compile the <a 
+  class="enumerate" id="x7-136020x8">Compile the <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="ectt-1200">sink </span>and install it on <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a>.
@@ -2026,7 +2334,7 @@ class="ectt-1200">_get_statistics()</span>. The resulting data rate is
 now different.
 <!--l. 111--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.8.2   </span> <a 
- id="x7-1270005.7.8.2"></a>Octet Ports</h5>
+ id="x7-1370005.7.8.2"></a>Octet Ports</h5>
 <!--l. 113--><p class="noindent" >Octets are unsigned 8-bit units of data. In Java and C++, these map easily. However, that is not
 the case in Python, which treats a sequence of characters as a string. The following is an example
 of pushing Octet data out of a dataOctet port,
@@ -2038,7 +2346,7 @@ of pushing Octet data out of a dataOctet port,
 ]]></script></div>
 <!--l. 125--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.7.8.3   </span> <a 
- id="x7-1280005.7.8.3"></a>Data manipulation</h5>
+ id="x7-1380005.7.8.3"></a>Data manipulation</h5>
 <!--l. 127--><p class="noindent" >In this example, a Python <a 
 href="mainli2.html#glo:component">Component</a> is created that takes vectors of floats as inputs, multiplies
 the vector by some arbitrary number, and then outputs the resulting vector. This example
@@ -2050,7 +2358,7 @@ href="mainli2.html#glo:component">Component</a>.
                                                                                          
                                                                                          
       <li 
-  class="enumerate" id="x7-128002x1">Create a Python <a 
+  class="enumerate" id="x7-138002x1">Create a Python <a 
 href="mainli2.html#glo:component">Component</a> called <span 
 class="ecti-1200">mult  </span>with a provides <a 
 href="mainli2.html#glo:port">Port</a> called <span 
@@ -2069,7 +2377,7 @@ class="ecti-1200">1</span>. Generate the <a
 href="mainli2.html#glo:component">Component</a> code.
       </li>
       <li 
-  class="enumerate" id="x7-128004x2">Open the file <span 
+  class="enumerate" id="x7-138004x2">Open the file <span 
 class="ectt-1200">mult.py </span>and add the following lines:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   data, T, EOS, streamID, sri, sriChanged, inputQueueFlushed =
@@ -2088,7 +2396,7 @@ class="ectt-1200">mult.py </span>and add the following lines:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x7-128006x3">Save the project and drag the <span 
+  class="enumerate" id="x7-138006x3">Save the project and drag the <span 
 class="ectt-1200">mult </span>project to <a 
 href="mainli2.html#glo:REDHAWK Explorer"><span 
 class="ecbx-1200">REDHAWK Explorer</span></a> <span 
@@ -2097,7 +2405,7 @@ href="mainli2.html#glo:targetSDR">Target
       SDR</a>.
       </li>
       <li 
-  class="enumerate" id="x7-128008x4">Start a Python session in a command line terminal and run the following commands:
+  class="enumerate" id="x7-138008x4">Start a Python session in a command line terminal and run the following commands:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> mult = sb.launch("mult")
@@ -2114,7 +2422,7 @@ href="mainli2.html#glo:targetSDR">Target
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x7-128010x5">The multiplication factor can be changed while the <a 
+  class="enumerate" id="x7-138010x5">The multiplication factor can be changed while the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> is up.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> mult.factor = 2
@@ -2125,10 +2433,10 @@ href="mainli2.html#glo:Sandbox">Sandbox</a> is up.
       </li></ol>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5.8   </span> <a 
- id="x7-1290005.8"></a>Messaging</h3>
+ id="x7-1390005.8"></a>Messaging</h3>
 <!--l. 4--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.1   </span> <a 
- id="x7-1300005.8.1"></a>Introduction</h4>
+ id="x7-1400005.8.1"></a>Introduction</h4>
 <!--l. 6--><p class="noindent" >Messaging relies on <a 
 href="mainap9.html#corba">CORBA</a>&#8217;s event structure as a transport structure. In <a 
 href="mainap9.html#corba">CORBA</a>&#8217;s event <a 
@@ -2169,7 +2477,7 @@ class="ecbx-1200">Message</span></a>
 kind is a structure.
 <!--l. 17--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.2   </span> <a 
- id="x7-1310005.8.2"></a>Message Producer</h4>
+ id="x7-1410005.8.2"></a>Message Producer</h4>
 <!--l. 19--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> producer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
@@ -2179,7 +2487,7 @@ href="mainli2.html#glo:component">Component</a>.
 <!--l. 21--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-131002x1">Add a Struct <a 
+  class="enumerate" id="x7-141002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Choose an <a 
@@ -2194,7 +2502,7 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x7-131004x2">Add <span 
+  class="enumerate" id="x7-141004x2">Add <span 
 class="ecbx-1200">uses </span><a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap9.html#idl"><span 
@@ -2205,7 +2513,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ectt-1200">MessageEvent</span>
       </li>
       <li 
-  class="enumerate" id="x7-131006x3">Regenerate the <a 
+  class="enumerate" id="x7-141006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 32--><p class="noindent" >For the purposes of the following examples, assume that the structure is as follows:
       <ul class="itemize1">
@@ -2240,7 +2548,7 @@ href="mainli2.html#glo:message">Message</a>.
                                                                                          
 <!--l. 49--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.2.1   </span> <a 
- id="x7-1320005.8.2.1"></a>C++</h5>
+ id="x7-1420005.8.2.1"></a>C++</h5>
 <!--l. 51--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method of the
@@ -2253,7 +2561,7 @@ implementation file):
 ]]></script></div>
 <!--l. 60--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.2.2   </span> <a 
- id="x7-1330005.8.2.2"></a>Java</h5>
+ id="x7-1430005.8.2.2"></a>Java</h5>
 <!--l. 62--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">serviceFunction() </span>method):
@@ -2266,7 +2574,7 @@ class="ectt-1200">serviceFunction() </span>method):
 ]]></script></div>
 <!--l. 71--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.2.3   </span> <a 
- id="x7-1340005.8.2.3"></a>Python</h5>
+ id="x7-1440005.8.2.3"></a>Python</h5>
 <!--l. 73--><p class="noindent" >Whenever a <a 
 href="mainli2.html#glo:message">Message</a> needs to be generated (e.g., in the <span 
 class="ectt-1200">process() </span>method of the implementation
@@ -2281,14 +2589,14 @@ file):
                                                                                          
 <!--l. 84--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.3   </span> <a 
- id="x7-1350005.8.3"></a>Message Consumer</h4>
+ id="x7-1450005.8.3"></a>Message Consumer</h4>
 <!--l. 87--><p class="noindent" >To create a <a 
 href="mainli2.html#glo:message">Message</a> consumer, create a new <a 
 href="mainli2.html#glo:component">Component</a> or edit an existing <a 
 href="mainli2.html#glo:component">Component</a>.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-135002x1">Add a Struct <a 
+  class="enumerate" id="x7-145002x1">Add a Struct <a 
 href="mainli2.html#glo:property">Property</a>
            <ul class="itemize1">
            <li class="itemize">Enter the <a 
@@ -2304,7 +2612,7 @@ class="ecbx-1200">Message</span></a>
            <li class="itemize">Add any arbitrary number of members to the struct</li></ul>
       </li>
       <li 
-  class="enumerate" id="x7-135004x2">Add <span 
+  class="enumerate" id="x7-145004x2">Add <span 
 class="ecbx-1200">uses/provides </span>(bidirectional) <a 
 href="mainli2.html#glo:port">Port</a> of <a 
 href="mainap9.html#idl"><span 
@@ -2316,7 +2624,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ectt-1200">MessageEvent</span>
       </li>
       <li 
-  class="enumerate" id="x7-135006x3">Regenerate the <a 
+  class="enumerate" id="x7-145006x3">Regenerate the <a 
 href="mainli2.html#glo:component">Component</a></li></ol>
 <!--l. 99--><p class="noindent" >The bidirectional <a 
 href="mainli2.html#glo:port">Port</a> is needed because in point-to-point connections, the <a 
@@ -2378,7 +2686,7 @@ href="mainap9.html#id">ID</a> "foo" will trigger the callback function
 class="ectt-1200">messageReceived()</span>. </p></div></div>
 <!--l. 126--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.3.1   </span> <a 
- id="x7-1360005.8.3.1"></a>C++</h5>
+ id="x7-1460005.8.3.1"></a>C++</h5>
 <!--l. 128--><p class="noindent" >Given the asynchronous nature of events, a callback pattern was selected for the consumer.
 <!--l. 130--><p class="noindent" >In the <a 
 href="mainli2.html#glo:component">Component</a> header file, declare the following callback function:
@@ -2403,7 +2711,7 @@ class="ectt-1200">constructor() </span>method, register the callback function:
                                                                                          
                                                                                          
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.3.2   </span> <a 
- id="x7-1370005.8.3.2"></a>Java</h5>
+ id="x7-1470005.8.3.2"></a>Java</h5>
 <!--l. 151--><p class="noindent" >Java callbacks use the <span 
 class="ectt-1200">org.ossie.events.MessageListener </span>interface, which has a single
 <span 
@@ -2437,7 +2745,7 @@ your callback: <div class="minipage"><script type="syntaxhighlighter" class="bru
 ]]></script></div>
 <!--l. 177--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">5.8.3.3   </span> <a 
- id="x7-1380005.8.3.3"></a>Python</h5>
+ id="x7-1480005.8.3.3"></a>Python</h5>
 <!--l. 179--><p class="noindent" >In the <span 
 class="ectt-1200">constructor() </span>method, register the expected <a 
 href="mainli2.html#glo:message">Message</a> with a callback method:
@@ -2457,7 +2765,7 @@ class="ectt-1200">messageReceived()</span>:
 ]]></script></div>
 <!--l. 194--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.4   </span> <a 
- id="x7-1390005.8.4"></a>Viewing Messages</h4>
+ id="x7-1490005.8.4"></a>Viewing Messages</h4>
 <!--l. 196--><p class="noindent" ><a 
 href="mainli2.html#glo:message">Messages</a> are events with their payload definition tied to structures in <a 
 href="mainli2.html#glo:component">Component</a> <a 
@@ -2501,7 +2809,7 @@ href="mainli2.html#glo:eventchannel">Event Channel</a> in a terminal window:
 ]]></script></div>
 <!--l. 235--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">5.8.5   </span> <a 
- id="x7-1400005.8.5"></a>Connecting Producers and Consumers</h4>
+ id="x7-1500005.8.5"></a>Connecting Producers and Consumers</h4>
 <!--l. 237--><p class="noindent" >Producers and consumers can be connected either point-to-point or through an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> in
 the IDE.
@@ -2538,11 +2846,11 @@ href="mainli2.html#glo:eventchannel">Event
 Channel</a>:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x7-140002x1">Add producer and consumer <a 
+  class="enumerate" id="x7-150002x1">Add producer and consumer <a 
 href="mainli2.html#glo:component">Components</a>.
       </li>
       <li 
-  class="enumerate" id="x7-140004x2">For point-to-point messaging, connect the output <span 
+  class="enumerate" id="x7-150004x2">For point-to-point messaging, connect the output <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a>, <span 
 class="ectt-1200">message_out</span>
@@ -2552,14 +2860,14 @@ href="mainli2.html#glo:port">Port</a> of the receive <a
 href="mainli2.html#glo:component">Component</a>.
       </li>
       <li 
-  class="enumerate" id="x7-140006x3">For messaging via an <a 
+  class="enumerate" id="x7-150006x3">For messaging via an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>, add an <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a> to the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> and connect to
       it.
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x7-140008x1">In the <a 
+  class="enumerate" id="x7-150008x1">In the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> Diagram, under <span 
 class="ecbx-1200">Palette </span><span 
 class="cmmi-12">&#x003E; </span><span 
@@ -2575,13 +2883,13 @@ class="ecbx-1200">Event</span>
 class="ecbx-1200">Channel</span></a> dialog is displayed. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x7-140009r2"></a> <a 
- id="x7-1400071"></a><img 
+ id="x7-150009r2"></a> <a 
+ id="x7-1500071"></a><img 
 src="images/NewEventChannel.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;5.2: </td><td  
-class="content">New Event Channel</td></tr></table><!--tex4ht:label?: x7-140009r2 -->
+class="content">New Event Channel</td></tr></table><!--tex4ht:label?: x7-150009r2 -->
                <!--l. 276--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
                                                                                          
                                                                                          
@@ -2595,7 +2903,7 @@ class="ecbx-1200">Event Channel</span></a> is
                </li></ul>
            </li>
            <li 
-  class="enumerate" id="x7-140011x2">Connect the Uses (Output) <span 
+  class="enumerate" id="x7-150011x2">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the sending <a 
 href="mainli2.html#glo:component">Component</a>,
@@ -2604,7 +2912,7 @@ class="ectt-1200">message_out </span>in this example, to the <a
 href="mainli2.html#glo:eventchannel">Event Channel</a>.
            </li>
            <li 
-  class="enumerate" id="x7-140013x3">Connect the Uses (Output) <span 
+  class="enumerate" id="x7-150013x3">Connect the Uses (Output) <span 
 class="ectt-1200">MessageEvent </span><a 
 href="mainli2.html#glo:port">Port</a> of the receiving <a 
 href="mainli2.html#glo:component">Component</a>,
