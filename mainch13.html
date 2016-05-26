@@ -779,9 +779,9 @@ class="ectt-1200">MEGA_WORKER </span>is configured from
 class="ectt-1200">$SDRROOT/dom/logcfg/component.log4j.cfg</span>. Prior to configuring the underlying
 logging library, the configuration information is processed for the context macros (in this
 example, <span 
-class="ectt-1200">@@@WAVEFORM_NAME@@@</span>, <span 
-class="ectt-1200">@@@COMPONENT_NAME@@@ </span>and <span 
-class="ectt-1200">@@@COMPONENT_PID@@@</span>).
+class="ectt-1200">@@@WAVEFORM.NAME@@@</span>, <span 
+class="ectt-1200">@@@COMPONENT.NAME@@@ </span>and <span 
+class="ectt-1200">@@@COMPONENT.PID@@@</span>).
 The root most logger passes logging messages with a severity level <span 
 class="ectt-1200">INFO </span>or less, to the
 appenders called: <span 
@@ -821,7 +821,7 @@ log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
 
 # File Appender
 log4j.appender.FILE=org.apache.log4j.FileAppender
-log4j.appender.FILE.File=/data/logdir/@@@WAVEFORM_NAME@@@/@@@COMPONENT_NAME@@@.@@@COMPONENT__PID@@@.log
+log4j.appender.FILE.File=/data/logdir/@@@WAVEFORM.NAME@@@/@@@COMPONENT.NAME@@@.@@@COMPONENT.PID@@@.log
 log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
 log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601}: %p:%c - %m [%F:%L]%n
 

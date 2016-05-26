@@ -270,16 +270,25 @@ href="mainap1.html#x20-417000A">Appendix A</a> for a
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
 cd redhawk-<version>-<dist>-<arch>
-yum install @redhawk-runtime
-yum install @redhawk-development
+yum install bulkioInterfaces \
+            burstioInterfaces \
+            frontendInterfaces \
+            GPP \
+            GPP-profile \
+            redhawk-sdrroot-dev-mgr \
+            redhawk-sdrroot-dom-mgr \
+            redhawk-sdrroot-dom-profile \
+            redhawk
 . /etc/profile.d/redhawk.sh
 . /etc/profile.d/redhawk-sdrroot.sh
 ]]></script></div>
-      <!--l. 153--><p class="noindent" >Where <span 
+      <!--l. 160--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;version&#x003E;</span>, <span 
 class="ectt-1200">&#x003C;dist&#x003E;</span>, and <span 
 class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated REDHAWK version,
       Linux distribution, and architecture respectively.
+                                                                                         
+                                                                                         
       </li>
       <li 
   class="enumerate" id="x4-15006x3">Use the following command to add each REDHAWK user to the <span 
@@ -287,24 +296,22 @@ class="ectt-1200">redhawk </span>group:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo /usr/sbin/usermod -a -G redhawk <user name>
 ]]></script></div>
-                                                                                         
-                                                                                         
-      <!--l. 164--><p class="noindent" >Where <span 
+      <!--l. 171--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;user name&#x003E; </span>is the name of a user to add to the group. If you are logged into an
       account that you modify with <span 
 class="ectt-1200">usermod</span>, you must log out and back in for the changes to take
       effect.
       </li></ol>
-<!--l. 170--><p class="noindent" >
+<!--l. 177--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
  id="x4-160002.5"></a>Installing a Stand-alone <a 
 href="mainap9.html#ide">IDE</a></h3>
-<!--l. 172--><p class="noindent" >The REDHAWK <a 
+<!--l. 179--><p class="noindent" >The REDHAWK <a 
 href="mainap9.html#ide">IDE</a> leverages Java technologies, and for the best Java experience, a minimum of
 2GB of RAM is recommended. To install a stand-alone version of the REDHAWK <a 
 href="mainap9.html#ide">IDE</a>, you must
 extract the appropriate installation file.
-<!--l. 176--><p class="noindent" >To develop and run Java-based components within the <a 
+<!--l. 183--><p class="noindent" >To develop and run Java-based components within the <a 
 href="mainap9.html#ide">IDE</a>, the environment variable
 <span 
 class="ectt-1200">JAVA_HOME </span>must be set, and <span 
@@ -313,9 +320,9 @@ you put this in the <span
 class="ectt-1200">.bashrc </span>file. The location of <span 
 class="ectt-1200">JAVA_HOME </span>depends on where Java is installed and
 is based on the system configuration.
-<!--l. 182--><p class="noindent" >The following procedure explains how to install a stand-alone <a 
+<!--l. 189--><p class="noindent" >The following procedure explains how to install a stand-alone <a 
 href="mainap9.html#ide">IDE</a> and configure Java.
-<!--l. 184--><p class="noindent" >
+<!--l. 191--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x4-16002x1">Locate the appropriate tarball, and run the following command (where <span 
@@ -330,20 +337,20 @@ tar zxf redhawk-ide-<version>-linux.gtk.<arch>.tar.gz
       </li>
       <li 
   class="enumerate" id="x4-16004x2">To configure Java, enter the following commands:
-      <!--l. 195--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If Java is installed in a location other than the default path, $JAVA_HOME/bin:$PATH,
+      <!--l. 202--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If Java is installed in a location other than the default path, $JAVA_HOME/bin:$PATH,
       you must modify these commands to specify the correct location. </p></div></div>
+                                                                                         
+                                                                                         
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 echo "export JAVA_HOME=/usr/lib/jvm/java" &gt;&gt; ~/.bashrc
 echo "export PATH=\$JAVA_HOME/bin:\$PATH" &gt;&gt; ~/.bashrc
 source ~/.bashrc
 ]]></script></div>
-                                                                                         
-                                                                                         
       </li></ol>
-<!--l. 208--><p class="noindent" >
+<!--l. 215--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
  id="x4-170002.6"></a>Configuring omniORB</h3>
-<!--l. 210--><p class="noindent" >The omniORB configuration file (<span 
+<!--l. 217--><p class="noindent" >The omniORB configuration file (<span 
 class="ectt-1200">/etc/omniORB.cfg</span>) must be edited to provide information about
 how to reach the Common Object Request Broker Architecture (<a 
 href="mainap9.html#corba">CORBA</a>) event service. By
@@ -352,7 +359,7 @@ default, the config file contains the following entries:
 InitRef = NameService=corbaname::127.0.0.1:2809
 supportBootstrapAgent = 1
 ]]></script></div>
-<!--l. 217--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The <span 
+<!--l. 224--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The <span 
 class="ectt-1200">NameService </span>line provides information about how to reach the <a 
 href="mainap9.html#corba">CORBA</a> naming
 service. The number is an IP address followed by a colon and a <a 
@@ -362,7 +369,7 @@ number is used as a default if no other number is specified. <span
 class="ectt-1200">SupportBootstrapAgent </span>is a
 server side option. This enables omniORB servers and Sun&#8217;s JavaIDL clients to work
 together. When set to 1, an omniORB server responds to a bootstrap agent request. </p></div></div>
-<!--l. 221--><p class="noindent" >
+<!--l. 228--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x4-17002x1">Add the following line to the config file to configure the <a 
@@ -371,10 +378,12 @@ href="mainap9.html#corba">CORBA</a> event service (this
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
 ]]></script></div>
-      <!--l. 228--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The first number is the IP address followed by a colon and a <a 
+      <!--l. 235--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The first number is the IP address followed by a colon and a <a 
 href="mainli2.html#glo:port">Port</a> number. <span 
 class="ectt-1200">omniEvents </span>is
       the object key. </p></div></div>
+                                                                                         
+                                                                                         
       </li>
       <li 
   class="enumerate" id="x4-17004x2">Enter the following command to start the <span 
@@ -382,10 +391,7 @@ class="ectt-1200">omniNames </span>and <span
 class="ectt-1200">omniEvents </span>services:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo $OSSIEHOME/bin/cleanomni
-]]></script>
-                                                                                         
-                                                                                         
-      </div>
+]]></script></div>
       </li>
       <li 
   class="enumerate" id="x4-17006x3">To have <span 
@@ -397,7 +403,7 @@ sudo /sbin/chkconfig --level 345 omniNames on
 sudo /sbin/chkconfig --level 345 omniEvents on
 ]]></script></div>
       </li></ol>
-<!--l. 247--><p class="noindent" >For more information about omniORB configuration file settings (<span 
+<!--l. 254--><p class="noindent" >For more information about omniORB configuration file settings (<span 
 class="ectt-1200">/etc/omniORB.cfg</span>), refer to Chapter 4 of
 the omniORB User&#8217;s Guide (<a 
 href="http://omniorb.sourceforge.net/omni41/omniORB/omniORB004.html" class="url" ><span 
@@ -405,14 +411,14 @@ class="ectt-1200">http://omniorb.sourceforge.net/omni41/omniORB/omniORB004.html<
 your local system at <a 
 href="file:///usr/share/doc/omniORB-devel-4.1.6/doc/omniORB/omniORB004.html" class="url" ><span 
 class="ectt-1200">file:///usr/share/doc/omniORB-devel-4.1.6/doc/omniORB/omniORB004.html</span></a>).
-<!--l. 249--><p class="noindent" >
+<!--l. 256--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.7   </span> <a 
  id="x4-180002.7"></a>Configuring omniORB for Distributed Systems</h3>
-<!--l. 250--><p class="noindent" >If you want to run a <a 
+<!--l. 257--><p class="noindent" >If you want to run a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> from two different computers, the
 following procedure explains how to configure omniORB for distributed systems.
-<!--l. 252--><p class="noindent" >
+<!--l. 259--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
   class="enumerate" id="x4-18002x1">On the computer from which you want to run the <a 
@@ -433,16 +439,16 @@ class="ectt-1200">NameService </span>and <span
 class="ectt-1200">EventService </span>is the address of the
       computer running the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>.
-      <!--l. 259--><p class="noindent" >The following example is a modified <a 
+                                                                                         
+                                                                                         
+      <!--l. 266--><p class="noindent" >The following example is a modified <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> <span 
 class="ectt-1200">omniORB.cfg </span>file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = NameService=corbaname::127.0.0.1:
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
 ]]></script></div>
-                                                                                         
-                                                                                         
-      <!--l. 265--><p class="noindent" >The following example is a modified <a 
+      <!--l. 272--><p class="noindent" >The following example is a modified <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> <span 
 class="ectt-1200">omniORB.cfg </span>file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -450,7 +456,7 @@ InitRef = NameService=corbaname::<IP address of Domain Manager>:
 InitRef = EventService=corbaloc::<IP address of Domain Manager>:
           11169/omniEvents
 ]]></script></div>
-      <!--l. 272--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Neither <span 
+      <!--l. 279--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Neither <span 
 class="ectt-1200">omniEvents </span>nor <span 
 class="ectt-1200">omniNames </span>needs to be running on this computer. </p></div></div>
       </li>
@@ -460,13 +466,13 @@ href="mainli2.html#glo:devicemanager">Device Manager</a>, test that you can see 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> by
       running <span 
 class="ectt-1200">nameclt list</span>.
-      <!--l. 277--><p class="noindent" >The name of the <a 
+      <!--l. 284--><p class="noindent" >The name of the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> is displayed.
       </li>
       <li 
   class="enumerate" id="x4-18008x4">Start the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>.
-      <!--l. 280--><p class="noindent" >Any <a 
+      <!--l. 287--><p class="noindent" >Any <a 
 href="mainli2.html#glo:device">Devices</a> in the <a 
 href="mainli2.html#glo:node">Node</a> are registered with the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>.
@@ -477,10 +483,10 @@ href="mainli2.html#glo:devicemanager">Device Manager</a> and <a
 href="mainli2.html#glo:domainmanager">Domain Manager</a>, from either
       computer, run <span 
 class="ectt-1200">nameclt list &#x003C;Domain Manager Name&#x003E;</span>.
-      <!--l. 283--><p class="noindent" >The <a 
+      <!--l. 290--><p class="noindent" >The <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> and <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> are displayed.</li></ol>
-<!--l. 286--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> omniORB may have trouble automatically resolving its location. In this case, it may be necessary
+<!--l. 293--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> omniORB may have trouble automatically resolving its location. In this case, it may be necessary
 to set the endpoints in the <span 
 class="ectt-1200">omniORB.cfg </span>files by adding the following to each <span 
 class="ectt-1200">omniORB.cfg </span>file:
@@ -494,16 +500,16 @@ class="ectt-1200">rh_net_diag </span>to help diagnose any problems. Refer to <a
 href="mainap8.html#x27-501000H">Appendix H</a> for more information on
 how to use <span 
 class="ectt-1200">rh_net_diag</span>. </p></div></div>
-<!--l. 293--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 300--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.8   </span> <a 
  id="x4-190002.8"></a>Configuring omniORB</h3>
-<!--l. 294--><p class="noindent" >The REDHAWK IDE uses JacORB version 3.3 for CORBA communication. The IDE includes a
+<!--l. 301--><p class="noindent" >The REDHAWK IDE uses JacORB version 3.3 for CORBA communication. The IDE includes a
 configuration file for JacORB in the IDE&#8217;s directory (in <span 
 class="ectt-1200">configuration/jacorb.properties</span>).
 The file includes explanations and examples for many of JacORB&#8217;s configuration options. For more
 information, refer to chapter 3 of the JacORB 3.3 Programming Guide. Typically, there is no need
-                                                                                         
-                                                                                         
 to adjust any JacORB settings.
                                                                                          
                                                                                          
