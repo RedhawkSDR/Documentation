@@ -52,554 +52,342 @@ SyntaxHighlighter.all()
                                                                                          <!--l. 1--><p class="noindent" >
 <div class="tableofcontents">
 &#x00A0;<span class="likesectionToc" ><a 
-href="#x1-2000" id="QQ2-1-2">Improvements</a></span>
+href="#x1-2000" id="QQ2-1-2">New Features</a></span>
 <br />&#x00A0;<span class="likesectionToc" ><a 
-href="#x1-5000" id="QQ2-1-5">Fixes</a></span>
+href="#x1-3000" id="QQ2-1-3">Improvements</a></span>
 <br />&#x00A0;<span class="likesectionToc" ><a 
-href="#x1-13000" id="QQ2-1-13">Documentation Improvements/Fixes</a></span>
+href="#x1-6000" id="QQ2-1-6">Fixes</a></span>
 <br />&#x00A0;<span class="likesectionToc" ><a 
-href="#x1-14000" id="QQ2-1-14">Changes</a></span>
+href="#x1-12000" id="QQ2-1-12">Documentation Improvements/Fixes</a></span>
 </div>
 <h2 class="likechapterHead"><a 
- id="x1-1000"></a>REDHAWK Release Notes, Version 2.0.1</h2>
-<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.0.1 focused on:
+ id="x1-1000"></a>REDHAWK Release Notes, Version 2.0.2</h2>
+<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.0.2 focused on:
       <ul class="itemize1">
-      <li class="itemize">Enhancing  the  level  of  control  that  a  system  deployer  has  to  customize  the
-      reservation schema used to manage computing resources.
+      <li class="itemize">Improving how error messages are displayed to the user in the IDE.
       </li>
-      <li class="itemize">Adding   Python   operators   and   Java   methods   to   simplify   common   arithmetic
-      operations on BulkIO time stamps.
+      <li class="itemize">Adding new abilities to interact with logging for Components and Devices in the IDE.
       </li>
-      <li class="itemize">Addressing numerous Discrepancy Reports (DRs).</li></ul>
+      <li class="itemize">Providing better awareness of resource utilization on the host computer.
+      </li>
+      <li class="itemize">Addressing numerous Discrepancy Reports (DRs).
+      </li>
+      <li class="itemize">Adding better support for creating FEI Devices written in Python.</li></ul>
+                                                                                         
+                                                                                         
 <h3 class="likesectionHead"><a 
- id="x1-2000"></a>Improvements</h3>
-<!--l. 13--><p class="noindent" >The following IDE and Core Framework improvements were completed in REDHAWK
-                                                                                         
-                                                                                         
-2.0.1.
-<!--l. 15--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-3000"></a>IDE Improvements</h4>
+ id="x1-2000"></a>New Features</h3>
+<!--l. 15--><p class="noindent" >The following IDE and Core Framework new features were added in REDHAWK 2.0.2.
       <ul class="itemize1">
-      <li class="itemize">In Diagrams, duplicate connections between the same two Ports are displayed in
-      yellow and show a warning.
+      <li class="itemize">Enhanced IDE to use new Domain Manager method for launching Waveforms.
       </li>
-      <li class="itemize">In the Sandbox, Components and Devices now display the Component or Device
-      usage name rather than the Component&#8217;s or Device&#8217;s name.
+      <li class="itemize">Added IDE support for setting a running Component&#8217;s logging configuration.
       </li>
-      <li class="itemize">In the SAD Properties Editor, the name of the Properties are now displayed rather
-      than the ID. If no name is available, the ID is displayed.
+      <li class="itemize">Added IDE support for viewing a running Component&#8217;s logging events.
       </li>
-      <li class="itemize">An improved failure message is displayed for a Waveform installation failure.
+      <li class="itemize">Added  a  Property  on  the  GPP  that  provides  a  per-Component  GPP  resource
+      utilization.
       </li></ul>
-<!--l. 26--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-4000"></a>Core Framework Improvements</h4>
-      <ul class="itemize1">
-      <li class="itemize">Refactored auto-generated test script for Components to use the Sandbox.
-      </li>
-      <li class="itemize">Added reservation floor to GPP so that when an Application is deployed, the amount
-      reserved per Component is definable by the system user.
-      </li>
-      <li class="itemize">Provided Timestamp Helper Methods that add/subtract two time stamp objects and
-      print time stamp values.
-      </li>
-      <li class="itemize">Added generation of getters and setters for Java struct property fields.</li></ul>
-                                                                                         
-                                                                                         
-<!--l. 38--><p class="noindent" >
+<!--l. 28--><p class="noindent" >
 <h3 class="likesectionHead"><a 
- id="x1-5000"></a>Fixes</h3>
-<!--l. 39--><p class="noindent" >The following IDE, Core Framework, and Core Asset fixes were completed in REDHAWK
-2.0.1.
-<!--l. 41--><p class="noindent" >
+ id="x1-3000"></a>Improvements</h3>
+<!--l. 29--><p class="noindent" >The following IDE and Core Asset improvements were completed in REDHAWK 2.0.2.
+<!--l. 31--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
- id="x1-6000"></a>IDE Fixes</h4>
-<!--l. 42--><p class="noindent" >The following IDE bug fixes were completed in REDHAWK 2.0.1.
+ id="x1-4000"></a>IDE Improvements</h4>
       <ul class="itemize1">
-      <li class="itemize">Fixed issue so refreshing the IDL library now updates the library.
+      <li class="itemize">Improved error messages when working with Properties.
       </li>
-      <li class="itemize">Fixed errors in generated spec files that prevented macro expansion.
+      <li class="itemize">Improved error messages when launching resources in the Sandbox.
       </li>
-      <li class="itemize">Fixed issue involving certain scenarios when the palette was loaded and an error
-      occurred.
+      <li class="itemize">Improved error messages when start/stop fails for Components.
       </li>
-      <li class="itemize">Fixed issue so host collocation names can now be renamed.
+      <li class="itemize">Improved error messages for the SCA file system.
+      </li></ul>
+                                                                                         
+                                                                                         
+<!--l. 42--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-5000"></a>Core Asset Improvements</h4>
+      <ul class="itemize1">
+      <li class="itemize">Updated UHD driver to version 3.7.3.</li></ul>
+<!--l. 51--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-6000"></a>Fixes</h3>
+<!--l. 52--><p class="noindent" >The following IDE, Core Framework, Core Asset, and documentation fixes were completed in
+REDHAWK 2.0.2.
+<!--l. 54--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-7000"></a>IDE Fixes</h4>
+      <ul class="itemize1">
+      <li class="itemize">Source is no longer ignored in <span 
+class="ectt-1200">org.ossie </span>bundle.
       </li>
-      <li class="itemize">Updated Sandbox so that command-line Properties are not passed to <br 
+      <li class="itemize">Fixed domain loading on Windows.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">ScaItemProviderAdapterFactory </span>is always disposed.
+      </li>
+      <li class="itemize">Fixed null pointer exception (NPE) in editors.
+      </li>
+      <li class="itemize">Renamed context menu "Apply Horizontal Tree Layout" to "Arrange Diagram".
+      </li>
+      <li class="itemize">Fixed issues with SCA file stream cleanup.
+      </li>
+      <li class="itemize">When launching a Domain Waveform, fixed error so Waveform editor opens.
+      </li>
+      <li class="itemize">Fixed issue causing stack trace errors to be displayed when refreshing Properties.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Properties without a <span 
+class="ectt-1200">kind </span>or <span 
+class="ectt-1200">configurationkind </span>are now considered <span 
+class="ectt-1200">configure</span>.
+      </li>
+      <li class="itemize">Octave Component can be launched in debug mode.
+      </li>
+      <li class="itemize">Event channels and Waveform containers can be refreshed.
+      </li>
+      <li class="itemize">When a runtime explorer Node diagram is open and connections are created, this
+      no longer causes an NPE.
+      </li>
+      <li class="itemize">Runtime explorer Node diagrams show connections.
+      </li>
+      <li class="itemize">Multiple Sandbox Waveforms with similar names can be opened.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">configure </span>Properties are now set for Devices launched from the Python Sandbox.
+      </li>
+      <li class="itemize">When loading Domain items, improved error details provided in Explorer View.
+      </li>
+      <li class="itemize">Status details will not display for errors on the file manager.
+      </li>
+      <li class="itemize">In File Manager, CORBA file objects are deactivated after they are closed.
+      </li>
+      <li class="itemize">Opening  a  Node  diagram  containing  a  Device/Service  not  in  the  SDR  no  longer
+      causes an NPE.
+      </li>
+      <li class="itemize">Tooltips for long Property descriptions are displayed.
+      </li>
+      <li class="itemize">Deleting  a  Component  from  the  SAD  diagram  deletes  its  external  Properties  or
+      external Ports.
+      </li>
+      <li class="itemize">When    editing    Nodes,    unique    <span 
+class="ectt-1200">componentinstance  </span>id&#8217;s    are    created    for
+      Devices/Services.
+      </li>
+      <li class="itemize">New IDL projects have include paths to omniORB COS IDLs.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">IDE can now connect to and display content from multiple Domains with the same
+      name.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">OCTAVE_PATH </span>is now set in the Chalkboard for softpkg dependencies.
+      </li>
+      <li class="itemize">SPD editor Overview tab now displays correct resource type.
+      </li>
+      <li class="itemize">Environment  variable  paths  are  now  properly  set  for  resources  launched  in  the
+      Chalkboard.
+      </li>
+      <li class="itemize">Editing a Find By name no longer creates a duplicate item in the diagram.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">DataList </span>correctly displays complex data streams.
+      </li>
+      <li class="itemize"><span 
+class="phvro8t-x-x-120">usesdevice </span>elements type attribute is optional.
+      </li>
+      <li class="itemize">Error messages are displayed in the Launch Domain Manager Wizard.
+      </li>
+      <li class="itemize">Improved performance of Node Explorer diagram.
+      </li>
+      <li class="itemize">Connections created in design-time diagrams can be undone.
+      </li>
+      <li class="itemize">Improved Waveform Explorer diagram.
+      </li>
+      <li class="itemize">In a runtime diagram, fixed error so cannot undo release/terminate of Component.
+      </li>
+      <li class="itemize">Launch Waveform Wizard displays overwritten Properties.
+      </li>
+      <li class="itemize">Connections from Java Components are displayed when diagrams are opened.
+      </li>
+      <li class="itemize">Sequence values in Runtime Property dialog can be deleted when in edit mode.
+      </li></ul>
+                                                                                         
+                                                                                         
+<!--l. 100--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-8000"></a>Core Framework Fixes</h4>
+      <ul class="itemize1">
+      <li class="itemize">Added Python helper that simplifies the creation of SRI objects for FEI Devices.
+      </li>
+      <li class="itemize">Python  FEI  Devices  now  contain  extended  mutex  control  over  control  member
+      variables in the tuner base class.
+      </li>
+      <li class="itemize">Python FEI Devices do not call <span 
+class="ectt-1200">deviceDeleteTuning </span>when deallocating a listener.
+      </li>
+      <li class="itemize">Python FEI Devices can deallocate a listener from the IDE.
+      </li>
+      <li class="itemize">Python FEI Devices Ports contain the correct reference to the parent Device object.
+      </li>
+      <li class="itemize">Python FEI tuner control Ports implement the correct inheritance hierarchy.
+      </li>
+      <li class="itemize">In Python Components and Devices, using <br 
 class="newline" /><span 
-class="ectt-1200">Resource.initializeProperties()</span>.
+class="ectt-1200">CF.LogConfiguration.setLogConfig(String)  </span>now    correctly    sets    the    log
+      configuration.
       </li>
-      <li class="itemize">Fixed editors so when opened, items under the Target SDR are now read-only.
+      <li class="itemize">The Java logging appender only prints an error on <span 
+class="ectt-1200">stderr </span>when an error condition
+      exists.
       </li>
-      <li class="itemize">Fixed update sites in IDE to use Mars not Luna.
+      <li class="itemize">C++ <span 
+class="ectt-1200">Appender </span>now prints debug information to the log file instead of <span 
+class="ectt-1200">stdout</span>.
       </li>
-      <li class="itemize">Updated IDE to include JacORB feature.
+      <li class="itemize">Property initialization of struct sequence no longer triggers Property change listener.
       </li>
-      <li class="itemize">Fixed   Sandbox   so   that   Properties   of   kind   Property   are   not   passed   to
-      <span 
-class="ectt-1200">Resource.configure() </span>at launch.
+      <li class="itemize">C++ <span 
+class="ectt-1200">AnyUtils </span>can convert strings to octet.
       </li>
-      <li class="itemize">Fixed  Sandbox  so  terminating  a  Waveform  running  in  the  Sandbox  via  the
-      REDHAWK Explorer actually terminates the Waveform.
+      <li class="itemize">BulkIO chunking accounts for subsize, aligning subsize boundaries.
+      </li>
+      <li class="itemize">The Connection Manager allows Component to Component connections.
+      </li>
+      <li class="itemize">The GPP Property XML file now includes <span 
+class="ectt-1200">mcastnicEgressFree</span>.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">Fixed issue so when opening the Component editor for a resource in the Sandbox,
-      or the Explorer for a Waveform, an "Unsupported content" dialog and related error
-      messages are not displayed in the console. Additionally, in the Editor view, three
-      tabs no longer display blank content for each of the XML files.
+      <li class="itemize">In a multi-system REDHAWK environment, when restarting a GPP after the restart
+      of  a  Domain  Manager  with  persistence  enabled,  the  GPP  no  longer  aborts  on
+      startup.
       </li>
-      <li class="itemize">Fixed Chalkboard so releasing a Component no longer terminates the Component
-      but actually releases the Component.
+      <li class="itemize">The GPP reports correct number of CPUs on all supported versions of CentOS.
       </li>
-      <li class="itemize">Updated Devices so when a namespaced Device is dragged-and-dropped onto the
-      Device Manager Chalkboard, it no longer is displayed in yellow and does not display
-      an error.
+      <li class="itemize">When the Domain Manager is terminated normally, the event channels are cleaned
+      up from the name service.
       </li>
-      <li class="itemize">Fixed C++ workspace projects so when launched in the Sandbox, they now use
-      entrypoint to execute.
+      <li class="itemize">The Event Channel Manager honors the requested registration ID.
       </li>
-      <li class="itemize">Fixed Sandbox so launching Waveforms that override a <span 
-class="ectt-1200">simplesequence </span>no longer
-      causes errors.
+      <li class="itemize">Event channels can register with the <span 
+class="ectt-1200">PropertyListener</span>.
       </li>
-      <li class="itemize">Fixed Python Sandbox so when Components are launched, they have configure and
-      property kind Properties passed to them in addition to execparams.
+      <li class="itemize"><span 
+class="ectt-1200">log4py </span>can create directories when specified in the log configuration file.
       </li>
-      <li class="itemize">Fixed Chalkboard so the context menu for Components of Domain Waveforms no
-      longer displays Terminate as an available option.
+      <li class="itemize"><span 
+class="ectt-1200">FileManager </span>does not fail when calling <span 
+class="ectt-1200">getMounts</span>.
       </li>
-      <li class="itemize">Fixed FEI Device Wizard so if a project name is name spaced, clicking Finish in the
-      wizard no longer causes an error.
+      <li class="itemize">Java Port objects match the reported object in the connection description.
       </li>
-      <li class="itemize">Updated Node Diagrams so when connecting Ports between figures that have been
-      collapsed, an error no longer occurs if the connection is ambiguous and the IDE
-      prompts the user.
+      <li class="itemize">In the IDE Python Sandbox, <span 
+class="ectt-1200">sb.show() </span>Component connections displays the correct
+      results.
       </li>
-      <li class="itemize">Fixed SCD files in new projects to include the new <span 
-class="ectt-1200">CF.PropertyEmitter </span>interface.
+      <li class="itemize">In the Python Sandbox, connection IDs can be reused.
       </li>
-      <li class="itemize">Fixed DCD files so if they reference a non-existent SPD file for the Device Manager,
-      the Overview tab in the DCD Editor functions.
+      <li class="itemize">Removed superfluous warning from <span 
+class="ectt-1200">libnuma </span>on 32bit VMs.
+      </li>
+      <li class="itemize">Making  connnections  between  GPS  Ports  in  Java  Devices  no  longer  causes  an
+      NPE.
+      </li>
+      <li class="itemize">SIGCHLD is properly propagated in GPP.
+      </li>
+      <li class="itemize">In Python Devices and Components, exceptions in the process function are logged.
+      </li>
+      <li class="itemize">Extended the <span 
+class="ectt-1200">start </span>call on Application time out.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">Fixed Redhawk Explorer view so if the &#8217;name&#8217; attribute is missing in a DCD, SPD, or
-      SAD file in the SDRROOT, all items are still displayed under the Target SDR.
+      <li class="itemize">Python Sandbox launch function works as expected in the IDE.
       </li>
-      <li class="itemize">Fixed DCD editor so if a Service is manually added in the XML tab, the Diagram tab
-      reflects it.
+      <li class="itemize">Python Sandbox no longer uses path to identify resource type.
       </li>
-      <li class="itemize">Updated code as a result of recent updates in Graphiti.
-      </li>
-      <li class="itemize">Updated SAD/DCD diagrams to always fully reflect changes made to the underlying
-      XML file.
-      </li>
-      <li class="itemize">Fixed possible deadlock in UI thread.
-      </li>
-      <li class="itemize">Updated Diagrams so renaming a Component no longer causes an error.
-      </li>
-      <li class="itemize">Fixed  issue  when  creating  a  FindBy,  the  FindBy  was  not  allowed  inside  a  host
-      collocation; however, if the host collocation covered the FindBy in the Diagram, the
-      FindBy sat on top of it making it appear like it was inside the host collocation.
-      </li>
-      <li class="itemize">Fixed Diagram palette filter to search on the full Component name.
-      </li>
-      <li class="itemize">Fixed the DCD Diagram palette to refresh with SDR root.
-      </li>
-      <li class="itemize">Fixed issue so plot connection error does not display when making connections with
-      Waveform external Ports.
-      </li>
-      <li class="itemize">FIxed issue so a new Domain can be added with corbaloc or IOR syntax.
-      </li>
-      <li class="itemize">Fixed SAD and DCD editor to allow Property value overrides for read-only command
-      line Properties.
-      </li>
-      <li class="itemize">Fixed event Property error when upgrading.
-      </li>
-      <li class="itemize">Fixed  project  update  so  configure/execparam  Properties  are  changed  to  a  new
-      Property.</li></ul>
-                                                                                         
-                                                                                         
-<!--l. 83--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-7000"></a>Core Framework Fixes</h4>
-      <ul class="itemize1">
-      <li class="itemize">Added a documentation note regarding performing a source upgrade from 1.8 to
-      2.0.
-      </li>
-      <li class="itemize">Provided  instructions  on  how  to  access  Domain  Manager  and  Application  in
-      comments for generated Components.
-      </li>
-      <li class="itemize">Updated comments for generated Components to use stream-based input rather
-      than <span 
-class="ectt-1200">getPacket</span>.
-      </li>
-      <li class="itemize">Updated <span 
-class="ectt-1200">bluefile_helpers </span>to support numpy &#x003E;= 1.9.0.
-      </li>
-      <li class="itemize">Eliminated <span 
-class="ectt-1200">Makefile.am </span>warnings on Ubuntu 14.04.
-      </li>
-      <li class="itemize">Updated installation so when installing from source, if dependencies are not already
-      present on the host or a valid PYPI is not accessible, the installation will fail.
-      </li>
-      <li class="itemize">Enabled and verified support for xsd &#x003E;= 3.3.0.
-      </li>
-      <li class="itemize">Updated  the  generated  <span 
-class="ectt-1200">configure.ac </span>file  for  Octave  Components  by  omitting  a
-      call to the <span 
-class="ectt-1200">RH_SOFTPKG_CXX </span>macro. This update resolved configuration failures when
-      dependencies  did  not  have  a  valid  <span 
-class="ectt-1200">pkgconfig</span>,  which  is  not  present  for  <span 
-class="ectt-1200">noarch</span>
-      packages.
-      </li>
-      <li class="itemize">Updated  the  <span 
-class="ectt-1200">redhawk.sh </span>script  in  <span 
-class="ectt-1200">/etc/profile.d </span>to  fix  <span 
-class="ectt-1200">LD_LIBRARY_PATH </span>set
-      issues.
-      </li>
-      <li class="itemize">Added newline at end of <span 
-class="ectt-1200">EventChannelManager.idl</span>.
-      </li>
-      <li class="itemize">Updated CF tests so they can be run without BulkIO.
-      </li>
-      <li class="itemize">Updated BurstIO testing so it no longer requires the libraries to be installed.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Added regression test to verify that Waveform allocations are consolidated into a
-      single allocation call when allocation Properties do not overlap.
-      </li>
-      <li class="itemize">Renamed generated unit test <span 
-class="ectt-1200">testScaBasicBehavior </span>to <span 
-class="ectt-1200">testRHBasicBehavior</span>.
-      </li>
-      <li class="itemize">Updated generated Ports in C++ and Java to report the most specific CORBA <span 
-class="ectt-1200">repid</span>
-      in <span 
-class="ectt-1200">getPortSet()</span>.
-      </li>
-      <li class="itemize">Updated  Python  Components  to  only  report  Python  <span 
-class="ectt-1200">MessageConsumer </span>Ports  as
-      bi-directional, not <span 
-class="ectt-1200">MessageSupplier </span>Ports.
-      </li>
-      <li class="itemize">Updated Java BulkIO <span 
-class="ectt-1200">InFilePort </span>to return the expected <span 
-class="ectt-1200">repid</span>.
-      </li>
-      <li class="itemize">Updated  C++  GPP  to  manage  Components  as  process  groups  and  harmonize
-      difference between Python and C++ GPP and changed timeouts to more sensible
-      values.
-      </li>
-      <li class="itemize">GPP  Updated  C++  GPP  to  set  the  process  group  ID  during  launch  and  then
-      terminate based on the group ID if a Component does not die.
-      </li>
-      <li class="itemize">Modified <span 
-class="ectt-1200">sb.launch() </span>to allow overriding property kind Properties.
-      </li>
-      <li class="itemize">Added support to <span 
-class="ectt-1200">properties.py </span>for conversion of non base 10 strings.
-      </li>
-      <li class="itemize">Updated  <span 
-class="ectt-1200">py2prf </span>so  when  exporting  Properties  to  xml,  <span 
-class="ectt-1200">simplesequence </span>and
-      <span 
-class="ectt-1200">structsequence </span>are correct.
-      </li>
-      <li class="itemize">Fixed Application launch so that Component command line Properties with no value
-      do not get included in the incorrect initialization step.
-      </li>
-      <li class="itemize">Fixed Sandbox <span 
-class="ectt-1200">DataSourcepush() </span>to honor the EOS flag at the end of large pushes
-      when the total size is an exact multiple of the packet size.
-      </li>
-      <li class="itemize">Fixed Python Sandbox so it does not call <span 
-class="ectt-1200">initializeProperties() </span>after the IDE
-      calls <span 
-class="ectt-1200">initializeProperties()</span>.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Fixed Python Sandbox so Java Components do not fail in Sandbox when the name
-      Service is not running.
-      </li>
-      <li class="itemize">Fixed <span 
-class="ectt-1200">DataSink </span>so it honors the SRI subsize and returns a frame matrix.
-      </li>
-      <li class="itemize">Improved feedback when an XML parsing error occurs.
-      </li>
-      <li class="itemize">Modified Python PRF parser definition so <span 
-class="ectt-1200">app_prop </span>is not part of the PRF parser
-      definition for the struct.
-      </li>
-      <li class="itemize">Fixed Python Service logging level so <span 
-class="ectt-1200">DEBUG_LEVEL </span>is honored.
-      </li>
-      <li class="itemize">Resolved issues when invalid Port names are used in Service connections.
-      </li>
-      <li class="itemize">Fixed  internal  UUID  module  so  generated  UUID  uses  versions  1  or  4  and
-      randomizes the MAC address.
-      </li>
-      <li class="itemize">Fixed Device Manager to only report child processes as having exited when the child
-      process terminates, ignoring non-fatal signals.
-      </li>
-      <li class="itemize">Fixed Application stop to continue to stop all of the Components in an Application
-      even if one fails, still throwing an exception at the end.
-      </li>
-      <li class="itemize">Fixed Domain Manager memory leaks from parsers for Properties and fixed minor
-      leaks with <span 
-class="ectt-1200">_ptr </span>usage.
-      </li>
-      <li class="itemize">Extended the Domain Manager to handle Application registrations locally.
-      </li>
-      <li class="itemize">Added test for backwards compatibility with partial struct configuration.
-      </li>
-      <li class="itemize">Fixed  Python  Sandbox  to  ensure  that  only  simple  Properties  are  passed  on  the
-      command line, and that non-overridden command line Properties are not included
-      in <span 
-class="ectt-1200">initializeProperties()</span>.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Fixed            issues            with            validating            SAD            file            from
-      <span 
-class="ectt-1200">installApplication() </span>and <span 
-class="ectt-1200">createApplication() </span>and issue with default command
-      line option for new Properties.
-      </li>
-      <li class="itemize">Fixed Connection Manager so connections to Applications cannot be deferred, and
-      connections that cannot be deferred are deleted when the endpoint goes away.
-      </li>
-      <li class="itemize">Modified test Component <span 
-class="ectt-1200">cpp_with_deps </span>to build on Ubuntu 14.04.
-      </li>
-      <li class="itemize">Fixed issue to prevent deadlock when a Device Manager shuts down at the same
-      time one of the Applications deployed to its Devices is released.
-      </li>
-      <li class="itemize">Added  semantic  checking  to  the  contents  of  a  Waveform  <span 
-class="ectt-1200">SAD.xml </span>file  and  its
-      associated Components and softpackage dependencies.
-      </li>
-      <li class="itemize">Updated Python module to recognize external Ports that are in a host collocation
-      block.
-      </li>
-      <li class="itemize">Updated Domain Manager to handle IDM Channel messages.
-      </li>
-      <li class="itemize">Added new interface extensions on core services to Python package.
-      </li>
-      <li class="itemize">Added autotools-generated files to clean up for REDHAWK Library Projects.
-      </li>
-      <li class="itemize">Fixed Python code generator to assign the default values for inherited Properties in
-      the base class <span 
-class="ectt-1200">__init__() </span>method instead of at the class definition level.
-      </li>
-      <li class="itemize">Fixed  launch  failure  for  generated  Java  FEI  Devices  with  additional  tuner  status
-      fields.
-      </li>
-      <li class="itemize">Added source to FEI JAR files.
-      </li>
-      <li class="itemize">Modified the GPP to release all reservations for a Waveform.
-      </li>
-      <li class="itemize">Added additional tests for compliant and non-compliant soft package dependencies.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Modified Sandbox <span 
-class="ectt-1200">MessageSource </span>to use <span 
-class="ectt-1200">messageId </span>member.
-      </li>
-      <li class="itemize">Fixed  override  of  instance  values  for  Components  launched  through  the  Python
-      Sandbox interface running in the IDE.
-      </li>
-      <li class="itemize">Fixed race condition in BulkIO unit tests for SDDS and Vita49.
-      </li>
-      <li class="itemize">Added proper type checking for Properties in Python Components.
-      </li>
-      <li class="itemize">Added  handling  for  spurious  CORBA  errors  on  Component  initialization  while
-      running QA tests that launch and release large numbers of Components.
-      </li>
-      <li class="itemize">Fixed BulkIO input Port to set <span 
-class="ectt-1200">sriChanged </span>flag and register default SRI for unknown
-      stream IDs in <span 
-class="ectt-1200">pushPacket</span>.
-      </li>
-      <li class="itemize">Modified Valgrind support in Device Manager to avoid attempting to overwrite the
-      Device executable file with the Valgrind log file.
-      </li>
-      <li class="itemize">Improved unit test for Components.
+      <li class="itemize">Python Sandbox <span 
+class="ectt-1200">loadSADFile </span>works correctly when Components have Properties
+      with special characters.
       </li></ul>
-<!--l. 150--><p class="noindent" >
+<!--l. 140--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
- id="x1-8000"></a>Core Asset Fixes</h4>
-      <ul class="itemize1">
-      <li class="itemize">Copyright files updated to include year 2016.</li></ul>
-<!--l. 156--><p class="noindent" >
+ id="x1-9000"></a>Core Asset Fixes</h4>
+<!--l. 143--><p class="noindent" >
 <h5 class="subsubsectionHead"><a 
- id="x1-9000"></a>REDHAWK Basic Components</h5>
-                                                                                         
-                                                                                         
+ id="x1-10000"></a>REDHAWK Basic Components</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
-class="ectt-1200">DataConverter </span>fixed floating point error in conversion from complex to scalar.
+class="ectt-1200">DataConverter </span>improved unit tests to include unscaled unit tests.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">DataConverter </span>removed an unused variable.
+class="ectt-1200">DataConverter </span>eliminated  data  distortion  for  Short  to  Float  and  Float  to  Float
+      conversions.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">DataConverter </span>fixed  conversions  from  float  and  double  to  char  and  updated
-      corresponding unit tests.
+class="ectt-1200">DataConverter </span>fixed to only scale output when configured to do so.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">DataConverter </span>updated to have a distinct unit test for each test case.
+class="ectt-1200">FileReader </span>fixed to start when launched with non-default source_uri.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">fcalc </span>added error checking and recovery to property configuration.
+class="ectt-1200">FileWriter </span>fixed feature that starts a new file following a retune.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">FileReader </span>updated to not use Domain Manager when in Sandbox.
+class="ectt-1200">FileWriter </span>fixed initial configuration of overridden Property values.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">FileWriter </span>updated to not use Domain Manager until configured/initialized.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">FileWriter </span>fixed to write file to correct location when launched in a Domain.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">psd </span>updated to pass keywords COL_RF and CHAN_RF.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">psd </span>updated unit tests to check precision and accuracy.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">SigGen </span>updated to use unsigned types where appropriate.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">SigGen </span>updated to have increased precision in all implementations.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">SigGen </span>updated to only initialize timestamps when started.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">SigGen </span>C++ implementation updated to be more responsive to configuration calls.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">SigGen </span>C++ implementation updated <span 
-class="ectt-1200">delta_phase </span>calculation to be consistent with
-      other implementations.
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">SigGen </span>updated to send EOS when configured with new <span 
-class="ectt-1200">stream_id</span>.
+class="ectt-1200">FileWriter </span>fixed several bugs with the recording timer.
                                                                                          
                                                                                          
       </li>
       <li class="itemize"><span 
-class="ectt-1200">RBDSDecoder </span>updated to include RBDS messages in the log.
+class="ectt-1200">psd </span>moved stream callback registration to the REDHAWK constructor.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">TuneFilterDecimate </span>fixed unit test <span 
-class="ectt-1200">tearDown </span>function to clean up properly.</li></ul>
-<!--l. 186--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x1-10000"></a>REDHAWK Basic Devices</h5>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">RTL2832U </span>updated to include report of FEI compliance test results.
+class="ectt-1200">psk_soft </span>updated to apply initial Property values.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">USRP_UHD </span>updated unit test default configuration to use UHD version that comes with
-      REDHAWK.</li></ul>
-<!--l. 192--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x1-11000"></a>REDHAWK Shared Libraries</h5>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">RedhawkDevUtils </span>updated float/double byte-swap methods to not cast to anything
-      but char*.</li></ul>
-<!--l. 198--><p class="noindent" >
-<h5 class="subsubsectionHead"><a 
- id="x1-12000"></a>REDHAWK Device Dependencies</h5>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">librtlsdr </span>corrected dependency listed in <span 
-class="ectt-1200">README.md</span>.
+class="ectt-1200">sinksocket </span>updated to apply initial Property values.
       </li>
       <li class="itemize"><span 
-class="ectt-1200">librtlsdr </span>corrected install location of udev rules from source build.</li></ul>
-                                                                                         
-                                                                                         
-<!--l. 206--><p class="noindent" >
-<h3 class="likesectionHead"><a 
- id="x1-13000"></a>Documentation Improvements/Fixes</h3>
-<!--l. 207--><p class="noindent" >The following documentation improvements/fixes were completed in REDHAWK 2.0.1.
-      <ul class="itemize1">
-      <li class="itemize">Removed recycle from the the REDHAWK Overview.
+class="ectt-1200">SinkVita49 </span>fixed bug that prevented SRI updates after being stopped and restarted.
       </li>
-      <li class="itemize">Updated Core Asset names with namespaces.
+      <li class="itemize"><span 
+class="ectt-1200">SinkVita49 </span>fixed to stop immediately when a stop is initiated.
       </li>
-      <li class="itemize">Updated GPP description now that it is written in C++.
-      </li>
-      <li class="itemize">Clarified Property types.
-      </li>
-      <li class="itemize">Improved language discussing primitive types available for Properties.
-      </li>
-      <li class="itemize">Corrected description of Device library dependencies.
-      </li>
-      <li class="itemize">Simplified description of recommended packages to install.
-      </li>
-      <li class="itemize">Improved information regarding adding a library in <span 
-class="ectt-1200">Makefile.am</span>.
-      </li>
-      <li class="itemize">Added explanation of the <span 
-class="ectt-1200">PrecisionUTCTime </span>structure and moved description of the
-      SRI structure to the section where SRI is discussed.
-      </li>
-      <li class="itemize">Updated capacity allocation information to explain automatic capacity allocation.
-      </li>
-      <li class="itemize">Added description of SRI keywords used with FEI Devices.
-      </li>
-      <li class="itemize">Added Valgrind information in GPP and Device Manager sections.
-      </li>
-      <li class="itemize">Added information regarding the use of <span 
-class="ectt-1200">raw_input() </span>in Python Sandbox.
-      </li>
-      <li class="itemize">Added information about new GPP reservation floor.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Added version 1.10.X in upgrading information.
-      </li>
-      <li class="itemize">Updated installing system dependencies REDHAWK version to 2.01.
-      </li>
-      <li class="itemize">Added information about Timestamp Helper Methods.
-      </li>
-      <li class="itemize">Added C++ property query and configure callbacks information.
-      </li>
-      <li class="itemize">Added <span 
-class="ectt-1200">getCurrentStream() </span>information in BulkIO stream documentation.
-      </li>
-      <li class="itemize">Updated C++ property listener examples to use 2.0-style methods.
-      </li>
-      <li class="itemize">Added information to correct omniNames/omniEvents install order on Ubuntu.
-      </li>
-      <li class="itemize">Added information about deprecated properties upgrade process.
-      </li>
-      <li class="itemize">Added setuptools to the install for Ubuntu.
+      <li class="itemize"><span 
+class="ectt-1200">TuneFilterDecimate </span>fixed calculation of SRI keyword CHAN_RF for tuning mode
+      NORM.
       </li></ul>
-<!--l. 238--><p class="noindent" >
-<h3 class="likesectionHead"><a 
- id="x1-14000"></a>Changes</h3>
-<!--l. 239--><p class="noindent" >The following changes were made in REDHAWK 2.0.1.
-<!--l. 241--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-15000"></a>IDE Changes</h4>
+<!--l. 170--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-11000"></a>REDHAWK Basic Devices</h5>
       <ul class="itemize1">
-      <li class="itemize">Removed Subversive (Subversion) from the IDE.</li></ul>
+      <li class="itemize">CA-361 <span 
+class="ectt-1200">FmRdsSimulator </span>reduced default level of added noise.
+      </li></ul>
+<!--l. 190--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-12000"></a>Documentation Improvements/Fixes</h3>
+<!--l. 191--><p class="noindent" >The following documentation improvements/fixes were completed in REDHAWK 2.0.2.
+      <ul class="itemize1">
+      <li class="itemize">Added a note to explain that adjusting an Application&#8217;s logging configuration alters
+      the entire Domain.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Corrected instructions for logging with event channels.
+      </li>
+      <li class="itemize">Corrected the translation of the logging config URI.
+      </li>
+      <li class="itemize">Corrected typos in macros in Section 13.2.4.
+      </li></ul>
  
  <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
 

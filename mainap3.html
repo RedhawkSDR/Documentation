@@ -53,9 +53,9 @@ href="mainap2.html#tailmainap2.html" >prev-tail</a>] [<a
 href="#tailmainap3.html">tail</a>] [<a 
 href="main.html#mainap3.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;C</span><br /><a 
- id="x22-426000C"></a>Installing REDHAWK on Ubuntu</h2>
+ id="x22-427000C"></a>Installing REDHAWK on Ubuntu</h2>
 <h3 class="sectionHead"><span class="titlemark">C.1   </span> <a 
- id="x22-427000C.1"></a>Introduction</h3>
+ id="x22-428000C.1"></a>Introduction</h3>
 <!--l. 5--><p class="noindent" >This appendix explains how to install the Core Framework, <a 
 href="mainap9.html#ide">IDE</a>, Basic <a 
 href="mainli2.html#glo:component">Components</a>,
@@ -63,7 +63,7 @@ and Core Assets from source on a machine running the Ubuntu 14.04 LTS operating
 system.
 <!--l. 7--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">C.2   </span> <a 
- id="x22-428000C.2"></a>Installing System Dependencies</h3>
+ id="x22-429000C.2"></a>Installing System Dependencies</h3>
 <!--l. 9--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  When upgrading REDHAWK source from 1.8 to a later version (1.9.X, 1.10.X, 2.0.X),
 <span 
 class="ectt-1200">$OSSIEHOME/lib64 </span>has been deprecated and must be removed. It is recommended to delete all
@@ -73,7 +73,7 @@ class="ectt-1200">$OSSIEHOME </span>contents prior to upgrading to REDHAWK 2.0.1
 <!--l. 13--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-428002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+  class="enumerate" id="x22-429002x1">Enter the following commands. <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo apt-add-repository ppa:redhawksdr/omnievents-2.7
 sudo apt-get update
 sudo apt-get install -y build-essential openmpi-bin libopenmpi-dev \
@@ -91,7 +91,7 @@ sudo apt-get install -y omnievents libomnievents-dev
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x22-428004x2">To create a writable location for the compiled REDHAWK source, enter the following
+  class="enumerate" id="x22-429004x2">To create a writable location for the compiled REDHAWK source, enter the following
       commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo mkdir -p  /var/lib/redhawk/core
@@ -100,7 +100,7 @@ sudo chown -R <username> /var/lib/redhawk
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x22-428006x3">Add the following to <span 
+  class="enumerate" id="x22-429006x3">Add the following to <span 
 class="ectt-1200">.bashrc </span>to set <span 
 class="ectt-1200">OSSIEHOME</span>, <span 
 class="ectt-1200">SDRROOT</span>, <span 
@@ -132,7 +132,7 @@ sudo locate java-7-openjdk
 </p></div></div>
 <!--l. 59--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">C.3   </span> <a 
- id="x22-429000C.3"></a>Building REDHAWK</h3>
+ id="x22-430000C.3"></a>Building REDHAWK</h3>
 <!--l. 60--><p class="noindent" >To compile the source, create a group named redhawk and add your username to the group,
 execute the following commands:
                                                                                          
@@ -147,27 +147,27 @@ sudo /usr/sbin/usermod -a -G redhawk <username>
 ]]></script></div>
 <!--l. 71--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">C.4   </span> <a 
- id="x22-430000C.4"></a>Setting Up omniORB.cfg</h3>
+ id="x22-431000C.4"></a>Setting Up omniORB.cfg</h3>
 <!--l. 73--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-430002x1">Enter the following command: <span 
+  class="enumerate" id="x22-431002x1">Enter the following command: <span 
 class="ectt-1200">sudo vi /etc/omniORB.cfg</span>.
       </li>
       <li 
-  class="enumerate" id="x22-430004x2">Comment out <span 
+  class="enumerate" id="x22-431004x2">Comment out <span 
 class="ectt-1200">DefaultInitRef = corbaloc:: </span>using #
       </li>
       <li 
-  class="enumerate" id="x22-430006x3">Add the line <span 
+  class="enumerate" id="x22-431006x3">Add the line <span 
 class="ectt-1200">InitRef = NameService=corbaname::127.0.0.1:2809</span>
       </li>
       <li 
-  class="enumerate" id="x22-430008x4">Add the line <span 
+  class="enumerate" id="x22-431008x4">Add the line <span 
 class="ectt-1200">InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents</span>
       </li>
       <li 
-  class="enumerate" id="x22-430010x5">Restart <span 
+  class="enumerate" id="x22-431010x5">Restart <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>by entering the following commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -187,7 +187,7 @@ sudo service omniorb-eventservice restart
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x22-430012x6">To have <span 
+  class="enumerate" id="x22-431012x6">To have <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>start on system boot, <span 
 class="ectt-1200">update-rc.d </span>and
@@ -199,7 +199,7 @@ sudo update-rc.d omniorb-eventservice defaults
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x22-430014x7">To create a symbolic link for <span 
+  class="enumerate" id="x22-431014x7">To create a symbolic link for <span 
 class="ectt-1200">omniidl</span>, enter the following commands.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo ln -s /usr/lib/omniidl/omniidl \
@@ -208,14 +208,14 @@ sudo ln -s /usr/lib/omniidl/omniidl \
       </li></ol>
 <!--l. 121--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">C.5   </span> <a 
- id="x22-431000C.5"></a>Extracting the <a 
+ id="x22-432000C.5"></a>Extracting the <a 
 href="mainap9.html#ide">IDE</a></h3>
 <!--l. 123--><p class="noindent" >Refer to <a 
 href="mainch2.html#x4-160002.5">Section 2.5</a> for the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> installation instructions for all Linux distributions.
 <!--l. 125--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">C.6   </span> <a 
- id="x22-432000C.6"></a>Building the Core Assets</h3>
+ id="x22-433000C.6"></a>Building the Core Assets</h3>
 <!--l. 127--><p class="noindent" >To build the core assets from source, you must download the release tarball for each asset from github
 (for example, <a 
 href="https://github.com/RedhawkSDR/TuneFilterDecimate/releases/tag/1.0.0" class="url" ><span 
@@ -229,13 +229,13 @@ core assets. </p></div></div>
 <!--l. 133--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x22-432002x1">Execute the following command:
+  class="enumerate" id="x22-433002x1">Execute the following command:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 tar xzvf <asset name>-<version number>.tar.gz
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x22-432004x2">Follow source build and installation instructions in the <span 
+  class="enumerate" id="x22-433004x2">Follow source build and installation instructions in the <span 
 class="ectt-1200">README.md </span>text file found in the root
       directory of the asset.</li></ol>
                                                                                          
