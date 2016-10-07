@@ -63,7 +63,18 @@ instances and applications.</p>
 
 <h3>Recent Announcements</h3>
 
-<p><strong>Release of REDHAWK 2.0.2 (September 1, 2016)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.2 focused on:
+<p><strong>Release of REDHAWK 2.0.3 (October 5, 2016)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. REDHAWK 2.0.3 addresses the following:
+
+<ul>
+<li>Improvements to GPP automatic resource monitoring caused a memory leak. - Fixed.
+<li>Incorrect return type in the GPS interface implementation of FrontEnd Interfaces. - Fixed.
+<li>Python Devices failed to launch when a logging config file is specified. - Fixed.
+</ul>
+
+<p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
+
+
+<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.2">Release of REDHAWK 2.0.2</a> (September 1, 2016)</strong> - The effort in REDHAWK 2.0.2 focused on:
 <ul>
 <li>Improving how error messages are displayed to the user in the IDE.
 <li>Adding new abilities to interact with logging for Components and Devices in the IDE.
@@ -71,8 +82,6 @@ instances and applications.</p>
 <li>Adding better support for creating FEI Devices written in Python.
 <li>Addressing numerous Discrepancy Reports (DRs).
 </ul>
-
-<p>For an overview of the new features or enhancements included in this release and information about the bug fixes and improvements of this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
 
 <p><strong><a href="https://github.com/RedhawkSDR/TuneFilterDecimate/releases/2.0.1">Release of TuneFilterDecimate 2.0.1 for the REDHAWK 2.0 series</a> (July 29, 2016) </strong> - TuneFilterDecimate 2.0.1 resolves the following issue:
 <ul>
@@ -94,17 +103,14 @@ instances and applications.</p>
 <li>Fixed error causing Ubuntu build failure.
 </ul>
 
-<p><strong>Final Release of REDHAWK 2.0.1 (April 15, 2016)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.1 focused on:
+<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.1">Final Release of REDHAWK 2.0.1</a> (April 15, 2016)</strong> - The effort in REDHAWK 2.0.1 focused on:
 <ul>
 <li>Enhancing the level of control that a system deployer has to customize the reservation schema used to manage computing resources.
 <li>Adding Python operators and Java methods to simplify common arithmetic operations on BulkIO time stamps.
 <li>Addressing numerous Discrepancy Reports (DRs).
 </ul>
 
-<p>For an overview of the new features or enhancements included in this release and information about the bug fixes and improvements of this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
-
-
-<p><strong>Final Release of REDHAWK 2.0 (December 10, 2015)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0 focused on improving system management, establishing a core set of REDHAWK assets, and enhancing the IDE user experience.  This effort included:
+<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.0">Final Release of REDHAWK 2.0</a> (December 10, 2015)</strong> - The effort in REDHAWK 2.0 focused on improving system management, establishing a core set of REDHAWK assets, and enhancing the IDE user experience.  This effort included:
 <ul>
 <li>improving processing performance</li>
 <li>promoting consistency among core assets</li>
@@ -119,8 +125,6 @@ instances and applications.</p>
 <p>In the IDE, diagrams were re-implemented to provide a refreshed look and a simplified, more slimlined display of diagram elements. New visualizations were added to help developers more quickly and easily create Waveforms and Nodes and monitor and debug them more easily at runtime. Shared library support was improved to enable developers to better share code between Components and Devices, while creating software that follows REDHAWK standards for easy reuse and deployment in REDHAWK systems. Namespaces were added to assist with upgrades, allowing multiple versions of a Component to be installed on the same system. Additionally, namespaces enable developers to more clearly differentiate development efforts like forked projects or contributions by different organizations.</p>
 
 <p>For the REDHAWK assets, consistency was achieved by using common Port types for similar types of data and renaming Ports to establish a consistent naming convention. The set of assets was expanded to include two new assets for file I/O, a Component for decoding FM RBDS, a Component for PSK demodulation, an FEI Device simulator for generating FM RDS streams from audio files, and a set of Waveforms that collectively demonstrate the use of each Component. The set of assets was focused by removing deprecated Components (whitenoise, DataReader, DataWriter, freqfilter, medianfilter, unwrap, and BurstDeserializer). Core assets were used as examples of how to exercise new REDHAWK features. For example, domain awareness was leveraged by FileReader and FileWriter, the new BulkIO stream API was utilized by psd, sequences within struct properties were added to sinksocket, the updated shared library support was used to re-implement each shared library, and each asset was moved into the "rh" namespace.</p>
-
-<p>For more information about the focus of this release, an overview of the new features or enhancements included in this release, guidance for upgrading from a previous version of REDHAWK, and information about the bug fixes and improvements of this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
 
 
 <!--<p><strong>Release of GNUHAWK 1.10.0 and the REDHAWK Sub$100 Project (October 16, 2014)</strong> - <a href="RNRHComponents.html">Release Notes</a>.</p>
