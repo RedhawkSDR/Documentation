@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>B Building REDHAWK from Source</title> 
+<head><title>B External Dependencies</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,79 +53,306 @@ href="mainap1.html#tailmainap1.html" >prev-tail</a>] [<a
 href="#tailmainap2.html">tail</a>] [<a 
 href="main.html#mainap2.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;B</span><br /><a 
- id="x21-422000B"></a>Building REDHAWK from Source</h2>
-<h3 class="sectionHead"><span class="titlemark">B.1   </span> <a 
- id="x21-423000B.1"></a>Building the Framework</h3>
-<!--l. 5--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">B.1.1   </span> <a 
- id="x21-424000B.1.1"></a>Installing build dependencies</h4>
-<!--l. 6--><p class="noindent" >Building REDHAWK from source requires a few additional dependencies beyond those required
-to run REDHAWK. The following procedure explains how to build REDHAWK from
-source.
-<!--l. 8--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x21-424002x1">First, ensure your system has the necessary dependency software provided by <a 
-href="mainap9.html#rhel">RHEL</a> /
-      <a 
-href="mainap9.html#centos">CentOS</a> and Fedora <a 
-href="mainap9.html#epel">EPEL</a> (refer to <a 
-href="mainch2.html#x4-120002.3">Section 2.3</a>).
-      </li>
-      <li 
-  class="enumerate" id="x21-424004x2">Install                dependencies                distributed                with                the
-      REDHAWK tarball, redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz by entering the
-      following commands from the directory containing REDHAWK dependencies:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
-cd redhawk-<version>-<dist>-<arch>
-sudo yum install *omni* log4cxx*
-]]></script></div>
-      </li></ol>
-<!--l. 22--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
- id="x21-425000B.1.2"></a>Installing the Framework from Source</h4>
-                                                                                         
-                                                                                         
-<!--l. 24--><p class="noindent" >In order to install the Core Framework from source, the <span 
-class="ectt-1200">redhawk-src-&#x003C;version&#x003E;.tar.gz </span>must be
-downloaded.
-<!--l. 26--><p class="noindent" >You must set the <span 
-class="ectt-1200">OSSIEHOME </span>and <span 
-class="ectt-1200">SDRROOT </span>environment variables (recommended defaults shown
-below) before running the installation script. You must have write permission for the locations of
-<span 
-class="ectt-1200">OSSIEHOME </span>and <span 
-class="ectt-1200">SDRROOT </span>or the installation will not work.
-<!--l. 28--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
-tasks. </p></div></div>
-<!--l. 32--><p class="noindent" >To compile the source, execute the following commands:
+ id="x21-437000B"></a>External Dependencies</h2>
+<!--l. 4--><p class="noindent" >The following sections explain how to install the dependencies from the Fedora Extra
+Packages for Enterpise Linux (<a 
+href="mainap9.html#epel">EPEL</a>) and Red Hat/<a 
+href="mainap9.html#centos">CentOS</a> repositories. Dependencies not
+available from either of those sources are included with REDHAWK (Refer to <a 
+href="mainap1.html#x20-429000A">Appendix
+A</a>).
+<!--l. 6--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you are upgrading from a previous 1.8.x version of REDHAWK, some software from the 1.8
+series dependencies must be uninstalled before installing the REDHAWK 2.0 series. Enter the
+following command to uninstall the software:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-export OSSIEHOME=/usr/local/redhawk/core
-export SDRROOT=/var/redhawk/sdr
-tar zxvf redhawk-src-<version>.tar.gz
-cd redhawk-src-<version>/
-./redhawk-install.sh
-. $OSSIEHOME/environment-setup
-]]></script></div>
-<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
-to <span 
-class="ectt-1200">.bashrc</span>: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-export OSSIEHOME=/usr/local/redhawk/core
-export SDRROOT=/var/redhawk/sdr
-. $OSSIEHOME/environment-setup
+sudo yum erase \
+  libomniORB4.1 omniORB-debuginfo omniORB-doc \
+  libomniORBpy3 omniORBpy-debuginfo omniORBpy-doc \
+  omniEvents-doc omniEvents-debuginfo \
+  apache-log4cxx apache-log4cxx-debuginfo
 ]]></script></div>
 </p></div></div>
-<!--l. 72--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">B.1.3   </span> <a 
- id="x21-426000B.1.3"></a>Configuring omniORB</h4>
-<!--l. 73--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
-<a 
-href="mainch2.html#x4-170002.6">Section 2.6</a> for information on how to edit the omniORB configuration file
-(<span 
-class="ectt-1200">/etc/omniORB.cfg</span>) to provide information about how to reach the <a 
-href="mainap9.html#corba">CORBA</a> event
-service.
+<h3 class="sectionHead"><span class="titlemark">B.1   </span> <a 
+ id="x21-438000B.1"></a>Installing the EPEL Repository</h3>
+<!--l. 20--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For more information on the Fedora <a 
+href="mainap9.html#epel">EPEL</a> project, refer to <a 
+href="http://fedoraproject.org/wiki/EPEL" class="url" ><span 
+class="ectt-1200">http://fedoraproject.org/wiki/EPEL</span></a>.
+</p></div></div>
+<!--l. 24--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.1.1   </span> <a 
+ id="x21-439000B.1.1"></a>From the Fedora Downloads Site</h4>
+<!--l. 26--><p class="noindent" >Install the EPEL repository on your system from the Fedora downloads site.
+<!--l. 28--><p class="noindent" >For <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 7:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install \
+https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 35--><p class="noindent" >For <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 6:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install \
+https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+]]></script></div>
+<!--l. 43--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.1.2   </span> <a 
+ id="x21-440000B.1.2"></a>Standalone EPEL from REDHAWK</h4>
+<!--l. 45--><p class="noindent" >REDHAWK provides a condensed version of the EPEL yum repository that can be used to satisfy
+the required external dependencies from the EPEL repository. The repository is available from the
+REDHAWK release page on github (<a 
+href="https://github.com/RedhawkSDR/redhawk/releases/<version>" class="url" ><span 
+class="ectt-1200">https://github.com/RedhawkSDR/redhawk/releases/&#x003C;version&#x003E;</span></a>).
+(Where <span 
+class="ectt-1200">&#x003C;version&#x003E; </span>corresponds to the version of the REDHAWK IDE. For example, for
+REDHAWK version 2.0.3, <a 
+href="https://github.com/RedhawkSDR/redhawk/releases/2.0.3)" class="url" ><span 
+class="ectt-1200">https://github.com/RedhawkSDR/redhawk/releases/2.0.3)</span></a>).
+<!--l. 48--><p class="noindent" >To install the Standalone EPEL yum repository from REDHAWK, use the following
+commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+wget https://github.com/RedhawkSDR/redhawk/releases/download/<version>/redhawk-yum-<version>-<dist>-<arch>.tar.gz
+tar xf redhawk-yum-<version>-<dist>-<arch>.tar.gz
+cd redhawk-yum-<version>-<dist>-<arch>
+sudo yum install --nogpgcheck *.rpm
+]]></script></div>
+<!--l. 57--><p class="noindent" >Where <span 
+class="ectt-1200">&#x003C;version&#x003E;</span>, <span 
+class="ectt-1200">&#x003C;dist&#x003E;</span>, and <span 
+class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated REDHAWK version, Linux
+distribution, and architecture respectively. For example, for REDHAWK version 2.0.3, 64-bit
+CentOS 6, <span 
+class="ectt-1200">redhawk-yum-2.0.3-el6-x86_64.tar.gz</span>.
+<!--l. 61--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
+ id="x21-441000B.2"></a>Runtime-only Dependencies</h3>
+<!--l. 63--><p class="noindent" >The following dependencies are required for the REDHAWK Framework for runtime,
+operational-only systems that do not need to support development. These dependencies will enable
+the installation of DomainManager, DeviceManager, GPP, Core Framework, omniNames, and
+omniEvents.
+                                                                                         
+                                                                                         
+<!--l. 65--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.2.1   </span> <a 
+ id="x21-442000B.2.1"></a>Dependencies for RHEL/CentOS 6</h4>
+      <ul class="itemize1">
+      <li class="itemize">python-matplotlib
+      </li>
+      <li class="itemize">omniORB
+      </li>
+      <li class="itemize">omniORB-devel
+      </li>
+      <li class="itemize">omniORB-doc
+      </li>
+      <li class="itemize">omniORB-servers
+      </li>
+      <li class="itemize">omniORB-utils
+      </li>
+      <li class="itemize">python-jinja2-26</li></ul>
+<!--l. 77--><p class="noindent" >To install the dependencies for <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 6, enter the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install python-matplotlib \
+  omniORB \
+  omniORB-devel \
+  omniORB-doc \
+  omniORB-servers \
+  omniORB-utils \
+  python-jinja2-26
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 89--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.2.2   </span> <a 
+ id="x21-443000B.2.2"></a>Dependencies for RHEL/CentOS 7</h4>
+      <ul class="itemize1">
+      <li class="itemize">python-matplotlib-qt4
+      </li>
+      <li class="itemize">log4cxx
+      </li>
+      <li class="itemize">omniORB
+      </li>
+      <li class="itemize">omniORB-devel
+      </li>
+      <li class="itemize">omniORB-doc
+      </li>
+      <li class="itemize">omniORB-servers
+      </li>
+      <li class="itemize">omniORB-utils
+      </li>
+      <li class="itemize">python-jinja2</li></ul>
+<!--l. 102--><p class="noindent" >To install the dependencies for <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 7, enter the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install python-matplotlib-qt4 \
+  log4cxx \
+  omniORB \
+  omniORB-devel \
+  omniORB-doc \
+  omniORB-servers \
+  omniORB-utils \
+  python-jinja2
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 114--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">B.3   </span> <a 
+ id="x21-444000B.3"></a>Dependencies for Development and Building from Source</h3>
+<!--l. 116--><p class="noindent" >The following dependencies are required for development with the REDHAWK Framework and
+building REDHAWK from source.
+<!--l. 118--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.3.1   </span> <a 
+ id="x21-445000B.3.1"></a>Dependencies for RHEL/CentOS 6</h4>
+      <ul class="itemize1">
+      <li class="itemize">libuuid-devel
+      </li>
+      <li class="itemize">boost-devel
+      </li>
+      <li class="itemize">autoconf automake libtool
+      </li>
+      <li class="itemize">cppunit-devel
+      </li>
+      <li class="itemize">expat-devel
+      </li>
+      <li class="itemize">gcc-c++
+      </li>
+      <li class="itemize">java-1.7.0-openjdk-devel
+      </li>
+      <li class="itemize">junit4
+      </li>
+      <li class="itemize">python-devel
+      </li>
+      <li class="itemize">python-matplotlib
+      </li>
+      <li class="itemize">log4cxx
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">log4cxx-devel
+      </li>
+      <li class="itemize">numpy
+      </li>
+      <li class="itemize">PyQt4
+      </li>
+      <li class="itemize">omniORB
+      </li>
+      <li class="itemize">omniORB-devel
+      </li>
+      <li class="itemize">omniORB-doc
+      </li>
+      <li class="itemize">omniORB-servers
+      </li>
+      <li class="itemize">omniORB-utils
+      </li>
+      <li class="itemize">python-jinja2-26
+      </li>
+      <li class="itemize">xsd</li></ul>
+<!--l. 145--><p class="noindent" >To install the dependencies for <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 6, enter the following commands:
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install libuuid-devel \
+  boost-devel \
+  autoconf automake libtool \
+  cppunit-devel \
+  expat-devel \
+  gcc-c++ \
+  java-1.7.0-openjdk-devel \
+  junit4 \
+  python-devel \
+  python-matplotlib \
+  log4cxx \
+  log4cxx-devel \
+  numpy \
+  PyQt4 \
+  omniORB \
+  omniORB-devel \
+  omniORB-doc \
+  omniORB-servers \
+  omniORB-utils \
+  python-jinja2-26 \
+  xsd
+]]></script></div>
+<!--l. 170--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">B.3.2   </span> <a 
+ id="x21-446000B.3.2"></a>Dependencies for RHEL/CentOS 7</h4>
+      <ul class="itemize1">
+      <li class="itemize">libuuid-devel
+      </li>
+      <li class="itemize">boost-devel
+      </li>
+      <li class="itemize">cppunit-devel
+      </li>
+      <li class="itemize">autoconf automake libtool
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">expat-devel
+      </li>
+      <li class="itemize">gcc-c++
+      </li>
+      <li class="itemize">java-1.7.0-openjdk-devel
+      </li>
+      <li class="itemize">python-devel
+      </li>
+      <li class="itemize">python-matplotlib-qt4
+      </li>
+      <li class="itemize">numpy
+      </li>
+      <li class="itemize">PyQt4
+      </li>
+      <li class="itemize">log4cxx
+      </li>
+      <li class="itemize">log4cxx-devel
+      </li>
+      <li class="itemize">omniORB
+      </li>
+      <li class="itemize">omniORB-devel
+      </li>
+      <li class="itemize">omniORB-doc
+      </li>
+      <li class="itemize">omniORB-servers
+      </li>
+      <li class="itemize">omniORB-utils
+      </li>
+      <li class="itemize">python-jinja2
+      </li>
+      <li class="itemize">xsd</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 196--><p class="noindent" >To install the dependencies for <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 7, enter the following commands:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install libuuid-devel \
+  boost-devel \
+  cppunit-devel\
+  autoconf automake libtool \
+  expat-devel \
+  gcc-c++ \
+  java-1.7.0-openjdk-devel \
+  python-devel \
+  python-matplotlib-qt4 \
+  numpy \
+  PyQt4 \
+  log4cxx \
+  log4cxx-devel \
+  omniORB \
+  omniORB-devel \
+  omniORB-doc \
+  omniORB-servers \
+  omniORB-utils \
+  python-jinja2 \
+  xsd
+]]></script></div>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

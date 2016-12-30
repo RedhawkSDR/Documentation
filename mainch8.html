@@ -53,15 +53,15 @@ href="mainch7.html#tailmainch7.html" >prev-tail</a>] [<a
 href="#tailmainch8.html">tail</a>] [<a 
 href="main.html#mainch8.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;8</span><br /><a 
- id="x10-1950008"></a>Services</h2>
+ id="x10-1940008"></a>Services</h2>
 <h3 class="sectionHead"><span class="titlemark">8.1   </span> <a 
- id="x10-1960008.1"></a>Introduction</h3>
+ id="x10-1950008.1"></a>Introduction</h3>
 <!--l. 6--><p class="noindent" >In the context of REDHAWK, infrastructure software is managed by the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>.
 Infrastructure software can take two forms: hardware management and system <a 
 href="mainli2.html#glo:service">Services</a>. Hardware
 management is discussed in <a 
-href="mainch9.html#x11-2010009">Chapter 9</a>. System <a 
+href="mainch9.html#x11-2000009">Chapter 9</a>. System <a 
 href="mainli2.html#glo:service">Services</a> are the equivalent to Linux services like an
 Hyper Text Transport Protocol (<a 
 href="mainap9.html#http">HTTP</a>) server; the <a 
@@ -70,11 +70,11 @@ hardware but is some facility that becomes automatically available when the host
 started.
 <!--l. 12--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">8.2   </span> <a 
- id="x10-1970008.2"></a>Management</h3>
+ id="x10-1960008.2"></a>Management</h3>
 <!--l. 15--><p class="noindent" >A <a 
 href="mainli2.html#glo:service">Service</a> is managed through the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>. In <a 
-href="mainch9.html#x11-2010009">Chapter 9</a>, <a 
+href="mainch9.html#x11-2000009">Chapter 9</a>, <a 
 href="mainli2.html#glo:node">Nodes</a> are described as a <a 
 href="mainli2.html#glo:devicemanager">Device
 Manager</a> instance and the set of <a 
@@ -102,7 +102,7 @@ href="mainli2.html#glo:domain">Domain</a>&#8217;s naming
 context.
 <!--l. 24--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">8.3   </span> <a 
- id="x10-1980008.3"></a>Files Defining a Service</h3>
+ id="x10-1970008.3"></a>Files Defining a Service</h3>
 <!--l. 26--><p class="noindent" >A <a 
 href="mainli2.html#glo:service">Service</a>, much like a <a 
 href="mainli2.html#glo:component">Component</a> or <a 
@@ -123,19 +123,19 @@ class="ectt-1200">devices </span>subdirectory.
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">8.4   </span> <a 
- id="x10-1990008.4"></a>Service API</h3>
+ id="x10-1980008.4"></a>Service API</h3>
 <!--l. 31--><p class="noindent" >REDHAWK does not include any standard <a 
 href="mainli2.html#glo:service">Service</a> interfaces; the <a 
 href="mainap9.html#sca">SCA</a> specification includes a
 logging service, but in REDHAWK logging is performed through log4j/log4cxx, as described in
 <a 
-href="mainch13.html#x15-30900013">Chapter 13</a>, not a <a 
+href="mainch13.html#x15-31600013">Chapter 13</a>, not a <a 
 href="mainli2.html#glo:service">Service</a>. To use a <a 
 href="mainli2.html#glo:service">Service</a>, it either needs to use one of REDHAWK&#8217;s
 standard interfaces or it needs to implement a specialized interface supporting some specific
 behavior.
 <!--l. 36--><p class="noindent" >As discussed in <a 
-href="#x10-1970008.2">Section 8.2</a>, a <a 
+href="#x10-1960008.2">Section 8.2</a>, a <a 
 href="mainli2.html#glo:service">Service</a> is created and torn-down by the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>. Because
 there is no defined interface for the <a 
@@ -152,9 +152,9 @@ developer&#8217;s task to perform whatever cleanup functionality needs to be per
 the receipt of a signal from the operation system.
 <!--l. 44--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">8.5   </span> <a 
- id="x10-2000008.5"></a>Finding a Service</h3>
+ id="x10-1990008.5"></a>Finding a Service</h3>
 <!--l. 46--><p class="noindent" >In <a 
-href="mainch11.html#x13-25600011">Chapter 11</a> <a 
+href="mainch11.html#x13-26300011">Chapter 11</a> <a 
 href="mainli2.html#glo:application">Application</a> descriptor files (<span 
 class="ectt-1200">sad.xml</span>) are described; these files describe a logical
 collection of <a 
@@ -179,7 +179,7 @@ href="mainli2.html#glo:service">Service</a> through its supported interface, a d
 search for a service that satisfies a particular need, irrespective of how it is associated
 with the Domain. For more information about the <span 
 class="ecbx-1200">Find By </span>feature, refer to <a 
-href="mainch11.html#x13-27500011.4.7">Section
+href="mainch11.html#x13-28200011.4.7">Section
 11.4.7</a>.
                                                                                          
                                                                                          

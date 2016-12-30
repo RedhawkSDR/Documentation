@@ -53,16 +53,16 @@ href="mainch3.html#tailmainch3.html" >prev-tail</a>] [<a
 href="#tailmainch4.html">tail</a>] [<a 
 href="main.html#mainch4.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;4</span><br /><a 
- id="x6-480004"></a>Component Structure</h2>
+ id="x6-470004"></a>Component Structure</h2>
 <h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
- id="x6-490004.1"></a>Introduction</h3>
+ id="x6-480004.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This chapter discusses more advanced topics related to <a 
 href="mainli2.html#glo:component">Component</a> development. Prior to reading
 this chapter, familiarize yourself with the information in <a 
-href="mainch3.html#x5-200003">Chapter 3</a>.
+href="mainch3.html#x5-190003">Chapter 3</a>.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.2   </span> <a 
- id="x6-500004.2"></a>Auto-Generated Component Files</h3>
+ id="x6-490004.2"></a>Auto-Generated Component Files</h3>
 <!--l. 2--><p class="noindent" >The REDHAWK <a 
 href="mainap9.html#ide">IDE</a> provides a tool for auto-generating <a 
 href="mainli2.html#glo:component">Component</a> code for C++, Python, or
@@ -75,11 +75,11 @@ on using the REDHAWK <a
 href="mainap9.html#ide">IDE</a>, refer to the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> chapters of this document (Starting
 at <a 
-href="mainch14.html#x16-32900014">Chapter 14</a>).
+href="mainch14.html#x16-33600014">Chapter 14</a>).
 <!--l. 9--><p class="noindent" >Modifying particular files is discouraged for two reasons:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x6-50002x1">If a user regenerates the <a 
+  class="enumerate" id="x6-49002x1">If a user regenerates the <a 
 href="mainli2.html#glo:component">Component</a> using the <a 
 href="mainap9.html#ide">IDE</a> (for example, to add a <a 
 href="mainli2.html#glo:port">Port</a>), particular
@@ -94,7 +94,7 @@ href="mainap9.html#ide">IDE</a> provides the option of not rewriting particular 
       </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x6-50004x2">Modification of files implementing REDHAWK interfaces may impact compatibility with
+  class="enumerate" id="x6-49004x2">Modification of files implementing REDHAWK interfaces may impact compatibility with
       other REDHAWK modules.</li></ol>
 <!--l. 21--><p class="noindent" >The word <span 
 class="ectt-1200">componentName </span>is replaced with the <a 
@@ -105,10 +105,10 @@ creation.
                                                                                          
 <!--l. 23--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.1   </span> <a 
- id="x6-510004.2.1"></a>Files Generated for All Components</h4>
+ id="x6-500004.2.1"></a>Files Generated for All Components</h4>
 <!--l. 24--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.1.1   </span> <a 
- id="x6-520004.2.1.1"></a>Build-Related Files</h5>
+ id="x6-510004.2.1.1"></a>Build-Related Files</h5>
 <!--l. 26--><p class="noindent" >The code generators create the following files for building and installing the <a 
 href="mainli2.html#glo:component">Component</a> using
 Autotools:
@@ -157,7 +157,7 @@ href="mainap9.html#rpm">RPM</a> documentation for more
       information.</li></ul>
 <!--l. 45--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.1.2   </span> <a 
- id="x6-530004.2.1.2"></a>Component XML Descriptors</h5>
+ id="x6-520004.2.1.2"></a>Component XML Descriptors</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">componentName.prf.xml </span>- Describes the <a 
@@ -188,7 +188,7 @@ class="ectt-1200">spd.xml </span>file can be found in the REDHAWK
       specification.</li></ul>
 <!--l. 53--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.1.3   </span> <a 
- id="x6-540004.2.1.3"></a>Unit Tests File</h5>
+ id="x6-530004.2.1.3"></a>Unit Tests File</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">test_componentName.py </span>- Contains a unit test built on the standard Python <span 
@@ -205,10 +205,10 @@ class="ectt-1200">./test_componentName.py</span>.
                                                                                          
 <!--l. 62--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.2   </span> <a 
- id="x6-550004.2.2"></a>Files Generated for C++ Components</h4>
+ id="x6-540004.2.2"></a>Files Generated for C++ Components</h4>
 <!--l. 64--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.2.1   </span> <a 
- id="x6-560004.2.2.1"></a>Files where your implementation-specific code should be</h5>
+ id="x6-550004.2.2.1"></a>Files where your implementation-specific code should be</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">componentName.h </span>- The appropriate place to put header-related code in support of
@@ -244,7 +244,7 @@ href="mainli2.html#glo:component">Component</a>. If the type of ports changes, t
       overwriting your application-specific code.</li></ul>
 <!--l. 72--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.2.2   </span> <a 
- id="x6-570004.2.2.2"></a>Files that you should not modify</h5>
+ id="x6-560004.2.2.2"></a>Files that you should not modify</h5>
 <!--l. 74--><p class="noindent" >If these files are modified, then your ability to regenerate the component is affected.
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -280,17 +280,17 @@ href="mainli2.html#glo:property">Properties</a>.
 class="ectt-1200">componentName_base.cpp </span>is discouraged.</li></ul>
 <!--l. 83--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.3   </span> <a 
- id="x6-580004.2.3"></a>Files Generated for Python Components</h4>
+ id="x6-570004.2.3"></a>Files Generated for Python Components</h4>
 <!--l. 84--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.3.1   </span> <a 
- id="x6-590004.2.3.1"></a>Files where your implementation-specific code should be</h5>
+ id="x6-580004.2.3.1"></a>Files where your implementation-specific code should be</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">componentName.py </span>- The appropriate place for developers to add their own processing
       behavior.</li></ul>
 <!--l. 88--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.3.2   </span> <a 
- id="x6-600004.2.3.2"></a>Files that you should not modify</h5>
+ id="x6-590004.2.3.2"></a>Files that you should not modify</h5>
 <!--l. 90--><p class="noindent" >If these files are modified, then your ability to regenerate the component is affected.
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -304,17 +304,17 @@ href="mainli2.html#glo:property">Properties</a>. Modification of this file is di
                                                                                          
 <!--l. 96--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.2.4   </span> <a 
- id="x6-610004.2.4"></a>Files Generated for Java Components</h4>
+ id="x6-600004.2.4"></a>Files Generated for Java Components</h4>
 <!--l. 99--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.4.1   </span> <a 
- id="x6-620004.2.4.1"></a>Files where your implementation-specific code should be</h5>
+ id="x6-610004.2.4.1"></a>Files where your implementation-specific code should be</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">componentName.java </span>-  The  appropriate  place  for  developers  to  add  their  own
       processing behavior.</li></ul>
 <!--l. 104--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.4.2   </span> <a 
- id="x6-630004.2.4.2"></a>Files that you should not modify</h5>
+ id="x6-620004.2.4.2"></a>Files that you should not modify</h5>
 <!--l. 106--><p class="noindent" >If these files are modified, then your ability to regenerate the component is affected.
       <ul class="itemize1">
       <li class="itemize"><span 
@@ -331,7 +331,7 @@ href="mainli2.html#glo:port">Ports</a> and <a
 href="mainli2.html#glo:property">Properties</a>. Modification of this file is discouraged.</li></ul>
 <!--l. 112--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.2.4.3   </span> <a 
- id="x6-640004.2.4.3"></a>Transitioning Java Components from version 1.8 to later versions</h5>
+ id="x6-630004.2.4.3"></a>Transitioning Java Components from version 1.8 to later versions</h5>
 <!--l. 114--><p class="noindent" >If <span 
 class="ectt-1200">componentName.java </span>is not regenerated when migrating from 1.8 to later versions, the
 <a 
@@ -343,8 +343,8 @@ must be added to <span
 class="ectt-1200">componentName.java </span>because the base class makes a call on that
 method.
 <!--l. 116--><p class="noindent" >If you want to inherit from the base class and take advantage of the new pattern, save off the
-custom main class Java file, regenerate the main Java class to get the new 1.10 code pattern, and
-for example, move source from the run() method to the serviceFunction() method to integrate the
+custom main class Java file, regenerate the main Java class to get the new code pattern, and for
+example, move source from the run() method to the serviceFunction() method to integrate the
 custom code in the 1.8 main class into the new main class.
                                                                                          
                                                                                          
@@ -366,13 +366,13 @@ class="ectt-1200">componentName.java </span>right before the last line which is 
 ]]></script></div>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.3   </span> <a 
- id="x6-650004.3"></a>Auto-Generated Component Methods</h3>
+ id="x6-640004.3"></a>Auto-Generated Component Methods</h3>
 <!--l. 3--><p class="noindent" >This section provides an overview of noteworthy methods provided in the auto-generated
 <a 
 href="mainli2.html#glo:component">Component</a> files. In some cases, the names of the methods vary by language.
 <!--l. 6--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.1   </span> <a 
- id="x6-660004.3.1"></a><span 
+ id="x6-650004.3.1"></a><span 
 class="ectt-1200">serviceFunction()</span></h4>
 <!--l. 7--><p class="noindent" >The core functionality of a <a 
 href="mainli2.html#glo:component">Component</a> resides in the <span 
@@ -387,7 +387,7 @@ href="mainli2.html#glo:component">Component</a>&#8217;s
 base class.
 <!--l. 10--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.3.2   </span> <a 
- id="x6-670004.3.2"></a><span 
+ id="x6-660004.3.2"></a><span 
 class="ectt-1200">constructor()</span></h4>
 <!--l. 11--><p class="noindent" >This is the <a 
 href="mainli2.html#glo:component">Component</a>/<a 
@@ -398,13 +398,13 @@ href="mainli2.html#glo:device">Device</a> constructor. When this function is inv
 href="mainli2.html#glo:property">Property</a> are initialized to their default or overloaded state.
 <!--l. 13--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.4   </span> <a 
- id="x6-680004.4"></a>Base Component Members</h3>
+ id="x6-670004.4"></a>Base Component Members</h3>
 <!--l. 15--><p class="noindent" >This section provides an overview of members available to the <a 
 href="mainli2.html#glo:component">Component</a> class. There are four
 kinds of members: ports, properties, domain awareness, and network interface.
 <!--l. 17--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.4.1   </span> <a 
- id="x6-690004.4.1"></a>Ports</h4>
+ id="x6-680004.4.1"></a>Ports</h4>
 <!--l. 19--><p class="noindent" >Data flow into and out of <a 
 href="mainli2.html#glo:component">Components</a> is accomplished through the use of <a 
 href="mainli2.html#glo:port">Ports</a>. <a 
@@ -448,12 +448,12 @@ self.port_myport
 this.port_myport
 ]]></script></div>
 <!--l. 42--><p class="noindent" >See <a 
-href="mainch5.html#x7-940005.6">Section 5.6</a> for details on how to use ports for sending or receiving data.
+href="mainch5.html#x7-930005.6">Section 5.6</a> for details on how to use ports for sending or receiving data.
                                                                                          
                                                                                          
 <!--l. 44--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.4.2   </span> <a 
- id="x6-700004.4.2"></a>Properties</h4>
+ id="x6-690004.4.2"></a>Properties</h4>
 <!--l. 47--><p class="noindent" >Much like <a 
 href="mainli2.html#glo:port">Ports</a>, <a 
 href="mainli2.html#glo:property">Properties</a> are available to the <a 
@@ -491,7 +491,7 @@ this.foo
 between properties or ports.
 <!--l. 74--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.4.3   </span> <a 
- id="x6-710004.4.3"></a>Domain Awareness</h4>
+ id="x6-700004.4.3"></a>Domain Awareness</h4>
 <!--l. 75--><p class="noindent" >Each <a 
 href="mainli2.html#glo:component">Component</a> has two members that provide a reference to the <a 
 href="mainli2.html#glo:domain">Domain</a> and <a 
@@ -521,7 +521,7 @@ class="ectt-1200">getRef()</span>, which returns the <a
 href="mainap9.html#corba">CORBA</a> pointer to the Device Manager object.
 <!--l. 83--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.4.4   </span> <a 
- id="x6-720004.4.4"></a>Network Interface</h4>
+ id="x6-710004.4.4"></a>Network Interface</h4>
 <!--l. 84--><p class="noindent" >If a <a 
 href="mainli2.html#glo:component">Component</a> contains a dependency against any member of <a 
 href="mainli2.html#glo:gpp">GPP</a>&#8217;s nic_allocation allocation
@@ -545,7 +545,7 @@ href="mainli2.html#glo:nic">NIC</a> on the processor. This happens
 automatically with no need for additional input from the deployer.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.5   </span> <a 
- id="x6-730004.5"></a>Component Implementations</h3>
+ id="x6-720004.5"></a>Component Implementations</h3>
 <!--l. 3--><p class="noindent" ><a 
 href="mainli2.html#glo:component">Components</a> may specify particular dependencies such as Operating System (<a 
 href="mainap9.html#os">OS</a>), processor
@@ -565,12 +565,12 @@ href="mainli2.html#glo:component">Component</a>
                                                                                          
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">4.6   </span> <a 
- id="x6-740004.6"></a>Managing and Defining Properties</h3>
+ id="x6-730004.6"></a>Managing and Defining Properties</h3>
 <!--l. 3--><p class="noindent" >Properties are defined by their structure and contents. The structure of a property may be of type
 Simple, Simple Sequence, Struct, or Struct sequences.
 <!--l. 6--><p class="noindent" >Through the use of generated code and the REDHAWK libraries, manipulation of properties uses
 fundamental types provided by C++, Python, or Java, as seen in Section <a 
-href="#x6-700004.4.2">4.4.2<!--tex4ht:ref: accessing_properties --></a>. For
+href="#x6-690004.4.2">4.4.2<!--tex4ht:ref: accessing_properties --></a>. For
 example, a Simple Sequence, complex-float property is manipulated via a std::vector&#x003C;
 std::complex&#x003C;float&#x003E; &#x003E; variable in C++ and a list of Python complex objects in Python.
 Generated <a 
@@ -638,7 +638,7 @@ class="ectt-1200">query() </span>or <span
 class="ectt-1200">configure() </span>methods.
 <!--l. 20--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.1   </span> <a 
- id="x6-750004.6.1"></a>Property Change Listeners</h4>
+ id="x6-740004.6.1"></a>Property Change Listeners</h4>
 <!--l. 22--><p class="noindent" >Often, it is useful to trigger additional actions when the value of a <a 
 href="mainli2.html#glo:property">Property</a> changes. <a 
 href="mainli2.html#glo:component">Components</a>
@@ -659,7 +659,7 @@ href="mainli2.html#glo:property">Property</a> or call additional functions; howe
 avoid computationally expensive or blocking operations.
 <!--l. 26--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.1.1   </span> <a 
- id="x6-760004.6.1.1"></a>C++</h5>
+ id="x6-750004.6.1.1"></a>C++</h5>
 <!--l. 28--><p class="noindent" >C++ <a 
 href="mainli2.html#glo:component">Components</a> support notification of <a 
 href="mainli2.html#glo:property">Property</a> value changes using member function
@@ -703,7 +703,7 @@ void taps_changed(const std::vector<float>& oldValue,
 ]]></script></div>
 <!--l. 55--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.1.2   </span> <a 
- id="x6-770004.6.1.2"></a>Python</h5>
+ id="x6-760004.6.1.2"></a>Python</h5>
 <!--l. 57--><p class="noindent" >Like C++, Python <a 
 href="mainli2.html#glo:component">Components</a> allow registering listeners by <a 
 href="mainli2.html#glo:property">Property</a>. The callback is typically a
@@ -732,7 +732,7 @@ self.addPropertyChangeListener("freqMHz", self.freqMHz_changed)
 ]]></script></div>
 <!--l. 74--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.1.3   </span> <a 
- id="x6-780004.6.1.3"></a>Java</h5>
+ id="x6-770004.6.1.3"></a>Java</h5>
                                                                                          
                                                                                          
 <!--l. 76--><p class="noindent" >Java <a 
@@ -778,8 +778,8 @@ this.freqMHz.addChangeListener(new PropertyListener<Float>() {
 ]]></script></div>
 <!--l. 98--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.2   </span> <a 
- id="x6-790004.6.2"></a>Customizing Query and Configure</h4>
-<!--l. 100--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> This feature is C++-only in REDHAWK 2.0.3. </p></div></div>
+ id="x6-780004.6.2"></a>Customizing Query and Configure</h4>
+<!--l. 100--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> This feature is C++-only in REDHAWK 2.0.4. </p></div></div>
 <!--l. 104--><p class="noindent" >The REDHAWK libraries and generated <a 
 href="mainli2.html#glo:component">Component</a> code automatically handle <span 
 class="ectt-1200">query() </span>and
@@ -820,12 +820,12 @@ ensure that the <a
 href="mainli2.html#glo:component">Component</a> remains responsive.
 <!--l. 120--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.2.1   </span> <a 
- id="x6-800004.6.2.1"></a>C++</h5>
+ id="x6-790004.6.2.1"></a>C++</h5>
 <!--l. 122--><p class="noindent" >In C++, query and configure callbacks are registered on the <a 
 href="mainli2.html#glo:component">Components</a>. Registering a new
 callback replaces the old one.
 <!--l. 125--><p class="noindent" ><span class="paragraphHead"><a 
- id="x6-810004.6.2.1"></a><span 
+ id="x6-800004.6.2.1"></a><span 
 class="ecbx-1200">Query Callbacks</span></span>
 To create a query callback, in <span 
 class="ectt-1200">[component].h</span>, add a private member function declaration. It takes
@@ -848,7 +848,7 @@ class="ectt-1200">this</span>) and a pointer to a member function.
                                                                                          
                                                                                          
 <!--l. 144--><p class="noindent" ><span class="paragraphHead"><a 
- id="x6-820004.6.2.1"></a><span 
+ id="x6-810004.6.2.1"></a><span 
 class="ecbx-1200">Configure Callbacks</span></span>
 To create a configure callback, in <span 
 class="ectt-1200">[component].h</span>, add a private member function declaration. It
@@ -874,7 +874,7 @@ class="ectt-1200">this</span>) and a pointer to a member function.
 href="mainli2.html#glo:component">Component</a> developer to update the member variable, if desired.
 <!--l. 166--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.2.2   </span> <a 
- id="x6-830004.6.2.2"></a>Overriding the <span 
+ id="x6-820004.6.2.2"></a>Overriding the <span 
 class="ectt-1200">configure() </span>Method</h5>
 <!--l. 170--><p class="noindent" >For the vast majority of cases, the standard <span 
 class="ectt-1200">configure() </span>implementation is sufficient. Developers
@@ -888,19 +888,19 @@ preserved. Whether the base class method is pre- or post-extended is left to the
 href="mainli2.html#glo:component">Component</a> developer.
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.7   </span> <a 
- id="x6-840004.7"></a>Creating a REDHAWK Shared Library Project</h3>
+ id="x6-830004.7"></a>Creating a REDHAWK Shared Library Project</h3>
 <!--l. 4--><p class="noindent" >The <span 
 class="ecbx-1200">REDHAWK Shared Library Project Wizard </span>enables users to quickly create a C++
-shared library for use in Redhawk. In the wizard, the user specifies the project name and can then
-generate a simple set of code files to begin adding in library functions. The following procedure
-explains how to use the <span 
+shared library for use in REDHAWK. In the wizard, the user specifies the project name and can
+then generate a simple set of code files to begin adding in library functions. The following
+procedure explains how to use the <span 
 class="ecbx-1200">Shared Library Project Wizard</span>.
                                                                                          
                                                                                          
 <!--l. 6--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x6-84002x1">To open the <span 
+  class="enumerate" id="x6-83002x1">To open the <span 
 class="ecbx-1200">Shared Library Project Wizard</span>, select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
@@ -909,65 +909,65 @@ class="cmmi-12">&#x003E; </span><span
 class="ecbx-1200">Other</span>.
       <!--l. 9--><p class="noindent" >The <span 
 class="ecbx-1200">Select a wizard </span>dialog is displayed (<a 
-href="#x6-84003r1">Figure 4.1</a>).
+href="#x6-83003r1">Figure 4.1</a>).
       <!--l. 11--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x6-84003r1"></a> <img 
+ id="x6-83003r1"></a> <img 
 src="images/selectawizard.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;4.1: </td><td  
-class="content">Select a Wizard Dialog</td></tr></table><!--tex4ht:label?: x6-84003r1 -->
+class="content">Select a Wizard Dialog</td></tr></table><!--tex4ht:label?: x6-83003r1 -->
       <!--l. 16--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x6-84005x2">Select <span 
+  class="enumerate" id="x6-83005x2">Select <span 
 class="ecbx-1200">REDHAWK Shared Library Project </span>and click <span 
 class="ecbx-1200">Next</span>.
       <!--l. 20--><p class="noindent" >The <span 
 class="ecbx-1200">Create a REDHAWK Shared Library Project </span>dialog is displayed (<a 
-href="#x6-84006r2">Figure
+href="#x6-83006r2">Figure
       4.2</a>).
       <!--l. 22--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x6-84006r2"></a> <img 
+ id="x6-83006r2"></a> <img 
 src="images/NewSharedLibraryProject.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;4.2: </td><td  
-class="content">Create a REDHAWK Shared Library Project Dialog</td></tr></table><!--tex4ht:label?: x6-84006r2 -->
+class="content">Create a REDHAWK Shared Library Project Dialog</td></tr></table><!--tex4ht:label?: x6-83006r2 -->
       <!--l. 27--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x6-84008x3">In the <span 
+  class="enumerate" id="x6-83008x3">In the <span 
 class="ecbx-1200">Project name </span>field, enter a project name.
       </li>
       <li 
-  class="enumerate" id="x6-84010x4">Click <span 
+  class="enumerate" id="x6-83010x4">Click <span 
 class="ecbx-1200">Finish</span>.
       <!--l. 32--><p class="noindent" >The Shared Libary Project is created and the Overview tab is displayed. (<a 
-href="#x6-84011r3">Figure
+href="#x6-83011r3">Figure
       4.3</a>).
       <!--l. 34--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x6-84011r3"></a> <img 
+ id="x6-83011r3"></a> <img 
 src="images/SharedLibProjOverview.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;4.3: </td><td  
-class="content">The Shared Library Project Overview tab</td></tr></table><!--tex4ht:label?: x6-84011r3 -->
+class="content">The Shared Library Project Overview tab</td></tr></table><!--tex4ht:label?: x6-83011r3 -->
       <!--l. 39--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x6-84013x5">Click the <span 
+  class="enumerate" id="x6-83013x5">Click the <span 
 class="ecbx-1200">Generate All Implementations </span>icon to generate the source code.
       </li></ol>
 <!--l. 64--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.8   </span> <a 
- id="x6-850004.8"></a>Including External Libraries</h3>
+ id="x6-840004.8"></a>Including External Libraries</h3>
                                                                                          
                                                                                          
 <!--l. 65--><p class="noindent" >This section details how to link a C++ <a 
@@ -980,7 +980,7 @@ pkg-config file is not available, or if you wish to directly supply the compiler
 use the second method.
 <!--l. 67--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.1   </span> <a 
- id="x6-860004.8.1"></a>Adding a Library by Referencing a pkg-config File</h4>
+ id="x6-850004.8.1"></a>Adding a Library by Referencing a pkg-config File</h4>
 <!--l. 68--><p class="noindent" >To add a library by referencing a pkg-config (<span 
 class="ectt-1200">.pc</span>) file, edit the <span 
 class="ectt-1200">configure.ac </span>file in your
@@ -1006,7 +1006,7 @@ export PKG_CONFIG_PATH=/custom/path:$PKG_CONFIG_PATH
 ]]></script></div>
 <!--l. 90--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.2   </span> <a 
- id="x6-870004.8.2"></a>Adding a Library Directly</h4>
+ id="x6-860004.8.2"></a>Adding a Library Directly</h4>
                                                                                          
                                                                                          
 <!--l. 91--><p class="noindent" >To add a library, edit the <span 

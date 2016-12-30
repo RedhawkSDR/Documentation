@@ -52,43 +52,537 @@ SyntaxHighlighter.all()
                                                                                          <!--l. 1--><p class="noindent" >
 <div class="tableofcontents">
 &#x00A0;<span class="likesectionToc" ><a 
-href="#x1-2000" id="QQ2-1-2">Fixes</a></span>
+href="#x1-2000" id="QQ2-1-2">Core Framework API Changes</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-3000" id="QQ2-1-3">Improvements</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-6000" id="QQ2-1-6">Fixes</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="#x1-13000" id="QQ2-1-13">Documentation Improvements/Fixes</a></span>
 </div>
 <h2 class="likechapterHead"><a 
- id="x1-1000"></a>REDHAWK Release Notes, Version 2.0.3</h2>
-<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.0.3 focused on fixing the following bugs.
+ id="x1-1000"></a>REDHAWK Release Notes, Version 2.0.4</h2>
+<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.0.4 focused on:
       <ul class="itemize1">
-      <li class="itemize">Improvements to GPP automatic resource monitoring caused a memory leak.
+      <li class="itemize">Adding support for the CentOS 7 operating system.
       </li>
-      <li class="itemize">Incorrect return type in the GPS interface implementation of FrontEnd Interfaces.
+      <li class="itemize">Updating the REDHAWK IDE to require Java 8.
       </li>
-      <li class="itemize">Python Devices failed to launch when a logging config file is specified.</li></ul>
+      <li class="itemize">Adding  support  for  two  new  Core  Assets,  SinkSDDS  and  SourceSDDS,  which
+      convert between SDDS and BulkIO data formats.
+      </li>
+      <li class="itemize">Adding messages to indicate to the user the reason why the GPP is busy.
+      </li>
+      <li class="itemize">Adding more IDE XML validation to help users catch issues sooner when designing
+      projects.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Corrected issues with Redhawk-generated build scripts that prevented errors from
+      being displayed.
+      </li>
+      <li class="itemize">Adding &#8217;Connect&#8217; and &#8217;Show Properties View&#8217; in the Graphiti diagram context menus.
+      </li>
+      <li class="itemize">Adding   GPP   label   to   the   Domain   Manager   log   message   when   deploying
+      Components or Waveforms to enable quick identification of which GPP the Domain
+      Manager is attempting to launch Components on.
+      </li>
+      <li class="itemize">Improving  the  REDHAWK  Explorer  product  to  use  the  new  Graphiti  diagrams
+      introduced in the REDHAWK 2.0.0 IDE.
+      </li>
+      <li class="itemize">Improving  IDE  namespace  support  to  give  users  an  error  if  they  have  multiple
+      resources with conflicting IDs in the SDRROOT.
+      </li>
+      <li class="itemize">Addressing numerous bug fixes.
+      </li></ul>
 <h3 class="likesectionHead"><a 
- id="x1-2000"></a>Fixes</h3>
-<!--l. 13--><p class="noindent" >The following Core Framework fixes were completed in REDHAWK 2.0.3.
+ id="x1-2000"></a>Core Framework API Changes</h3>
+<!--l. 24--><p class="noindent" >The following API changes have been made.
       <ul class="itemize1">
-      <li class="itemize">The correct current logging level is now reported in the Logging Level wizard in the
+      <li class="itemize">GPP <span 
+class="ectt-1200">sys_limits </span>structure Property identifiers have changed. This is a <span 
+class="ectt-1200">readonly</span>
+      Property  reported  by  the  GPP  during  a  query  call.  The  resulting  <span 
+class="ectt-1200">sys_limits</span>
+      Property  identifiers  returned  from  the  query  call  now  correspond  to  the  <span 
+class="phvb8t-x-x-120">New  ID</span>
+      column.</li></ul>
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 44--><p class="noindent" ><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-1" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1"></colgroup><colgroup id="TBL-1-2g"><col 
+id="TBL-1-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-1-1-1"  
+class="td11"> <!--l. 47--><p class="noindent" ><span 
+class="phvb8t-x-x-120">Old ID</span>                                  </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-1-2"  
+class="td11"> <!--l. 47--><p class="noindent" ><span 
+class="phvb8t-x-x-120">New ID</span>                                                  </td></tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-1-2-1"  
+class="td11"> <!--l. 49--><p class="noindent" ><span 
+class="ectt-1200">current_threads</span> </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-2-2"  
+class="td11"> <!--l. 49--><p class="noindent" ><span 
+class="ectt-1200">sys_limits::current_threads</span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-1-3-1"  
+class="td11"> <!--l. 51--><p class="noindent" ><span 
+class="ectt-1200">max_threads</span>              </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-3-2"  
+class="td11"> <!--l. 51--><p class="noindent" ><span 
+class="ectt-1200">sys_limits::max_threads</span>          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-1-4-1"  
+class="td11"> <!--l. 52--><p class="noindent" ><span 
+class="ectt-1200">current_open_files</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-4-2"  
+class="td11"> <!--l. 52--><p class="noindent" ><span 
+class="ectt-1200">sys_limits::current_open_files</span>   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:wrap; text-align:left;" id="TBL-1-5-1"  
+class="td11"> <!--l. 53--><p class="noindent" ><span 
+class="ectt-1200">max_open_files</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-1-5-2"  
+class="td11"> <!--l. 53--><p class="noindent" ><span 
+class="ectt-1200">sys_limits::max_open_files</span>       </td></tr></table>
+</div>
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h3 class="likesectionHead"><a 
+ id="x1-3000"></a>Improvements</h3>
+<!--l. 63--><p class="noindent" >The following Core Framework and IDE improvements were completed in REDHAWK
+2.0.4.
+<!--l. 66--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-4000"></a>Core Framework Improvements</h4>
+      <ul class="itemize1">
+      <li class="itemize">Improved build support files so IDL references in an IDL project can be listed in any
+      order.
+      </li>
+      <li class="itemize">Improved support for Components with multiple implementations. When the local
+      file for a secondary implementation is missing, that implementation is ignored.
+      </li>
+      <li class="itemize">Fixed omniEvents to run on CentOS 7.
+      </li></ul>
+<!--l. 76--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-5000"></a>IDE Improvements</h4>
+      <ul class="itemize1">
+      <li class="itemize">Improved XML validation.
+      </li>
+      <li class="itemize">Improved namespace support to display an error when multiple elements in the SDR
+      root have the same DCE ID.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Improved Graphiti diagram context menus by adding Connect option.
+      </li>
+      <li class="itemize">Improved warning dialogs by adding warnings for deallocate all and New Control
+      Panel.
+      </li>
+      <li class="itemize">Added a warning message for properties that have kind message that are not a
+      struct.
+      </li></ul>
+<!--l. 89--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-6000"></a>Fixes</h3>
+<!--l. 90--><p class="noindent" >The following IDE, Core Framework, and Core Asset fixes were completed in REDHAWK
+2.0.4.
+<!--l. 92--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-7000"></a>Core Framework Fixes</h4>
+<!--l. 94--><p class="noindent" >The following Core Framework bug fixes were completed in REDHAWK 2.0.4.
+      <ul class="itemize1">
+      <li class="itemize">If the Sandbox is started when a plot is created, the plot&#8217;s initial state is set to started.
+      </li>
+      <li class="itemize">Python SPD parser correctly exports capitalization for softpkg.
+      </li>
+      <li class="itemize">Python Codegen can handle camel-case structure definitions.
+      </li>
+      <li class="itemize">Exceptions in <span 
+class="ectt-1200">port_impl </span>code are now passed to the caller instead of ignoring them.
+      </li>
+      <li class="itemize">When  a  call  to  runTest  on  the  Application  has  unknown  properties,  it  lists  the
+      unknown properties.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">In GPP, merged <span 
+class="ectt-1200">create_node.py </span>and <span 
+class="ectt-1200">devconfig.py </span>into <span 
+class="ectt-1200">gpp_setup </span>script, updated
+      the install scripts to use <span 
+class="ectt-1200">gpp_setup</span>, changed the model to REDHAWK GPP, and
+      updated GPP properties to 2.0 property kinds.
+      </li>
+      <li class="itemize">Better error is given when <span 
+class="ectt-1200">redhawk.attach </span>is invoked with no visible Domains.
+      </li>
+      <li class="itemize">Improved error message when missing dependency is a softpkg.
+      </li>
+      <li class="itemize">Java unit tests are disabled when the core build does not have Java enabled.
+      </li>
+      <li class="itemize">Python Sandbox <span 
+class="ectt-1200">createApplication </span>call includes Device assignment sequence as
+      an argument.
+      </li>
+      <li class="itemize">Fixed PartialConfiguration error for init of properties with kindtype of both property
+      and allocation.
+      </li>
+      <li class="itemize">Deallocating a listener sends an EOS out of the BulkIO Port.
+      </li>
+      <li class="itemize">If the Device Manager does not have write access to the cache directory, it logs an
+      error instead of having a segmentation fault.
+      </li>
+      <li class="itemize">Corrected giop:unix endPoint format in <span 
+class="ectt-1200">rh_net_diag </span>utility.
+      </li>
+      <li class="itemize">Added the name of the missing file to the error message when parsing spd files.
+      </li>
+      <li class="itemize">Sandbox DataSDDSSink stores the latest SRI received.
+      </li>
+      <li class="itemize">Code   generator   correctly   handles   programming   language   element   in   the
+      implementation element.
+      </li>
+      <li class="itemize">SDDS Ports push SRI on new connections.
+      </li>
+      <li class="itemize">If  omniEvents  is  stopped,  and  the  Domain  is  shutdown,  a  correct  message  is
+      generated.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Added namespace qualifiers for <span 
+class="ectt-1200">sys_limits </span>structure property members in GPP.
+      </li>
+      <li class="itemize">Enhanced error handling for problems during Device registration.
+      </li>
+      <li class="itemize">Python library does not release Applications on exit by default.
+      </li>
+      <li class="itemize">External property overrides are allowed for <span 
+class="ectt-1200">loadSADFile </span>call in the Sandbox.
+      </li>
+      <li class="itemize">Sandbox <span 
+class="ectt-1200">loadSADFile </span>allows for namespaced property names.
+      </li>
+      <li class="itemize">Default values are correctly generated for sequence of structures in C++.
+      </li>
+      <li class="itemize">Calls to <span 
+class="ectt-1200">FileSystem::exists() </span>no longer cause the Domain Manager process to
+      abort.
+      </li>
+      <li class="itemize">Fixed issue with GPP statistics type conversion for large numbers that resulted in
+      occasional errors in the usage statistics.
+      </li>
+      <li class="itemize">Spec file for namespaced Components, Devices, and Services includes complete
+      directory paths.
+      </li>
+      <li class="itemize">Fixed compatability issue with partial configuration during <span 
+class="ectt-1200">initializeProperties</span>.
+      </li>
+      <li class="itemize">Missing read permissions on Component installations no longer crash the Domain
+      Manager.
+      </li>
+      <li class="itemize">Python FEI infrastructure matches C++ FEI infrastructure.
+      </li>
+      <li class="itemize">Java FEI infrastructure matches C++ FEI infrastructure.
+      </li>
+      <li class="itemize">Fixed  the  <span 
+class="ectt-1200">proc </span>function  in  the  Python  Sandbox  by  updating  DataConverter  to
+      <span 
+class="ectt-1200">rh.DataConverter</span>.
+      </li>
+      <li class="itemize">Unit tests do not deadlock on 32-bit CentOS 6.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">cleanomni </span>script correctly determines root privileges.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">cleanomni </span>only attempts to start omniEvents once if the omniEvents service startup
+      fails.
+      </li>
+      <li class="itemize">Tests  run  manually  (via  <span 
+class="ectt-1200">runtests.py</span>)  and  tests  run  as  part  of  the  continuous
+      integration infrastructure use the same test environment.
+      </li>
+      <li class="itemize">Readonly property kind properties are initialized through <span 
+class="ectt-1200">initializeProperties</span>.
+      </li>
+      <li class="itemize">DeviceManager can correctly parse Device spd files when they contain dependency
+      elements.
+      </li>
+      <li class="itemize">Automake warnings are not issued when compiling on CentOS 7.
+      </li>
+      <li class="itemize">In Python <span 
+class="ectt-1200">ExecutableDevice.terminate()</span>, wait until the entire process group has
+      exited before checking the process status and returning.
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">rhlauncher </span>has the updated REDHAWK logo.
+      </li>
+      <li class="itemize">omniEvents waits for omniNames to be ready before deploying.
+      </li>
+      <li class="itemize">Components launch in the Sandbox with GNU debugger.</li></ul>
+<!--l. 156--><p class="noindent" >
+<h5 class="likesubsubsectionHead"><a 
+ id="x1-8000"></a>Special Resolutions</h5>
+<!--l. 157--><p class="noindent" >The following previously reported Known Issues have been closed in REDHAWK 2.0.4 with the
+following resolutions:
+      <ul class="itemize1">
+      <li class="itemize">Won&#8217;t Fix
+                                                                                         
+                                                                                         
+           <ul class="itemize2">
+           <li class="itemize">Core  framework  runtime  failure  if  basic  Components  are  not  installed  -
+           The Sandbox requires the DataConverter Component be installed for format
+           conversion.
+           </li>
+           <li class="itemize">Limited IDL path search for IDL - Previous code generators did not allow for
+           additional search paths. This has been resolved in newer releases.
+           </li>
+           <li class="itemize">Java Devices do not deal well with a NULL IDM channel - The normal Java
+           Device startup will handle all Null Pointer Exceptions (NPE). Developers are
+           encouraged to use Publisher and Subscriber interfaces and not the internal
+           <span 
+class="ectt-1200">connectEventChannel()</span>, which will cause an NPE.
+           </li>
+           <li class="itemize">Sandbox initial configure call includes execparams - execparam and configure
+           are both deprecated. Therefore, changing the behavior would not be beneficial
+           because new Components are not created with these properties, and there is
+           a chance that existing Components would be broken.
+           </li>
+           <li class="itemize">C++ Appender prints error on stderr - This behavior is intrinsic to log4cxx. The
+           message is sent during a reconfiguration request when an error is encountered.
+           </li>
+           <li class="itemize">Incorrect use of daemon function in omniNames <span 
+class="ectt-1200">init.d script </span>- This defect
+           is part of the EPEL distributed package of omniOrb.</li></ul>
+      </li>
+      <li class="itemize">Fixed By Other Issue
+           <ul class="itemize2">
+           <li class="itemize">Python  service  generator  throws  an  exception  with  non-namespaced  IDL
+           interface - Fixed by REDHAWK release 1.9.</li></ul>
+      </li>
+      <li class="itemize">Cannot Reproduce
+           <ul class="itemize2">
+           <li class="itemize">Python Device Codegen uses incorrect name in <span 
+class="ectt-1200">Makefile.am</span>.
+           </li>
+           <li class="itemize">Multiple message out Ports in C++ causes malformed <span 
+class="ectt-1200">port_impl.h</span>.
+           </li>
+           <li class="itemize">If   more   than   one   Application   is   created   with   the   same   name   using
+           <span 
+class="ectt-1200">createApplication </span>on the Python package, the tracking of the Applications
+           breaks.</li></ul>
+      </li>
+      <li class="itemize">Duplicate
+                                                                                         
+                                                                                         
+           <ul class="itemize2">
+           <li class="itemize">Spelling  error  in  Application  error  message  -  Duplicate  of  CF-1550  (Log
+           message says "Abormal").
+           </li>
+           <li class="itemize">SAD validation fails when an implementation is missing - Duplicate of CF-1556
+           (Improved support for Components with multiple implementations. When the
+           local  file  for  a  secondary  implementation  is  missing,  that  implementation  is
+           ignored.).</li></ul>
+      </li></ul>
+<!--l. 192--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-9000"></a>IDE Fixes</h4>
+<!--l. 193--><p class="noindent" >The following IDE bug fixes were completed in REDHAWK 2.0.4.
+      <ul class="itemize1">
+      <li class="itemize">FindBy Wizards no longer allow mulitple Ports with the same name to be added.
+      </li>
+      <li class="itemize">Fixed null pointer exception (NPE) with SAD file properties and assembly controller
+      actual properties.
+      </li>
+      <li class="itemize">Ports no longer can be added for Service projects with an interface that does not
+      extend CF/PortSupplier.
+      </li>
+      <li class="itemize">Indexer now imports BurstIO information.
+      </li>
+      <li class="itemize">Fixed issue causing an error when deallocating a Python FEI Device.
+      </li>
+      <li class="itemize">FindBy direct edit dialog only enables the Delete button after a Port is selected.
+      </li>
+      <li class="itemize">Graphiti diagrams were refactored between repositories.
+      </li>
+      <li class="itemize">Fixed NPE with SAD referencing Port names that do not exist when launching in
       Sandbox.
+      </li>
+      <li class="itemize">Corrected warning message displayed when overwriting modified files.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">There is no longer a memory leak in the GPP.
+      <li class="itemize">Property View inner tab name now always displays "Properties".
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">gps_time_pos </span>for the C++ GPS Port implementation returns the correct type.
+      <li class="itemize">An error no longer occurs when invoking shutdown on Sandbox Device Manager.
       </li>
-      <li class="itemize">C++, Python, and Java uses FEI control Ports do not fail silently when the remote
-      Device connection fails.
+      <li class="itemize">REDHAWK IDE RPM now requires necessary development packages.
       </li>
-      <li class="itemize">Methods in <span 
-class="ectt-1200">fe_tuner_port_impl.h </span>no longer fail and now return initialized values.
+      <li class="itemize">Sources in the <span 
+class="ectt-1200">Makefile.am.ide </span>are ordered lexicographically.
       </li>
-      <li class="itemize">Python FEI Ports now generate valid return objects for FEI Ports.
+      <li class="itemize">Code generation no longer unsets C++ build exclusions.
       </li>
-      <li class="itemize">Java FEI Ports compile for all FEI Ports.
+      <li class="itemize">Devices launched in Sandbox are now configured during <span 
+class="ectt-1200">registerDevice</span>.
       </li>
-      <li class="itemize"><span 
-class="ectt-1200">_pid </span>is now populated on Components launched through the Sandbox.
+      <li class="itemize">Toolbar buttons (start/stop/release) are now enabled for local Waveform editors.
+      </li>
+      <li class="itemize">DCD model does not allow invalid <span 
+class="ectt-1200">domainmanager </span>element.
+      </li>
+      <li class="itemize">IDE now sends the correct properties when a Component/Device is launched in the
+      Sandbox.
+      </li>
+      <li class="itemize">EMF validation error now occurs if a Struct does not contain at least one simple or
+      simple sequence property.
+      </li>
+      <li class="itemize">Code was refactored so IDL path sources use preference.
+      </li>
+      <li class="itemize">Fixed NPE with Waveform/Node project references to a non-existent SPD.
+      </li>
+      <li class="itemize">Removed references to several plug-ins that are not necessary as dependencies.
+      </li>
+      <li class="itemize">Required PyDev dependency was added for Sandbox console.
+      </li>
+      <li class="itemize">Correct exec param properties are now used when launching in the Sandbox.
+      </li>
+      <li class="itemize">SoftPkg elements are no longer expandable in Explorer view.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">The FEI Device wizard no longer creates the <span 
+class="ectt-1200">frontend_tuner_allocation </span>property
+      as a partially-configured struct.
+      </li>
+      <li class="itemize">Corrected diagram titles and tooltips.
+      </li>
+      <li class="itemize">When generating a namespaced Waveform or Node, the .spec file now owns parent
+      directories.
+      </li>
+      <li class="itemize">The message property kind is only displayed for struct properties or if the property
+      is already a message kind.
+      </li>
+      <li class="itemize">Fixed omniORB IDL parsing errors.
+      </li>
+      <li class="itemize">Diagram icons now match Explorer view icons.
+      </li>
+      <li class="itemize">Dependencies were added to the IDE RPM for necessary GTK libraries.
+      </li>
+      <li class="itemize">Fixed display issues on CentOS 7.
+      </li>
+      <li class="itemize">Waveforms with more than one declared namespace launch in the IDE Sandbox.
+      </li>
+      <li class="itemize">Launching a Device in the Device Chalkboard with the Device Chalkboard open no
+      longer causes an error.
+      </li>
+      <li class="itemize">The IDE now uses the stable release of Nebula (1.0.0).
+      </li>
+      <li class="itemize">The IDE now uses the latest PyDev update (4.5.5) for Eclipse Mars.
+      </li>
+      <li class="itemize">The IDE&#8217;s NeXtMidas version was locked to 3.6.</li></ul>
+                                                                                         
+                                                                                         
+<!--l. 237--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-10000"></a>Core Asset Fixes</h4>
+<!--l. 238--><p class="noindent" >The following Core Asset bug fixes were completed in REDHAWK 2.0.4.
+<!--l. 240--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-11000"></a>REDHAWK Basic Components</h5>
+      <ul class="itemize1">
+      <li class="itemize">FileReader - bluefile <span 
+class="ectt-1200">byteswap </span>hardcoded to false.
+      </li>
+      <li class="itemize">Sourcesocket - Properly handles FIN in client mode when server closes connection.
+      </li>
+      <li class="itemize">SourceVITA49 - Expanded unit tests.
+      </li>
+      <li class="itemize">SourceVITA49 - Corrected to assume payload is big endian if not specified.
+      </li>
+      <li class="itemize">SourceVITA49 - Fixed so <span 
+class="ectt-1200">destroy_rx_thread </span>is threadsafe.
+      </li>
+      <li class="itemize">SinkSDDS - Handles End of Stream.
+      </li></ul>
+<!--l. 254--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+ id="x1-12000"></a>REDHAWK Basic Devices</h5>
+      <ul class="itemize1">
+      <li class="itemize">FmRdsSimulator  -  <span 
+class="ectt-1200">nodeconfig.py </span>script  now  modifies  the  <span 
+class="ectt-1200">rh.FmRdsSimulator</span>
+      profile in-place.
+      </li>
+      <li class="itemize">RTL2832U - <span 
+class="ectt-1200">nodeconfig.py </span>script now modifies the <span 
+class="ectt-1200">rh.RTL2832U </span>profile in-place.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">USRP  and  RTL  -  Updated  <span 
+class="ectt-1200">nodeconfig.py </span>script  to  use  new  Sandbox  API
+      <span 
+class="ectt-1200">get_simple </span>instead of <span 
+class="ectt-1200">get_props</span>.
+      </li>
+      <li class="itemize">USRP_UHD - <span 
+class="ectt-1200">nodeconfig.py </span>script now modifies the <span 
+class="ectt-1200">rh.USRP_UHD </span>profile in-place.
+      </li></ul>
+<!--l. 267--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-13000"></a>Documentation Improvements/Fixes</h3>
+<!--l. 268--><p class="noindent" >The following documentation improvements/fixes were completed in REDHAWK 2.0.4.
+      <ul class="itemize1">
+      <li class="itemize">Updated the dependency list for installing from source on CentOS 7.
+      </li>
+      <li class="itemize">Corrected information about creating REDHAWK Projects in the IDE.
+      </li>
+      <li class="itemize">Added  information  about  new  warning  dialog  displayed  when  deallocate  all  is
+      selected.
+      </li>
+      <li class="itemize">Updated graphics to display Monitor Ports on context menu for resources in Graphiti
+      diagrams.
+      </li>
+      <li class="itemize">Updated graphics to display Connect in Graphiti diagram context menus.
+      </li>
+      <li class="itemize">Updated graphics displaying Show Properties in Graphiti diagram context menus.
+      </li>
+      <li class="itemize">Updated REDHAWK installation instructions.
+      </li>
+      <li class="itemize">Updated image on REDHAWK home screen.
+      </li>
+      <li class="itemize">Removed incorrect/obsolete upgrade instructions.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Updated steps in Allocating a FrontEnd Tuner procedure.
+      </li>
+      <li class="itemize">Modified Configuring omniORB heading to Configuring JacORB for the IDE.
+      </li>
+      <li class="itemize">Removed Installing RH on Ubuntu appendix.
+      </li>
+      <li class="itemize">Removed invalid IDE dependencies.
+      </li>
+      <li class="itemize">Added information about SourceSDDS and SinkSDDS.
+      </li>
+      <li class="itemize">Updated Figure 17.17 Running Waveform in the Chalkboard with graphiti diagram.
       </li></ul>
  
  <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 

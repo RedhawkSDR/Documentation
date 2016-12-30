@@ -57,285 +57,226 @@ href="main.html#mainch2.html" >up</a>] </p></div>
 <h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
  id="x4-80002.1"></a>Introduction</h3>
 <!--l. 4--><p class="noindent" >This chapter explains how to install the Core Framework, the <a 
-href="mainap9.html#ide">IDE</a>, and the Basic <a 
-href="mainli2.html#glo:component">Components</a>.
-The Core Framework is the software back-end of REDHAWK. The <a 
-href="mainap9.html#ide">IDE</a> is a Graphical User
-Interface (<a 
-href="mainap9.html#gui">GUI</a>) for development and use of REDHAWK systems. The Basic <a 
-href="mainli2.html#glo:component">Components</a> are
-building blocks that developers can use to create radio algorithms.
-<!--l. 11--><p class="noindent" >Complete installation of REDHAWK consists of the following steps:
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x4-8002x1">Installing External Dependencies
-      </li>
-      <li 
-  class="enumerate" id="x4-8004x2">Installing the Core Framework and Dependencies
-      </li>
-      <li 
-  class="enumerate" id="x4-8006x3">Installing the <a 
-href="mainap9.html#ide">IDE</a>
-      </li>
-      <li 
-  class="enumerate" id="x4-8008x4">Setting Environment Variables
-      </li>
-      <li 
-  class="enumerate" id="x4-8010x5">Configuring omniORB</li></ol>
-<!--l. 20--><p class="noindent" >To configure and install REDHAWK and associated dependencies, you must have
-root permissions. It is recommended that users install from <a 
-href="mainap9.html#rpm">RPM</a>s (available at
+href="mainap9.html#ide">IDE</a>, and the basic assets. The Core
+Framework is the software back-end of REDHAWK. The <a 
+href="mainap9.html#ide">IDE</a> is a Graphical User Interface (<a 
+href="mainap9.html#gui">GUI</a>)
+for development and interaction with REDHAWK systems. The basic assets are a collection of
 <a 
-href="http://redhawksdr.github.io/Documentation/download.html" class="url" ><span 
-class="ectt-1200">http://redhawksdr.github.io/Documentation/download.html</span></a>), but advanced users who desire
-custom functionality may also install from source. If installing from source, refer to <a 
-href="mainap2.html#x21-422000B">Appendix B</a>
-after installing dependencies.
-<!--l. 22--><p class="noindent" >REDHAWK installation is supported for Red Hat Enterprise Linux (<a 
-href="mainap9.html#rhel">RHEL</a>) or Community
-Enterprise Operating System (<a 
-href="mainap9.html#centos">CentOS</a>) version 6, for both 32-bit and 64-bit versions. A developer
-install of <a 
+href="mainli2.html#glo:component">Components</a>, <a 
+href="mainli2.html#glo:device">Devices</a>, and <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> that developers can use to create simple software-defined
+radio <a 
+href="mainli2.html#glo:application">Applications</a>.
+<!--l. 10--><p class="noindent" >To configure and install REDHAWK and associated dependencies, you must have root permissions.
+The REDHAWK installation is compatible with <a 
 href="mainap9.html#rhel">RHEL</a> or <a 
-href="mainap9.html#centos">CentOS</a> is recommended.
-<!--l. 26--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you are running <a 
-href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> 6.4, ensure the latest updates have been applied to your
-system. A bug was present in the initial release of 6.4 that causes compilation errors when
-developing for REDHAWK. If it is not possible for you to apply the latest updates, refer to
+href="mainap9.html#centos">CentOS</a> 6 (32-and 64-bit) and <a 
+href="mainap9.html#rhel">RHEL</a> or
 <a 
-href="mainap7.html#x26-499000G">Appendix G</a>. </p></div></div>
-                                                                                         
-                                                                                         
-<!--l. 30--><p class="noindent" >
+href="mainap9.html#centos">CentOS</a> 7 (64-bit). The current REDHAWK release was tested against <a 
+href="mainap9.html#centos">CentOS</a> 6.8 (32-and 64-bit)
+and <a 
+href="mainap9.html#centos">CentOS</a> 7.2 (64-bit).
+<!--l. 15--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
- id="x4-90002.2"></a>Upgrading from a Previous Version</h3>
-<!--l. 32--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">2.2.1   </span> <a 
- id="x4-100002.2.1"></a>Upgrading from REDHAWK 1.9.X and 1.10.X</h4>
-<!--l. 33--><p class="noindent" >If you are upgrading from previous 1.9.x or 1.10.x versions of REDHAWK, some
-software from the 1.9 and 1.10 series dependencies must be uninstalled before installing
-the REDHAWK 2.0 series. Enter the following command to uninstall the software:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum erase \
-  libomniEvents2 libomniORBpy3.6 \
-  libomniEvents2-devel omniEvents-bootscripts \
-  omniEvents-server omniEvents-utils omniORBpy-devel
- ]]></script></div>
-<!--l. 41--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">2.2.2   </span> <a 
- id="x4-110002.2.2"></a>Upgrading from REDHAWK 1.8.X</h4>
-<!--l. 42--><p class="noindent" >If you are upgrading from a previous 1.8.x version of REDHAWK, some software from the 1.8
-series dependencies must be uninstalled before installing the REDHAWK 2.0 series. Enter the
-following command to uninstall the software:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum erase \
-  libomniORB4.1 omniORB-debuginfo omniORB-doc \
-  libomniORBpy3 omniORBpy-debuginfo omniORBpy-doc \
-  omniEvents-doc omniEvents-debuginfo \
-  apache-log4cxx apache-log4cxx-debuginfo
-]]></script></div>
-<!--l. 53--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
- id="x4-120002.3"></a>Installing External Dependencies</h3>
-                                                                                         
-                                                                                         
-<!--l. 55--><p class="noindent" >REDHAWK has several open-source software dependencies from the Fedora Extra Packages for
-Enterprise Linux (<a 
-href="mainap9.html#epel">EPEL</a>) and basic <a 
-href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> repositories. Dependencies not available from
-either of those sources are included with REDHAWK (these dependencies are listed in <a 
-href="mainap1.html#x20-418000A">Appendix
-A</a>).
-<!--l. 57--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For more information on the Fedora <a 
-href="mainap9.html#epel">EPEL</a> project, refer to <a 
-href="http://fedoraproject.org/wiki/EPEL" class="url" ><span 
-class="ectt-1200">http://fedoraproject.org/wiki/EPEL</span></a>.
-</p></div></div>
-<!--l. 61--><p class="noindent" >The following sections explain how to install the Dependencies from the <a 
-href="mainap9.html#epel">EPEL</a> and Red
-Hat/<a 
-href="mainap9.html#centos">CentOS</a> repositories.
-<!--l. 63--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">2.3.1   </span> <a 
- id="x4-130002.3.1"></a>Installing the dependencies from the EPEL repository</h4>
-<!--l. 65--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x4-13002x1">If installing on a system with access to <a 
-href="http://download.fedoraproject.org" class="url" ><span 
-class="ectt-1200">http://download.fedoraproject.org</span></a>:
-      <!--l. 68--><p class="noindent" >
-           <ol  class="enumerate2" >
-           <li 
-  class="enumerate" id="x4-13004x1">Download the appropriate Red Hat Package Manager (<a 
-href="mainap9.html#rpm">RPM</a>) for your system.
-               <ul class="itemize1">
-               <li class="itemize">For Red Hat/<a 
-href="mainap9.html#centos">CentOS</a> 6 32-bit, use <a 
-href="http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm" class="url" ><span 
-class="ectt-1200">http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</span></a>.
-               </li>
-               <li class="itemize">For Red Hat/<a 
-href="mainap9.html#centos">CentOS</a> 6 64-bit, use <a 
-href="http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" class="url" ><span 
-class="ectt-1200">http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span></a>.</li></ul>
-           </li>
-           <li 
-  class="enumerate" id="x4-13006x2">Install the <a 
-href="mainap9.html#rpm">RPM</a> by entering the following command:
-           <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum install --nogpgcheck epel-release-<version>.noarch.rpm
-]]></script></div>
-           </li>
-           <li 
-  class="enumerate" id="x4-13008x3">Install the necessary packages for <a 
-href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> 6, by entering the following
-           code::
-                                                                                         
-                                                                                         
-           <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum install omniORB-servers \
-  omniORB-devel \
-  python-jinja2-26 \
-  xsd
-]]></script></div>
-           </li></ol>
+ id="x4-90002.2"></a>Installing REDHAWK from RPMs</h3>
+<!--l. 18--><p class="noindent" >This section provides step-by-step instructions for installing a REDHAWK release using the YUM
+command-line package management tool. The installation process includes:
+      <ul class="itemize1">
+      <li class="itemize">configuring the host system to install REDHAWK dependencies from Fedora <a 
+href="mainap9.html#epel">EPEL</a>,
       </li>
-      <li 
-  class="enumerate" id="x4-13010x2">If installing on a standalone system (a system without access to <a 
-href="http://download.fedoraproject.org" class="url" ><span 
-class="ectt-1200">http://download.fedoraproject.org</span></a>):
-      <!--l. 94--><p class="noindent" >The dependencies from <a 
-href="mainap9.html#epel">EPEL</a> can be installed using the following instructions:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar xzvf redhawk-standalone-epel-<dist>-<arch>.tar.gz
-cd redhawk-standalone-epel-<dist>-<arch>
-sudo yum install --nogpgcheck *.rpm
-]]></script></div>
-      </li></ol>
-<!--l. 103--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">2.3.2   </span> <a 
- id="x4-140002.3.2"></a>Installing the Dependencies from the RHEL/CentOS repositories</h4>
-<!--l. 105--><p class="noindent" >To install the dependencies for <a 
+      <li class="itemize">downloading and configuring the REDHAWK YUM repository on the host system,
+      </li>
+      <li class="itemize">installing the REDHAWK software, and
+      </li>
+      <li class="itemize">setting up the user environment for immediate REDHAWK runtime or development
+      use.</li></ul>
+<!--l. 29--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  Before beginning the installation process, if you are upgrading from a 1.8.x version of
+REDHAWK or for more information about external dependencies, refer to <a 
+href="mainap2.html#x21-437000B">Appendix B</a>. </p></div></div>
+                                                                                         
+                                                                                         
+<!--l. 33--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.2.1   </span> <a 
+ id="x4-100002.2.1"></a>Configuring the Host System to Install REDHAWK <a 
+href="mainap9.html#epel">EPEL</a> Dependencies</h4>
+<!--l. 34--><p class="noindent" >REDHAWK has several open-source software dependencies from the <a 
+href="mainap9.html#epel">EPEL</a> repository. If your
+system is not configured to receive software packages from <a 
+href="mainap9.html#epel">EPEL</a>, you can configure it as
+follows:
+<!--l. 36--><p class="noindent" >For <a 
 href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> 6, enter the following commands:
+href="mainap9.html#centos">CentOS</a> 7:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum install libuuid-devel \
-  boost-devel \
-  autoconf automake libtool \
-  expat-devel \
-  java7-devel \
-  python-devel \
-  numpy \
-  PyQt4
+sudo yum install \
+https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ]]></script></div>
-<!--l. 118--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
- id="x4-150002.4"></a>Installing the <a 
-href="mainap9.html#ide">IDE</a> and Framework from <a 
-href="mainap9.html#rpm">RPM</a>s</h3>
+<!--l. 43--><p class="noindent" >For <a 
+href="mainap9.html#rhel">RHEL</a>/<a 
+href="mainap9.html#centos">CentOS</a> 6:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install \
+https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+]]></script></div>
+<!--l. 50--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.2.2   </span> <a 
+ id="x4-110002.2.2"></a>Downloading and Configuring the REDHAWK Yum Repository on the Host
+System</h4>
+<!--l. 52--><p class="noindent" >The following conventions are used in the instructions that follow. <div class="table">
                                                                                          
                                                                                          
-<!--l. 120--><p class="noindent" >The following procedure explains how to install the <a 
-href="mainap9.html#ide">IDE</a>, Core Framework, and accompanying
-dependencies from <a 
-href="mainap9.html#rpm">RPM</a>s.
-<!--l. 122--><p class="noindent" >
+<!--l. 64--><p class="noindent" ><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-1" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1"></colgroup><colgroup id="TBL-1-2g"><col 
+id="TBL-1-2"></colgroup><colgroup id="TBL-1-3g"><col 
+id="TBL-1-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-1-1"  
+class="td11"> <!--l. 67--><p class="noindent" ><span 
+class="ecbx-1200">Variable</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-1-2"  
+class="td11"> <!--l. 67--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-1-3"  
+class="td11"> <!--l. 67--><p class="noindent" ><span 
+class="ecbx-1200">Example</span>                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-2-1"  
+class="td11"> <!--l. 69--><p class="noindent" ><span 
+class="ectt-1200">&#x003C;version&#x003E;</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-2-2"  
+class="td11"> <!--l. 69--><p class="noindent" >REDHAWK version            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-2-3"  
+class="td11"> <!--l. 69--><p class="noindent" ><span 
+class="ecti-1200">2.0.3</span>                             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-3-1"  
+class="td11"> <!--l. 70--><p class="noindent" ><span 
+class="ectt-1200">&#x003C;dist&#x003E;</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-3-2"  
+class="td11"> <!--l. 70--><p class="noindent" >Linux     distribution     as
+  represented by rpm macros  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-3-3"  
+class="td11"> <!--l. 70--><p class="noindent" ><span 
+class="ecti-1200">el6 </span>(for CentOS 6)             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-4-1"  
+class="td11"> <!--l. 71--><p class="noindent" ><span 
+class="ectt-1200">&#x003C;arch&#x003E;</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-4-2"  
+class="td11"> <!--l. 71--><p class="noindent" >host architecture                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-1-4-3"  
+class="td11"> <!--l. 71--><p class="noindent" ><span 
+class="ecti-1200">x86_64</span>                          </td></tr></table>
+</div>
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 82--><p class="noindent" >Adjust the variables to match the desired REDHAWK version, host Linux distribution, and host
+machine architecture. For example, for REDHAWK version 2.0.3, 64-bit CentOS 6,
+<span 
+class="ectt-1200">redhawk-yum-2.0.3-el6-x86_64.tar.gz</span>.
+<h5 class="subsubsectionHead"><span class="titlemark">2.2.2.1   </span> <a 
+ id="x4-120002.2.2.1"></a>Downloading the YUM Archive of REDHAWK</h5>
+<!--l. 87--><p class="noindent" >Download the archive of the desired version of REDHAWK for your host OS and architecture.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+wget https://github.com/RedhawkSDR/redhawk/releases/download/<version>/redhawk-yum-<version>-<dist>-<arch>.tar.gz
+]]></script></div>
+<!--l. 93--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">2.2.2.2   </span> <a 
+ id="x4-130002.2.2.2"></a>Setting Up the REDHAWK Repository</h5>
+<!--l. 95--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x4-15002x1">To install the standard version of REDHAWK, enter the following commands:
+  class="enumerate" id="x4-13002x1">In the directory that you want to use for the REDHAWK yum repository, extract the
+      contents of the tar file.
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
 cd redhawk-<version>-<dist>-<arch>
-sudo yum install --nogpgcheck *.rpm
-. /etc/profile.d/redhawk.sh
-. /etc/profile.d/redhawk-sdrroot.sh
 ]]></script></div>
-      <!--l. 133--><p class="noindent" >Where <span 
-class="ectt-1200">&#x003C;version&#x003E;</span>, <span 
-class="ectt-1200">&#x003C;dist&#x003E;</span>, and <span 
-class="ectt-1200">&#x003C;arch&#x003E; </span>correspond to the associated REDHAWK version,
-      Linux distribution, and architecture respectively.
-      <!--l. 137--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If you want to be more selective about the packages you install, refer to <a 
-href="mainap1.html#x20-418000A">Appendix A</a> for a
-      list of recommended packages to install. </p></div></div>
+      </li>
+      <li 
+  class="enumerate" id="x4-13004x2">Enter the following commands to add the following file, <span 
+class="ectt-1200">/etc/yum.repos.d/redhawk.repo</span>:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+cat&lt;&lt;EOF|sed 's@LDIR@'`pwd`'@g'|sudo tee /etc/yum.repos.d/redhawk.repo
+[redhawk]
+name=REDHAWK Repository
+baseurl=file://LDIR/
+enabled=1
+gpgcheck=0
+EOF
+]]></script>
+                                                                                         
+                                                                                         
+      </div>
+      </li></ol>
+<!--l. 116--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.2.3   </span> <a 
+ id="x4-140002.2.3"></a>Installing the REDHAWK Software</h4>
+<!--l. 119--><p class="noindent" >Use one of the following options to install the <a 
+href="mainap9.html#ide">IDE</a>, Core Framework, and accompanying
+dependencies from <a 
+href="mainap9.html#rpm">RPM</a>s.
+      <ul class="itemize1">
+      <li class="itemize">To install only the runtime REDHAWK software, enter the following command:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+   sudo yum groupinstall "REDHAWK Runtime"
+  ]]></script></div>
+      </li>
+      <li class="itemize">To install the REDHAWK development software, enter the following command:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+   sudo yum groupinstall "REDHAWK Development"
+  ]]></script></div>
+      </li></ul>
+<!--l. 138--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you want to be more selective about the packages you install, refer to <a 
+href="mainap1.html#x20-429000A">Appendix A</a> for a list of
+packages that can be installed. If you want to install a stand-alone IDE, refer to <a 
+href="mainap3.html#x22-447000C">Appendix C</a>. </p></div></div>
+<!--l. 143--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.2.4   </span> <a 
+ id="x4-150002.2.4"></a>Setting Up the User Environment</h4>
+<!--l. 145--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x4-15002x1">Enter the following commands to set up the environment variables:
+                                                                                         
+                                                                                         
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+   . /etc/profile.d/redhawk.sh
+  . /etc/profile.d/redhawk-sdrroot.sh
+  ]]></script></div>
       </li>
       <li 
   class="enumerate" id="x4-15004x2">Use the following command to add each REDHAWK user to the <span 
 class="ectt-1200">redhawk </span>group:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo /usr/sbin/usermod -a -G redhawk <user name>
-]]></script></div>
-      <!--l. 148--><p class="noindent" >Where <span 
+   sudo /usr/sbin/usermod -a -G redhawk <user name>
+  ]]></script></div>
+      <!--l. 160--><p class="noindent" >Where <span 
 class="ectt-1200">&#x003C;user name&#x003E; </span>is the name of a user to add to the group. If you are logged into an
       account that you modify with <span 
 class="ectt-1200">usermod</span>, you must log out and back in for the changes to take
       effect.
       </li></ol>
-<!--l. 154--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.5   </span> <a 
- id="x4-160002.5"></a>Installing a Stand-alone <a 
-href="mainap9.html#ide">IDE</a></h3>
-<!--l. 156--><p class="noindent" >The REDHAWK <a 
-href="mainap9.html#ide">IDE</a> leverages Java technologies, and for the best Java experience, a minimum of
-2GB of RAM is recommended. To install a stand-alone version of the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>, you must
-extract the appropriate installation file.
-                                                                                         
-                                                                                         
-<!--l. 160--><p class="noindent" >To develop and run Java-based components within the <a 
-href="mainap9.html#ide">IDE</a>, the environment variable
-<span 
-class="ectt-1200">JAVA_HOME </span>must be set, and <span 
-class="ectt-1200">JAVA_HOME/bin </span>must be added to the PATH. It is recommended that
-you put this in the <span 
-class="ectt-1200">.bashrc </span>file. The location of <span 
-class="ectt-1200">JAVA_HOME </span>depends on where Java is installed and
-is based on the system configuration.
-<!--l. 166--><p class="noindent" >The following procedure explains how to install a stand-alone <a 
-href="mainap9.html#ide">IDE</a> and configure Java.
 <!--l. 168--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x4-16002x1">Locate the appropriate tarball, and run the following command (where <span 
-class="ectt-1200">&#x003C;version&#x003E; </span>is
-      the version of the REDHAWK <a 
-href="mainap9.html#ide">IDE</a> and <span 
-class="ectt-1200">&#x003C;arch&#x003E; </span>is either x86 for 32-bit systems or
-      x86_64 for 64-bit systems):
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar zxf redhawk-ide-<version>-linux.gtk.<arch>.tar.gz
-]]></script></div>
-      </li>
-      <li 
-  class="enumerate" id="x4-16004x2">To configure Java, enter the following commands:
-      <!--l. 179--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  If Java is installed in a location other than the default path, $JAVA_HOME/bin:$PATH,
-      you must modify these commands to specify the correct location. </p></div></div>
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-echo "export JAVA_HOME=/usr/lib/jvm/java" &gt;&gt; ~/.bashrc
-echo "export PATH=\$JAVA_HOME/bin:\$PATH" &gt;&gt; ~/.bashrc
-source ~/.bashrc
-]]></script></div>
-      </li></ol>
-<!--l. 192--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.6   </span> <a 
- id="x4-170002.6"></a>Configuring omniORB</h3>
-<!--l. 194--><p class="noindent" >The omniORB configuration file (<span 
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x4-160002.3"></a>Configuring omniORB</h3>
+<!--l. 170--><p class="noindent" >The omniORB configuration file (<span 
 class="ectt-1200">/etc/omniORB.cfg</span>) must be edited to provide information about
 how to reach the Common Object Request Broker Architecture (<a 
-href="mainap9.html#corba">CORBA</a>) event service. By
+href="mainap9.html#corba">CORBA</a>) name service. By
 default, the config file contains the following entries:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = NameService=corbaname::127.0.0.1:2809
 supportBootstrapAgent = 1
-]]></script>
-                                                                                         
-                                                                                         
-</div>
-<!--l. 201--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The <span 
+]]></script></div>
+<!--l. 177--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The <span 
 class="ectt-1200">NameService </span>line provides information about how to reach the <a 
 href="mainap9.html#corba">CORBA</a> naming
 service. The number is an IP address followed by a colon and a <a 
@@ -345,22 +286,24 @@ number is used as a default if no other number is specified. <span
 class="ectt-1200">SupportBootstrapAgent </span>is a
 server side option. This enables omniORB servers and Sun&#8217;s JavaIDL clients to work
 together. When set to 1, an omniORB server responds to a bootstrap agent request. </p></div></div>
-<!--l. 205--><p class="noindent" >
+<!--l. 181--><p class="noindent" >
       <ol  class="enumerate1" >
+                                                                                         
+                                                                                         
       <li 
-  class="enumerate" id="x4-17002x1">Add the following line to the config file to configure the <a 
+  class="enumerate" id="x4-16002x1">Add the following line to the config file to configure the <a 
 href="mainap9.html#corba">CORBA</a> event service (this
       requires root permissions):
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
 ]]></script></div>
-      <!--l. 212--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The first number is the IP address followed by a colon and a <a 
+      <!--l. 188--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The first number is the IP address followed by a colon and a <a 
 href="mainli2.html#glo:port">Port</a> number. <span 
 class="ectt-1200">omniEvents </span>is
       the object key. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x4-17004x2">Enter the following command to start the <span 
+  class="enumerate" id="x4-16004x2">Enter the following command to start the <span 
 class="ectt-1200">omniNames </span>and <span 
 class="ectt-1200">omniEvents </span>services:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -368,36 +311,43 @@ sudo $OSSIEHOME/bin/cleanomni
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x4-17006x3">To have <span 
+  class="enumerate" id="x4-16006x3">For CentOS 6 systems, to have <span 
 class="ectt-1200">omniNames </span>and <span 
-class="ectt-1200">omniEvents </span>start automatically at system boot (recommended),
-      enter the following commands:
+class="ectt-1200">omniEvents </span>start automatically at system
+      boot (recommended), enter the following commands:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo /sbin/chkconfig --level 345 omniNames on
 sudo /sbin/chkconfig --level 345 omniEvents on
 ]]></script></div>
+      </li>
+      <li 
+  class="enumerate" id="x4-16008x4">For CentOS 7 systems, to have <span 
+class="ectt-1200">omniNames </span>and <span 
+class="ectt-1200">omniEvents </span>start automatically at system
+      boot (recommended), enter the following commands:
+      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo systemctl enable omniNames.service
+sudo systemctl enable omniEvents.service
+]]></script></div>
       </li></ol>
-<!--l. 231--><p class="noindent" >For more information about omniORB configuration file settings (<span 
-class="ectt-1200">/etc/omniORB.cfg</span>), refer to Chapter 4 of
-the omniORB User&#8217;s Guide (<a 
+<!--l. 214--><p class="noindent" >For more information about omniORB configuration file settings (<span 
+class="ectt-1200">/etc/omniORB.cfg</span>), refer to Chapter 4
+of the omniORB User&#8217;s Guide (<a 
 href="http://omniorb.sourceforge.net/omni41/omniORB/omniORB004.html" class="url" ><span 
-class="ectt-1200">http://omniorb.sourceforge.net/omni41/omniORB/omniORB004.html</span></a> or on
+class="ectt-1200">http://omniorb.sourceforge.net/omni41/omniORB/omniORB004.html</span></a>.
                                                                                          
                                                                                          
-your local system at <a 
-href="file:///usr/share/doc/omniORB-devel-4.1.6/doc/omniORB/omniORB004.html" class="url" ><span 
-class="ectt-1200">file:///usr/share/doc/omniORB-devel-4.1.6/doc/omniORB/omniORB004.html</span></a>).
-<!--l. 233--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.7   </span> <a 
- id="x4-180002.7"></a>Configuring omniORB for Distributed Systems</h3>
-<!--l. 234--><p class="noindent" >If you want to run a <a 
+<!--l. 216--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">2.3.1   </span> <a 
+ id="x4-170002.3.1"></a>Configuring omniORB for Distributed Systems</h4>
+<!--l. 217--><p class="noindent" >If you want to run a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> from two different computers, the
 following procedure explains how to configure omniORB for distributed systems.
-<!--l. 236--><p class="noindent" >
+<!--l. 219--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x4-18002x1">On the computer from which you want to run the <a 
+  class="enumerate" id="x4-17002x1">On the computer from which you want to run the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>, start <span 
 class="ectt-1200">omniNames </span>and
       <span 
@@ -407,7 +357,7 @@ href="mainli2.html#glo:domainmanager">Domain Manager</a>. <div class="admonition
 href="mainli2.html#glo:devicemanager">Device Manager</a> to connect. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x4-18004x2">On the computer from which you want to run the <a 
+  class="enumerate" id="x4-17004x2">On the computer from which you want to run the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>, modify the <span 
 class="ectt-1200">omniORB.cfg</span>
       file so that the IP address for the <span 
@@ -415,14 +365,14 @@ class="ectt-1200">NameService </span>and <span
 class="ectt-1200">EventService </span>is the address of the
       computer running the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>.
-      <!--l. 243--><p class="noindent" >The following example is a modified <a 
+      <!--l. 226--><p class="noindent" >The following example is a modified <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> <span 
 class="ectt-1200">omniORB.cfg </span>file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 InitRef = NameService=corbaname::127.0.0.1:
 InitRef = EventService=corbaloc::127.0.0.1:11169/omniEvents
 ]]></script></div>
-      <!--l. 249--><p class="noindent" >The following example is a modified <a 
+      <!--l. 232--><p class="noindent" >The following example is a modified <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> <span 
 class="ectt-1200">omniORB.cfg </span>file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -430,39 +380,39 @@ InitRef = NameService=corbaname::<IP address of Domain Manager>:
 InitRef = EventService=corbaloc::<IP address of Domain Manager>:
           11169/omniEvents
 ]]></script></div>
-      <!--l. 256--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Neither <span 
+      <!--l. 239--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Neither <span 
 class="ectt-1200">omniEvents </span>nor <span 
 class="ectt-1200">omniNames </span>needs to be running on this computer. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x4-18006x3">On the computer running the <a 
+  class="enumerate" id="x4-17006x3">On the computer running the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>, test that you can see the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> by
       running <span 
 class="ectt-1200">nameclt list</span>.
-                                                                                         
-                                                                                         
-      <!--l. 261--><p class="noindent" >The name of the <a 
+      <!--l. 244--><p class="noindent" >The name of the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> is displayed.
       </li>
       <li 
-  class="enumerate" id="x4-18008x4">Start the <a 
+  class="enumerate" id="x4-17008x4">Start the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>.
-      <!--l. 264--><p class="noindent" >Any <a 
+      <!--l. 247--><p class="noindent" >Any <a 
 href="mainli2.html#glo:device">Devices</a> in the <a 
 href="mainli2.html#glo:node">Node</a> are registered with the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>.
+                                                                                         
+                                                                                         
       </li>
       <li 
-  class="enumerate" id="x4-18010x5">To verify that you can view both the <a 
+  class="enumerate" id="x4-17010x5">To verify that you can view both the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> and <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a>, from either
       computer, run <span 
 class="ectt-1200">nameclt list &#x003C;Domain Manager Name&#x003E;</span>.
-      <!--l. 267--><p class="noindent" >The <a 
+      <!--l. 250--><p class="noindent" >The <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> and <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> are displayed.</li></ol>
-<!--l. 270--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> omniORB may have trouble automatically resolving its location. In this case, it may be necessary
+<!--l. 253--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> omniORB may have trouble automatically resolving its location. In this case, it may be necessary
 to set the endpoints in the <span 
 class="ectt-1200">omniORB.cfg </span>files by adding the following to each <span 
 class="ectt-1200">omniORB.cfg </span>file:
@@ -473,18 +423,18 @@ class="ectt-1200">omniNames</span>
 for these changes to take effect. </p></div></div>
 <div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Run <span 
 class="ectt-1200">rh_net_diag </span>to help diagnose any problems. Refer to <a 
-href="mainap8.html#x27-502000H">Appendix H</a> for more information on
+href="mainap8.html#x27-518000H">Appendix H</a> for more information on
 how to use <span 
 class="ectt-1200">rh_net_diag</span>. </p></div></div>
-<!--l. 277--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">2.8   </span> <a 
- id="x4-190002.8"></a>Configuring omniORB</h3>
-<!--l. 278--><p class="noindent" >The REDHAWK IDE uses JacORB version 3.3 for CORBA communication. The IDE includes a
-configuration file for JacORB in the IDE&#8217;s directory (in <span 
-class="ectt-1200">configuration/jacorb.properties</span>).
-The file includes explanations and examples for many of JacORB&#8217;s configuration options. For more
-information, refer to chapter 3 of the JacORB 3.3 Programming Guide. Typically, there is no need
-to adjust any JacORB settings.
+<!--l. 261--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">2.4   </span> <a 
+ id="x4-180002.4"></a>Configuring JacORB to Support the IDE</h3>
+<!--l. 263--><p class="noindent" >The IDE uses JacORB version 3.3 for CORBA communication. The IDE includes a configuration
+file for JacORB in the IDE&#8217;s directory (in <span 
+class="ectt-1200">configuration/jacorb.properties</span>). The file includes
+explanations and examples for many of JacORB&#8217;s configuration options. For more information,
+refer to chapter 3 of the JacORB 3.3 Programming Guide. Typically, there is no need to adjust any
+JacORB settings.
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

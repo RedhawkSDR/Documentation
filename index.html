@@ -44,7 +44,7 @@ if (window.addEventListener) {
     <div id="main_content_wrap" tabindex="0" class="outer">
       <section id="main_content" class="inner">
       <h1>REDHAWK</h1>
-<a href = images/REDHAWK_ScreenShot.png><img src="images/REDHAWK_ScreenShot_scaled.png"/></a>
+<a href = images/REDHAWKwaveformREDHAWKIDE.png><img src="images/REDHAWKwaveformREDHAWKIDEscaled.png"/></a>
 
 
         <h2>Description</h2>
@@ -63,15 +63,31 @@ instances and applications.</p>
 
 <h3>Recent Announcements</h3>
 
-<p><strong>Release of REDHAWK 2.0.3 (October 5, 2016)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. REDHAWK 2.0.3 addresses the following:
+<p><strong>Release of REDHAWK 2.0.4 (December 30, 2016)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.4 focused on:
+<ul>
+
+<li>Adding support for the CentOS 7 operating system.
+<li>Updating the REDHAWK IDE to require Java 8.
+<li>Adding support for two new Core Assets, SinkSDDS and SourceSDDS, which convert between SDDS and BulkIO data formats.
+<li>Adding messages to indicate to the user the reason why the GPP is busy.
+<li>Adding more IDE XML validation to help users catch issues sooner when designing projects.
+<li>Correcting issues with Redhawk-generated build scripts that prevented errors from being displayed.
+<li>Adding 'Connect' and 'Show Properties View' in the Graphiti diagram context menus.
+<li>Adding GPP label to the Domain Manager log message when deploying Components or Waveforms to enable quick identification of which GPP the Domain Manager is attempting to launch Components on.
+<li>Improving the REDHAWK Explorer product to use the new Graphiti diagrams introduced in the REDHAWK 2.0.0 IDE.
+<li>Improving IDE namespace support to give users an error if they have multiple resources with conflicting IDs in the SDRROOT.
+<li>Addressing numerous bug fixes.
+</ul>
+
+<p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
+
+<p><strong>Release of REDHAWK 2.0.3 (October 5, 2016)</strong> - REDHAWK 2.0.3 addresses the following:
 
 <ul>
 <li>Improvements to GPP automatic resource monitoring caused a memory leak. - Fixed.
 <li>Incorrect return type in the GPS interface implementation of FrontEnd Interfaces. - Fixed.
 <li>Python Devices failed to launch when a logging config file is specified. - Fixed.
 </ul>
-
-<p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
 
 
 <p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.2">Release of REDHAWK 2.0.2</a> (September 1, 2016)</strong> - The effort in REDHAWK 2.0.2 focused on:
