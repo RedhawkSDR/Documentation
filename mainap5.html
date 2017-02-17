@@ -53,9 +53,9 @@ href="mainap4.html#tailmainap4.html" >prev-tail</a>] [<a
 href="#tailmainap5.html">tail</a>] [<a 
 href="main.html#mainap5.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;E</span><br /><a 
- id="x24-453000E"></a>Optimization</h2>
+ id="x24-469000E"></a>Optimization</h2>
 <h3 class="sectionHead"><span class="titlemark">E.1   </span> <a 
- id="x24-454000E.1"></a>Introduction</h3>
+ id="x24-470000E.1"></a>Introduction</h3>
 <!--l. 7--><p class="noindent" >As a system framework, REDHAWK is affected by system settings beyond the scope of
 REDHAWK. System optimization is sensitive to the set of applications that the system
 is intended to support. However, there are some simple settings that can apply to a
@@ -63,7 +63,7 @@ wide set of applications. This chapter describes some of the effects of these ge
 settings.
 <!--l. 9--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.2   </span> <a 
- id="x24-455000E.2"></a>Configuring omniORB</h3>
+ id="x24-471000E.2"></a>Configuring omniORB</h3>
 <!--l. 12--><p class="noindent" >By default, omniORB configuration relies on the loopback interface of the operating system. While
 easy to use and manage, the loopback interface is not the fastest default transport that omniORB
 supports. omniORB also supports Linux Domain Sockets. Linux Domain Sockets are configured
@@ -73,7 +73,7 @@ through the omniORB configuration file (/etc/omniORB.cfg).
 <!--l. 20--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x24-455002x1">In the omiORB configuration file (/etc/omniORB.cfg), set the endpoints where the
+  class="enumerate" id="x24-471002x1">In the omiORB configuration file (/etc/omniORB.cfg), set the endpoints where the
       server is listening by adding the following lines to the endPoint section of the file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 endPoint = giop:tcp:127.0.0.1:
@@ -92,7 +92,7 @@ href="mainli2.html#glo:port">Port</a>. The Unix transport
       is not specified here, a name based on the process id and timestamp is used. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x24-455004x2">Set the endpoints that are published in an object&#8217;s <a 
+  class="enumerate" id="x24-471004x2">Set the endpoints that are published in an object&#8217;s <a 
 href="mainap9.html#ior">IOR</a> by adding the following lines to the
       endPointPublish section of the file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -104,7 +104,7 @@ href="mainap9.html#ior">IOR</a>s that
       are no longer valid.
       </li>
       <li 
-  class="enumerate" id="x24-455006x3">Use the following command to reset the name and event services and delete the associated
+  class="enumerate" id="x24-471006x3">Use the following command to reset the name and event services and delete the associated
       log files:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 sudo $OSSIEHOME/bin/cleanomni
@@ -114,7 +114,7 @@ class="ectt-1200">-v </span>or <span
 class="ectt-1200">--verbose </span>option to print the cleanup process.
       </li>
       <li 
-  class="enumerate" id="x24-455008x4">To verify that Linux Domain Sockets are being used, go to /tmp, and verify that the
+  class="enumerate" id="x24-471008x4">To verify that Linux Domain Sockets are being used, go to /tmp, and verify that the
       omni-omni and omni-root directories exist. These two directories contain the files for the
       Linux Domain Sockets. Given that communications are now over file descriptors, verify that
       read permissions are open when communicating between objects owned by different
@@ -122,7 +122,7 @@ class="ectt-1200">--verbose </span>option to print the cleanup process.
       <!--l. 51--><p class="noindent" >This change in the omniORB configuration greatly improves data transport rates.</li></ol>
 <!--l. 54--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">E.3   </span> <a 
- id="x24-456000E.3"></a>Packet Transfer Size</h3>
+ id="x24-472000E.3"></a>Packet Transfer Size</h3>
 <!--l. 56--><p class="noindent" >REDHAWK transfers data using <a 
 href="mainap9.html#bulkio">BulkIO</a>, which is an <a 
 href="mainap9.html#rpc">RPC</a> mechanism. The size of the data
@@ -134,51 +134,51 @@ arbitrary length less than <span
 class="ectt-1200">giopMaxMsgSize</span>.
 <!--l. 58--><p class="noindent" >To demonstrate how throughput is affected by the configuration of omniORB and data
 transfer size, tests were performed on a system with the specifications shown in <a 
-href="#x24-456001r1">Table
+href="#x24-472001r1">Table
 E.1</a>.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 60--><p class="noindent" ><a 
- id="x24-456001r1"></a><hr class="float"><div class="float" 
+ id="x24-472001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-26" class="tabular" 
+<div class="tabular"> <table id="TBL-29" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-26-1g"><col 
-id="TBL-26-1"></colgroup><colgroup id="TBL-26-2g"><col 
-id="TBL-26-2"></colgroup><tr 
+><colgroup id="TBL-29-1g"><col 
+id="TBL-29-1"></colgroup><colgroup id="TBL-29-2g"><col 
+id="TBL-29-2"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-26-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-26-1-1"  
+ style="vertical-align:baseline;" id="TBL-29-1-"><td  style="white-space:wrap; text-align:left;" id="TBL-29-1-1"  
 class="td11"> <!--l. 64--><p class="noindent" ><span 
-class="ecbx-1200">Parameter</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-26-1-2"  
+class="ecbx-1200">Parameter</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-29-1-2"  
 class="td11"> <!--l. 64--><p class="noindent" ><span 
 class="ecbx-1200">Value</span>                </td></tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-26-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-26-2-1"  
-class="td11"> <!--l. 65--><p class="noindent" >Number of cores </td><td  style="white-space:wrap; text-align:left;" id="TBL-26-2-2"  
+ style="vertical-align:baseline;" id="TBL-29-2-"><td  style="white-space:wrap; text-align:left;" id="TBL-29-2-1"  
+class="td11"> <!--l. 65--><p class="noindent" >Number of cores </td><td  style="white-space:wrap; text-align:left;" id="TBL-29-2-2"  
 class="td11"> <!--l. 65--><p class="noindent" >8</td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-26-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-26-3-1"  
-class="td11"> <!--l. 66--><p class="noindent" >CPU clock speed      </td><td  style="white-space:wrap; text-align:left;" id="TBL-26-3-2"  
+ style="vertical-align:baseline;" id="TBL-29-3-"><td  style="white-space:wrap; text-align:left;" id="TBL-29-3-1"  
+class="td11"> <!--l. 66--><p class="noindent" >CPU clock speed      </td><td  style="white-space:wrap; text-align:left;" id="TBL-29-3-2"  
 class="td11"> <!--l. 66--><p class="noindent" >3.40 GHz               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-26-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-26-4-1"  
-class="td11"> <!--l. 67--><p class="noindent" >Cache size              </td><td  style="white-space:wrap; text-align:left;" id="TBL-26-4-2"  
+ style="vertical-align:baseline;" id="TBL-29-4-"><td  style="white-space:wrap; text-align:left;" id="TBL-29-4-1"  
+class="td11"> <!--l. 67--><p class="noindent" >Cache size              </td><td  style="white-space:wrap; text-align:left;" id="TBL-29-4-2"  
 class="td11"> <!--l. 67--><p class="noindent" >8192 kB                </td></tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;E.1: </td><td  
-class="content">Computer Hosting Experiments</td></tr></table><!--tex4ht:label?: x24-456001r1 -->
+class="content">Computer Hosting Experiments</td></tr></table><!--tex4ht:label?: x24-472001r1 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <!--l. 73--><p class="noindent" ><a 
-href="#x24-456002r1">Figure E.1</a> shows the supported data rate in Giga-bytes per second at different transfer sizes when
+href="#x24-472002r1">Figure E.1</a> shows the supported data rate in Giga-bytes per second at different transfer sizes when
 using the loopback interface (the default setting for omniORB). Data rates on the experiment
 platform plateau when transfer size approaches approximately 500 kB. Using higher transfer sizes,
 data rate does not improve, while latency increases. The value at which data rates plateau is
@@ -189,7 +189,7 @@ system-specific.
                                                                                          
                                                                                          
 <a 
- id="x24-456002r1"></a>
+ id="x24-472002r1"></a>
                                                                                          
                                                                                          
 <!--l. 77--><p class="noindent" ><img 
@@ -197,21 +197,21 @@ src="images/optimization/loopback.jpg" alt="PIC"
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;E.1: </td><td  
-class="content">Throughput for BulkIO When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x24-456002r1 -->
+class="content">Throughput for BulkIO When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x24-472002r1 -->
                                                                                          
                                                                                          
 <!--l. 80--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <!--l. 82--><p class="noindent" >Another result derived from the experiment shown in <a 
-href="#x24-456002r1">Figure E.1</a> is that there is a substantial
+href="#x24-472002r1">Figure E.1</a> is that there is a substantial
 impact when the number of <a 
 href="mainli2.html#glo:component">Component</a> pairs transferring data increases.
 <!--l. 84--><p class="noindent" >By following the steps in <a 
-href="#x24-455000E.2">Section E.2</a>, it is possible to achieve higher data rates. <a 
-href="#x24-456003r2">Figure E.2</a> shows
+href="#x24-471000E.2">Section E.2</a>, it is possible to achieve higher data rates. <a 
+href="#x24-472003r2">Figure E.2</a> shows
 the same experiment as that shown in <a 
-href="#x24-456002r1">Figure E.1</a>, but with omniORB configured for Linux
+href="#x24-472002r1">Figure E.1</a>, but with omniORB configured for Linux
 Domain Sockets. As seen in <a 
-href="#x24-456003r2">Figure E.2</a>, sustained data rates on the computer used in this
+href="#x24-472003r2">Figure E.2</a>, sustained data rates on the computer used in this
 experiment are roughly four times higher when using Linux Domain Sockets compared to using the
 loopback interface. Even when heavily loaded, the Linux Domain Socket configuration is as fast or
 faster than the lightly-loaded loopback configuration.
@@ -221,7 +221,7 @@ faster than the lightly-loaded loopback configuration.
                                                                                          
                                                                                          
 <a 
- id="x24-456003r2"></a>
+ id="x24-472003r2"></a>
                                                                                          
                                                                                          
 <!--l. 88--><p class="noindent" ><img 
@@ -229,20 +229,20 @@ src="images/optimization/linux_domain_sockets.jpg" alt="PIC"
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;E.2: </td><td  
-class="content">Throughput for BulkIO When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x24-456003r2 -->
+class="content">Throughput for BulkIO When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x24-472003r2 -->
                                                                                          
                                                                                          
 <!--l. 91--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <h3 class="sectionHead"><span class="titlemark">E.4   </span> <a 
- id="x24-457000E.4"></a>Messaging Latency</h3>
+ id="x24-473000E.4"></a>Messaging Latency</h3>
 <!--l. 95--><p class="noindent" >Much like <a 
 href="mainap9.html#bulkio">BulkIO</a>, messaging is subject to performance issues as the transfer size changes. Testing
 was performed to determine the impact of message size on the latency per message. The size of the
 message was modified and the latency per message was measured. The average latency was
 measured for sets of 1000 messages. <a 
-href="#x24-457001r3">Figure E.3</a> shows the latency results when using the loopback
+href="#x24-473001r3">Figure E.3</a> shows the latency results when using the loopback
 interface and <a 
-href="#x24-457002r4">Figure E.4</a> shows the latency when using Linux Domain Sockets. Latency is a
+href="#x24-473002r4">Figure E.4</a> shows the latency when using Linux Domain Sockets. Latency is a
 function of the size of the message, where the measured latency ranges between 40-150
 microseconds and 50-160 microseconds for Linux Domain Sockets and loopback interface,
 respectively.
@@ -252,7 +252,7 @@ respectively.
                                                                                          
                                                                                          
 <a 
- id="x24-457001r3"></a>
+ id="x24-473001r3"></a>
                                                                                          
                                                                                          
 <!--l. 99--><p class="noindent" ><img 
@@ -260,7 +260,7 @@ src="images/optimization/loop_msg.jpg" alt="PIC"
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;E.3: </td><td  
-class="content">Message Latency When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x24-457001r3 -->
+class="content">Message Latency When Using the Loopback Interface</td></tr></table><!--tex4ht:label?: x24-473001r3 -->
                                                                                          
                                                                                          
 <!--l. 102--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
@@ -270,7 +270,7 @@ class="content">Message Latency When Using the Loopback Interface</td></tr></tab
                                                                                          
                                                                                          
 <a 
- id="x24-457002r4"></a>
+ id="x24-473002r4"></a>
                                                                                          
                                                                                          
 <!--l. 106--><p class="noindent" ><img 
@@ -278,13 +278,13 @@ src="images/optimization/lds_msg.jpg" alt="PIC"
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;E.4: </td><td  
-class="content">Message Latency When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x24-457002r4 -->
+class="content">Message Latency When Using Linux Domain Sockets</td></tr></table><!--tex4ht:label?: x24-473002r4 -->
                                                                                          
                                                                                          
 <!--l. 109--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <!--l. 111--><p class="noindent" >Note that in <a 
-href="#x24-457001r3">Figure E.3</a> and <a 
-href="#x24-457002r4">Figure E.4</a>, latency is linear as a function of the message
+href="#x24-473001r3">Figure E.3</a> and <a 
+href="#x24-473002r4">Figure E.4</a>, latency is linear as a function of the message
 size. Furthermore, the number of concurrent messaging <a 
 href="mainli2.html#glo:component">Components</a> has no discernible
 impact on the message latency. Finally, the difference shown between Linux Domain

@@ -1064,32 +1064,22 @@ class="ectt-1200">sequence </span>properties. A <span
 class="ectt-1200">struct sequence </span>is an array of instances of the same <span 
 class="ectt-1200">struct</span>
 type.
-<!--l. 359--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Redhawk 2.0 introduces a new <a 
-href="mainli2.html#glo:property">Property</a> kind called <span 
-class="ectt-1200">property</span>, which is intended to replace both
+<!--l. 359--><p class="noindent" >Properties also have a kind that expresses the role in which the property is used. The kind can be
 <span 
-class="ectt-1200">configure </span>and <span 
-class="ectt-1200">execparam </span><a 
-href="mainli2.html#glo:property">Property</a> kinds. The <a 
-href="mainli2.html#glo:property">Property</a>&#8217;s initial value is set by the Core
-Framework by a call to <span 
-class="ectt-1200">PropertyEmitter.initializeProperties() </span>on the resource,
-which occurs just before <span 
-class="ectt-1200">LifeCycle.initialize()</span>. This means the <a 
-href="mainli2.html#glo:property">Property</a> is fully
-initialized and available for use during the Core Framework&#8217;s call to <span 
-class="ectt-1200">initialize()</span>.
-If a <a 
-href="mainli2.html#glo:property">Property</a>&#8217;s value is required earlier in the resource&#8217;s life cycle, it can be marked
-with the <span 
-class="ectt-1200">commandline </span>attribute, which will cause it to be passed on the command line
-when executing the resource. <span 
-class="ectt-1200">commandline </span>is available only for <span 
-class="ectt-1200">simple </span><a 
-href="mainli2.html#glo:property">Property</a> types. </p></div></div>
-                                                                                         
-                                                                                         
+class="ectt-1200">property</span>, <span 
+class="ectt-1200">allocation</span>, or <span 
+class="ectt-1200">message</span>. The <span 
+class="ectt-1200">property </span>kind is used for configuration and status. The
+<span 
+class="ectt-1200">allocation </span>kind is used to express requirements on capabilities provided by <a 
+href="mainli2.html#glo:device">Devices</a>.
+The <span 
+class="ectt-1200">message </span>kind is used only with <span 
+class="ectt-1200">struct </span>properties to send event messages within
+REDHAWK.
 <!--l. 363--><p class="noindent" >
+                                                                                         
+                                                                                         
 <h4 class="subsectionHead"><span class="titlemark">3.3.5   </span> <a 
  id="x5-320003.3.5"></a>Logging</h4>
 <!--l. 365--><p class="noindent" ><a 
@@ -1138,7 +1128,7 @@ href="mainli2.html#glo:port">Port</a> types that may not compile. </p></div></di
 <h5 class="subsubsectionHead"><span class="titlemark">3.3.6.1   </span> <a 
  id="x5-340003.3.6.1"></a>Re-generating Components from a Prior Version</h5>
 <!--l. 391--><p class="noindent" ><span class="paragraphHead"><a 
- id="x5-350003.3.6.1"></a><span 
+ id="x5-350003.3.6.1.1"></a><span 
 class="ecbx-1200">REDHAWK 1.8 only</span></span>
 <!--l. 393--><p class="noindent" >If you generate a <a 
 href="mainli2.html#glo:component">Component</a> that was previously generated in a REDHAWK 1.8 version, the
@@ -1175,7 +1165,7 @@ Java <a
 href="mainli2.html#glo:component">Component</a> pattern affects code generation, refer to <a 
 href="mainch4.html#x6-600004.2.4">Section 4.2.4</a>. </p></div></div>
 <!--l. 408--><p class="noindent" ><span class="paragraphHead"><a 
- id="x5-360003.3.6.1"></a><span 
+ id="x5-360003.3.6.1.2"></a><span 
 class="ecbx-1200">All REDHAWK Versions Prior to 2.0</span></span>
 <!--l. 410--><p class="noindent" >If you generate a <a 
 href="mainli2.html#glo:component">Component</a> that was created prior to REDHAWK version 2.0, the IDE checks the
@@ -1244,7 +1234,7 @@ class="ecbx-1200">REDHAWK Explorer</span>
 <span 
 class="ecbx-1200">View</span></a>. Additional methods for Deploying Projects to the <span 
 class="ectt-1200">SDRROOT </span>are outlined in <a 
-href="mainch14.html#x16-39300014.8">Section
+href="mainch14.html#x16-40800014.8">Section
 14.8</a>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
@@ -1291,7 +1281,7 @@ href="mainli2.html#glo:component">Components</a> can be generated using a comman
 class="ectt-1200">createOctaveComponent</span>) or
 using the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> (<a 
-href="mainch14.html#x16-39600014.11">Section 14.11</a>). The help string for the command line tool can be
+href="mainch14.html#x16-41100014.11">Section 14.11</a>). The help string for the command line tool can be
 accessed by entering the following command:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 createOctaveComponent --help
@@ -1399,7 +1389,7 @@ REDHAWK systems.
 href="mainli2.html#glo:Sandbox">Sandbox</a> ; for a more detailed
 description of the Python <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch10.html#x12-22100010.2">Section 10.2</a>.
+href="mainch10.html#x12-23600010.2">Section 10.2</a>.
 <!--l. 452--><p class="noindent" >
       <ol  class="enumerate1" >
                                                                                          
@@ -1563,7 +1553,7 @@ href="mainli2.html#glo:service">Services</a>, and <a
 href="mainli2.html#glo:waveformapplication">Waveforms</a>. For more information about launching and interacting
 with items in the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch10.html#x12-25000010.3">Section 10.3</a>. In addition, via the REDHAWK Console, you can
+href="mainch10.html#x12-26500010.3">Section 10.3</a>. In addition, via the REDHAWK Console, you can
 use the Python-based <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
 href="mainap9.html#api">API</a> to interact with objects that are running within
@@ -1571,7 +1561,7 @@ the <a
 href="mainap9.html#ide">IDE</a> <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>. For more information about the Python <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch10.html#x12-22100010.2">Section
+href="mainch10.html#x12-23600010.2">Section
 10.2</a>.
 <!--l. 524--><p class="noindent" >The following procedure provides an example of launching and interacting with a <a 
 href="mainli2.html#glo:component">Component</a> in

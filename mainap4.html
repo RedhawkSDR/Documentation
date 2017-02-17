@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>D Building REDHAWK from Source</title> 
+<head><title>D Building and Installing REDHAWK from Source</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,53 +53,53 @@ href="mainap3.html#tailmainap3.html" >prev-tail</a>] [<a
 href="#tailmainap4.html">tail</a>] [<a 
 href="main.html#mainap4.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;D</span><br /><a 
- id="x23-448000D"></a>Building REDHAWK from Source</h2>
+ id="x23-464000D"></a>Building and Installing REDHAWK from Source</h2>
 <h3 class="sectionHead"><span class="titlemark">D.1   </span> <a 
- id="x23-449000D.1"></a>Building the Framework</h3>
+ id="x23-465000D.1"></a>Building the Framework</h3>
 <!--l. 5--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">D.1.1   </span> <a 
- id="x23-450000D.1.1"></a>Installing Build Dependencies</h4>
+ id="x23-466000D.1.1"></a>Installing Build Dependencies</h4>
 <!--l. 6--><p class="noindent" >Building REDHAWK from source requires a few additional dependencies beyond those required
 to run REDHAWK. The following procedure explains how to build REDHAWK from
 source.
 <!--l. 8--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x23-450002x1">First, ensure your system has the necessary dependency software provided by <a 
+  class="enumerate" id="x23-466002x1">First, ensure your system has the necessary dependency software provided by <a 
 href="mainap9.html#rhel">RHEL</a> /
       <a 
 href="mainap9.html#centos">CentOS</a> and Fedora <a 
 href="mainap9.html#epel">EPEL</a>. Refer to <a 
-href="mainap2.html#x21-437000B">Appendix B</a>.
+href="mainap2.html#x21-453000B">Appendix B</a>.
       </li>
       <li 
-  class="enumerate" id="x23-450004x2">Install                dependencies                distributed                with                the
-      REDHAWK tarball, redhawk-yum-&#x003C;version&#x003E;-&#x003C;dist&#x003E;-&#x003C;arch&#x003E;.tar.gz by entering the
-      following commands from the directory containing REDHAWK dependencies:
-      <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-tar xzvf redhawk-yum-<version>-<dist>-<arch>.tar.gz
-cd redhawk-<version>-<dist>-<arch>
-sudo yum install *omni* log4cxx*
-]]></script></div>
+  class="enumerate" id="x23-466004x2">Ensure the REDHAWK Yum repository is set up using the process described in <a 
+href="mainch2.html#x4-130002.2.2.2">Section
+      2.2.2.2</a>. Install the dependencies distributed with the REDHAWK tarball. Refer to
+      <a 
+href="mainap1.html#x20-449000A.1.2">Section A.1.2</a>.
       </li></ol>
-<!--l. 22--><p class="noindent" >
+<!--l. 16--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">D.1.2   </span> <a 
- id="x23-451000D.1.2"></a>Installing the Framework from Source</h4>
-                                                                                         
-                                                                                         
-<!--l. 24--><p class="noindent" >In order to install the Core Framework from source, the <span 
+ id="x23-467000D.1.2"></a>Installing the Framework from Source</h4>
+<!--l. 18--><p class="noindent" >In order to install the Core Framework from source, the <span 
 class="ectt-1200">redhawk-src-&#x003C;version&#x003E;.tar.gz </span>must be
 downloaded.
-<!--l. 26--><p class="noindent" >You must set the <span 
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+wget https://github.com/RedhawkSDR/redhawk/releases/download/<version>/redhawk-src-<version>.tar.gz
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 24--><p class="noindent" >You must set the <span 
 class="ectt-1200">OSSIEHOME </span>and <span 
 class="ectt-1200">SDRROOT </span>environment variables (recommended defaults shown
 below) before running the installation script. You must have write permission for the locations of
 <span 
 class="ectt-1200">OSSIEHOME </span>and <span 
 class="ectt-1200">SDRROOT </span>or the installation will not work.
-<!--l. 28--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
+<!--l. 26--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The installation script is interactive and will prompt you to continue before performing certain
 tasks. </p></div></div>
-<!--l. 32--><p class="noindent" >To compile the source, execute the following commands:
+<!--l. 30--><p class="noindent" >To compile the source, execute the following commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export OSSIEHOME=/usr/local/redhawk/core
 export SDRROOT=/var/redhawk/sdr
@@ -108,7 +108,7 @@ cd redhawk-src-<version>/
 ./redhawk-install.sh
 . $OSSIEHOME/environment-setup
 ]]></script></div>
-<!--l. 43--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
+<!--l. 41--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If you wish to preserve the environment used to compile the source, the following lines should be added
 to <span 
 class="ectt-1200">.bashrc</span>: <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 export OSSIEHOME=/usr/local/redhawk/core
@@ -116,10 +116,10 @@ export SDRROOT=/var/redhawk/sdr
 . $OSSIEHOME/environment-setup
 ]]></script></div>
 </p></div></div>
-<!--l. 72--><p class="noindent" >
+<!--l. 70--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">D.1.3   </span> <a 
- id="x23-452000D.1.3"></a>Configuring omniORB</h4>
-<!--l. 73--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
+ id="x23-468000D.1.3"></a>Configuring omniORB</h4>
+<!--l. 71--><p class="noindent" >Before using REDHAWK, you must properly configure omniORB. Refer to
 <a 
 href="mainch2.html#x4-160002.3">Section 2.3</a> for information on how to edit the omniORB configuration file
 (<span 

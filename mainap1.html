@@ -53,20 +53,24 @@ href="mainch17.html#tailmainch17.html" >prev-tail</a>] [<a
 href="#tailmainap1.html">tail</a>] [<a 
 href="main.html#mainap1.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;A</span><br /><a 
- id="x20-429000A"></a>REDHAWK Yum Repository and Packages</h2>
+ id="x20-444000A"></a>REDHAWK Yum Repository and Packages</h2>
 <!--l. 4--><p class="noindent" >The following sections describe the REDHAWK packages and provided dependencies.
 <!--l. 6--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> External dependencies are also necessary for development with REDHAWK and for building
 REDHAWK from source. Refer to <a 
-href="mainap2.html#x21-437000B">Appendix B</a>. </p></div></div>
+href="mainap2.html#x21-453000B">Appendix B</a>. </p></div></div>
 <h3 class="sectionHead"><span class="titlemark">A.1   </span> <a 
- id="x20-430000A.1"></a>REDHAWK Yum Repository</h3>
+ id="x20-445000A.1"></a>REDHAWK Yum Repository</h3>
 <!--l. 12--><p class="noindent" >All of the REDHAWK packages are included in a yum repository that can be set up using the
 process described in <a 
-href="mainch2.html#x4-130002.2.2.2">Section 2.2.2.2</a>. The repository contains two yum groups, runtime and
-development, described in the following sections:
+href="mainch2.html#x4-130002.2.2.2">Section 2.2.2.2</a>. The repository contains two yum groups (REDHAWK
+Runtime and REDHAWK Development) and additional OS dependencies. The yum groups and
+additional OS dependencies are described in the following sections:
 <!--l. 14--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">A.1.1   </span> <a 
- id="x20-431000A.1.1"></a>Runtime Group</h4>
+ id="x20-446000A.1.1"></a>REDHAWK Yum Groups</h4>
+<!--l. 16--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">A.1.1.1   </span> <a 
+ id="x20-447000A.1.1.1"></a>REDHAWK Runtime</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">bulkioInterfaces</span>
@@ -79,6 +83,8 @@ class="ectt-1200">frontendInterfaces</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">GPP</span>
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">GPP-profile</span>
@@ -88,17 +94,15 @@ class="ectt-1200">redhawk-sdrroot-dev-mgr</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">redhawk-sdrroot-dom-mgr</span>
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">redhawk-sdrroot-dom-profile</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">redhawk</span></li></ul>
-<!--l. 30--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">A.1.2   </span> <a 
- id="x20-432000A.1.2"></a>Development Group</h4>
+<!--l. 32--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">A.1.1.2   </span> <a 
+ id="x20-448000A.1.1.2"></a>REDHAWK Development</h5>
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">redhawk-basic-components</span>
@@ -120,31 +124,17 @@ class="ectt-1200">redhawk-ide</span>
       </li>
       <li class="itemize"><span 
 class="ectt-1200">redhawk-qt-tools</span></li></ul>
-<!--l. 42--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The Development group will install the Runtime group packages as dependencies. </p></div></div>
-<!--l. 46--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">A.2   </span> <a 
- id="x20-433000A.2"></a>Selective Installation</h3>
-<!--l. 48--><p class="noindent" >Individual packages can be installed via yum for selective installations.
+<!--l. 44--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  The Development group will install the Runtime group packages as dependencies. </p></div></div>
                                                                                          
                                                                                          
-<!--l. 50--><p class="noindent" >For example, to perform a selective installation that includes the GPP, enter the following
-command:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum install GPP
-]]></script></div>
-<!--l. 56--><p class="noindent" >To perform a selective development installation that includes the REDHAWK IDE, enter the
-following command:
-<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
-sudo yum install redhawk-ide
-]]></script></div>
-<!--l. 62--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">A.3   </span> <a 
- id="x20-434000A.3"></a>Dependencies Packaged with REDHAWK</h3>
-<!--l. 64--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">A.3.1   </span> <a 
- id="x20-435000A.3.1"></a>Dependencies for <a 
+<!--l. 48--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">A.1.2   </span> <a 
+ id="x20-449000A.1.2"></a>Dependencies Packaged with REDHAWK</h4>
+<!--l. 51--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">A.1.2.1   </span> <a 
+ id="x20-450000A.1.2.1"></a>Dependencies for <a 
 href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> 6</h4>
+href="mainap9.html#centos">CentOS</a> 6</h5>
       <ul class="itemize1">
       <li class="itemize">libomniEvents2
       </li>
@@ -157,8 +147,6 @@ href="mainap9.html#centos">CentOS</a> 6</h4>
       <li class="itemize">omniEvents-bootscripts
       </li>
       <li class="itemize">omniEvents-debuginfo
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">omniEvents-doc
       </li>
@@ -171,6 +159,8 @@ href="mainap9.html#centos">CentOS</a> 6</h4>
       <li class="itemize">omniORBpy-devel
       </li>
       <li class="itemize">omniORBpy-libs
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">python-omniORB
       </li>
@@ -183,7 +173,7 @@ href="mainap9.html#centos">CentOS</a> 6</h4>
       <li class="itemize">uhd-doc
       </li>
       <li class="itemize">uhd-firmware</li></ul>
-<!--l. 88--><p class="noindent" >To install the dependencies for <a 
+<!--l. 75--><p class="noindent" >To install the dependencies for <a 
 href="mainap9.html#rhel">RHEL</a>/<a 
 href="mainap9.html#centos">CentOS</a> 6, enter the following commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -192,13 +182,11 @@ log4cxx-devel omniEvents-bootscripts omniEvents-debuginfo omniEvents-doc \
 omniEvents-server omniEvents-utils omniORBpy-debuginfo omniORBpy-devel \
 omniORBpy-libs python-omniORB uhd uhd-debuginfo uhd-devel uhd-doc uhd-firmware
 ]]></script></div>
-                                                                                         
-                                                                                         
-<!--l. 97--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">A.3.2   </span> <a 
- id="x20-436000A.3.2"></a>Dependencies for <a 
+<!--l. 84--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">A.1.2.2   </span> <a 
+ id="x20-451000A.1.2.2"></a>Dependencies for <a 
 href="mainap9.html#rhel">RHEL</a>/<a 
-href="mainap9.html#centos">CentOS</a> 7</h4>
+href="mainap9.html#centos">CentOS</a> 7</h5>
       <ul class="itemize1">
       <li class="itemize">libomniEvents2
       </li>
@@ -207,6 +195,8 @@ href="mainap9.html#centos">CentOS</a> 7</h4>
       <li class="itemize">omniEvents-bootscripts
       </li>
       <li class="itemize">omniEvents-debuginfo
+                                                                                         
+                                                                                         
       </li>
       <li class="itemize">omniEvents-doc
       </li>
@@ -227,13 +217,11 @@ href="mainap9.html#centos">CentOS</a> 7</h4>
       <li class="itemize">uhd-debuginfo
       </li>
       <li class="itemize">uhd-devel
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">uhd-doc
       </li>
       <li class="itemize">uhd-firmware</li></ul>
-<!--l. 118--><p class="noindent" >To install the dependencies for <a 
+<!--l. 105--><p class="noindent" >To install the dependencies for <a 
 href="mainap9.html#rhel">RHEL</a>/<a 
 href="mainap9.html#centos">CentOS</a> 7, enter the following commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -244,6 +232,24 @@ uhd uhd-debuginfo uhd-devel uhd-doc uhd-firmware
 ]]></script></div>
                                                                                          
                                                                                          
+<!--l. 114--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">A.2   </span> <a 
+ id="x20-452000A.2"></a>Selective Installation</h3>
+<!--l. 116--><p class="noindent" >After you set up the REDHAWK yum repository as described in <a 
+href="mainch2.html#x4-130002.2.2.2">Section 2.2.2.2</a>, you can also
+install Individual packages via yum for selective installations.
+<!--l. 118--><p class="noindent" >For example, to perform a selective installation that includes the GPP, enter the following
+command:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install GPP
+]]></script></div>
+<!--l. 124--><p class="noindent" >To perform a selective development installation that includes the REDHAWK IDE, enter the
+following command:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+sudo yum install redhawk-ide
+]]></script></div>
+                                                                                         
+                                                                                         
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainap2.html" >next</a>] [<a 
 href="mainch17.html" >prev</a>] [<a 
@@ -251,7 +257,7 @@ href="mainch17.html#tailmainch17.html" >prev-tail</a>] [<a
 href="mainap1.html" >front</a>] [<a 
 href="main.html#mainap1.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainap1.html"></a>   
+ id="tailmainap1.html"></a>  
  
 <div class=license>  
 <hr> 

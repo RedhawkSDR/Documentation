@@ -53,9 +53,9 @@ href="mainch12.html#tailmainch12.html" >prev-tail</a>] [<a
 href="#tailmainch13.html">tail</a>] [<a 
 href="main.html#mainch13.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;13</span><br /><a 
- id="x15-31600013"></a>Logging</h2>
+ id="x15-33100013"></a>Logging</h2>
 <h3 class="sectionHead"><span class="titlemark">13.1   </span> <a 
- id="x15-31700013.1"></a>Introduction</h3>
+ id="x15-33200013.1"></a>Introduction</h3>
 <!--l. 5--><p class="noindent" >REDHAWK provides a logging capability for use by all resources (<a 
 href="mainli2.html#glo:component">Components</a>, <a 
 href="mainli2.html#glo:device">Devices</a>, and
@@ -78,7 +78,7 @@ underlying logging implementation associated with the REDHAWK Core Framework
 library.
 <!--l. 11--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.2   </span> <a 
- id="x15-31800013.2"></a>Configuring Logging Capabilities</h3>
+ id="x15-33300013.2"></a>Configuring Logging Capabilities</h3>
 <!--l. 13--><p class="noindent" >A resource has the ability to provide a severity level (logging level) with each logging message. The
 following severity levels are listed in order of increasing verbosity. <span 
 class="ectt-1200">FATAL </span>messages describe events
@@ -138,86 +138,86 @@ class="ectt-1200">INFO </span>and writes those messages to the standard
 out console.
 <!--l. 47--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.1   </span> <a 
- id="x15-31900013.2.1"></a>Configuration Context Tokens</h4>
+ id="x15-33400013.2.1"></a>Configuration Context Tokens</h4>
 <!--l. 48--><p class="noindent" >For REDHAWK release 1.10 and above, the log4j configuration file can contain special tokens that
 expand to provide the runtime execution context of the resource. These tokens can be located
 anywhere in the configuration file and are resolved during resource startup. The following table,
 <a 
-href="#x15-319001r1">Table 13.1</a>, describes the tokens.
+href="#x15-334001r1">Table 13.1</a>, describes the tokens.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 50--><p class="noindent" ><a 
- id="x15-319001r1"></a><hr class="float"><div class="float" 
+ id="x15-334001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-23" class="tabular" 
+<div class="tabular"> <table id="TBL-26" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-23-1g"><col 
-id="TBL-23-1"></colgroup><colgroup id="TBL-23-2g"><col 
-id="TBL-23-2"></colgroup><tr 
+><colgroup id="TBL-26-1g"><col 
+id="TBL-26-1"></colgroup><colgroup id="TBL-26-2g"><col 
+id="TBL-26-2"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-1-1"  
+ style="vertical-align:baseline;" id="TBL-26-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-1-1"  
 class="td11"> <!--l. 54--><p class="noindent" ><span 
-class="ecbx-1200">Token</span>                                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-1-2"  
+class="ecbx-1200">Token</span>                                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-1-2"  
 class="td11"> <!--l. 54--><p class="noindent" ><span 
 class="ecbx-1200">Definition</span>                                       </td></tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-2-1"  
+ style="vertical-align:baseline;" id="TBL-26-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-2-1"  
 class="td11"> <!--l. 55--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST.NAME@@@</span> </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-2-2"  
+class="ectt-1200">@@@HOST.NAME@@@</span> </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-2-2"  
 class="td11"> <!--l. 55--><p class="noindent" >Host name returned from gethostname call
   (multi-homed systems may have issues).       </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-3-1"  
+ style="vertical-align:baseline;" id="TBL-26-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-3-1"  
 class="td11"> <!--l. 56--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST.IP@@@</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-3-2"  
+class="ectt-1200">@@@HOST.IP@@@</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-3-2"  
 class="td11"> <!--l. 56--><p class="noindent" >Dot notation IP Address of the machine on
   which the processing is running.                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-4-1"  
+ style="vertical-align:baseline;" id="TBL-26-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-4-1"  
 class="td11"> <!--l. 57--><p class="noindent" ><span 
-class="ectt-1200">@@@NAME@@@</span>                      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-4-2"  
+class="ectt-1200">@@@NAME@@@</span>                      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-4-2"  
 class="td11"> <!--l. 57--><p class="noindent" >Name of the resource given on the command
   line.                                                      </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-5-1"  
+ style="vertical-align:baseline;" id="TBL-26-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-5-1"  
 class="td11"> <!--l. 58--><p class="noindent" ><span 
-class="ectt-1200">@@@INSTANCE@@@</span>                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-5-2"  
+class="ectt-1200">@@@INSTANCE@@@</span>                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-5-2"  
 class="td11"> <!--l. 58--><p class="noindent" >Instance name given to the resource on the
   command line.                                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-6-1"  
+ style="vertical-align:baseline;" id="TBL-26-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-6-1"  
 class="td11"> <!--l. 59--><p class="noindent" ><span 
-class="ectt-1200">@@@PID@@@</span>                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-6-2"  
+class="ectt-1200">@@@PID@@@</span>                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-6-2"  
 class="td11"> <!--l. 59--><p class="noindent" ><a 
 href="mainap9.html#pid">PID</a> of the running resource.                      </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-7-1"  
+ style="vertical-align:baseline;" id="TBL-26-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-7-1"  
 class="td11"> <!--l. 60--><p class="noindent" ><span 
-class="ectt-1200">@@@DOMAIN.NAME@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-7-2"  
+class="ectt-1200">@@@DOMAIN.NAME@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-7-2"  
 class="td11"> <!--l. 60--><p class="noindent" >Name  of  the  <a 
 href="mainli2.html#glo:domain">Domain</a>  under  which  your
   resource is running.                                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-8-1"  
+ style="vertical-align:baseline;" id="TBL-26-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-8-1"  
 class="td11"> <!--l. 61--><p class="noindent" ><span 
-class="ectt-1200">@@@DOMAIN.PATH@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-8-2"  
+class="ectt-1200">@@@DOMAIN.PATH@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-8-2"  
 class="td11"> <!--l. 61--><p class="noindent" >The contents of the DOM_PATH parameter
   on the command line.                               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-9-1"  
+ style="vertical-align:baseline;" id="TBL-26-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-9-1"  
 class="td11"> <!--l. 62--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE_MANAGER.NAME@@@</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-9-2"  
+class="ectt-1200">@@@DEVICE_MANAGER.NAME@@@</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-9-2"  
 class="td11"> <!--l. 62--><p class="noindent" >Name of the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> that started the
   <a 
@@ -225,389 +225,389 @@ href="mainli2.html#glo:device">Device</a> or <a
 href="mainli2.html#glo:service">Service</a>.                                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-10-1"  
+ style="vertical-align:baseline;" id="TBL-26-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-10-1"  
 class="td11"> <!--l. 63--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE_MANAGER.INSTANCE@@@</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-10-2"  
+class="ectt-1200">@@@DEVICE_MANAGER.INSTANCE@@@</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-10-2"  
 class="td11"> <!--l. 63--><p class="noindent" >Instance name of the <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> from
   the command line.                                   </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-11-1"  
+ style="vertical-align:baseline;" id="TBL-26-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-11-1"  
 class="td11"> <!--l. 64--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.NAME@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-11-2"  
+class="ectt-1200">@@@SERVICE.NAME@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-11-2"  
 class="td11"> <!--l. 64--><p class="noindent" >Name  of  the  <a 
 href="mainli2.html#glo:service">Service</a>  as  specified  on  the
   command line.                                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-12-1"  
+ style="vertical-align:baseline;" id="TBL-26-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-12-1"  
 class="td11"> <!--l. 65--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.INSTANCE@@@</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-12-2"  
+class="ectt-1200">@@@SERVICE.INSTANCE@@@</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-12-2"  
 class="td11"> <!--l. 65--><p class="noindent" >Instance name of the <a 
 href="mainli2.html#glo:service">Service</a> as specified on
   the command line.                                   </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-13-1"  
+ style="vertical-align:baseline;" id="TBL-26-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-13-1"  
 class="td11"> <!--l. 66--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.PID@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-13-2"  
+class="ectt-1200">@@@SERVICE.PID@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-13-2"  
 class="td11"> <!--l. 66--><p class="noindent" ><a 
 href="mainap9.html#pid">PID</a> of the running <a 
 href="mainli2.html#glo:service">Service</a>.                       </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-14-1"  
+ style="vertical-align:baseline;" id="TBL-26-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-14-1"  
 class="td11"> <!--l. 67--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE.NAME@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-14-2"  
+class="ectt-1200">@@@DEVICE.NAME@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-14-2"  
 class="td11"> <!--l. 67--><p class="noindent" >Name  of  the  <a 
 href="mainli2.html#glo:device">Device</a>  as  specified  on  the
   command line.                                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-15-1"  
+ style="vertical-align:baseline;" id="TBL-26-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-15-1"  
 class="td11"> <!--l. 68--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE.INSTANCE@@@</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-15-2"  
+class="ectt-1200">@@@DEVICE.INSTANCE@@@</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-15-2"  
 class="td11"> <!--l. 68--><p class="noindent" >Instance name of the <a 
 href="mainli2.html#glo:device">Device</a> as specified on
   the command line.                                   </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-16-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-16-1"  
+ style="vertical-align:baseline;" id="TBL-26-16-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-16-1"  
 class="td11"> <!--l. 69--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE.PID@@@</span>                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-16-2"  
+class="ectt-1200">@@@DEVICE.PID@@@</span>                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-16-2"  
 class="td11"> <!--l. 69--><p class="noindent" ><a 
 href="mainap9.html#pid">PID</a> of the <a 
 href="mainli2.html#glo:device">Device</a>.                                   </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-17-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-17-1"  
+ style="vertical-align:baseline;" id="TBL-26-17-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-17-1"  
 class="td11"> <!--l. 70--><p class="noindent" ><span 
-class="ectt-1200">@@@WAVEFORM.NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-17-2"  
+class="ectt-1200">@@@WAVEFORM.NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-17-2"  
 class="td11"> <!--l. 70--><p class="noindent" >Name                      of                      the
   <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> from the DOM_PATH command
   line variable.                                           </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-18-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-18-1"  
+ style="vertical-align:baseline;" id="TBL-26-18-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-18-1"  
 class="td11"> <!--l. 71--><p class="noindent" ><span 
-class="ectt-1200">@@@WAVEFORM.INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-18-2"  
+class="ectt-1200">@@@WAVEFORM.INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-18-2"  
 class="td11"> <!--l. 71--><p class="noindent" >Instance  name  of  the  <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>  from  the
   DOM_PATH command line variable.          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-19-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-19-1"  
+ style="vertical-align:baseline;" id="TBL-26-19-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-19-1"  
 class="td11"> <!--l. 72--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT.NAME@@@</span>            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-19-2"  
+class="ectt-1200">@@@COMPONENT.NAME@@@</span>            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-19-2"  
 class="td11"> <!--l. 72--><p class="noindent" >Name of the <a 
 href="mainli2.html#glo:component">Component</a> binding parameter
   as specified on the command line.               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-20-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-20-1"  
+ style="vertical-align:baseline;" id="TBL-26-20-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-20-1"  
 class="td11"> <!--l. 73--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT.INSTANCE@@@</span>        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-20-2"  
+class="ectt-1200">@@@COMPONENT.INSTANCE@@@</span>        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-20-2"  
 class="td11"> <!--l. 73--><p class="noindent" >Instance name of the <a 
 href="mainli2.html#glo:component">Component</a> identifier
   parameter as specified on the command line.  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-23-21-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-21-1"  
+ style="vertical-align:baseline;" id="TBL-26-21-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-21-1"  
 class="td11"> <!--l. 74--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT.PID@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-21-2"  
+class="ectt-1200">@@@COMPONENT.PID@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-26-21-2"  
 class="td11"> <!--l. 74--><p class="noindent" ><a 
 href="mainap9.html#pid">PID</a> of the <a 
 href="mainli2.html#glo:component">Component</a>.                             </td></tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.1: </td><td  
-class="content">log4j Configuration File Special Tokens</td></tr></table><!--tex4ht:label?: x15-319001r1 -->
+class="content">log4j Configuration File Special Tokens</td></tr></table><!--tex4ht:label?: x15-334001r1 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <!--l. 80--><p class="noindent" ><a 
-href="#x15-319002r2">Table 13.2</a> lists the availablity of token definitions for each REDHAWK resource type.
+href="#x15-334002r2">Table 13.2</a> lists the availablity of token definitions for each REDHAWK resource type.
 <div class="table">
                                                                                          
                                                                                          
 <!--l. 81--><p class="noindent" ><a 
- id="x15-319002r2"></a><hr class="float"><div class="float" 
+ id="x15-334002r2"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-24" class="tabular" 
+<div class="tabular"> <table id="TBL-27" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-24-1g"><col 
-id="TBL-24-1"></colgroup><colgroup id="TBL-24-2g"><col 
-id="TBL-24-2"></colgroup><colgroup id="TBL-24-3g"><col 
-id="TBL-24-3"></colgroup><colgroup id="TBL-24-4g"><col 
-id="TBL-24-4"></colgroup><colgroup id="TBL-24-5g"><col 
-id="TBL-24-5"></colgroup><colgroup id="TBL-24-6g"><col 
-id="TBL-24-6"></colgroup><tr 
+><colgroup id="TBL-27-1g"><col 
+id="TBL-27-1"></colgroup><colgroup id="TBL-27-2g"><col 
+id="TBL-27-2"></colgroup><colgroup id="TBL-27-3g"><col 
+id="TBL-27-3"></colgroup><colgroup id="TBL-27-4g"><col 
+id="TBL-27-4"></colgroup><colgroup id="TBL-27-5g"><col 
+id="TBL-27-5"></colgroup><colgroup id="TBL-27-6g"><col 
+id="TBL-27-6"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-1"  
+ style="vertical-align:baseline;" id="TBL-27-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-1-1"  
 class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Token</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-2"  
+class="ecbx-1200">Token</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-1-2"  
 class="td11"> <!--l. 84--><p class="noindent" ><span 
 class="ecbx-1200">Domain </span><br 
 class="newline" /><span 
-class="ecbx-1200">Manager</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-3"  
+class="ecbx-1200">Manager</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-1-3"  
 class="td11"> <!--l. 84--><p class="noindent" ><span 
 class="ecbx-1200">Device </span><br 
 class="newline" /><span 
-class="ecbx-1200">Manager</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-4"  
+class="ecbx-1200">Manager</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-1-4"  
 class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Device</span>    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-5"  
+class="ecbx-1200">Device</span>    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-1-5"  
 class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Service</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-6"  
+class="ecbx-1200">Service</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-1-6"  
 class="td11"> <!--l. 84--><p class="noindent" ><span 
 class="ecbx-1200">Component</span>  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-1"  
+ style="vertical-align:baseline;" id="TBL-27-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-2-1"  
 class="td11"> <!--l. 85--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST.IP@@@</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-2"  
-class="td11"> <!--l. 85--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-3"  
-class="td11"> <!--l. 85--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-4"  
-class="td11"> <!--l. 85--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-5"  
-class="td11"> <!--l. 85--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-6"  
+class="ectt-1200">@@@HOST.IP@@@</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-2-2"  
+class="td11"> <!--l. 85--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-2-3"  
+class="td11"> <!--l. 85--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-2-4"  
+class="td11"> <!--l. 85--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-2-5"  
+class="td11"> <!--l. 85--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-2-6"  
 class="td11"> <!--l. 85--><p class="noindent" >Y                 </td></tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-1"  
+ style="vertical-align:baseline;" id="TBL-27-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-3-1"  
 class="td11"> <!--l. 86--><p class="noindent" ><span 
 class="ectt-1200">@@@HOST. </span><br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-2"  
-class="td11"> <!--l. 86--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-3"  
-class="td11"> <!--l. 86--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-4"  
-class="td11"> <!--l. 86--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-5"  
-class="td11"> <!--l. 86--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-6"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-3-2"  
+class="td11"> <!--l. 86--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-3-3"  
+class="td11"> <!--l. 86--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-3-4"  
+class="td11"> <!--l. 86--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-3-5"  
+class="td11"> <!--l. 86--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-3-6"  
 class="td11"> <!--l. 86--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-1"  
+ style="vertical-align:baseline;" id="TBL-27-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-4-1"  
 class="td11"> <!--l. 87--><p class="noindent" ><span 
-class="ectt-1200">@@@NAME@@@</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-2"  
+class="ectt-1200">@@@NAME@@@</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-4-2"  
 class="td11"> <!--l. 87--><p class="noindent" >Domain <br 
-class="newline" />Manager        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-3"  
-class="td11"> <!--l. 87--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-4"  
-class="td11"> <!--l. 87--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-5"  
-class="td11"> <!--l. 87--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-6"  
+class="newline" />Manager        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-4-3"  
+class="td11"> <!--l. 87--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-4-4"  
+class="td11"> <!--l. 87--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-4-5"  
+class="td11"> <!--l. 87--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-4-6"  
 class="td11"> <!--l. 87--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-1"  
+ style="vertical-align:baseline;" id="TBL-27-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-5-1"  
 class="td11"> <!--l. 88--><p class="noindent" ><span 
-class="ectt-1200">@@@INSTANCE@@@</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-2"  
+class="ectt-1200">@@@INSTANCE@@@</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-5-2"  
 class="td11"> <!--l. 88--><p class="noindent" >DOMAIN_ <br 
-class="newline" />MANAGER_1 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-3"  
-class="td11"> <!--l. 88--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-4"  
-class="td11"> <!--l. 88--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-5"  
-class="td11"> <!--l. 88--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-6"  
+class="newline" />MANAGER_1 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-5-3"  
+class="td11"> <!--l. 88--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-5-4"  
+class="td11"> <!--l. 88--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-5-5"  
+class="td11"> <!--l. 88--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-5-6"  
 class="td11"> <!--l. 88--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-1"  
+ style="vertical-align:baseline;" id="TBL-27-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-6-1"  
 class="td11"> <!--l. 89--><p class="noindent" ><span 
-class="ectt-1200">@@@PID@@@</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-2"  
-class="td11"> <!--l. 89--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-3"  
-class="td11"> <!--l. 89--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-4"  
-class="td11"> <!--l. 89--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-5"  
-class="td11"> <!--l. 89--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-6"  
+class="ectt-1200">@@@PID@@@</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-6-2"  
+class="td11"> <!--l. 89--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-6-3"  
+class="td11"> <!--l. 89--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-6-4"  
+class="td11"> <!--l. 89--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-6-5"  
+class="td11"> <!--l. 89--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-6-6"  
 class="td11"> <!--l. 89--><p class="noindent" >Y                 </td></tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-1"  
+ style="vertical-align:baseline;" id="TBL-27-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-7-1"  
 class="td11"> <!--l. 90--><p class="noindent" ><span 
 class="ectt-1200">@@@DOMAIN. </span><br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-2"  
-class="td11"> <!--l. 90--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-3"  
-class="td11"> <!--l. 90--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-4"  
-class="td11"> <!--l. 90--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-5"  
-class="td11"> <!--l. 90--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-6"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-7-2"  
+class="td11"> <!--l. 90--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-7-3"  
+class="td11"> <!--l. 90--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-7-4"  
+class="td11"> <!--l. 90--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-7-5"  
+class="td11"> <!--l. 90--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-7-6"  
 class="td11"> <!--l. 90--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-1"  
+ style="vertical-align:baseline;" id="TBL-27-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-8-1"  
 class="td11"> <!--l. 91--><p class="noindent" ><span 
 class="ectt-1200">@@@DOMAIN. </span><br 
 class="newline" /><span 
-class="ectt-1200">PATH@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-2"  
-class="td11"> <!--l. 91--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-3"  
-class="td11"> <!--l. 91--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-4"  
-class="td11"> <!--l. 91--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-5"  
-class="td11"> <!--l. 91--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-6"  
+class="ectt-1200">PATH@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-8-2"  
+class="td11"> <!--l. 91--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-8-3"  
+class="td11"> <!--l. 91--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-8-4"  
+class="td11"> <!--l. 91--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-8-5"  
+class="td11"> <!--l. 91--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-8-6"  
 class="td11"> <!--l. 91--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-1"  
+ style="vertical-align:baseline;" id="TBL-27-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-9-1"  
 class="td11"> <!--l. 92--><p class="noindent" ><span 
 class="ectt-1200">@@@DEVICE_MANAGER.</span>
  <br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-2"  
-class="td11"> <!--l. 92--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-3"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-9-2"  
+class="td11"> <!--l. 92--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-9-3"  
 class="td11"> <!--l. 92--><p class="noindent" >DEVICE_ <br 
-class="newline" />MANAGER    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-4"  
-class="td11"> <!--l. 92--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-5"  
-class="td11"> <!--l. 92--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-6"  
+class="newline" />MANAGER    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-9-4"  
+class="td11"> <!--l. 92--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-9-5"  
+class="td11"> <!--l. 92--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-9-6"  
 class="td11"> <!--l. 92--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-1"  
+ style="vertical-align:baseline;" id="TBL-27-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-10-1"  
 class="td11"> <!--l. 93--><p class="noindent" ><span 
 class="ectt-1200">@@@DEVICE_MANAGER.</span>
  <br 
 class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-2"  
-class="td11"> <!--l. 93--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-3"  
-class="td11"> <!--l. 93--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-4"  
-class="td11"> <!--l. 93--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-5"  
-class="td11"> <!--l. 93--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-6"  
+class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-10-2"  
+class="td11"> <!--l. 93--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-10-3"  
+class="td11"> <!--l. 93--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-10-4"  
+class="td11"> <!--l. 93--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-10-5"  
+class="td11"> <!--l. 93--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-10-6"  
 class="td11"> <!--l. 93--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-11-1"  
+ style="vertical-align:baseline;" id="TBL-27-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-11-1"  
 class="td11"> <!--l. 94--><p class="noindent" ><span 
 class="ectt-1200">@@@SERVICE. </span><br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-11-2"  
-class="td11"> <!--l. 94--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-11-3"  
-class="td11"> <!--l. 94--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-11-4"  
-class="td11"> <!--l. 94--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-11-5"  
-class="td11"> <!--l. 94--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-11-6"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-11-2"  
+class="td11"> <!--l. 94--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-11-3"  
+class="td11"> <!--l. 94--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-11-4"  
+class="td11"> <!--l. 94--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-11-5"  
+class="td11"> <!--l. 94--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-11-6"  
 class="td11"> <!--l. 94--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-12-1"  
+ style="vertical-align:baseline;" id="TBL-27-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-12-1"  
 class="td11"> <!--l. 95--><p class="noindent" ><span 
 class="ectt-1200">@@@SERVICE. </span><br 
 class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-12-2"  
-class="td11"> <!--l. 95--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-12-3"  
-class="td11"> <!--l. 95--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-12-4"  
-class="td11"> <!--l. 95--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-12-5"  
-class="td11"> <!--l. 95--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-12-6"  
+class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-12-2"  
+class="td11"> <!--l. 95--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-12-3"  
+class="td11"> <!--l. 95--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-12-4"  
+class="td11"> <!--l. 95--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-12-5"  
+class="td11"> <!--l. 95--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-12-6"  
 class="td11"> <!--l. 95--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-13-1"  
+ style="vertical-align:baseline;" id="TBL-27-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-13-1"  
 class="td11"> <!--l. 96--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.PID@@@</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-13-2"  
-class="td11"> <!--l. 96--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-13-3"  
-class="td11"> <!--l. 96--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-13-4"  
-class="td11"> <!--l. 96--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-13-5"  
-class="td11"> <!--l. 96--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-13-6"  
+class="ectt-1200">@@@SERVICE.PID@@@</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-13-2"  
+class="td11"> <!--l. 96--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-13-3"  
+class="td11"> <!--l. 96--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-13-4"  
+class="td11"> <!--l. 96--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-13-5"  
+class="td11"> <!--l. 96--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-13-6"  
 class="td11"> <!--l. 96--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-14-1"  
+ style="vertical-align:baseline;" id="TBL-27-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-14-1"  
 class="td11"> <!--l. 97--><p class="noindent" ><span 
 class="ectt-1200">@@@DEVICE. </span><br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-14-2"  
-class="td11"> <!--l. 97--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-14-3"  
-class="td11"> <!--l. 97--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-14-4"  
-class="td11"> <!--l. 97--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-14-5"  
-class="td11"> <!--l. 97--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-14-6"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-14-2"  
+class="td11"> <!--l. 97--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-14-3"  
+class="td11"> <!--l. 97--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-14-4"  
+class="td11"> <!--l. 97--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-14-5"  
+class="td11"> <!--l. 97--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-14-6"  
 class="td11"> <!--l. 97--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-15-1"  
+ style="vertical-align:baseline;" id="TBL-27-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-15-1"  
 class="td11"> <!--l. 98--><p class="noindent" ><span 
 class="ectt-1200">@@@DEVICE. </span><br 
 class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-15-2"  
-class="td11"> <!--l. 98--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-15-3"  
-class="td11"> <!--l. 98--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-15-4"  
-class="td11"> <!--l. 98--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-15-5"  
-class="td11"> <!--l. 98--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-15-6"  
+class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-15-2"  
+class="td11"> <!--l. 98--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-15-3"  
+class="td11"> <!--l. 98--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-15-4"  
+class="td11"> <!--l. 98--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-15-5"  
+class="td11"> <!--l. 98--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-15-6"  
 class="td11"> <!--l. 98--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-16-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-16-1"  
+ style="vertical-align:baseline;" id="TBL-27-16-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-16-1"  
 class="td11"> <!--l. 99--><p class="noindent" ><span 
 class="ectt-1200">@@@DEVICE. </span><br 
 class="newline" /><span 
-class="ectt-1200">PID@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-16-2"  
-class="td11"> <!--l. 99--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-16-3"  
-class="td11"> <!--l. 99--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-16-4"  
-class="td11"> <!--l. 99--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-16-5"  
-class="td11"> <!--l. 99--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-16-6"  
+class="ectt-1200">PID@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-16-2"  
+class="td11"> <!--l. 99--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-16-3"  
+class="td11"> <!--l. 99--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-16-4"  
+class="td11"> <!--l. 99--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-16-5"  
+class="td11"> <!--l. 99--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-16-6"  
 class="td11"> <!--l. 99--><p class="noindent" >N                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-17-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-17-1"  
+ style="vertical-align:baseline;" id="TBL-27-17-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-17-1"  
 class="td11"> <!--l. 100--><p class="noindent" ><span 
 class="ectt-1200">@@@WAVEFORM. </span><br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-17-2"  
-class="td11"> <!--l. 100--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-17-3"  
-class="td11"> <!--l. 100--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-17-4"  
-class="td11"> <!--l. 100--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-17-5"  
-class="td11"> <!--l. 100--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-17-6"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-17-2"  
+class="td11"> <!--l. 100--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-17-3"  
+class="td11"> <!--l. 100--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-17-4"  
+class="td11"> <!--l. 100--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-17-5"  
+class="td11"> <!--l. 100--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-17-6"  
 class="td11"> <!--l. 100--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-18-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-18-1"  
+ style="vertical-align:baseline;" id="TBL-27-18-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-18-1"  
 class="td11"> <!--l. 101--><p class="noindent" ><span 
 class="ectt-1200">@@@WAVEFORM. </span><br 
 class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-18-2"  
-class="td11"> <!--l. 101--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-18-3"  
-class="td11"> <!--l. 101--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-18-4"  
-class="td11"> <!--l. 101--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-18-5"  
-class="td11"> <!--l. 101--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-18-6"  
+class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-18-2"  
+class="td11"> <!--l. 101--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-18-3"  
+class="td11"> <!--l. 101--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-18-4"  
+class="td11"> <!--l. 101--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-18-5"  
+class="td11"> <!--l. 101--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-18-6"  
 class="td11"> <!--l. 101--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-19-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-19-1"  
+ style="vertical-align:baseline;" id="TBL-27-19-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-19-1"  
 class="td11"> <!--l. 102--><p class="noindent" ><span 
 class="ectt-1200">@@@COMPONENT. </span><br 
 class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-19-2"  
-class="td11"> <!--l. 102--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-19-3"  
-class="td11"> <!--l. 102--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-19-4"  
-class="td11"> <!--l. 102--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-19-5"  
-class="td11"> <!--l. 102--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-19-6"  
+class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-19-2"  
+class="td11"> <!--l. 102--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-19-3"  
+class="td11"> <!--l. 102--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-19-4"  
+class="td11"> <!--l. 102--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-19-5"  
+class="td11"> <!--l. 102--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-19-6"  
 class="td11"> <!--l. 102--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-20-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-20-1"  
+ style="vertical-align:baseline;" id="TBL-27-20-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-20-1"  
 class="td11"> <!--l. 103--><p class="noindent" ><span 
 class="ectt-1200">@@@COMPONENT. </span><br 
 class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-20-2"  
-class="td11"> <!--l. 103--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-20-3"  
-class="td11"> <!--l. 103--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-20-4"  
-class="td11"> <!--l. 103--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-20-5"  
-class="td11"> <!--l. 103--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-20-6"  
+class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-20-2"  
+class="td11"> <!--l. 103--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-20-3"  
+class="td11"> <!--l. 103--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-20-4"  
+class="td11"> <!--l. 103--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-20-5"  
+class="td11"> <!--l. 103--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-20-6"  
 class="td11"> <!--l. 103--><p class="noindent" >Y                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-24-21-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-21-1"  
+ style="vertical-align:baseline;" id="TBL-27-21-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-21-1"  
 class="td11"> <!--l. 104--><p class="noindent" ><span 
 class="ectt-1200">@@@COMPONENT. </span><br 
 class="newline" /><span 
-class="ectt-1200">PID@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-21-2"  
-class="td11"> <!--l. 104--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-21-3"  
-class="td11"> <!--l. 104--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-21-4"  
-class="td11"> <!--l. 104--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-21-5"  
-class="td11"> <!--l. 104--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-21-6"  
+class="ectt-1200">PID@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-21-2"  
+class="td11"> <!--l. 104--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-21-3"  
+class="td11"> <!--l. 104--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-21-4"  
+class="td11"> <!--l. 104--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-21-5"  
+class="td11"> <!--l. 104--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-27-21-6"  
 class="td11"> <!--l. 104--><p class="noindent" >Y                 </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.2: </td><td  
-class="content">Availability of Tokens</td></tr></table><!--tex4ht:label?: x15-319002r2 -->
+class="content">Availability of Tokens</td></tr></table><!--tex4ht:label?: x15-334002r2 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h4 class="subsectionHead"><span class="titlemark">13.2.2   </span> <a 
- id="x15-32000013.2.2"></a><span 
+ id="x15-33500013.2.2"></a><span 
 class="ectt-1200">LOGGING_CONFIG_URI </span>Resolution</h4>
 <!--l. 112--><p class="noindent" >For all REDHAWK resources, the command line argument <span 
 class="ectt-1200">LOGGING_CONFIG_URI </span>provides the
@@ -710,7 +710,7 @@ href="mainli2.html#glo:domainmanager">Domain
 class="ectt-1200">LOGGING_CONFIG_URI </span>command line argument.</li></ul>
 <!--l. 137--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.3   </span> <a 
- id="x15-32100013.2.3"></a>Log Configuration Example - Simple Appender with a Named Logger</h4>
+ id="x15-33600013.2.3"></a>Log Configuration Example - Simple Appender with a Named Logger</h4>
 <!--l. 139--><p class="noindent" >In the following example, the root most logger passes logging messages with a severity level <span 
 class="ectt-1200">INFO</span>
 or less. Those messages are sent to the appenders called: <span 
@@ -771,7 +771,7 @@ log4j.additivity.EDET_cpp_impl1_i=false
                                                                                          
 <!--l. 185--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.4   </span> <a 
- id="x15-32200013.2.4"></a>Log Configuration Example - Configuring a Component with Token Macros</h4>
+ id="x15-33700013.2.4"></a>Log Configuration Example - Configuring a Component with Token Macros</h4>
 <!--l. 186--><p class="noindent" >The logging configuration information for <a 
 href="mainli2.html#glo:component">Component</a> <span 
 class="ectt-1200">MEGA_WORKER </span>is configured from
@@ -840,7 +840,7 @@ class="ectt-1200">IOR:010</span><span
 class="ectt-1200">&#x2026;</span>
 <!--l. 228--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.5   </span> <a 
- id="x15-32300013.2.5"></a>Logging with Event Channels for Components, Devices and Services</h4>
+ id="x15-33800013.2.5"></a>Logging with Event Channels for Components, Devices and Services</h4>
 <!--l. 230--><p class="noindent" >For REDHAWK resources, the underlying logging functionality has been extended to include
 support for publishing log messages to a specified <a 
 href="mainli2.html#glo:eventchannel">Event Channel</a>. To include this capability, add
@@ -852,35 +852,35 @@ noted):
                                                                                          
                                                                                          
 <!--l. 233--><p class="noindent" ><a 
- id="x15-323001r3"></a><hr class="float"><div class="float" 
+ id="x15-338001r3"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-25" class="tabular" 
+<div class="tabular"> <table id="TBL-28" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-25-1g"><col 
-id="TBL-25-1"></colgroup><colgroup id="TBL-25-2g"><col 
-id="TBL-25-2"></colgroup><tr 
+><colgroup id="TBL-28-1g"><col 
+id="TBL-28-1"></colgroup><colgroup id="TBL-28-2g"><col 
+id="TBL-28-2"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-1-1"  
+ style="vertical-align:baseline;" id="TBL-28-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-1-1"  
 class="td11"> <!--l. 237--><p class="noindent" ><span 
-class="ecbx-1200">Appender Option</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-1-2"  
+class="ecbx-1200">Appender Option</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-1-2"  
 class="td11"> <!--l. 237--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                                                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-2-1"  
+ style="vertical-align:baseline;" id="TBL-28-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-2-1"  
 class="td11"> <!--l. 238--><p class="noindent" ><span 
-class="ectt-1200">EVENT_CHANNEL</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-2-2"  
+class="ectt-1200">EVENT_CHANNEL</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-2-2"  
 class="td11"> <!--l. 238--><p class="noindent" ><a 
 href="mainli2.html#glo:eventchannel">Event  Channel</a>  name  where  logging  messages  are
   published.                                                             </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-3-1"  
+ style="vertical-align:baseline;" id="TBL-28-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-3-1"  
 class="td11"> <!--l. 239--><p class="noindent" ><span 
-class="ectt-1200">NAME_CONTEXT</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-3-2"  
+class="ectt-1200">NAME_CONTEXT</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-3-2"  
 class="td11"> <!--l. 239--><p class="noindent" >Directory  in  <span 
 class="ectt-1200">omniNames </span>to  lookup  <a 
 href="mainli2.html#glo:eventchannel">Event  Channel</a>
@@ -889,39 +889,39 @@ href="mainli2.html#glo:domain">Domain</a> name - <span
 class="ectt-1200">REDHAWK_DEV</span>).                                </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-4-1"  
+ style="vertical-align:baseline;" id="TBL-28-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-4-1"  
 class="td11"> <!--l. 240--><p class="noindent" ><span 
-class="ectt-1200">PRODUCER_ID</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-4-2"  
+class="ectt-1200">PRODUCER_ID</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-4-2"  
 class="td11"> <!--l. 240--><p class="noindent" >Identifier  of  the  resource  producing  the  log  message
   (resource name).                                                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-5-1"  
+ style="vertical-align:baseline;" id="TBL-28-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-5-1"  
 class="td11"> <!--l. 241--><p class="noindent" ><span 
-class="ectt-1200">PRODUCER_NAME</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-5-2"  
+class="ectt-1200">PRODUCER_NAME</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-5-2"  
 class="td11"> <!--l. 241--><p class="noindent" >Name of the resource producing the log message.          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-6-1"  
+ style="vertical-align:baseline;" id="TBL-28-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-6-1"  
 class="td11"> <!--l. 242--><p class="noindent" ><span 
-class="ectt-1200">PRODUCER_FQN</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-6-2"  
+class="ectt-1200">PRODUCER_FQN</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-6-2"  
 class="td11"> <!--l. 242--><p class="noindent" >Fully      qualified      name      of      the      resource
   (<a 
 href="mainli2.html#glo:domain">Domain</a>-name/<a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>-name/resource-name).          </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-7-1"  
+ style="vertical-align:baseline;" id="TBL-28-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-7-1"  
 class="td11"> <!--l. 243--><p class="noindent" ><span 
-class="ectt-1200">RETRIES</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-7-2"  
+class="ectt-1200">RETRIES</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-7-2"  
 class="td11"> <!--l. 243--><p class="noindent" >Number  of  times  to  retry  connecting  to  the  <a 
 href="mainli2.html#glo:eventchannel">Event
   Channel</a>. (Integer)                                                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-25-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-8-1"  
+ style="vertical-align:baseline;" id="TBL-28-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-8-1"  
 class="td11"> <!--l. 244--><p class="noindent" ><span 
-class="ectt-1200">THRESHOLD</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-8-2"  
+class="ectt-1200">THRESHOLD</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-28-8-2"  
 class="td11"> <!--l. 244--><p class="noindent" >log4cxx  log  level;  <span 
 class="ectt-1200">FATAL</span>,  <span 
 class="ectt-1200">WARN</span>,  <span 
@@ -933,7 +933,7 @@ class="ectt-1200">TRACE</span>.                                                 
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.3: </td><td  
-class="content">RH_LogEventAppender Configuration Options</td></tr></table><!--tex4ht:label?: x15-323001r3 -->
+class="content">RH_LogEventAppender Configuration Options</td></tr></table><!--tex4ht:label?: x15-338001r3 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
@@ -989,12 +989,12 @@ log4j.appender.pse.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c:%L -
                                                                                          
 </div>
 <h3 class="sectionHead"><span class="titlemark">13.3   </span> <a 
- id="x15-32400013.3"></a>Logging Within A Resource</h3>
+ id="x15-33900013.3"></a>Logging Within A Resource</h3>
 <!--l. 292--><p class="noindent" >Resource code generated using the REDHAWK code generators provides all the necessary
 prerequisites for establishing and configuring the logging capability.
 <!--l. 294--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.3.1   </span> <a 
- id="x15-32500013.3.1"></a>C++</h4>
+ id="x15-34000013.3.1"></a>C++</h4>
 <!--l. 295--><p class="noindent" >For C++ implementations, the generated REDHAWK code contains macro definitions that define
 a logger object with the class name for your resource. For example, for <a 
 href="mainli2.html#glo:component">Component</a> <span 
@@ -1003,7 +1003,7 @@ logger is <span
 class="ectt-1200">SigGen_i</span>.
 <!--l. 297--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.3.1.1   </span> <a 
- id="x15-32600013.3.1.1"></a>Setup</h5>
+ id="x15-34100013.3.1.1"></a>Setup</h5>
 <!--l. 298--><p class="noindent" >The following example describes how to define and declare the <span 
 class="ectt-1200">SigGen_i </span>logger.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1018,7 +1018,7 @@ SigGen.cpp
 ]]></script></div>
 <!--l. 311--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.3.1.2   </span> <a 
- id="x15-32700013.3.1.2"></a>Use</h5>
+ id="x15-34200013.3.1.2"></a>Use</h5>
                                                                                          
                                                                                          
 <!--l. 313--><p class="noindent" >To add logging messages within your resource&#8217;s code, the following macros are available. These
@@ -1089,12 +1089,12 @@ class="ectt-1200">myLogger </span>using the rh_logger interface.
 ]]></script></div>
 <!--l. 356--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.3.2   </span> <a 
- id="x15-32800013.3.2"></a>Java</h4>
+ id="x15-34300013.3.2"></a>Java</h4>
 <!--l. 357--><p class="noindent" >For Java implementations, the log4j logger module must be imported for use before the logging
 capability can be established and configured.
 <!--l. 359--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.3.2.1   </span> <a 
- id="x15-32900013.3.2.1"></a>Setup</h5>
+ id="x15-34400013.3.2.1"></a>Setup</h5>
 <!--l. 361--><p class="noindent" >The following example describes how to import the log4j logger module.
                                                                                          
                                                                                          
@@ -1114,7 +1114,7 @@ class MyComponent {
 ]]></script></div>
 <!--l. 378--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.3.2.2   </span> <a 
- id="x15-33000013.3.2.2"></a>Use</h5>
+ id="x15-34500013.3.2.2"></a>Use</h5>
 <!--l. 379--><p class="noindent" >The following example describes how to enable the logger with <span 
 class="ectt-1200">DEBUG</span>-level logging messages.
 <div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
@@ -1145,16 +1145,16 @@ change the severity level of the logger object.
 ]]></script></div>
 <!--l. 408--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.3.3   </span> <a 
- id="x15-33100013.3.3"></a>Python</h4>
+ id="x15-34600013.3.3"></a>Python</h4>
 <!--l. 409--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.3.3.1   </span> <a 
- id="x15-33200013.3.3.1"></a>Setup</h5>
+ id="x15-34700013.3.3.1"></a>Setup</h5>
 <!--l. 411--><p class="noindent" >All REDHAWK resources inherit from the Resource class, which defines the <span 
 class="ectt-1200">_log </span>data
 member.
 <!--l. 413--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">13.3.3.2   </span> <a 
- id="x15-33300013.3.3.2"></a>Use</h5>
+ id="x15-34800013.3.3.2"></a>Use</h5>
 <!--l. 414--><p class="noindent" >An example logging method call for Python is:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 self._log.debug("process() example log message")
@@ -1178,7 +1178,7 @@ level.
 ]]></script></div>
 <!--l. 434--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.4   </span> <a 
- id="x15-33400013.4"></a>Adjusting Logging at Runtime</h3>
+ id="x15-34900013.4"></a>Adjusting Logging at Runtime</h3>
 <!--l. 436--><p class="noindent" >The logging level for the root logger of a <a 
 href="mainli2.html#glo:component">Component</a>/<a 
 href="mainli2.html#glo:device">Device</a> can be adjusted at runtime in the
@@ -1186,7 +1186,7 @@ IDE. The following procedure explains how to adjust the logging level.
 <!--l. 438--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x15-334002x1">Right-click the running <a 
+  class="enumerate" id="x15-349002x1">Right-click the running <a 
 href="mainli2.html#glo:component">Component</a> or <a 
 href="mainli2.html#glo:device">Device</a> and select <span 
 class="ecbx-1200">Logging </span><span 
@@ -1195,17 +1195,17 @@ class="ecbx-1200">Log Level</span>.
       <!--l. 441--><p class="noindent" >The Set Debug Level dialog displays the current logging level. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x15-334003r1"></a> <a 
- id="x15-3340011"></a><img 
+ id="x15-349003r1"></a> <a 
+ id="x15-3490011"></a><img 
 src="images/SetDebugLevel.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;13.1: </td><td  
-class="content">Set Debug Level</td></tr></table><!--tex4ht:label?: x15-334003r1 -->
+class="content">Set Debug Level</td></tr></table><!--tex4ht:label?: x15-349003r1 -->
       <!--l. 447--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x15-334005x2">Select the new logging level you want to use and click <span 
+  class="enumerate" id="x15-349005x2">Select the new logging level you want to use and click <span 
 class="ecbx-1200">OK</span>.
       <!--l. 450--><p class="noindent" >The new log level is used.</li></ol>
 <!--l. 453--><p class="noindent" >After a <a 
@@ -1214,7 +1214,7 @@ href="mainli2.html#glo:device">Device</a> has been launched, its logging configu
 modified.
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x15-334007x1">Right-click the running <a 
+  class="enumerate" id="x15-349007x1">Right-click the running <a 
 href="mainli2.html#glo:component">Component</a> or <a 
 href="mainli2.html#glo:device">Device</a> and select <span 
 class="ecbx-1200">Logging </span><span 
@@ -1223,19 +1223,19 @@ class="ecbx-1200">Edit Log Config</span>.
       If this is the first time you have used the editor, a warning is displayed.
       </li>
       <li 
-  class="enumerate" id="x15-334009x2">If a warning is displayed, click <span 
+  class="enumerate" id="x15-349009x2">If a warning is displayed, click <span 
 class="ecbx-1200">Yes</span>. The Edit Log Config editor is displayed. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x15-334010r2"></a> <a 
- id="x15-3340082"></a><img 
+ id="x15-349010r2"></a> <a 
+ id="x15-3490082"></a><img 
 src="images/logconfigeditor.png" alt="PIC"  
 >
                                                                                          
                                                                                          
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;13.2: </td><td  
-class="content">Edit Log Config Editor</td></tr></table><!--tex4ht:label?: x15-334010r2 -->
+class="content">Edit Log Config Editor</td></tr></table><!--tex4ht:label?: x15-349010r2 -->
       <!--l. 464--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       <!--l. 467--><p class="noindent" >The editor shows the resource&#8217;s logging configuration. Saving changes to the editor performs
       a live update of the resource&#8217;s logging configuration.</li></ol>
@@ -1258,7 +1258,7 @@ log4j.appender.applogonly.Append=true
 </p></div></div>
 <!--l. 483--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.5   </span> <a 
- id="x15-33500013.5"></a>Viewing Logging Events</h3>
+ id="x15-35000013.5"></a>Viewing Logging Events</h3>
 <!--l. 485--><p class="noindent" >A live view of events logged by <a 
 href="mainli2.html#glo:component">Components</a> or <a 
 href="mainli2.html#glo:device">Devices</a> can be displayed in the IDE. The
@@ -1269,7 +1269,7 @@ receives them. To view the log:
 <!--l. 487--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x15-335002x1">Right-click the running <a 
+  class="enumerate" id="x15-350002x1">Right-click the running <a 
 href="mainli2.html#glo:component">Component</a> or <a 
 href="mainli2.html#glo:device">Device</a> and select <span 
 class="ecbx-1200">Logging </span><span 
@@ -1279,30 +1279,30 @@ class="ecbx-1200">Tail Log</span>. The
       <!--l. 491--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x15-335003r3"></a> <a 
- id="x15-3350011"></a><img 
+ id="x15-350003r3"></a> <a 
+ id="x15-3500011"></a><img 
 src="images/loggingdetails.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;13.3: </td><td  
-class="content">Edit Log Config Editor</td></tr></table><!--tex4ht:label?: x15-335003r3 -->
+class="content">Edit Log Config Editor</td></tr></table><!--tex4ht:label?: x15-350003r3 -->
       <!--l. 496--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x15-335005x2">Select the logging level.
+  class="enumerate" id="x15-350005x2">Select the logging level.
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x15-335007x3">If desired, specify the logger to which the IDE should attach. Leave the field blank to attach
+  class="enumerate" id="x15-350007x3">If desired, specify the logger to which the IDE should attach. Leave the field blank to attach
       to the root logger.
       </li>
       <li 
-  class="enumerate" id="x15-335009x4">Click OK.
+  class="enumerate" id="x15-350009x4">Click OK.
       <!--l. 502--><p class="noindent" >A new Console view displays logging events as they are received.
       </li>
       <li 
-  class="enumerate" id="x15-335011x5">To no longer view events, click the Stop icon on the Console toolbar.</li></ol>
+  class="enumerate" id="x15-350011x5">To no longer view events, click the Stop icon on the Console toolbar.</li></ol>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 

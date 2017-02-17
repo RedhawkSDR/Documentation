@@ -75,7 +75,7 @@ on using the REDHAWK <a
 href="mainap9.html#ide">IDE</a>, refer to the REDHAWK <a 
 href="mainap9.html#ide">IDE</a> chapters of this document (Starting
 at <a 
-href="mainch14.html#x16-33600014">Chapter 14</a>).
+href="mainch14.html#x16-35100014">Chapter 14</a>).
 <!--l. 9--><p class="noindent" >Modifying particular files is discouraged for two reasons:
       <ol  class="enumerate1" >
       <li 
@@ -566,36 +566,81 @@ href="mainli2.html#glo:component">Component</a>
                                                                                          
 <h3 class="sectionHead"><span class="titlemark">4.6   </span> <a 
  id="x6-730004.6"></a>Managing and Defining Properties</h3>
-<!--l. 3--><p class="noindent" >Properties are defined by their structure and contents. The structure of a property may be of type
-Simple, Simple Sequence, Struct, or Struct sequences.
-<!--l. 6--><p class="noindent" >Through the use of generated code and the REDHAWK libraries, manipulation of properties uses
+<!--l. 3--><p class="noindent" ><a 
+href="mainli2.html#glo:property">Properties</a> are defined by their structure, kind, and type. The four different <a 
+href="mainli2.html#glo:property">Property</a> structures
+include:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">simple </span>- single value such as 1.0, or &#8220;a string"
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">simple sequence </span>- list/array of zero or more simples such as [1, 2, 3], or &#8220;first",
+      &#8220;second"]
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">struct </span>- groups several simples and simple sequences together
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">struct sequence </span>- list/array of zero or more instances of a struct</li></ul>
+<!--l. 12--><p class="noindent" >Three commonly used kinds of <a 
+href="mainli2.html#glo:property">Properties</a> in REDHAWK include:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">Property </span>- denotes <a 
+href="mainli2.html#glo:property">Properties</a> that are used for configuration and status
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">Allocation </span>- expresses requirements that will be satisfied by a REDHAWK <a 
+href="mainli2.html#glo:device">Device</a>
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">Message </span>- used only with structs and indicates that the struct will be used as an event
+      message within REDHAWK</li></ul>
+<!--l. 20--><p class="noindent" >The <a 
+href="mainli2.html#glo:property">Property</a>&#8217;s type corresponds with basic programming language primitive types such as floats,
+long integers, booleans, etc. Additionally, numeric types can be complex.
+<!--l. 22--><p class="noindent" >Through the use of generated code and the REDHAWK libraries, manipulation of <a 
+href="mainli2.html#glo:property">Properties</a> uses
 fundamental types provided by C++, Python, or Java, as seen in Section <a 
 href="#x6-690004.4.2">4.4.2<!--tex4ht:ref: accessing_properties --></a>. For
-example, a Simple Sequence, complex-float property is manipulated via a std::vector&#x003C;
+example, a <span 
+class="ectt-1200">simple sequence</span>, complex-float <a 
+href="mainli2.html#glo:property">Property</a> is manipulated via a std::vector&#x003C;
 std::complex&#x003C;float&#x003E; &#x003E; variable in C++ and a list of Python complex objects in Python.
 Generated <a 
-href="mainli2.html#glo:component">Component</a> code provides a class data field representing each property for that
+href="mainli2.html#glo:component">Component</a> code provides a class data field representing each <a 
+href="mainli2.html#glo:property">Property</a> for that
 <a 
 href="mainli2.html#glo:component">Component</a>.
-<!--l. 10--><p class="noindent" >The primitive data types supported for simple properties / simple sequence properties are:
+<!--l. 26--><p class="noindent" >The primitive data types supported for <span 
+class="ectt-1200">simple </span><a 
+href="mainli2.html#glo:property">Properties</a>/<span 
+class="ectt-1200">simple sequence </span><a 
+href="mainli2.html#glo:property">Properties</a> are:
 boolean, octet, float, double, short, ushort, long, longlong, ulong, ulongong, string, objref, and
 char.
-<!--l. 12--><p class="noindent" >Simples and sipmple sequences with the following primitive data types can also be marked as
-complex values: boolean, octet, float, double, short, ushort, long, longlong, ulong, and
+                                                                                         
+                                                                                         
+<!--l. 28--><p class="noindent" ><span 
+class="ectt-1200">simple </span>and <span 
+class="ectt-1200">simple sequence </span><a 
+href="mainli2.html#glo:property">Properties</a> with the following primitive data types can also be
+marked as complex values: boolean, octet, float, double, short, ushort, long, longlong, ulong, and
 ulongong.
 <!--l. 3--><p class="noindent" >Each <a 
-href="mainli2.html#glo:component">Component</a> implements that interface of type <span 
-class="ectt-1200">CF::Resource </span>that provides remote access to
-the <a 
+href="mainli2.html#glo:component">Component</a> implements the <span 
+class="ectt-1200">CF::Resource </span>interface, which provides remote access
+to the <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:property">Properties</a> through the <span 
 class="ectt-1200">query() </span>and <span 
-class="ectt-1200">configure() </span>methods. The <span 
-class="ectt-1200">query()</span>
-method provides a means for reading a <a 
+class="ectt-1200">configure() </span>methods. The
+<span 
+class="ectt-1200">query() </span>method provides a means for reading a <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s current <a 
-href="mainli2.html#glo:property">Property</a> settings and
-the the <span 
+href="mainli2.html#glo:property">Property</a> settings
+and the <span 
 class="ectt-1200">configure() </span>method provides a means for setting a <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainli2.html#glo:property">Property</a>
@@ -628,8 +673,6 @@ provides:
 href="mainli2.html#glo:property">Property</a> values
       </li>
       <li class="itemize">External reporting of changes via events
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize">Exception throwing for invalid input</li></ul>
 <!--l. 18--><p class="noindent" >Because of these enhancements, developers are strongly discouraged from overloading either the
@@ -644,6 +687,8 @@ href="mainli2.html#glo:property">Property</a> changes. <a
 href="mainli2.html#glo:component">Components</a>
 support a type of notification called <a 
 href="mainli2.html#glo:property">Property</a> change listeners that enable the developer to register
+                                                                                         
+                                                                                         
 callback methods that are executed whenever <span 
 class="ectt-1200">configure() </span>is called with new values for the
 particular <a 
@@ -686,8 +731,6 @@ class="ectt-1200">constructor()</span>, register the change listener:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 this->addPropertyListener(freqMHz, this, &MyComponent_i::freqMHz_changed);
 ]]></script></div>
-                                                                                         
-                                                                                         
 <!--l. 46--><p class="noindent" ><span 
 class="ectt-1200">addPropertyListener </span>takes three arguments: the <a 
 href="mainli2.html#glo:property">Property</a>&#8217;s member variable, the target object
@@ -701,6 +744,8 @@ class="ectt-1200">const </span>reference:
 void taps_changed(const std::vector<float>& oldValue,
                      const std::vector<float>& newValue);
 ]]></script></div>
+                                                                                         
+                                                                                         
 <!--l. 55--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.1.2   </span> <a 
  id="x6-760004.6.1.2"></a>Python</h5>
@@ -733,8 +778,6 @@ self.addPropertyChangeListener("freqMHz", self.freqMHz_changed)
 <!--l. 74--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.1.3   </span> <a 
  id="x6-770004.6.1.3"></a>Java</h5>
-                                                                                         
-                                                                                         
 <!--l. 76--><p class="noindent" >Java <a 
 href="mainli2.html#glo:property">Properties</a> support an idiomatic listener interface for responding to changes. As
 opposed to C++ and Python, listener registration is performed directly on the <a 
@@ -758,6 +801,8 @@ private void freqMHz_changed(float oldValue, float newValue) {
      // Perform action based on change
 }
 ]]></script></div>
+                                                                                         
+                                                                                         
 <!--l. 88--><p class="noindent" >In your <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <span 
 class="ectt-1200">constructor() </span>method, define an anonymous subclass of
@@ -779,7 +824,7 @@ this.freqMHz.addChangeListener(new PropertyListener<Float>() {
 <!--l. 98--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.6.2   </span> <a 
  id="x6-780004.6.2"></a>Customizing Query and Configure</h4>
-<!--l. 100--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> This feature is C++-only in REDHAWK 2.0.4. </p></div></div>
+<!--l. 100--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> This feature is C++-only in REDHAWK 2.0.5. </p></div></div>
 <!--l. 104--><p class="noindent" >The REDHAWK libraries and generated <a 
 href="mainli2.html#glo:component">Component</a> code automatically handle <span 
 class="ectt-1200">query() </span>and
@@ -794,8 +839,6 @@ href="mainli2.html#glo:property">Property</a> value
 is set. <a 
 href="mainli2.html#glo:component">Components</a> support per-property callbacks to customize query and configure
 behavior.
-                                                                                         
-                                                                                         
 <!--l. 109--><p class="noindent" >The query callback is called when the <a 
 href="mainli2.html#glo:component">Component</a> receives a <span 
 class="ectt-1200">query() </span>for that <a 
@@ -818,6 +861,8 @@ href="mainli2.html#glo:component">Component</a> <a
 href="mainli2.html#glo:property">Properties</a>. If possible, avoid computationally expensive or blocking operations to
 ensure that the <a 
 href="mainli2.html#glo:component">Component</a> remains responsive.
+                                                                                         
+                                                                                         
 <!--l. 120--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">4.6.2.1   </span> <a 
  id="x6-790004.6.2.1"></a>C++</h5>
@@ -825,7 +870,7 @@ href="mainli2.html#glo:component">Component</a> remains responsive.
 href="mainli2.html#glo:component">Components</a>. Registering a new
 callback replaces the old one.
 <!--l. 125--><p class="noindent" ><span class="paragraphHead"><a 
- id="x6-800004.6.2.1"></a><span 
+ id="x6-800004.6.2.1.1"></a><span 
 class="ecbx-1200">Query Callbacks</span></span>
 To create a query callback, in <span 
 class="ectt-1200">[component].h</span>, add a private member function declaration. It takes
@@ -845,10 +890,8 @@ class="ectt-1200">setPropertyQueryImpl </span>takes three arguments: the <a
 href="mainli2.html#glo:property">Property</a>&#8217;s member variable, the target object
 (typically <span 
 class="ectt-1200">this</span>) and a pointer to a member function.
-                                                                                         
-                                                                                         
 <!--l. 144--><p class="noindent" ><span class="paragraphHead"><a 
- id="x6-810004.6.2.1"></a><span 
+ id="x6-810004.6.2.1.2"></a><span 
 class="ecbx-1200">Configure Callbacks</span></span>
 To create a configure callback, in <span 
 class="ectt-1200">[component].h</span>, add a private member function declaration. It
@@ -864,6 +907,8 @@ class="ectt-1200">constructor()</span>, register the configure function:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
 this->setPropertyConfigureImpl(freqMHz, this, &MyComponent_i::set_freqMHz);
 ]]></script></div>
+                                                                                         
+                                                                                         
 <!--l. 161--><p class="noindent" ><span 
 class="ectt-1200">setPropertyConfigureImpl </span>takes three arguments: the <a 
 href="mainli2.html#glo:property">Property</a>&#8217;s member variable, the target
@@ -895,8 +940,6 @@ shared library for use in REDHAWK. In the wizard, the user specifies the project
 then generate a simple set of code files to begin adding in library functions. The following
 procedure explains how to use the <span 
 class="ecbx-1200">Shared Library Project Wizard</span>.
-                                                                                         
-                                                                                         
 <!--l. 6--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
@@ -929,6 +972,8 @@ class="ecbx-1200">Next</span>.
 class="ecbx-1200">Create a REDHAWK Shared Library Project </span>dialog is displayed (<a 
 href="#x6-83006r2">Figure
       4.2</a>).
+                                                                                         
+                                                                                         
       <!--l. 22--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
@@ -968,8 +1013,6 @@ class="ecbx-1200">Generate All Implementations </span>icon to generate the sourc
 <!--l. 64--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">4.8   </span> <a 
  id="x6-840004.8"></a>Including External Libraries</h3>
-                                                                                         
-                                                                                         
 <!--l. 65--><p class="noindent" >This section details how to link a C++ <a 
 href="mainli2.html#glo:component">Component</a> with a library. Two examples are given: using a
 pkg-config (<span 
@@ -987,6 +1030,8 @@ class="ectt-1200">configure.ac </span>file in your
 <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s implementation directory. Find the line referencing PROJECTDEPS in the code that
 looks like this:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 PKG_CHECK_MODULES([PROJECTDEPS], [ossie >= 2.0 omniORB4 >= 4.1.0])
 ]]></script></div>
@@ -1007,8 +1052,6 @@ export PKG_CONFIG_PATH=/custom/path:$PKG_CONFIG_PATH
 <!--l. 90--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">4.8.2   </span> <a 
  id="x6-860004.8.2"></a>Adding a Library Directly</h4>
-                                                                                         
-                                                                                         
 <!--l. 91--><p class="noindent" >To add a library, edit the <span 
 class="ectt-1200">Makefile.am </span>file in your component&#8217;s implementation directory. Append
 compiler and linker flags to the end of the CXXFLAGS and LDADD lines, respectively. For
