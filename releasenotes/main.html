@@ -60,23 +60,21 @@ href="#x1-7000" id="QQ2-1-7">Documentation Improvements/Fixes</a></span>
  id="x1-1000"></a>REDHAWK Release Notes, Version 2.0.5</h2>
 <!--l. 4--><p class="noindent" >The effort in REDHAWK 2.0.5 focused on:
       <ul class="itemize1">
-      <li class="itemize">CCB-253 Maintaining the correct time stamp when pushing data from the Sandbox
+      <li class="itemize">Maintaining   the   correct   time   stamp   when   pushing   data   from   the   Sandbox
       DataSource.
       </li>
-      <li class="itemize">CCB-254 Improving a Component&#8217;s response to messages irrespective of whether
-      or not the Component is started or stopped.
+      <li class="itemize">Improving a Component&#8217;s response to messages irrespective of whether or not the
+      Component is started or stopped.
       </li>
-      <li class="itemize">CCB-257, CCB-258 Improving FileSink support for framed data and timecode with
-      BLUE file output.
+      <li class="itemize">Improving FileSink support for framed data and timecode with BLUE file output.
       </li>
-      <li class="itemize">CCB-265  Improving  the  handling  of  missing  event  message  fields  in  C++  and
-      Python.
+      <li class="itemize">Improving the handling of missing event message fields in C++ and Python.
       </li>
-      <li class="itemize">CCB-309 Ensuring external Port names are recognized.
-                                                                                         
-                                                                                         
+      <li class="itemize">Ensuring external Port names are recognized.
       </li>
       <li class="itemize">Addressing numerous bug fixes.
+                                                                                         
+                                                                                         
       </li></ul>
 <h3 class="likesectionHead"><a 
  id="x1-2000"></a>Fixes</h3>
@@ -90,143 +88,139 @@ each Core Asset repository. </p></div></div>
  id="x1-3000"></a>Core Framework Fixes</h4>
 <!--l. 27--><p class="noindent" >The following Core Framework bug fixes were completed in REDHAWK 2.0.5.
       <ul class="itemize1">
-      <li class="itemize">CF-222  Component  start  order  is  now  honored  when  calling  the  Sandbox&#8217;s
-      loadSADFile method.
+      <li class="itemize">Component  start  order  is  now  honored  when  calling  the  Sandbox&#8217;s  loadSADFile
+      method.
       </li>
-      <li class="itemize">CF-330  Reduced  the  number  of  messages  indicating  a  bad  connection  when  a
-      remote Component dies and a connection to it exists.
+      <li class="itemize">Reduced  the  number  of  messages  indicating  a  bad  connection  when  a  remote
+      Component dies and a connection to it exists.
       </li>
-      <li class="itemize">CF-376 The behavior for mismatch between the message structure being received
-      and the expected structure has been harmonized across C++, Python, and Java.
+      <li class="itemize">The behavior for mismatch between the message structure being received and the
+      expected structure has been harmonized across C++, Python, and Java.
       </li>
-      <li class="itemize">CF-510 If DomainManager is not compiled with persistence enabled, persistence
-      flags are now ignored.
+      <li class="itemize">If DomainManager is not compiled with persistence enabled, persistence flags are
+      now ignored.
       </li>
-      <li class="itemize">CF-554   Removed   sending   SIGQUIT   during   the   terminate   sequence   for
-      Components.
+      <li class="itemize">Removed sending SIGQUIT during the terminate sequence for Components.
       </li>
-      <li class="itemize">CF-600  Connection  issues  for  BulkIO  Ports  are  logged  as  errors,  and  repeating
-      messages will be suppressed once a threshold has been achieved.
+      <li class="itemize">Connection issues for BulkIO Ports are logged as errors, and repeating messages
+      will be suppressed once a threshold has been achieved.
+      </li>
+      <li class="itemize">Python BulkIO Ports now report error messages during pushPacket and pushSRI
+      operations.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">CF-769  Python  BulkIO  Ports  now  report  error  messages  during  pushPacket  and
-      pushSRI operations.
+      <li class="itemize">For  Octave  Components  that  add  shared  libraries,  the  library&#8217;s  implementation
+      reference is correctly referenced when generating a Component.
       </li>
-      <li class="itemize">CF-800   For   Octave   Components   that   add   shared   libraries,   the   library&#8217;s
-      implementation reference is correctly referenced when generating a Component.
+      <li class="itemize">Multi-out Ports issue an EOS when listeners are deallocated.
       </li>
-      <li class="itemize">CF-909 Multi-out Ports issue an EOS when listeners are deallocated.
+      <li class="itemize">Added default resolution of SDRROOT target installation to be /var/redhawk/sdr if a
+      user&#8217;s shell environment configuration is incomplete.
       </li>
-      <li class="itemize">CF-1070   Added   default   resolution   of   SDRROOT   target   installation   to   be
-      /var/redhawk/sdr if a user&#8217;s shell environment configuration is incomplete.
+      <li class="itemize">log4j time formats are processed correctly for resources using Python logging.
       </li>
-      <li class="itemize">CF-1090  log4j  time  formats  are  processed  correctly  for  resources  using  Python
-      logging.
+      <li class="itemize">Removed obsolete comments that no longer applied.
       </li>
-      <li class="itemize">CF-1091 Removed obsolete comments that no longer applied.
+      <li class="itemize">The Domain&#8217;s ConnectionManager will remove connections from its pending list if
+      connection deferral is not allowed.
       </li>
-      <li class="itemize">CF-1100  The  Domain&#8217;s  ConnectionManager  will  remove  connections  from  its
-      pending list if connection deferral is not allowed.
+      <li class="itemize">When  specifying  a  user  when  daemonizing  nodeBooter,  all  the  user&#8217;s  groups
+      (primary and secondary) are associated with the process. Also, groups can now be
+      defined as comma-separated names on the group switch when starting nodeBooter.
       </li>
-      <li class="itemize">CF-1255  When  specifying  a  user  when  daemonizing  nodeBooter,  all  the  user&#8217;s
-      groups (primary and secondary) are associated with the process. Also, groups can
-      now  be  defined  as  comma-separated  names  on  the  group  switch  when  starting
-      nodeBooter.
+      <li class="itemize">On startup, calls to the configure function on the Component or Device only occur if
+      there is at least one Property to update.
       </li>
-      <li class="itemize">CF-1329 On startup, calls to the configure function on the Component or Device
-      only occur if there is at least one Property to update.
+      <li class="itemize">C++ BulkIO output Ports now report the correct bits per second in statistics in all
+      cases.
       </li>
-      <li class="itemize">CF-1398 C++ BulkIO output Ports now report the correct bits per second in statistics
-      in all cases.
+      <li class="itemize">The redhawk module in Python has a complete replication of the CORBA interface
+      for the remote object at a base level (not just on the ref member).
       </li>
-      <li class="itemize">CF-1433 The redhawk module in Python has a complete replication of the CORBA
-      interface for the remote object at a base level (not just on the ref member).
+      <li class="itemize">When  DeviceManager  is  launched  and  DomainManager  is  not  available  and
+      persistence is enabled, Name Service is populated with the DeviceManager, Device,
+      and Service information.
       </li>
-      <li class="itemize">CF-1558 When DeviceManager is launched and DomainManager is not available
-      and persistence is enabled, Name Service is populated with the DeviceManager,
-      Device, and Service information.
+      <li class="itemize">Added the ability to specify a wait time for client calls from the DomainManager to
+      remote servants when an underlying mutex is locked and restricts other activities
+      using the DomainManager.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">CF-1568  Added  the  ability  to  specify  a  wait  time  for  client  calls  from  the
-      DomainManager  to  remote  servants  when  an  underlying  mutex  is  locked  and
-      restricts other activities using the DomainManager.
+      <li class="itemize">Java Components using org.ossie.events.Subscriber class can register a callback
+      interface when new event messages arrive.
       </li>
-      <li class="itemize">CF-1603 Java Components using org.ossie.events.Subscriber class can register a
-      callback interface when new event messages arrive.
+      <li class="itemize">FileSink sets the subsize field in BLUE file headers to match the frame size when
+      the input stream is two-dimensional.
       </li>
-      <li class="itemize">CF-1609 FileSink sets the subsize field in BLUE file headers to match the frame size
-      when the input stream is two-dimensional.
+      <li class="itemize">FileSink formats framed data correctly with BLUE file output.
       </li>
-      <li class="itemize">CF-1610 FileSink formats framed data correctly with BLUE file output.
+      <li class="itemize">The  Sandbox&#8217;s  BlueFileReader  can  handle  two-dimensional  (framed)  data  in  the
+      form of type 2000 files.
       </li>
-      <li class="itemize">CF-1613 The Sandbox&#8217;s BlueFileReader can handle two-dimensional (framed) data
-      in the form of type 2000 files.
+      <li class="itemize">The Sandbox&#8217;s DataSink can handle framed data of type &#8217;char&#8217;.
       </li>
-      <li class="itemize">CF-1614 The Sandbox&#8217;s DataSink can handle framed data of type &#8217;char&#8217;.
+      <li class="itemize">The bluefile module properly chunks framed two-dimensional (framed/type 2000)
+      data. It also properly handles complex data when it is two-dimensional.
       </li>
-      <li class="itemize">CF-1618 The bluefile module properly chunks framed two-dimensional (framed/type
-      2000) data. It also properly handles complex data when it is two-dimensional.
+      <li class="itemize">FileSink  now  uses  the  timestamp  of  the  first  BulkIO  packet  to  set  the  header
+      timecode for BLUE file output.
       </li>
-      <li class="itemize">CF-1621  FileSink  now  uses  the  timestamp  of  the  first  BulkIO  packet  to  set  the
-      header timecode for BLUE file output.
+      <li class="itemize">At the end of BLUE files, FileSource would sometimes send a zero-length packet
+      with no EOS and a zero-length packet with EOS set. The zero-length packet with no
+      EOS was removed.
       </li>
-      <li class="itemize">CF-1623 At the end of BLUE files, FileSource would sometimes send a zero-length
-      packet with no EOS and a zero-length packet with EOS set. The zero-length packet
-      with no EOS was removed.
+      <li class="itemize">Eclipse plotting widgets can be started from the Python Sandbox.
       </li>
-      <li class="itemize">CF-1624 Eclipse plotting widgets can be started from the Python Sandbox.
+      <li class="itemize">The  default  implementation  for  retrieve_records,  retrieve_records_by_date,  and
+      retrieve_records_from_date  on  the  logging  interface  for  C++  Components  and
+      Devices no longer segfaults when executed.
       </li>
-      <li class="itemize">CF-1626         The         default         implementation         for         retrieve_records,
-      retrieve_records_by_date, and retrieve_records_from_date on the logging interface
-      for C++ Components and Devices no longer segfaults when executed.
+      <li class="itemize">Codegen testing now evaluates all unit tests for namespaced Components.
       </li>
-      <li class="itemize">CF-1628 Codegen testing now evaluates all unit tests for namespaced Components.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">CF-1631 Namespaced Waveforms can now be launched in the Sandbox using the
+      <li class="itemize">Namespaced   Waveforms   can   now   be   launched   in   the   Sandbox   using   the
       fully-qualified namespaced name.
       </li>
-      <li class="itemize">CF-1635 If a Component was shutdown while pushing data, it would occasionally
-      deadlock. This race condition was removed.
-      </li>
-      <li class="itemize">CF-1636 When pushing data, the Sandbox DataSource advances the time stamp
-      according to the initial time and the number of samples sent.
-      </li>
-      <li class="itemize">CF-1641 If an FEI Device contains input BulkIO Ports, releasing a tuner does not
-      cause an error message.
-      </li>
-      <li class="itemize">CCB-228, CF-1646 When a BulkIO input stream is disabled, packets for that stream
-      with EOS set are handled and reported correctly.
-      </li>
-      <li class="itemize">CF-1647 Components in Java, C++, and Python respond to messages irrespective
-      of whether or not the Component is started or stopped.
-      </li>
-      <li class="itemize">CF-1649 Conversions of header keywords between BLUE file and REDHAWK SRI
-      are handled properly.
-      </li>
-      <li class="itemize">CF-1650 Deallocation of an FEI controlling allocation ID cannot be done using a
-      listener allocation structure.
-      </li>
-      <li class="itemize">CF-1654 The SRI changed status is provided for the first packet received using the
-      stream API.
-      </li>
-      <li class="itemize">CF-1658 An application&#8217;s getPortSet() method uses the external Port name provided
-      in its SAD file.
-      </li>
-      <li class="itemize">CF-1659  Empty  directories  are  not  created  in  the  GPP&#8217;s  cache  directory  when
-      log4py FileAppender is configured with the absolute file path.
-      </li>
-      <li class="itemize">CF-1663   When   a   BulkIO   input   stream   receives   an   EOS,   the   input   Port&#8217;s
-      getCurrentStream() now always returns the stream once to give the caller a chance
-      to check for EOS.
+      <li class="itemize">If a Component was shutdown while pushing data, it would occasionally deadlock.
+      This race condition was removed.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">CF-1665  Fixed  possible  Python  FEI  Device  deadlock  issue  when  responding  to
-      requests (for example, getTunerEnable, allocateCapacity).</li></ul>
+      <li class="itemize">When pushing data, the Sandbox DataSource advances the time stamp according
+      to the initial time and the number of samples sent.
+      </li>
+      <li class="itemize">If an FEI Device contains input BulkIO Ports, releasing a tuner does not cause an
+      error message.
+      </li>
+      <li class="itemize">When a BulkIO input stream is disabled, packets for that stream with EOS set are
+      handled and reported correctly.
+      </li>
+      <li class="itemize">Components in Java, C++, and Python respond to messages irrespective of whether
+      or not the Component is started or stopped.
+      </li>
+      <li class="itemize">Conversions  of  header  keywords  between  BLUE  file  and  REDHAWK  SRI  are
+      handled properly.
+      </li>
+      <li class="itemize">Deallocation  of  an  FEI  controlling  allocation  ID  cannot  be  done  using  a  listener
+      allocation structure.
+      </li>
+      <li class="itemize">The SRI changed status is provided for the first packet received using the stream
+      API.
+      </li>
+      <li class="itemize">An application&#8217;s getPortSet() method uses the external Port name provided in its
+      SAD file.
+      </li>
+      <li class="itemize">Empty  directories  are  not  created  in  the  GPP&#8217;s  cache  directory  when  log4py
+      FileAppender is configured with the absolute file path.
+      </li>
+      <li class="itemize">When a BulkIO input stream receives an EOS, the input Port&#8217;s getCurrentStream()
+      now always returns the stream once to give the caller a chance to check for EOS.
+      </li>
+      <li class="itemize">Fixed possible Python FEI Device deadlock issue when responding to requests (for
+      example, getTunerEnable, allocateCapacity).</li></ul>
+                                                                                         
+                                                                                         
 <!--l. 77--><p class="noindent" >
 <h5 class="likesubsubsectionHead"><a 
  id="x1-4000"></a>Special Resolutions</h5>
@@ -235,101 +229,97 @@ following resolutions:
       <ul class="itemize1">
       <li class="itemize">Won&#8217;t Fix
            <ul class="itemize2">
-           <li class="itemize">CF-182 GPP Component output log feature is fragile - This issue is OBE. It
-           relates to the Python version of the 1.8 GPP, which is no longer supported as
-           of the release of the REDHAWK 2.0 GPP, which is written in C++.
+           <li class="itemize">GPP Component output log feature is fragile - This issue is OBE. It relates
+           to the Python version of the 1.8 GPP, which is no longer supported as of the
+           release of the REDHAWK 2.0 GPP, which is written in C++.
            </li>
-           <li class="itemize">CF-475 Non_existent yielding false negatives - This issue is limited to tests, and
-           no tests have failed because of a false positive, so this should be addressed
-           only if tests are not passing.
+           <li class="itemize">Non_existent yielding false negatives - This issue is limited to tests, and no
+           tests have failed because of a false positive, so this should be addressed only
+           if tests are not passing.
            </li>
-           <li class="itemize">CF-1093  Populate_deviceAddedEvent  and  _serviceAddedEvent  functions  in
-           the Domain class of the REDHAWK core package - This issue is OBE with the
-           release of REDHAWK 2.0 as Device and Service members are generated from
-           registered DeviceManagers that manage the life cycle of Devices and Services.
+           <li class="itemize">Populate_deviceAddedEvent and _serviceAddedEvent functions in the Domain
+           class of the REDHAWK core package - This issue is OBE with the release of
+           REDHAWK 2.0 as Device and Service members are generated from registered
+           DeviceManagers that manage the life cycle of Devices and Services.
            </li>
-           <li class="itemize">CF-1534  sb.loadSADFile  does  not  allow  multiple  instances  -  Not  allowing
-           multiple instances of a Waveform is by design. The issue has been converted
-           to a New Feature requirement and its resolution is deferred to a future release.</li></ul>
+           <li class="itemize">sb.loadSADFile  does  not  allow  multiple  instances  -  Not  allowing  multiple
+           instances of a Waveform is by design. The issue has been converted to a New
+           Feature requirement and its resolution is deferred to a future release.</li></ul>
       </li></ul>
 <!--l. 89--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
  id="x1-5000"></a>IDE Fixes</h4>
 <!--l. 90--><p class="noindent" >The following IDE bug fixes were completed in REDHAWK 2.0.5.
-                                                                                         
-                                                                                         
       <ul class="itemize1">
-      <li class="itemize">CCB-218, IDE-1078 In a diagram, Port modifications to existing Components are
-      now displayed the next time the diagram is opened.
+      <li class="itemize">In a diagram, Port modifications to existing Components are now displayed the next
+      time the diagram is opened.
       </li>
-      <li class="itemize">IDE-1018  Reworked  how  the  IDE  diagrams  add  actions  to  toolbars  and  menus,
-      which resolves the handler conflict errors that were thrown when multiple diagrams
-      were opened concurrently.
+      <li class="itemize">Reworked how the IDE diagrams add actions to toolbars and menus, which resolves
+      the handler conflict errors that were thrown when multiple diagrams were opened
+      concurrently.
+                                                                                         
+                                                                                         
       </li>
-      <li class="itemize">IDE-1224 When marking Ports as external in a SAD diagram, if external Ports are
-      created with the same name, the names are suffixed to make them unique.
+      <li class="itemize">When marking Ports as external in a SAD diagram, if external Ports are created with
+      the same name, the names are suffixed to make them unique.
       </li>
-      <li class="itemize">IDE-1363 A domain Waveform opened with the Chalkboard editor now is in sync to
-      reflect the same status changes (for example, start and stop) in the Explorer view.
+      <li class="itemize">A domain Waveform opened with the Chalkboard editor now is in sync to reflect the
+      same status changes (for example, start and stop) in the Explorer view.
       </li>
-      <li class="itemize">IDE-1412 When creating FEI Devices, the pages of the New Project wizard now
-      include the setup code generation page for C++ and Python.
+      <li class="itemize">When creating FEI Devices, the pages of the New Project wizard now include the
+      setup code generation page for C++ and Python.
       </li>
-      <li class="itemize">IDE-1440 The x-axis on plots adjusts to changes in the CHAN_RF and COL_RF
-      Properties in SRI.
+      <li class="itemize">The x-axis on plots adjusts to changes in the CHAN_RF and COL_RF Properties in
+      SRI.
       </li>
-      <li class="itemize">IDE-1448 The PROFILE_NAME argument is now correct for resources launched in
+      <li class="itemize">The  PROFILE_NAME  argument  is  now  correct  for  resources  launched  in  the
+      Sandbox.
+      </li>
+      <li class="itemize">In the Properties view for an FEI tuner, the title was adjusted to be the tuner ID, and
+      the tab name was changed to "Properties".
+      </li>
+      <li class="itemize">The naming context names that the IDE uses in the Sandbox now are the same as
+      the core framework at runtime.
+      </li>
+      <li class="itemize">Newly created projects are properly configured so that projects now report warnings
+      and errors in the Problems view for Redhawk XML files.
+      </li>
+      <li class="itemize">The status for an object in a domain is now updated when its profile (XML) is loaded.
+      </li>
+      <li class="itemize">The CORBA name browser view now displays names that contain periods.
+      </li>
+      <li class="itemize">The Sandbox diagrams always show the correct state for a Component or Device
+      that was launched while the diagram is open.
+      </li>
+      <li class="itemize">Corrected code that was being run in an incorrect thread inside the IDE.
+      </li>
+      <li class="itemize">Namespaced Java Components in the user&#8217;s workspace can now be launched in
       the Sandbox.
-      </li>
-      <li class="itemize">IDE-1696 In the Properties view for an FEI tuner, the title was adjusted to be the
-      tuner ID, and the tab name was changed to "Properties".
-      </li>
-      <li class="itemize">IDE-1704 The naming context names that the IDE uses in the Sandbox now are the
-      same as the core framework at runtime.
-      </li>
-      <li class="itemize">IDE-1707 Newly created projects are properly configured so that projects now report
-      warnings and errors in the Problems view for Redhawk XML files.
-      </li>
-      <li class="itemize">IDE-1717 The status for an object in a domain is now updated when its profile (XML)
-      is loaded.
-      </li>
-      <li class="itemize">IDE-1719  The  CORBA  name  browser  view  now  displays  names  that  contain
-      periods.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">IDE-1720 The Sandbox diagrams always show the correct state for a Component or
-      Device that was launched while the diagram is open.
+      <li class="itemize">The logging menu is not shown for Waveforms.
       </li>
-      <li class="itemize">IDE-1721 Corrected code that was being run in an incorrect thread inside the IDE.
+      <li class="itemize">Fixed an NPE in the SAD editor that occurred when an external Port in the SAD
+      XML referenced a non-existent Component instantiation.
       </li>
-      <li class="itemize">IDE-1730  Namespaced  Java  Components  in  the  user&#8217;s  workspace  can  now  be
+      <li class="itemize">Fixed an NPE that occurred if a Waveform with an event channel connection was
       launched in the Sandbox.
       </li>
-      <li class="itemize">IDE-1745 The logging menu is not shown for Waveforms.
+      <li class="itemize">Fixed an NPE when generating code for a project that was caused by a corrupt
+      configuration file.
       </li>
-      <li class="itemize">IDE-1746 Fixed an NPE in the SAD editor that occurred when an external Port in
-      the SAD XML referenced a non-existent Component instantiation.
+      <li class="itemize">Fixed  issue  causing  an  internal  IDE  error  when  generating  code  for  an  Octave
+      Component and Octave was not installed.
       </li>
-      <li class="itemize">IDE-1747  Fixed  an  NPE  that  occurred  if  a  Waveform  with  an  event  channel
-      connection was launched in the Sandbox.
-      </li>
-      <li class="itemize">IDE-1750 Fixed an NPE when generating code for a project that was caused by a
-      corrupt configuration file.
-      </li>
-      <li class="itemize">IDE-1780 Fixed issue causing an internal IDE error when generating code for an
-      Octave Component and Octave was not installed.
-      </li>
-      <li class="itemize">IDE-1788  An  internal  IDE  model  detail  is  no  longer  shown  when  browsing  a
+      <li class="itemize">An    internal    IDE    model    detail    is    no    longer    shown    when    browsing    a
       componentInstantiation.
       </li>
-      <li class="itemize">IDE-1789 The same Component can now be launched from both the workspace and
-      the SDRROOT simultaneously in a diagram.
+      <li class="itemize">The  same  Component  can  now  be  launched  from  both  the  workspace  and  the
+      SDRROOT simultaneously in a diagram.
       </li>
-      <li class="itemize">IDE-1821 Adding a FrontEnd Uses Device to a Waveform no longer causes an error
-      when saving the Waveform.</li></ul>
-                                                                                         
-                                                                                         
+      <li class="itemize">Adding a FrontEnd Uses Device to a Waveform no longer causes an error when
+      saving the Waveform.</li></ul>
 <!--l. 119--><p class="noindent" >
 <h5 class="likesubsubsectionHead"><a 
  id="x1-6000"></a>Special Resolutions</h5>
@@ -338,50 +328,50 @@ following resolutions:
       <ul class="itemize1">
       <li class="itemize">Cannot Reproduce
            <ul class="itemize2">
-           <li class="itemize">IDE-629 Python syntax highlighting is sometimes incorrectly configured when
-           the IDE launches.
+           <li class="itemize">Python syntax highlighting is sometimes incorrectly configured when the IDE
+           launches.
            </li>
-           <li class="itemize">IDE-1570 Cannot launch namespaced Component in the IDE Python Sandbox.
+           <li class="itemize">Cannot launch namespaced Component in the IDE Python Sandbox.
+                                                                                         
+                                                                                         
            </li>
-           <li class="itemize">IDE-1755 &#8217;Tail Log&#8217; disabled in the diagram for domain resources.</li></ul>
+           <li class="itemize">&#8217;Tail Log&#8217; disabled in the diagram for domain resources.</li></ul>
       </li>
       <li class="itemize">Duplicate
            <ul class="itemize2">
-           <li class="itemize">IDE-1682 - Duplicate of IDE-1789 (Chalkboard diagram unable to launch the
-           same Component from workspace and SDRROOT).</li></ul>
+           <li class="itemize">Unable   to   launch   same-named   Component   from   both   workspace   and
+           SDRROOT  -  Duplicate  of  Chalkboard  diagram  unable  to  launch  the  same
+           Component from workspace and SDRROOT.</li></ul>
       </li></ul>
 <!--l. 145--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x1-7000"></a>Documentation Improvements/Fixes</h3>
 <!--l. 146--><p class="noindent" >The following documentation improvements/fixes were completed in REDHAWK 2.0.5.
       <ul class="itemize1">
-      <li class="itemize">CCB-277, DOCS-340 Added documentation to explain the role of the Property kinds
-      and how to modify/use them.
+      <li class="itemize">Added  documentation  to  explain  the  role  of  the  Property  kinds  and  how  to
+      modify/use them.
       </li>
-      <li class="itemize">DOCS-475 Added pygst dependency to the installation instructions for CentOS 7.
+      <li class="itemize">Added pygst dependency to the installation instructions for CentOS 7.
       </li>
-      <li class="itemize">DOCS-489 Updated figure of Properties View of an allocated tuner in Controlling a
-      Tuned Receiver.
-                                                                                         
-                                                                                         
+      <li class="itemize">Updated  figure  of  Properties  View  of  an  allocated  tuner  in  Controlling  a  Tuned
+      Receiver.
       </li>
-      <li class="itemize">DOCS-494 Updated Further Reading section of HTML pages to reflect the current
+      <li class="itemize">Updated   Further   Reading   section   of   HTML   pages   to   reflect   the   current
       documentation structure and supported REDHAWK products.
       </li>
-      <li class="itemize">DOCS-500  Added  BurstIO  information  in  the  Connections  chapter  of  the  User
-      Manual.
+      <li class="itemize">Added BurstIO information in the Connections chapter of the User Manual.
       </li>
-      <li class="itemize">DOCS-501 Revised information about installing log4cxx dependency for CentOS 7
-      in Building and Installing REDHAWK from Source.
+      <li class="itemize">Revised information about installing log4cxx dependency for CentOS 7 in Building
+      and Installing REDHAWK from Source.
       </li>
-      <li class="itemize">DOCS-502 Removed log4cxx dependency for CentOS 6 in External Dependencies
-      appendix.
+      <li class="itemize">Removed log4cxx dependency for CentOS 6 in External Dependencies appendix.
+                                                                                         
+                                                                                         
       </li>
-      <li class="itemize">DOCS-507  On  the  Downloads  page,  updated  SCA  Explorer  text  to  REDHAWK
-      Explorer.
+      <li class="itemize">On the Downloads page, updated SCA Explorer text to REDHAWK Explorer.
       </li>
-      <li class="itemize">DOCS-511  On  the  Downloads  page,  updated  links  to  reflect  currently  supported
-      REDHAWK products.
+      <li class="itemize">On the Downloads page, updated links to reflect currently supported REDHAWK
+      products.
       </li></ul>
  
  <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
