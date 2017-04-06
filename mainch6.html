@@ -53,7 +53,7 @@ href="mainch5.html#tailmainch5.html" >prev-tail</a>] [<a
 href="#tailmainch6.html">tail</a>] [<a 
 href="main.html#mainch6.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;6</span><br /><a 
- id="x8-1650006"></a>Waveforms</h2>
+ id="x8-1820006"></a>Waveforms</h2>
 <!--l. 4--><p class="noindent" >This chapter discusses the construction and execution of <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> within REDHAWK. An
 <a 
@@ -78,7 +78,7 @@ href="mainli2.html#glo:component">Components</a> must be
 installed in <span 
 class="ectt-1200">$SDRROOT/dom/components</span>. </p></div></div>
 <h3 class="sectionHead"><span class="titlemark">6.1   </span> <a 
- id="x8-1660006.1"></a>Waveform Editor</h3>
+ id="x8-1830006.1"></a>Waveform Editor</h3>
 <!--l. 15--><p class="noindent" >The following sections further describe the definition of the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> as well as its creation and
 manipulation within the <a 
@@ -98,7 +98,7 @@ href="mainap9.html#xml">XML</a> files without the need to directly
 edit this file by hand.
 <!--l. 18--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.1.1   </span> <a 
- id="x8-1670006.1.1"></a>Overview Tab</h4>
+ id="x8-1840006.1.1"></a>Overview Tab</h4>
 <!--l. 20--><p class="noindent" >Within the Overview tab, the name, <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>, and external <a 
 href="mainli2.html#glo:port">Ports</a> of a <a 
@@ -143,13 +143,13 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>.
 <!--l. 32--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-167002x1">On the Overview tab of the Waveform, from the <span 
+  class="enumerate" id="x8-184002x1">On the Overview tab of the Waveform, from the <span 
 class="ecbx-1200">Controller </span>drop-down menu, ensure
       <span 
 class="ectt-1200">SigGen_1 </span>is selected.
       </li>
       <li 
-  class="enumerate" id="x8-167004x2">In the <span 
+  class="enumerate" id="x8-184004x2">In the <span 
 class="ecbx-1200">Description </span>field, enter a description for the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>.</li></ol>
 <!--l. 37--><p class="noindent" ><hr class="figure"><div class="figure" 
@@ -158,7 +158,7 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>.</li></ol>
                                                                                          
                                                                                          
 <a 
- id="x8-167005r1"></a>
+ id="x8-184005r1"></a>
                                                                                          
                                                                                          
 <!--l. 40--><p class="noindent" ><img 
@@ -166,12 +166,12 @@ src="images/REDHAWK_Waveform_Overview_Tab.png" alt="PIC"
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.1: </td><td  
-class="content">Waveform Overview Tab</td></tr></table><!--tex4ht:label?: x8-167005r1 -->
+class="content">Waveform Overview Tab</td></tr></table><!--tex4ht:label?: x8-184005r1 -->
                                                                                          
                                                                                          
 <!--l. 42--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
 <h4 class="subsectionHead"><span class="titlemark">6.1.2   </span> <a 
- id="x8-1680006.1.2"></a>Diagram Tab</h4>
+ id="x8-1850006.1.2"></a>Diagram Tab</h4>
 <!--l. 46--><p class="noindent" >Most of the work done on <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> takes place within the Diagram tab. The Diagram tab is very
 similar to the <a 
@@ -190,7 +190,10 @@ href="mainli2.html#glo:waveformapplication">Waveform</a> can be indicated and th
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a> can be assigned to a
 <a 
 href="mainli2.html#glo:component">Component</a>.
-<!--l. 52--><p class="noindent" >From the Diagram tab, <a 
+<!--l. 53--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.2.1   </span> <a 
+ id="x8-1860006.1.2.1"></a>Editing Component Properties in a Waveform</h5>
+<!--l. 54--><p class="noindent" >From the Diagram tab, <a 
 href="mainli2.html#glo:property">Properties</a> of <a 
 href="mainli2.html#glo:component">Components</a> can be set. When these <a 
 href="mainli2.html#glo:property">Properties</a> are set, they
@@ -199,10 +202,74 @@ href="mainli2.html#glo:waveformapplication">Waveform</a> and are written to the 
 class="ectt-1200">*.sad.xml </span>file, which describes this
 <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>.
-<!--l. 55--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">6.1.2.1   </span> <a 
- id="x8-1690006.1.2.1"></a>Start Order</h5>
-<!--l. 57--><p class="noindent" >Each of the <a 
+<!--l. 57--><p class="noindent" >The following steps explain how to edit the Properties of a Component in a Waveform.
+<!--l. 59--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-186002x1">On the Diagram tab of the Waveform, select the Component.
+      </li>
+      <li 
+  class="enumerate" id="x8-186004x2">In the Properties View, verify the Properties tab is selected.
+      <!--l. 63--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x8-186005r2"></a> <img 
+src="images/properties.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.2: </td><td  
+class="content">Waveforms: Properties View</td></tr></table><!--tex4ht:label?: x8-186005r2 -->
+      <!--l. 68--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li>
+      <li 
+  class="enumerate" id="x8-186007x3">Select the Property you want to set, and edit the value.</li></ol>
+<!--l. 73--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.2.2   </span> <a 
+ id="x8-1870006.1.2.2"></a>Editing the <span 
+class="ectt-1200">devicerequires </span>Set in a Waveform</h5>
+                                                                                         
+                                                                                         
+<!--l. 74--><p class="noindent" >The <span 
+class="ectt-1200">devicerequires </span>set for a Component is managed through the Requirements tab of the
+Properties view. When these Requirements are set, they become specific to the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> and are
+written to the <span 
+class="ectt-1200">*.sad.xml </span>file. For more information about the <span 
+class="ectt-1200">devicrequires </span>set, Refer to
+<a 
+href="#x8-2040006.3.2">Section 6.3.2</a>.
+<!--l. 77--><p class="noindent" >The following steps explain how to edit the <span 
+class="ectt-1200">devicerequires </span>set.
+<!--l. 79--><p class="noindent" >
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x8-187002x1">On the Diagram tab of the Waveform, select the Component.
+      </li>
+      <li 
+  class="enumerate" id="x8-187004x2">In the Properties View, verify the Requirements tab is selected.
+      <!--l. 83--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+><a 
+ id="x8-187005r3"></a> <img 
+src="images/requirementstab.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.3: </td><td  
+class="content">Waveforms: Properties View Requirements Tab</td></tr></table><!--tex4ht:label?: x8-187005r3 -->
+      <!--l. 88--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+      </li>
+      <li 
+  class="enumerate" id="x8-187007x3">To add an ID and value, click + and add the ID and value. The ID and value can be any
+      alphanumeric string value. This assigns a <span 
+class="ectt-1200">devicerequires </span>key/value pair to the
+      Component.
+      </li>
+      <li 
+  class="enumerate" id="x8-187009x4">To remove an ID and value, select the ID and click X.</li></ol>
+<!--l. 101--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.2.3   </span> <a 
+ id="x8-1880006.1.2.3"></a>Start Order</h5>
+<!--l. 103--><p class="noindent" >Each of the <a 
 href="mainli2.html#glo:component">Components</a> within the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> contain a number with a circle around it which
 represents that <a 
@@ -228,10 +295,12 @@ class="ecbx-1200">Set As </span><a
 href="mainli2.html#glo:assemblycontroller"><span 
 class="ecbx-1200">Assembly Controller</span></a> from the context
 menu.
-<!--l. 63--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 109--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.1.3   </span> <a 
- id="x8-1700006.1.3"></a>SAD File Tab</h4>
-<!--l. 65--><p class="noindent" >The information put into the Overview and Diagram tabs is represented within the <a 
+ id="x8-1890006.1.3"></a>SAD File Tab</h4>
+<!--l. 111--><p class="noindent" >The information put into the Overview and Diagram tabs is represented within the <a 
 href="mainap9.html#xml">XML</a> of the
 <a 
 href="mainap9.html#sad">SAD</a> file. The <a 
@@ -243,60 +312,60 @@ href="mainap9.html#sad">SAD</a> file by pointing to the file location of the
 <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
 href="mainap9.html#spd">SPD</a> file.
-<!--l. 69--><p class="noindent" >Instructions for inspecting the <a 
+<!--l. 115--><p class="noindent" >Instructions for inspecting the <a 
 href="mainap9.html#sad">SAD</a> file are below:
-<!--l. 71--><p class="noindent" >
-                                                                                         
-                                                                                         
+<!--l. 117--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-170002x1">Open the <span 
+  class="enumerate" id="x8-189002x1">Open the <span 
 class="ectt-1200">myWaveform.sad.xml </span>tab of the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> Editor.
       </li>
       <li 
-  class="enumerate" id="x8-170004x2">Look through the <a 
+  class="enumerate" id="x8-189004x2">Look through the <a 
 href="mainap9.html#sad">SAD</a> file and identify:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x8-170006x1">The location of the two <a 
+  class="enumerate" id="x8-189006x1">The location of the two <a 
 href="mainap9.html#spd">SPD</a> files used in this <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> (remember that this file
            location is in reference to the <span 
 class="ectt-1200">$SDRROOT</span>)
            </li>
            <li 
-  class="enumerate" id="x8-170008x2">The <a 
+  class="enumerate" id="x8-189008x2">The <a 
 href="mainli2.html#glo:assemblycontroller">Assembly Controller</a>
            </li>
            <li 
-  class="enumerate" id="x8-170010x3">The connection between the two <a 
+  class="enumerate" id="x8-189010x3">The connection between the two <a 
 href="mainli2.html#glo:component">Components</a>
            </li>
            <li 
-  class="enumerate" id="x8-170012x4">The external <a 
+  class="enumerate" id="x8-189012x4">The external <a 
 href="mainli2.html#glo:port">Port</a> is set in the Diagram Tab
            </li>
            <li 
-  class="enumerate" id="x8-170014x5">The start order of each <a 
+  class="enumerate" id="x8-189014x5">The start order of each <a 
 href="mainli2.html#glo:component">Component</a>
            </li>
            <li 
-  class="enumerate" id="x8-170016x6">The <a 
+  class="enumerate" id="x8-189016x6">The <a 
 href="mainli2.html#glo:property">Property</a> is changed on the <span 
 class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a></li></ol>
       </li>
       <li 
-  class="enumerate" id="x8-170018x3">Before continuing, return to the Diagram tab and change the <span 
+  class="enumerate" id="x8-189018x3">Before continuing, return to the Diagram tab and change the <span 
 class="ecbx-1200">dataDouble_out </span><a 
 href="mainli2.html#glo:port">Port</a> so that
       it is no longer marked as an external <a 
 href="mainli2.html#glo:port">Port</a>.</li></ol>
-<!--l. 85--><p class="noindent" >
+<!--l. 131--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">6.2   </span> <a 
- id="x8-1710006.2"></a>Create and Deploy a Sample Waveform</h3>
-<!--l. 87--><p class="noindent" >This section describes the process of creating a <a 
+ id="x8-1900006.2"></a>Create and Deploy a Sample Waveform</h3>
+                                                                                         
+                                                                                         
+<!--l. 133--><p class="noindent" >This section describes the process of creating a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, deploying this <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> to the staging
 area, starting a <a 
@@ -309,22 +378,20 @@ href="mainli2.html#glo:application">Application</a>, and shutting down the <a
 href="mainli2.html#glo:domainmanager">Domain Manager</a>
 and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a>.
-<!--l. 89--><p class="noindent" >The <a 
+<!--l. 135--><p class="noindent" >The <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> normally remain running during the creation/destruction
 of different <a 
 href="mainli2.html#glo:application">Applications</a>.
-<!--l. 91--><p class="noindent" >
+<!--l. 137--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.2.1   </span> <a 
- id="x8-1720006.2.1"></a>Create a Sample Waveform</h4>
-                                                                                         
-                                                                                         
-<!--l. 93--><p class="noindent" >Below is a description of how to create a <a 
+ id="x8-1910006.2.1"></a>Create a Sample Waveform</h4>
+<!--l. 139--><p class="noindent" >Below is a description of how to create a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>:
-<!--l. 95--><p class="noindent" >
+<!--l. 141--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-172002x1">Select <span 
+  class="enumerate" id="x8-191002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
@@ -335,155 +402,155 @@ class="ecbx-1200">Waveform</span></a> <span
 class="ecbx-1200">Project</span>
       </li>
       <li 
-  class="enumerate" id="x8-172004x2">Set the <span 
+  class="enumerate" id="x8-191004x2">Set the <span 
 class="ecbx-1200">Project name </span>to <span 
 class="ecti-1200">demo</span>
       </li>
       <li 
-  class="enumerate" id="x8-172006x3">Select <span 
+  class="enumerate" id="x8-191006x3">Select <span 
 class="ecbx-1200">Finish</span></li></ol>
-<!--l. 101--><p class="noindent" >This opens an editor on the demo.sad.xml file.
-<!--l. 103--><p class="noindent" >To add <a 
+<!--l. 147--><p class="noindent" >This opens an editor on the demo.sad.xml file.
+<!--l. 149--><p class="noindent" >To add <a 
 href="mainli2.html#glo:component">Components</a> to this <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>:
-<!--l. 105--><p class="noindent" >
+<!--l. 151--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-172008x1">Select the <span 
-class="ecbx-1200">Diagram </span>tab
+  class="enumerate" id="x8-191008x1">Select the <span 
+class="ecbx-1200">Diagram </span>tab.
       </li>
       <li 
-  class="enumerate" id="x8-172010x2">In the <span 
+  class="enumerate" id="x8-191010x2">In the <span 
 class="ecbx-1200">Palette</span>, drag the <span 
 class="ectt-1200">SigGen </span><a 
-href="mainli2.html#glo:component">Component</a> onto the diagram
+href="mainli2.html#glo:component">Component</a> onto the diagram.
       </li>
       <li 
-  class="enumerate" id="x8-172012x3">In the <span 
+  class="enumerate" id="x8-191012x3">In the <span 
 class="ecbx-1200">Palette</span>, drag the <span 
 class="ectt-1200">HardLimit </span><a 
-href="mainli2.html#glo:component">Component</a> onto the diagram
+href="mainli2.html#glo:component">Component</a> onto the diagram.
       </li>
       <li 
-  class="enumerate" id="x8-172014x4">Drag a connection between the <span 
+  class="enumerate" id="x8-191014x4">Drag a connection between the <span 
 class="ectt-1200">SigGen_1 </span><span 
 class="ecbx-1200">dataFloat_out </span><a 
 href="mainli2.html#glo:port">Port</a> and the <span 
 class="ectt-1200">HardLimit_1</span>
       <span 
 class="ecbx-1200">dataFloat_in </span><a 
-href="mainli2.html#glo:port">Port</a>
+href="mainli2.html#glo:port">Port</a>.
       </li>
       <li 
-  class="enumerate" id="x8-172016x5">The <a 
+  class="enumerate" id="x8-191016x5">The <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> looks like <a 
-href="#x8-172017r2">Figure 6.2</a>: <hr class="figure"><div class="figure" 
+href="#x8-191017r4">Figure 6.4</a>: <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x8-172017r2"></a> <img 
+ id="x8-191017r4"></a> <img 
 src="images/Demo_waveform.png" alt="PIC"  
 >
+                                                                                         
+                                                                                         
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.2: </td><td  
-class="content">Demo Waveform</td></tr></table><!--tex4ht:label?: x8-172017r2 -->
-      <!--l. 116--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.4: </td><td  
+class="content">Demo Waveform</td></tr></table><!--tex4ht:label?: x8-191017r4 -->
+      <!--l. 162--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x8-172019x6">If <span 
+  class="enumerate" id="x8-191019x6">If <span 
 class="ectt-1200">SigGen_1 </span>does not have a yellow 0, right-click the <a 
 href="mainli2.html#glo:component">Component</a> and select <span 
 class="ecbx-1200">Set As</span>
       <a 
 href="mainli2.html#glo:assemblycontroller"><span 
-class="ecbx-1200">Assembly Controller</span></a>
+class="ecbx-1200">Assembly Controller</span></a>.
       </li>
       <li 
-  class="enumerate" id="x8-172021x7">Press Ctrl+S to save or select <span 
+  class="enumerate" id="x8-191021x7">Press Ctrl+S to save or select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Save</span>
+class="ecbx-1200">Save</span>.
       </li>
       <li 
-  class="enumerate" id="x8-172023x8">Close the <a 
+  class="enumerate" id="x8-191023x8">Close the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> editor by selecting the <span 
 class="ecbx-1200">X </span>or by selecting <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Close All</span></li></ol>
-                                                                                         
-                                                                                         
-<!--l. 122--><p class="noindent" >
+class="ecbx-1200">Close All</span>.</li></ol>
+<!--l. 168--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.2.2   </span> <a 
- id="x8-1730006.2.2"></a>Export the Waveform</h4>
-<!--l. 124--><p class="noindent" >Below is a description of how to export the <a 
+ id="x8-1920006.2.2"></a>Export the Waveform</h4>
+<!--l. 170--><p class="noindent" >Below is a description of how to export the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> in the <a 
 href="mainap9.html#ide">IDE</a>:
-<!--l. 126--><p class="noindent" >
+<!--l. 172--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-173002x1">In the <a 
+  class="enumerate" id="x8-192002x1">In the <a 
 href="mainli2.html#glo:Project Explorer View"><span 
 class="ecbx-1200">Project Explorer View</span></a> (typically on the left-side) select <span 
-class="ecti-1200">demo</span>
+class="ecti-1200">demo</span>.
       </li>
       <li 
-  class="enumerate" id="x8-173004x2">Drag the <span 
+  class="enumerate" id="x8-192004x2">Drag the <span 
 class="ecti-1200">demo </span>project onto the <a 
 href="mainli2.html#glo:targetSDR"><span 
 class="ecbx-1200">Target SDR</span></a> in the <a 
 href="mainli2.html#glo:REDHAWK Explorer View"><span 
 class="ecbx-1200">REDHAWK Explorer View</span></a>.</li></ol>
-<!--l. 131--><p class="noindent" >This installs the <a 
+<!--l. 177--><p class="noindent" >This installs the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> into <span 
 class="ectt-1200">$SDRROOT/dom/waveforms</span>. If a permissions denied error is
 encountered, ensure that the <span 
 class="ectt-1200">$SDRROOT </span>is set up per the installation instructions in <a 
-href="mainap4.html#x23-467000D.1.2">Section
+href="mainap4.html#x23-504000D.1.2">Section
 D.1.2</a>.
-<!--l. 135--><p class="noindent" >Verify that the <a 
+<!--l. 181--><p class="noindent" >Verify that the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is installed:
-<!--l. 137--><p class="noindent" >
+<!--l. 183--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-173006x1">In the <a 
+  class="enumerate" id="x8-192006x1">In the <a 
 href="mainli2.html#glo:REDHAWK Explorer View"><span 
 class="ecbx-1200">REDHAWK Explorer View</span></a> expand <a 
 href="mainli2.html#glo:targetSDR"><span 
 class="ecbx-1200">Target SDR</span></a>.
       </li>
       <li 
-  class="enumerate" id="x8-173008x2">Expand <a 
+  class="enumerate" id="x8-192008x2">Expand <a 
 href="mainli2.html#glo:waveformapplication"><span 
 class="ecbx-1200">Waveforms</span></a>.
       </li>
       <li 
-  class="enumerate" id="x8-173010x3">Verify that the <span 
+  class="enumerate" id="x8-192010x3">Verify that the <span 
 class="ecti-1200">demo </span><a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is shown.</li></ol>
-<!--l. 143--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 189--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.2.3   </span> <a 
- id="x8-1740006.2.3"></a>Run the Waveform on the Runtime Environment</h4>
-<!--l. 145--><p class="noindent" >This section provides an overview of how to launch a <a 
+ id="x8-1930006.2.3"></a>Run the Waveform on the Runtime Environment</h4>
+<!--l. 191--><p class="noindent" >This section provides an overview of how to launch a <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> as an <a 
 href="mainli2.html#glo:application">Application</a> and release an
 <a 
 href="mainli2.html#glo:application">Application</a>.
-<!--l. 147--><p class="noindent" >
+<!--l. 193--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.2.3.1   </span> <a 
- id="x8-1750006.2.3.1"></a>Launching a Domain</h5>
-<!--l. 149--><p class="noindent" >Begin by starting a <a 
+ id="x8-1940006.2.3.1"></a>Launching a Domain</h5>
+<!--l. 195--><p class="noindent" >Begin by starting a <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> (<a 
-href="mainch11.html#x13-28000011.1.1">Section 11.1.1</a>).
-                                                                                         
-                                                                                         
-<!--l. 152--><p class="noindent" >
+href="mainch11.html#x13-30600011.1.1">Section 11.1.1</a>).
+<!--l. 198--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.2.3.2   </span> <a 
- id="x8-1760006.2.3.2"></a>Launch the Waveform</h5>
-<!--l. 154--><p class="noindent" >
+ id="x8-1950006.2.3.2"></a>Launch the Waveform</h5>
+<!--l. 200--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-176002x1">In the <a 
+  class="enumerate" id="x8-195002x1">In the <a 
 href="mainli2.html#glo:REDHAWK Explorer View"><span 
 class="ecbx-1200">REDHAWK Explorer View</span></a> right-click the <span 
 class="ecbx-1200">REDHAWK_DEV </span><a 
@@ -491,21 +558,21 @@ href="mainli2.html#glo:domain">Domain</a>
       connection.
       </li>
       <li 
-  class="enumerate" id="x8-176004x2">Select <span 
+  class="enumerate" id="x8-195004x2">Select <span 
 class="ecbx-1200">Launch Waveform...</span>
       </li>
       <li 
-  class="enumerate" id="x8-176006x3">Select the <span 
+  class="enumerate" id="x8-195006x3">Select the <span 
 class="ecti-1200">demo </span><a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, then select <span 
 class="ecbx-1200">Finish</span>.
       </li>
       <li 
-  class="enumerate" id="x8-176008x4">To start the <a 
+  class="enumerate" id="x8-195008x4">To start the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a>, select the <span 
 class="ecbx-1200">Start Waveform </span>(green triangle) button in the
       toolbar.</li></ol>
-<!--l. 161--><p class="noindent" >This opens the <a 
+<!--l. 207--><p class="noindent" >This opens the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> explorer. A <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is displayed in the <a 
 href="mainli2.html#glo:REDHAWK Explorer"><span 
@@ -515,67 +582,69 @@ class="ecbx-1200">REDHAWK_DEV </span><a
 href="mainli2.html#glo:domain">Domain</a> connection and the <a 
 href="mainli2.html#glo:waveformapplication"><span 
 class="ecbx-1200">Waveforms</span></a> folder.
-<!--l. 164--><p class="noindent" >
+<!--l. 210--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.2.3.3   </span> <a 
- id="x8-1770006.2.3.3"></a>Open a Plot</h5>
-<!--l. 165--><p class="noindent" >
+ id="x8-1960006.2.3.3"></a>Open a Plot</h5>
+<!--l. 211--><p class="noindent" >
+                                                                                         
+                                                                                         
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-177002x1">Left-click the <span 
+  class="enumerate" id="x8-196002x1">Left-click the <span 
 class="ecbx-1200">dataFloat_out </span><a 
 href="mainli2.html#glo:port">Port</a> to select it.
       </li>
       <li 
-  class="enumerate" id="x8-177004x2">Right-click the <a 
+  class="enumerate" id="x8-196004x2">Right-click the <a 
 href="mainli2.html#glo:port">Port</a> to open the <a 
 href="mainli2.html#glo:port">Port</a> context menu.
       </li>
       <li 
-  class="enumerate" id="x8-177006x3">Select <span 
+  class="enumerate" id="x8-196006x3">Select <span 
 class="ecbx-1200">Plot </span><a 
 href="mainli2.html#glo:port"><span 
 class="ecbx-1200">Port</span></a> <span 
 class="ecbx-1200">Data</span>. This opens a plot showing the plot data.
       </li>
       <li 
-  class="enumerate" id="x8-177008x4">To clearly view the sinusoid wave in the plot, reduce the frequency produced by <span 
+  class="enumerate" id="x8-196008x4">To clearly view the sinusoid wave in the plot, reduce the frequency produced by <span 
 class="ectt-1200">SigGen</span>.
       </li>
       <li 
-  class="enumerate" id="x8-177010x5">Open the <a 
+  class="enumerate" id="x8-196010x5">Open the <a 
 href="mainli2.html#glo:property"><span 
 class="ecbx-1200">Properties</span></a> View and change the frequency <a 
 href="mainli2.html#glo:property">Property</a> to a value of <span 
 class="ecti-1200">50</span>.</li></ol>
-                                                                                         
-                                                                                         
-<!--l. 174--><p class="noindent" >
+<!--l. 220--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.2.3.4   </span> <a 
- id="x8-1780006.2.3.4"></a>Stop and Release the Application</h5>
-<!--l. 176--><p class="noindent" >
+ id="x8-1970006.2.3.4"></a>Stop and Release the Application</h5>
+<!--l. 222--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x8-178002x1">Select  the  <span 
+  class="enumerate" id="x8-197002x1">Select  the  <span 
 class="ecbx-1200">Stop  Waveform </span>(red  square)  button  in  the  toolbar.  The  plot  stops
       updating.
       </li>
       <li 
-  class="enumerate" id="x8-178004x2">Select the <span 
+  class="enumerate" id="x8-197004x2">Select the <span 
 class="ecbx-1200">Release Waveform </span>(red <span 
 class="ecbx-1200">X</span>) button in the toolbar. The <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> explorer
       closes.</li></ol>
-<!--l. 181--><p class="noindent" >
+<!--l. 227--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.2.3.5   </span> <a 
- id="x8-1790006.2.3.5"></a>Shutdown the Domain</h5>
-<!--l. 183--><p class="noindent" >Finally, shutdown the <a 
+ id="x8-1980006.2.3.5"></a>Shutdown the Domain</h5>
+<!--l. 229--><p class="noindent" >Finally, shutdown the <a 
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and <a 
 href="mainli2.html#glo:devicemanager">Device Manager</a> (<a 
-href="mainch11.html#x13-28100011.1.2">Section 11.1.2</a>).
-<!--l. 185--><p class="noindent" >
+href="mainch11.html#x13-30700011.1.2">Section 11.1.2</a>).
+<!--l. 231--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">6.3   </span> <a 
- id="x8-1800006.3"></a>Waveform Deployment and Computing Resources</h3>
-<!--l. 187--><p class="noindent" ><a 
+ id="x8-1990006.3"></a>Waveform Deployment and Computing Resources</h3>
+                                                                                         
+                                                                                         
+<!--l. 233--><p class="noindent" ><a 
 href="mainli2.html#glo:component">Components</a> are processes that run on a computer. As such, each <a 
 href="mainli2.html#glo:component">Component</a> takes up some
 arbitrary, often time-varying amount of spare capacity (for example, cpu computing load, memory,
@@ -585,10 +654,10 @@ minimize the likelihood that computing resources are over-subscribed. Each compu
 REDHAWK&#8217;s <a 
 href="mainli2.html#glo:domain">Domain</a> is managed through the <a 
 href="mainli2.html#glo:gpp">GPP</a> process.
-<!--l. 192--><p class="noindent" >
+<!--l. 238--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">6.3.1   </span> <a 
- id="x8-1810006.3.1"></a>GPP Device</h4>
-<!--l. 194--><p class="noindent" >The <a 
+ id="x8-2000006.3.1"></a>GPP Device</h4>
+<!--l. 240--><p class="noindent" >The <a 
 href="mainli2.html#glo:gpp">GPP</a> <a 
 href="mainli2.html#glo:device">Device</a> is a specialized REDHAWK <a 
 href="mainli2.html#glo:device">Device</a> that manages the deployment
@@ -596,7 +665,7 @@ of <a
 href="mainli2.html#glo:component">Components</a> onto the computer and can be inspected like any other REDHAWK
 <a 
 href="mainli2.html#glo:device">Device</a>.
-<!--l. 196--><p class="noindent" ><a 
+<!--l. 242--><p class="noindent" ><a 
 href="mainli2.html#glo:gpp">GPP</a> can be in three possible usage states: <span 
 class="ectt-1200">IDLE</span>, <span 
 class="ectt-1200">ACTIVE</span>, or <span 
@@ -606,8 +675,6 @@ class="ectt-1200">BUSY</span>.
 class="ectt-1200">IDLE </span>indicates the <a 
 href="mainli2.html#glo:gpp">GPP</a> is not running any REDHAWK <a 
 href="mainli2.html#glo:component">Components</a>.
-                                                                                         
-                                                                                         
       </li>
       <li class="itemize"><span 
 class="ectt-1200">ACTIVE </span>indicates the <a 
@@ -620,7 +687,7 @@ href="mainli2.html#glo:component">Components</a>.
 class="ectt-1200">BUSY </span>indicates the <a 
 href="mainli2.html#glo:gpp">GPP</a> does not have any spare capacity to run additonal <a 
 href="mainli2.html#glo:component">Components</a>.</li></ul>
-<!--l. 202--><p class="noindent" >The usage state of any <a 
+<!--l. 248--><p class="noindent" >The usage state of any <a 
 href="mainli2.html#glo:device">Device</a> can be accessed through its <span 
 class="ectt-1200">usageState </span>member. To inspect the
 usage state:
@@ -637,7 +704,9 @@ href="mainli2.html#glo:domain">Domain</a> is running):
  &gt;&gt;> print dev._get_usageState()
 ]]></script></div>
       </li></ul>
-<!--l. 217--><p class="noindent" >The <a 
+                                                                                         
+                                                                                         
+<!--l. 263--><p class="noindent" >The <a 
 href="mainli2.html#glo:gpp">GPP</a> contains several <a 
 href="mainli2.html#glo:property">Properties</a> that are critical for the deployment of <a 
 href="mainli2.html#glo:component">Components</a> to a
@@ -666,10 +735,10 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>. Once all <a
 href="mainli2.html#glo:component">Components</a> have been assigned to specific <a 
 href="mainli2.html#glo:gpp">GPPs</a>, the deployment process
 begins.
-<!--l. 223--><p class="noindent" >
+<!--l. 269--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.3.1.1   </span> <a 
- id="x8-1820006.3.1.1"></a>Deployment Process</h5>
-<!--l. 225--><p class="noindent" >The deployment of a <a 
+ id="x8-2010006.3.1.1"></a>Deployment Process</h5>
+<!--l. 271--><p class="noindent" >The deployment of a <a 
 href="mainli2.html#glo:component">Component</a> to a <a 
 href="mainli2.html#glo:gpp">GPP</a> begins by copying all relevant files from <span 
 class="ectt-1200">$SDRROOT/dom</span>
@@ -686,9 +755,7 @@ class="ectt-1200">name&#x003E;/&#x003C;Device Name&#x003E;</span>. Note that the
 href="mainli2.html#glo:component">Component</a>&#8217;s working directory is the <a 
 href="mainli2.html#glo:gpp">GPP</a>&#8217;s cache
 directory.
-                                                                                         
-                                                                                         
-<!--l. 230--><p class="noindent" >After all files are copied, the <a 
+<!--l. 276--><p class="noindent" >After all files are copied, the <a 
 href="mainli2.html#glo:component">Component</a> is started in its own process space using the <span 
 class="ectt-1200">fork </span>system
 call. At program startup, the <a 
@@ -707,14 +774,14 @@ href="mainli2.html#glo:component">Components</a> are registered with the <a
 href="mainli2.html#glo:domainmanager">Domain Manager</a> and all <a 
 href="mainli2.html#glo:component">Component</a> initialization is
 complete.
-<!--l. 234--><p class="noindent" >
+<!--l. 280--><p class="noindent" >
 <h5 class="subsubsectionHead"><span class="titlemark">6.3.1.2   </span> <a 
- id="x8-1830006.3.1.2"></a>Using Valgrind to Debug Components</h5>
-<!--l. 236--><p class="noindent" >The <a 
+ id="x8-2020006.3.1.2"></a>Using Valgrind to Debug Components</h5>
+<!--l. 282--><p class="noindent" >The <a 
 href="mainli2.html#glo:gpp">GPP</a> supports launching <a 
 href="mainli2.html#glo:component">Components</a> using Valgrind, an open source tool that helps detect
 memory errors and leaks.
-<!--l. 238--><p class="noindent" >The <span 
+<!--l. 284--><p class="noindent" >The <span 
 class="ectt-1200">VALGRIND </span>environment variable controls this behavior:
       <ul class="itemize1">
       <li class="itemize">If <span 
@@ -729,7 +796,9 @@ class="ectt-1200">valgrind</span>.
       <li class="itemize">If <span 
 class="ectt-1200">VALGRIND </span>has a value, it is assumed to be the full path to the <span 
 class="ectt-1200">valgrind </span>executable.</li></ul>
-<!--l. 245--><p class="noindent" >Valgrind log files are written to the same directory as the <a 
+                                                                                         
+                                                                                         
+<!--l. 291--><p class="noindent" >Valgrind log files are written to the same directory as the <a 
 href="mainli2.html#glo:component">Component</a> entry point within
 the <a 
 href="mainli2.html#glo:gpp">GPP</a>&#8217;s cache. For example, if the <a 
@@ -741,10 +810,10 @@ class="ectt-1200">MyComponent/cpp</span>. The log file name follows the pattern
 <span 
 class="ectt-1200">valgrind.&#x003C;PID&#x003E;.log</span>, where PID is the process ID of the <a 
 href="mainli2.html#glo:component">Component</a>.
-<!--l. 249--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">6.3.2   </span> <a 
- id="x8-1840006.3.2"></a>Monitoring Computing Resources</h4>
-<!--l. 251--><p class="noindent" >The <a 
+<!--l. 295--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.3.1.3   </span> <a 
+ id="x8-2030006.3.1.3"></a>Monitoring Computing Resources</h5>
+<!--l. 297--><p class="noindent" >The <a 
 href="mainli2.html#glo:gpp">GPP</a> monitors the following resources:
       <ul class="itemize1">
       <li class="itemize">System:  cpu  utilization,  memory  usage,  <a 
@@ -753,9 +822,7 @@ href="mainli2.html#glo:nic">NIC</a>  usage,  total  number  of  threads,  and
       </li>
       <li class="itemize">For each <a 
 href="mainli2.html#glo:component">Component</a>: cpu usage, memory usage, and process state
-                                                                                         
-                                                                                         
-      <!--l. 256--><p class="noindent" >When a <a 
+      <!--l. 302--><p class="noindent" >When a <a 
 href="mainli2.html#glo:component">Component</a> fails (for example, segfault), the <a 
 href="mainli2.html#glo:gpp">GPP</a> issues a <br 
 class="newline" /><span 
@@ -772,7 +839,7 @@ href="mainli2.html#glo:device">Device</a> id for the <a
 href="mainli2.html#glo:gpp">GPP</a> that is running the
       <a 
 href="mainli2.html#glo:component">Component</a>.</li></ul>
-<!--l. 259--><p class="noindent" >The <a 
+<!--l. 305--><p class="noindent" >The <a 
 href="mainli2.html#glo:gpp">GPP</a> contains a <span 
 class="ectt-1200">thresholds </span>structure with five elements. The following table describes the
 elements of the <span 
@@ -781,72 +848,72 @@ href="mainli2.html#glo:property">Property</a>:
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 274--><p class="noindent" ><a 
- id="x8-184001r1"></a><hr class="float"><div class="float" 
+<!--l. 320--><p class="noindent" ><a 
+ id="x8-203001r1"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-20" class="tabular" 
+<div class="tabular"> <table id="TBL-22" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-20-1g"><col 
-id="TBL-20-1"></colgroup><colgroup id="TBL-20-2g"><col 
-id="TBL-20-2"></colgroup><tr 
+><colgroup id="TBL-22-1g"><col 
+id="TBL-22-1"></colgroup><colgroup id="TBL-22-2g"><col 
+id="TBL-22-2"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-20-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-20-1-1"  
-class="td11"> <!--l. 277--><p class="noindent" ><span 
-class="ecbx-1200">Element</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-1-2"  
-class="td11"> <!--l. 277--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-22-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-22-1-1"  
+class="td11"> <!--l. 323--><p class="noindent" ><span 
+class="ecbx-1200">Element</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-22-1-2"  
+class="td11"> <!--l. 323--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-20-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-20-2-1"  
-class="td11"> <!--l. 279--><p class="noindent" ><span 
-class="ectt-1200">mem_free</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-2-2"  
-class="td11"> <!--l. 279--><p class="noindent" >Amount of free memory available that triggers
+ style="vertical-align:baseline;" id="TBL-22-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-22-2-1"  
+class="td11"> <!--l. 325--><p class="noindent" ><span 
+class="ectt-1200">mem_free</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-22-2-2"  
+class="td11"> <!--l. 325--><p class="noindent" >Amount of free memory available that triggers
   a threshold condition (default units in MB).     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-20-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-20-3-1"  
-class="td11"> <!--l. 280--><p class="noindent" ><span 
-class="ectt-1200">nic_usage</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-3-2"  
-class="td11"> <!--l. 280--><p class="noindent" >Amount of network capacity used by the NIC
+ style="vertical-align:baseline;" id="TBL-22-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-22-3-1"  
+class="td11"> <!--l. 326--><p class="noindent" ><span 
+class="ectt-1200">nic_usage</span>         </td><td  style="white-space:wrap; text-align:left;" id="TBL-22-3-2"  
+class="td11"> <!--l. 326--><p class="noindent" >Amount of network capacity used by the NIC
   interface that triggers a threshold condition.     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-20-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-20-4-1"  
-class="td11"> <!--l. 281--><p class="noindent" ><span 
-class="ectt-1200">threads</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-4-2"  
-class="td11"> <!--l. 281--><p class="noindent" >Percentage of threads available to the GPP that
+ style="vertical-align:baseline;" id="TBL-22-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-22-4-1"  
+class="td11"> <!--l. 327--><p class="noindent" ><span 
+class="ectt-1200">threads</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-22-4-2"  
+class="td11"> <!--l. 327--><p class="noindent" >Percentage of threads available to the GPP that
   triggers a threshold condition.                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-20-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-20-5-1"  
-class="td11"> <!--l. 282--><p class="noindent" ><span 
-class="ectt-1200">files_available</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-5-2"  
-class="td11"> <!--l. 282--><p class="noindent" >Percentage of file handles remaining to the GPP
+ style="vertical-align:baseline;" id="TBL-22-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-22-5-1"  
+class="td11"> <!--l. 328--><p class="noindent" ><span 
+class="ectt-1200">files_available</span>   </td><td  style="white-space:wrap; text-align:left;" id="TBL-22-5-2"  
+class="td11"> <!--l. 328--><p class="noindent" >Percentage of file handles remaining to the GPP
   that triggers a threshold condition.                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-20-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-20-6-1"  
-class="td11"> <!--l. 283--><p class="noindent" ><span 
-class="ectt-1200">cpu_idle</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-20-6-2"  
-class="td11"> <!--l. 283--><p class="noindent" >Amount of cpu idle percentage that triggers a
+ style="vertical-align:baseline;" id="TBL-22-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-22-6-1"  
+class="td11"> <!--l. 329--><p class="noindent" ><span 
+class="ectt-1200">cpu_idle</span>          </td><td  style="white-space:wrap; text-align:left;" id="TBL-22-6-2"  
+class="td11"> <!--l. 329--><p class="noindent" >Amount of cpu idle percentage that triggers a
   threshold condition.                                     </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;6.1: </td><td  
-class="content">Thresholds Structured Property</td></tr></table><!--tex4ht:label?: x8-184001r1 -->
+class="content">Thresholds Structured Property</td></tr></table><!--tex4ht:label?: x8-203001r1 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
-<!--l. 294--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If at any point any of these thresholds is exceeded (because of any process&#8217;s usage, not just those
+<!--l. 340--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> If at any point any of these thresholds is exceeded (because of any process&#8217;s usage, not just those
 forked by the <a 
 href="mainli2.html#glo:gpp">GPP</a>), the <a 
 href="mainli2.html#glo:gpp">GPP</a> usage state changes to <span 
 class="ectt-1200">BUSY</span>. </p></div></div>
-<!--l. 298--><p class="noindent" >The <a 
+<!--l. 344--><p class="noindent" >The <a 
 href="mainli2.html#glo:gpp">GPP</a> contains a <span 
 class="ectt-1200">utilization </span>structured <a 
 href="mainli2.html#glo:property">Property</a> that shows the overall system utilization at
@@ -857,77 +924,263 @@ href="mainli2.html#glo:property">Property</a>.
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 313--><p class="noindent" ><a 
- id="x8-184002r2"></a><hr class="float"><div class="float" 
+<!--l. 359--><p class="noindent" ><a 
+ id="x8-203002r2"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-21" class="tabular" 
+<div class="tabular"> <table id="TBL-23" class="tabular" 
 cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-21-1g"><col 
-id="TBL-21-1"></colgroup><colgroup id="TBL-21-2g"><col 
-id="TBL-21-2"></colgroup><tr 
+><colgroup id="TBL-23-1g"><col 
+id="TBL-23-1"></colgroup><colgroup id="TBL-23-2g"><col 
+id="TBL-23-2"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-21-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-21-1-1"  
-class="td11"> <!--l. 316--><p class="noindent" ><span 
-class="ecbx-1200">Element</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-1-2"  
-class="td11"> <!--l. 316--><p class="noindent" ><span 
+ style="vertical-align:baseline;" id="TBL-23-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-1-1"  
+class="td11"> <!--l. 362--><p class="noindent" ><span 
+class="ecbx-1200">Element</span>             </td><td  style="white-space:wrap; text-align:left;" id="TBL-23-1-2"  
+class="td11"> <!--l. 362--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-21-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-21-2-1"  
-class="td11"> <!--l. 318--><p class="noindent" ><span 
-class="ectt-1200">description</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-2-2"  
-class="td11"> <!--l. 318--><p class="noindent" >Human-readable description of the content. In
+ style="vertical-align:baseline;" id="TBL-23-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-2-1"  
+class="td11"> <!--l. 364--><p class="noindent" ><span 
+class="ectt-1200">description</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-23-2-2"  
+class="td11"> <!--l. 364--><p class="noindent" >Human-readable description of the content. In
   the  case  of  cpu  usage,  this  element&#8217;s  content
   is &#8220;CPU cores&#8221;. The numbers in this structure
   reflect  the  effective  number  of  cores  that  are
   being utilized.                                             </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-21-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-21-3-1"  
-class="td11"> <!--l. 321--><p class="noindent" ><span 
-class="ectt-1200">component_load</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-3-2"  
-class="td11"> <!--l. 321--><p class="noindent" >Overall load by all the <a 
+ style="vertical-align:baseline;" id="TBL-23-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-3-1"  
+class="td11"> <!--l. 367--><p class="noindent" ><span 
+class="ectt-1200">component_load</span>    </td><td  style="white-space:wrap; text-align:left;" id="TBL-23-3-2"  
+class="td11"> <!--l. 367--><p class="noindent" >Overall load by all the <a 
 href="mainli2.html#glo:component">Components</a> that were
   forked by the <a 
 href="mainli2.html#glo:gpp">GPP</a>.                                      </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-21-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-21-4-1"  
-class="td11"> <!--l. 322--><p class="noindent" ><span 
-class="ectt-1200">system_load</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-4-2"  
-class="td11"> <!--l. 322--><p class="noindent" >Total load from every process, irrespective of
+ style="vertical-align:baseline;" id="TBL-23-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-4-1"  
+class="td11"> <!--l. 368--><p class="noindent" ><span 
+class="ectt-1200">system_load</span>       </td><td  style="white-space:wrap; text-align:left;" id="TBL-23-4-2"  
+class="td11"> <!--l. 368--><p class="noindent" >Total load from every process, irrespective of
   whether or not it was forked by this <a 
 href="mainli2.html#glo:gpp">GPP</a>.        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-21-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-21-5-1"  
-class="td11"> <!--l. 323--><p class="noindent" ><span 
-class="ectt-1200">subscribed</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-5-2"  
-class="td11"> <!--l. 323--><p class="noindent" >Sum of the total system load and however much
+ style="vertical-align:baseline;" id="TBL-23-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-5-1"  
+class="td11"> <!--l. 369--><p class="noindent" ><span 
+class="ectt-1200">subscribed</span>        </td><td  style="white-space:wrap; text-align:left;" id="TBL-23-5-2"  
+class="td11"> <!--l. 369--><p class="noindent" >Sum of the total system load and however much
   is reserved. (Refer to <a 
-href="#x8-1850006.3.3">Section 6.3.3</a>).                </td>
+href="#x8-2050006.3.3">Section 6.3.3</a>).                </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-21-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-21-6-1"  
-class="td11"> <!--l. 324--><p class="noindent" ><span 
-class="ectt-1200">maximum</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-21-6-2"  
-class="td11"> <!--l. 324--><p class="noindent" >Maximum load that the <a 
+ style="vertical-align:baseline;" id="TBL-23-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-23-6-1"  
+class="td11"> <!--l. 370--><p class="noindent" ><span 
+class="ectt-1200">maximum</span>           </td><td  style="white-space:wrap; text-align:left;" id="TBL-23-6-2"  
+class="td11"> <!--l. 370--><p class="noindent" >Maximum load that the <a 
 href="mainli2.html#glo:gpp">GPP</a> will accept before
   switching to a BUSY state.                           </td>
 </tr></table></div>
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;6.2: </td><td  
-class="content">Utilzation Structured Property</td></tr></table><!--tex4ht:label?: x8-184002r2 -->
+class="content">Utilzation Structured Property</td></tr></table><!--tex4ht:label?: x8-203002r2 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h4 class="subsectionHead"><span class="titlemark">6.3.2   </span> <a 
+ id="x8-2040006.3.2"></a>Binding Components to Executable Devices</h4>
+<!--l. 384--><p class="noindent" >For standard Application/Component deployment, the Application Factory searches the Domain to
+find a matching Executable Device using the OS and architecture implementation properties and
+optional implementation dependencies. The first available Executable Device matching
+those properties is selected as the deployment Device for the Component. The Software
+Assembly Definition (SAD) and Device Configuration Definition (DCD) files now allow
+system integrators to define additional id/value pairs to match against when deploying a
+Component to an Executeable Device. The following example describes the new xml elements
+(<span 
+class="ectt-1200">devicerequires </span>and <span 
+class="ectt-1200">deployerrequires</span>), that allow <span 
+class="ectt-1200">Component_1 </span>to be deployed only on
+<span 
+class="ectt-1200">RED_NODE:GPP_1</span>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+
+  <!-- example of ID/value pairs for a component in a SAD file
+     <componentplacement>
+       <componentfileref refid="Component_SPD_1"/>
+       <componentinstantiation id="Component_1" startorder="0">
+         <usagename>Component_1</usagename>
+         <findcomponent>
+            <namingservice name="Component_1"/>
+         </findcomponent>
+         <devicerequires>
+              <simpleref refid="color" value="RED"/>
+              <simpleref refid="rank" value="15"/>
+         </devicerequires>
+       </componentinstantiation>
+     </componentplacement>
+
+]]></script></div>
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+
+  <!-- example of ID/value pairs for a GPP in a DCD file
+  <componentplacement>
+      <componentfileref refid="GPP1_SPD_1"/>
+      <componentinstantiation id="RED_NODE:GPP_1">
+         <usagename>RED_NODE:GPP_1</usagename>
+         <deployerrequires>
+              <requires id="color" value="RED"/>
+              <requires id="rank" value="15"/>
+         </deployerrequires>
+      </componentinstantiation>
+  </componentplacement>
+]]></script></div>
+<!--l. 420--><p class="noindent" >During the deployment process, when a Component has a <span 
+class="ectt-1200">devicerequires </span>id/value set defined in
+a SAD file, the list of available Executable Devices in the Domain is filtered based on the entire
+id/value set. The Application Factory performs a match against the <span 
+class="ectt-1200">devicerequires </span>id/value
+pairs and the Executable Devices&#8217;s <span 
+class="ectt-1200">devicerequires </span>id/value pairs. If there is an exact match
+between both sets, that Executable Device is selected as the deployment Device. If no matching
+Executable Devices are found, then the Waveform fails to deploy and an exception is
+raised.
+<!--l. 422--><p class="noindent" >In addition to allowing Components to select deployment Devices, an Executable Device
+with a <span 
+class="ectt-1200">devicerequires </span>id/value set restricts deployment to only Components with a
+matching id/value set. All other requests for deployment to that Executable Device
+fail.
+<!--l. 424--><p class="noindent" >For Host Collocation and regular deployment requests, the following table explains the deployment
+behavior for <span 
+class="ectt-1200">devicerequires </span>and <span 
+class="ectt-1200">deployerrequires </span>id/value sets:
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 426--><p class="noindent" ><a 
+ id="x8-204001r3"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-24" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-24-1g"><col 
+id="TBL-24-1"></colgroup><colgroup id="TBL-24-2g"><col 
+id="TBL-24-2"></colgroup><colgroup id="TBL-24-3g"><col 
+id="TBL-24-3"></colgroup><colgroup id="TBL-24-4g"><col 
+id="TBL-24-4"></colgroup><colgroup id="TBL-24-5g"><col 
+id="TBL-24-5"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-1"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">device </span><br 
+class="newline" /><span 
+class="ecbx-1200">requires</span>    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-2"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">deployer </span><br 
+class="newline" /><span 
+class="ecbx-1200">requires</span>    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-3"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Host </span><br 
+class="newline" /><span 
+class="ecbx-1200">Collocation</span>     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-4"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Match</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-1-5"  
+class="td11"> <!--l. 429--><p class="noindent" ><span 
+class="ecbx-1200">Deployment</span>                       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-1"  
+class="td11"> <!--l. 430--><p class="noindent" >Yes             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-2"  
+class="td11"> <!--l. 430--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-3"  
+class="td11"> <!--l. 430--><p class="noindent" >No                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-4"  
+class="td11"> <!--l. 430--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-2-5"  
+class="td11"> <!--l. 430--><p class="noindent" >Yes, deploy on matching Device.  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-1"  
+class="td11"> <!--l. 431--><p class="noindent" >Yes             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-2"  
+class="td11"> <!--l. 431--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-3"  
+class="td11"> <!--l. 431--><p class="noindent" >No                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-4"  
+class="td11"> <!--l. 431--><p class="noindent" >No            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-3-5"  
+class="td11"> <!--l. 431--><p class="noindent" >No, matching failed.                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-1"  
+class="td11"> <!--l. 432--><p class="noindent" >Yes             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-2"  
+class="td11"> <!--l. 432--><p class="noindent" >No            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-3"  
+class="td11"> <!--l. 432--><p class="noindent" >No                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-4"  
+class="td11"> <!--l. 432--><p class="noindent" >No            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-4-5"  
+class="td11"> <!--l. 432--><p class="noindent" >No,    Device    not    used    for
+  deployment.                             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-1"  
+class="td11"> <!--l. 433--><p class="noindent" >No             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-2"  
+class="td11"> <!--l. 433--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-3"  
+class="td11"> <!--l. 433--><p class="noindent" >No                    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-4"  
+class="td11"> <!--l. 433--><p class="noindent" >No            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-5-5"  
+class="td11"> <!--l. 433--><p class="noindent" >No, skip this Device.                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-1"  
+class="td11"> <!--l. 434--><p class="noindent" >Yes (single
+  set)            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-2"  
+class="td11"> <!--l. 434--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-3"  
+class="td11"> <!--l. 434--><p class="noindent" >Yes                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-4"  
+class="td11"> <!--l. 434--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-6-5"  
+class="td11"> <!--l. 434--><p class="noindent" >Yes, entire host collocaton on this
+  Device.                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-1"  
+class="td11"> <!--l. 435--><p class="noindent" >Yes (mixed
+  sets)           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-2"  
+class="td11"> <!--l. 435--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-3"  
+class="td11"> <!--l. 435--><p class="noindent" >Yes                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-4"  
+class="td11"> <!--l. 435--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-7-5"  
+class="td11"> <!--l. 435--><p class="noindent" >No, different <span 
+class="ectt-1200">devicerequire </span>sets
+  will fail.                                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-1"  
+class="td11"> <!--l. 436--><p class="noindent" >Yes (same
+  sets)           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-2"  
+class="td11"> <!--l. 436--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-3"  
+class="td11"> <!--l. 436--><p class="noindent" >Yes                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-4"  
+class="td11"> <!--l. 436--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-8-5"  
+class="td11"> <!--l. 436--><p class="noindent" >Yes,  entire  host  collocation  on
+  this Device.                              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-1"  
+class="td11"> <!--l. 437--><p class="noindent" >No             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-2"  
+class="td11"> <!--l. 437--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-3"  
+class="td11"> <!--l. 437--><p class="noindent" >Yes                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-4"  
+class="td11"> <!--l. 437--><p class="noindent" >Yes            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-9-5"  
+class="td11"> <!--l. 437--><p class="noindent" >No, skip this Device.                  </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-24-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-24-10-1"  
+class="td11">            </td></tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;6.3: </td><td  
+class="content">Deployment Matching</td></tr></table><!--tex4ht:label?: x8-204001r3 -->
                                                                                          
                                                                                          
 </td></tr></table></div><hr class="endfloat" />
 </div>
 <h4 class="subsectionHead"><span class="titlemark">6.3.3   </span> <a 
- id="x8-1850006.3.3"></a>Capacity Reservation</h4>
-<!--l. 337--><p class="noindent" >A non-reservation strategy assumes that each process is running at full capacity at the time of
+ id="x8-2050006.3.3"></a>Capacity Reservation</h4>
+<!--l. 446--><p class="noindent" >A non-reservation strategy assumes that each process is running at full capacity at the time of
 execution. This is clearly not the case when the <a 
 href="mainli2.html#glo:waveformapplication">Waveform</a> is initially deployed because all of the
 <a 
@@ -945,7 +1198,7 @@ class="ectt-1200">IDLE</span>, <span
 class="ectt-1200">ACTIVE</span>, or
 <span 
 class="ectt-1200">BUSY</span>.
-<!--l. 339--><p class="noindent" >A non-reservation strategy with a deployment pattern where multiple <a 
+<!--l. 448--><p class="noindent" >A non-reservation strategy with a deployment pattern where multiple <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a> are launched
 and not initially started but are delayed due to system events or predefined behavior,
 can create an over-utilized system. For example, a system may initially create twenty
@@ -959,7 +1212,7 @@ system will be over utilized, and all running <a
 href="mainli2.html#glo:component">Components</a> will be affected leading to
 degraded system performance, such as data loss or lack of timely response to message
 events.
-<!--l. 341--><p class="noindent" >To mitigate this issue, the <a 
+<!--l. 450--><p class="noindent" >To mitigate this issue, the <a 
 href="mainli2.html#glo:gpp">GPP</a> maintains a reservation-based strategy to properly forecast the
 CPU load for each <a 
 href="mainli2.html#glo:component">Component</a> it manages. During initial <a 
@@ -981,7 +1234,32 @@ class="ectt-1200">BUSY</span>
 class="ectt-1200">utilization.subscribed </span><a 
 href="mainli2.html#glo:property">Property</a> maintains the runtime value of the total
 reservation for the system.
-<!--l. 343--><p class="noindent" >The Property, <span 
+<!--l. 452--><p class="noindent" ><hr class="figure"><div class="figure" 
+><table class="figure"><tr class="figure"><td class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x8-205001r5"></a>
+                                                                                         
+                                                                                         
+<!--l. 455--><p class="noindent" ><img 
+src="images/reservation_schema.png" alt="PIC"  
+>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;6.5: </td><td  
+class="content">Example Reservation Schema</td></tr></table><!--tex4ht:label?: x8-205001r5 -->
+                                                                                         
+                                                                                         
+<!--l. 457--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 459--><p class="noindent" >In figure <a 
+href="#x8-2050006.3.3">6.3.3<!--tex4ht:ref: figure:ReservationSchema --></a>, an example of the reservation schema is shown where actual usage is shown in
+green, reserved capacity is shown in blue, and the maximum for the host is shown in orange. In the
+figure shown, the GPP&#8217;s capacity calculation is affected by the <a 
+href="mainli2.html#glo:component">Components</a> deployed and whether
+or not its host <a 
+href="mainli2.html#glo:application">Application</a> is started.
+<!--l. 462--><p class="noindent" >The Property, <span 
 class="ectt-1200">reserved_capacity_per_component</span>, is the default forecasted load for every
 <a 
 href="mainli2.html#glo:component">Component</a> deployed by the GPP. A finer resolution forecast load can be provided when the
@@ -997,8 +1275,6 @@ href="mainli2.html#glo:waveformapplication">Waveform</a>, <span
 class="ectt-1200">my_wave</span>,
 has a reservation floor of <span 
 class="ectt-1200">4 </span>cpu cores.
-                                                                                         
-                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 from ossie.utils import redhawk
 from ossie.cf import CF
@@ -1010,6 +1286,128 @@ _value=any.to_any(extra_reservation)
 _value._t=CORBA.TC_double  # make sure that the number is packed as a double
 app_1=dom.createApplication('/waveforms/my_wave/my_wave.sad.xml','my_wave',[CF.DataType(id='SPECIALIZED_CPU_RESERVATION',value=any.to_any([CF.DataType(id='my_comp_1',value=any.to_any(_value))]))])
 print dev._get_usageState()  # view the reservation effect
+]]></script></div>
+<h4 class="subsectionHead"><span class="titlemark">6.3.4   </span> <a 
+ id="x8-2060006.3.4"></a>Resource Affinity</h4>
+<!--l. 481--><p class="noindent" >Modern Linux kernels support the ability to define memory and processor affinity using the Non
+Uniformed Memory Access (NUMA) library. REDHAWK has added support to define processor
+affinity during the Component deployment process as specified in a Waveform&#8217;s SAD file. The
+<span 
+class="ectt-1200">affinity </span>element can be added to the <span 
+class="ectt-1200">componentplacement</span>/<span 
+class="ectt-1200">componentinstantiation </span>element
+for the resource. During deployment, the REDHAWK GPP recognizes these options and
+performs the appropriate affinity requests when the resource is executed. An affinity request
+is defined by the following two intrinsic Property identifiers added to the <span 
+class="ectt-1200">affinity</span>
+element.
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">affinity::exec_directive_class </span>- The context classification of affinity directive to
+                                                                                         
+                                                                                         
+      perform. (Refer to <a 
+href="#x8-206001r4">Table 6.4</a>.)
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">affinity::exec_directive_value </span>-  Value  to  use  when  processing  the  affinity
+      directive.</li></ul>
+<div class="table">
+                                                                                         
+                                                                                         
+<!--l. 489--><p class="noindent" ><a 
+ id="x8-206001r4"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                         
+                                                                                         
+<div class="tabular"> <table id="TBL-25" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-25-1g"><col 
+id="TBL-25-1"></colgroup><colgroup id="TBL-25-2g"><col 
+id="TBL-25-2"></colgroup><colgroup id="TBL-25-3g"><col 
+id="TBL-25-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-25-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-1-1"  
+class="td11"> <!--l. 493--><p class="noindent" ><span 
+class="ecbx-1200">Directive</span>
+ <span 
+class="ecbx-1200">Class</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-1-2"  
+class="td11"> <!--l. 493--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-1-3"  
+class="td11"> <!--l. 493--><p class="noindent" ><span 
+class="ecbx-1200">Values</span>                                        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-25-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-2-1"  
+class="td11"> <!--l. 494--><p class="noindent" ><span 
+class="ectt-1200">socket</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-2-2"  
+class="td11"> <!--l. 494--><p class="noindent" >Processor  affinity  using  a
+  processor  socket  identifier
+  set.                                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-2-3"  
+class="td11"> <!--l. 494--><p class="noindent" >Supported  values  are  defined  by  the
+  numa  library&#8217;s  <span 
+class="ectt-1200">numa_parse_nodestring</span>
+ <span 
+class="ectt-1200">method</span>; consult the numa man page for
+  further clarification.                              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-25-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-3-1"  
+class="td11"> <!--l. 495--><p class="noindent" ><span 
+class="ectt-1200">cpu</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-3-2"  
+class="td11"> <!--l. 495--><p class="noindent" >CPU  affinity  using  a  cpu
+  identifier set.                     </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-3-3"  
+class="td11"> <!--l. 495--><p class="noindent" >Supported  values  are  defined  by  numa
+  library&#8217;s            <span 
+class="ectt-1200">numa_parse_cpustring</span>
+ <span 
+class="ectt-1200">method</span>; consult the numa man page for
+  futher clarification.                               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-25-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-4-1"  
+class="td11"> <!--l. 496--><p class="noindent" ><span 
+class="ectt-1200">nic</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-4-2"  
+class="td11"> <!--l. 496--><p class="noindent" >Determine
+  which  CPU  manages  the
+  nic&#8217;s interrupts then assign
+  processor affiliation to that
+  cpu.                                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-25-4-3"  
+class="td11"> <!--l. 496--><p class="noindent" >Name            of            a            host&#8217;s
+  network interface. Processor identification
+  is resolved by processing/proc/interrupts
+  for the requested interface name.             </td>
+</tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;6.4: </td><td  
+class="content">Affinity Class Directives</td></tr></table><!--tex4ht:label?: x8-206001r4 -->
+                                                                                         
+                                                                                         
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 502--><p class="noindent" >The current REDHAWK development tool set does not support the inclusion of the <span 
+class="ectt-1200">affinity</span>
+element into a SAD file. Adding this element requires manual editing of the file with a text editor.
+The following example restricts the processor affinity for Component C2_1 to CPU number
+5.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+
+     <componentplacement>
+       <componentfileref refid="C2_5fb7296e-b543-43fc-bc14-88a9299b458b"/>
+       <componentinstantiation id="C2_1" startorder="1">
+         <usagename>C2_1</usagename>
+         <affinity>
+            <simpleref refid="affinity::exec_directive_class" value="cpu" />
+            <simpleref refid="affinity::exec_directive_value" value="5"/>
+         </affinity>
+         <findcomponent>
+           <namingservice name="C2_1"/>
+         </findcomponent>
+       </componentinstantiation>
+     </componentplacement>
+
+
 ]]></script></div>
                                                                                          
                                                                                          

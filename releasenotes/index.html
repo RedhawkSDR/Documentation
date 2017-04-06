@@ -63,6 +63,37 @@ instances and applications.</p>
 
 <h3>Recent Announcements</h3>
 
+<p><strong>Release of REDHAWK 2.1.0 (April 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.1.0 focused on:
+<ul>
+
+<li>Adding support for Components to be deployed on a specific GPP, and conversely allowing the GPP to restrict deployments through a matching set of id/value pairs. These id/value pairs are defined in the Software Assembly Descriptor and Device Configuration Definition files respectively. Users may refer to this feature as the "special snowflake" deployment Property.
+<li>Shared address space Components: Significant enhancement of Component model and BULKIO to support high performance I/O. Preliminary developer documentation for the REDHAWK 2.1.0 Beta Release is available at <a href="https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address">https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address</a>. This feature will be under extensive evaluation during the 2.1.x beta release series and is expected to provide the ground work for several new major enhancements to REDHAWK.
+<li>Adding support for a new type of Property, "utctime", extending the list that includes types such as "short" or "string". This timestamp Property is used in Property change events and can be queried from Components/Devices with the id QUERY_TIMESTAMP, which is useful when synchronizing the state of the system. The new type of Property can be used by Component/Device developers as an additional type of Property.
+<li>Adding cacheDirectory and workingDirectory Properties to the GPP. These properties provide the deployer with control over where Components are stored (cacheDirectory) and the directory from which Components are executed (workingDirectory).
+<li>Redesigning the IDE's Event Viewer to improve the ability to monitor event channels.
+<li>Ending support of Command-line interactive mode (-i) on Components, Services, and Devices. Terminal prompt interactions should be through the Python Sandbox.
+<li>Improving Python tooling to help manage REDHAWK systems. For example, these improvements include eventChannelManager, allocationManager, and connectionManager helpers as well as simpler event monitoring.
+<li>Adding functionality to allow Components that have a usesdevice dependency to now be launched on the same host (i.e., Device Manager/Node) as the Device satisfying the usesdevice requirement. This functionality is provided through an extension of the componentplacement hostcollocation.
+<li>Improving recovery of a REDHAWK Domain after a catastrophic failure. The Device Manager reboots all associated Devices/Services when it detects a reset Domain Manager after a catastrophic failure in the Domain Manager. This reboot only happens if (1) persistence is enabled and (2) the name service log, event service log, and persistence database are emptied.
+<li>Adding new concurrent logging appender for C++ Components to improve readability of logging messages when multiple processes are writing to the same log file.
+<li>Improving the New Project Wizard to warn users if the project location selected already contains files that will become part of the project. Increase user awareness of files that may be moved, deleted, or packaged with a project.
+<li>Updating the IDE to use the latest available Eclipse tooling, Eclipse Neon. For more information about Eclipse Neon, refer to <a href="http://www.eclipse.org/neon/noteworthy">http://www.eclipse.org/neon/noteworthy</a>.
+<li>Documenting a publisher/subscriber pattern when accessing an EventChannel from the Domain.
+<li>Documenting available affinity processing directives when deploying Devices, Services, and Components.
+<li>Adding support for the REDHAWK Core Framework, IDE, assets, and new REDHAWK projects to now compile against and run on Java 8.
+<li>Extending DeviceManager to call configure() on Services at the time they register. This enables users to implement custom Property handling if so desired.
+<li>Resolving issue when activating local servants for MessageConsumerPort and MessageSupplierPort Java classes.
+<li>Improving Python Sandbox tooling for new Domain features and resources. Specifically, extended DataSource to provide access to all the available SRI and the data timestamp.
+<li>Adding reservation schema graph in the documentation to enhance the text describing capacity allocation reservation for the GPP.
+<li>Improving documentation of Signal Related Information (SRI).
+<li>Updating Contributor License Agreement (CLA).
+<li>Addressing numerous bug fixes.
+</ul>
+
+<p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
+
+
+
 <p><strong>Release of REDHAWK 2.0.5 (February 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.5 focused on:
 <ul>
 
@@ -74,7 +105,7 @@ instances and applications.</p>
 <li>Addressing numerous bug fixes.
 </ul>
 
-<p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
+
 
 <p><strong>Release of REDHAWK 2.0.4 (December 30, 2016)</strong> - The effort in REDHAWK 2.0.4 focused on:
 <ul>
