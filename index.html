@@ -73,6 +73,7 @@ instances and applications.</p>
     <li> REDHAWK WebSocket: Provides an HTML5-compliant WebSocket implementation that enables the ability to stream data from any REDHAWK BulkIO-enabled Port or Event Channel.
     <li> Camel REDHAWK: Provides a Camel Component for interacting with a REDHAWK Domain. This Component can be connected with other Apache Camel Components as a data flow solution.
   </ul>
+For more information about the REDHAWK Enterprise Integration Assets, refer to the <a href="enterprise/index.html">REDHAWK Enterprise Integration User Guide</a>.<br><br>
 <li> Providing diagnostic messages for log4py configuration files that contain errors and adding support to allow line continuation characters in the log configuration files.
 <li> Improving the IDE's Domain refresh logic to prevent the IDE from consuming excessive numbers of threads in some scenarios.
 <li> Documenting a publisher/subscriber pattern when accessing an EventChannel from the Domain.
@@ -124,7 +125,6 @@ instances and applications.</p>
 <p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
 
 
-
 <p><strong>Release of REDHAWK 2.0.5 (February 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.5 focused on:
 <ul>
 
@@ -134,80 +134,6 @@ instances and applications.</p>
 <li>Improving the handling of missing event message fields in C++ and Python.
 <li>Ensuring external Port names are recognized.
 <li>Addressing numerous bug fixes.
-</ul>
-
-
-
-<p><strong>Release of REDHAWK 2.0.4 (December 30, 2016)</strong> - The effort in REDHAWK 2.0.4 focused on:
-<ul>
-
-<li>Adding support for the CentOS 7 operating system.
-<li>Updating the REDHAWK IDE to require Java 8.
-<li>Adding support for two new Core Assets, SinkSDDS and SourceSDDS, which convert between SDDS and BulkIO data formats.
-<li>Adding messages to indicate to the user the reason why the GPP is busy.
-<li>Adding more IDE XML validation to help users catch issues sooner when designing projects.
-<li>Correcting issues with Redhawk-generated build scripts that prevented errors from being displayed.
-<li>Adding 'Connect' and 'Show Properties View' in the Graphiti diagram context menus.
-<li>Adding GPP label to the Domain Manager log message when deploying Components or Waveforms to enable quick identification of which GPP the Domain Manager is attempting to launch Components on.
-<li>Improving the REDHAWK Explorer product to use the new Graphiti diagrams introduced in the REDHAWK 2.0.0 IDE.
-<li>Improving IDE namespace support to give users an error if they have multiple resources with conflicting IDs in the SDRROOT.
-<li>Addressing numerous bug fixes.
-</ul>
-
-
-<p><strong>Release of REDHAWK 2.0.3 (October 5, 2016)</strong> - REDHAWK 2.0.3 addresses the following:
-
-<ul>
-<li>Improvements to GPP automatic resource monitoring caused a memory leak. - Fixed.
-<li>Incorrect return type in the GPS interface implementation of FrontEnd Interfaces. - Fixed.
-<li>Python Devices failed to launch when a logging config file is specified. - Fixed.
-</ul>
-
-
-<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.2">Release of REDHAWK 2.0.2</a> (September 1, 2016)</strong> - The effort in REDHAWK 2.0.2 focused on:
-<ul>
-<li>Improving how error messages are displayed to the user in the IDE.
-<li>Adding new abilities to interact with logging for Components and Devices in the IDE.
-<li>Providing better awareness of resource utilization on the host computer.
-<li>Adding better support for creating FEI Devices written in Python.
-<li>Addressing numerous Discrepancy Reports (DRs).
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/TuneFilterDecimate/releases/2.0.1">Release of TuneFilterDecimate 2.0.1 for the REDHAWK 2.0 series</a> (July 29, 2016) </strong> - TuneFilterDecimate 2.0.1 resolves the following issue:
-<ul>
-<li>Fixed calculation of SRI keyword CHAN_RF for tuning mode NORM
-</ul>
-
-
-<p><strong><a href="https://github.com/RedhawkSDR/FileWriter/releases/4.0.2">Release of FileWriter 4.0.2 for the REDHAWK 2.0 series</a> (July 5, 2016) </strong> - FileWriter 4.0.2 resolves the following issues:
-<ul>
-<li>Fixed feature that starts a new file following a retune
-<li>Fixed initial configuration of overridden property values
-<li>Fixed several bugs with recording timer
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/USRP_UHD/releases/tag/3.0.2">Final Release of USRP_UHD 3.0.2 for the REDHAWK 1.10.0 series</a> (May 11, 2016) </strong> - The effort in the USRP_UHD 3.0.2 release focused on resolving the following issues in the USRP_UHD.
-<ul>
-<li>Fixed error causing invalid SRI to be sent for all allocations after the initial allocation.
-<li>Added node-config script to the Device.
-<li>Fixed error causing Ubuntu build failure.
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.1">Final Release of REDHAWK 2.0.1</a> (April 15, 2016)</strong> - The effort in REDHAWK 2.0.1 focused on:
-<ul>
-<li>Enhancing the level of control that a system deployer has to customize the reservation schema used to manage computing resources.
-<li>Adding Python operators and Java methods to simplify common arithmetic operations on BulkIO time stamps.
-<li>Addressing numerous Discrepancy Reports (DRs).
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.0">Final Release of REDHAWK 2.0</a> (December 10, 2015)</strong> - The effort in REDHAWK 2.0 focused on improving system management, establishing a core set of REDHAWK assets, and enhancing the IDE user experience.  This effort included:
-<ul>
-<li>improving processing performance</li>
-<li>promoting consistency among core assets</li>
-<li>improving and focusing on a comprehensive set of core assets, including the addition of Waveforms</li>
-<li>providing an improved user experience by re-implementing IDE diagrams for Waveforms and Nodes</li>
-<li>adding IDE support for REDHAWK shared library projects</li>
-<li>adding IDE support for differentiating projects with namespaces</li>
 </ul>
 
 <p>Within the Core Framework, system scalability was addressed by creating or expanding system managers (connections, allocations, and events), improving the dependency management structure for Components, and by further automating the process of distributing processing tasks. Processing performance improvements focused on NUMA balancing related to both processing and data ingest/egress. Finally, the burden on the component developer was reduced by making it easier to access  system resources, simplifying properties, shifting BulkIO data management from packet-based to stream-based, and simplifying the structure of generated code.</p>
