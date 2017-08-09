@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>I List of Acronyms</title> 
+<head><title>I Logging Configuration Plugin</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -46,630 +46,337 @@ window.attachEvent("onload", f);
 <!-- Custom MAIN CONTENT --> 
 <div id="main_content_wrap" tabindex="0" class="outer"> 
 <section id="main_content" class="inner"> 
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap10.html" >next</a>] [<a 
 href="mainap8.html" >prev</a>] [<a 
 href="mainap8.html#tailmainap8.html" >prev-tail</a>] [<a 
 href="#tailmainap9.html">tail</a>] [<a 
 href="main.html#mainap9.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;I</span><br /><a 
- id="x28-581000I"></a>List of Acronyms</h2>
-  <dl class="list1"><dt class="list">
-<a 
- id="ajax"></a><span 
-class="ecsx-1200">AJAX</span> </dt><dd 
-class="list">
-  <!--l. 4--><p class="noindent" >Asynchronous
-  JavaScript
-  and
-  <a 
-href="#xml">XML</a>
-  </dd><dt class="list">
-<a 
- id="api"></a><span 
-class="ecsx-1200">API</span> </dt><dd 
-class="list">
-  <!--l. 5--><p class="noindent" >Application
-  Programming
-  Interface
-  </dd><dt class="list">
-<a 
- id="ast"></a><span 
-class="ecsx-1200">AST</span> </dt><dd 
-class="list">
-  <!--l. 6--><p class="noindent" >Abstract
-  Syntax
-  Tree
-  </dd><dt class="list">
-<a 
- id="bulkio"></a><span 
-class="ecsx-1200">BulkIO</span> </dt><dd 
-class="list">
-  <!--l. 7--><p class="noindent" >Bulk
-  Input/Output
-  </dd><dt class="list">
-<a 
- id="burstio"></a><span 
-class="ecsx-1200">BurstIO</span> </dt><dd 
-class="list">
-  <!--l. 8--><p class="noindent" >Burst
-  Input/Output
-  </dd><dt class="list">
+ id="x28-586000I"></a>Logging Configuration Plugin</h2>
+<h3 class="sectionHead"><span class="titlemark">I.1   </span> <a 
+ id="x28-587000I.1"></a>Introduction</h3>
+<!--l. 5--><p class="noindent" >The <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> may be extended to use a loadable library that can assist in
+the resolution of the <span 
+class="ectt-1200">LOGGING_CONFIG_URI </span>parameter during application deployments.
+The following code and build files provide a template to build the loadable library:
+<span 
+class="ectt-1200">libossielogcfg.so</span>.
+<!--l. 7--><p class="noindent" >The library should installed in <span 
+class="ectt-1200">$OSSIEHOME/lib64 </span>or <span 
+class="ectt-1200">$OSSIEHOME/lib </span>depending on your
+hardware and operating system. If you choose to install the library in a different directory, you will
+need to add this path to <span 
+class="ectt-1200">LD_LIBRARY_PATH </span>before starting the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>. To enable this
+feature in the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>, use the <span 
+class="ectt-1200">&#8211;-useloglib </span>option when launching the <span 
+class="ectt-1200">nodeBooter</span>
+program.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+
+nodeBooter -D --useloglib
+
+]]></script></div>
+<!--l. 16--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">I.2   </span> <a 
+ id="x28-588000I.2"></a><span 
+class="ectt-1200">LogConfigUriResolver </span>Class and Example</h3>
+<!--l. 18--><p class="noindent" >The <span 
+class="ectt-1200">LogConfigUriResolver </span>class is the base class that your customized class will inherit. The
+class contains a single method <span 
+class="ectt-1200">get_uri</span>, that will be used to resolve the logging configuration file
+location during deployment. The method accepts a single parameter <span 
+class="ectt-1200">path </span>that describes
+the resource&#8217;s path in the <span 
+class="ectt-1200">Domain</span>. The following list describes the different resource
+paths:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ecbx-1200">Component</span>
+           <dl class="description"><dt class="description">
                                                                                          
                                                                                          
-<a 
- id="cdt"></a><span 
-class="ecsx-1200">CDT</span> </dt><dd 
-class="list">
-  <!--l. 9--><p class="noindent" >C/C++
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="centos"></a><span 
-class="ecsx-1200">CentOS</span> </dt><dd 
-class="list">
-  <!--l. 10--><p class="noindent" >Community
-  Enterprise
-  Operating
-  System
-  </dd><dt class="list">
-<a 
- id="cf"></a><span 
-class="ecsx-1200">CF</span> </dt><dd 
-class="list">
-  <!--l. 11--><p class="noindent" >Core
-  Framework
-  </dd><dt class="list">
-<a 
- id="corba"></a><span 
-class="ecsx-1200">CORBA</span> </dt><dd 
-class="list">
-  <!--l. 12--><p class="noindent" >Common
-  Object
-  Request
-  Broker
-  Architecture
-  </dd><dt class="list">
-<a 
- id="cvs"></a><span 
-class="ecsx-1200">CVS</span> </dt><dd 
-class="list">
-  <!--l. 13--><p class="noindent" >Concurrent
-  Versions
-  System
-  </dd><dt class="list">
-<a 
- id="dcd"></a><span 
-class="ecsx-1200">DCD</span> </dt><dd 
-class="list">
-  <!--l. 14--><p class="noindent" >Device
-  Configuration
-  Descriptor
+      <span 
+class="ecbx-1200">syntax</span> </dt><dd 
+class="description">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="dce"></a><span 
-class="ecsx-1200">DCE</span> </dt><dd 
-class="list">
-  <!--l. 15--><p class="noindent" >Distributed
-  Computing
-  Environment
-  </dd><dt class="list">
-<a 
- id="ddc"></a><span 
-class="ecsx-1200">DDC</span> </dt><dd 
-class="list">
-  <!--l. 16--><p class="noindent" >Digital
-  Down
-  Converter
-  </dd><dt class="list">
-<a 
- id="dmd"></a><span 
-class="ecsx-1200">DMD</span> </dt><dd 
-class="list">
-  <!--l. 17--><p class="noindent" >Domain
-  Manager
-  Configuration
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dpd"></a><span 
-class="ecsx-1200">DPD</span> </dt><dd 
-class="list">
-  <!--l. 18--><p class="noindent" >Device
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dsp"></a><span 
-class="ecsx-1200">DSP</span> </dt><dd 
-class="list">
-  <!--l. 19--><p class="noindent" >Digital
-  Signal
-  Processing
-  </dd><dt class="list">
-<a 
- id="dtd"></a><span 
-class="ecsx-1200">DTD</span> </dt><dd 
-class="list">
-  <!--l. 20--><p class="noindent" >Document
-  Type
-  Definition
+           <div class="verbatim">
+           rsc:&#x003C;DomainName&#x003E;/&#x003C;Application&#x00A0;ID&#x003E;/&#x003C;Component's&#x00A0;Naming&#x00A0;Service&#x00A0;Name&#x003E;
+</div>
+           <!--l. 23--><p class="nopar" >
+           </dd><dt class="description">
+      <span 
+class="ecbx-1200">example</span> </dt><dd 
+class="description">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="efs"></a><span 
-class="ecsx-1200">EFS</span> </dt><dd 
-class="list">
-  <!--l. 21--><p class="noindent" >Eclipse
-  File
-  System
-  </dd><dt class="list">
-<a 
- id="emf"></a><span 
-class="ecsx-1200">EMF</span> </dt><dd 
-class="list">
-  <!--l. 22--><p class="noindent" >Eclipse
-  Modeling
-  Framework
-  </dd><dt class="list">
-<a 
- id="eos"></a><span 
-class="ecsx-1200">EOS</span> </dt><dd 
-class="list">
-  <!--l. 23--><p class="noindent" >End
-  of
-  Stream
-  </dd><dt class="list">
-<a 
- id="epel"></a><span 
-class="ecsx-1200">EPEL</span> </dt><dd 
-class="list">
-  <!--l. 24--><p class="noindent" >Extra
-  Packages
-  for
-  Enterprise
-  Linux
-  </dd><dt class="list">
-<a 
- id="fei"></a><span 
-class="ecsx-1200">FEI</span> </dt><dd 
-class="list">
-  <!--l. 25--><p class="noindent" >Front
-  End
-  Interfaces
-  </dd><dt class="list">
-<a 
- id="fft"></a><span 
-class="ecsx-1200">FFT</span> </dt><dd 
-class="list">
-  <!--l. 26--><p class="noindent" >Fast
-  Fourier
-  Transform
+           <div class="verbatim">
+           rsc:REDHAWK_DEV/TestWave_2/MyComp_4&#x00A0;
+</div>
+           <!--l. 24--><p class="nopar" ></dd></dl>
+      </li>
+      <li class="itemize"><span 
+class="ecbx-1200">Device</span>
+           <dl class="description"><dt class="description">
+      <span 
+class="ecbx-1200">syntax</span> </dt><dd 
+class="description">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="fpga"></a><span 
-class="ecsx-1200">FPGA</span> </dt><dd 
-class="list">
-  <!--l. 27--><p class="noindent" >Field-programmable
-  gate
-  array
-  </dd><dt class="list">
-<a 
- id="fm"></a><span 
-class="ecsx-1200">FM</span> </dt><dd 
-class="list">
-  <!--l. 28--><p class="noindent" >Frequency
-  Modulation
-  </dd><dt class="list">
-<a 
- id="gmf"></a><span 
-class="ecsx-1200">GMF</span> </dt><dd 
-class="list">
-  <!--l. 29--><p class="noindent" >Graphical
-  Modeling
-  Framework
-  </dd><dt class="list">
-<a 
- id="gpp"></a><span 
-class="ecsx-1200">GPP</span> </dt><dd 
-class="list">
-  <!--l. 30--><p class="noindent" >General
-  Purpose
-  Processor
-  </dd><dt class="list">
-<a 
- id="gui"></a><span 
-class="ecsx-1200">GUI</span> </dt><dd 
-class="list">
-  <!--l. 31--><p class="noindent" >Graphical
-  User
-  Interface
-  </dd><dt class="list">
-<a 
- id="http"></a><span 
-class="ecsx-1200">HTTP</span> </dt><dd 
-class="list">
-  <!--l. 32--><p class="noindent" >Hyper
-  Text
-  Transport
-  Protocol
+           <div class="verbatim">
+           dev:&#x003C;DomainName&#x003E;/&#x003C;Node&#x00A0;ID&#x003E;/&#x003C;Device's&#x00A0;Naming&#x00A0;Service&#x00A0;Name&#x003E;
+</div>
+           <!--l. 28--><p class="nopar" >
+           </dd><dt class="description">
+      <span 
+class="ecbx-1200">example</span> </dt><dd 
+class="description">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="ide"></a><span 
-class="ecsx-1200">IDE</span> </dt><dd 
-class="list">
-  <!--l. 33--><p class="noindent" >Integrated
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="idm"></a><span 
-class="ecsx-1200">IDM</span> </dt><dd 
-class="list">
-  <!--l. 34--><p class="noindent" >Incoming
-  Domain
-  Management
-  </dd><dt class="list">
-<a 
- id="if"></a><span 
-class="ecsx-1200">IF</span> </dt><dd 
-class="list">
-  <!--l. 35--><p class="noindent" >Intermediate
-  Frequency
-  </dd><dt class="list">
-<a 
- id="ior"></a><span 
-class="ecsx-1200">IOR</span> </dt><dd 
-class="list">
-  <!--l. 36--><p class="noindent" >Interoperable
-  Object
-  Reference
-  </dd><dt class="list">
-<a 
- id="id"></a><span 
-class="ecsx-1200">ID</span> </dt><dd 
-class="list">
-  <!--l. 37--><p class="noindent" >Identifier
-  </dd><dt class="list">
-<a 
- id="idl"></a><span 
-class="ecsx-1200">IDL</span> </dt><dd 
-class="list">
-  <!--l. 38--><p class="noindent" >Interface
-  Description
-  Language
-  </dd><dt class="list">
-<a 
- id="jar"></a><span 
-class="ecsx-1200">JAR</span> </dt><dd 
-class="list">
+           <div class="verbatim">
+           dev:REDHAWK_DEV/Node_1/MyDevice_4&#x00A0;
+</div>
+           <!--l. 29--><p class="nopar" ></dd></dl>
+      </li>
+      <li class="itemize"><span 
+class="ecbx-1200">Service</span>
+           <dl class="description"><dt class="description">
+      <span 
+class="ecbx-1200">syntax</span> </dt><dd 
+class="description">
                                                                                          
                                                                                          
-  <!--l. 39--><p class="noindent" >Java
-  ARchive
-  </dd><dt class="list">
-<a 
- id="jdt"></a><span 
-class="ecsx-1200">JDT</span> </dt><dd 
-class="list">
-  <!--l. 40--><p class="noindent" >Java
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="jee"></a><span 
-class="ecsx-1200">JEE</span> </dt><dd 
-class="list">
-  <!--l. 41--><p class="noindent" >Java
-  Platform,
-  Enterprise
-  Edition
-  </dd><dt class="list">
-<a 
- id="jtrs"></a><span 
-class="ecsx-1200">JTRS</span> </dt><dd 
-class="list">
-  <!--l. 42--><p class="noindent" >Joint
-  Tactical
-  Radio
-  System
-  </dd><dt class="list">
-<a 
- id="mb"></a><span 
-class="ecsx-1200">MB</span> </dt><dd 
-class="list">
-  <!--l. 43--><p class="noindent" >Megabyte
-  </dd><dt class="list">
-<a 
- id="noop"></a><span 
-class="ecsx-1200">NOOP</span> </dt><dd 
-class="list">
-  <!--l. 44--><p class="noindent" >No
-  Operation
-  </dd><dt class="list">
-<a 
- id="odm"></a><span 
-class="ecsx-1200">ODM</span> </dt><dd 
-class="list">
-  <!--l. 45--><p class="noindent" >Outgoing
-  Domain
-  Management
+           <div class="verbatim">
+           svc:&#x003C;DomainName&#x003E;/&#x003C;Node&#x00A0;ID&#x003E;/&#x003C;Service's&#x00A0;Naming&#x00A0;Service&#x00A0;Name&#x003E;
+</div>
+           <!--l. 33--><p class="nopar" >
+           </dd><dt class="description">
+      <span 
+class="ecbx-1200">example</span> </dt><dd 
+class="description">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="os"></a><span 
-class="ecsx-1200">OS</span> </dt><dd 
-class="list">
-  <!--l. 46--><p class="noindent" >Operating
-  System
-  </dd><dt class="list">
-<a 
- id="osgi"></a><span 
-class="ecsx-1200">OSGi</span> </dt><dd 
-class="list">
-  <!--l. 47--><p class="noindent" >Open
-  Services
-  Gateway
-  initiative
-  </dd><dt class="list">
-<a 
- id="pde"></a><span 
-class="ecsx-1200">PDE</span> </dt><dd 
-class="list">
-  <!--l. 48--><p class="noindent" >Plug-in
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="pid"></a><span 
-class="ecsx-1200">PID</span> </dt><dd 
-class="list">
-  <!--l. 49--><p class="noindent" >Process
-  Identifier
-  </dd><dt class="list">
-<a 
- id="posix"></a><span 
-class="ecsx-1200">POSIX</span> </dt><dd 
-class="list">
-  <!--l. 50--><p class="noindent" >Portable
-  Operating
-  System
-  Interface
-  </dd><dt class="list">
-<a 
- id="prf"></a><span 
-class="ecsx-1200">PRF</span> </dt><dd 
-class="list">
-  <!--l. 51--><p class="noindent" >Properties
-  File
-  </dd><dt class="list">
+           <div class="verbatim">
+           svc:REDHAWK_DEV/Node_1/MyRedis_3&#x00A0;
+</div>
+           <!--l. 34--><p class="nopar" ></dd></dl>
+      </li></ul>
+<!--l. 38--><p class="noindent" >Using this path, the customized code should return the location of a logging configuration file or an
+empty string (use current default resolution method). Logging configuration file locations should be
+formatted as follows:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">sca://path/to/config/file</span>
+           <ul class="itemize2">
+           <li class="itemize">sca://logcfg/comp.log.cfg</li></ul>
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">file:///absolute/path/to/config/file</span>
+           <ul class="itemize2">
+           <li class="itemize">file:///var/redhawk/sdr/dom/logcfg/comp.log.cfg</li></ul>
+      </li></ul>
+<!--l. 51--><p class="noindent" >The following example code creates a custom resolver class that provides logging configuration files
+from the local <span 
+class="ectt-1200">SDRROOT </span>directory (file:///var/redhawk/sdr/dom/logcfg/device.log.cfg). The macro
+<span 
+class="ectt-1200">MAKE_FACTORY </span>allows the class to be dyamically loaded by the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a>.
                                                                                          
                                                                                          
-<a 
- id="psd"></a><span 
-class="ecsx-1200">PSD</span> </dt><dd 
-class="list">
-  <!--l. 52--><p class="noindent" >Power
-  Spectral
-  Density
-  </dd><dt class="list">
-<a 
- id="pydev"></a><span 
-class="ecsx-1200">PyDev</span> </dt><dd 
-class="list">
-  <!--l. 53--><p class="noindent" >Python
-  Development
-  </dd><dt class="list">
-<a 
- id="rcp"></a><span 
-class="ecsx-1200">RCP</span> </dt><dd 
-class="list">
-  <!--l. 55--><p class="noindent" >Rich
-  Client
-  Platform
-  </dd><dt class="list">
-<a 
- id="rf"></a><span 
-class="ecsx-1200">RF</span> </dt><dd 
-class="list">
-  <!--l. 56--><p class="noindent" >Radio
-  Frequency
-  </dd><dt class="list">
-<a 
- id="rhel"></a><span 
-class="ecsx-1200">RHEL</span> </dt><dd 
-class="list">
-  <!--l. 57--><p class="noindent" >Red
-  Hat
-  Enterprise
-  Linux
-  </dd><dt class="list">
-<a 
- id="rpc"></a><span 
-class="ecsx-1200">RPC</span> </dt><dd 
-class="list">
-  <!--l. 58--><p class="noindent" >Remote
-  Procedure
-  Call
-  </dd><dt class="list">
-<a 
- id="rpm"></a><span 
-class="ecsx-1200">RPM</span> </dt><dd 
-class="list">
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+[caption=Sample custom logging configuration resolver, captionpos=b]
+/*
+ * This file is protected by Copyright. Please refer to the COPYRIGHT file
+ * distributed with this source distribution.
+ *
+ * This file is part of REDHAWK core.
+ *
+ * REDHAWK core is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * REDHAWK core is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see http://www.gnu.org/licenses/.
+ */
+#include <ossie/logging/LogConfigUriResolver.h>
+#include <iostream>
+#include <sstream>
+
+class ossielogcfg : public ossie::logging::LogConfigUriResolver {
+
+public:
+
+  ossielogcfg();
+
+  virtual ~ossielogcfg();
+
+  std::string get_uri( const std::string &path );
+};
+
+
+class CustomLogConfigResolver : public ossie::logging::LogConfigUriResolver {
+
+public:
+
+  CustomLogConfigResolver() {};
+
+  virtual ~CustomLogConfigResolver(){};
+
+  /**
+     get_uri
+
+     Return a string object that will be passed to a resource on the command line as
+     LOGGING_CONFIG_URI parameter. An empty string will be ignored by the DomainManager.
+
+     @param path  Path of the resource in the domain.
+                    for components, rsc:<domain name>/<application name>/<component naming service name>
+                    e.g.            rsc:REDHAWK_DEV/TestWave_2/MyComp_4
+
+                    for devices, dev:<domain name>/<node name>/<device's naming service name>
+                    e.g.            dev:REDHAWK_DEV/Node_1/MyDevice_4
+
+                    for service, svc:<domain name>/<node name>/<service's naming service name>
+                    e.g.            svc:REDHAWK_DEV/Node_1/MyRedis_1
+  */
+
+  std::string get_uri( const std::string &path ) {
+
+     std::string sdrroot("");
+     if ( ::getenv("SDRROOT")){
+       sdrroot = ::getenv("SDRROOT");
+     }
+
+     if ( path.find("dev:") != std::string::npos ) {
+       std::ostringstream os;
+       os &lt;&lt; "file://" &lt;&lt; sdrroot &lt;&lt; "/dom/logcfg/device.log.cfg";
+       return std::string(os.str());
+     }
+     if ( path.find("svc:") != std::string::npos ) {
+       std::ostringstream os;
+       os &lt;&lt; "file://" &lt;&lt; sdrroot &lt;&lt; "/dom/logcfg/serviceq.log.cfg";
+       return std::string(os.str());
+     }
+
+     if ( path.find("rsc:") != std::string::npos ) {
+       std::ostringstream os;
+       os &lt;&lt; "file://" &lt;&lt; sdrroot &lt;&lt; "/dom/logcfg/comp.log.cfg";
+       return std::string(os.str());
+     }
+     // an empty string return value will be ignored by the DomainManager
+     return std::string("");
+  };
+
+};
+
+MAKE_FACTORY(CustomLogConfigResolver);
+]]></script>                                                                                         
+                                                                                         
+</div>
+<!--l. 147--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">I.3   </span> <a 
+ id="x28-589000I.3"></a>Build Files</h3>
+<!--l. 150--><p class="noindent" >Use the following build files to compile and build the above example code in a file called
+<span 
+class="ectt-1200">ossielogcfg.cpp</span>. The compiled code produces a library called <span 
+class="ectt-1200">libossielogcfg.so </span>that is
+installed in <span 
+class="ectt-1200">$OSSIEHOME/lib </span>or <span 
+class="ectt-1200">$OSSIEHOME/lib64</span>. The build process follows the same
+paradigm as standard REDHAWK generated software: <span 
+class="ectt-1200">reconf; configure; make</span>
+<span 
+class="ectt-1200">install</span>.
+<!--l. 153--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">I.3.1   </span> <a 
+ id="x28-590000I.3.1"></a><span 
+class="ectt-1200">reconf</span></h4>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+#!/bin/sh
+
+rm -f config.cache
+[ -d m4 ] || mkdir m4
+autoreconf -i
+]]></script></div>
+<!--l. 163--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">I.3.2   </span> <a 
+ id="x28-591000I.3.2"></a><span 
+class="ectt-1200">configure.ac</span></h4>
                                                                                          
                                                                                          
-  <!--l. 59--><p class="noindent" >Red
-  Hat
-  Package
-  Manager
-  </dd><dt class="list">
-<a 
- id="sad"></a><span 
-class="ecsx-1200">SAD</span> </dt><dd 
-class="list">
-  <!--l. 61--><p class="noindent" >Software
-  Assembly
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sca"></a><span 
-class="ecsx-1200">SCA</span> </dt><dd 
-class="list">
-  <!--l. 62--><p class="noindent" >Software
-  Communications
-  Architecture
-  </dd><dt class="list">
-<a 
- id="scd"></a><span 
-class="ecsx-1200">SCD</span> </dt><dd 
-class="list">
-  <!--l. 63--><p class="noindent" >Software
-  Component
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sdr"></a><span 
-class="ecsx-1200">SDR</span> </dt><dd 
-class="list">
-  <!--l. 64--><p class="noindent" >Software-Defined
-  Radio
-  </dd><dt class="list">
-<a 
- id="spd"></a><span 
-class="ecsx-1200">SPD</span> </dt><dd 
-class="list">
-  <!--l. 65--><p class="noindent" >Software
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sri"></a><span 
-class="ecsx-1200">SRI</span> </dt><dd 
-class="list">
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+AC_INIT(ossielogcfg, 1.0.0)
+AM_INIT_AUTOMAKE([nostdinc foreign])
+AC_CONFIG_MACRO_DIR([m4])
+
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_PROG_LIBTOOL
+
+AC_CORBA_ORB
+OSSIE_CHECK_OSSIE
+# TODO: Make this an installed macro
+OSSIE_SDRROOT_AS_PREFIX
+prefix="${OSSIEHOME}"
+libdir="${OSSIEHOME}/lib"
+AS_IF( [ test `uname -i` == "x86_64"  ], [ libdir="$prefix/lib64" ], [ libdir="$prefix/lib" ] )
+
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
+# Dependencies
+PKG_CHECK_MODULES([REDHAWK], [ossie >= 2.0])
+OSSIE_ENABLE_LOG4CXX
+AX_BOOST_BASE([1.41])
+AX_BOOST_SYSTEM
+AX_BOOST_THREAD
+AX_BOOST_REGEX
+
+AC_CONFIG_FILES([Makefile ])
+AC_OUTPUT
+]]></script></div>
+<!--l. 197--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">I.3.3   </span> <a 
+ id="x28-592000I.3.3"></a><span 
+class="ectt-1200">Makefile.am</span></h4>
                                                                                          
                                                                                          
-  <!--l. 66--><p class="noindent" >Signal
-  Related
-  Information
-  </dd><dt class="list">
-<a 
- id="swt"></a><span 
-class="ecsx-1200">SWT</span> </dt><dd 
-class="list">
-  <!--l. 67--><p class="noindent" >Standard
-  Widget
-  Toolkit
-  </dd><dt class="list">
-<a 
- id="udp"></a><span 
-class="ecsx-1200">UDP</span> </dt><dd 
-class="list">
-  <!--l. 68--><p class="noindent" >User
-  Datagram
-  Protocol
-  </dd><dt class="list">
-<a 
- id="ui"></a><span 
-class="ecsx-1200">UI</span> </dt><dd 
-class="list">
-  <!--l. 69--><p class="noindent" >User
-  Interface
-  </dd><dt class="list">
-<a 
- id="uri"></a><span 
-class="ecsx-1200">URI</span> </dt><dd 
-class="list">
-  <!--l. 70--><p class="noindent" >Uniform
-  Resource
-  Identifier
-  </dd><dt class="list">
-<a 
- id="url"></a><span 
-class="ecsx-1200">URL</span> </dt><dd 
-class="list">
-  <!--l. 71--><p class="noindent" >Uniform
-  Resource
-  Locator
-  </dd><dt class="list">
-<a 
- id="uuid"></a><span 
-class="ecsx-1200">UUID</span> </dt><dd 
-class="list">
+<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+ACLOCAL_AMFLAGS = -I m4 -I${OSSIEHOME}/share/aclocal/ossie
+AUTOMAKE_OPTIONS = subdir-objects
+
+lib_LTLIBRARIES = libossielogcfg.la
+
+xmldir = $(prefix)
+dist_xml_DATA =
+
+distclean-local:
+         rm -rf m4
+
+libossielogcfg_la_SOURCES = ossielogcfg.cpp
+libossielogcfg_la_LIBADD = $(REDHAWK_LIBS)
+libossielogcfg_la_CPPFLAGS = -I . -I $(srcdir)/include $(REDHAWK_CFLAGS) $(BOOST_CPPFLAGS)
+libossielogcfg_la_CXXFLAGS = -Wall
+]]></script></div>
                                                                                          
                                                                                          
-  <!--l. 72--><p class="noindent" >Universally
-  Unique
-  Identifier
-  </dd><dt class="list">
-<a 
- id="vlan"></a><span 
-class="ecsx-1200">VLAN</span> </dt><dd 
-class="list">
-  <!--l. 73--><p class="noindent" >Virtual
-  Local
-  Area
-  Network
-  </dd><dt class="list">
-<a 
- id="vm"></a><span 
-class="ecsx-1200">VM</span> </dt><dd 
-class="list">
-  <!--l. 74--><p class="noindent" >Virtual
-  Machine
-  </dd><dt class="list">
-<a 
- id="war"></a><span 
-class="ecsx-1200">WAR</span> </dt><dd 
-class="list">
-  <!--l. 75--><p class="noindent" >Web
-  ARchive
-  </dd><dt class="list">
-<a 
- id="xml"></a><span 
-class="ecsx-1200">XML</span> </dt><dd 
-class="list">
-  <!--l. 76--><p class="noindent" >Extensible
-  Markup
-  Language
-  </dd><dt class="list">
-<a 
- id="xsd"></a><span 
-class="ecsx-1200">XSD</span> </dt><dd 
-class="list">
-  <!--l. 77--><p class="noindent" >XML
-  Schema
-  Definition
-  </dd><dt class="list">
-<a 
- id="utc"></a><span 
-class="ecsx-1200">UTC</span> </dt><dd 
-class="list">
-                                                                                         
-                                                                                         
-  <!--l. 78--><p class="noindent" >Coordinated
-  Universal
-  Time</dd></dl>
-                                                                                         
-                                                                                         
-<!--l. 1--><p class="noindent" ><a 
- id="likesection.1"></a><a 
- id="Q1-28-798"></a><!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap10.html" >next</a>] [<a 
 href="mainap8.html" >prev</a>] [<a 
 href="mainap8.html#tailmainap8.html" >prev-tail</a>] [<a 
 href="mainap9.html" >front</a>] [<a 
 href="main.html#mainap9.html" >up</a>] </p></div>
-<!--l. 1--><p class="noindent" ><a 
- id="tailmainap9.html"></a>  
+<!--l. 2--><p class="noindent" ><a 
+ id="tailmainap9.html"></a>   
  
 <div class=license>  
 <hr> 

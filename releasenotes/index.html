@@ -1,244 +1,244 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif">
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="A Software-Defined Radio Framework" />
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+        <style>
+            ul li {
+                list-style: outside;
+                list-style-type: disc;
+                list-style-image: none;
+                list-style-position: outside;
+                margin-left: 15px;
+                padding-left: 10px;
+            }            
+        </style>
+        <title>Home</title>
+    </head>
+    <body>
+        <script>
+            function f() {
+              document.getElementById('main_content_wrap').focus();
+            }
 
-  <head>
-    <link rel="icon" type="image/png" href="images/RedHawk_Logo16x.gif">
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="A Software-Defined Radio Framework" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Home</title>
-  </head>
-
-  <body>
-
-<script>
-function f() {
-  document.getElementById('main_content_wrap').focus();
-}
-
-if (window.addEventListener) {
-  window.addEventListener("load", f, false);
-} else if (window.attachEvent) {
-  window.attachEvent("onload", f);
-}
-</script>
+            if (window.addEventListener) {
+              window.addEventListener("load", f, false);
+            } else if (window.attachEvent) {
+              window.attachEvent("onload", f);
+            }
+        </script>
 
 
-    <!-- HEADER -->
-<div class="header">
-                <div class="pattern left"></div>
-                <ul class="navbar">
-			<li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li>
-                        <li><a class="active" href="index.html">Home</a></li>
-                        <li><a href="documentation.html">Documentation</a></li>
-                        <li><a href="download.html">Download</a></li>
-                        <li><a href="community.html">Community</a></li>
-                </ul>
-                <div class="pattern right"></div>
-		<a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a>
+        <!-- HEADER -->
+        <div class="header">
+            <div class="pattern left"></div>
+            <ul class="navbar">
+                <li><a class="logo-small" href="index.html"><img src="images/RedHawk_Logo_ALT_B_121px.png"/></a></li>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+            <div class="pattern right"></div>
+            <a id="forkme_banner" href="https://github.com/redhawksdr">View on GitHub</a>
         </div>
-    <!-- Custom MAIN CONTENT -->
-    <div id="main_content_wrap" tabindex="0" class="outer">
-      <section id="main_content" class="inner">
-      <h1>REDHAWK</h1>
-<a href = images/REDHAWKwaveformREDHAWKIDE.png><img src="images/REDHAWKwaveformREDHAWKIDEscaled.png"/></a>
-
-
-        <h2>Description</h2>
-
-
-
-<p>REDHAWK is a software-defined radio (SDR) framework designed to support the development,
-deployment, and management of real-time software radio applications.
-To support the design and development of software applications, REDHAWK provides tools that allow
-development and testing of software modules called "Components" and composition of Components
-into "Waveform Applications" that can be seamlessly deployed on a single computer or multiple
-network-enabled computers. </p>
-
-<p>The REDHAWK integrated development environment (IDE) provides tools to support development of REDHAWK software.  The development and deployment of REDHAWK Applications are aided by graphical editors and drag-and-drop Waveform construction. The IDE allows users to interact with and control multiple running REDHAWK
-instances and applications.</p>
-
-<h3>Recent Announcements</h3>
-
-<p><strong>Release of REDHAWK 2.1.0 (April 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.1.0 focused on:
-<ul>
-
-<li>Adding support for Components to be deployed on a specific GPP, and conversely allowing the GPP to restrict deployments through a matching set of id/value pairs. These id/value pairs are defined in the Software Assembly Descriptor and Device Configuration Definition files respectively. Users may refer to this feature as the "special snowflake" deployment Property.
-<li>Shared address space Components: Significant enhancement of Component model and BULKIO to support high performance I/O. Preliminary developer documentation for the REDHAWK 2.1.0 Beta Release is available at <a href="https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address">https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address</a>. This feature will be under extensive evaluation during the 2.1.x beta release series and is expected to provide the ground work for several new major enhancements to REDHAWK.
-<li>Adding support for a new type of Property, "utctime", extending the list that includes types such as "short" or "string". This timestamp Property is used in Property change events and can be queried from Components/Devices with the id QUERY_TIMESTAMP, which is useful when synchronizing the state of the system. The new type of Property can be used by Component/Device developers as an additional type of Property.
-<li>Adding cacheDirectory and workingDirectory Properties to the GPP. These properties provide the deployer with control over where Components are stored (cacheDirectory) and the directory from which Components are executed (workingDirectory).
-<li>Redesigning the IDE's Event Viewer to improve the ability to monitor event channels.
-<li>Ending support of Command-line interactive mode (-i) on Components, Services, and Devices. Terminal prompt interactions should be through the Python Sandbox.
-<li>Improving Python tooling to help manage REDHAWK systems. For example, these improvements include eventChannelManager, allocationManager, and connectionManager helpers as well as simpler event monitoring.
-<li>Adding functionality to allow Components that have a usesdevice dependency to now be launched on the same host (i.e., Device Manager/Node) as the Device satisfying the usesdevice requirement. This functionality is provided through an extension of the componentplacement hostcollocation.
-<li>Improving recovery of a REDHAWK Domain after a catastrophic failure. The Device Manager reboots all associated Devices/Services when it detects a reset Domain Manager after a catastrophic failure in the Domain Manager. This reboot only happens if (1) persistence is enabled and (2) the name service log, event service log, and persistence database are emptied.
-<li>Adding new concurrent logging appender for C++ Components to improve readability of logging messages when multiple processes are writing to the same log file.
-<li>Improving the New Project Wizard to warn users if the project location selected already contains files that will become part of the project. Increase user awareness of files that may be moved, deleted, or packaged with a project.
-<li>Updating the IDE to use the latest available Eclipse tooling, Eclipse Neon. For more information about Eclipse Neon, refer to <a href="http://www.eclipse.org/neon/noteworthy">http://www.eclipse.org/neon/noteworthy</a>.
-<li>Documenting a publisher/subscriber pattern when accessing an EventChannel from the Domain.
-<li>Documenting available affinity processing directives when deploying Devices, Services, and Components.
-<li>Adding support for the REDHAWK Core Framework, IDE, assets, and new REDHAWK projects to now compile against and run on Java 8.
-<li>Extending DeviceManager to call configure() on Services at the time they register. This enables users to implement custom Property handling if so desired.
-<li>Resolving issue when activating local servants for MessageConsumerPort and MessageSupplierPort Java classes.
-<li>Improving Python Sandbox tooling for new Domain features and resources. Specifically, extended DataSource to provide access to all the available SRI and the data timestamp.
-<li>Adding reservation schema graph in the documentation to enhance the text describing capacity allocation reservation for the GPP.
-<li>Improving documentation of Signal Related Information (SRI).
-<li>Updating Contributor License Agreement (CLA).
-<li>Addressing numerous bug fixes.
-</ul>
-
-<p>For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
+        <!-- Custom MAIN CONTENT -->
+        <div id="main_content_wrap" tabindex="0" class="outer">
+            <section id="main_content" class="inner">
+                <h1>REDHAWK</h1>
+                <a href = images/REDHAWKwaveformREDHAWKIDE.png><img src="images/REDHAWKwaveformREDHAWKIDEscaled.png"/></a>
+                <h2>Description</h2>
 
 
 
-<p><strong>Release of REDHAWK 2.0.5 (February 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.5 focused on:
-<ul>
+                <p>REDHAWK is a software-defined radio (SDR) framework designed to support the development,
+                deployment, and management of real-time software radio applications.
+                To support the design and development of software applications, REDHAWK provides tools that allow
+                development and testing of software modules called "Components" and composition of Components
+                into "Waveform Applications" that can be seamlessly deployed on a single computer or multiple
+                network-enabled computers. </p>
 
-<li>Maintaining the correct time stamp when pushing data from the Sandbox DataSource.
-<li>Improving a Component's response to messages irrespective of whether or not the Component is started or stopped.
-<li>Improving FileSink support for framed data and timecode with BLUE file output.
-<li>Improving the handling of missing event message fields in C++ and Python.
-<li>Ensuring external Port names are recognized.
-<li>Addressing numerous bug fixes.
-</ul>
+                <p>The REDHAWK integrated development environment (IDE) provides tools to support development of REDHAWK software.  The development and deployment of REDHAWK Applications are aided by graphical editors and drag-and-drop Waveform construction. The IDE allows users to interact with and control multiple running REDHAWK
+                instances and applications.</p>
 
+                <h3>Recent Announcements</h3>
 
-
-<p><strong>Release of REDHAWK 2.0.4 (December 30, 2016)</strong> - The effort in REDHAWK 2.0.4 focused on:
-<ul>
-
-<li>Adding support for the CentOS 7 operating system.
-<li>Updating the REDHAWK IDE to require Java 8.
-<li>Adding support for two new Core Assets, SinkSDDS and SourceSDDS, which convert between SDDS and BulkIO data formats.
-<li>Adding messages to indicate to the user the reason why the GPP is busy.
-<li>Adding more IDE XML validation to help users catch issues sooner when designing projects.
-<li>Correcting issues with Redhawk-generated build scripts that prevented errors from being displayed.
-<li>Adding 'Connect' and 'Show Properties View' in the Graphiti diagram context menus.
-<li>Adding GPP label to the Domain Manager log message when deploying Components or Waveforms to enable quick identification of which GPP the Domain Manager is attempting to launch Components on.
-<li>Improving the REDHAWK Explorer product to use the new Graphiti diagrams introduced in the REDHAWK 2.0.0 IDE.
-<li>Improving IDE namespace support to give users an error if they have multiple resources with conflicting IDs in the SDRROOT.
-<li>Addressing numerous bug fixes.
-</ul>
-
-
-<p><strong>Release of REDHAWK 2.0.3 (October 5, 2016)</strong> - REDHAWK 2.0.3 addresses the following:
-
-<ul>
-<li>Improvements to GPP automatic resource monitoring caused a memory leak. - Fixed.
-<li>Incorrect return type in the GPS interface implementation of FrontEnd Interfaces. - Fixed.
-<li>Python Devices failed to launch when a logging config file is specified. - Fixed.
-</ul>
-
-
-<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.2">Release of REDHAWK 2.0.2</a> (September 1, 2016)</strong> - The effort in REDHAWK 2.0.2 focused on:
-<ul>
-<li>Improving how error messages are displayed to the user in the IDE.
-<li>Adding new abilities to interact with logging for Components and Devices in the IDE.
-<li>Providing better awareness of resource utilization on the host computer.
-<li>Adding better support for creating FEI Devices written in Python.
-<li>Addressing numerous Discrepancy Reports (DRs).
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/TuneFilterDecimate/releases/2.0.1">Release of TuneFilterDecimate 2.0.1 for the REDHAWK 2.0 series</a> (July 29, 2016) </strong> - TuneFilterDecimate 2.0.1 resolves the following issue:
-<ul>
-<li>Fixed calculation of SRI keyword CHAN_RF for tuning mode NORM
-</ul>
-
-
-<p><strong><a href="https://github.com/RedhawkSDR/FileWriter/releases/4.0.2">Release of FileWriter 4.0.2 for the REDHAWK 2.0 series</a> (July 5, 2016) </strong> - FileWriter 4.0.2 resolves the following issues:
-<ul>
-<li>Fixed feature that starts a new file following a retune
-<li>Fixed initial configuration of overridden property values
-<li>Fixed several bugs with recording timer
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/USRP_UHD/releases/tag/3.0.2">Final Release of USRP_UHD 3.0.2 for the REDHAWK 1.10.0 series</a> (May 11, 2016) </strong> - The effort in the USRP_UHD 3.0.2 release focused on resolving the following issues in the USRP_UHD.
-<ul>
-<li>Fixed error causing invalid SRI to be sent for all allocations after the initial allocation.
-<li>Added node-config script to the Device.
-<li>Fixed error causing Ubuntu build failure.
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.1">Final Release of REDHAWK 2.0.1</a> (April 15, 2016)</strong> - The effort in REDHAWK 2.0.1 focused on:
-<ul>
-<li>Enhancing the level of control that a system deployer has to customize the reservation schema used to manage computing resources.
-<li>Adding Python operators and Java methods to simplify common arithmetic operations on BulkIO time stamps.
-<li>Addressing numerous Discrepancy Reports (DRs).
-</ul>
-
-<p><strong><a href="https://github.com/RedhawkSDR/redhawk/releases/2.0.0">Final Release of REDHAWK 2.0</a> (December 10, 2015)</strong> - The effort in REDHAWK 2.0 focused on improving system management, establishing a core set of REDHAWK assets, and enhancing the IDE user experience.  This effort included:
-<ul>
-<li>improving processing performance</li>
-<li>promoting consistency among core assets</li>
-<li>improving and focusing on a comprehensive set of core assets, including the addition of Waveforms</li>
-<li>providing an improved user experience by re-implementing IDE diagrams for Waveforms and Nodes</li>
-<li>adding IDE support for REDHAWK shared library projects</li>
-<li>adding IDE support for differentiating projects with namespaces</li>
-</ul>
-
-<p>Within the Core Framework, system scalability was addressed by creating or expanding system managers (connections, allocations, and events), improving the dependency management structure for Components, and by further automating the process of distributing processing tasks. Processing performance improvements focused on NUMA balancing related to both processing and data ingest/egress. Finally, the burden on the component developer was reduced by making it easier to access  system resources, simplifying properties, shifting BulkIO data management from packet-based to stream-based, and simplifying the structure of generated code.</p>
-
-<p>In the IDE, diagrams were re-implemented to provide a refreshed look and a simplified, more slimlined display of diagram elements. New visualizations were added to help developers more quickly and easily create Waveforms and Nodes and monitor and debug them more easily at runtime. Shared library support was improved to enable developers to better share code between Components and Devices, while creating software that follows REDHAWK standards for easy reuse and deployment in REDHAWK systems. Namespaces were added to assist with upgrades, allowing multiple versions of a Component to be installed on the same system. Additionally, namespaces enable developers to more clearly differentiate development efforts like forked projects or contributions by different organizations.</p>
-
-<p>For the REDHAWK assets, consistency was achieved by using common Port types for similar types of data and renaming Ports to establish a consistent naming convention. The set of assets was expanded to include two new assets for file I/O, a Component for decoding FM RBDS, a Component for PSK demodulation, an FEI Device simulator for generating FM RDS streams from audio files, and a set of Waveforms that collectively demonstrate the use of each Component. The set of assets was focused by removing deprecated Components (whitenoise, DataReader, DataWriter, freqfilter, medianfilter, unwrap, and BurstDeserializer). Core assets were used as examples of how to exercise new REDHAWK features. For example, domain awareness was leveraged by FileReader and FileWriter, the new BulkIO stream API was utilized by psd, sequences within struct properties were added to sinksocket, the updated shared library support was used to re-implement each shared library, and each asset was moved into the "rh" namespace.</p>
+<p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.1.1">Release of REDHAWK 2.1.1</a> (August 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.1.1 focused on:
+<p><strong>Core REDHAWK Features and APIs</strong>
+                <ul>
+                    <li> Shared address space Components: Significant enhancement of Component model and BULKIO to support high performance I/O. Preliminary developer documentation for the REDHAWK 2.1.1 Beta Release is available at <a href="https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address">https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address</a>. This feature will be under extensive evaluation during the 2.1.x beta release series and is expected to provide the ground work for several new major enhancements to REDHAWK.
+                    <li> Adding the API for a new type of tuner, a scanning Device.
+                    <li> Adding support for a new type of Property, utctime, extending the list that includes types such as short or string. This timestamp Property is used in Property change events and can be queried from Components/Devices with the id QUERY_TIMESTAMP, which is useful when synchronizing the state of the system. The new type of Property can be used by Component/Device developers as an additional type of Property.
+                    <li> Adding functionality for capacity to be reserved for an entire host collocation on the SAD file. The reservation is a capacity floor for the Components in the host collocation, where the amount of capacity utilized by the aggregate set of Components is this reservation or actual, whichever is higher. This reservation is allocated against the target GPP running this Application, allowing the GPP to verify that the request can be satisfied, reducing the likelihood of over-subscription.
+                    <li> Adding functionality to allow Components that have a usesdevice dependency to now be launched on the same host (Device Manager/Node) as the Device satisfying the usesdevice requirement. This functionality is provided through an extension of the componentplacement hostcollocation.
+                    <li> Extending DeviceManager to call configure() on Services at the time they register. This enables users to implement custom Property handling if so desired. 
+                </ul>
+<p><strong>REDHAWK Systems</strong>
+                <ul>
+                    <li> Changing the default logging directory for omniEvents service to reside in /var/log/omniEvents. 
+                    <li> Improving nodeBooter so it does not deploy if --user or --group are set while --daemon is not, and if the command-line arguments to nodeBooter are malformed, deployment fails.
+                    <li> Adding support for the state of the Connection Manager and Event Channel Manager to be restored when persistence is enabled.
+                </ul>
+<p><strong>Project Code Generation</strong>
+                <ul>
+                    <li> Fixing code generators for Port generation of C++ Components to correctly handle data structures returned from methods.
+                    <li> Providing functionality to add custom headers to project files when generating code. 
+                    <li> Providing Generate Waveform and Generate Node buttons in the IDE editors to initiate file generation. This ensures that Waveform and Node project spec files are created or modified only when requested by the user. 
+                </ul>
+<p><strong>Python Tooling and Sandbox</strong>
+                <ul>
+                    <li> Adding snapshot capability of network data and performing SDDS packet analysis on the captured data. 
+                    <li> Improving Python tooling to help manage REDHAWK systems. For example, these improvements include eventChannelManager, allocationManager, and connectionManager helpers as well as simpler event monitoring.
+                    <li> Improving Python Sandbox tooling for new Domain features and resources. Specifically, extended DataSource to provide access to all the available SRI and the data timestamp.
+                    <li> Adding an option to enable the Domain Manager's logging level to be dynamically changed.
+                    <li> Correcting issue in the Python Sandbox so now when the BulkIO queue is full, the Python Sandbox no longer locks up when trying to release stopped Components.
+                </ul>
+<p><strong>GPP</strong>
+                <ul>
+                    <li> Improving flexibility to ignore GPP threshold checks when determining if the GPP should go into a BUSY state.
+                </ul>
+<p><strong>IDE</strong>
+                <ul>
+                    <li> Updating the IDE to use the latest available Eclipse tooling, Eclipse Oxygen.
+                    <li> Providing a "TM Terminal" in the IDE, a full-featured terminal emulator that provides full ANSI cursor control, readline, and coloring. 
+                    <li> Adding the Components tab to the Waveform editor in the IDE to allow editing of Component instantiation details, including logging configuration. This information will be used to resolve the LOGGING_CONFIG_URI parameter during Component deployment.
+                    <li> Showing IDL details when Ports are selected in the REDHAWK Explorer view.
+                    <li> Providing validation of Property references in SAD and DCD files and flagging invalid Property references as errors. 
+                    <li> Adding the ability to terminate services in the Sandbox via the hover pad or the delete key and making the terminate icon more distinct throughout the IDE.
+                    <li> Providing an option in the IDE to perform a FrontEnd Device allocation in the background to aid developers who are debugging their FrontEnd Devices.
+                    <li> Improving the IDE's Domain refresh logic to prevent the IDE from consuming excessive numbers of threads in some scenarios.
+                    <li> Correcting the parsing of some numeric literals in Octave M files. 
+                    <li> Fixing links in the IDE's help contents so REDHAWK help now displays correctly when links within the help are selected.
+                </ul>
+<p><strong>Documentation</strong>
+                <ul>
+                    <li> Adding documentation for developing a logging configuration plug-in that will be used to resolve LOGGING_CONFIG_URI parameter during deployment of Devices, Services and Components.
+                    <li> Renaming the Generating Code section to Generating Code for Components and explaining the code generation process and what occurs in the IDE when the code is generated.
+                    <li> Revising the BulkIO High-speed data code example in User Manual.
+                </ul>
+<p><strong>REDHAWK Enterprise Integration</strong>
+                <ul>
+                    <li> Updating REDHAWK Java Driver and REDHAWK REST to make it easier for users to access External Properties in Waveforms. 
+                    <li> Adding implementations of ConnectionManager, AllocationManager interfaces to REDHAWK Driver. Adding utility methods for programatically setting the log level of Domain, Application, Device, and Component Resources.
 
 
-<!--<p><strong>Release of GNUHAWK 1.10.0 and the REDHAWK Sub$100 Project (October 16, 2014)</strong> - <a href="RNRHComponents.html">Release Notes</a>.</p>
-
-<p>GNUHAWK 1.10.0 is a software package containing a shared library and Components that enable GNU Radio blocks to be used within REDHAWK 1.10. GNUHAWK provides reusability of GNU Radio block algorithms and capabilities by making them interoperable with other REDHAWK Components within the REDHAWK 1.10 software framework without requiring a separate GNU Radio installation. </p>
-
-</p>Download the GNUHAWK source and documentation from our <a href="download.html">Downloads</a> page. </p>
-
-<p>The Sub$100 project showcases the ability of REDHAWK to scale from desktop to low power ARM system with ease, without code rewrite, on a constrained budget. The project's total hardware cost is just below $100. The release contains the instructions, the source code, and a reference waveform, for creating a Radio Broadcast Data System (RBDS) receiver. The hardware involved in the project can also be used to process other RF signals, such as, ADS-B data, GPS data, or images from the NOAA weather satellites.</p>
-
-<p>Download the Sub$100 documentation from our <a href="download.html">Downloads</a> page. </p>
-
-<p><strong>Release of REDHAWK 1.10.0 (August 1, 2014)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page.  For information about the focus of this release, an overview of the new features or enhancements included in this release, and guidance for upgrading from a previous version of REDHAWK, refer to the REDHAWK Version 1.10 <a href="RNRH110.html">Release Notes</a>. For a list of bug fixes and new features, view the <a href="changelog-ide.txt">IDE</a> and <a href="changelog-core.txt">Core Framework</a> changelogs.</p>
-
-<p>The effort in REDHAWK 1.10 focused on simplifying the user interaction within the IDE, improving how REDHAWK handles FrontEnd Interface Devices and logging, improving the scalability of the Core Framework, and adding a new interface to support bursty data.</p>
--->
-
-<h3>Getting Started</h3>
-
-<p>For detailed installation instructions, refer to the <a href="mainch2.html">Installation Instructions</a>. For a quick introduction to REDHAWK, refer to the <a href="gettingstarted/main.html">Getting Started Guide</a>.</p>
-
-<h3>Software</h3>
-<p>REDHAWK consists of the Core Framework, development tools, libraries, and reusable building blocks.  The Eclipse-based REDHAWK IDE can be used to aid in the development and deployment of REDHAWK Applications.  Additional REDHAWK Eclipse-based products are built from a subset of the IDE plug-ins including the SCA Explorer.</p>
-
-<p>For a full list of the git repositories, refer to the <a href="http://www.github.com/redhawksdr">gitHub page</a>.</p>
-
-<h3>Documentation</h3>
-<p>For complete REDHAWK 2.0 documentation, refer to <a href="documentation.html">Documentation</a>.</p>
+                    <li> Adding REST access to Event Channel Manager functionality.
+                    <li> Resolving issue when activating local servants for MessageConsumerPort and MessageSupplierPort Java classes.
+                </ul>
 
 
-<h3>Technology Components</h3>
-<p>REDHAWK is built using the following technologies:</p>
-<ul>
-<li><a href="http://www.eclipse.org">Eclipse</a> </li>
-<li><a href="http://www.jacorb.org/">JacORB</a></li>
-<li><a href="http://nextmidas.techma.com">NeXtMidas</a> </li>
-<li><a href="http://omniorb.sourceforge.net">OmniORB</a> </li>
-<li><a href="http://ossie.wireless.vt.edu">OSSIE</a> </li>
-</ul>
+  <p><strong>Numerous Bug Fixes</strong>
+                <ul>
+                    <li> For detailed information about the bug fixes included in this release, refer to the <a href="releasenotes/main.html">Release Notes</a>.</p>
+                </ul>
 
-<h3>Support</h3>
-<p>The REDHAWK community uses both <a href="http://stackoverflow.com/questions/tagged/redhawksdr">StackOverflow</a> and <a href="http://superuser.com/questions/tagged/redhawksdr">SuperUser</a> for discussion and questions pertaining to REDHAWK.  See the <a href="community.html">Community</a> page for information about each site.</p>
+                <p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.0.6">Release of REDHAWK 2.0.6</a> (July 2017)</strong> - The effort in REDHAWK 2.0.6 focused on:
+                <ul>
+                    <li> Initial FOSS Release of REDHAWK Enterprise Integration Assets, which provide the ability to interact with REDHAWK in a JRE environment.<br>The REDHAWK Enterprise Integration Assets include:
+                        <ul>
+                            <li> REDHAWK Driver: Provides simplified access to REDHAWK via standard Java interfaces. This Asset shields all interaction with the underlying REDHAWK Components and provides a simplified API for Java developers interacting with a REDHAWK Domain. The REDHAWK Driver can be leveraged as a standalone Java Archive (JAR) file.
+                            <li> REDHAWK OSGi Connector: Implements OSGi's Managed Service Factory interface to allow users to register pre-configured instances of REDHAWK connections into a Karaf container.
+                            <li> REDHAWK REST: Provides a REST Service to command and control a REDHAWK instance.
+                            <li> REDHAWK WebSocket: Provides an HTML5-compliant WebSocket implementation that enables the ability to stream data from any REDHAWK BulkIO-enabled Port or Event Channel.
+                            <li> Camel REDHAWK: Provides a Camel Component for interacting with a REDHAWK Domain. This Component can be connected with other Apache Camel Components as a data flow solution.<br>For more information about the REDHAWK Enterprise Integration Assets, refer to the <a href="enterprise/index.html">REDHAWK Enterprise Integration User Guide</a>.
+                        </ul>
+                            <li> Providing diagnostic messages for log4py configuration files that contain errors and adding support to allow line continuation characters in the log configuration files.
+                            <li> Improving the IDE's Domain refresh logic to prevent the IDE from consuming excessive numbers of threads in some scenarios.
+                            <li> Documenting a publisher/subscriber pattern when accessing an EventChannel from the Domain.
+                            <li> Modifying Burst IO implementation so that BurstIO output Ports will only override the BurstSRI mode flag in pushBurst if given std::complex sample data.
+                            <li> Ensuring the creation of and appropriate permissions are on the services directory in SDRROOT.
+                            <li> Fixing code generators for Port generation of C++ Components to correctly handle data structures returned from methods.
+                            <li> Resolving issue when activating local servants for MessageConsumerPort and MessageSupplierPort Java classes.
+                            <li> Resolving issue when ossie.utils.log4py.config is imported after ossie.utils.sb. Fixed by CCB-263 (Formatting issues in -logcfgfile causes python devices to crash) and added unit test to address issue when ossie.utils.log4py.config is imported after ossie.utils.sb.
+                            <li> Improving documentation of Signal Related Information (SRI).
+                            <li> Supporting the default version of Octave available in CentOS 7 (3.8.2).
+                            <li> Resolving issue with the GPP seg faulting when a Component's soft package dependency does not have proper file access privileges.
+                            <li> Resolving issue with getStreamDefinition returning a pointer to memory that could be reclaimed during processing;  which would invalidate any access through that pointer.  The caller now receives a pointer to a copy of a Stream Definition.
+                            <li> Correctly computing deployment-specific capacities that manage hardware resource requirements in cases where the Component is part of a host collocation deployment.
+                            <li> Updating Contributor License Agreement (CLA).
+                            <li> Revising BulkIO High-speed data code example in User Manual.
+                            <li> Updating the Python package to create instances of the same Application for multiple processes or threads without conflicts.
+                            <li> Updating the Python Sandbox to make and break connections from multiple threads without conflicts.
+                            <li> Addressing numerous bug fixes.
+                </ul>
 
-<h3>License</h3>
+                <p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.1.0">Release of REDHAWK 2.1.0</a> (April 2017)</strong> - The effort in REDHAWK 2.1.0 focused on:
+                <ul>
+                    <li>Adding support for Components to be deployed on a specific GPP, and conversely allowing the GPP to restrict deployments through a matching set of id/value pairs. These id/value pairs are defined in the Software Assembly Descriptor and Device Configuration Definition files respectively. Users may refer to this feature as the "special snowflake" deployment Property.
+                    <li>Shared address space Components: Significant enhancement of Component model and BULKIO to support high performance I/O. Preliminary developer documentation for the REDHAWK 2.1.0 Beta Release is available at <a href="https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address">https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address</a>. This feature will be under extensive evaluation during the 2.1.x beta release series and is expected to provide the ground work for several new major enhancements to REDHAWK.
+                    <li>Adding support for a new type of Property, "utctime", extending the list that includes types such as "short" or "string". This timestamp Property is used in Property change events and can be queried from Components/Devices with the id QUERY_TIMESTAMP, which is useful when synchronizing the state of the system. The new type of Property can be used by Component/Device developers as an additional type of Property.
+                    <li>Adding cacheDirectory and workingDirectory Properties to the GPP. These properties provide the deployer with control over where Components are stored (cacheDirectory) and the directory from which Components are executed (workingDirectory).
+                    <li>Redesigning the IDE's Event Viewer to improve the ability to monitor event channels.
+                    <li>Ending support of Command-line interactive mode (-i) on Components, Services, and Devices. Terminal prompt interactions should be through the Python Sandbox.
+                    <li>Improving Python tooling to help manage REDHAWK systems. For example, these improvements include eventChannelManager, allocationManager, and connectionManager helpers as well as simpler event monitoring.
+                    <li>Adding functionality to allow Components that have a usesdevice dependency to now be launched on the same host (i.e., Device Manager/Node) as the Device satisfying the usesdevice requirement. This functionality is provided through an extension of the componentplacement hostcollocation.
+                    <li>Improving recovery of a REDHAWK Domain after a catastrophic failure. The Device Manager reboots all associated Devices/Services when it detects a reset Domain Manager after a catastrophic failure in the Domain Manager. This reboot only happens if (1) persistence is enabled and (2) the name service log, event service log, and persistence database are emptied.
+                    <li>Adding new concurrent logging appender for C++ Components to improve readability of logging messages when multiple processes are writing to the same log file.
+                    <li>Improving the New Project Wizard to warn users if the project location selected already contains files that will become part of the project. Increase user awareness of files that may be moved, deleted, or packaged with a project.
+                    <li>Updating the IDE to use the latest available Eclipse tooling, Eclipse Neon. For more information about Eclipse Neon, refer to <a href="http://www.eclipse.org/neon/noteworthy">http://www.eclipse.org/neon/noteworthy</a>.
+                    <li>Documenting a publisher/subscriber pattern when accessing an EventChannel from the Domain.
+                    <li>Documenting available affinity processing directives when deploying Devices, Services, and Components.
+                    <li>Adding support for the REDHAWK Core Framework, IDE, assets, and new REDHAWK projects to now compile against and run on Java 8.
+                    <li>Extending DeviceManager to call configure() on Services at the time they register. This enables users to implement custom Property handling if so desired.
+                    <li>Resolving issue when activating local servants for MessageConsumerPort and MessageSupplierPort Java classes.
+                    <li>Improving Python Sandbox tooling for new Domain features and resources. Specifically, extended DataSource to provide access to all the available SRI and the data timestamp.
+                    <li>Adding reservation schema graph in the documentation to enhance the text describing capacity allocation reservation for the GPP.
+                    <li>Improving documentation of Signal Related Information (SRI).
+                    <li>Updating Contributor License Agreement (CLA).
+                    <li>Addressing numerous bug fixes.
+                </ul>
 
-<p>REDHAWK is licensed under a combination of the GNU Lesser General Public License (LGPL), the
-Eclipse Public License (EPL), the Apache (v.2.0) License, the Python Software Foundation (PSF) license agreement, Mozilla Public License (v.1.1), and the GNU General Public License (GPL).
-For more information, refer to the LICENSE file in the respective repositories. REDHAWK documentation is licensed under the Creative
-Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
-visit <a href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0</a>.</p>
 
-<h3> Copyright </h3>
-<p> This work is protected by Copyright. For updated copyright information, refer to the <a href="COPYRIGHT">Copyright File</a>.</p>
-      </section>
-    </div>
+                <p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.0.5">Release of REDHAWK 2.0.5</a> (February 2017)</strong> - The effort in REDHAWK 2.0.5 focused on:
+                <ul>
+                    <li>Maintaining the correct time stamp when pushing data from the Sandbox DataSource.
+                    <li>Improving a Component's response to messages irrespective of whether or not the Component is started or stopped.
+                    <li>Improving FileSink support for framed data and timecode with BLUE file output.
+                    <li>Improving the handling of missing event message fields in C++ and Python.
+                    <li>Ensuring external Port names are recognized.
+                    <li>Addressing numerous bug fixes.
+                </ul>
 
-  </body>
+                <h3>Getting Started</h3>
+
+                <p>For detailed installation instructions, refer to the <a href="mainch2.html">Installation Instructions</a>. For a quick introduction to REDHAWK, refer to the <a href="gettingstarted/main.html">Getting Started Guide</a>.</p>
+
+                <h3>Software</h3>
+                <p>REDHAWK consists of the Core Framework, development tools, libraries, and reusable building blocks.  The Eclipse-based REDHAWK IDE can be used to aid in the development and deployment of REDHAWK Applications.  Additional REDHAWK Eclipse-based products are built from a subset of the IDE plug-ins including the SCA Explorer.</p>
+
+                <p>For a full list of the git repositories, refer to the <a href="http://www.github.com/redhawksdr">gitHub page</a>.</p>
+
+                <h3>Documentation</h3>
+                <p>For complete REDHAWK 2.0 documentation, refer to <a href="documentation.html">Documentation</a>.</p>
+
+
+                <h3>Technology Components</h3>
+                <p>REDHAWK is built using the following technologies:</p>
+                <ul>
+                    <li><a href="http://www.eclipse.org">Eclipse</a> </li>
+                    <li><a href="http://www.jacorb.org/">JacORB</a></li>
+                    <li><a href="http://nextmidas.techma.com">NeXtMidas</a> </li>
+                    <li><a href="http://omniorb.sourceforge.net">OmniORB</a> </li>
+                    <li><a href="http://ossie.wireless.vt.edu">OSSIE</a> </li>
+                </ul>
+
+                <h3>Support</h3>
+                <p>The REDHAWK community uses both <a href="http://stackoverflow.com/questions/tagged/redhawksdr">StackOverflow</a> and <a href="http://superuser.com/questions/tagged/redhawksdr">SuperUser</a> for discussion and questions pertaining to REDHAWK.  See the <a href="community.html">Community</a> page for information about each site.</p>
+
+                <h3>License</h3>
+
+                <p>REDHAWK is licensed under a combination of the GNU Lesser General Public License (LGPL), the
+                Eclipse Public License (EPL), the Apache (v.2.0) License, the Python Software Foundation (PSF) license agreement, Mozilla Public License (v.1.1), and the GNU General Public License (GPL).
+                For more information, refer to the LICENSE file in the respective repositories. REDHAWK documentation is licensed under the Creative
+                Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
+                visit <a href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0</a>.</p>
+
+                <h3> Copyright </h3>
+                <p> This work is protected by Copyright. For updated copyright information, refer to the <a href="COPYRIGHT">Copyright File</a>.</p>
+            </section>
+        </div>
+    </body>
 </html>

@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="2.0.0">
+<meta name="author" content="2.1.0">
 <title>REDHAWK Enterprise Integration User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -513,8 +513,8 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>REDHAWK Enterprise Integration User Guide</h1>
 <div class="details">
-<span id="author" class="author">2.0.0</span><br>
-<span id="revdate">05-31-2017</span>
+<span id="author" class="author">2.1.0</span><br>
+<span id="revdate">08-08-2017</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -615,7 +615,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>The suite of software is prepackaged in a custom Karaf distribution to help users easily get started using REDHAWK Enterprise Integration.</p>
 </div>
 <div class="paragraph">
-<p>All assets have been tested against REDHAWK 2.0.6.</p>
+<p>All assets have been tested against REDHAWK 2.1.1.</p>
 </div>
 </div>
 </div>
@@ -674,7 +674,7 @@ If installing via RPM, you must be root or have sudo privileges.
 <p>Run this command to install the RPM:</p>
 <div class="listingblock">
 <div class="content">
-<pre> rpm -i redhawk-enterprise-integration-dist-2.0.0-noach.rpm</pre>
+<pre> rpm -i redhawk-enterprise-integration-dist-2.1.0-noach.rpm</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -835,7 +835,7 @@ application = driver.getDomain("REDHAWK_DEV").createApplication("MyFirstApplicat
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml">        <span class="tag">&lt;groupId&gt;</span>redhawk<span class="tag">&lt;/groupId&gt;</span>
         <span class="tag">&lt;artifactId&gt;</span>redhawk-driver<span class="tag">&lt;/artifactId&gt;</span>
-        <span class="tag">&lt;version&gt;</span>2.0.0<span class="tag">&lt;/version&gt;</span></code></pre>
+        <span class="tag">&lt;version&gt;</span>2.1.0<span class="tag">&lt;/version&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -952,12 +952,10 @@ application = driver.getDomain("REDHAWK_DEV").createApplication("MyFirstApplicat
 <div class="listingblock">
 <div class="title"><code>RedhawkDriverIT.java</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">driver = <span class="keyword">new</span> RedhawkDriver();
-
-<span class="predefined-type">String</span> deviceManagerName = driver.getDomain(<span class="string"><span class="delimiter">&quot;</span><span class="content">REDHAWK_DEV</span><span class="delimiter">&quot;</span></span>).getDeviceManagers().get(<span class="integer">0</span>).getName();
-<span class="predefined-type">String</span> pathForDevManager = <span class="string"><span class="delimiter">&quot;</span><span class="content">REDHAWK_DEV/</span><span class="delimiter">&quot;</span></span>+deviceManagerName;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">String</span> pathForDevManager = domainName+<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span>+deviceManagerName;
 logger.info(pathForDevManager);
-assertNotNull(driver.getDeviceManager(pathForDevManager));</code></pre>
+
+RedhawkDeviceManager deviceManager = driver.getDeviceManager(pathForDevManager);</code></pre>
 </div>
 </div>
 </div>
@@ -966,12 +964,11 @@ assertNotNull(driver.getDeviceManager(pathForDevManager));</code></pre>
 <div class="listingblock">
 <div class="title"><code>RedhawkDriverIT.java</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">driver = <span class="keyword">new</span> RedhawkDriver();
-RedhawkDeviceManager devManager = driver.getDomain(<span class="string"><span class="delimiter">&quot;</span><span class="content">REDHAWK_DEV</span><span class="delimiter">&quot;</span></span>).getDeviceManagers().get(<span class="integer">0</span>);
-RedhawkDevice device = devManager.getDevices().get(<span class="integer">0</span>);
-<span class="predefined-type">String</span> pathForDevice = domainName+<span class="predefined-type">File</span>.separator+devManager.getName()+<span class="predefined-type">File</span>.separator+device.getName();
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">//Path to device</span>
+<span class="predefined-type">String</span> pathForDevice = domainName+<span class="predefined-type">File</span>.separator+devManager.getName()+<span class="predefined-type">File</span>.separator+deviceName;
 logger.info(pathForDevice);
-assertNotNull(driver.getDevice(pathForDevice));</code></pre>
+
+RedhawkDevice device = driver.getDevice(pathForDevice);</code></pre>
 </div>
 </div>
 </div>
@@ -1010,9 +1007,7 @@ assertNotNull(driver.getDevice(pathForDevice));</code></pre>
 <div class="listingblock">
 <div class="title"><code>RedhawkDriverIT.java</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">RedhawkDriver driver = <span class="keyword">new</span> RedhawkDriver();
-
-<span class="comment">//Use these utility methods if you only have one REDHAWK Domain/Redhawk Device Manager/Redhawk Device</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">//Use these utility methods if you only have one REDHAWK Domain/Redhawk Device Manager/Redhawk Device</span>
 RedhawkDomainManager domainManager = driver.getDomain();
 
 RedhawkDeviceManager deviceManager = driver.getDeviceManager();
@@ -1035,8 +1030,7 @@ RedhawkDevice device = driver.getDevice();</code></pre>
 <div class="listingblock">
 <div class="title"><code>RedhawkDomainManagerImplIT.java</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">RedhawkDriver driver = <span class="keyword">new</span> RedhawkDriver();
-RedhawkDomainManager domainManager = driver.getDomain();
+<pre class="CodeRay highlight"><code data-lang="java">RedhawkDomainManager domainManager = driver.getDomain();
 <span class="predefined-type">String</span> waveformLocation = <span class="string"><span class="delimiter">&quot;</span><span class="content">/waveforms/rh/basic_components_demo/basic_components_demo.sad.xml</span><span class="delimiter">&quot;</span></span>;
 
 <span class="comment">//Create an application that already exists in your $SDRROOT</span>
@@ -1047,7 +1041,7 @@ RedhawkApplication application = domainManager.createApplication(applicationName
 <p>Sample code for creating an Application from a SAD file on a file system.</p>
 </div>
 <div class="listingblock">
-<div class="title"><code>RedhawkDomainManagerImplIT.java</code></div>
+<div class="title"><code>RedhawkComponentImplIT.java</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">driver.getDomain(<span class="string"><span class="delimiter">&quot;</span><span class="content">REDHAWK_DEV</span><span class="delimiter">&quot;</span></span>).createApplication(applicationName, <span class="keyword">new</span> <span class="predefined-type">File</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">src/test/resources/waveforms/rh/testWaveform.sad.xml</span><span class="delimiter">&quot;</span></span>));</code></pre>
 </div>
@@ -1082,14 +1076,13 @@ RedhawkDevice device = domainManager.getDeviceByName(deviceName);</code></pre>
 <div class="listingblock">
 <div class="title"><code>RedhawkDomainManagerImplIT.java</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">        RedhawkDevice device = domainManager.getDeviceByName(deviceName);
+<pre class="CodeRay highlight"><code data-lang="java">RedhawkDevice device = domainManager.getDeviceByName(deviceName);
 
-        <span class="comment">//Retrieve all available device managers</span>
-        <span class="predefined-type">List</span>&lt;RedhawkDeviceManager&gt; managers = domainManager.getDeviceManagers();
+<span class="comment">//Retrieve all available device managers</span>
+<span class="predefined-type">List</span>&lt;RedhawkDeviceManager&gt; managers = domainManager.getDeviceManagers();
 
-        <span class="comment">//Get a specific device manager</span>
-        RedhawkDeviceManager devManager = domainManager.getDeviceManagerByName(managers.get(<span class="integer">0</span>).getName());
-}</code></pre>
+<span class="comment">//Get a specific device manager</span>
+RedhawkDeviceManager devManager = domainManager.getDeviceManagerByName(managers.get(<span class="integer">0</span>).getName());</code></pre>
 </div>
 </div>
 </div>
@@ -1106,14 +1099,14 @@ RedhawkDevice device = domainManager.getDeviceByName(deviceName);</code></pre>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">application.stop();
 
-<span class="comment">//Start an application</span>
+<span class="comment">// Start an application</span>
 application.start();
 
-<span class="comment">//Check to see if an application is started</span>
-<span class="keyword">if</span>(application.isStarted())
+<span class="comment">// Check to see if an application is started</span>
+<span class="keyword">if</span> (application.isStarted())
         application.stop();
 
-<span class="comment">//Release an application</span>
+<span class="comment">// Release an application</span>
 application.release();</code></pre>
 </div>
 </div>
@@ -1125,7 +1118,7 @@ application.release();</code></pre>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">List</span>&lt;RedhawkComponent&gt; components = application.getComponents();
 
-<span class="comment">//Get a specific component</span>
+<span class="comment">// Get a specific component</span>
 <span class="predefined-type">String</span> componentName = components.get(<span class="integer">0</span>).getName();
 RedhawkComponent component = application.getComponentByName(componentName);</code></pre>
 </div>
@@ -1287,21 +1280,19 @@ device.deallocate(allocId);</code></pre>
 <div class="listingblock">
 <div class="title"><code>RedhawkEventChannelManagerIT.java</code></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">RedhawkDriver driver = <span class="keyword">new</span> RedhawkDriver();
-RedhawkEventChannelManager ecManager = driver.getDomain().getEventChannelManager();
+<pre class="CodeRay highlight"><code data-lang="java">        <span class="comment">//Get the event channels in your domain</span>
+        <span class="predefined-type">List</span>&lt;RedhawkEventChannel&gt; eventChannels = ecManager.getEventChannels();
 
-<span class="comment">//Get the event channels in your domain</span>
-<span class="predefined-type">List</span>&lt;RedhawkEventChannel&gt; eventChannels = ecManager.getEventChannels();
+        <span class="comment">//Create an Event Channel</span>
+        <span class="predefined-type">String</span> eventChannelName  = <span class="string"><span class="delimiter">&quot;</span><span class="content">myEventChannel</span><span class="delimiter">&quot;</span></span>;
+        ecManager.createEventChannel(eventChannelName);
 
-<span class="comment">//Create an Event Channel</span>
-<span class="predefined-type">String</span> eventChannelName  = <span class="string"><span class="delimiter">&quot;</span><span class="content">myEventChannel</span><span class="delimiter">&quot;</span></span>;
-ecManager.createEventChannel(eventChannelName);
+        <span class="comment">//Retrieve an Event Channel</span>
+        RedhawkEventChannel ec = ecManager.getEventChannel(eventChannelName);
 
-<span class="comment">//Retrieve an Event Channel</span>
-RedhawkEventChannel ec = ecManager.getEventChannel(eventChannelName);
-
-<span class="comment">//Release an Event Channel</span>
-ecManager.releaseEventChannel(eventChannelName);</code></pre>
+        <span class="comment">//Release an Event Channel</span>
+        ecManager.releaseEventChannel(eventChannelName);
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1497,15 +1488,15 @@ domainManager=REDHAWK_DEV</pre>
 <div class="sect3">
 <h4 id="_version_information">Version information</h4>
 <div class="paragraph">
-<p><em>Version</em> : 2.0.0</p>
+<p><em>Version</em> : 2.1.0</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_uri_scheme">URI scheme</h4>
 <div class="paragraph">
 <p><em>Host</em> : 127.0.0.1<br>
-<em>BasePath</em> : redhawk<br>
-<em>Schemes</em> : HTTP, HTTPS</p>
+<em>BasePath</em> : cxf/redhawk<br>
+<em>Schemes</em> : HTTP</p>
 </div>
 </div>
 <div class="sect3">
@@ -1535,6 +1526,9 @@ domainManager=REDHAWK_DEV</pre>
 </li>
 <li>
 <p>{nameserver}domains{domain}devicemanagers{devmanager}devices{deviceId}ports</p>
+</li>
+<li>
+<p>{nameserver}domains{domain}eventchannels</p>
 </li>
 <li>
 <p>{nameserver}domains{domain}waveforms</p>
@@ -2759,10 +2753,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getapplicationproperties">GET Application Properties</h4>
+<h4 id="_getapplicationports">GET Application ports</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/applications/{applicationId}/properties</pre>
+<pre>GET /{nameserver}/domains/{domain}/applications/{applicationId}/ports</pre>
 </div>
 </div>
 <div class="sect4">
@@ -2787,7 +2781,7 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>applicationId</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ID for Application</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ID/Name for Application</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2812,7 +2806,7 @@ domainManager=REDHAWK_DEV</pre>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_propertycontainer">PropertyContainer</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_externalportcontainer">ExternalPortContainer</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -2842,6 +2836,179 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
+<h4 id="_getapplicationport">GET Application port</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/applications/{applicationId}/ports/{portId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_15">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>applicationId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ID/Name for Application</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>portId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">External name for port</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_17">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_externalport">ExternalPort</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_16">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_18">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}applications</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getapplicationproperties">GET Application Properties</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/applications/{applicationId}/properties</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_16">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>applicationId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ID for Application</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_18">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_propertycontainer">PropertyContainer</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_17">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_19">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}applications</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_getapplicationproperty">GET Application Property</h4>
 <div class="literalblock">
 <div class="content">
@@ -2849,7 +3016,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_15">Parameters</h5>
+<h5 id="_parameters_17">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2884,7 +3051,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_responses_17">Responses</h5>
+<h5 id="_responses_19">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -2908,7 +3075,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_produces_16">Produces</h5>
+<h5 id="_produces_18">Produces</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2921,7 +3088,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_tags_18">Tags</h5>
+<h5 id="_tags_20">Tags</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2939,7 +3106,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_16">Parameters</h5>
+<h5 id="_parameters_18">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2981,7 +3148,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_responses_18">Responses</h5>
+<h5 id="_responses_20">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3018,7 +3185,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_produces_17">Produces</h5>
+<h5 id="_produces_19">Produces</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3031,7 +3198,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_tags_19">Tags</h5>
+<h5 id="_tags_21">Tags</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3049,7 +3216,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_17">Parameters</h5>
+<h5 id="_parameters_19">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3084,7 +3251,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_responses_19">Responses</h5>
+<h5 id="_responses_21">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3121,7 +3288,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_produces_18">Produces</h5>
+<h5 id="_produces_20">Produces</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3134,7 +3301,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_tags_20">Tags</h5>
+<h5 id="_tags_22">Tags</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3152,7 +3319,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_18">Parameters</h5>
+<h5 id="_parameters_20">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 18.1818%;">
@@ -3175,166 +3342,6 @@ domainManager=REDHAWK_DEV</pre>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">enum (EAGER, LAZY)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><code>"EAGER"</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_responses_20">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_produces_19">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_tags_21">Tags</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>{nameserver}domains{domain}devicemanagers</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_getdevicemanager">GET REDHAWK Device Manager</h4>
-<div class="literalblock">
-<div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_19">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devMgrId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_responses_21">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_produces_20">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_tags_22">Tags</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>{nameserver}domains{domain}devicemanagers</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_shutdowndevicemanager">DELETE REDHAWK Device Manager</h4>
-<div class="literalblock">
-<div class="content">
-<pre>DELETE /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_20">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devMgrId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -3388,10 +3395,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setdevicemanagerproperties">Set REDHAWK Device Manager properties</h4>
+<h4 id="_getdevicemanager">GET REDHAWK Device Manager</h4>
 <div class="literalblock">
 <div class="content">
-<pre>POST /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}</pre>
 </div>
 </div>
 <div class="sect4">
@@ -3415,12 +3422,6 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devMgrId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_fullproperty">FullProperty</a> &gt; array</p></td>
 </tr>
 </tbody>
 </table>
@@ -3450,19 +3451,6 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_5">Consumes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
 <h5 id="_produces_22">Produces</h5>
 <div class="ulist">
 <ul>
@@ -3487,10 +3475,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdevicemanagerproperties">GET REDHAWK Device Manager Properties</h4>
+<h4 id="_shutdowndevicemanager">DELETE REDHAWK Device Manager</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties</pre>
+<pre>DELETE /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}</pre>
 </div>
 </div>
 <div class="sect4">
@@ -3567,10 +3555,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdevicemanagerproperty">GET REDHAWK Device Manager Property</h4>
+<h4 id="_setdevicemanagerproperties">Set REDHAWK Device Manager properties</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties/{propId}</pre>
+<pre>POST /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties</pre>
 </div>
 </div>
 <div class="sect4">
@@ -3596,10 +3584,10 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_fullproperty">FullProperty</a> &gt; array</p></td>
 </tr>
 </tbody>
 </table>
@@ -3629,6 +3617,19 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
+<h5 id="_consumes_5">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
 <h5 id="_produces_24">Produces</h5>
 <div class="ulist">
 <ul>
@@ -3653,10 +3654,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setdevicemanagerproperty">Set REDHAWK Device Manager Property</h4>
+<h4 id="_getdevicemanagerproperties">GET REDHAWK Device Manager Properties</h4>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties/{propId}</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties</pre>
 </div>
 </div>
 <div class="sect4">
@@ -3680,18 +3681,6 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devMgrId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_fullproperty">FullProperty</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3721,19 +3710,6 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_6">Consumes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
 <h5 id="_produces_25">Produces</h5>
 <div class="ulist">
 <ul>
@@ -3758,36 +3734,39 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdevices">GET REDHAWK Devices</h4>
+<h4 id="_getdevicemanagerproperty">GET REDHAWK Device Manager Property</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties/{propId}</pre>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_parameters_25">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 18.1818%;">
-<col style="width: 27.2727%;">
-<col style="width: 36.3636%;">
-<col style="width: 18.1819%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-middle">Name</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
-<th class="tableblock halign-left valign-middle">Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fetch</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">enum (EAGER, LAZY)</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>"EAGER"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devMgrId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -3834,17 +3813,17 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
+<p>{nameserver}domains{domain}devicemanagers</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdevice">GET REDHAWK Device</h4>
+<h4 id="_setdevicemanagerproperty">Set REDHAWK Device Manager Property</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}</pre>
+<pre>PUT /{nameserver}/domains/{domain}/devicemanagers/{devMgrId}/properties/{propId}</pre>
 </div>
 </div>
 <div class="sect4">
@@ -3865,9 +3844,21 @@ domainManager=REDHAWK_DEV</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devMgrId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_fullproperty">FullProperty</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3897,6 +3888,19 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
+<h5 id="_consumes_6">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
 <h5 id="_produces_27">Produces</h5>
 <div class="ulist">
 <ul>
@@ -3914,6 +3918,169 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
+<p>{nameserver}domains{domain}devicemanagers</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getdevices">GET REDHAWK Devices</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_27">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 18.1818%;">
+<col style="width: 27.2727%;">
+<col style="width: 36.3636%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+<th class="tableblock halign-left valign-middle">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fetch</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">enum (EAGER, LAZY)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>"EAGER"</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_29">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_28">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_30">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getdevice">GET REDHAWK Device</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_28">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_30">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_29">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_31">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
 <p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
 </li>
 </ul>
@@ -3928,7 +4095,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_27">Parameters</h5>
+<h5 id="_parameters_29">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -3959,7 +4126,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_responses_29">Responses</h5>
+<h5 id="_responses_31">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -3993,7 +4160,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_produces_28">Produces</h5>
+<h5 id="_produces_30">Produces</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4006,7 +4173,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_tags_30">Tags</h5>
+<h5 id="_tags_32">Tags</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4024,7 +4191,7 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parameters_28">Parameters</h5>
+<h5 id="_parameters_30">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 22.2222%;">
@@ -4055,7 +4222,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_responses_30">Responses</h5>
+<h5 id="_responses_32">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -4089,141 +4256,6 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_produces_29">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_tags_31">Tags</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_getports">GET REDHAWK Device Ports</h4>
-<div class="literalblock">
-<div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/ports</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_responses_31">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_produces_30">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_tags_32">Tags</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>{nameserver}domains{domain}devicemanagers{devmanager}devices{deviceId}ports</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_getport">GET REDHAWK Device Port</h4>
-<div class="literalblock">
-<div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/ports/{portId}</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_29">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>portId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_responses_32">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
 <h5 id="_produces_31">Produces</h5>
 <div class="ulist">
 <ul>
@@ -4241,43 +4273,18 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains{domain}devicemanagers{devmanager}devices{deviceId}ports</p>
+<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getportstatistics">GET REDHAWK Port Statistics for a Device</h4>
+<h4 id="_getports">GET REDHAWK Device Ports</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/ports/{portId}/statistics</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/ports</pre>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_30">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>portId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect4">
 <h5 id="_responses_33">Responses</h5>
@@ -4328,10 +4335,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setdeviceproperties">Set REDHAWK Device Properties</h4>
+<h4 id="_getport">GET REDHAWK Device Port</h4>
 <div class="literalblock">
 <div class="content">
-<pre>POST /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/ports/{portId}</pre>
 </div>
 </div>
 <div class="sect4">
@@ -4352,15 +4359,9 @@ domainManager=REDHAWK_DEV</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>portId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_fullproperty">FullProperty</a> &gt; array</p></td>
 </tr>
 </tbody>
 </table>
@@ -4390,19 +4391,6 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_9">Consumes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
 <h5 id="_produces_33">Produces</h5>
 <div class="ulist">
 <ul>
@@ -4420,17 +4408,17 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
+<p>{nameserver}domains{domain}devicemanagers{devmanager}devices{deviceId}ports</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdeviceproperties">GET REDHAWK Device Properties</h4>
+<h4 id="_getportstatistics">GET REDHAWK Port Statistics for a Device</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/ports/{portId}/statistics</pre>
 </div>
 </div>
 <div class="sect4">
@@ -4451,7 +4439,7 @@ domainManager=REDHAWK_DEV</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>portId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -4500,17 +4488,17 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
+<p>{nameserver}domains{domain}devicemanagers{devmanager}devices{deviceId}ports</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdeviceproperty">GET REDHAWK Device Property</h4>
+<h4 id="_setdeviceproperties">Set REDHAWK Device Properties</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties/{propId}</pre>
+<pre>POST /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties</pre>
 </div>
 </div>
 <div class="sect4">
@@ -4536,10 +4524,10 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_fullproperty">FullProperty</a> &gt; array</p></td>
 </tr>
 </tbody>
 </table>
@@ -4569,6 +4557,19 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
+<h5 id="_consumes_9">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
 <h5 id="_produces_35">Produces</h5>
 <div class="ulist">
 <ul>
@@ -4593,10 +4594,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setdeviceproperty">Set REDHAWK Device Property</h4>
+<h4 id="_getdeviceproperties">GET REDHAWK Device Properties</h4>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties/{propId}</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties</pre>
 </div>
 </div>
 <div class="sect4">
@@ -4620,18 +4621,6 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_fullproperty">FullProperty</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4661,19 +4650,6 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_10">Consumes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
 <h5 id="_produces_36">Produces</h5>
 <div class="ulist">
 <ul>
@@ -4698,10 +4674,10 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tuners">GET REDHAWK Device by tuner mode</h4>
+<h4 id="_getdeviceproperty">GET REDHAWK Device Property</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/tuners/{tunerMode}</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties/{propId}</pre>
 </div>
 </div>
 <div class="sect4">
@@ -4728,7 +4704,7 @@ domainManager=REDHAWK_DEV</pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tunerMode</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -4784,43 +4760,45 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setdomainproperties">Set Properties on a REDHAWK Domain</h4>
+<h4 id="_setdeviceproperty">Set REDHAWK Device Property</h4>
 <div class="literalblock">
 <div class="content">
-<pre>POST /{nameserver}/domains/{domain}/properties</pre>
+<pre>PUT /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/properties/{propId}</pre>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_parameters_36">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">List of Properties to set</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_fullproperty">FullProperty</a> &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_fullproperty">FullProperty</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4850,7 +4828,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_11">Consumes</h5>
+<h5 id="_consumes_10">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4880,42 +4858,45 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains</p>
+<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getdomainproperties">GET REDHAWK Domain Properties</h4>
+<h4 id="_tuners">GET REDHAWK Device by tuner mode</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/properties</pre>
+<pre>GET /{nameserver}/domains/{domain}/devicemanagers/{devmanager}/devices/{deviceId}/tuners/{tunerMode}</pre>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_parameters_37">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceId</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tunerMode</strong><br>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -4923,193 +4904,6 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 <div class="sect4">
 <h5 id="_responses_40">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_propertycontainer">PropertyContainer</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_produces_39">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_tags_41">Tags</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>{nameserver}domains</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_getdomainpropertybyid">GET REDHAWK Domain Property</h4>
-<div class="literalblock">
-<div class="content">
-<pre>GET /{nameserver}/domains/{domain}/properties/{propId}</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_38">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Property name/ID</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_responses_41">Responses</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_property">Property</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_produces_40">Produces</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/xml</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_tags_42">Tags</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>{nameserver}domains</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_setdomainproperty">Set a Property on a REDHAWK Domain</h4>
-<div class="literalblock">
-<div class="content">
-<pre>PUT /{nameserver}/domains/{domain}/properties/{propId}</pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_parameters_39">Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Property name/ID</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Property to set</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_fullproperty">FullProperty</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_responses_42">Responses</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -5133,7 +4927,7 @@ domainManager=REDHAWK_DEV</pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_12">Consumes</h5>
+<h5 id="_produces_39">Produces</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -5144,6 +4938,128 @@ domainManager=REDHAWK_DEV</pre>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_tags_41">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}devicemanagers{devmanager}devices</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_geteventchannels">GET REDHAWK Event Channels</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/eventchannels</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_responses_41">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_eventchannelcontainer">EventChannelContainer</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_40">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_42">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}eventchannels</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_geteventchannel">GET REDHAWK Event Channel</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/eventchannels/{eventchannel}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_38">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>eventchannel</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_42">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_eventchannel">EventChannel</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_produces_41">Produces</h5>
@@ -5163,18 +5079,43 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains</p>
+<p>{nameserver}domains{domain}eventchannels</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getapplications">GET Waveforms in a REDHAWK Domain</h4>
+<h4 id="_createeventchannel">Create REDHAWK Event Channel</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/waveforms</pre>
+<pre>PUT /{nameserver}/domains/{domain}/eventchannels/{eventchannel}</pre>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_39">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>eventchannel</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_responses_43">Responses</h5>
@@ -5218,17 +5159,17 @@ domainManager=REDHAWK_DEV</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>{nameserver}domains{domain}waveforms</p>
+<p>{nameserver}domains{domain}eventchannels</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_getapplications">Returns a Specific Waveform in a REDHAWK Domain</h4>
+<h4 id="_deleteeventchannel">DELETE REDHAWK Event Channel</h4>
 <div class="literalblock">
 <div class="content">
-<pre>GET /{nameserver}/domains/{domain}/waveforms/{waveformId}</pre>
+<pre>DELETE /{nameserver}/domains/{domain}/eventchannels/{eventchannel}</pre>
 </div>
 </div>
 <div class="sect4">
@@ -5249,7 +5190,7 @@ domainManager=REDHAWK_DEV</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>waveformId</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>eventchannel</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -5295,6 +5236,613 @@ domainManager=REDHAWK_DEV</pre>
 </div>
 <div class="sect4">
 <h5 id="_tags_45">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}eventchannels</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deleteeventchannelregistrant">DELETE REDHAWK Event Channel Registrant</h4>
+<div class="literalblock">
+<div class="content">
+<pre>DELETE /{nameserver}/domains/{domain}/eventchannels/{eventchannel}/registrant/{id}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_41">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>eventchannel</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_45">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_44">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_46">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}eventchannels</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setdomainproperties">Set Properties on a REDHAWK Domain</h4>
+<div class="literalblock">
+<div class="content">
+<pre>POST /{nameserver}/domains/{domain}/properties</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_42">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">List of Properties to set</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_fullproperty">FullProperty</a> &gt; array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_46">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_consumes_11">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_produces_45">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_47">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getdomainproperties">GET REDHAWK Domain Properties</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/properties</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_43">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_47">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_propertycontainer">PropertyContainer</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_46">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_48">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getdomainpropertybyid">GET REDHAWK Domain Property</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/properties/{propId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_44">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Property name/ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_48">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_property">Property</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_47">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_49">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setdomainproperty">Set a Property on a REDHAWK Domain</h4>
+<div class="literalblock">
+<div class="content">
+<pre>PUT /{nameserver}/domains/{domain}/properties/{propId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_45">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of REDHAWK Domain</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Property name/ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>body</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Property to set</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_fullproperty">FullProperty</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_49">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_consumes_12">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_produces_48">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_50">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getapplications">GET Waveforms in a REDHAWK Domain</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/waveforms</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_responses_50">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_49">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_51">Tags</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{nameserver}domains{domain}waveforms</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getapplications">Returns a Specific Waveform in a REDHAWK Domain</h4>
+<div class="literalblock">
+<div class="content">
+<pre>GET /{nameserver}/domains/{domain}/waveforms/{waveformId}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parameters_46">Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>waveformId</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_responses_51">Responses</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">successful operation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_produces_50">Produces</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/xml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tags_52">Tags</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -5355,7 +5903,7 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>externalPorts</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_port">Port</a> &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_externalport">ExternalPort</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>identifier</strong><br>
@@ -5644,7 +6192,7 @@ domainManager=REDHAWK_DEV</pre>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>eventChannels</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_eventchannel">EventChannel</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>identifier</strong><br>
@@ -5731,6 +6279,124 @@ domainManager=REDHAWK_DEV</pre>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enumerations</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_enumeration">Enumeration</a> &gt; array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_eventchannel">EventChannel</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>registrantIds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_eventchannelcontainer">EventChannelContainer</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>eventChannels</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_eventchannel">EventChannel</a> &gt; array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_externalport">ExternalPort</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>componentRefId</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>externalname</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>repId</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_externalportcontainer">ExternalPortContainer</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ports</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_externalport">ExternalPort</a> &gt; array</p></td>
 </tr>
 </tbody>
 </table>
@@ -6069,6 +6735,11 @@ domainManager=REDHAWK_DEV</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>externalId</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -6702,8 +7373,7 @@ Receiving events. Press 'enter' key to exit
 	2017-02-23 14:35:20,548 | INFO  | eadpool; w: Idle | eventTest                        | 31 - org.apache.camel.camel-core - 2.17.5 | Exchange[ExchangePattern: InOnly, BodyType: java.util.HashMap, Body: {bar=1.6, foo=foo-fcda80f5-3b6b-46fb-8ada-80859ff7fcef}]
 	2017-02-23 14:35:21,678 | INFO  | eadpool; w: Idle | eventTest                        | 31 - org.apache.camel.camel-core - 2.17.5 | Exchange[ExchangePattern: InOnly, BodyType: java.util.HashMap, Body: {bar=1.6, foo=foo-0dc62388-5dee-43b5-8c1b-7bfa91f2bc39}]
 	2017-02-23 14:35:22,808 | INFO  | eadpool; w: Idle | eventTest                        | 31 - org.apache.camel.camel-core - 2.17.5 | Exchange[ExchangePattern: InOnly, BodyType: java.util.HashMap, Body: {bar=1.6, foo=foo-090be096-49ba-4943-ae65-3a4ae1438398}]
-	2017-02-23 14:35:23,938 | INFO  | eadpool; w: Idle | eventTest                        | 31 - org.apache.camel.camel-core - 2.17.5 | Exchange[ExchangePattern: InOnly, BodyType: java.util.HashMap, Body: {bar=1.6, foo=foo-0dcc5772-0759-4122-ba11-fc7fe10c697f}]
-[source]</code></pre>
+	2017-02-23 14:35:23,938 | INFO  | eadpool; w: Idle | eventTest                        | 31 - org.apache.camel.camel-core - 2.17.5 | Exchange[ExchangePattern: InOnly, BodyType: java.util.HashMap, Body: {bar=1.6, foo=foo-0dcc5772-0759-4122-ba11-fc7fe10c697f}]</code></pre>
 </div>
 </div>
 </div>
@@ -6741,7 +7411,7 @@ feature:install activemq-camel</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-31 18:21:01 +00:00
+Last updated 2017-08-08 16:29:46 +00:00
 </div>
 </div>
 </body>

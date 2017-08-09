@@ -53,23 +53,23 @@ href="mainch14.html#tailmainch14.html" >prev-tail</a>] [<a
 href="#tailmainch15.html">tail</a>] [<a 
 href="main.html#mainch15.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;15</span><br /><a 
- id="x17-45000015"></a>Sharing REDHAWK Projects With Others</h2>
+ id="x17-45400015"></a>Sharing REDHAWK Projects With Others</h2>
 <!--l. 2--><p class="noindent" >The REDHAWK <a 
-href="mainap9.html#ide">IDE</a> provides a set of tools that allow for the collaborative development of
+href="mainap10.html#ide">IDE</a> provides a set of tools that allow for the collaborative development of
 REDHAWK capabilities. Projects can be exported or imported from the <a 
-href="mainap9.html#ide">IDE</a> or can be shared via
+href="mainap10.html#ide">IDE</a> or can be shared via
 a source code version-control system. The base REDHAWK <a 
-href="mainap9.html#ide">IDE</a> installation includes support for
+href="mainap10.html#ide">IDE</a> installation includes support for
 <a 
-href="mainap9.html#cvs">CVS</a>, and Git and can easily be extended to include support for other systems, such as
+href="mainap10.html#cvs">CVS</a>, and Git and can easily be extended to include support for other systems, such as
 Mercurial.
 <h3 class="sectionHead"><span class="titlemark">15.1   </span> <a 
- id="x17-45100015.1"></a>REDHAWK Project Metadata Files</h3>
+ id="x17-45500015.1"></a>REDHAWK Project Metadata Files</h3>
 <!--l. 11--><p class="noindent" >When sharing projects, it is important to include all of the source code, REDHAWK <a 
-href="mainap9.html#xml">XML</a>, and
+href="mainap10.html#xml">XML</a>, and
 project metadata files. The project metadata files contain settings and preferences that allow the
 REDHAWK <a 
-href="mainap9.html#ide">IDE</a> to properly generate, build, and analyze the project.
+href="mainap10.html#ide">IDE</a> to properly generate, build, and analyze the project.
 <!--l. 16--><p class="noindent" >Project metadata files are typically hidden files (i.e., they start with a &#8217;.&#8217; ) and usually do not
 appear within the <a 
 href="mainli2.html#glo:Project Explorer View"><span 
@@ -79,7 +79,7 @@ additional non-file content.
 class="ecbx-1200">Navigator </span>view:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-451002x1">Select <span 
+  class="enumerate" id="x17-455002x1">Select <span 
 class="ecbx-1200">Window </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Show View </span><span 
@@ -88,38 +88,38 @@ class="ecbx-1200">Other</span><span
 class="ecbx-1200">&#x2026;</span>.
       <!--l. 25--><p class="noindent" >The <span 
 class="ecbx-1200">Show View </span>dialog is displayed (<a 
-href="#x17-451003r1">Figure 15.1</a>).
+href="#x17-455003r1">Figure 15.1</a>).
       <!--l. 27--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-451003r1"></a> <img 
+ id="x17-455003r1"></a> <img 
 src="images/sharing/showView.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.1: </td><td  
-class="content">Show View Dialog</td></tr></table><!--tex4ht:label?: x17-451003r1 -->
+class="content">Show View Dialog</td></tr></table><!--tex4ht:label?: x17-455003r1 -->
       <!--l. 32--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-451005x2">Expand <span 
+  class="enumerate" id="x17-455005x2">Expand <span 
 class="ecbx-1200">General </span>and select <span 
 class="ecbx-1200">Navigator</span>.
       </li>
       <li 
-  class="enumerate" id="x17-451007x3">Click <span 
+  class="enumerate" id="x17-455007x3">Click <span 
 class="ecbx-1200">OK</span>.
       <!--l. 37--><p class="noindent" >The <span 
 class="ecbx-1200">Navigator </span>view is displayed (<a 
-href="#x17-451008r2">Figure 15.2</a>).
+href="#x17-455008r2">Figure 15.2</a>).
       <!--l. 39--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-451008r2"></a> <img 
+ id="x17-455008r2"></a> <img 
 src="images/sharing/navigator.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.2: </td><td  
-class="content">Navigator View</td></tr></table><!--tex4ht:label?: x17-451008r2 -->
+class="content">Navigator View</td></tr></table><!--tex4ht:label?: x17-455008r2 -->
       <!--l. 44--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li></ol>
 <!--l. 48--><p class="noindent" >The set of metadata files found in a project varies depending on the type of project. At a
@@ -134,7 +134,7 @@ class="ectt-1200">.project </span>file - Defines the basic Eclipse project setti
       </li>
       <li class="itemize"><span 
 class="ectt-1200">.library </span>file - Defines the <a 
-href="mainap9.html#idl">IDL</a> search path for the project
+href="mainap10.html#idl">IDL</a> search path for the project
       </li>
       <li class="itemize"><span 
 class="ectt-1200">.PROJECTNAME.wavedev </span>file  -  Defines  REDHAWK  specific  settings  for  the  project
@@ -152,61 +152,61 @@ class="ectt-1200">.classpath </span>file - Defines settings related to the Java 
 files found in the project.
 <!--l. 64--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.2   </span> <a 
- id="x17-45200015.2"></a>Exporting Projects as Source Code Archives</h3>
+ id="x17-45600015.2"></a>Exporting Projects as Source Code Archives</h3>
 <!--l. 65--><p class="noindent" >The quickest way to share projects is to export them as an archive file. A single archive may
 contain one or more projects of varying types. This allows easy distribution of an archive that
 includes all of the relevant <a 
 href="mainli2.html#glo:component">Components</a>, libraries, and REDHAWK <a 
-href="mainap9.html#xml">XML</a> files that another
+href="mainap10.html#xml">XML</a> files that another
 developer would require.
 <!--l. 70--><p class="noindent" >To export a project as an archive:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-452002x1">Select <span 
+  class="enumerate" id="x17-456002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Export</span><span 
 class="ecbx-1200">&#x2026;</span>.
       <!--l. 74--><p class="noindent" >The <span 
 class="ecbx-1200">Export Select </span>dialog is displayed (<a 
-href="#x17-452003r3">Figure 15.3</a>).
+href="#x17-456003r3">Figure 15.3</a>).
       <!--l. 76--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-452003r3"></a> <img 
+ id="x17-456003r3"></a> <img 
 src="images/sharing/exportselect.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.3: </td><td  
-class="content">Export Select Dialog</td></tr></table><!--tex4ht:label?: x17-452003r3 -->
+class="content">Export Select Dialog</td></tr></table><!--tex4ht:label?: x17-456003r3 -->
       <!--l. 81--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x17-452005x2">Expand <span 
+  class="enumerate" id="x17-456005x2">Expand <span 
 class="ecbx-1200">General </span>and select <span 
 class="ecbx-1200">Archive File</span>
       </li>
       <li 
-  class="enumerate" id="x17-452007x3">Click <span 
+  class="enumerate" id="x17-456007x3">Click <span 
 class="ecbx-1200">Next</span>.
       <!--l. 86--><p class="noindent" >The <span 
 class="ecbx-1200">Export Archive file </span>dialog is displayed (<a 
-href="#x17-452008r4">Figure 15.4</a>).
+href="#x17-456008r4">Figure 15.4</a>).
       <!--l. 88--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-452008r4"></a> <img 
+ id="x17-456008r4"></a> <img 
 src="images/sharing/exportarchive.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.4: </td><td  
-class="content">Export Archive File Dialog</td></tr></table><!--tex4ht:label?: x17-452008r4 -->
+class="content">Export Archive File Dialog</td></tr></table><!--tex4ht:label?: x17-456008r4 -->
       <!--l. 93--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-452010x4">Select the projects or files to include in the archive.
+  class="enumerate" id="x17-456010x4">Select the projects or files to include in the archive.
       <!--l. 97--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">  When selecting a project, all files within the project are included in the archive by default.
       To reduce the set of files being exported, click <span 
 class="ecbx-1200">Filter Types</span><span 
@@ -214,67 +214,67 @@ class="ecbx-1200">&#x2026; </span>and select the desired file
       extensions to be included in the archive. </p></div></div>
       </li>
       <li 
-  class="enumerate" id="x17-452012x5">Specify the output file in <span 
+  class="enumerate" id="x17-456012x5">Specify the output file in <span 
 class="ecbx-1200">To archive file</span>.
       </li>
       <li 
-  class="enumerate" id="x17-452014x6">Click <span 
+  class="enumerate" id="x17-456014x6">Click <span 
 class="ecbx-1200">Finish</span>.
       <!--l. 106--><p class="noindent" >The archive file is created.</li></ol>
 <!--l. 110--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.3   </span> <a 
- id="x17-45300015.3"></a>Importing Existing Projects</h3>
+ id="x17-45700015.3"></a>Importing Existing Projects</h3>
 <!--l. 112--><p class="noindent" >Existing projects can be imported into a REDHAWK <a 
-href="mainap9.html#ide">IDE</a> workspace.
+href="mainap10.html#ide">IDE</a> workspace.
 <!--l. 114--><p class="noindent" >To import existing projects:
-<!--l. 116--><p class="noindent" >
+<!--l. 117--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-453002x1">Select <span 
+  class="enumerate" id="x17-457002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Import</span><span 
 class="ecbx-1200">&#x2026;</span>.
       <!--l. 119--><p class="noindent" >The <span 
 class="ecbx-1200">Import Select </span>dialog is displayed (<a 
-href="#x17-453003r5">Figure 15.5</a>).
+href="#x17-457003r5">Figure 15.5</a>).
       <!--l. 121--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-453003r5"></a> <img 
+ id="x17-457003r5"></a> <img 
 src="images/sharing/importselect.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.5: </td><td  
-class="content">Import Select Dialog</td></tr></table><!--tex4ht:label?: x17-453003r5 -->
+class="content">Import Select Dialog</td></tr></table><!--tex4ht:label?: x17-457003r5 -->
       <!--l. 126--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x17-453005x2">Expand <span 
+  class="enumerate" id="x17-457005x2">Expand <span 
 class="ecbx-1200">General </span>and select <span 
 class="ecbx-1200">Existing Projects into Workspace</span>.
       </li>
       <li 
-  class="enumerate" id="x17-453007x3">Click <span 
+  class="enumerate" id="x17-457007x3">Click <span 
 class="ecbx-1200">Next</span>.
       <!--l. 132--><p class="noindent" >The <span 
 class="ecbx-1200">Import Projects </span>dialog is displayed (<a 
-href="#x17-453008r6">Figure 15.6</a>).
+href="#x17-457008r6">Figure 15.6</a>).
       <!--l. 134--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-453008r6"></a> <img 
+ id="x17-457008r6"></a> <img 
 src="images/sharing/importprojects.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.6: </td><td  
-class="content">Import Projects Dialog</td></tr></table><!--tex4ht:label?: x17-453008r6 -->
+class="content">Import Projects Dialog</td></tr></table><!--tex4ht:label?: x17-457008r6 -->
       <!--l. 139--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-453010x4">Select the location of the projects to import.
+  class="enumerate" id="x17-457010x4">Select the location of the projects to import.
            <ul class="itemize1">
            <li class="itemize">If the existing projects are stored as a file system, select <span 
 class="ecbx-1200">Select root directory</span>,
@@ -289,10 +289,10 @@ class="ecbx-1200">Browse</span><span
 class="ecbx-1200">&#x2026; </span>and navigate to the archive file containing the projects.</li></ul>
       </li>
       <li 
-  class="enumerate" id="x17-453012x5">Select one or more projects to import.
+  class="enumerate" id="x17-457012x5">Select one or more projects to import.
       </li>
       <li 
-  class="enumerate" id="x17-453014x6">Click <span 
+  class="enumerate" id="x17-457014x6">Click <span 
 class="ecbx-1200">Finish</span>.
       <!--l. 149--><p class="noindent" >The project is imported into the current workspace.</li></ol>
 <!--l. 152--><p class="noindent" ><div class="admonition block caution block-indent"><div class="caution-inner"><p class="para block block-first"> A common error is to attempt to import projects by choosing <span 
@@ -309,64 +309,64 @@ class="ecbx-1200">Copy projects into workspace</span>. (This may overwrite exist
 project files.) It is recommended to copy the project into the workspace whenever possible. </p></div></div>
 <!--l. 162--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.4   </span> <a 
- id="x17-45400015.4"></a>Importing Incomplete Projects</h3>
+ id="x17-45800015.4"></a>Importing Incomplete Projects</h3>
                                                                                          
                                                                                          
 <!--l. 164--><p class="noindent" >Users may forget to include the hidden files when exporting projects. As long as the <a 
-href="mainap9.html#spd">SPD</a> file and
+href="mainap10.html#spd">SPD</a> file and
 code are included in the archive, the project can be imported into a REDHAWK <a 
-href="mainap9.html#ide">IDE</a> workspace
+href="mainap10.html#ide">IDE</a> workspace
 using the <span 
 class="ecbx-1200">Redhawk Import Wizard</span>. This wizard makes a series of assumptions for the project
 folder layout and format based on the content of the <a 
-href="mainap9.html#spd">SPD</a> file and dynamically generates the
+href="mainap10.html#spd">SPD</a> file and dynamically generates the
 missing project files.
 <!--l. 166--><p class="noindent" >To import incomplete projects:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-454002x1">Select <span 
+  class="enumerate" id="x17-458002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Import</span><span 
 class="ecbx-1200">&#x2026;</span>.
       <!--l. 170--><p class="noindent" >The <span 
 class="ecbx-1200">Import Select </span>dialog is displayed (<a 
-href="#x17-454003r7">Figure 15.7</a>).
+href="#x17-458003r7">Figure 15.7</a>).
       <!--l. 172--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-454003r7"></a> <img 
+ id="x17-458003r7"></a> <img 
 src="images/sharing/importselect2.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.7: </td><td  
-class="content">Import Select Dialog</td></tr></table><!--tex4ht:label?: x17-454003r7 -->
+class="content">Import Select Dialog</td></tr></table><!--tex4ht:label?: x17-458003r7 -->
       <!--l. 177--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-454005x2">Expand <span 
+  class="enumerate" id="x17-458005x2">Expand <span 
 class="ecbx-1200">REDHAWK Development </span>and select <span 
 class="ecbx-1200">Redhawk Import Wizard</span>.
       </li>
       <li 
-  class="enumerate" id="x17-454007x3">Click <span 
+  class="enumerate" id="x17-458007x3">Click <span 
 class="ecbx-1200">Next</span>.
       <!--l. 182--><p class="noindent" >The <span 
 class="ecbx-1200">Import Projects </span>dialog is displayed (<a 
-href="#x17-454008r8">Figure 15.8</a>).
+href="#x17-458008r8">Figure 15.8</a>).
       <!--l. 184--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-454008r8"></a> <img 
+ id="x17-458008r8"></a> <img 
 src="images/sharing/importprojects2.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.8: </td><td  
-class="content">Import Projects Dialog</td></tr></table><!--tex4ht:label?: x17-454008r8 -->
+class="content">Import Projects Dialog</td></tr></table><!--tex4ht:label?: x17-458008r8 -->
       <!--l. 189--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-454010x4">Select the location of the projects to import.
+  class="enumerate" id="x17-458010x4">Select the location of the projects to import.
            <ul class="itemize1">
            <li class="itemize">If the existing projects are stored as a file system, select <span 
 class="ecbx-1200">Select root directory</span>,
@@ -381,18 +381,18 @@ class="ecbx-1200">Browse</span><span
 class="ecbx-1200">&#x2026; </span>and navigate to the archive file containing the projects.</li></ul>
       </li>
       <li 
-  class="enumerate" id="x17-454012x5">Select one or more projects to import.
+  class="enumerate" id="x17-458012x5">Select one or more projects to import.
       </li>
       <li 
-  class="enumerate" id="x17-454014x6">Click <span 
+  class="enumerate" id="x17-458014x6">Click <span 
 class="ecbx-1200">Finish</span>.
       <!--l. 201--><p class="noindent" >The project is imported into the current workspace.
                                                                                          
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x17-454016x7">To create the missing metadata files, open the <a 
-href="mainap9.html#spd">SPD</a> file and click <span 
+  class="enumerate" id="x17-458016x7">To create the missing metadata files, open the <a 
+href="mainap10.html#spd">SPD</a> file and click <span 
 class="ecbx-1200">Generate All</span>
       <span 
 class="ecbx-1200">Implementations</span>.
@@ -403,18 +403,18 @@ class="ecbx-1200">Copy projects into workspace</span>. (This may overwrite exist
 project files.) It is recommended to copy the project into the workspace whenever possible. </p></div></div>
 <!--l. 212--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.5   </span> <a 
- id="x17-45500015.5"></a>Collaborative REDHAWK Development Using a Version Control System</h3>
+ id="x17-45900015.5"></a>Collaborative REDHAWK Development Using a Version Control System</h3>
 <!--l. 213--><p class="noindent" >REDHAWK projects can be shared by multiple developers by using a version-control system such
 as <a 
-href="mainap9.html#cvs">CVS</a> or Git. When sharing projects via a version-control system, it is important to commit all of
+href="mainap10.html#cvs">CVS</a> or Git. When sharing projects via a version-control system, it is important to commit all of
 the project metadata files as described in <a 
-href="#x17-45100015.1">Section 15.1</a>.
+href="#x17-45500015.1">Section 15.1</a>.
 <!--l. 219--><p class="noindent" >All version-control system integration within the Eclipse <a 
-href="mainap9.html#ide">IDE</a> is performed by the <span 
+href="mainap10.html#ide">IDE</a> is performed by the <span 
 class="ecbx-1200">Team</span>
 <span 
 class="ecbx-1200">Capabilities</span>. Because the REDHAWK <a 
-href="mainap9.html#ide">IDE</a> is built upon the Eclipse platform, one can easily
+href="mainap10.html#ide">IDE</a> is built upon the Eclipse platform, one can easily
 install plug-ins that provide support for additional version-control systems. Details for installing
 these plug-ins can be found on the associated project web pages.
 <!--l. 225--><p class="noindent" >The details for sharing and importing projects differs for each type of version-control system.
@@ -423,13 +423,13 @@ system.
 <!--l. 229--><p class="noindent" >To view full documentation:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-455002x1">Select <span 
+  class="enumerate" id="x17-459002x1">Select <span 
 class="ecbx-1200">Help </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Help Contents</span>.
       </li>
       <li 
-  class="enumerate" id="x17-455004x2">Choose the appropriate topic:
+  class="enumerate" id="x17-459004x2">Choose the appropriate topic:
            <ul class="itemize1">
            <li class="itemize"><span 
 class="ecbx-1200">Workbench User Guide </span><span 
@@ -437,7 +437,7 @@ class="cmmi-12">&#x003E; </span><span
 class="ecbx-1200">Getting Started </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Team </span><a 
-href="mainap9.html#cvs"><span 
+href="mainap10.html#cvs"><span 
 class="ecbx-1200">CVS</span></a> <span 
 class="ecbx-1200">tutorial</span>.
            </li>
@@ -451,46 +451,46 @@ class="ecbx-1200">Subversive User Guide</span>.
 <!--l. 240--><p class="noindent" >To share a project:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-455006x1">Right-click the project to share and select <span 
+  class="enumerate" id="x17-459006x1">Right-click the project to share and select <span 
 class="ecbx-1200">Team </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Share Project</span><span 
 class="ecbx-1200">&#x2026;</span>.
       <!--l. 244--><p class="noindent" >The <span 
 class="ecbx-1200">Share Project </span>dialog is displayed (<a 
-href="#x17-455007r9">Figure 15.9</a>).
+href="#x17-459007r9">Figure 15.9</a>).
       <!--l. 246--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-455007r9"></a> <img 
+ id="x17-459007r9"></a> <img 
 src="images/sharing/shareproject.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.9: </td><td  
-class="content">Share Project Dialog</td></tr></table><!--tex4ht:label?: x17-455007r9 -->
+class="content">Share Project Dialog</td></tr></table><!--tex4ht:label?: x17-459007r9 -->
       <!--l. 251--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-455009x2">Choose the appropriate version-control system (e.g. <a 
-href="mainap9.html#cvs">CVS</a>, Git, etc.)
+  class="enumerate" id="x17-459009x2">Choose the appropriate version-control system (e.g. <a 
+href="mainap10.html#cvs">CVS</a>, Git, etc.)
       </li>
       <li 
-  class="enumerate" id="x17-455011x3">Follow the steps for sharing the project as described in the relevant documentation.</li></ol>
+  class="enumerate" id="x17-459011x3">Follow the steps for sharing the project as described in the relevant documentation.</li></ol>
 <!--l. 257--><p class="noindent" >To import a project:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-455013x1">Select <span 
+  class="enumerate" id="x17-459013x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Import</span>.
       </li>
       <li 
-  class="enumerate" id="x17-455015x2">Expand the desired item (e.g. <a 
-href="mainap9.html#cvs">CVS</a>, Git, etc.) and click <span 
+  class="enumerate" id="x17-459015x2">Expand the desired item (e.g. <a 
+href="mainap10.html#cvs">CVS</a>, Git, etc.) and click <span 
 class="ecbx-1200">Next</span>.
       </li>
       <li 
-  class="enumerate" id="x17-455017x3">Follow the steps for importing the project as described in the relevant documentation.</li></ol>
+  class="enumerate" id="x17-459017x3">Follow the steps for importing the project as described in the relevant documentation.</li></ol>
 <!--l. 264--><p class="noindent" >Once a project is being tracked by the Eclipse team system, many additional capabilities are
 exposed. For example, files that have been modified are decorated to indicate their
 current status. This provides an &#8220;at-a-glance&#8221; view of which files need to be committed or
@@ -500,7 +500,7 @@ reverted.
       <li class="itemize">Quick review of outgoing changes using the Eclipse &#8220;diff&#8221; viewer.
       </li>
       <li class="itemize">Commit changes from within the <a 
-href="mainap9.html#ide">IDE</a>.
+href="mainap10.html#ide">IDE</a>.
       </li>
       <li class="itemize">Update the projects with changes from the source repository.
                                                                                          
@@ -511,49 +511,49 @@ href="mainap9.html#ide">IDE</a>.
       <li class="itemize">Create and merge branches.</li></ul>
 <!--l. 279--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">15.5.1   </span> <a 
- id="x17-45600015.5.1"></a>Managing Projects Outside of the Eclipse Workspace</h4>
+ id="x17-46000015.5.1"></a>Managing Projects Outside of the Eclipse Workspace</h4>
 <!--l. 280--><p class="noindent" >An alternate approach is to use the version-control system&#8217;s native tools and then import the
 project directories into the REDHAWK <a 
-href="mainap9.html#ide">IDE</a> (<a 
-href="#x17-45300015.3">Section 15.3</a>). It is important to ensure that projects
+href="mainap10.html#ide">IDE</a> (<a 
+href="#x17-45700015.3">Section 15.3</a>). It is important to ensure that projects
 <span class="uline">DO NOT</span> select <span 
 class="ecbx-1200">Copy projects into workspace </span>when using the method.
 <!--l. 287--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">15.6   </span> <a 
- id="x17-45700015.6"></a>Exporting Projects as a Deployable REDHAWK Project</h3>
+ id="x17-46100015.6"></a>Exporting Projects as a Deployable REDHAWK Project</h3>
 <!--l. 288--><p class="noindent" >To install a REDHAWK project into the <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a> or share a &#8220;ready to run&#8221; package, it is
 necessary to export the project as a <span 
 class="ecbx-1200">Deployable REDHAWK project</span>. Unlike a source code
 export, a deployable export only includes the REDHAWK <a 
-href="mainap9.html#xml">XML</a> files and the files identified in the
+href="mainap10.html#xml">XML</a> files and the files identified in the
 softpkg implementation.
 <!--l. 293--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> If the softpkg implementation references a directory, the export includes <span class="uline">all</span> files within the
 directory. </p></div></div>
 <!--l. 298--><p class="noindent" >To export a project as a deployable REDHAWK project:
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x17-457002x1">Select <span 
+  class="enumerate" id="x17-461002x1">Select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">Export</span><span 
 class="ecbx-1200">&#x2026;</span>.
       <!--l. 302--><p class="noindent" >The <span 
 class="ecbx-1200">Export Select </span>dialog is displayed (<a 
-href="#x17-457003r10">Figure 15.10</a>).
+href="#x17-461003r10">Figure 15.10</a>).
       <!--l. 304--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-457003r10"></a> <img 
+ id="x17-461003r10"></a> <img 
 src="images/sharing/exportselect2.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.10: </td><td  
-class="content">Export Select Dialog</td></tr></table><!--tex4ht:label?: x17-457003r10 -->
+class="content">Export Select Dialog</td></tr></table><!--tex4ht:label?: x17-461003r10 -->
       <!--l. 309--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-457005x2">Expand <span 
+  class="enumerate" id="x17-461005x2">Expand <span 
 class="ecbx-1200">REDHAWK Development </span>and select <span 
 class="ecbx-1200">Deployable REDHAWK</span>
       <span 
@@ -562,27 +562,27 @@ class="ecbx-1200">Project</span>.
                                                                                          
       </li>
       <li 
-  class="enumerate" id="x17-457007x3">Click <span 
+  class="enumerate" id="x17-461007x3">Click <span 
 class="ecbx-1200">Next</span>.
       <!--l. 314--><p class="noindent" >The <span 
 class="ecbx-1200">Deployable REDHAWK Project </span>dialog is displayed (<a 
-href="#x17-457008r11">Figure 15.11</a>).
+href="#x17-461008r11">Figure 15.11</a>).
       <!--l. 316--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x17-457008r11"></a> <img 
+ id="x17-461008r11"></a> <img 
 src="images/sharing/deployredhawk.png" alt="PIC"  
 >
 <br /> <table class="caption" 
 ><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;15.11: </td><td  
-class="content">Deployable REDHAWK Project Dialog</td></tr></table><!--tex4ht:label?: x17-457008r11 -->
+class="content">Deployable REDHAWK Project Dialog</td></tr></table><!--tex4ht:label?: x17-461008r11 -->
       <!--l. 321--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x17-457010x4">Select the projects to export.
+  class="enumerate" id="x17-461010x4">Select the projects to export.
       </li>
       <li 
-  class="enumerate" id="x17-457012x5">Select the export destination.
+  class="enumerate" id="x17-461012x5">Select the export destination.
            <ul class="itemize1">
            <li class="itemize">To export to a directory, select <span 
 class="ecbx-1200">Directory</span>, click <span 
@@ -597,13 +597,13 @@ class="ecbx-1200">&#x2026; </span>and navigate to
            the archive (zip) file.</li></ul>
       </li>
       <li 
-  class="enumerate" id="x17-457014x6">Click <span 
+  class="enumerate" id="x17-461014x6">Click <span 
 class="ecbx-1200">Finish</span>.
       <!--l. 334--><p class="noindent" >The project has been exported as a deployable REDHAWK project.</li></ol>
 <!--l. 337--><p class="noindent" ><div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first"> Deployable REDHAWK project archives are intended to provide a stop-gap capability to easily
 install a project into a REDHAWK <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a>. In general, it is recommended to use the <a 
-href="mainap9.html#rpm">RPM</a>
+href="mainap10.html#rpm">RPM</a>
 format instead of a deployable REDHAWK project archive. </p></div></div>
                                                                                          
                                                                                          

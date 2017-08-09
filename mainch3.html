@@ -64,7 +64,7 @@ by its interfaces, <a
 href="mainli2.html#glo:property">Properties</a>, and functionality. Examples include a <a 
 href="mainli2.html#glo:component">Component</a> that tunes, filters,
 and decimates a wideband signal and one that performs a Frequency Modulation (<a 
-href="mainap9.html#fm">FM</a>)
+href="mainap10.html#fm">FM</a>)
 demodulation. Some <a 
 href="mainli2.html#glo:component">Components</a> inevitably need to be custom implementations, but a majority of
 signal processing functions can be reused and shared.
@@ -104,7 +104,7 @@ class="centerline">                                                             
 <!--l. 24--><p class="noindent" >By using the REDHAWK Framework, basic processing elements may be encapsulated as
 <a 
 href="mainli2.html#glo:component">Components</a> and reused by other REDHAWK compliant systems. Using the REDHAWK <a 
-href="mainap9.html#ide">IDE</a> and
+href="mainap10.html#ide">IDE</a> and
 the included code generators, much of the code for control and input/output can be
 auto-generated. The figure below depicts the encapsulation of an arbitrary processing algorithm
 into an auto-generated REDHAWK <a 
@@ -142,7 +142,7 @@ href="mainli2.html#glo:component">Components</a> are a collection of starter/exa
 href="mainli2.html#glo:component">Components</a>.
 These <a 
 href="mainli2.html#glo:component">Components</a> provide basic Digital Signal Processing (<a 
-href="mainap9.html#dsp">DSP</a>) capabilities while demonstrating
+href="mainap10.html#dsp">DSP</a>) capabilities while demonstrating
 many of the features and use cases of REDHAWK. <a 
 href="#x5-22001r1">Table 3.1</a> contains the names and descriptions
 of the Basic REDHAWK <a 
@@ -265,7 +265,7 @@ class="td11"> <!--l. 79--><p class="noindent" ><span
 class="ectt-1200">rh.DataConverter</span>           </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-2"  
 class="td11">   4.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-6-3"  
 class="td11"> <!--l. 79--><p class="noindent" >Converts between <a 
-href="mainap9.html#bulkio">BulkIO</a> data types in
+href="mainap10.html#bulkio">BulkIO</a> data types in
   REDHAWK.
   With  proper  configuration,  converts
   between  any  of  the  following  data
@@ -276,7 +276,7 @@ href="mainap9.html#bulkio">BulkIO</a> data types in
   real  data.  By  default,  nothing  needs
   to be configured. When using float or
   double  output  <a 
-href="mainap9.html#bulkio">BulkIO</a>  <a 
+href="mainap10.html#bulkio">BulkIO</a>  <a 
 href="mainli2.html#glo:port">Ports</a>,  set  the
   <span 
 class="ectt-1200">normalize_floating_point </span>with  the
@@ -291,7 +291,7 @@ class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id=
 class="td11"> <!--l. 85--><p class="noindent" >Provides         a         FIR         filter
   implementation using the Fast Fourier
   Transform   (<a 
-href="mainap9.html#fft">FFT</a>)-based   overlap-add
+href="mainap10.html#fft">FFT</a>)-based   overlap-add
   technique. This <a 
 href="mainli2.html#glo:component">Component</a> includes a
   filter  designer,  which  aids  in  impulse
@@ -328,7 +328,7 @@ class="ectt-1200">rh.FileReader</span>              </td><td  style="white-space
 class="td11">   4.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-9-3"  
 class="td11"> <!--l. 89--><p class="noindent" >Reads  in  a  file  and  converts  it  to
   <a 
-href="mainap9.html#bulkio">BulkIO</a>   data   to   be   streamed   out.
+href="mainap10.html#bulkio">BulkIO</a>   data   to   be   streamed   out.
   Capable of sending data, regardless of
   file  format,  out  of  most  of  its  ten
   data  <a 
@@ -337,7 +337,7 @@ href="mainli2.html#glo:port">Ports</a>.  This  ability  excludes  the
 class="ectt-1200">Extensible Markup Language</span>
  <span 
 class="ectt-1200">(</span><a 
-href="mainap9.html#xml"><span 
+href="mainap10.html#xml"><span 
 class="ectt-1200">XML</span></a><span 
 class="ectt-1200">)  </span>and  the  <span 
 class="ectt-1200">DomainManager_out</span>
@@ -361,11 +361,11 @@ class="td11"> <!--l. 91--><p class="noindent" ><span
 class="ectt-1200">rh.FileWriter</span>              </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-10-2"  
 class="td11">   4.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-10-3"  
 class="td11"> <!--l. 91--><p class="noindent" >Writes out a data file from a <a 
-href="mainap9.html#bulkio">BulkIO</a>
+href="mainap10.html#bulkio">BulkIO</a>
   stream. It is not capable of changing
   the  file  format  to  be  different  from
   the   <a 
-href="mainap9.html#bulkio">BulkIO</a>   input   stream.   To   use
+href="mainap10.html#bulkio">BulkIO</a>   input   stream.   To   use
   this  <a 
 href="mainli2.html#glo:component">Component</a>,  you  are  required  to
   specify a <span 
@@ -393,17 +393,17 @@ class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id=
 class="td11"> <!--l. 99--><p class="noindent" >Transforms data from the time domain
   to  the  frequency  domain  using  an
   <a 
-href="mainap9.html#fft">FFT</a>-based   Power   Spectral   Density
+href="mainap10.html#fft">FFT</a>-based   Power   Spectral   Density
   (<a 
-href="mainap9.html#psd">PSD</a>).  Output  data  is  framed  data
+href="mainap10.html#psd">PSD</a>).  Output  data  is  framed  data
   where each frame contains the frequncy
   domain representation of a subsection
   of the input. This <a 
 href="mainli2.html#glo:component">Component</a> provides
   both  the  real-valued  <a 
-href="mainap9.html#psd">PSD</a>  and  the
+href="mainap10.html#psd">PSD</a>  and  the
   complex <a 
-href="mainap9.html#fft">FFT</a> outputs.                       </td>
+href="mainap10.html#fft">FFT</a> outputs.                       </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-2-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-2-13-1"  
@@ -455,7 +455,7 @@ class="td11"> <!--l. 111--><p class="noindent" ><span
 class="ectt-1200">rh.sinksocket</span>              </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-17-2"  
 class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-17-3"  
 class="td11"> <!--l. 111--><p class="noindent" >Reads  data  from  a  <a 
-href="mainap9.html#bulkio">BulkIO</a>  <a 
+href="mainap10.html#bulkio">BulkIO</a>  <a 
 href="mainli2.html#glo:port">Port</a>  and
   writes it to a TCP socket.                  </td>
 </tr><tr 
@@ -488,7 +488,7 @@ class="ectt-1200">rh.sourcesocket</span>            </td><td  style="white-space
 class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-2-20-3"  
 class="td11"> <!--l. 117--><p class="noindent" >Reads  data  from  a  TCP  socket  and
   writes it to a <a 
-href="mainap9.html#bulkio">BulkIO</a> <a 
+href="mainap10.html#bulkio">BulkIO</a> <a 
 href="mainli2.html#glo:port">Port</a>.                 </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
@@ -571,10 +571,10 @@ class="ectt-1200">libRfSimulators</span>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-3-3-1"  
-class="td11"> <!--l. 160--><p class="noindent" ><span 
+class="td11"> <!--l. 162--><p class="noindent" ><span 
 class="ectt-1200">rh.RTL2832U</span>                </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-2"  
 class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-3-3-3"  
-class="td11"> <!--l. 160--><p class="noindent" >Interfaces with the Realtek RTL2832U
+class="td11"> <!--l. 162--><p class="noindent" >Interfaces with the Realtek RTL2832U
   usb dongle device using the <span 
 class="ectt-1200">librtlsdr</span>
  Device  dependency.  Supports  various
@@ -584,10 +584,10 @@ class="ectt-1200">librtlsdr</span>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-3-4-1"  
-class="td11"> <!--l. 162--><p class="noindent" ><span 
+class="td11"> <!--l. 164--><p class="noindent" ><span 
 class="ectt-1200">rh.USRP_UHD</span>                </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-2"  
 class="td11">   4.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-3-4-3"  
-class="td11"> <!--l. 162--><p class="noindent" >FrontEnd  Interfaces  compliant  device
+class="td11"> <!--l. 164--><p class="noindent" >FrontEnd  Interfaces  compliant  device
   for the USRP that requires the UHD
   host code and supporting libraries to be
   installed.                                         </td>
@@ -604,12 +604,12 @@ class="content">REDHAWK Basic Devices</td></tr></table><!--tex4ht:label?: x5-230
 </div>
 <h4 class="subsectionHead"><span class="titlemark">3.2.3   </span> <a 
  id="x5-240003.2.3"></a>REDHAWK Basic Waveforms</h4>
-<!--l. 177--><p class="noindent" ><a 
+<!--l. 179--><p class="noindent" ><a 
 href="#x5-24001r3">Table 3.3</a> contains the names and descriptions of the REDHAWK Basic Waveforms.
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 192--><p class="noindent" ><a 
+<!--l. 194--><p class="noindent" ><a 
  id="x5-24001r3"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
@@ -623,29 +623,29 @@ id="TBL-4-2"></colgroup><colgroup id="TBL-4-3g"><col
 id="TBL-4-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-1-1"  
-class="td11"> <!--l. 195--><p class="noindent" ><span 
+class="td11"> <!--l. 197--><p class="noindent" ><span 
 class="ecbx-1200">Waveform</span>                       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-2"  
 class="td11"> <span 
 class="ecbx-1200">Version </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-4-1-3"  
-class="td11"> <!--l. 195--><p class="noindent" ><span 
+class="td11"> <!--l. 197--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-2-1"  
-class="td11"> <!--l. 198--><p class="noindent" ><span 
+class="td11"> <!--l. 200--><p class="noindent" ><span 
 class="ectt-1200">rh.basic_components_demo</span>   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-2"  
 class="td11">   1.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-2-3"  
-class="td11"> <!--l. 198--><p class="noindent" >Uses  a  few  core  assets.  Data  from
+class="td11"> <!--l. 200--><p class="noindent" >Uses  a  few  core  assets.  Data  from
   <span 
 class="ectt-1200">SigGen </span>is created and manipulated to
   demonstrate REDHAWK.                  </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-3-1"  
-class="td11"> <!--l. 200--><p class="noindent" ><span 
+class="td11"> <!--l. 202--><p class="noindent" ><span 
 class="ectt-1200">rh.FM_RBDS_demo</span>            </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-2"  
 class="td11">   1.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-3-3"  
-class="td11"> <!--l. 200--><p class="noindent" >Processes  the  RBDS  digitial  message
+class="td11"> <!--l. 202--><p class="noindent" >Processes  the  RBDS  digitial  message
   present in broadcast FM radio signals.
   Tunes   and   filters   out   this   signal,
   performs  a  BPSK  demodulation,  and
@@ -653,18 +653,18 @@ class="td11"> <!--l. 200--><p class="noindent" >Processes  the  RBDS  digitial  
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-4-1"  
-class="td11"> <!--l. 202--><p class="noindent" ><span 
+class="td11"> <!--l. 204--><p class="noindent" ><span 
 class="ectt-1200">rh.FM_mono_demo</span>            </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-2"  
 class="td11">   1.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-4-3"  
-class="td11"> <!--l. 202--><p class="noindent" >Processes  the  mono  audio  channel  of
+class="td11"> <!--l. 204--><p class="noindent" >Processes  the  mono  audio  channel  of
   broadcast FM Radio.                        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-5-1"  
-class="td11"> <!--l. 204--><p class="noindent" ><span 
+class="td11"> <!--l. 206--><p class="noindent" ><span 
 class="ectt-1200">rh.short_file_to_float_file</span> </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-2"  
 class="td11">   1.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-5-3"  
-class="td11"> <!--l. 204--><p class="noindent" >Reads   in   a   file   containing   shorts,
+class="td11"> <!--l. 206--><p class="noindent" >Reads   in   a   file   containing   shorts,
   converts them to floats in REDHAWK,
   and then writes out the file. Uses three
   <a 
@@ -676,20 +676,20 @@ class="ectt-1200">FileWriter</span>.        </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-6-1"  
-class="td11"> <!--l. 206--><p class="noindent" ><span 
+class="td11"> <!--l. 208--><p class="noindent" ><span 
 class="ectt-1200">rh.socket_loopback_demo</span>    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-2"  
 class="td11">   1.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-6-3"  
-class="td11"> <!--l. 206--><p class="noindent" >Puts  REDHAWK  data  out  onto  a
+class="td11"> <!--l. 208--><p class="noindent" >Puts  REDHAWK  data  out  onto  a
   network  socket  using  sinksocket  and
   then reads it back from the socket into
   REDHAWK via sourcesocket.             </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-4-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-4-7-1"  
-class="td11"> <!--l. 208--><p class="noindent" ><span 
+class="td11"> <!--l. 210--><p class="noindent" ><span 
 class="ectt-1200">rh.VITA49_loopback_demo</span>    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-2"  
 class="td11">   1.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-7-3"  
-class="td11"> <!--l. 208--><p class="noindent" >Uses      the      <span 
+class="td11"> <!--l. 210--><p class="noindent" >Uses      the      <span 
 class="ectt-1200">sourceVITA49    </span>and
   <span 
 class="ectt-1200">sinkVITA49     </span><a 
@@ -709,9 +709,9 @@ class="content">REDHAWK Basic Waveforms</td></tr></table><!--tex4ht:label?: x5-2
 </div>
 <h4 class="subsectionHead"><span class="titlemark">3.2.4   </span> <a 
  id="x5-250003.2.4"></a>REDHAWK Shared Libraries</h4>
-<!--l. 221--><p class="noindent" ><a 
+<!--l. 223--><p class="noindent" ><a 
 href="#x5-25001r4">Table 3.4</a> contains the names and descriptions of the basic REDHAWK Shared Libraries.
-<!--l. 223--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> All shared library (formerly soft package) dependencies have been repackaged using the new code
+<!--l. 225--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> All shared library (formerly soft package) dependencies have been repackaged using the new code
 generators, and the following basic <a 
 href="mainli2.html#glo:component">Components</a> have been updated to use the new shared library
 dependencies: <span 
@@ -723,7 +723,7 @@ class="ectt-1200">autocorrelate</span>,
 class="ectt-1200">fastfilter</span>, <span 
 class="ectt-1200">psd</span>, and <span 
 class="ectt-1200">TuneFilterDecimate</span>.
-<!--l. 226--><p class="noindent" >The following shared libraries have been renamed:
+<!--l. 228--><p class="noindent" >The following shared libraries have been renamed:
       <ul class="itemize1">
       <li class="itemize"><span 
 class="ectt-1200">redhawk-VITA49Libraries_V1 </span>has been renamed <span 
@@ -736,7 +736,7 @@ class="ectt-1200">RedhawkDevUtils</span>.</li></ul>
 <div class="table">
                                                                                          
                                                                                          
-<!--l. 247--><p class="noindent" ><a 
+<!--l. 249--><p class="noindent" ><a 
  id="x5-25001r4"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
@@ -750,30 +750,30 @@ id="TBL-5-2"></colgroup><colgroup id="TBL-5-3g"><col
 id="TBL-5-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-1-1"  
-class="td11"> <!--l. 250--><p class="noindent" ><span 
+class="td11"> <!--l. 252--><p class="noindent" ><span 
 class="ecbx-1200">Shared Library</span>                </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-1-2"  
 class="td11"> <span 
 class="ecbx-1200">Version </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-5-1-3"  
-class="td11"> <!--l. 250--><p class="noindent" ><span 
+class="td11"> <!--l. 252--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-2-1"  
-class="td11"> <!--l. 252--><p class="noindent" ><span 
+class="td11"> <!--l. 254--><p class="noindent" ><span 
 class="ectt-1200">rh.blueFileLib</span>             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-2-2"  
 class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-2-3"  
-class="td11"> <!--l. 252--><p class="noindent" >Provides a library for interacting with
+class="td11"> <!--l. 254--><p class="noindent" >Provides a library for interacting with
   Midas BLUE files, the standard binary
   file  format  used  by  modern  Midas
   frameworks.                                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-3-1"  
-class="td11"> <!--l. 254--><p class="noindent" ><span 
+class="td11"> <!--l. 256--><p class="noindent" ><span 
 class="ectt-1200">rh.dsp</span>                     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-3-2"  
 class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-3-3"  
-class="td11"> <!--l. 254--><p class="noindent" >Provides   a   <a 
-href="mainap9.html#dsp">DSP</a>   library   for   basic
+class="td11"> <!--l. 256--><p class="noindent" >Provides   a   <a 
+href="mainap10.html#dsp">DSP</a>   library   for   basic
   <a 
 href="mainli2.html#glo:component">Components</a>.   Much   of   the   actual
   signal processing code is contained in
@@ -782,28 +782,28 @@ href="mainli2.html#glo:component">Components</a>.   Much   of   the   actual
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-4-1"  
-class="td11"> <!--l. 256--><p class="noindent" ><span 
+class="td11"> <!--l. 258--><p class="noindent" ><span 
 class="ectt-1200">rh.fftlib</span>                  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-4-2"  
 class="td11">   2.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-4-3"  
-class="td11"> <!--l. 256--><p class="noindent" >Provides   a   <a 
-href="mainap9.html#dsp">DSP</a>   library   wrapping
+class="td11"> <!--l. 258--><p class="noindent" >Provides   a   <a 
+href="mainap10.html#dsp">DSP</a>   library   wrapping
   FFTW for basic <a 
 href="mainli2.html#glo:component">Components</a>. Provides
   a  higher  level  of  functionality  than
   what   is   contained   in   FFTW   by
   providing classes for taking <a 
-href="mainap9.html#fft">FFT</a>s and
+href="mainap10.html#fft">FFT</a>s and
   their  inverses  and  signal  processing
   classes,   which   leverage   these   <a 
-href="mainap9.html#fft">FFT</a>
+href="mainap10.html#fft">FFT</a>
   capabilities.                                     </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-5-1"  
-class="td11"> <!--l. 258--><p class="noindent" ><span 
+class="td11"> <!--l. 260--><p class="noindent" ><span 
 class="ectt-1200">rh.RedhawkDevUtils</span>         </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-5-2"  
 class="td11">   4.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-5-3"  
-class="td11"> <!--l. 258--><p class="noindent" >Provides a library that contains utility
+class="td11"> <!--l. 260--><p class="noindent" >Provides a library that contains utility
   functions
   useful  for  REDHAWK  development.
   Utility   functions   are   included   for
@@ -821,10 +821,10 @@ class="td11"> <!--l. 258--><p class="noindent" >Provides a library that contains
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-6-1"  
-class="td11"> <!--l. 260--><p class="noindent" ><span 
+class="td11"> <!--l. 262--><p class="noindent" ><span 
 class="ectt-1200">rh.VITA49</span>                  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-6-2"  
 class="td11">   3.0     </td><td  style="white-space:wrap; text-align:left;" id="TBL-5-6-3"  
-class="td11"> <!--l. 260--><p class="noindent" >Provides VITA Radio Transport (VRT)
+class="td11"> <!--l. 262--><p class="noindent" >Provides VITA Radio Transport (VRT)
   libraries that represent a (nearly-complete)
   software-based implementation of the
   following ANSI specifications:
@@ -833,7 +833,7 @@ class="td11"> <!--l. 260--><p class="noindent" >Provides VITA Radio Transport (V
          </li>
          <li class="itemize">VITA Radio Link Layer (VRL) /
          VITA 49.1</li></ul>
-  <!--l. 265--><p class="noindent" >                                                    </td>
+  <!--l. 267--><p class="noindent" >                                                    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-5-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-5-7-1"  
@@ -850,12 +850,12 @@ class="content">REDHAWK Shared Libraries</td></tr></table><!--tex4ht:label?: x5-
 </div>
 <h4 class="subsectionHead"><span class="titlemark">3.2.5   </span> <a 
  id="x5-260003.2.5"></a>REDHAWK Device Dependencies</h4>
-<!--l. 278--><p class="noindent" ><a 
+<!--l. 280--><p class="noindent" ><a 
 href="#x5-26001r5">Table 3.5</a> contains the names and descriptions of some external libraries used by the REDHAWK
 Devices. <div class="table">
                                                                                          
                                                                                          
-<!--l. 293--><p class="noindent" ><a 
+<!--l. 295--><p class="noindent" ><a 
  id="x5-26001r5"></a><hr class="float"><div class="float" 
 ><table class="float"><tr class="float"><td class="float" 
 >
@@ -869,19 +869,19 @@ id="TBL-6-2"></colgroup><colgroup id="TBL-6-3g"><col
 id="TBL-6-3"></colgroup><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-6-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-1-1"  
-class="td11"> <!--l. 296--><p class="noindent" ><span 
+class="td11"> <!--l. 298--><p class="noindent" ><span 
 class="ecbx-1200">Device Dependency</span>          </td><td  style="white-space:nowrap; text-align:center;" id="TBL-6-1-2"  
 class="td11"> <span 
 class="ecbx-1200">Version </span></td><td  style="white-space:wrap; text-align:left;" id="TBL-6-1-3"  
-class="td11"> <!--l. 296--><p class="noindent" ><span 
+class="td11"> <!--l. 298--><p class="noindent" ><span 
 class="ecbx-1200">Description</span>                               </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-6-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-2-1"  
-class="td11"> <!--l. 298--><p class="noindent" ><span 
+class="td11"> <!--l. 300--><p class="noindent" ><span 
 class="ectt-1200">libRfSimulators</span>            </td><td  style="white-space:nowrap; text-align:center;" id="TBL-6-2-2"  
 class="td11">   1.1     </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-2-3"  
-class="td11"> <!--l. 298--><p class="noindent" >Used  to  simulate  an  RF  Digitizer.
+class="td11"> <!--l. 300--><p class="noindent" >Used  to  simulate  an  RF  Digitizer.
   At present, the RF Simulators library
   contains a single implementation: the
   FM  RDS  Simulator.  While  the  RF
@@ -894,20 +894,20 @@ class="td11"> <!--l. 298--><p class="noindent" >Used  to  simulate  an  RF  Digi
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-6-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-3-1"  
-class="td11"> <!--l. 300--><p class="noindent" ><span 
+class="td11"> <!--l. 302--><p class="noindent" ><span 
 class="ectt-1200">librtlsdr</span>                  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-6-3-2"  
 class="td11">   0.5.2    </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-3-3"  
-class="td11"> <!--l. 300--><p class="noindent" >Provides  the  rtl-sdr  hardware  driver
+class="td11"> <!--l. 302--><p class="noindent" >Provides  the  rtl-sdr  hardware  driver
   that  enables  Realtek  RTL2832-based
   DVB  dongles  to  be  used  as  SDR
   receivers. Managed by osmocom.org.    </td>
 </tr><tr 
 class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
  style="vertical-align:baseline;" id="TBL-6-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-6-4-1"  
-class="td11"> <!--l. 302--><p class="noindent" ><span 
+class="td11"> <!--l. 304--><p class="noindent" ><span 
 class="ectt-1200">uhd</span>                        </td><td  style="white-space:nowrap; text-align:center;" id="TBL-6-4-2"  
 class="td11">   3.7.3    </td><td  style="white-space:wrap; text-align:left;" id="TBL-6-4-3"  
-class="td11"> <!--l. 302--><p class="noindent" >Provides  the  USRP  hardware  driver
+class="td11"> <!--l. 304--><p class="noindent" >Provides  the  USRP  hardware  driver
   (UHD) for use with the USRP product
   family. Managed by ettus.com. This is
   the version shipped with REDHAWK;
@@ -926,13 +926,13 @@ class="content">REDHAWK Device Dependencies</td></tr></table><!--tex4ht:label?: 
 </div>
 <h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
  id="x5-270003.3"></a>Creating a Component Project</h3>
-<!--l. 318--><p class="noindent" >In this section, an overview of the structure of a <a 
+<!--l. 320--><p class="noindent" >In this section, an overview of the structure of a <a 
 href="mainli2.html#glo:component">Component</a> is presented.
-<!--l. 320--><p class="noindent" >
+<!--l. 322--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.3.1   </span> <a 
  id="x5-280003.3.1"></a>Component Wizard</h4>
-<!--l. 322--><p class="noindent" >In the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>, development of new <a 
+<!--l. 324--><p class="noindent" >In the REDHAWK <a 
+href="mainap10.html#ide">IDE</a>, development of new <a 
 href="mainli2.html#glo:component">Components</a>, <a 
 href="mainli2.html#glo:device">Devices</a>, or other artifacts in a
 REDHAWK environment is contained within an Eclipse project. Each REDHAWK-specific artifact
@@ -941,11 +941,11 @@ project, which supports the minimum required pieces for proper functioning. For 
 href="mainli2.html#glo:component">Components</a>, the
 default project settings allow the developer to choose between Python, C++, and Java as the
 development language. To start the <a 
-href="mainap9.html#ide">IDE</a> and begin creating a <a 
+href="mainap10.html#ide">IDE</a> and begin creating a <a 
 href="mainli2.html#glo:component">Component</a>, run the <span 
 class="ectt-1200">eclipse </span>binary
 in the <a 
-href="mainap9.html#ide">IDE</a> installation directory. Then, select <span 
+href="mainap10.html#ide">IDE</a> installation directory. Then, select <span 
 class="ecbx-1200">File </span><span 
 class="cmmi-12">&#x003E; </span><span 
 class="ecbx-1200">New </span><span 
@@ -955,57 +955,57 @@ href="mainli2.html#glo:component"><span
 class="ecbx-1200">Component</span></a>
 <span 
 class="ecbx-1200">Project</span>.
-<!--l. 328--><p class="noindent" >
+<!--l. 330--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.3.2   </span> <a 
  id="x5-290003.3.2"></a>Component Descriptors</h4>
-<!--l. 330--><p class="noindent" >A REDHAWK <a 
+<!--l. 332--><p class="noindent" >A REDHAWK <a 
 href="mainli2.html#glo:component">Component</a> is described through three <a 
-href="mainap9.html#xml">XML</a> files, a Software Package Descriptor (<a 
-href="mainap9.html#spd">SPD</a>)
+href="mainap10.html#xml">XML</a> files, a Software Package Descriptor (<a 
+href="mainap10.html#spd">SPD</a>)
 file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>), a Properties File (<a 
-href="mainap9.html#prf">PRF</a>) file (<span 
+href="mainap10.html#prf">PRF</a>) file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.prf.xml</span>), and a Software
 Component Descriptor (<a 
-href="mainap9.html#scd">SCD</a>) file (<span 
+href="mainap10.html#scd">SCD</a>) file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.scd.xml</span>). The role of the <a 
-href="mainap9.html#spd">SPD</a> is to
+href="mainap10.html#spd">SPD</a> is to
 describe all the files that are associated with the <a 
 href="mainli2.html#glo:component">Component</a>: the <a 
-href="mainap9.html#prf">PRF</a> and <a 
-href="mainap9.html#scd">SCD</a> files, all
+href="mainap10.html#prf">PRF</a> and <a 
+href="mainap10.html#scd">SCD</a> files, all
 binaries, and associated data files. The <a 
-href="mainap9.html#prf">PRF</a> file contains a description of all the <a 
+href="mainap10.html#prf">PRF</a> file contains a description of all the <a 
 href="mainli2.html#glo:property">Properties</a>
 that this <a 
 href="mainli2.html#glo:component">Component</a> supports. The <a 
-href="mainap9.html#scd">SCD</a> file contains a description of the <a 
+href="mainap10.html#scd">SCD</a> file contains a description of the <a 
 href="mainli2.html#glo:component">Component</a>
 inputs/outputs.
-<!--l. 334--><p class="noindent" >The REDHAWK <a 
-href="mainap9.html#ide">IDE</a> uses an internal model to maintain the state of the <a 
+<!--l. 336--><p class="noindent" >The REDHAWK <a 
+href="mainap10.html#ide">IDE</a> uses an internal model to maintain the state of the <a 
 href="mainli2.html#glo:component">Component</a> design.
 This model is a Java representation of the three <a 
-href="mainap9.html#xml">XML</a> files described above as well as
+href="mainap10.html#xml">XML</a> files described above as well as
 project-specific information (like the development language). The main screen on the <a 
 href="mainli2.html#glo:component">Component</a>
 development perspective contains several tabs. Some of these tabs are for panels and
 some are for <a 
-href="mainap9.html#xml">XML</a> files. The different panels available for <a 
+href="mainap10.html#xml">XML</a> files. The different panels available for <a 
 href="mainli2.html#glo:component">Component</a> design are used to
 change this model; the model is automatically and continuously mapped to the three
 <a 
-href="mainap9.html#xml">XML</a> files. This awareness is symmetrical; much like changes in the panels result in
+href="mainap10.html#xml">XML</a> files. This awareness is symmetrical; much like changes in the panels result in
                                                                                          
                                                                                          
 changes in the <a 
-href="mainap9.html#xml">XML</a> files, changes in the <a 
-href="mainap9.html#xml">XML</a> files result in automatic updates to the
+href="mainap10.html#xml">XML</a> files, changes in the <a 
+href="mainap10.html#xml">XML</a> files result in automatic updates to the
 panels.
-<!--l. 341--><p class="noindent" >
+<!--l. 343--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.3.3   </span> <a 
  id="x5-300003.3.3"></a>Ports</h4>
-<!--l. 343--><p class="noindent" >Data flow into and out of <a 
+<!--l. 345--><p class="noindent" >Data flow into and out of <a 
 href="mainli2.html#glo:component">Components</a> is accomplished through the use of <a 
 href="mainli2.html#glo:port">Ports</a>. <a 
 href="mainli2.html#glo:port">Ports</a> are
@@ -1016,32 +1016,34 @@ href="mainli2.html#glo:port">Port</a>. This naming convention is
 often viewed as counter-intuitive, so an explanation is in order. <a 
 href="mainli2.html#glo:port">Ports</a> are Remote Procedure
 Call (<a 
-href="mainap9.html#rpc">RPC</a>) interfaces to a <a 
+href="mainap10.html#rpc">RPC</a>) interfaces to a <a 
 href="mainli2.html#glo:component">Component</a>. An input <a 
 href="mainli2.html#glo:port">Port</a>, therefore, <span 
 class="ecbx-1200">provides </span>functionality that can
 be <span 
 class="ecbx-1200">used </span>by an output <a 
 href="mainli2.html#glo:port">Port</a>.
-<!--l. 349--><p class="noindent" >REDHAWK contains a variety of standardized interfaces that facilitate interoperability. These
+<!--l. 351--><p class="noindent" >REDHAWK contains a variety of standardized interfaces that facilitate interoperability. These
 interfaces are implemented by <a 
 href="mainli2.html#glo:port">Ports</a>. When a <a 
 href="mainli2.html#glo:port">Port</a> is selected in the <a 
-href="mainli2.html#glo:component">Component</a> generation
-wizard in the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>, code to implement these interfaces is automatically
-generated.
-<!--l. 353--><p class="noindent" >
+href="mainli2.html#glo:component">Component</a> generation wizard
+in the REDHAWK <a 
+href="mainap10.html#ide">IDE</a>, code to implement these interfaces is automatically generated. For more
+information about adding <a 
+href="mainli2.html#glo:port">Ports</a>, refer to <a 
+href="mainch14.html#x16-40000014.4.1.3">Section 14.4.1.3</a>.
+<!--l. 355--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.3.4   </span> <a 
  id="x5-310003.3.4"></a>Properties</h4>
-<!--l. 355--><p class="noindent" >Properties provide a way to adjust a <a 
+<!--l. 357--><p class="noindent" >Properties provide a way to adjust a <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s configuration or settings while also allowing
 external entities (e.g., programs, <a 
-href="mainap9.html#ui">UI</a>s, or status scripts) to inspect the state of the <a 
+href="mainap10.html#ui">UI</a>s, or status scripts) to inspect the state of the <a 
 href="mainli2.html#glo:component">Component</a>.
 Properties are the primary means for <a 
 href="mainli2.html#glo:component">Component</a> configuration.
-<!--l. 357--><p class="noindent" >There are four types of <a 
+<!--l. 359--><p class="noindent" >There are four types of <a 
 href="mainli2.html#glo:property">Properties</a>: <span 
 class="ectt-1200">simple</span>, <span 
 class="ectt-1200">simple sequence</span>, <span 
@@ -1064,37 +1066,45 @@ class="ectt-1200">sequence </span>properties. A <span
 class="ectt-1200">struct sequence </span>is an array of instances of the same <span 
 class="ectt-1200">struct</span>
 type.
-<!--l. 359--><p class="noindent" >Properties also have a kind that expresses the role in which the property is used. The kind can be
+<!--l. 361--><p class="noindent" >Properties also have a kind that expresses the role in which the property is used. The kind can be
 <span 
 class="ectt-1200">property</span>, <span 
 class="ectt-1200">allocation</span>, or <span 
 class="ectt-1200">message</span>. The <span 
-class="ectt-1200">property </span>kind is used for configuration and status. The
-<span 
-class="ectt-1200">allocation </span>kind is used to express requirements on capabilities provided by <a 
-href="mainli2.html#glo:device">Devices</a>.
-The <span 
+class="ectt-1200">property </span>kind is used for configuration and
+status. The <span 
+class="ectt-1200">allocation </span>kind is used to express requirements on capabilities provided by
+<a 
+href="mainli2.html#glo:device">Devices</a>. The <span 
 class="ectt-1200">message </span>kind is used only with <span 
-class="ectt-1200">struct </span>properties to send event messages within
-REDHAWK.
-<!--l. 361--><p class="noindent" >
+class="ectt-1200">struct </span>properties to send event messages
+within REDHAWK. For more information about adding <a 
+href="mainli2.html#glo:property">Properties</a>, refer to <a 
+href="mainch14.html#x16-39900014.4.1.2">Section
+14.4.1.2</a>.
                                                                                          
                                                                                          
+<!--l. 363--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.3.5   </span> <a 
  id="x5-320003.3.5"></a>Logging</h4>
-<!--l. 363--><p class="noindent" ><a 
+<!--l. 365--><p class="noindent" ><a 
 href="mainli2.html#glo:component">Components</a>, irrespective of which language is used for their implementation, contain access to
 loggers. Logging in C++, Python, and Java utilizes log4j, a powerful logging framework
 maintained by the Apache Software Foundation.
-<!--l. 366--><p class="noindent" >
+<!--l. 368--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.3.6   </span> <a 
- id="x5-330003.3.6"></a>Generating Components</h4>
-<!--l. 368--><p class="noindent" >The <span 
+ id="x5-330003.3.6"></a>Generating Code for Components</h4>
+<!--l. 370--><p class="noindent" >After a <a 
+href="mainli2.html#glo:component">Component</a> project is created and appropriate details for the <a 
+href="mainli2.html#glo:component">Component</a> are entered in the
+SPD editor, the IDE can generate skeleton code for the project. To begin the code generation
+process, click the <span 
 class="ecbx-1200">Generate All Implementations </span>button (<a 
-href="#x5-33001r3">Figure 3.3</a>) is located in the top-right of the
-Overview panel of the <a 
-href="mainli2.html#glo:component">Component</a> development project.
-<!--l. 370--><p class="noindent" ><hr class="figure"><div class="figure" 
+href="#x5-33001r3">Figure 3.3</a>) located in the top-right of
+the Overview panel of the SPD editor. For more information about the SPD editor, refer to <a 
+href="mainch14.html#x16-39700014.4.1">Section
+14.4.1</a>.
+<!--l. 372--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 >
                                                                                          
@@ -1103,7 +1113,7 @@ href="mainli2.html#glo:component">Component</a> development project.
  id="x5-33001r3"></a>
                                                                                          
                                                                                          
-<!--l. 372--><p class="noindent" ><img 
+<!--l. 374--><p class="noindent" ><img 
 src="images/Generate_Code_Highlighted.png" alt="PIC"  
 >
 <br /> <table class="caption" 
@@ -1111,116 +1121,23 @@ src="images/Generate_Code_Highlighted.png" alt="PIC"
 class="content">Generate All Implementations Button </td></tr></table><!--tex4ht:label?: x5-33001r3 -->
                                                                                          
                                                                                          
-<!--l. 374--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-<!--l. 376--><p class="noindent" >When you click <span 
-class="ecbx-1200">Generate All Implementations</span>, the tool generates:
+<!--l. 376--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+<!--l. 378--><p class="noindent" >When you click the <span 
+class="ecbx-1200">Generate All Implementations </span>button, the IDE:
       <ul class="itemize1">
-      <li class="itemize">skeleton-code for the <a 
-href="mainli2.html#glo:component">Component</a> in the language of choice
+      <li class="itemize">Determines if your project contains any deprecated features from older versions of
+      REDHAWK and prompts you to upgrade them.
       </li>
-      <li class="itemize">the <a 
-href="mainap9.html#xml">XML</a> files associated with the <a 
-href="mainli2.html#glo:component">Component</a>
+      <li class="itemize">Displays the files that will be generated and enables you to select/deselect files.
       </li>
-      <li class="itemize">Autotools build files</li></ul>
-<!--l. 383--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The code generators are not exhaustive. There are edge case <a 
-href="mainli2.html#glo:port">Port</a> types that may not compile. </p></div></div>
-<h5 class="subsubsectionHead"><span class="titlemark">3.3.6.1   </span> <a 
- id="x5-340003.3.6.1"></a>Re-generating Components from a Prior Version</h5>
-<!--l. 389--><p class="noindent" ><span class="paragraphHead"><a 
- id="x5-350003.3.6.1.1"></a><span 
-class="ecbx-1200">REDHAWK 1.8 only</span></span>
-<!--l. 391--><p class="noindent" >If you generate a <a 
-href="mainli2.html#glo:component">Component</a> that was previously generated in a REDHAWK 1.8 version, the
-Deprecated Generator dialog box is displayed:
-<!--l. 393--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
->
-                                                                                         
-                                                                                         
-<a 
- id="x5-35001r4"></a>
-                                                                                         
-                                                                                         
-<!--l. 396--><p class="noindent" ><img 
-src="images/example_component_deprecated_gen_dialog.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.4: </td><td  
-class="content">Deprecated Generator dialog box</td></tr></table><!--tex4ht:label?: x5-35001r4 -->
-                                                                                         
-                                                                                         
-<!--l. 398--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-<!--l. 400--><p class="noindent" >If you select <span 
-class="ecbx-1200">Upgrade</span>, hidden project files are modified to indicate the 2.0 Code Generator has
-been used. Code generation then proceeds as normal. If you upgrade the <a 
-href="mainli2.html#glo:component">Component</a>, it may be
-difficult to revert back to the original 1.8 state. If you select <span 
-class="ecbx-1200">Cancel</span>, the source code for the
-<a 
-href="mainli2.html#glo:component">Component</a> project is not modified.
-<!--l. 402--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The Java <a 
-href="mainli2.html#glo:component">Component</a> pattern changed in REDHAWK 1.9. For more information about how the
-Java <a 
-href="mainli2.html#glo:component">Component</a> pattern affects code generation, refer to <a 
-href="mainch4.html#x6-600004.2.4">Section 4.2.4</a>. </p></div></div>
-<!--l. 406--><p class="noindent" ><span class="paragraphHead"><a 
- id="x5-360003.3.6.1.2"></a><span 
-class="ecbx-1200">All REDHAWK Versions Prior to 2.0</span></span>
-<!--l. 408--><p class="noindent" >If you generate a <a 
-href="mainli2.html#glo:component">Component</a> that was created prior to REDHAWK version 2.0, the IDE checks the
-project for deprecated <a 
-href="mainli2.html#glo:property">Properties</a> and displays the Deprecated property kinds dialog box, which
-prompts you to upgrade the properties.
-<!--l. 411--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
->
-                                                                                         
-                                                                                         
-<a 
- id="x5-36001r5"></a>
-                                                                                         
-                                                                                         
-<!--l. 414--><p class="noindent" ><img 
-src="images/deprecated_property_kinds.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.5: </td><td  
-class="content">Deprecated property kinds dialog box</td></tr></table><!--tex4ht:label?: x5-36001r5 -->
-                                                                                         
-                                                                                         
-<!--l. 416--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-<!--l. 418--><p class="noindent" >If you select <span 
-class="ecbx-1200">Yes</span>, the <span 
-class="ectt-1200">configure </span>and <span 
-class="ectt-1200">execparam </span>kinds are changed to <span 
-class="ectt-1200">property</span>. The
-<span 
-class="ectt-1200">commandline </span>attribute is set for <span 
-class="ectt-1200">execparam </span>kinds, and they may have their mode (read/write)
-adjusted as necessary to maintain equivalent meaning.
-<!--l. 420--><p class="noindent" >Additionally, the <span 
-class="ectt-1200">event </span>kind is removed from <a 
-href="mainli2.html#glo:property">Properties</a>. The new recommended method for
-obtaining notification of <a 
-href="mainli2.html#glo:property">Property</a> changes is to register for the desired <a 
-href="mainli2.html#glo:property">Properties</a> via
-<span 
-class="ectt-1200">PropertyEmitter.registerPropertyListener() </span>on the resource.
-<!--l. 422--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> In REDHAWK 2.0, the <span 
-class="ectt-1200">type </span>attribute of the <span 
-class="ectt-1200">softpkg </span>element of the <span 
-class="ectt-1200">spd.xml </span>file is now used to
-mark which version of REDHAWK was used to generate the <a 
-href="mainli2.html#glo:component">Component</a> code. In prior
-REDHAWK versions, it was <span 
-class="ectt-1200">sca_compliant </span>or <span 
-class="ectt-1200">sca_non_compliant</span>, while now it is the
-REDHAWK version (For example, <span 
-class="ectt-1200">2.0.1</span>). </p></div></div>
+      <li class="itemize">Generates code files and applies any headers specified in the project documentation.
+      </li>
+      <li class="itemize">Updates the SPD file with the version of REDHAWK used to generate code.</li></ul>
+<!--l. 386--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Code generation is not exhaustive, and custom <a 
+href="mainli2.html#glo:port">Port</a> types may not compile. </p></div></div>
 <h4 class="subsectionHead"><span class="titlemark">3.3.7   </span> <a 
- id="x5-370003.3.7"></a>Installing Components</h4>
-<!--l. 428--><p class="noindent" >After a <a 
+ id="x5-340003.3.7"></a>Installing Components</h4>
+<!--l. 392--><p class="noindent" >After a <a 
 href="mainli2.html#glo:component">Component</a> is compiled, it must be installed in the staging area
 (<span 
 class="ectt-1200">$SDRROOT/dom/components</span>). To install a <a 
@@ -1234,26 +1151,26 @@ class="ecbx-1200">REDHAWK Explorer</span>
 <span 
 class="ecbx-1200">View</span></a>. Additional methods for Deploying Projects to the <span 
 class="ectt-1200">SDRROOT </span>are outlined in <a 
-href="mainch14.html#x16-44500014.8">Section
+href="mainch14.html#x16-44900014.8">Section
 14.8</a>
 <!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
- id="x5-380003.4"></a>Creating Octave Components</h3>
+ id="x5-350003.4"></a>Creating Octave Components</h3>
 <!--l. 2--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.4.1   </span> <a 
- id="x5-390003.4.1"></a>Overview</h4>
+ id="x5-360003.4.1"></a>Overview</h4>
 <!--l. 3--><p class="noindent" >REDHAWK provides the ability to auto-generate a REDHAWK <a 
 href="mainli2.html#glo:component">Component</a> given an Octave M
 function. Assuming M functions are set up to input/output data vectors rather than relying on file
 or terminal-based input/output, these <a 
 href="mainli2.html#glo:component">Components</a> are seamlessly deployable on runtime
 systems.
+                                                                                         
+                                                                                         
 <!--l. 6--><p class="noindent" >Octave version 3.4 or greater, with development support, must be installed on the development and
 deployment systems. This requirement can be met by either installing Octave from source or
 installing the octave-devel Red Hat Package Manager (<a 
-href="mainap9.html#rpm">RPM</a>).
-                                                                                         
-                                                                                         
+href="mainap10.html#rpm">RPM</a>).
 <!--l. 9--><p class="noindent" >The generated REDHAWK C++ code utilizes the Octave C++ programming interface
 to:
       <ul class="itemize1">
@@ -1275,13 +1192,13 @@ href="mainli2.html#glo:component">Components</a> written in other languages (Jav
 C++, and Python).
 <!--l. 22--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.4.2   </span> <a 
- id="x5-400003.4.2"></a>The createOctaveComponent Script</h4>
+ id="x5-370003.4.2"></a>The createOctaveComponent Script</h4>
 <!--l. 23--><p class="noindent" >Octave <a 
 href="mainli2.html#glo:component">Components</a> can be generated using a command line tool (<span 
 class="ectt-1200">createOctaveComponent</span>) or
 using the REDHAWK <a 
-href="mainap9.html#ide">IDE</a> (<a 
-href="mainch14.html#x16-44800014.11">Section 14.11</a>). The help string for the command line tool can be
+href="mainap10.html#ide">IDE</a> (<a 
+href="mainch14.html#x16-45200014.11">Section 14.11</a>). The help string for the command line tool can be
 accessed by entering the following command:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 createOctaveComponent --help
@@ -1292,12 +1209,12 @@ without default values are treated as <a
 href="mainli2.html#glo:port">Ports</a>.
 <!--l. 32--><p class="noindent" >Below is an example of a basic M function defined in a file named <span 
 class="ectt-1200">addConst.m</span>:
+                                                                                         
+                                                                                         
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
 function myOutput = addConst(myInput, myConst=0)
      myOutput = myInput + myConst
 ]]></script></div>
-                                                                                         
-                                                                                         
 <!--l. 39--><p class="noindent" >To generate the <a 
 href="mainli2.html#glo:component">Component</a> code, use the following command:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
@@ -1314,7 +1231,7 @@ href="mainli2.html#glo:component">Component</a>.
       </li>
       <li class="itemize">Enable buffering, which causes the <a 
 href="mainli2.html#glo:component">Component</a> to wait for an End of Stream (<a 
-href="mainap9.html#eos">EOS</a>)
+href="mainap10.html#eos">EOS</a>)
       before processing data.
       </li>
       <li class="itemize">Enable the Octave diary, which writes Octave&#8217;s standard out and standard error to a
@@ -1327,15 +1244,16 @@ class="ectt-1200">.oct </span>files.
       <li class="itemize">Specify an output directory.</li></ul>
 <!--l. 84--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.4.3   </span> <a 
- id="x5-410003.4.3"></a>Design Considerations</h4>
+ id="x5-380003.4.3"></a>Design Considerations</h4>
 <!--l. 86--><p class="noindent" >There are a few design considerations to keep in mind when creating an M file to be used in
 REDHAWK:
       <ul class="itemize1">
       <li class="itemize">Data must be passed as row vectors or n-by-m matrices. All values must be doubles.
+                                                                                         
+                                                                                         
       </li>
-      <li class="itemize">Configuration (property) values may be doubles, double vectors, or strings.
-                                                                                         
-                                                                                         
+      <li class="itemize">Configuration  (property)  values  may  be  doubles,  double  vectors,  or  strings.  All
+      numerical properties are treated as complex.
       </li>
       <li class="itemize">The  <span 
 class="ectt-1200">serviceFunction </span>of  the  <a 
@@ -1348,10 +1266,10 @@ class="ectt-1200">outputPackets </span>maps in the <span
 class="ectt-1200">preProcess </span>and <span 
 class="ectt-1200">postProcess</span>
       methods.</li></ul>
-<!--l. 431--><p class="noindent" >
+<!--l. 395--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
- id="x5-420003.5"></a>Running a Component</h3>
-<!--l. 434--><p class="noindent" >To run a <a 
+ id="x5-390003.5"></a>Running a Component</h3>
+<!--l. 398--><p class="noindent" >To run a <a 
 href="mainli2.html#glo:component">Component</a>, use one of the following mechanisms: the REDHAWK <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> or the
 REDHAWK <a 
@@ -1368,34 +1286,34 @@ href="mainli2.html#glo:Sandbox">Sandbox</a> is useful for tasks
 such as signal processing development and analysis, <a 
 href="mainli2.html#glo:component">Component</a> debugging, and data
 inspection.
-<!--l. 439--><p class="noindent" >
+<!--l. 403--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.6   </span> <a 
- id="x5-430003.6"></a>Sandbox</h3>
-<!--l. 441--><p class="noindent" >This section describes how to use the <a 
+ id="x5-400003.6"></a>Sandbox</h3>
+<!--l. 405--><p class="noindent" >This section describes how to use the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> either from a Python shell or through a <a 
-href="mainap9.html#ui">UI</a> available
+href="mainap10.html#ui">UI</a> available
 on the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>.
-<!--l. 443--><p class="noindent" >
+href="mainap10.html#ide">IDE</a>.
+<!--l. 407--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.6.1   </span> <a 
- id="x5-440003.6.1"></a>Python Sandbox</h4>
-<!--l. 445--><p class="noindent" >The <a 
+ id="x5-410003.6.1"></a>Python Sandbox</h4>
+<!--l. 409--><p class="noindent" >The <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> can be accessed directly from the command line and is used to manipulate new
 <a 
 href="mainli2.html#glo:component">Components</a> and <a 
 href="mainli2.html#glo:waveformapplication">Waveforms</a>. This provides a very powerful means of testing and scripting tests for
 REDHAWK systems.
-<!--l. 448--><p class="noindent" >The following procedure is a short overview of how to use the <a 
+<!--l. 412--><p class="noindent" >The following procedure is a short overview of how to use the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> ; for a more detailed
 description of the Python <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch10.html#x12-26000010.2">Section 10.2</a>.
-<!--l. 450--><p class="noindent" >
+href="mainch10.html#x12-25800010.2">Section 10.2</a>.
+                                                                                         
+                                                                                         
+<!--l. 415--><p class="noindent" >
       <ol  class="enumerate1" >
-                                                                                         
-                                                                                         
       <li 
-  class="enumerate" id="x5-44002x1">Open a Python session and import the <a 
+  class="enumerate" id="x5-41002x1">Open a Python session and import the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 $ python
@@ -1407,11 +1325,11 @@ information.
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-44004x2">Running a <a 
+  class="enumerate" id="x5-41004x2">Running a <a 
 href="mainli2.html#glo:component">Component</a>
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-44006x1">To get a list of available <a 
+  class="enumerate" id="x5-41006x1">To get a list of available <a 
 href="mainli2.html#glo:component">Components</a>, type:
            <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> sb.catalog()
@@ -1425,7 +1343,7 @@ class="ectt-1200">SigGen </span>are
 href="mainli2.html#glo:component">Components</a>.
            </li>
            <li 
-  class="enumerate" id="x5-44008x2">Create the <a 
+  class="enumerate" id="x5-41008x2">Create the <a 
 href="mainli2.html#glo:component">Component</a> object by typing:
            <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 &gt;&gt;> hardLimit = sb.launch("rh.HardLimit")
@@ -1435,7 +1353,7 @@ href="mainli2.html#glo:component">Component</a> object by typing:
 href="mainli2.html#glo:component">Components</a> run as their own processes. If an
            absolute file path for a <a 
 href="mainli2.html#glo:component">Component</a>&#8217;s <a 
-href="mainap9.html#spd">SPD</a> file (<span 
+href="mainap10.html#spd">SPD</a> file (<span 
 class="ectt-1200">&#x003C;component&#x003E;.spd.xml</span>) is given as a
            constructor argument for the <a 
 href="mainli2.html#glo:component">Component</a> instance, then that <a 
@@ -1444,28 +1362,27 @@ href="mainli2.html#glo:component">Component</a> is started
 class="ectt-1200">$SDRROOT</span>.</li></ol>
       </li>
       <li 
-  class="enumerate" id="x5-44010x3">Support widgets are available in the <a 
+  class="enumerate" id="x5-41010x3">Support widgets are available in the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> to help the developer interact with running
       <a 
 href="mainli2.html#glo:component">Components</a>. There are a variety of widgets, including data sources and sinks, a speaker
       interface, and plotters. In this example, the plot widget is used.
-      <!--l. 477--><p class="noindent" >To use plotting, the path to the eclipse directory of the installed <a 
-href="mainap9.html#ide">IDE</a> must be specified in the
+      <!--l. 441--><p class="noindent" >To use plotting, the path to the eclipse directory of the installed <a 
+href="mainap10.html#ide">IDE</a> must be specified in the
       <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> (this can also be done by setting the <span 
 class="ectt-1200">RH_IDE </span>environment variable to
       the absolute path of the Eclipse directory prior to starting the Python session):
+                                                                                         
+                                                                                         
       <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
 &gt;&gt;> sb.IDELocation("/path/to/ide/eclipse")
 &gt;&gt;> plot = sb.Plot()
-]]></script>
-                                                                                         
-                                                                                         
-      </div>
-      <!--l. 483--><p class="noindent" >
+]]></script></div>
+      <!--l. 448--><p class="noindent" >
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-44012x1">Create two plot objects by instantiating the <span 
+  class="enumerate" id="x5-41012x1">Create two plot objects by instantiating the <span 
 class="ectt-1200">Plot </span>class twice and assigning the objects to local
            variables: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> plot1 = sb.Plot()
@@ -1474,7 +1391,7 @@ class="ectt-1200">Plot </span>class twice and assigning the objects to local
            </li></ol>
       </li>
       <li 
-  class="enumerate" id="x5-44014x4">Connect the <a 
+  class="enumerate" id="x5-41014x4">Connect the <a 
 href="mainli2.html#glo:component">Components</a> together and connect the plots. The <span 
 class="ectt-1200">connect() </span>method tries to match
       the <a 
@@ -1490,7 +1407,7 @@ href="mainli2.html#glo:component">Components</a> displays the Plot Application w
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-44016x5">In this tutorial, the <span 
+  class="enumerate" id="x5-41016x5">In this tutorial, the <span 
 class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a> is configured before it is started to get a
       better visual. Set the frequency of the <span 
@@ -1501,25 +1418,25 @@ class="ecti-1200">5006</span>:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-44018x6">Start everything in the <a 
+  class="enumerate" id="x5-41018x6">Start everything in the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> sb.start()
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-44020x7">The <a 
+  class="enumerate" id="x5-41020x7">The <a 
 href="mainli2.html#glo:property">Property</a> values can now be set on the <span 
 class="ectt-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a>. The plot reflects the <a 
 href="mainli2.html#glo:property">Property</a>
+                                                                                         
+                                                                                         
       change: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> hardLimit.upper_limit = .8
 ]]></script></div>
-                                                                                         
-                                                                                         
       </li>
       <li 
-  class="enumerate" id="x5-44022x8">To inspect the <a 
+  class="enumerate" id="x5-41022x8">To inspect the <a 
 href="mainli2.html#glo:property">Properties</a> and input/output <a 
 href="mainli2.html#glo:port">Ports</a> of a <a 
 href="mainli2.html#glo:component">Component</a>, invoke the <a 
@@ -1530,19 +1447,19 @@ class="ectt-1200">api()</span>
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-44024x9">To clean up, type Ctrl+D to end the Python session. The Python <a 
+  class="enumerate" id="x5-41024x9">To clean up, type Ctrl+D to end the Python session. The Python <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> releases all
       <a 
 href="mainli2.html#glo:component">Components</a> and cleans up whatever plots or additional widgets were created during the
       session.</li></ol>
-<!--l. 515--><p class="noindent" >
+<!--l. 479--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">3.6.2   </span> <a 
- id="x5-450003.6.2"></a>The <a 
-href="mainap9.html#ide">IDE</a> Sandbox</h4>
-<!--l. 518--><p class="noindent" >This section provides an overview of how to use the <a 
+ id="x5-420003.6.2"></a>The <a 
+href="mainap10.html#ide">IDE</a> Sandbox</h4>
+<!--l. 482--><p class="noindent" >This section provides an overview of how to use the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> in the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>. The <a 
-href="mainap9.html#ide">IDE</a>
+href="mainap10.html#ide">IDE</a>. The <a 
+href="mainap10.html#ide">IDE</a>
 <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> provides a graphical environment for launching, inspecting, and debugging <a 
 href="mainli2.html#glo:component">Components</a>,
@@ -1553,55 +1470,55 @@ href="mainli2.html#glo:service">Services</a>, and <a
 href="mainli2.html#glo:waveformapplication">Waveforms</a>. For more information about launching and interacting
 with items in the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch10.html#x12-29100010.3">Section 10.3</a>. In addition, via the REDHAWK Console, you can
+href="mainch10.html#x12-29400010.3">Section 10.3</a>. In addition, via the REDHAWK Console, you can
 use the Python-based <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
-href="mainap9.html#api">API</a> to interact with objects that are running within
+href="mainap10.html#api">API</a> to interact with objects that are running within
 the <a 
-href="mainap9.html#ide">IDE</a> <a 
+href="mainap10.html#ide">IDE</a> <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>. For more information about the Python <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
-href="mainch10.html#x12-26000010.2">Section
+href="mainch10.html#x12-25800010.2">Section
 10.2</a>.
-<!--l. 522--><p class="noindent" >The following procedure provides an example of launching and interacting with a <a 
+<!--l. 486--><p class="noindent" >The following procedure provides an example of launching and interacting with a <a 
 href="mainli2.html#glo:component">Component</a> in
 the <a 
 href="mainli2.html#glo:Sandbox">Sandbox</a> in the REDHAWK <a 
-href="mainap9.html#ide">IDE</a>.
-<!--l. 525--><p class="noindent" >
+href="mainap10.html#ide">IDE</a>.
+<!--l. 490--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x5-45002x1">In the <a 
+  class="enumerate" id="x5-42002x1">In the <a 
 href="mainli2.html#glo:REDHAWK Explorer View"><span 
 class="ecbx-1200">REDHAWK Explorer View</span></a>:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-45004x1">Expand the <a 
+  class="enumerate" id="x5-42004x1">Expand the <a 
 href="mainli2.html#glo:Sandbox"><span 
 class="ecbx-1200">Sandbox</span></a> to expose the <span 
 class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
-  class="enumerate" id="x5-45006x2">Double-click the <span 
+  class="enumerate" id="x5-42006x2">Double-click the <span 
 class="ecbx-1200">Chalkboard</span>.</li></ol>
-      <!--l. 531--><p class="noindent" ><hr class="figure"><div class="figure" 
+      <!--l. 495--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x5-45007r6"></a> <img 
+ id="x5-42007r4"></a> <img 
 src="images/REDHAWK_Example_HardLimit_Chalkboard_Highlighted.png" alt="PIC"  
 >
+                                                                                         
+                                                                                         
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.6: </td><td  
-class="content">Open Chalkboard</td></tr></table><!--tex4ht:label?: x5-45007r6 -->
-      <!--l. 535--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.4: </td><td  
+class="content">Open Chalkboard</td></tr></table><!--tex4ht:label?: x5-42007r4 -->
+      <!--l. 499--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
       </li>
       <li 
-  class="enumerate" id="x5-45009x2">From the Chalkboard:
-                                                                                         
-                                                                                         
+  class="enumerate" id="x5-42009x2">From the Chalkboard:
            <ol  class="enumerate2" >
            <li 
-  class="enumerate" id="x5-45011x1">Select  the  palette  on  the  right;  drag  the  <span 
+  class="enumerate" id="x5-42011x1">Select  the  palette  on  the  right;  drag  the  <span 
 class="ectt-1200">SigGen (cpp) </span><a 
 href="mainli2.html#glo:component">Component</a>  onto  the
            <span 
@@ -1615,14 +1532,14 @@ class="ectt-1200">HardLimit </span><a
 href="mainli2.html#glo:component">Component</a>.
            </li>
            <li 
-  class="enumerate" id="x5-45013x2">If the <span 
+  class="enumerate" id="x5-42013x2">If the <span 
 class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a> is not displayed, left-click the rh folder to display the
            list of available <a 
 href="mainli2.html#glo:component">Components</a>.
            </li>
            <li 
-  class="enumerate" id="x5-45015x3">If the <span 
+  class="enumerate" id="x5-42015x3">If the <span 
 class="ecbx-1200">cpp </span>implementation is not displayed, expand the list of implementations by
            left-clicking the arrow to the left of the <a 
 href="mainli2.html#glo:component">Component</a> name and select the <span 
@@ -1631,22 +1548,22 @@ class="ecbx-1200">cpp</span>
            scroll up or down. Alternatively, press and hold Ctrl; then press + or -. </p></div></div>
            </li>
            <li 
-  class="enumerate" id="x5-45017x4">Right-click the <span 
+  class="enumerate" id="x5-42017x4">Right-click the <span 
 class="ectt-1200">SigGen </span><a 
 href="mainli2.html#glo:component">Component</a>, and select <span 
 class="ecbx-1200">Start</span>. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x5-45018r7"></a> <img 
+ id="x5-42018r5"></a> <img 
 src="images/REDHAWK_Example_chalkboard_Start_Comp.png" alt="PIC"  
 >
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.7: </td><td  
-class="content">Start Component</td></tr></table><!--tex4ht:label?: x5-45018r7 -->
-           <!--l. 550--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.5: </td><td  
+class="content">Start Component</td></tr></table><!--tex4ht:label?: x5-42018r5 -->
+           <!--l. 514--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
-  class="enumerate" id="x5-45020x5">Left-click the <span 
+  class="enumerate" id="x5-42020x5">Left-click the <span 
 class="ecbx-1200">dataFloat_out </span><a 
 href="mainli2.html#glo:port">Port</a> to select it, then right-click the <a 
 href="mainli2.html#glo:port">Port</a> to
@@ -1658,16 +1575,16 @@ class="ecbx-1200">Port</span></a> <span
 class="ecbx-1200">Data</span>. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x5-45021r8"></a> <img 
+ id="x5-42021r6"></a> <img 
 src="images/REDHAWK_Example_chalkboard_Plot_Port.png" alt="PIC"  
 >
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.8: </td><td  
-class="content">Plot Port Data</td></tr></table><!--tex4ht:label?: x5-45021r8 -->
-           <!--l. 556--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.6: </td><td  
+class="content">Plot Port Data</td></tr></table><!--tex4ht:label?: x5-42021r6 -->
+           <!--l. 520--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
-  class="enumerate" id="x5-45023x6">Open the <a 
+  class="enumerate" id="x5-42023x6">Open the <a 
 href="mainli2.html#glo:property"><span 
 class="ecbx-1200">Properties</span></a> View and change the following signal <a 
 href="mainli2.html#glo:property">Properties</a>:
@@ -1675,34 +1592,34 @@ href="mainli2.html#glo:property">Properties</a>:
                <li class="itemize">frequency: 100
                </li>
                <li class="itemize">magnitude: 10</li></ul>
-           <!--l. 562--><p class="noindent" ><hr class="figure"><div class="figure" 
+           <!--l. 526--><p class="noindent" ><hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x5-45024r9"></a> <img 
+ id="x5-42024r7"></a> <img 
 src="images/REDHAWK_Example_chalkboard_Prop_Change.png" alt="PIC"  
 >
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.9: </td><td  
-class="content">Change Property Value</td></tr></table><!--tex4ht:label?: x5-45024r9 -->
-           <!--l. 566--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.7: </td><td  
+class="content">Change Property Value</td></tr></table><!--tex4ht:label?: x5-42024r7 -->
+           <!--l. 530--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+                                                                                         
+                                                                                         
            </li>
            <li 
-  class="enumerate" id="x5-45026x7">Select the palette on the right, drag the <span 
+  class="enumerate" id="x5-42026x7">Select the palette on the right, drag the <span 
 class="ectt-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a> onto the
            <span 
 class="ecbx-1200">Chalkboard</span>.
            </li>
            <li 
-  class="enumerate" id="x5-45028x8">Right-click the <span 
+  class="enumerate" id="x5-42028x8">Right-click the <span 
 class="ectt-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a>, click <span 
 class="ecbx-1200">Start</span>.
-                                                                                         
-                                                                                         
            </li>
            <li 
-  class="enumerate" id="x5-45030x9">Connect the <span 
+  class="enumerate" id="x5-42030x9">Connect the <span 
 class="ecbx-1200">dataFloat_out </span><a 
 href="mainli2.html#glo:port">Port</a> on the <span 
 class="ectt-1200">SigGen </span><a 
@@ -1717,16 +1634,16 @@ href="mainli2.html#glo:port">Port</a> to the input <a
 href="mainli2.html#glo:port">Port</a>. <hr class="figure"><div class="figure" 
 ><table class="figure"><tr class="figure"><td class="figure" 
 ><a 
- id="x5-45031r10"></a> <img 
+ id="x5-42031r8"></a> <img 
 src="images/REDHAWK_Example_chalkboard_Connect_Comp.png" alt="PIC"  
 >
 <br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.10: </td><td  
-class="content">Connect Ports</td></tr></table><!--tex4ht:label?: x5-45031r10 -->
-           <!--l. 574--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;3.8: </td><td  
+class="content">Connect Ports</td></tr></table><!--tex4ht:label?: x5-42031r8 -->
+           <!--l. 538--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
            </li>
            <li 
-  class="enumerate" id="x5-45033x10">Right-click the <span 
+  class="enumerate" id="x5-42033x10">Right-click the <span 
 class="ecbx-1200">dataFloat_out </span><a 
 href="mainli2.html#glo:port">Port</a> on the <span 
 class="ectt-1200">HardLimit </span><a 
@@ -1738,21 +1655,21 @@ class="ecbx-1200">Port</span></a>
 class="ecbx-1200">Data</span>
            </li>
            <li 
-  class="enumerate" id="x5-45035x11">Notice that the output has been hard limited by the <span 
+  class="enumerate" id="x5-42035x11">Notice that the output has been hard limited by the <span 
 class="ectt-1200">HardLimit </span><a 
 href="mainli2.html#glo:component">Component</a></li></ol>
       </li></ol>
-<!--l. 581--><p class="noindent" >
+<!--l. 545--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">3.7   </span> <a 
- id="x5-460003.7"></a>Creating and Running a Hello World Component</h3>
-<!--l. 583--><p class="noindent" >Use the following procedure to create a simple <a 
+ id="x5-430003.7"></a>Creating and Running a Hello World Component</h3>
+<!--l. 547--><p class="noindent" >Use the following procedure to create a simple <a 
 href="mainli2.html#glo:component">Component</a> that prints <span 
 class="ectt-1200">hello world </span>to the
 terminal upon startup.
-<!--l. 585--><p class="noindent" >
+<!--l. 550--><p class="noindent" >
       <ol  class="enumerate1" >
       <li 
-  class="enumerate" id="x5-46002x1">Create a new REDHAWK <a 
+  class="enumerate" id="x5-43002x1">Create a new REDHAWK <a 
 href="mainli2.html#glo:component">Component</a> Project:
            <ul class="itemize1">
            <li class="itemize"><span 
@@ -1766,34 +1683,34 @@ class="ecbx-1200">Component</span></a> <span
 class="ecbx-1200">Project</span></li></ul>
       </li>
       <li 
-  class="enumerate" id="x5-46004x2">Name the project: <span 
+  class="enumerate" id="x5-43004x2">Name the project: <span 
 class="ecti-1200">HelloWorld</span>
       </li>
       <li 
-  class="enumerate" id="x5-46006x3">Click <span 
+  class="enumerate" id="x5-43006x3">Click <span 
 class="ecbx-1200">Next</span>.
       </li>
       <li 
-  class="enumerate" id="x5-46008x4">Select:
+  class="enumerate" id="x5-43008x4">Select:
+                                                                                         
+                                                                                         
            <ul class="itemize1">
            <li class="itemize"><span 
 class="ecbx-1200">Prog. Lang: C++</span></li></ul>
       </li>
       <li 
-  class="enumerate" id="x5-46010x5">Click <span 
+  class="enumerate" id="x5-43010x5">Click <span 
 class="ecbx-1200">Next</span>.
-                                                                                         
-                                                                                         
       </li>
       <li 
-  class="enumerate" id="x5-46012x6">Click <span 
+  class="enumerate" id="x5-43012x6">Click <span 
 class="ecbx-1200">Finish</span>.
            <ul class="itemize1">
            <li class="itemize">If a dialog asks to switch to CPP perspective, click <span 
 class="ecbx-1200">No</span>.</li></ul>
       </li>
       <li 
-  class="enumerate" id="x5-46014x7">Generate Code:
+  class="enumerate" id="x5-43014x7">Generate Code:
            <ul class="itemize1">
            <li class="itemize">In the editor tool bar, click <span 
 class="ecbx-1200">Generate All </span><a 
@@ -1804,14 +1721,14 @@ class="ecbx-1200">Implementations</span>, as
 href="#x5-33001r3">Figure 3.3</a></li></ul>
       </li>
       <li 
-  class="enumerate" id="x5-46016x8">In the <span 
+  class="enumerate" id="x5-43016x8">In the <span 
 class="ectt-1200">HelloWorld.cpp </span>file, add the following include to the beginning of the file:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
   #include <iostream>
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-46018x9">In the <span 
+  class="enumerate" id="x5-43018x9">In the <span 
 class="ectt-1200">HelloWorld.cpp </span>file, add the following code to the <span 
 class="ectt-1200">serviceFunction() </span>method:
       <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
@@ -1819,7 +1736,7 @@ class="ectt-1200">serviceFunction() </span>method:
 ]]></script></div>
       </li>
       <li 
-  class="enumerate" id="x5-46020x10">Compile the project:
+  class="enumerate" id="x5-43020x10">Compile the project:
            <ul class="itemize1">
            <li class="itemize"><span 
 class="ecbx-1200">Project</span><span 
@@ -1827,23 +1744,23 @@ class="cmmi-12">&#x003E; </span><span
 class="ecbx-1200">Build Project</span></li></ul>
       </li>
       <li 
-  class="enumerate" id="x5-46022x11">Drag the project to the <a 
+  class="enumerate" id="x5-43022x11">Drag the project to the <a 
 href="mainli2.html#glo:targetSDR">Target SDR</a> section of the <a 
 href="mainli2.html#glo:REDHAWK Explorer"><span 
 class="ecbx-1200">REDHAWK Explorer</span></a>.
       </li>
       <li 
-  class="enumerate" id="x5-46024x12">On a terminal, start a Python session.
+  class="enumerate" id="x5-43024x12">On a terminal, start a Python session.
+                                                                                         
+                                                                                         
       </li>
       <li 
-  class="enumerate" id="x5-46026x13">Run the following commands: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+  class="enumerate" id="x5-43026x13">Run the following commands: <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
   &gt;&gt;> from ossie.utils import sb
  &gt;&gt;> hello_world = sb.launch("HelloWorld")
  &gt;&gt;> sb.start()
 ]]></script></div>
       </li></ol>
-                                                                                         
-                                                                                         
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
 href="mainch4.html" >next</a>] [<a 
 href="mainch2.html" >prev</a>] [<a 

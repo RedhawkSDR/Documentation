@@ -61,365 +61,615 @@ href="#x1-6000" id="QQ2-1-6">Fixes</a></span>
 href="#x1-11000" id="QQ2-1-11">Documentation New Features/Improvements/Fixes</a></span>
 </div>
 <h2 class="likechapterHead"><a 
- id="x1-1000"></a>REDHAWK Release Notes, Version 2.1.0</h2>
-<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.1.0 focused on:
+ id="x1-1000"></a>REDHAWK Release Notes, Version 2.1.1</h2>
+<!--l. 4--><p class="noindent" >The effort in REDHAWK 2.1.1 focused on:
       <ul class="itemize1">
-      <li class="itemize">Adding support for Components to be deployed on a specific GPP, and conversely
-      allowing the GPP to restrict deployments through a matching set of id/value pairs.
-      These id/value pairs are defined in the Software Assembly Descriptor and Device
-      Configuration  Definition  files  respectively.  Users  may  refer  to  this  feature  as  the
-      "special snowflake" deployment Property.
-      </li>
-      <li class="itemize">Shared address space Components: Significant enhancement of Component model
-      and BulkIO to support high performance I/O. Preliminary developer documentation
-      for the REDHAWK 2.1.0 beta release is available at <a 
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">Core REDHAWK Features and APIs</span>
+           <ul class="itemize2">
+           <li class="itemize">Shared address space Components: Significant enhancement of Component
+           model and BulkIO to support high performance I/O. Preliminary developer documentation
+           for the REDHAWK 2.1.0 beta release is available at <a 
 href="https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address" class="url" ><span 
 class="ectt-1200">https://github.com/RedhawkSDR/core-framework/tree/develop-2.1/docs/shared-address</span></a>.
-      This feature will be under extensive evaluation during the 2.1.x beta release series
-      and is expected to provide the ground work for several new major enhancements to
-      REDHAWK.
+           <br 
+class="newline" />This feature will be under extensive evaluation during the 2.1.x beta release
+           series and is expected to provide the ground work for several new major enhancements
+           to REDHAWK.
+           </li>
+           <li class="itemize">Adding the API for a new type of tuner, a scanning Device.
+           </li>
                                                                                          
                                                                                          
+           <li class="itemize">Adding  support  for  a  new  type  of  Property,  utctime,  extending  the  list  that
+           includes  types  such  as  short  or  string.  This  timestamp  Property  is  used  in
+           Property change events and can be queried from Components/Devices with
+           the id <br 
+class="newline" />QUERY_TIMESTAMP,  which  is  useful  when  synchronizing  the  state  of  the
+           system.  The  new  type  of  Property  can  be  used  by  Component/Device
+           developers as an additional type of Property.
+           </li>
+           <li class="itemize">Adding functionality for capacity to be reserved for an entire host collocation
+           on the SAD file. The reservation is a capacity floor for the Components in the
+           host collocation, where the amount of capacity utilized by the aggregate set of
+           Components is this reservation or actual, whichever is higher. This reservation
+           is  allocated  against  the  target  GPP  running  this  Application,  allowing  the
+           GPP  to  verify  that  the  request  can  be  satisfied,  reducing  the  likelihood  of
+           over-subscription.
+           </li>
+           <li class="itemize">Adding functionality to allow Components that have a usesdevice dependency
+           to now be launched on the same host (Device Manager/Node) as the Device
+           satisfying the usesdevice requirement. This functionality is provided through an
+           extension of the componentplacement hostcollocation.
+           </li>
+           <li class="itemize">Extending  DeviceManager  to  call  configure()  on  Services  at  the  time  they
+           register.  This  enables  users  to  implement  custom  Property  handling  if  so
+           desired.</li></ul>
       </li>
-      <li class="itemize">Adding  support  for  a  new  type  of  Property,  "utctime",  extending  the  list  that
-      includes  types  such  as  "short"  or  "string".  This  timestamp  Property  is  used  in
-      Property change events and can be queried from Components/Devices with the id
-      QUERY_TIMESTAMP, which is useful when synchronizing the state of the system.
-      The  new  type  of  Property  can  be  used  by  Component/Device  developers  as  an
-      additional type of Property.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">REDHAWK Systems</span>
+           <ul class="itemize2">
+           <li class="itemize">Changing  the  default  logging  directory  for  omniEvents  service  to  reside  in
+           /var/log/omniEvents.
+           </li>
+           <li class="itemize">Improving nodeBooter so it does not deploy if &#8211;user or &#8211;group are set while
+           &#8211;daemon  is  not,  and  if  the  command-line  arguments  to  nodeBooter  are
+           malformed, deployment fails.
+           </li>
+           <li class="itemize">Adding support for the state of the Connection Manager and Event Channel
+           Manager to be restored when persistence is enabled.</li></ul>
       </li>
-      <li class="itemize">Adding   cacheDirectory   and   workingDirectory   Properties   to   the   GPP.   These
-      properties   provide   the   deployer   with   control   over   where   Components   are
-      stored  (cacheDirectory)  and  the  directory  from  which  Components  are  executed
-      (workingDirectory).
-      </li>
-      <li class="itemize">Redesigning the IDE&#8217;s Event Viewer to improve the ability to monitor event channels.
-      </li>
-      <li class="itemize">Ending support of Command-line interactive mode (-i) on Components, Services,
-      and Devices. Terminal prompt interactions should be through the Python Sandbox.
-      </li>
-      <li class="itemize">Improving  Python  tooling  to  help  manage  REDHAWK  systems.  For  example,
-      these   improvements   include   eventChannelManager,   allocationManager,   and
-      connectionManager helpers as well as simpler event monitoring.
-      </li>
-      <li class="itemize">Adding functionality to allow Components that have a usesdevice dependency to
-      now  be  launched  on  the  same  host  (i.e.,  Device  Manager/Node)  as  the  Device
-      satisfying  the  usesdevice  requirement.  This  functionality  is  provided  through  an
-      extension of the componentplacement hostcollocation.
-      </li>
-      <li class="itemize">Improving recovery of a REDHAWK Domain after a catastrophic failure. The Device
-      Manager reboots all associated Devices/Services when it detects a reset Domain
-      Manager  after  a  catastrophic  failure  in  the  Domain  Manager.  This  reboot  only
-      happens if (1) persistence is enabled and (2) the name service log, event service
-      log, and persistence database are emptied.
-      </li>
-      <li class="itemize">Adding   new   concurrent   logging   appender   for   C++   Components   to   improve
-      readability of logging messages when multiple processes are writing to the same
-      log file.
-      </li>
-      <li class="itemize">Improving  the  New  Project  Wizard  to  warn  users  if  the  project  location  selected
-      already contains files that will become part of the project. Increase user awareness
-      of files that may be moved, deleted, or packaged with a project.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">Project Code Generation</span>
+           <ul class="itemize2">
+           <li class="itemize">Fixing  code  generators  for  Port  generation  of  C++  Components  to  correctly
+           handle data structures returned from methods.
                                                                                          
                                                                                          
+           </li>
+           <li class="itemize">Providing functionality to add custom headers to project files when generating
+           code.
+           </li>
+           <li class="itemize">Providing Generate Waveform and Generate Node buttons in the IDE editors
+           to initiate file generation. This ensures that Waveform and Node project spec
+           files are created or modified only when requested by the user.</li></ul>
       </li>
-      <li class="itemize">Updating the IDE to use the latest available Eclipse tooling, Eclipse Neon. For more
-      information               about               Eclipse               Neon,               refer               to
-      <a 
-href="http://www.eclipse.org/neon/noteworthy" class="url" ><span 
-class="ectt-1200">http://www.eclipse.org/neon/noteworthy</span></a>.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">Python Tooling and Sandbox</span>
+           <ul class="itemize2">
+           <li class="itemize">Adding  snapshot  capability  of  network  data  and  performing  SDDS  packet
+           analysis on the captured data.
+           </li>
+           <li class="itemize">Improving Python tooling to help manage REDHAWK systems. For example,
+           these  improvements  include  eventChannelManager,  allocationManager,  and
+           connectionManager helpers as well as simpler event monitoring.
+           </li>
+           <li class="itemize">Improving  Python  Sandbox  tooling  for  new  Domain  features  and  resources.
+           Specifically, extended DataSource to provide access to all the available SRI
+           and the data timestamp.
+           </li>
+           <li class="itemize">Adding  an  option  to  enable  the  Domain  Manager&#8217;s  logging  level  to  be
+           dynamically changed.
+           </li>
+           <li class="itemize">Correcting  issue  in  the  Python  Sandbox  so  now  when  the  BulkIO  queue  is
+           full, the Python Sandbox no longer locks up when trying to release stopped
+           Components.</li></ul>
       </li>
-      <li class="itemize">Documenting a publisher/subscriber pattern when accessing an EventChannel from
-      the Domain.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">GPP</span>
+           <ul class="itemize2">
+           <li class="itemize">Improving flexibility to ignore GPP threshold checks when determining if the
+           GPP should go into a BUSY state.</li></ul>
       </li>
-      <li class="itemize">Documenting  available  affinity  processing  directives  when  deploying  Devices,
-      Services, and Components.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">IDE</span>
+           <ul class="itemize2">
+           <li class="itemize">Updating the IDE to use the latest available Eclipse tooling, Eclipse Oxygen.
+           </li>
+           <li class="itemize">Providing  a  "TM  Terminal"  in  the  IDE,  a  full-featured  terminal  emulator  that
+           provides full ANSI cursor control, readline, and coloring.
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">Adding  the  Components  tab  to  the  Waveform  editor  in  the  IDE  to  allow
+           editing of Component instantiation details, including logging configuration. This
+           information  will  be  used  to  resolve  the  LOGGING_CONFIG_URI  parameter
+           during Component deployment.
+           </li>
+           <li class="itemize">Showing IDL details when Ports are selected in the REDHAWK Explorer view.
+           </li>
+           <li class="itemize">Providing validation of Property references in SAD and DCD files and flagging
+           invalid Property references as errors.
+           </li>
+           <li class="itemize">Adding the ability to terminate services in the Sandbox via the hover pad or the
+           delete key and making the terminate icon more distinct throughout the IDE.
+           </li>
+           <li class="itemize">Providing an option in the IDE to perform a FrontEnd Device allocation in the
+           background to aid developers who are debugging their FrontEnd Devices.
+           </li>
+           <li class="itemize">Improving the IDE&#8217;s Domain refresh logic to prevent the IDE from consuming
+           excessive numbers of threads in some scenarios.
+           </li>
+           <li class="itemize">Correcting the parsing of some numeric literals in Octave M files.
+           </li>
+           <li class="itemize">Fixing  links  in  the  IDE&#8217;s  help  contents  so  REDHAWK  help  now  displays
+           correctly when links within the help are selected.</li></ul>
       </li>
-      <li class="itemize">Adding  support  for  the  REDHAWK  Core  Framework,  IDE,  assets,  and  new
-      REDHAWK projects to now compile against and run on Java 8.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">Documentation</span>
+           <ul class="itemize2">
+           <li class="itemize">Adding documentation for developing a logging configuration plug-in that will
+           be used to resolve LOGGING_CONFIG_URI parameter during deployment of
+           Devices, Services and Components.
+           </li>
+           <li class="itemize">Renaming the Generating Code section to Generating Code for Components
+           and explaining the code generation process and what occurs in the IDE when
+           the code is generated.
+           </li>
+           <li class="itemize">Revising the BulkIO High-speed data code example in User Manual.</li></ul>
       </li>
-      <li class="itemize">Extending DeviceManager to call configure() on Services at the time they register.
-      This enables users to implement custom Property handling if so desired.
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">REDHAWK Enterprise Integration</span>
+           <ul class="itemize2">
+           <li class="itemize">Updating REDHAWK Java Driver and REDHAWK REST to make it easier for
+           users to access External Properties in Waveforms.
+                                                                                         
+                                                                                         
+           </li>
+           <li class="itemize">Adding implementations of ConnectionManager, AllocationManager interfaces
+           to REDHAWK Driver. Adding utility methods for programatically setting the log
+           level of Domain, Application, Device, and Component Resources.
+           </li>
+           <li class="itemize">Adding REST access to Event Channel Manager functionality.
+           </li>
+           <li class="itemize">Resolving issue when activating local servants for MessageConsumerPort and
+           MessageSupplierPort Java classes.</li></ul>
       </li>
-      <li class="itemize">Resolving  issue  when  activating  local  servants  for  MessageConsumerPort  and
-      MessageSupplierPort Java classes.
-      </li>
-      <li class="itemize">Improving  Python  Sandbox  tooling  for  new  Domain  features  and  resources.
-      Specifically, extended DataSource to provide access to all the available SRI and the
-      data timestamp.
-      </li>
-      <li class="itemize">Adding  reservation  schema  graph  in  the  documentation  to  enhance  the  text
-      describing capacity allocation reservation for the GPP.
-      </li>
-      <li class="itemize">Improving documentation of Signal Related Information (SRI).
-      </li>
-      <li class="itemize">Updating Contributor License Agreement (CLA).
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">Numerous Bug Fixes</span>
+           <ul class="itemize2">
+           <li class="itemize">For detailed information about the bug fixes included in this release, refer to
+           <a 
+href="#x1-6000doc">Fixes</a>.</li></ul>
       </li></ul>
 <h3 class="likesectionHead"><a 
  id="x1-2000"></a>New Features</h3>
-<!--l. 32--><p class="noindent" >The following IDE and Core Framework new features were added in REDHAWK 2.1.0.
-                                                                                         
-                                                                                         
+<!--l. 86--><p class="noindent" >The following IDE and Core Framework new features were added in REDHAWK 2.1.1.
       <ul class="itemize1">
-      <li class="itemize">Improved DeviceManager to call initalizeProperties or configure for Services that
-      implement the CF::PropertyEmitter or CF::PropertySet interface.
+      <li class="itemize">C++ shared address space Components can be launched in debug mode.
       </li>
-      <li class="itemize">Added a rolling file appender that synchronizes access to a central file from multiple
-      processes.
+      <li class="itemize">The configure() method is called when launching Services that support it.
       </li>
-      <li class="itemize">Added  support  to  allow  executable  Devices  to  restrict  Component  deployments
-      during Application deployment.
+      <li class="itemize">Added  an  icon  and  the  refid  of  the  Uses  Device  for  host  collocations  with  an
+      associated Uses Device reference.
       </li>
-      <li class="itemize">Added the implicit property QUERY_TIMESTAMP to all Components and Devices.
-      When  this  property  is  queried,  a  UTCTime  timestamp  is  returned.  Furthermore,
-      the PropertyChangeEvent has been extended with the member timestamp, also of
-      UTCTime type.
+      <li class="itemize">The IDE is now built on Eclipse Oxygen, the latest version of Eclipse.
       </li>
-      <li class="itemize">Added               the               ossie.utils.rhconnections               package               to
-      make it simpler to generate endPoints for interactions between the Python Sandbox
-      and the connectionManager.
+      <li class="itemize">When creating a Service project that makes use of the PropertySet IDL interface
+      (either directly or via inheritance), a PRF file is generated.
       </li>
-      <li class="itemize">Added an allocations module to the Python ossie.utils module. This module contains
-      a createProps function that performs type matches between a Device&#8217;s property set
-      and the property set provided.
+      <li class="itemize">A link is now available in the SPD editor to add a header to the project&#8217;s files.
       </li>
-      <li class="itemize">Improved the usability of the Event Channel Manager in the Python package.
-      </li>
-      <li class="itemize">Added new helpers in the Python Sandbox package to listen to Property change
-      events.
-      </li>
-      <li class="itemize">Added capability for the collocation of a usesdevice relationship and a Component
-      on the same host.
-      </li>
-      <li class="itemize">Updated  the  IDE&#8217;s  Event  Viewer  to  provide  additional  clarity  when  displaying
-      information for all event types. The Event Viewer displays a summary of basic event
-      information, while the Properties view displays full details for a selected event.
-      </li>
-      <li class="itemize">Added IDE support to generate new C++ components as shared address space
-      components.
+      <li class="itemize">A link is now available in the SAD editor to add a header to the project&#8217;s files.
                                                                                          
                                                                                          
       </li>
-      <li class="itemize">Added the ability to launch shared address space Components in the Sandbox.
+      <li class="itemize">A link is now available in the DCD editor to add a header to the project&#8217;s files.
       </li>
-      <li class="itemize">Added a disconnect button to the IDE Event Viewer, which enables users to stop the
-      viewer from updating with new events, while still persisting existing information.
+      <li class="itemize">An  optional  user-supplied  header  can  now  be  added  to  files  during  the  code
+      generation process.
       </li>
-      <li class="itemize">Added  support  to  display  devicerequires/deployerrequires  information  for  runtime
-      Components/Devices in the Advanced tab of the Properties view.
+      <li class="itemize">A command-line terminal ("TM Terminal") is now available in the IDE and can be
+      opened via Ctrl+Alt+T.
       </li>
-      <li class="itemize">Added support for load and save of the deployerrequires element in DCD files and
-      the devicerequires element in SAD files.
+      <li class="itemize">Added  a  Components  tab  to  the  SAD  editor  for  editing  Component  instantiation
+      details.
       </li>
-      <li class="itemize">Added support for load and save of the usesdeviceref element in SAD files.
+      <li class="itemize">The loggingconfig element can now be edited in the new SAD Components tab.
       </li>
-      <li class="itemize">Added runtime support for viewing/changing timestamp Properties.
+      <li class="itemize">In-editor validation of the logging configuration URI element is now provided in the
+      Components tab.
       </li>
-      <li class="itemize">Added design-time support for editing timestamp Properties.
+      <li class="itemize">Added support for load and save of the reservation element in SAD files.
       </li>
-      <li class="itemize">Added   support   to   display   the   new   precision   timestamp   associated   with   a
-      PropertyChangeEvent.
+      <li class="itemize">Components launched in the Python Sandbox have an ID with the pattern similar to
+      the ID when launched in a Waveform (for example, "instance_id:waveform_id").
       </li>
-      <li class="itemize">Added  editor  support  to  specify  the  requirements  of  the  GPP  that  launches  a
-      Component.
+      <li class="itemize">The Python Sandbox function api() uses a pager to display Properties/Ports.
       </li>
-      <li class="itemize">Added editor support to filter Components that can be launched on a Device.
+      <li class="itemize">The Python Sandbox DataSink object supports a stream API, allowing the DataSink
+      to handle multiple incoming streams and variable SRI.
       </li>
-      <li class="itemize">Added support for editing Devices collocated with a host collocation.
-      </li></ul>
-<!--l. 66--><p class="noindent" >
+      <li class="itemize">Input Python Sandbox elements (for example, DataSink) can be customized with
+      user-defined sinks.
+      </li>
+      <li class="itemize">The sb.SRIKeyword function can now support sequence values for keywords as well
+      as simple values.
+      </li>
+      <li class="itemize">Added queryTimestamp() to the rhtime Python package to make it easier to retrieve
+      the timestamp for the query call.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">The valid initialization string for utctime properties has been expanded from <br 
+class="newline" />"YYYY:MM:DD::HH:MM:SS.S" to include "now" as a valid value.
+      </li>
+      <li class="itemize">Added support for loggingconfig element contents when deploying a Component in
+      a Waveform.
+      </li>
+      <li class="itemize">Capacity reservations can now be added to host collocations, and reservations are
+      checked with the GPP before deployment to avoid oversubscription.</li></ul>
+<!--l. 118--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x1-3000"></a>Improvements</h3>
-<!--l. 67--><p class="noindent" >The following Core Framework and IDE improvements were completed in REDHAWK
-2.1.0.
-                                                                                         
-                                                                                         
-<!--l. 69--><p class="noindent" >
+<!--l. 119--><p class="noindent" >The following Core Framework and IDE improvements were completed in REDHAWK
+2.1.1.
+<!--l. 121--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
  id="x1-4000"></a>Core Framework Improvements</h4>
       <ul class="itemize1">
-      <li class="itemize">Extended Sandbox DataSource to accept SRI and TimeStamp objects when push
-      method is called.
+      <li class="itemize">The  Python  Sandbox  MessageSink  includes  a  getMessages  function.  When
+      storeMessages is set to True in the MessageSink constructor, getMessages can be
+      used to retrieve the received messages even if a callback is not provided.
       </li>
-      <li class="itemize">Moved start and stop Port calls from generated code into base classes.
+      <li class="itemize">Added support for a Java debugger (jdb) in the Python Sandbox when launching
+      Components.
       </li>
-      <li class="itemize">Improved sb.launch() to accept a single dictionary for all Property overrides and no
-      longer require the user to distinguish between command line and initialization.
+      <li class="itemize">A throttle option for DataSource and FileSource was added for data to be generated
+      at the given sample rate.
       </li>
-      <li class="itemize">Added support for new C++ Components to be created as shared libraries, which
-      allow multiple Components to be deployed into the same process and enable faster,
-      lower-cost I/O.
+      <li class="itemize">The Octave libraries are now located with the octave-config utility, which reduces the
+      time taken to find them.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Added  tests  to  verify  that  the  connection  manager  state  is  persisted  when
+      persistence is enabled.
+      </li>
+      <li class="itemize">Added support for the state of the Event Channel Manager to be restored when
+      persistence is enabled.
       </li></ul>
-<!--l. 82--><p class="noindent" >
+<!--l. 136--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
  id="x1-5000"></a>IDE Improvements</h4>
       <ul class="itemize1">
-      <li class="itemize">Added validaton for SPD files to check that referenced shared library Component
-      files are present.
+      <li class="itemize">Improved the REDHAWK Explorer view to include an IDL section in the Properties
+      view for selected Ports.
       </li>
-      <li class="itemize">Enhanced the IDE to recognize shared address space Components.
+      <li class="itemize">RPM spec files for Waveforms and Nodes are now generated manually.
       </li>
-      <li class="itemize">Added  support  to  display  event  messages  when  event  channels  are  added  or
-      removed.
+      <li class="itemize">The IDE now performs validation on the Properties assigned to Component/Devices
+      in  SAD/DCD  files  and  reports  an  error  if  a  Property  does  not  exist  in  the
+      Component/Device&#8217;s PRF file.
       </li>
-      <li class="itemize">Added the ability to display PropertyChangeEvent in the Event Viewer.
+      <li class="itemize">Added a red trash can icon in the Device Manager Sandbox service button pad that
+      terminates services running in the Device Manager Sandbox.
+      </li>
+      <li class="itemize">Added functionality so delete hotkey now terminates a running Service in the IDE
+      Sandbox.
+      </li>
+      <li class="itemize">Added validation for the refid attribute of a usesdeviceref in a SAD file.
+      </li>
+      <li class="itemize">Added functionality to enable FEI allocation to run in a background thread.
+      </li>
+      <li class="itemize">Modified the icon for terminate so it is now distinct from the icon for stop.
       </li></ul>
                                                                                          
                                                                                          
-<!--l. 95--><p class="noindent" >
+<!--l. 153--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x1-6000"></a>Fixes</h3>
-<!--l. 96--><p class="noindent" >The following Core Framework, IDE, and documentation fixes were completed in REDHAWK
-2.1.0.
-<!--l. 98--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Release notes for Core Assets are available on Github (<a 
+<a 
+ id="x1-6000doc"></a>
+<!--l. 155--><p class="noindent" >The following Core Framework, IDE, and documentation fixes were completed in REDHAWK
+2.1.1.
+<!--l. 157--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Release notes for Core Assets are available on Github (<a 
 href="https://github.com/RedhawkSDR/" class="url" ><span 
 class="ectt-1200">https://github.com/RedhawkSDR/</span></a>) in
 each Core Asset repository. </p></div></div>
-<!--l. 102--><p class="noindent" >
+<!--l. 161--><p class="noindent" >
 <h4 class="likesubsectionHead"><a 
  id="x1-7000"></a>Core Framework Fixes</h4>
       <ul class="itemize1">
-      <li class="itemize">Message supplier Ports now support the CF.QueryablePort interface, which allows
-      querying the current set of connection IDs and connected objects.
+      <li class="itemize">RH::DEPLOYMENT_ROOT for deployed Components is the cache directory, not the
+      working directory.
       </li>
-      <li class="itemize">If errors are encountered when installing an Waveform file, the ApplicationFactory
-      will now throw an ApplicationInstallationError with the details of what error occurred.
+      <li class="itemize">Generated  code  for  FEI  Python  Devices  produces  a  properly-formed  exception
+      when the sample rate, center frequency, or bandwidth requested on the digital tuner
+      control Port is less than 0.
       </li>
-      <li class="itemize">Improved  error  message  when  using  the  Python  package  to  attach  to  a  named
-      domain  when  the  name  service  has  a  stale  reference  to  the  missing  Domain
-      Manager.
+      <li class="itemize">Added  the  function  addChannels  to  the  FEI  base  classes.  This  function  enables
+      the developer to add combinations of tuner types in the same Device. The function
+      setNumChannels  is  still  supported,  but  its  functionality  has  been  replaced  by
+      addChannels.
       </li>
-      <li class="itemize">In Python FEI Devices, the default Port name used for matchAllocationIdToStreamId
-      is populated correctly.
+      <li class="itemize">Device Manager nodeBooter process no longer prints an error to stdout when a
+      Service is included in the Node.
       </li>
-      <li class="itemize">Fixed a series of problems with Python FEI base classes, including :
-           <ul class="itemize2">
-           <li class="itemize">Added validateRequestSingle and validateRequestVsDeviceStream to remap
-           the Python base API close to the Java and C++ base API.
-           </li>
-           <li class="itemize">In  Python  FEI  Devices,  when  the  user  code  generates  an  exception,  that
-           exception is correctly logged.
-           </li>
-           <li class="itemize">When   Python   FEI   Devices   fail   to   allocate   resources,   they   return   a
-           correctly-formatted exception.
+      <li class="itemize">GPP  returns  the  current  cacheDirectory  and  workingDirectory,  even  when  not
+      overridden on the DCD.
+      </li>
+      <li class="itemize">Most typical shared library Components can be unloaded and relaunched without
+      error. If a library is in use and has been modified, an exception is thrown when trying
+      to create new Components using the library.
                                                                                          
                                                                                          
-           </li>
-           <li class="itemize">Resolved issues with listener management in Python FEI Devices.
-           </li>
-           <li class="itemize">validateRequestVsRFInfo correctly scales the minimum sampling rate for scalar
-           or complex data.
-           </li>
-           <li class="itemize">Fixed typo in error messages for Python FEI Devices.</li></ul>
       </li>
-      <li class="itemize">Added creation of sdr/dev/services directory when installing from source or the REDHAWK
-      RPM package.
+      <li class="itemize">The function set_rf_flow_id in the Python FEI code generators no longer uses a
+      reserved word as an argument to the function.
       </li>
-      <li class="itemize">Python FEI Device getTunerStatus call returns without errors.
+      <li class="itemize">The  Port  name  is  now  used  as  the  default  name  for  adding  entries  into  the
+      connection descriptor table.
       </li>
-      <li class="itemize">If the Java minimum is not met, the automake configure script exits before generating the
-      Makefile.
+      <li class="itemize">Corrected test that erroneously failed when Java is disabled.
       </li>
-      <li class="itemize">When an exception occurs during C++ FEI deallocation, updateUsageState is called to
-      account for the deallocation(s) that succeeded.
+      <li class="itemize">When a numerical property is initialized in either the SAD file or the DCD file, if the
+      value contains illegal characters (for example: a, b, x), then the deployment fails.
       </li>
-      <li class="itemize">Fixed issue with C++ FEI Devices for failed allocations. Now, the C++ FEI Device base
-      class returns false when the allocation fails instead of throwing an exception.
+      <li class="itemize">In the Sandbox, connecting a DataSink to an SDDS output Port now will return with
+      a no matching Port exception.
+      </li>
+      <li class="itemize">On CentOS 7, C++ LoadableDevices no longer throw a CORBA::COMM_FAILURE
+      exception from load() when the file cannot be loaded.
+      </li>
+      <li class="itemize">Added    support    to    Python    parsers    for    new    elements:    devicerequires,
+      deployerrequires and usesdeviceref.
+      </li>
+      <li class="itemize">Added support to allow LOGGING_CONFIG_URI to be passed on the command
+      line  during  Component  deployment  irrespective  of  whether  it  was  defined  by  the
+      Component.
+      </li>
+      <li class="itemize">When the BulkIO queue is full, the Python Sandbox no longer locks up when trying
+      to release stopped Components.
+      </li>
+      <li class="itemize">Thread  management  in  the  Python  Component/Device  base  class  is  updated  to
+      better utilize the processor.
+      </li>
+      <li class="itemize">Extended  kickDomain  API  to  include  the  ability  to  change  the  logging  level  for
+      Domain and Device Manager processes.
+      </li>
+      <li class="itemize">Changed runser for omniEvents to omniORB user.
       </li></ul>
-<!--l. 129--><p class="noindent" >
+                                                                                         
+                                                                                         
+<!--l. 187--><p class="noindent" >
 <h5 class="likesubsubsectionHead"><a 
  id="x1-8000"></a>Special Resolutions</h5>
-<!--l. 130--><p class="noindent" >The following previously reported Known Issues have been closed in REDHAWK 2.1.0 with the
-following resolutions:
-      <ul class="itemize1">
-      <li class="itemize">Duplicate
-           <ul class="itemize2">
-           <li class="itemize">Octave API changes between v3.8.0 and 3.8.1 - Duplicate of Octave version
-           not supported on Centos 7.</li></ul>
-      </li>
-      <li class="itemize">Cannot Reproduce
-                                                                                         
-                                                                                         
-           <ul class="itemize2">
-           <li class="itemize">Mode appears to be set incorrectly for Octave source Components</li></ul>
-      </li>
-      <li class="itemize">Fixed By Other Issue
-           <ul class="itemize2">
-           <li class="itemize">refreshSRI  value  needed  for  each  stream  ID  for  output  ports  -  Fixed  when
-           BulkIO was re-engineered to support output streams in RH 2.0.0.
-           </li>
-           <li class="itemize">Add complex data (mode) checking to the code generator unit testing - Fixed
-           by REDHAWK release 1.9.</li></ul>
-      </li></ul>
-<!--l. 154--><p class="noindent" >
-<h4 class="likesubsectionHead"><a 
- id="x1-9000"></a>IDE Fixes</h4>
-      <ul class="itemize1">
-      <li class="itemize">The IDE now automatically adds header files in REDHAWK shared library projects
-      to the Makefile.am.ide.
-      </li>
-      <li class="itemize">Properties of type ulonglong are now passed to resources launched in the Sandbox.
-      </li></ul>
-<!--l. 164--><p class="noindent" >
-<h5 class="likesubsubsectionHead"><a 
- id="x1-10000"></a>Special Resolutions</h5>
-<!--l. 165--><p class="noindent" >The following previously reported Known Issues have been closed in REDHAWK 2.1.0 with the
+<!--l. 188--><p class="noindent" >The following previously reported Known Issues have been closed in REDHAWK 2.1.1 with the
 following resolutions:
       <ul class="itemize1">
       <li class="itemize">Won&#8217;t Fix
            <ul class="itemize2">
-           <li class="itemize">Different behavior for Components launched on Chalkboard versus via Python
-           Sandbox console - Issue not present in REDHAWK 2.0+ series.
-                                                                                         
-                                                                                         
+           <li class="itemize">timestamp for octave source components is null - This issue is superseded by
+           timestamp for octave source components should be periodically set.
            </li>
-           <li class="itemize">New IDL project wizard is a bit confusing - Insufficient details describing the
-           issue or expected resolution.
-           </li>
-           <li class="itemize">Launching a Component on the Chalkboard does not do initial configure - Issue
-           not present in REDHAWK 2.0+ series.
-           </li>
-           <li class="itemize">Redundant connection error decorator does not go away - This issue is OBE
-           now that Graphiti is the default Diagram tool.
-           </li>
-           <li class="itemize">Data List Statistics view does not respond to keyboard tab navigation - This is
-           not a user-facing issue.
-           </li>
-           <li class="itemize">Adding  structs  into  Node  struct  sequence  produces  bad  XML  -  Issue  not
-           present in REDHAWK 2.0+ series.
-           </li>
-           <li class="itemize">Eventable  allocation  properties  are  marked  as  error  -  Issue  not  present  in
-           REDHAWK 2.0+ series.
-           </li>
-           <li class="itemize">Updating Event Channel name in waveform diagram doesn&#8217;t update the sad
-           xml - This issue is OBE now that Graphiti is the default Diagram tool.
+           <li class="itemize"></li></ul>
+      </li>
+      <li class="itemize">Cannot Reproduce
+           <ul class="itemize2">
+           <li class="itemize">QtBrowse not displaying registered services
            </li></ul>
+      </li>
+      <li class="itemize">Fixed By Other Issue
+           <ul class="itemize2">
+           <li class="itemize">Fixed when BulkIO was re-engineered to support output streams in REDHAWK
+           release 2.0.0.
+           </li>
+           <li class="itemize">When  lauching  a  waveform  with  .so  components  on  a  GPP  where  the
+           workingDirectory and cachDirectory are not the same, recieve an error - This
+           issue  was  fixed  by  GPP  does  not  display  the  current  cacheDirectory  and
+           workingDirectory on its properties.</li></ul>
+      </li></ul>
+<!--l. 214--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-9000"></a>IDE Fixes</h4>
+      <ul class="itemize1">
+      <li class="itemize">Package names for Java Components now start with a lower-case letter by default,
+      to adhere to standard Java conventions.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">In the Component editor, the contents of the XML tabs now reflect all changes made
+      in the other tabs.
+      </li>
+      <li class="itemize">A race condition was corrected that allowed a new project to be created with an
+      invalid name.
+      </li>
+      <li class="itemize">Updates  to  a  Device&#8217;s  usagename  in  the  Node  editor  Devices  tab  are  correctly
+      reflected in the associated Devices table.
+      </li>
+      <li class="itemize">Services  in  the  Sandbox  Device  Manager  now  display  in  the  Sandbox  Node
+      Diagram.
+      </li>
+      <li class="itemize">Domains  containing  large  numbers  of  Waveforms/Device  Managers  now  re-sort
+      their contents appropriately.
+      </li>
+      <li class="itemize">When launching a Node on an existing Domain, the IDE now uses the Domain name
+      instead of the Domain&#8217;s display name.
+      </li>
+      <li class="itemize">An NPE no longer occurs if the M-file specified for a new Octave project does not
+      contain a function.
+      </li>
+      <li class="itemize">Ensured that CORBA calls that hang will timeout after a reasonable amount of time.
+      </li>
+      <li class="itemize">Improved the Domain refresh process to prevent issues with too many threads and
+      multiple simultaneous refreshes of the same object.
+      </li>
+      <li class="itemize">Prevented the possibility of the IDE using too many threads when there are problems
+      refreshing a domain.
+      </li>
+      <li class="itemize">IDE Domain/Sandbox refresh code now better responds to cancellation.
+      </li>
+      <li class="itemize">The CORBA Name Browser view now displays the kind of bound names.
+      </li>
+      <li class="itemize">The CORBA Name Browser now consistently loads children in the view.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Octave  functions  with  arguments  that  have  default  values  are  now  created  as
+      Properties (instead of Ports) by default in the New Component Project wizard.
+      </li>
+      <li class="itemize">The IDE promptly displays an error if Octave&#8217;s include path cannot be found while
+      generating code for an Octave project.
+      </li>
+      <li class="itemize">Keep tree nodes expanded while navigating the Launch Waveform wizard.
+      </li>
+      <li class="itemize">The IDE now displays Services in the Target SDR even if they duplicate the ID of
+      another Service the IDE has already loaded.
+      </li>
+      <li class="itemize">The IDE does not change the DCE ID of a project when it is renamed, which can
+      cause problems if the user installs both the old and new versions of the project in
+      the SDRROOT.
+      </li>
+      <li class="itemize">The connect wizard now works with Waveforms&#8217; external Ports.
+      </li>
+      <li class="itemize">References to non-existent struct simple properties are now handled gracefully.
+      </li>
+      <li class="itemize">The editor action bar no longer attempts to load duplicate ActionHandlers.
+      </li>
+      <li class="itemize">Fixed an occasional NPE that occured when using the Device Manager Explorer
+      diagram.
+      </li>
+      <li class="itemize">Multi-delete functionality race-condition is now handled gracefully.
+      </li>
+      <li class="itemize">Corrected a potential code freeze when updating the Domain&#8217;s Waveform list.
+      </li>
+      <li class="itemize">The IDE no longer displays a tree expander next to SRI keywords if there are no
+      keywords to display.
+      </li>
+      <li class="itemize">Clicking  the  Terminate  context  menu  on  the  Sandbox  Device  Manager  now
+      terminates its services.
+      </li>
+      <li class="itemize">Clicking  the  Shutdown  context  menu  on  the  Sandbox  Device  Manager  now
+      terminates its services.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Resolved issue where services launched via REDHAWK Explorer were receiving
+      duplicate names.
+      </li>
+      <li class="itemize">The  OSSIEHOME  Eclipse  variable  should  not  be  expanded  in  the  IDL  project&#8217;s
+      .ecpproperties file.
+      </li>
+      <li class="itemize">Read-only Properties of kind &#8217;property&#8217; can now be overridden, and their values are
+      passed to initializeProperties() in the Sandbox.
+      </li>
+      <li class="itemize">Fixed bug that occurred when editing the namespace of existing projects.
+      </li>
+      <li class="itemize">An  error  message  was  sometimes  displayed  after  closing  the  "Allocate  Tuner"
+      wizard.
+      </li>
+      <li class="itemize">Services launched in the Sandbox Device Manager diagram are now displayed in
+      gray, and their menu options are disabled until they launch and register with the
+      Device Manager.
+      </li>
+      <li class="itemize">Corrected an inefficient monitoring of Devices by the Device Manager diagrams.
+      </li>
+      <li class="itemize">Corrected a unit test failure that occurred when building in a docker container.
+      </li>
+      <li class="itemize">A file descriptor which was being left open is now closed.
+      </li>
+      <li class="itemize">A code quality issue was corrected.
+      </li>
+      <li class="itemize">Removed an instance of double-checked locking.
+      </li>
+      <li class="itemize">Corrected some internal domain model state inconsistencies.
+      </li>
+      <li class="itemize">Fixed issue where the IDL Selection Wizard filter stopped working when the Show
+      all interfaces button was checked.
+      </li>
+      <li class="itemize">Fixed issue where Waveforms with external Ports were not being removed from the
+      REDHAWK Explorer view on terminate.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Corrected a link in the REDHAWK help that was not working.
+      </li>
+      <li class="itemize">Message is now always a selectable kind type for Struct Properties.
+      </li>
+      <li class="itemize">The icon for the PRF editor was corrected.
+      </li>
+      <li class="itemize">Fixed issue with a ConcurrentModificationException occassionally occurring when
+      using the "Monitor Ports" functionality.
+      </li>
+      <li class="itemize">Diagrams now open without an error in the REDHAWK Explorer product.
+      </li>
+      <li class="itemize">Corrected a warning that was logged about a command not having a category.
+      </li>
+      <li class="itemize">Corrected a copyright notice about Eclipse software.
+      </li>
+      <li class="itemize">Corrected an issue with CSS themes.
+      </li>
+      <li class="itemize">Corrected some issues with product branding.
+      </li>
+      <li class="itemize">A superfluous ODM event channel is no longer created when display name differs
+      from Domain name.
+      </li>
+      <li class="itemize">Corrected issues with UI themes in the REDHAWK Explorer product.
+      </li>
+      <li class="itemize">Corrected  a  potential  code  freeze  when  the  IDE  loses  contact  with  a  connected
+      Domain.
+      </li>
+      <li class="itemize">The release field in spec files created for Waveforms and Nodes is now correct.
+      </li>
+      <li class="itemize">The IDE no longer attempts to read Device files when browsing the Sandbox file
+      manager.
+      </li>
+      <li class="itemize">Corrected a code issue that could have suppressed Sandbox errors.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Updated Uses Device icon in the Edit Host Collocation wizard.
+      </li>
+      <li class="itemize">The BULKIO SRI keyword CHAN_RF is now always preferred to COL_RF for center
+      frequency when plotting.
+      </li>
+      <li class="itemize">Corrected  a  rare  bug  that  could  cause  the  content  in  the  pages  of  an  editor  to
+      become un-synchronized.
+      </li>
+      <li class="itemize">Shared   address   space   components   were   always   launched   in   the   Sandbox
+      Chalkboard, but can now be launched in other Sandbox Waveforms as well.
+      </li>
+      <li class="itemize">Corrected an internal IDE issue that could prevent loading REDHAWK XML.
+      </li>
+      <li class="itemize">The  New  Control  Panel  Project  button  is  no  longer  displayed  when  editing  a
+      REDHAWK shared library project.
+      </li>
+      <li class="itemize">Updated a missing environment specification to reflect the requirement for Java 8.
+      </li>
+      <li class="itemize">Added missing icons in the DCD editor.
+      </li>
+      <li class="itemize">Corrected internal IDE code to properly indicate when XML validation problems are
+      found.
+      </li>
+      <li class="itemize">Corrected  an  NPE  that  could  occur  when  validating  SAD  or  DCD  files  with
+      references to non-existent struct sequence Properties.
+      </li></ul>
+<!--l. 291--><p class="noindent" >
+<h5 class="likesubsubsectionHead"><a 
+ id="x1-10000"></a>Special Resolutions</h5>
+<!--l. 292--><p class="noindent" >The following previously reported Known Issues have been closed in REDHAWK 2.1.1 with the
+following resolutions:
+      <ul class="itemize1">
+      <li class="itemize">Won&#8217;t Fix
+                                                                                         
+                                                                                         
+           <ul class="itemize2">
+           <li class="itemize">Data List Statistics view does not respond to keyboard tab navigation - This is
+           not a user-facing issue.</li></ul>
       </li>
       <li class="itemize">Duplicate
            <ul class="itemize2">
            <li class="itemize">Occasional NPE in ContainerShapeAdapterFactory - Duplicate of NPE during
-           a diagram&#8217;s multi-delete action.</li></ul>
+           a diagramâ&#x0102;&#377;s multi-delete action.</li></ul>
       </li>
       <li class="itemize">Cannot Reproduce
            <ul class="itemize2">
-           <li class="itemize">Template Device project incorrect entry point
+           <li class="itemize">Graphiti SAD Diagram fails to recover from side-loaded SAD.xml changes.
            </li>
-           <li class="itemize">Clean &amp; Build does not do full ./reconf ./configure
+           <li class="itemize">Runtime toolbar buttons shown for design time diagrams.
            </li>
-           <li class="itemize">RuntimeException expanding Target SDR after IDE startup in SdrViewerSorter
-           </li>
-           <li class="itemize">Chalkboard diagram using old workspace Component after it has changed
-           </li>
-           <li class="itemize">Graphiti SAD Diagram fails to recover from side-loaded SAD.xml changes
-                                                                                         
-                                                                                         
-           </li>
-           <li class="itemize">Ports of Components placed in Collocation Block Diagram Not Visualized
-           </li>
-           <li class="itemize">Runtime toolbar buttons shown for design time diagrams
-           </li>
-           <li class="itemize">Exception during project rename
-           </li></ul>
+           <li class="itemize">Exception during project rename.</li></ul>
       </li>
       <li class="itemize">Fixed By Other Issue
            <ul class="itemize2">
@@ -429,46 +679,58 @@ following resolutions:
            <li class="itemize">Messaging Port connections are not visible in the Node Explorer - Fixed by
            message port doesn&#8217;t implement ExtendedCF.QueryablePort.</li></ul>
       </li></ul>
-<!--l. 207--><p class="noindent" >
+<!--l. 319--><p class="noindent" >
 <h3 class="likesectionHead"><a 
  id="x1-11000"></a>Documentation New Features/Improvements/Fixes</h3>
-<!--l. 208--><p class="noindent" >The following documentation new features/improvements/fixes were completed in REDHAWK
-2.1.0.
+<!--l. 320--><p class="noindent" >The following documentation new features/improvements/fixes were completed in REDHAWK
+2.1.1.
       <ul class="itemize1">
-      <li class="itemize">Added   information   explaining   the   show   command,   browse   function,   and
-      getComponent function used in the Sandbox.
-      </li>
-      <li class="itemize">Added Device and Service Affinity as well as Resource Affinity sections to explain
-      the NUMA functionality in the Core Framework.
-      </li>
-      <li class="itemize">Added new graphics and documentation for the redesigned Event Viewer.
-      </li>
-      <li class="itemize">Added information about controlling the GPP cache and working directories.
-                                                                                         
-                                                                                         
-      </li>
-      <li class="itemize">Added documentation to explain how a Service is configured when it registers with
-      a Device Manager.
-      </li>
-      <li class="itemize">Added information to explain how to launch a Waveform on a specific GPP.
-      </li>
-      <li class="itemize">Added documentation to explain how to add or remove usesdevices from a host
-      collocation.
-      </li>
-      <li class="itemize">Added Synchronous Logging for C++ Devices and Components section to explain
-      concurrent logging.
-      </li>
-      <li class="itemize">Added new timestamp Property utctime type information to the documentation.
-      </li>
       <li class="itemize">Added Managing Allocations and Managing Connections sections to document new
       helpers in the Python Sandbox.
+                                                                                         
+                                                                                         
       </li>
-      <li class="itemize">Updated the documentation with information pertinent to the Core Framework Java
-      8 requirement.
+      <li class="itemize">Corrected property definition shown in code for multi-out Ports by removing kind
+      elements that were underneath the simple elements.
       </li>
-      <li class="itemize">Added System-Wide Reset section to the Persistence Store information.
+      <li class="itemize">Added  information  to  explain  that  octave  Component  numerical  properties  are
+      treated as complex.
       </li>
-      <li class="itemize">Fixed typos in the Managing and Defining Properties section.
+      <li class="itemize">Corrected SAD file location in the SAD File section.
+      </li>
+      <li class="itemize">Documented the new createProps function.
+      </li>
+      <li class="itemize">Documented  improved  Python  Sandbox  tooling  for  new  Domain  features  and
+      resources.
+      </li>
+      <li class="itemize">Added  information  to  initializing  timestamp  properties  to  include  the  valid  value
+      string, "now".
+      </li>
+      <li class="itemize">Added information to describe how to add headers to files.
+      </li>
+      <li class="itemize">Updated design-time SAD diagrams showing hostcollocation with usesdevices.
+      </li>
+      <li class="itemize">Updated  screenshots  of  Overview  tabs  in  SPD,  SAD,  and  DCD  editors  to  show
+      Header link in Project Documentation section.
+      </li>
+      <li class="itemize">Updated  screenshots  of  Waveform  and  Node  editors  and  added  text  to  explain
+      button used to generate RPM spec files.
+      </li>
+      <li class="itemize">Updated screenshot of SPD editor Properties to correctly display a drop-down for
+      the "Kind".
+      </li>
+      <li class="itemize">Added documentation for capacity allocation on a per-hostcollocation basis.
+      </li>
+      <li class="itemize">Updated Host Collocation procedure and replaced screenshots to correctly display
+      collocation name created when adding a collocation.
+      </li>
+      <li class="itemize">Updated procedure, Using the FEI Wizard to Create an FEI Device, to include the
+      Setup Code Generation dialog and added screenshot.
+                                                                                         
+                                                                                         
+      </li>
+      <li class="itemize">Updated FEI Allocation Wizard Tuner Allocation dialog screenshot and revised text
+      to include new Run in background checkbox.
       </li></ul>
  
  <div class=license><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"/></a><br/><span xmlns:dct="http:// purl.org/dc/terms/" property="dct:title">REDHAWK Documentation</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div></body></html> 
