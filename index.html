@@ -14,7 +14,7 @@
                 list-style-position: outside;
                 margin-left: 15px;
                 padding-left: 10px;
-            }            
+            }
         </style>
         <title>Home</title>
     </head>
@@ -66,6 +66,57 @@
 
                 <h3>Recent Announcements</h3>
 
+<p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.0.7">Release of REDHAWK 2.0.7</a> (September 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.0.7 focused on:
+<ul>
+<p><strong>Core Framework</strong>
+                <ul>
+                    <li> Resolving soft package dependency issue so DeviceManager resolves run time environment settings when deploying Devices and Services that have soft package dependencies.
+                    <li> Resolving issue so that during Application release, calls to the Application object no longer result in misleading errors.
+                    <li> Improving flexibility to ignore GPP threshold checks when determining if the GPP should go into a BUSY state.
+                    <li> Resolving issue where processes with spaces in the names would cause the GPP to terminate.
+                    <li> Resolving issue to allow for slow startup conditions of OmniNames service before starting OmniEvents service.
+                    <li> Resolving issue with uninitialized data structures with BulkIO and SourceSDDS that inhibited BulkIO data transfers.
+                    <li> Resolving issue with incorrect exception being thrown during allocateCapacity.
+                    <li> Resolving issue when shutting down orb from Python resources.
+                    <li> Providing a warning in the logs if a message is too large.
+                    <li> Resolving issue with the code generators so they can be run on systems with FIPS enabled.
+                    <li> Resolving issue so generated C++ FEI Devices do not leak memory when deallocating listeners. Existing Devices must be regenerated and recompiled to apply this fix.
+                    <li> Resolving a memory leak in FrontendTunerDevice::create(). Existing Devices must be recompiled to apply this fix.
+                    <li> Resolving issue so the functions returnRFInfoPkt transform all fields between types frontend::RFInfoPkt and FRONTEND::RFInfoPkt.
+                    <li> Resolving issue so BulkIO input stream calls to read() and tryread() with a sample count do not segfault when their queue contains only an empty packet with EOS set.
+                </ul>
+<p><strong>IDE</strong>
+                <ul>
+                    <li> Providing an option in the IDE to perform a FrontEnd Device allocation in the background to aid developers who are debugging their FrontEnd Devices.
+                    <li> Adding the Eclipse "TM Terminal" in the IDE, a full-featured terminal emulator that provides full ANSI cursor control, readline, and coloring.
+                    <li> Fixing links in the IDE's help contents so REDHAWK help now displays correctly when links within the help are selected.
+                    <li> Resolving issue so Diagram shapes no longer stack if they are part of a feedback loop.
+</ul>
+<p><strong>Documentation</strong>
+                <ul>
+
+                    <li> Adding documentation for developing a logging configuration plug-in that will be used to resolve the LOGGING\_CONFIG\_URI parameter during deployment of Devices, Services and Components.
+                    <li> Renaming the Generating Code section to Generating Code for Components and explaining the code generation process and what occurs in the IDE when the code is generated.
+                    <li> Updating the REDHAWK User Manual with accessibility rules for all properties. Updating the REDHAWK ICD with the description of the new "property" kind.
+</ul>
+<p><strong>REDHAWK Enterprise Integration</strong>
+                <ul>
+                    <li> Adding toString() method to RedhawkStruct object, ensuring \newline the
+getAllocIds(RedhawkStruct s) return object is a List, and adding a helper method for retrieving allocIds called getAllocIds().
+                    <li> Updating REDHAWK Driver to properly clean up driver-registered Device Managers on shutdown.
+                    <li> Adding IDL source to appropriate Core Framework jars.
+Incorporated additional method to produce jar bundle with manifest built dynamically via the BnD Tools, source jar, and zip of XSDs.
+                    <li> Updating REDHAWK Java Driver and REDHAWK REST to make it easier for users to access External Properties in Waveforms.
+                    <li> Adding implementations of ConnectionManager, AllocationManager interfaces to REDHAWK Driver. Adding utility methods for programatically setting the log level of Domain, Application, Device, and Component Resources.
+                    <li> Adding REST access to Event Channel Manager functionality.
+                    <li> Updating REDHAWK Driver to have wrapper methods for retrieving state, connections, activeSRIs, and UsesPortStatistics from BULKIO objects. Updating REDHAWK REST to make connections, activeSRIs, UsesPortStatistics, and state available.
+                    <li> Adding wrapper methods to RedhawkApplication and RedhawkComponent interfaces for easier access to aware(), componentDevices(), componentProcessIds(), and componentImplementations(). REST Responses for Component and Application now display componentDevice, aware, componentProcessId, and componentImplementation information.
+                    <li> Adding ability to get and set adminState from REDHAWK Driver and REDHAWK REST.  Adding ability to view usageState and operationalState from REDHAWK Driver and REDHAWK REST.
+                    <li> Adding ability to registerRemoteDomain, unregisterRemoteDomains, get device implementation information and a deviceConfiguration profile via REDHAWK Driver and REDHAWK REST.
+                    <li> Preconfiguring HTTPS and WSS in REDHAWK Enterprise Integration and adding Web Server Configuration section in REDHAWK Enterprise Integration User Guide.
+                    <li> Addressing numerous bug fixes.
+                </ul>
+
 <p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.1.1">Release of REDHAWK 2.1.1</a> (August 2017)</strong> - Download the new Core Framework, IDE, and documentation from our <a href="download.html">Downloads</a> page. The effort in REDHAWK 2.1.1 focused on:
 <p><strong>Core REDHAWK Features and APIs</strong>
                 <ul>
@@ -74,23 +125,23 @@
                     <li> Adding support for a new type of Property, utctime, extending the list that includes types such as short or string. This timestamp Property is used in Property change events and can be queried from Components/Devices with the id QUERY_TIMESTAMP, which is useful when synchronizing the state of the system. The new type of Property can be used by Component/Device developers as an additional type of Property.
                     <li> Adding functionality for capacity to be reserved for an entire host collocation on the SAD file. The reservation is a capacity floor for the Components in the host collocation, where the amount of capacity utilized by the aggregate set of Components is this reservation or actual, whichever is higher. This reservation is allocated against the target GPP running this Application, allowing the GPP to verify that the request can be satisfied, reducing the likelihood of over-subscription.
                     <li> Adding functionality to allow Components that have a usesdevice dependency to now be launched on the same host (Device Manager/Node) as the Device satisfying the usesdevice requirement. This functionality is provided through an extension of the componentplacement hostcollocation.
-                    <li> Extending DeviceManager to call configure() on Services at the time they register. This enables users to implement custom Property handling if so desired. 
+                    <li> Extending DeviceManager to call configure() on Services at the time they register. This enables users to implement custom Property handling if so desired.
                 </ul>
 <p><strong>REDHAWK Systems</strong>
                 <ul>
-                    <li> Changing the default logging directory for omniEvents service to reside in /var/log/omniEvents. 
+                    <li> Changing the default logging directory for omniEvents service to reside in /var/log/omniEvents.
                     <li> Improving nodeBooter so it does not deploy if --user or --group are set while --daemon is not, and if the command-line arguments to nodeBooter are malformed, deployment fails.
                     <li> Adding support for the state of the Connection Manager and Event Channel Manager to be restored when persistence is enabled.
                 </ul>
 <p><strong>Project Code Generation</strong>
                 <ul>
                     <li> Fixing code generators for Port generation of C++ Components to correctly handle data structures returned from methods.
-                    <li> Providing functionality to add custom headers to project files when generating code. 
-                    <li> Providing Generate Waveform and Generate Node buttons in the IDE editors to initiate file generation. This ensures that Waveform and Node project spec files are created or modified only when requested by the user. 
+                    <li> Providing functionality to add custom headers to project files when generating code.
+                    <li> Providing Generate Waveform and Generate Node buttons in the IDE editors to initiate file generation. This ensures that Waveform and Node project spec files are created or modified only when requested by the user.
                 </ul>
 <p><strong>Python Tooling and Sandbox</strong>
                 <ul>
-                    <li> Adding snapshot capability of network data and performing SDDS packet analysis on the captured data. 
+                    <li> Adding snapshot capability of network data and performing SDDS packet analysis on the captured data.
                     <li> Improving Python tooling to help manage REDHAWK systems. For example, these improvements include eventChannelManager, allocationManager, and connectionManager helpers as well as simpler event monitoring.
                     <li> Improving Python Sandbox tooling for new Domain features and resources. Specifically, extended DataSource to provide access to all the available SRI and the data timestamp.
                     <li> Adding an option to enable the Domain Manager's logging level to be dynamically changed.
@@ -103,14 +154,14 @@
 <p><strong>IDE</strong>
                 <ul>
                     <li> Updating the IDE to use the latest available Eclipse tooling, Eclipse Oxygen.
-                    <li> Providing a "TM Terminal" in the IDE, a full-featured terminal emulator that provides full ANSI cursor control, readline, and coloring. 
+                    <li> Providing a "TM Terminal" in the IDE, a full-featured terminal emulator that provides full ANSI cursor control, readline, and coloring.
                     <li> Adding the Components tab to the Waveform editor in the IDE to allow editing of Component instantiation details, including logging configuration. This information will be used to resolve the LOGGING_CONFIG_URI parameter during Component deployment.
                     <li> Showing IDL details when Ports are selected in the REDHAWK Explorer view.
-                    <li> Providing validation of Property references in SAD and DCD files and flagging invalid Property references as errors. 
+                    <li> Providing validation of Property references in SAD and DCD files and flagging invalid Property references as errors.
                     <li> Adding the ability to terminate services in the Sandbox via the hover pad or the delete key and making the terminate icon more distinct throughout the IDE.
                     <li> Providing an option in the IDE to perform a FrontEnd Device allocation in the background to aid developers who are debugging their FrontEnd Devices.
                     <li> Improving the IDE's Domain refresh logic to prevent the IDE from consuming excessive numbers of threads in some scenarios.
-                    <li> Correcting the parsing of some numeric literals in Octave M files. 
+                    <li> Correcting the parsing of some numeric literals in Octave M files.
                     <li> Fixing links in the IDE's help contents so REDHAWK help now displays correctly when links within the help are selected.
                 </ul>
 <p><strong>Documentation</strong>
@@ -121,7 +172,7 @@
                 </ul>
 <p><strong>REDHAWK Enterprise Integration</strong>
                 <ul>
-                    <li> Updating REDHAWK Java Driver and REDHAWK REST to make it easier for users to access External Properties in Waveforms. 
+                    <li> Updating REDHAWK Java Driver and REDHAWK REST to make it easier for users to access External Properties in Waveforms.
                     <li> Adding implementations of ConnectionManager, AllocationManager interfaces to REDHAWK Driver. Adding utility methods for programatically setting the log level of Domain, Application, Device, and Component Resources.
 
 
@@ -191,16 +242,6 @@
                     <li>Addressing numerous bug fixes.
                 </ul>
 
-
-                <p><strong><a href="https://github.com/redhawksdr/redhawk/releases/tag/2.0.5">Release of REDHAWK 2.0.5</a> (February 2017)</strong> - The effort in REDHAWK 2.0.5 focused on:
-                <ul>
-                    <li>Maintaining the correct time stamp when pushing data from the Sandbox DataSource.
-                    <li>Improving a Component's response to messages irrespective of whether or not the Component is started or stopped.
-                    <li>Improving FileSink support for framed data and timecode with BLUE file output.
-                    <li>Improving the handling of missing event message fields in C++ and Python.
-                    <li>Ensuring external Port names are recognized.
-                    <li>Addressing numerous bug fixes.
-                </ul>
 
                 <h3>Getting Started</h3>
 
