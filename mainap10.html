@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>J List of Acronyms</title> 
+<head><title>J Linux System Service Configuration</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -46,629 +46,1153 @@ window.attachEvent("onload", f);
 <!-- Custom MAIN CONTENT --> 
 <div id="main_content_wrap" tabindex="0" class="outer"> 
 <section id="main_content" class="inner"> 
-<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap11.html" >next</a>] [<a 
 href="mainap9.html" >prev</a>] [<a 
 href="mainap9.html#tailmainap9.html" >prev-tail</a>] [<a 
 href="#tailmainap10.html">tail</a>] [<a 
 href="main.html#mainap10.html" >up</a>] </p></div>
 <h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;J</span><br /><a 
- id="x29-593000J"></a>List of Acronyms</h2>
-  <dl class="list1"><dt class="list">
-<a 
- id="ajax"></a><span 
-class="ecsx-1200">AJAX</span> </dt><dd 
-class="list">
-  <!--l. 4--><p class="noindent" >Asynchronous
-  JavaScript
-  and
-  <a 
-href="#xml">XML</a>
-  </dd><dt class="list">
-<a 
- id="api"></a><span 
-class="ecsx-1200">API</span> </dt><dd 
-class="list">
-  <!--l. 5--><p class="noindent" >Application
-  Programming
-  Interface
-  </dd><dt class="list">
-<a 
- id="ast"></a><span 
-class="ecsx-1200">AST</span> </dt><dd 
-class="list">
-  <!--l. 6--><p class="noindent" >Abstract
-  Syntax
-  Tree
-  </dd><dt class="list">
-<a 
- id="bulkio"></a><span 
-class="ecsx-1200">BulkIO</span> </dt><dd 
-class="list">
-  <!--l. 7--><p class="noindent" >Bulk
-  Input/Output
-  </dd><dt class="list">
-<a 
- id="burstio"></a><span 
-class="ecsx-1200">BurstIO</span> </dt><dd 
-class="list">
-  <!--l. 8--><p class="noindent" >Burst
-  Input/Output
-  </dd><dt class="list">
+ id="x30-610000J"></a>Linux System Service Configuration</h2>
+<h3 class="sectionHead"><span class="titlemark">J.1   </span> <a 
+ id="x30-611000J.1"></a>Introduction</h3>
+<!--l. 7--><p class="noindent" >For system integrators, REDHAWK provides an optional RPM with the necessary scripts and
+configuration files to manage DomainManager, DeviceManager (includes <a 
+href="mainli2.html#glo:device">Devices</a> and <a 
+href="mainli2.html#glo:service">Services</a>),
+and Waveforms. The RPM, <br 
+class="newline" /><span 
+class="ectt-1200">redhawk-services-&#x003C;version&#x003E;.&#x003C;os&#x003E;.noarch.rpm</span>, is provided as part of the REDHAWK Runtime
+yum respository, but is not installated by default.
+<!--l. 9--><p class="noindent" >Each service uses an INI style configuration file (name=value) to define the command line
+arguments and execution environment for the service. The configuration files and service scripts
+provide enough flexibility to manage the REDHAWK core services for most use cases. For
+specialized cases, the REDHAWK source repository (<span 
+class="ectt-1200">core-framework/redhawk/src/releng</span>)
+provides an RPM spec file, <span 
+class="ectt-1200">redhawk-services.spec</span>, and all the source scripts for integrators to
+build and customize their own service scripts and installation RPM.
+<!--l. 11--><p class="noindent" ><a 
+href="#x30-611001r1">Table J.1</a> describes the three main REDHAWK services and their configuration directories that
+contain the INI style configuration files.
+<div class="table">
                                                                                          
                                                                                          
-<a 
- id="cdt"></a><span 
-class="ecsx-1200">CDT</span> </dt><dd 
-class="list">
-  <!--l. 9--><p class="noindent" >C/C++
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="centos"></a><span 
-class="ecsx-1200">CentOS</span> </dt><dd 
-class="list">
-  <!--l. 10--><p class="noindent" >Community
-  Enterprise
-  Operating
-  System
-  </dd><dt class="list">
-<a 
- id="cf"></a><span 
-class="ecsx-1200">CF</span> </dt><dd 
-class="list">
-  <!--l. 11--><p class="noindent" >Core
-  Framework
-  </dd><dt class="list">
-<a 
- id="corba"></a><span 
-class="ecsx-1200">CORBA</span> </dt><dd 
-class="list">
-  <!--l. 12--><p class="noindent" >Common
-  Object
-  Request
-  Broker
-  Architecture
-  </dd><dt class="list">
-<a 
- id="cvs"></a><span 
-class="ecsx-1200">CVS</span> </dt><dd 
-class="list">
-  <!--l. 13--><p class="noindent" >Concurrent
-  Versions
-  System
-  </dd><dt class="list">
-<a 
- id="dcd"></a><span 
-class="ecsx-1200">DCD</span> </dt><dd 
-class="list">
-  <!--l. 14--><p class="noindent" >Device
-  Configuration
-  Descriptor
+<!--l. 13--><p class="noindent" ><a 
+ id="x30-611001r1"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="dce"></a><span 
-class="ecsx-1200">DCE</span> </dt><dd 
-class="list">
-  <!--l. 15--><p class="noindent" >Distributed
-  Computing
-  Environment
-  </dd><dt class="list">
-<a 
- id="ddc"></a><span 
-class="ecsx-1200">DDC</span> </dt><dd 
-class="list">
-  <!--l. 16--><p class="noindent" >Digital
-  Down
-  Converter
-  </dd><dt class="list">
-<a 
- id="dmd"></a><span 
-class="ecsx-1200">DMD</span> </dt><dd 
-class="list">
-  <!--l. 17--><p class="noindent" >Domain
-  Manager
-  Configuration
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dpd"></a><span 
-class="ecsx-1200">DPD</span> </dt><dd 
-class="list">
-  <!--l. 18--><p class="noindent" >Device
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="dsp"></a><span 
-class="ecsx-1200">DSP</span> </dt><dd 
-class="list">
-  <!--l. 19--><p class="noindent" >Digital
-  Signal
-  Processing
-  </dd><dt class="list">
-<a 
- id="dtd"></a><span 
-class="ecsx-1200">DTD</span> </dt><dd 
-class="list">
-  <!--l. 20--><p class="noindent" >Document
-  Type
-  Definition
+<div class="tabular"> <table id="TBL-51" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-51-1g"><col 
+id="TBL-51-1"></colgroup><colgroup id="TBL-51-2g"><col 
+id="TBL-51-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-51-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-1-1"  
+class="td11"> <!--l. 17--><p class="noindent" ><span 
+class="ecbx-1200">Service</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-1-2"  
+class="td11"> <!--l. 17--><p class="noindent" ><span 
+class="ecbx-1200">Configuration Directory</span>        </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-51-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-2-1"  
+class="td11"> <!--l. 18--><p class="noindent" >DomainManager   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-2-2"  
+class="td11"> <!--l. 18--><p class="noindent" >/etc/redhawk/domains.d            </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-51-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-3-1"  
+class="td11"> <!--l. 19--><p class="noindent" >DeviceManager    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-3-2"  
+class="td11"> <!--l. 19--><p class="noindent" >/etc/redhawk/nodes.d                </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-51-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-4-1"  
+class="td11"> <!--l. 20--><p class="noindent" >Waveforms          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-4-2"  
+class="td11"> <!--l. 20--><p class="noindent" >/etc/redhawk/waveforms.d          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-51-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-51-5-1"  
+class="td11">                </td></tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;J.1: </td><td  
+class="content">REDHAWK Service Configuration Directories</td></tr></table><!--tex4ht:label?: x30-611001r1 -->
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="efs"></a><span 
-class="ecsx-1200">EFS</span> </dt><dd 
-class="list">
-  <!--l. 21--><p class="noindent" >Eclipse
-  File
-  System
-  </dd><dt class="list">
-<a 
- id="emf"></a><span 
-class="ecsx-1200">EMF</span> </dt><dd 
-class="list">
-  <!--l. 22--><p class="noindent" >Eclipse
-  Modeling
-  Framework
-  </dd><dt class="list">
-<a 
- id="eos"></a><span 
-class="ecsx-1200">EOS</span> </dt><dd 
-class="list">
-  <!--l. 23--><p class="noindent" >End
-  of
-  Stream
-  </dd><dt class="list">
-<a 
- id="epel"></a><span 
-class="ecsx-1200">EPEL</span> </dt><dd 
-class="list">
-  <!--l. 24--><p class="noindent" >Extra
-  Packages
-  for
-  Enterprise
-  Linux
-  </dd><dt class="list">
-<a 
- id="fei"></a><span 
-class="ecsx-1200">FEI</span> </dt><dd 
-class="list">
-  <!--l. 25--><p class="noindent" >Front
-  End
-  Interfaces
-  </dd><dt class="list">
-<a 
- id="fft"></a><span 
-class="ecsx-1200">FFT</span> </dt><dd 
-class="list">
-  <!--l. 26--><p class="noindent" >Fast
-  Fourier
-  Transform
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 26--><p class="noindent" >The DomainManager and DeviceManager services directly correspond to a process that runs on a
+system. On the other hand, the <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> service interacts with the running REDHAWK Domain
+to start and stop <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> during system start up and shutdown. The contents of the INI files
+for each specific service are explained in the following sections:
+      <ul class="itemize1">
+      <li class="itemize"><a 
+href="#x30-612000J.2">Section J.2</a>
+      </li>
+      <li class="itemize"><a 
+href="#x30-615000J.3">Section J.3</a>
+      </li>
+      <li class="itemize"><a 
+href="#x30-618000J.4">Section J.4</a></li></ul>
+<!--l. 34--><p class="noindent" ><a 
+href="#x30-611002r2">Table J.2</a> describes the system service scripts provided by REDHAWK. REDHAWK supports both
+CentOS 6.x and 7.x system service frameworks.
+<div class="table">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="fpga"></a><span 
-class="ecsx-1200">FPGA</span> </dt><dd 
-class="list">
-  <!--l. 27--><p class="noindent" >Field-programmable
-  gate
-  array
-  </dd><dt class="list">
-<a 
- id="fm"></a><span 
-class="ecsx-1200">FM</span> </dt><dd 
-class="list">
-  <!--l. 28--><p class="noindent" >Frequency
-  Modulation
-  </dd><dt class="list">
-<a 
- id="gmf"></a><span 
-class="ecsx-1200">GMF</span> </dt><dd 
-class="list">
-  <!--l. 29--><p class="noindent" >Graphical
-  Modeling
-  Framework
-  </dd><dt class="list">
-<a 
- id="gpp"></a><span 
-class="ecsx-1200">GPP</span> </dt><dd 
-class="list">
-  <!--l. 30--><p class="noindent" >General
-  Purpose
-  Processor
-  </dd><dt class="list">
-<a 
- id="gui"></a><span 
-class="ecsx-1200">GUI</span> </dt><dd 
-class="list">
-  <!--l. 31--><p class="noindent" >Graphical
-  User
-  Interface
-  </dd><dt class="list">
-<a 
- id="http"></a><span 
-class="ecsx-1200">HTTP</span> </dt><dd 
-class="list">
-  <!--l. 32--><p class="noindent" >Hyper
-  Text
-  Transport
-  Protocol
+<!--l. 36--><p class="noindent" ><a 
+ id="x30-611002r2"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="ide"></a><span 
-class="ecsx-1200">IDE</span> </dt><dd 
-class="list">
-  <!--l. 33--><p class="noindent" >Integrated
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="idm"></a><span 
-class="ecsx-1200">IDM</span> </dt><dd 
-class="list">
-  <!--l. 34--><p class="noindent" >Incoming
-  Domain
-  Management
-  </dd><dt class="list">
-<a 
- id="if"></a><span 
-class="ecsx-1200">IF</span> </dt><dd 
-class="list">
-  <!--l. 35--><p class="noindent" >Intermediate
-  Frequency
-  </dd><dt class="list">
-<a 
- id="ior"></a><span 
-class="ecsx-1200">IOR</span> </dt><dd 
-class="list">
-  <!--l. 36--><p class="noindent" >Interoperable
-  Object
-  Reference
-  </dd><dt class="list">
-<a 
- id="id"></a><span 
-class="ecsx-1200">ID</span> </dt><dd 
-class="list">
-  <!--l. 37--><p class="noindent" >Identifier
-  </dd><dt class="list">
-<a 
- id="idl"></a><span 
-class="ecsx-1200">IDL</span> </dt><dd 
-class="list">
-  <!--l. 38--><p class="noindent" >Interface
-  Description
-  Language
-  </dd><dt class="list">
-<a 
- id="jar"></a><span 
-class="ecsx-1200">JAR</span> </dt><dd 
-class="list">
+<div class="tabular"> <table id="TBL-52" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-52-1g"><col 
+id="TBL-52-1"></colgroup><colgroup id="TBL-52-2g"><col 
+id="TBL-52-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-1-1"  
+class="td11"> <!--l. 40--><p class="noindent" ><span 
+class="ecbx-1200">Service</span>                        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-1-2"  
+class="td11"> <!--l. 40--><p class="noindent" ><span 
+class="ecbx-1200">System Service Script</span>                              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-2-1"  
+class="td11"> <!--l. 41--><p class="noindent" ><span 
+class="ecbx-1200">CentOS 6 (SysV)</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-2-2"  
+class="td11"> <!--l. 41--><p class="noindent" >                                          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-3-1"  
+class="td11"> <!--l. 42--><p class="noindent" >DomainManager                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-3-2"  
+class="td11"> <!--l. 42--><p class="noindent" ><span 
+class="ectt-1200">/etc/init.d/redhawk-domain-mgrs</span>           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-4-1"  
+class="td11"> <!--l. 43--><p class="noindent" >DeviceManager                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-4-2"  
+class="td11"> <!--l. 43--><p class="noindent" ><span 
+class="ectt-1200">/etc/init.d/redhawk-device-mgrs</span>           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-5-1"  
+class="td11"> <!--l. 44--><p class="noindent" >Waveforms                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-5-2"  
+class="td11"> <!--l. 44--><p class="noindent" ><span 
+class="ectt-1200">/etc/init.d/redhawk-waveforms</span>             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-6-1"  
+class="td11"> <!--l. 45--><p class="noindent" ><span 
+class="ecbx-1200">CentOS 7 (systemd)</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-6-2"  
+class="td11"> <!--l. 45--><p class="noindent" >                                          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-7-1"  
+class="td11"> <!--l. 46--><p class="noindent" >DomainManager                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-7-2"  
+class="td11"> <!--l. 46--><p class="noindent" ><span 
+class="ectt-1200">/etc/init.d/redhawk-domain-mgrs.service</span>   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-8-1"  
+class="td11"> <!--l. 47--><p class="noindent" >DeviceManager                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-8-2"  
+class="td11"> <!--l. 47--><p class="noindent" ><span 
+class="ectt-1200">/etc/init.d/redhawk-device-mgrs.service</span>   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-9-1"  
+class="td11"> <!--l. 48--><p class="noindent" >Waveforms                         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-9-2"  
+class="td11"> <!--l. 48--><p class="noindent" ><span 
+class="ectt-1200">/etc/init.d/redhawk-waveforms.service</span>     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-52-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-52-10-1"  
+class="td11">                          </td></tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;J.2: </td><td  
+class="content">REDHAWK Service Scripts</td></tr></table><!--tex4ht:label?: x30-611002r2 -->
                                                                                          
                                                                                          
-  <!--l. 39--><p class="noindent" >Java
-  ARchive
-  </dd><dt class="list">
-<a 
- id="jdt"></a><span 
-class="ecsx-1200">JDT</span> </dt><dd 
-class="list">
-  <!--l. 40--><p class="noindent" >Java
-  Developer
-  Tools
-  </dd><dt class="list">
-<a 
- id="jee"></a><span 
-class="ecsx-1200">JEE</span> </dt><dd 
-class="list">
-  <!--l. 41--><p class="noindent" >Java
-  Platform,
-  Enterprise
-  Edition
-  </dd><dt class="list">
-<a 
- id="jtrs"></a><span 
-class="ecsx-1200">JTRS</span> </dt><dd 
-class="list">
-  <!--l. 42--><p class="noindent" >Joint
-  Tactical
-  Radio
-  System
-  </dd><dt class="list">
-<a 
- id="mb"></a><span 
-class="ecsx-1200">MB</span> </dt><dd 
-class="list">
-  <!--l. 43--><p class="noindent" >Megabyte
-  </dd><dt class="list">
-<a 
- id="noop"></a><span 
-class="ecsx-1200">NOOP</span> </dt><dd 
-class="list">
-  <!--l. 44--><p class="noindent" >No
-  Operation
-  </dd><dt class="list">
-<a 
- id="odm"></a><span 
-class="ecsx-1200">ODM</span> </dt><dd 
-class="list">
-  <!--l. 45--><p class="noindent" >Outgoing
-  Domain
-  Management
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 54--><p class="noindent" >The services start in the following order: DomainManager, DeviceManager, and then <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a>
+and follow an inverted order during system shutdown. For CentOS 6, this is controlled using the
+numerical cannonical naming convention. For CentOS 7, the service unit files define the ordering
+using the After and Wants directives. As per the Fedora recommendations for service unit files, the
+service unit files are not enabled during RPM installation. It is assumed the system integrators
+will enable the desired service unit files assocated with each REDHAWK service and
+modify their activation to achieve desired start up and shutdown behavior for their
+systems.
+<!--l. 56--><p class="noindent" >Each of CentOS 6 service scripts respond to the commands listed in <a 
+href="#x30-611003r3">Table J.3</a>. For CentOS 7,
+although systemd is used to manage services, you can use the CentoOS 6 SysV scripts to inspect
+configuration files and status the running services.
+<div class="table">
                                                                                          
                                                                                          
-  </dd><dt class="list">
-<a 
- id="os"></a><span 
-class="ecsx-1200">OS</span> </dt><dd 
-class="list">
-  <!--l. 46--><p class="noindent" >Operating
-  System
-  </dd><dt class="list">
-<a 
- id="osgi"></a><span 
-class="ecsx-1200">OSGi</span> </dt><dd 
-class="list">
-  <!--l. 47--><p class="noindent" >Open
-  Services
-  Gateway
-  initiative
-  </dd><dt class="list">
-<a 
- id="pde"></a><span 
-class="ecsx-1200">PDE</span> </dt><dd 
-class="list">
-  <!--l. 48--><p class="noindent" >Plug-in
-  Development
-  Environment
-  </dd><dt class="list">
-<a 
- id="pid"></a><span 
-class="ecsx-1200">PID</span> </dt><dd 
-class="list">
-  <!--l. 49--><p class="noindent" >Process
-  Identifier
-  </dd><dt class="list">
-<a 
- id="posix"></a><span 
-class="ecsx-1200">POSIX</span> </dt><dd 
-class="list">
-  <!--l. 50--><p class="noindent" >Portable
-  Operating
-  System
-  Interface
-  </dd><dt class="list">
-<a 
- id="prf"></a><span 
-class="ecsx-1200">PRF</span> </dt><dd 
-class="list">
-  <!--l. 51--><p class="noindent" >Properties
-  File
-  </dd><dt class="list">
+<!--l. 59--><p class="noindent" ><a 
+ id="x30-611003r3"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
                                                                                          
                                                                                          
-<a 
- id="psd"></a><span 
-class="ecsx-1200">PSD</span> </dt><dd 
-class="list">
-  <!--l. 52--><p class="noindent" >Power
-  Spectral
-  Density
-  </dd><dt class="list">
-<a 
- id="pydev"></a><span 
-class="ecsx-1200">PyDev</span> </dt><dd 
-class="list">
-  <!--l. 53--><p class="noindent" >Python
-  Development
-  </dd><dt class="list">
-<a 
- id="rcp"></a><span 
-class="ecsx-1200">RCP</span> </dt><dd 
-class="list">
-  <!--l. 55--><p class="noindent" >Rich
-  Client
-  Platform
-  </dd><dt class="list">
-<a 
- id="rf"></a><span 
-class="ecsx-1200">RF</span> </dt><dd 
-class="list">
-  <!--l. 56--><p class="noindent" >Radio
-  Frequency
-  </dd><dt class="list">
-<a 
- id="rhel"></a><span 
-class="ecsx-1200">RHEL</span> </dt><dd 
-class="list">
-  <!--l. 57--><p class="noindent" >Red
-  Hat
-  Enterprise
-  Linux
-  </dd><dt class="list">
-<a 
- id="rpc"></a><span 
-class="ecsx-1200">RPC</span> </dt><dd 
-class="list">
-  <!--l. 58--><p class="noindent" >Remote
-  Procedure
-  Call
-  </dd><dt class="list">
-<a 
- id="rpm"></a><span 
-class="ecsx-1200">RPM</span> </dt><dd 
-class="list">
+<div class="tabular"> <table id="TBL-53" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-53-1g"><col 
+id="TBL-53-1"></colgroup><colgroup id="TBL-53-2g"><col 
+id="TBL-53-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-1-1"  
+class="td11"> <!--l. 63--><p class="noindent" ><span 
+class="ecbx-1200">Command</span>    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-1-2"  
+class="td11"> <!--l. 63--><p class="noindent" ><span 
+class="ecbx-1200">Description</span>                                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-2-1"  
+class="td11"> <!--l. 64--><p class="noindent" >start               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-2-2"  
+class="td11"> <!--l. 64--><p class="noindent" >Start all the services from the configuration
+  files that are enabled.                               </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-3-1"  
+class="td11"> <!--l. 65--><p class="noindent" >stop               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-3-2"  
+class="td11"> <!--l. 65--><p class="noindent" >Stop all the services that have a process id
+  file; created during start command.             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-4-1"  
+class="td11"> <!--l. 66--><p class="noindent" >restart            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-4-2"  
+class="td11"> <!--l. 66--><p class="noindent" >Stop all the services, and restart all enabled
+  services.                                                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-5-1"  
+class="td11"> <!--l. 67--><p class="noindent" >status             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-5-2"  
+class="td11"> <!--l. 67--><p class="noindent" >Check   if   the   enabled   services   are   still
+  running.                                                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-6-1"  
+class="td11"> <!--l. 68--><p class="noindent" >list                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-6-2"  
+class="td11"> <!--l. 68--><p class="noindent" >Provide a brief listing of the services defined
+  in the configuration files.                           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-7-1"  
+class="td11"> <!--l. 69--><p class="noindent" >config             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-7-2"  
+class="td11"> <!--l. 69--><p class="noindent" >Provide  a  detailed  listing  of  each  service&#8217;s
+  definition in the configuration files.              </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-53-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-53-8-1"  
+class="td11">              </td></tr></table></div>
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;J.3: </td><td  
+class="content">REDHAWK Service Script Commands for CentOS 6</td></tr></table><!--tex4ht:label?: x30-611003r3 -->
                                                                                          
                                                                                          
-  <!--l. 59--><p class="noindent" >Red
-  Hat
-  Package
-  Manager
-  </dd><dt class="list">
-<a 
- id="sad"></a><span 
-class="ecsx-1200">SAD</span> </dt><dd 
-class="list">
-  <!--l. 61--><p class="noindent" >Software
-  Assembly
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sca"></a><span 
-class="ecsx-1200">SCA</span> </dt><dd 
-class="list">
-  <!--l. 62--><p class="noindent" >Software
-  Communications
-  Architecture
-  </dd><dt class="list">
-<a 
- id="scd"></a><span 
-class="ecsx-1200">SCD</span> </dt><dd 
-class="list">
-  <!--l. 63--><p class="noindent" >Software
-  Component
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sdr"></a><span 
-class="ecsx-1200">SDR</span> </dt><dd 
-class="list">
-  <!--l. 64--><p class="noindent" >Software-Defined
-  Radio
-  </dd><dt class="list">
-<a 
- id="spd"></a><span 
-class="ecsx-1200">SPD</span> </dt><dd 
-class="list">
-  <!--l. 65--><p class="noindent" >Software
-  Package
-  Descriptor
-  </dd><dt class="list">
-<a 
- id="sri"></a><span 
-class="ecsx-1200">SRI</span> </dt><dd 
-class="list">
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<h3 class="sectionHead"><span class="titlemark">J.2   </span> <a 
+ id="x30-612000J.2"></a>DomainManager Service</h3>
+<!--l. 77--><p class="noindent" >The REDHAWK DomainManager service is controlled by files in the <span 
+class="ectt-1200">/etc/redhawk/domains.d</span>
+directory. The directory contains an <span 
+class="ectt-1200">example.domains </span>file with the complete set of configuration
+parameters that can be used to control the setup and execution of the REDHAWK
+DomainManager.
+<!--l. 79--><p class="noindent" >The following section describes all the available configuration parameters for the DomainManager
+process.
+<!--l. 81--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">J.2.1   </span> <a 
+ id="x30-613000J.2.1"></a>Configuration Parameters</h4>
+<!--l. 83--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For configuration parameters that are controlled with boolean constructs (True or False), the
+following values can used or no value will disable the feature: <br 
+class="newline" />True: 1 or true <br 
+class="newline" />False: 0 or false </p></div></div>
+<!--l. 89--><p class="noindent" >parameter: <span 
+class="ectt-1200">DOMAIN_NAME </span><br 
+class="newline" />required: Yes <br 
+class="newline" />default value: None <br 
+class="newline" />format: Name with no spaces or periods (for example, <span 
+class="ectt-1200">REDHAWK_DEV</span>). <br 
+class="newline" />description: Domain name to be assigned to the DomainManager process.
+<!--l. 95--><p class="noindent" >parameter: <span 
+class="ectt-1200">DMD_PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default: <span 
+class="ectt-1200">$SDRROOT/dom/domain/DomainManager.dmd.xml </span><br 
+class="newline" />format: Absolute path to a DMD file. <br 
+class="newline" />description: Fully qualified path to a DMD file (<span 
+class="ectt-1200">DomainManager.dmd.xml </span>file).
+<!--l. 101--><p class="noindent" >parameter: <span 
+class="ectt-1200">FORCE_REBIND </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 0 (no rebind) <br 
+class="newline" />format: false : no rebind, true : rebind <br 
+class="newline" />description: If the naming context already exists for the <span 
+class="ectt-1200">DOMAIN_NAME</span>, rebinds the DomainManager
+to an existing naming context in the NamingService.
                                                                                          
                                                                                          
-  <!--l. 66--><p class="noindent" >Signal
-  Related
-  Information
-  </dd><dt class="list">
-<a 
- id="swt"></a><span 
-class="ecsx-1200">SWT</span> </dt><dd 
-class="list">
-  <!--l. 67--><p class="noindent" >Standard
-  Widget
-  Toolkit
-  </dd><dt class="list">
-<a 
- id="udp"></a><span 
-class="ecsx-1200">UDP</span> </dt><dd 
-class="list">
-  <!--l. 68--><p class="noindent" >User
-  Datagram
-  Protocol
-  </dd><dt class="list">
-<a 
- id="ui"></a><span 
-class="ecsx-1200">UI</span> </dt><dd 
-class="list">
-  <!--l. 69--><p class="noindent" >User
-  Interface
-  </dd><dt class="list">
-<a 
- id="uri"></a><span 
-class="ecsx-1200">URI</span> </dt><dd 
-class="list">
-  <!--l. 70--><p class="noindent" >Uniform
-  Resource
-  Identifier
-  </dd><dt class="list">
-<a 
- id="url"></a><span 
-class="ecsx-1200">URL</span> </dt><dd 
-class="list">
-  <!--l. 71--><p class="noindent" >Uniform
-  Resource
-  Locator
-  </dd><dt class="list">
-<a 
- id="uuid"></a><span 
-class="ecsx-1200">UUID</span> </dt><dd 
-class="list">
+<!--l. 107--><p class="noindent" >parameter: <span 
+class="ectt-1200">PERSISTENCE </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: Absolute path to a database file. <br 
+class="newline" />description: URL to database file (for example, <span 
+class="ectt-1200">/data/mysqlite.db</span>). Requires REDHAWK to be
+compiled with persistence.
+<!--l. 113--><p class="noindent" >parameter: <span 
+class="ectt-1200">USE_LOGCFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: true : enables option, blank: disables option <br 
+class="newline" />description: Enables the use of <span 
+class="ectt-1200">$OSSIEHOME/lib/libsossielogcfg.so </span>to resolve <br 
+class="newline" /><span 
+class="ectt-1200">LOGGING_CONFIG_URI </span>command line argument. For more information, refer to <a 
+href="mainap9.html#x29-603000I">Appendix
+I</a>.
+<!--l. 119--><p class="noindent" >parameter: <span 
+class="ectt-1200">BINDAPPS </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: blank <br 
+class="newline" />format: true : enables option, blank: disables option <br 
+class="newline" />description: All running Applications and Components will bind to the DomainManager Process
+instead of the NamingService. This assists with high frequency deployments of Waveforms and
+Components.
+<!--l. 125--><p class="noindent" >parameter: <span 
+class="ectt-1200">LOGCFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">defaults.logging.properties </span><br 
+class="newline" />format: Absolute path to a file or file name. <br 
+class="newline" />description: Logging configuration file for DomainManager to use. Simple file names are resolved to
+files in <span 
+class="ectt-1200">/etc/redhawk/logging </span>directory. All others, are resolved as a qualified path to a logging
+properties files.
+<!--l. 131--><p class="noindent" >parameter: <span 
+class="ectt-1200">DEBUG_LEVEL </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: INFO <br 
+class="newline" />format: FATAL, ERROR, WARN, INFO, DEBUG, TRACE <br 
+class="newline" />description: DomainManager&#8217;s logging level at startup.
+<!--l. 137--><p class="noindent" >parameter: <span 
+class="ectt-1200">SDRROOT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/redhawk/sdr </span><br 
+class="newline" />format: Absolute path to the SDR directory. <br 
+class="newline" />description: Path to use as the <span 
+class="ectt-1200">SDRROOT </span>for this DomainManager.
+<!--l. 143--><p class="noindent" >parameter: <span 
+class="ectt-1200">OSSIEHOME </span><br 
+class="newline" />required: No <br 
+class="newline" />default: <span 
+class="ectt-1200">/usr/local/redhawk/core </span><br 
+class="newline" />format: Absolute path to the REDHAWK installation directory. <br 
+class="newline" />description: Path to use as the <span 
+class="ectt-1200">OSSIEHOME </span>for this DomainManager.
+<!--l. 149--><p class="noindent" >parameter:   <span 
+class="ectt-1200">LD_LIBRARY_PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />format: Standard shell path environment variable. <br 
+class="newline" />description: Path for loader to resolve shared object files, overrides <span 
+class="ectt-1200">LD_LIBRARY_PATH </span>environment
+variable.
+<!--l. 155--><p class="noindent" >parameter: <span 
+class="ectt-1200">PYTHONPATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />format: Standard shell path environment variable. <br 
+class="newline" />description: Path used by python interpreter to load modules, overrides <span 
+class="ectt-1200">PYTHONPATH </span>environment
+variable.
+<!--l. 161--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_CFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: Standard shell environment variable. <br 
+class="newline" />description: Used to set <span 
+class="ectt-1200">OMNIORB_CONFIG </span>variable before running the process. Consult omniORB
+documentation for further details.
+<!--l. 167--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_ENDPOINT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Set the endpoint definition for the DomainManager process. Can be used with
+persistence enabled. Consult omniORB documentation for further details.
+<!--l. 172--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_INITREF </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: none <br 
+class="newline" />description: Used as omniORB InitRef command line arguments when starting process.
+<br 
+class="newline" />(For example, <span 
+class="ectt-1200">NameService=corbaname::127.0.0.1:2809 </span><br 
+class="newline" /><span 
+class="ectt-1200">EventService=corbaloc::127.0.0.1:11169/omniEvents </span>would override orb config files for
+specific service locations). Consult omniORB documentation for further details.
+<!--l. 178--><p class="noindent" >parameter: <span 
+class="ectt-1200">ENABLE </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 1 <br 
+class="newline" />format: true (enabled) or false (disabled) (see exception with <span 
+class="ectt-1200">COND_CFG</span>) <br 
+class="newline" />description: Specifies if service is started.
+<!--l. 184--><p class="noindent" >parameter: <span 
+class="ectt-1200">COND_CFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/etc/redhawk/rh.cond.cfg </span><br 
+class="newline" />description: Allows conditional startup of services based on the <span 
+class="ectt-1200">ENABLE </span>parameter and
+the contents of this conditional config file&#8217;s <span 
+class="ectt-1200">ENABLE </span>field. If the value of both <span 
+class="ectt-1200">ENABLE</span>
+parameters are the same, the service will start; otherwise, the service is skipped. For example,
+<span 
+class="ectt-1200">ENABLE=primary </span>causes the <span 
+class="ectt-1200">COND_CFG </span>file to be examined for an <span 
+class="ectt-1200">ENABLE=primary </span>statement to
+match against when starting a service on the host. If no match is found, the service is
+skipped.
+<!--l. 189--><p class="noindent" >parameter: <span 
+class="ectt-1200">USER </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: redhawk <br 
+class="newline" />description: Executes process with User ID.
+<!--l. 194--><p class="noindent" >parameter: <span 
+class="ectt-1200">GROUP </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: redhawk <br 
+class="newline" />description: Executes process with Group ID.
+<!--l. 199--><p class="noindent" >parameter: <span 
+class="ectt-1200">NICELEVEL </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Runs process using nicelevel. Consult nice documentation for further details.
+<!--l. 204--><p class="noindent" >parameter: <span 
+class="ectt-1200">AFFINITY </span><br 
+class="newline" />requird: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Enables numactrl processing, any valid numa control directives are passed on
+command line when starting the process. Consult numacntrl documentation for further
+details.
+<!--l. 209--><p class="noindent" >parameter: <span 
+class="ectt-1200">CORE_FILES </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 0 <br 
+class="newline" />description: Controls core file generation from the REDHAWK Domain Service.
+<!--l. 214--><p class="noindent" >parameter: <span 
+class="ectt-1200">ULIMIT </span><br 
+class="newline" />&#x00A0;required: No <br 
+class="newline" />default value: User&#8217;s enviroment <br 
+class="newline" />description: Provide any additional ulimit settings before running the process. Consult ulimit
+documentation for further details.
+<!--l. 219--><p class="noindent" >parameter: <span 
+class="ectt-1200">PERMISSIONS_START_ONLY </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 1 <br 
+class="newline" />description: Controls if <span 
+class="ectt-1200">START_PRE_SCRIPT </span>are run with USER context or root user (default is for
+root).
                                                                                          
                                                                                          
-  <!--l. 72--><p class="noindent" >Universally
-  Unique
-  Identifier
-  </dd><dt class="list">
-<a 
- id="vlan"></a><span 
-class="ecsx-1200">VLAN</span> </dt><dd 
-class="list">
-  <!--l. 73--><p class="noindent" >Virtual
-  Local
-  Area
-  Network
-  </dd><dt class="list">
-<a 
- id="vm"></a><span 
-class="ecsx-1200">VM</span> </dt><dd 
-class="list">
-  <!--l. 74--><p class="noindent" >Virtual
-  Machine
-  </dd><dt class="list">
-<a 
- id="war"></a><span 
-class="ecsx-1200">WAR</span> </dt><dd 
-class="list">
-  <!--l. 75--><p class="noindent" >Web
-  ARchive
-  </dd><dt class="list">
-<a 
- id="xml"></a><span 
-class="ecsx-1200">XML</span> </dt><dd 
-class="list">
-  <!--l. 76--><p class="noindent" >Extensible
-  Markup
-  Language
-  </dd><dt class="list">
-<a 
- id="xsd"></a><span 
-class="ecsx-1200">XSD</span> </dt><dd 
-class="list">
-  <!--l. 77--><p class="noindent" >XML
-  Schema
-  Definition
-  </dd><dt class="list">
-<a 
- id="utc"></a><span 
-class="ecsx-1200">UTC</span> </dt><dd 
-class="list">
+<!--l. 224--><p class="noindent" >parameter: <span 
+class="ectt-1200">ENVIRONMENT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Provide additional environment variables to set before executing the service.
+Format is NAME=Value, for Value that contains spaces, it must be enclosed with double
+quotes.
+<!--l. 229--><p class="noindent" >parameter: <span 
+class="ectt-1200">RUNDIR </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/redhawk/sdr </span><br 
+class="newline" />description: Change directory to <span 
+class="ectt-1200">RUNDIR </span>before running service.
+<!--l. 234--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/log/redhawk/$OUTPUT_PREFIX.&#x003C;domain name&#x003E;.log </span><br 
+class="newline" />description: Location (fully qualified path) of a file that captures the value of <span 
+class="ectt-1200">$OUTPUT_REDIRECT</span>
+from the process. If not specified, the default value list above is used, otherwise the path must be
+fully qualified.
+<!--l. 240--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT_PREFIX </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: dommgr <br 
+class="newline" />description: Prefix to use when resolving $OUTPUT file name.
+<!--l. 245--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT_REDIRECT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: stdout, stderr <br 
+class="newline" />description: Controls if stdout and/or stderr is captured to the $OUTPUT file, the default is
+stdout and stderr captured to $OUTPUT.
+<!--l. 250--><p class="noindent" >parameter: <span 
+class="ectt-1200">START_PRE_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run before the service is
+started.
+<!--l. 255--><p class="noindent" >parameter: <span 
+class="ectt-1200">START_POST_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run after the service is
+started.
+<!--l. 260--><p class="noindent" >parameter: <span 
+class="ectt-1200">STOP_PRE_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run before the service is
+stopped.
                                                                                          
                                                                                          
-  <!--l. 78--><p class="noindent" >Coordinated
-  Universal
-  Time</dd></dl>
+<!--l. 265--><p class="noindent" >parameter: <span 
+class="ectt-1200">STOP_POST_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run after the service is
+stopped.
+<!--l. 270--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">J.2.2   </span> <a 
+ id="x30-614000J.2.2"></a>Configuration File</h4>
+<!--l. 271--><p class="noindent" >The configuration files follow a standard INI file format. This file can be divided into sections
+<span 
+class="ectt-1200">[sectionname] </span>that can be used to define different instances of a DomainManager service. With
+this format, it is possible to define multiple DomainManager service instances. It is highly
+recommended that you define only one DomainManager service per configuration file. To create
+and start new DomainManager services, perform the following commands.<br 
+class="newline" />
+<!--l. 273--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The configuration files reside in a system privilege directory. Ensure that you have proper
+privileges to create and edit files in those directories. </p></div></div>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+
+cd /etc/redhawk/domains.d
+cp example.domains mydom.cfg
+vi mydom.cfg
+sudo service redhawk-domain-mgrs start
+
+]]></script></div>
+<!--l. 287--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">J.3   </span> <a 
+ id="x30-615000J.3"></a>DeviceManager Service</h3>
+<!--l. 290--><p class="noindent" >The REDHAWK DeviceManager service is controlled by files in the <span 
+class="ectt-1200">/etc/redhawk/nodes.d</span>
+directory. The directory contains an <span 
+class="ectt-1200">examples.nodes </span>file with the complete set of configuration
+parameters that can used to the control the setup and execution of a REDHAWK DeviceManager
+as a service. There are no rules on partitioning nodes for a REDHAWK system. REDHAWK&#8217;s only
+guidance is that you define one GPP per computing host.
+<!--l. 292--><p class="noindent" >The following section describes all the available configuration parameters for the DeviceManager
                                                                                          
                                                                                          
-<!--l. 1--><p class="noindent" ><a 
- id="likesection.1"></a><a 
- id="Q1-29-811"></a><!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="mainli2.html" >next</a>] [<a 
+process.
+<!--l. 294--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">J.3.1   </span> <a 
+ id="x30-616000J.3.1"></a>Configuration Parameters</h4>
+<!--l. 296--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For configuration parameters that are controlled with boolean constructs (True or False), the
+following values can used or no value will disable the feature: <br 
+class="newline" />True: 1 or true <br 
+class="newline" />False: 0 or false </p></div></div>
+<!--l. 302--><p class="noindent" >parameter: <span 
+class="ectt-1200">NODE_NAME </span><br 
+class="newline" />required: Yes <br 
+class="newline" />default value: None <br 
+class="newline" />format: Name with no spaces or periods. <br 
+class="newline" />description: Name of the Node to launch with this DeviceManager. Must be a valid directory name
+in <span 
+class="ectt-1200">$SDRROOT/dev/nodes</span>.
+<!--l. 308--><p class="noindent" >parameter: <span 
+class="ectt-1200">DCD_PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default: <span 
+class="ectt-1200">$SDRROOT/dev/nodes/$NODE_NAME/DeviceManager.dcd.xml </span><br 
+class="newline" />format: Absolute path to a DCD file. <br 
+class="newline" />description: Absolute path to a DCD file (<span 
+class="ectt-1200">DeviceManger.dcd.xm</span>l file).
+<!--l. 314--><p class="noindent" >parameter: <span 
+class="ectt-1200">DOMAIN_NAME </span><br 
+class="newline" />required: Yes <br 
+class="newline" />default value: None <br 
+class="newline" />format: Name with no spaces or periods (for example, <span 
+class="ectt-1200">REDHAWK_DEV</span>). <br 
+class="newline" />description: Domain name to associate with this DeviceManager.
+<!--l. 320--><p class="noindent" >parameter: <span 
+class="ectt-1200">SDRCACHE </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: Absolute path to use as cache directory for DeviceManager and its <a 
+href="mainli2.html#glo:device">Devices</a>.
+<br 
+class="newline" />description: Absolute path to use as cache directory for DeviceManager and its <a 
+href="mainli2.html#glo:device">Devices</a>.
+<!--l. 326--><p class="noindent" >parameter: <span 
+class="ectt-1200">SPD </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">$SDRROOT/dev/mgr/DeviceManager.spd.xml </span><br 
+class="newline" />format: Absolute path to file the <span 
+class="ectt-1200">DeviceManager.spd.xml </span>file. description: Absolute path to the
+DeviceManager&#8217;s SPD file.
+<!--l. 332--><p class="noindent" >parameter: <span 
+class="ectt-1200">CLIENT_WAIT_TIME </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 10000 (milliseconds) <br 
+class="newline" />format: A number description: Wait time, in milliseconds, for the DeviceManager when making
+remote calls.
+<!--l. 338--><p class="noindent" >parameter: <span 
+class="ectt-1200">USE_LOGCFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: true : enables option, blank: disables option <br 
+class="newline" />description: Enables the use of <span 
+class="ectt-1200">$OSSIEHOME/lib/libsossielogcfg.so </span>to resolve <br 
+class="newline" /><span 
+class="ectt-1200">LOGGING_CONFIG_URI </span>command line argument.
+<!--l. 344--><p class="noindent" >parameter: <span 
+class="ectt-1200">LOGCFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">defaults.logging.properties </span><br 
+class="newline" />format: Absolute path to a file or file name. <br 
+class="newline" />description: Logging configuration file for DeviceManager to use. Simple file names will be resolved
+to files in <span 
+class="ectt-1200">/etc/redhawk/logging </span>directory. All others, will be resolved as a qualified path to a
+logging properties files.
+<!--l. 350--><p class="noindent" >parameter: <span 
+class="ectt-1200">DEBUG_LEVEL </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: INFO <br 
+class="newline" />format: FATAL, ERROR, WARN, INFO, DEBUG, TRACE <br 
+class="newline" />description: DeviceManager&#8217;s logging level at startup.
+<!--l. 356--><p class="noindent" >parameter: <span 
+class="ectt-1200">SDRROOT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/redhawk/sdr </span><br 
+class="newline" />format: Absolute path to the SDR directory. <br 
+class="newline" />description: Path to use as the <span 
+class="ectt-1200">SDRROOT </span>for this DeviceManager.
+<!--l. 362--><p class="noindent" >parameter: <span 
+class="ectt-1200">OSSIEHOME </span><br 
+class="newline" />required: No <br 
+class="newline" />default: <span 
+class="ectt-1200">/usr/local/redhawk/core </span><br 
+class="newline" />format: Absolute path to the REDHAWK installation directory. <br 
+class="newline" />description: Path to use as the <span 
+class="ectt-1200">OSSIEHOME </span>for this DeviceManager.
+<!--l. 368--><p class="noindent" >parameter: <span 
+class="ectt-1200">LD_LIBRARY_PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />format: Standard shell path environment variable. <br 
+class="newline" />description: Path for link loader to resolve shared object files, overrides <span 
+class="ectt-1200">LD_LIBRARY_PATH</span>
+environment variable.
+<!--l. 374--><p class="noindent" >parameter: <span 
+class="ectt-1200">PYTHONPATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />description: Path used by Python interpreter to load modules, overrides <span 
+class="ectt-1200">PYTHONPATH </span>environment
+variable.
+<!--l. 379--><p class="noindent" >parameter: <span 
+class="ectt-1200">JAVA_HOME </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />description: JAVA path to use when launching Devices and Services.
+<!--l. 384--><p class="noindent" >parameter: <span 
+class="ectt-1200">PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />format: Standard shell path environment variable. <br 
+class="newline" />description: Search path to use when launching Devices and Services.
+<!--l. 390--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_CFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: Standard shell environment variable. <br 
+class="newline" />description: Used to set <span 
+class="ectt-1200">OMNIORB_CONFIG </span>variable before running the process. Consult omniORB
+documentation for further details.
+<!--l. 396--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_ENDPOINT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Set the endpoint definition for this process. Consult omniORB documentation for
+further details.
+<!--l. 401--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_INITREF </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Used as omniORB InitRef command line arguments when starting process. (For
+example, <span 
+class="ectt-1200">NameService=corbaname::127.0.0.1:2809 </span><br 
+class="newline" /><span 
+class="ectt-1200">EventService=corbaloc::127.0.0.1:11169/omniEvents </span>would override orb config files for
+specific service locations.) Consult omniORB documentation for further details.
+<!--l. 407--><p class="noindent" >parameter: <span 
+class="ectt-1200">ENABLE </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 1 <br 
+class="newline" />format: true (enabled) or false (disabled) (see exception with <span 
+class="ectt-1200">COND_CFG</span>) <br 
+class="newline" />description: Specifies if service is started.
+<!--l. 413--><p class="noindent" >parameter: <span 
+class="ectt-1200">COND_CFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/etc/redhawk/rh.cond.cfg </span><br 
+class="newline" />description: Allows conditional startup of services based on the <span 
+class="ectt-1200">ENABLE </span>parameter and
+the contents of this conditional config file&#8217;s <span 
+class="ectt-1200">ENABLE </span>field. If the value of both <span 
+class="ectt-1200">ENABLE</span>
+                                                                                         
+                                                                                         
+parameters are the same, the service will start; otherwise, the service is skipped. For example,
+<span 
+class="ectt-1200">ENABLE=primary </span>causes the <span 
+class="ectt-1200">COND_CFG </span>file to be examined for an <span 
+class="ectt-1200">ENABLE=primary </span>statement to
+match against when starting a service on the host. If no match is found, the service is
+skipped.
+<!--l. 418--><p class="noindent" >parameter: <span 
+class="ectt-1200">USER </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: redhawk <br 
+class="newline" />description: Executes process with User ID.
+<!--l. 423--><p class="noindent" >parameter: <span 
+class="ectt-1200">GROUP </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: redhawk <br 
+class="newline" />description: Executes process with Group ID.
+<!--l. 428--><p class="noindent" >parameter: <span 
+class="ectt-1200">NICELEVE</span>L <br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Runs process using nicelevel.
+<!--l. 433--><p class="noindent" >parameter: <span 
+class="ectt-1200">AFFINITY </span><br 
+class="newline" />requird: No <br 
+class="newline" />default value: None <br 
+class="newline" />description Enables numactrl processing, any valid numa control directives will be passed on
+command line when starting the process.
+<!--l. 438--><p class="noindent" >parameter: <span 
+class="ectt-1200">CORE_FILES </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 0 <br 
+class="newline" />description: Controls core file generation from the REDHAWK DeviceManager Service.
+<!--l. 443--><p class="noindent" >parameter: <span 
+class="ectt-1200">ULIMIT </span><br 
+class="newline" />&#x00A0;required: No <br 
+class="newline" />default value: user&#8217;s enviroment <br 
+class="newline" />description: Provide any additional ulimit settings before running the process.
+<!--l. 448--><p class="noindent" >parameter: <span 
+class="ectt-1200">PERMISSIONS_START_ONLY </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 1 <br 
+class="newline" />description: Controls if <span 
+class="ectt-1200">START_PRE_SCRIPT </span>are run with USER context or root user (default is for
+root).
+<!--l. 453--><p class="noindent" >parameter: <span 
+class="ectt-1200">ENVIRONMENT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Provide additional environment variables before executing service. Format is
+NAME=Value, for Value that contain spaces it must be enclosed with double quotes.
+                                                                                         
+                                                                                         
+<!--l. 458--><p class="noindent" >parameter: <span 
+class="ectt-1200">RUNDIR </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/redhawk/sdr </span><br 
+class="newline" />description: Change directory to <span 
+class="ectt-1200">RUNDIR </span>before running this service.
+<!--l. 463--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/log/redhawk/$OUTPUT_PREFIX.&#x003C;domain_name&#x003E;.&#x003C;node_name&#x003E;.log</span>
+<br 
+class="newline" />description: Location (fully qualified path) of a file that captures the value of $OUTPUT_REDIRECT
+from the process. If not specified, the default value list above is used, otherwise the path must be
+fully qualified.
+<!--l. 469--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT_PREFIX </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: devmgr <br 
+class="newline" />description: Prefix to use when resolving $OUTPUT file name.
+<!--l. 474--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT_REDIRECT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: stdout, stderr <br 
+class="newline" />description: Controls if stdout and/or stderr is captured to the $OUTPUT file, the default is
+stdout and stderr captured to $OUTPUT.
+<!--l. 479--><p class="noindent" >parameter: <span 
+class="ectt-1200">START_PRE_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run before the service is
+started.
+<!--l. 484--><p class="noindent" >parameter: <span 
+class="ectt-1200">START_POST_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run after the service is
+started.
+<!--l. 489--><p class="noindent" >parameter: <span 
+class="ectt-1200">STOP_PRE_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run before the service is
+stopped.
+<!--l. 494--><p class="noindent" >parameter: <span 
+class="ectt-1200">STOP_POST_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run after the service is
+stopped.
+                                                                                         
+                                                                                         
+<!--l. 499--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">J.3.2   </span> <a 
+ id="x30-617000J.3.2"></a>Configuration File</h4>
+<!--l. 500--><p class="noindent" >The configuration files follow a standard INI file format. This file can be divided into sections
+<span 
+class="ectt-1200">[sectionname] </span>that can be used to define different DeviceManager instances. If you have multiple
+Nodes defined for a computing host, it is recommended that you have one configuration file per
+Node definition.
+<!--l. 502--><p class="noindent" >To create and start new DeviceManager services, perform the following commands.
+<!--l. 504--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The configuration files reside in a system privilege directory. Ensure that you have proper
+privileges to create and edit files in those directories. </p></div></div>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+
+cd /etc/redhawk/nodes.d
+cp example.nodes redhawk_dev.gpp.node.cfg
+vi redhawk_dev.gpp.node.cfg
+sudo service redhawk-device-mgrs start
+
+]]></script></div>
+<!--l. 518--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">J.4   </span> <a 
+ id="x30-618000J.4"></a>Waveform Service</h3>
+<!--l. 521--><p class="noindent" >The REDHAWK Waveform service is controlled by files in the <span 
+class="ectt-1200">/etc/redhawk/waveforms.d</span>
+directory. The directory contains an <span 
+class="ectt-1200">examples.waveforms </span>file with the complete set of
+configuration parameters that can used to the control the setup and execution of a REDHAWK
+Waveform. This service facilitates starting a Waveform at system startup for your REDHAWK
+system.
+<!--l. 523--><p class="noindent" >The following section describes all the available configuration parameters when launching a
+REDHAWK Waveform at system startup.
+<!--l. 525--><p class="noindent" >
+                                                                                         
+                                                                                         
+<h4 class="subsectionHead"><span class="titlemark">J.4.1   </span> <a 
+ id="x30-619000J.4.1"></a>Configuration Parameters</h4>
+<!--l. 527--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> For configuration parameters that are controlled with boolean constructs (True or False), the
+following values can used or no value will disable the feature: <br 
+class="newline" />True: 1 or true <br 
+class="newline" />False: 0 or false </p></div></div>
+<!--l. 533--><p class="noindent" >parameter: <span 
+class="ectt-1200">WAVEFORM_NAME </span><br 
+class="newline" />required: Yes <br 
+class="newline" />default value: None <br 
+class="newline" />format: Valid directory Waveform name <span 
+class="ectt-1200">$SDRROOT/dom/waveforms </span><br 
+class="newline" />description: Directory name of the Waveform to launch.
+<!--l. 539--><p class="noindent" >parameter: <span 
+class="ectt-1200">DOMAIN_NAME </span><br 
+class="newline" />required: Yes <br 
+class="newline" />default value: None <br 
+class="newline" />format: A name with no spaces or periods (for example, <span 
+class="ectt-1200">REDHAWK_DEV</span>). <br 
+class="newline" />description: Domain name to associate with this Waveform.
+<!--l. 545--><p class="noindent" >parameter: <span 
+class="ectt-1200">WAVEFORM_PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default: <span 
+class="ectt-1200">$SDRROOT/dom/waveforms/&#x003C;waveform_name&#x003E;/&#x003C;waveform_name&#x003E;.sad.xml </span><br 
+class="newline" />format: Fully qualified path <br 
+class="newline" />description: Fully qualified path to a SAD file. (For example, <br 
+class="newline" /><span 
+class="ectt-1200">$SDRROOT/dom/waveforms/Controller/Controller.sad.xml</span>) <br 
+class="newline" />
+<!--l. 551--><p class="noindent" >parameter: <span 
+class="ectt-1200">WAVEFORM_ID </span><br 
+class="newline" />required: No <br 
+class="newline" />format: A name with no spaces or periods (For example, <span 
+class="ectt-1200">REDHAWK_DEV</span>) <br 
+class="newline" />description: Waveform ID to pass when launching the Waveform in a Domain.
+<!--l. 556--><p class="noindent" >parameter: SDRROOT <br 
+class="newline" />reqquired: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/redhawk/sdr </span><br 
+class="newline" />format: Absolute path to the SDR directory. <br 
+class="newline" />description: Path to use as the SDRROOT for this Waveform.
+<!--l. 562--><p class="noindent" >parameter: OSSIEHOME <br 
+class="newline" />required: No <br 
+class="newline" />default: <span 
+class="ectt-1200">/usr/local/redhawk/core </span><br 
+class="newline" />format: Absolute path to the REDHAWK installation directory. <br 
+class="newline" />description: Path to use as the OSSIEHOME for this Waveform.
+<!--l. 568--><p class="noindent" >parameter: <span 
+class="ectt-1200">LD_LIBRARY_PATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />format: Standard shell path environment variable. <br 
+class="newline" />description: Path for link loader to resolve shared object files, overrides <span 
+class="ectt-1200">LD_LIBRARY_PATH</span>
+environment variable.
+<!--l. 574--><p class="noindent" >parameter: <span 
+class="ectt-1200">PYTHONPATH </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: User&#8217;s environment <br 
+class="newline" />description: Path used by Python interpreter to load modules, overrides <span 
+class="ectt-1200">PYTHONPATH </span>environment
+variable.
+<!--l. 579--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_CFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />format: Standard shell environment variable. <br 
+class="newline" />description: Used to set <span 
+class="ectt-1200">OMNIORB_CONFIG </span>variable before running the process. Consult omniORB
+documentation for further details.
+<!--l. 585--><p class="noindent" >parameter: <span 
+class="ectt-1200">ORB_INITREF </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Used as omniORB InitRef command line arguments when starting process.
+<br 
+class="newline" />(For example, <span 
+class="ectt-1200">NameService=corbaname::127.0.0.1:2809 </span><br 
+class="newline" /><span 
+class="ectt-1200">EventService=corbaloc::127.0.0.1:11169/omniEvents </span>would override orb config files for
+specific service locations.) Consult omniORB documentation for further details.
+<!--l. 591--><p class="noindent" >parameter: <span 
+class="ectt-1200">ENABLE </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 1 <br 
+class="newline" />format: true (enabled) or false (disabled) (see exception with <span 
+class="ectt-1200">COND_CFG</span>) <br 
+class="newline" />description: Specifies if service is started.
+<!--l. 597--><p class="noindent" >parameter: <span 
+class="ectt-1200">COND_CFG </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/etc/redhawk/rh.cond.cfg </span><br 
+class="newline" />description: Allows conditional startup of services based on the <span 
+class="ectt-1200">ENABLE </span>parameter and
+the contents of this conditional config file&#8217;s <span 
+class="ectt-1200">ENABLE </span>field. If the value of both <span 
+class="ectt-1200">ENABLE</span>
+parameters are the same, the service will start; otherwise, the service is skipped. For example,
+<span 
+class="ectt-1200">ENABLE=primary </span>causes the <span 
+class="ectt-1200">COND_CFG </span>file to be examined for an <span 
+class="ectt-1200">ENABLE=primary </span>statement to
+match against when starting a service on the host. If no match is found, the service is
+skipped.
+<!--l. 602--><p class="noindent" >parameter: <span 
+class="ectt-1200">USER </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: redhawk <br 
+class="newline" />description: Executes process with User ID.
+<!--l. 607--><p class="noindent" >parameter: <span 
+class="ectt-1200">GROUP </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: redhawk <br 
+class="newline" />description: Executes process with Group ID.
+<!--l. 612--><p class="noindent" >parameter: <span 
+class="ectt-1200">NICELEVEL </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Runs process using nicelevel.
+<!--l. 617--><p class="noindent" >parameter: <span 
+class="ectt-1200">AFFINITY </span><br 
+class="newline" />requird: No <br 
+class="newline" />default value: None <br 
+class="newline" />description Enables numactrl processing, any valid numa control directives will be passed on
+command line when starting the process.
+<!--l. 622--><p class="noindent" >parameter: <span 
+class="ectt-1200">CORE_FILE</span>S <br 
+class="newline" />required: No <br 
+class="newline" />default value: 0 <br 
+class="newline" />description: Controls core file generation from the REDHAWK Waveform Service.
+<!--l. 627--><p class="noindent" >parameter: <span 
+class="ectt-1200">ULIMIT </span><br 
+class="newline" />&#x00A0;required: No <br 
+class="newline" />default value: User&#8217;s enviroment <br 
+class="newline" />description: Provide any additional ulimit settings before running the process.
+<!--l. 632--><p class="noindent" >parameter: <span 
+class="ectt-1200">PERMISSIONS_START_ONLY </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: 1 <br 
+class="newline" />description: Controls is <span 
+class="ectt-1200">START_PRE_SCRIPT </span>are run with USER context or root user (default is for
+root).
+<!--l. 637--><p class="noindent" >parameter: <span 
+class="ectt-1200">ENVIRONMENT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: none description: Provide additional environment variables to set before executing
+service. Format is NAME=Value, for Values that contain spaces, it must be enclosed with double
+quotes.
+<!--l. 642--><p class="noindent" >parameter: RUNDIR <br 
+class="newline" />required: No <br 
+class="newline" />default value:<span 
+class="ectt-1200">/var/redhawk/sdr </span><br 
+class="newline" />description: Change directory to <span 
+class="ectt-1200">RUNDIR </span>before running this service.
+<!--l. 647--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: <span 
+class="ectt-1200">/var/log/redhawk/$OUTPUT_PREFIX.&#x003C;domain_name&#x003E;.&#x003C;waveform_id&#x003E;.log</span>
+                                                                                         
+                                                                                         
+<br 
+class="newline" />description: Location (fully qualified path) of a file that captures the value of <span 
+class="ectt-1200">$OUTPUT_REDIRECT</span>
+from the process. If not specified, the default value list above is used; otherwise, the path must be
+fully qualified.
+<!--l. 653--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT_PREFIX </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: waveform <br 
+class="newline" />description: Prefix to use when resolving $OUTPUT file name.
+<!--l. 658--><p class="noindent" >parameter: <span 
+class="ectt-1200">OUTPUT_REDIRECT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: stdout, stderr <br 
+class="newline" />description: Controls if stdout and/or stderr is captured to the $OUTPUT file, the default is
+stdout and stderr captured to $OUTPUT.
+<!--l. 663--><p class="noindent" >parameter: <span 
+class="ectt-1200">START_PRE_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run before the service is
+started.
+<!--l. 668--><p class="noindent" >parameter: <span 
+class="ectt-1200">START_POST_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run after the service is
+started.
+<!--l. 673--><p class="noindent" >parameter: <span 
+class="ectt-1200">STOP_PRE_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run before the service is
+stopped.
+<!--l. 678--><p class="noindent" >parameter: <span 
+class="ectt-1200">STOP_POST_SCRIPT </span><br 
+class="newline" />required: No <br 
+class="newline" />default value: None <br 
+class="newline" />description: Path to file or directory to search for scripts to be run after the service is
+stopped.
+<!--l. 683--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">J.4.2   </span> <a 
+ id="x30-620000J.4.2"></a>Configuration File</h4>
+<!--l. 684--><p class="noindent" >The configuration files follow a standard INI file format. This file can be broken up into sections
+                                                                                         
+                                                                                         
+<span 
+class="ectt-1200">[sectionname] </span>that can be used to define different Waveform instances.
+<!--l. 686--><p class="noindent" >To create and start a new Waveform, perform the following commands. The configuration files
+reside in a system privilege directory. Ensure that you have proper privileges to create and edit
+files in those directories.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+
+cd /etc/redhawk/waveforms.d
+cp example.nodes redhawk_dev.controller.cfg
+vi redhawk_dev.controller.cfg
+sudo service redhawk-waveforms start
+
+]]></script></div>
+<!--l. 698--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">J.5   </span> <a 
+ id="x30-621000J.5"></a>Linux Support Files</h3>
+<!--l. 700--><p class="noindent" >In addition to running REDHAWK services, the following support files are provided for
+REDHAWK logging properties, managing logging output files, system limit definitions, and kernel
+setup.
+<!--l. 702--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">J.5.1   </span> <a 
+ id="x30-622000J.5.1"></a>Support Files</h4>
+<!--l. 704--><p class="noindent" >file: <span 
+class="ectt-1200">/etc/redhawk/cron.d/redhawk </span><br 
+class="newline" />description: Cron entry for root to run logrotate every 5 minutes with configuration file
+<span 
+class="ectt-1200">/etc/redhawk/logging/logrotate.redhawk</span>
+<!--l. 707--><p class="noindent" >file: <span 
+class="ectt-1200">/etc/redhawk/logging/logrotate.redhawk </span><br 
+class="newline" />description: Logrotate configuration file to manage logfiles generated from REDHAWK services.
+Rotates all files in <span 
+class="ectt-1200">/var/log/redhawk/*.log </span>when size exceeds 100 MB.
+<!--l. 710--><p class="noindent" >file: <span 
+class="ectt-1200">/etc/redhawk/logging/default.logging.properties </span><br 
+class="newline" />description: Default logging configuration for a REDHAWK system. Defines all messages of INFO
+level or higher to append to the console, which is captured by the DomainManager and
+DeviceManager services.
+<!--l. 713--><p class="noindent" >file: <span 
+class="ectt-1200">/etc/redhawk/logging/example.logging.properties </span><br 
+class="newline" />description: Logging configuration with example appenders that are supported by the REDHAWK
+                                                                                         
+                                                                                         
+logging subsystem.
+<!--l. 716--><p class="noindent" >file: <span 
+class="ectt-1200">/etc/redhawk/security/limits.d/99-redhawk-limits.conf </span><br 
+class="newline" />description: Controls file and process limits associated with the redhawk group.
+<!--l. 719--><p class="noindent" >file: <span 
+class="ectt-1200">/etc/redhawk/security/sysctl.d/sysctl.conf </span><br 
+class="newline" />description: Common kernel tuning parameters for network buffers and core file generation.
+<!--l. 723--><p class="noindent" >
+<h3 class="sectionHead"><span class="titlemark">J.6   </span> <a 
+ id="x30-623000J.6"></a>Build Customized RPM</h3>
+<!--l. 725--><p class="noindent" >The following sequence of commands can be used to build a <span 
+class="ectt-1200">redhawk-services </span>RPM file. In this
+example, the version is <span 
+class="ectt-1200">2.1.2</span>, the user name is <span 
+class="ectt-1200">someuser</span>, and the <span 
+class="ectt-1200">core-framework </span>repo has been
+cloned in the directory, <span 
+class="ectt-1200">/home/someuser/repos</span>.
+<!--l. 727--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The following script will remove <span 
+class="ectt-1200">rpmbuild </span>from your home directory. </p></div></div>
+<div class="minipage"><script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+
+tar -C ~/repos/core-framework/redhawk/src/etc  -czf ~/redhawk-services-2.1.2.tar.gz redhawk
+rm -rf ~/rpmbuild
+mkdir -p rpmbuild/{BUILD,RPMS/noarch,SOURCES,SPECS,SRPMS}
+cp ~/redhawk-services-2.1.2.tar.gz ~/rpmbuild/SOURCES/
+cp  ~/repo/core-framework/redhawk/src/releng/redhawk-services.spec ~/rpmbuild/SPECS/
+rpmbuild -bb --define "_topdir /home/someuser/rpmbuild" --define "_sourcedir /home/someuser/rpmbuild/SOURCES"  ~/rpmbuild/SPECS/redhawk-services.spec
+
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="mainap11.html" >next</a>] [<a 
 href="mainap9.html" >prev</a>] [<a 
 href="mainap9.html#tailmainap9.html" >prev-tail</a>] [<a 
 href="mainap10.html" >front</a>] [<a 
 href="main.html#mainap10.html" >up</a>] </p></div>
-<!--l. 1--><p class="noindent" ><a 
+<!--l. 2--><p class="noindent" ><a 
  id="tailmainap10.html"></a>  
  
 <div class=license>  

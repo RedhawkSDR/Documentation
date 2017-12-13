@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>13 Logging</title> 
+<head><title>13 Runtime Environment Inspection</title> 
 <meta http-equiv="Content-Type" content="text/html; charset="utf-8""> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
@@ -53,1385 +53,445 @@ href="mainch12.html#tailmainch12.html" >prev-tail</a>] [<a
 href="#tailmainch13.html">tail</a>] [<a 
 href="main.html#mainch13.html" >up</a>] </p></div>
 <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;13</span><br /><a 
- id="x15-36600013"></a>Logging</h2>
+ id="x15-37400013"></a>Runtime Environment Inspection</h2>
 <h3 class="sectionHead"><span class="titlemark">13.1   </span> <a 
- id="x15-36700013.1"></a>Introduction</h3>
-<!--l. 5--><p class="noindent" >REDHAWK provides a logging capability for use by all resources (<a 
-href="mainli2.html#glo:component">Components</a>, <a 
-href="mainli2.html#glo:device">Devices</a>, and
-<a 
-href="mainli2.html#glo:service">Services</a>). By default, the REDHAWK Framework and its support libraries have been developed
-to take advantage of the underlying language&#8217;s implementation: log4cxx, log4j, and
-log4py for C++, Java, and Python, respectively. All three libraries follow the basic
-premise of the log4j capabilities. A root logger definition is the parent of all loggers and
-configuration of the loggers is controlled through a JAVA style properties file. Each REDHAWK
-resource creates a named logger as a child of the root logger. (The name is based on the
-underlying resource&#8217;s name.) This chapter explains how to configure and use the logging
-capability. For a detailed description of log4j and its capabilities, refer to the log4j website.
-(<a 
-href="http://logging.apache.org/log4j/1.2/" class="url" ><span 
-class="ectt-1200">http://logging.apache.org/log4j/1.2/</span></a>)
-<!--l. 9--><p class="noindent" >All REDHAWK-generated code for resources provides an instantiation of a logging object for use
-by the resource. For Java and Python implementations, the underlying logging implementation of
-the language is used. For C++, there is a set of macro definitions that enable a resource to use the
-underlying logging implementation associated with the REDHAWK Core Framework
-library.
-<!--l. 11--><p class="noindent" >
+ id="x15-37500013.1"></a>Introduction</h3>
+<!--l. 6--><p class="noindent" >During runtime, there are a large number of operations that are handled under the hood by the
+REDHAWK Core Framework. At times though, it becomes necessary to take a closer look at
+these underlying parts to ensure that they are working properly or to inspect what kind
+of a state they are currently in. REDHAWK provides tools to help accomplish this
+task.
+<!--l. 10--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">13.2   </span> <a 
- id="x15-36800013.2"></a>Configuring Logging Capabilities</h3>
-<!--l. 13--><p class="noindent" >A resource has the ability to provide a severity level (logging level) with each logging message. The
-following severity levels are listed in order of increasing verbosity. <span 
-class="ectt-1200">FATAL </span>messages describe events
-that are unrecoverable to the resource, whereas <span 
-class="ectt-1200">DEBUG </span>messages enable developers to understand
-the processing behavior.
-                                                                                         
-                                                                                         
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">FATAL</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">ERROR</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">WARN</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">INFO</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">DEBUG</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">TRACE</span></li></ul>
-<!--l. 27--><p class="noindent" >Each different logging implementation library uses a log4j configuration file format to define the
-configuration context for that library. This file defines how and where the logging messages are
-recorded. For example, if the configuration logging level is set to <span 
-class="ectt-1200">INFO</span>, then messages published at
-the <span 
-class="ectt-1200">INFO</span>, <span 
-class="ectt-1200">WARN</span>, <span 
-class="ectt-1200">ERROR</span>, and <span 
-class="ectt-1200">FATAL </span>severity levels are displayed in the log. All other
-message levels are suppressed. The following two log-level configuration options are also
-available.
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">OFF</span>: Suppress all logging messages from the log
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">ALL</span>: Allow all logging messages</li></ul>
-<!--l. 34--><p class="noindent" >The following code displays the default log4j configuration settings used by all REDHAWK
-resources.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-log4j.rootLogger=INFO,STDOUT
-log4j.appender.STDOUT=org.apache.log4j.ConsoleAppender
-log4j.appender.STDOUT.layout=org.apache.log4j.PatternLayout
-log4j.appender.STDOUT.layout.ConversionPattern=
-      "%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n \n"
+ id="x15-37600013.2"></a>REDHAWK Module</h3>
+<!--l. 13--><p class="noindent" >A Python module called REDHAWK is provided with the capability to interact with running
+<a 
+href="mainli2.html#glo:domain">Domains</a>, <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
+href="mainli2.html#glo:component">Components</a>. This allows for individual control and assessment
+over all aspects of a runtime environment.
+<!--l. 16--><p class="noindent" >In order to use the REDHAWK utility module, begin a Python session from a terminal and enter
+the following command:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ $ python
+ Python 2.6.6 (r266:84292, Aug 28 2012, 10:55:56)
+ [GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
+ Type "help", "copyright", "credits" or "license" for more
+ information.
+ &gt;&gt;> from ossie.utils import redhawk
 ]]></script></div>
+<!--l. 27--><p class="noindent" >The REDHAWK module is built on the same foundation as the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, and provides a
+compatible interface for domain objects. <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> objects, including plots, can be dynamically
+connected to <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> and <a 
+href="mainli2.html#glo:component">Components</a> running in the domain.
+<!--l. 30--><p class="noindent" >Refer to <a 
+href="mainch11.html#x13-27100011.2.4">Section 11.2.4</a> for details about interacting with <a 
+href="mainli2.html#glo:component">Components</a> and <a 
+href="mainli2.html#glo:device">Devices</a> in
+Python.
                                                                                          
                                                                                          
-<!--l. 45--><p class="noindent" >This configuration suppresses logging levels above <span 
-class="ectt-1200">INFO </span>and writes those messages to the standard
-out console.
-<!--l. 47--><p class="noindent" >
+<!--l. 32--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.1   </span> <a 
- id="x15-36900013.2.1"></a>Configuration Context Tokens</h4>
-<!--l. 48--><p class="noindent" >For REDHAWK release 1.10 and above, the log4j configuration file can contain special tokens that
-expand to provide the runtime execution context of the resource. These tokens can be located
-anywhere in the configuration file and are resolved during resource startup. The following table,
-<a 
-href="#x15-369001r1">Table 13.1</a>, describes the tokens.
-<div class="table">
+ id="x15-37700013.2.1"></a>Attach</h4>
+<!--l. 34--><p class="noindent" >The module provides the ability to attach to a running <a 
+href="mainli2.html#glo:domain">Domain</a>.
+<!--l. 36--><p class="noindent" >This allows the user access to the underlying <a 
+href="mainap11.html#api">API</a> of the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> in addition to other
+useful functionality:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ectt-1200">createApplication() </span>- install/create a particular <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>
+      </li>
+      <li class="itemize"><span 
+class="ectt-1200">removeApplication() </span>- release a particular <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a></li></ul>
+<!--l. 43--><p class="noindent" >To attach to an existing <a 
+href="mainli2.html#glo:domain">Domain</a>, the name must be passed as an argument.
+<!--l. 45--><p class="noindent" >Assuming the <a 
+href="mainli2.html#glo:domain">Domain</a> name is <span 
+class="ectt-1200">MY_DOMAIN</span>, start a Python script and enter:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ &gt;&gt;> domain = redhawk.attach("MY_DOMAIN")
+]]></script></div>
+<!--l. 51--><p class="noindent" >Note that if there is only 1 Domain visible, no argument is needed for the attach call:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+ &gt;&gt;> domain = redhawk.attach()
+]]></script></div>
+<!--l. 57--><p class="noindent" >Once attached to the running <a 
+href="mainli2.html#glo:domain">Domain</a>, <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> that are installed in the <span 
+class="ectt-1200">$SDRROOT </span>can easily be
+launched using the <span 
+class="ectt-1200">createApplication() </span>function:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> wave =
+     domain.createApplication("/waveforms/wave/wave.sad.xml")
+]]></script></div>
+<!--l. 64--><p class="noindent" >Upon success, the above call returns an   <a 
+href="mainli2.html#glo:application"><span 
+class="ectt-1200">Application</span></a> object which gives access to the external
+resource <a 
+href="mainap11.html#api">API</a>. This allows for manual operation of the <a 
+href="mainli2.html#glo:application">Application</a>. In addition, functions exist to
+allow the user to connect and disconnect <a 
+href="mainli2.html#glo:port">Ports</a>. Finally, in order to inspect the current conditions
+of the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a>, an <a 
+href="mainap11.html#api">API</a> function call is available. This shows any external <a 
+href="mainli2.html#glo:port">Ports</a>, <a 
+href="mainli2.html#glo:component">Components</a>
+that are in the <a 
+href="mainli2.html#glo:application">Application</a>, and their <a 
+href="mainli2.html#glo:property">Properties</a>.
                                                                                          
                                                                                          
-<!--l. 50--><p class="noindent" ><a 
- id="x15-369001r1"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> wave
+<ossie.utils.redhawk.core.App object at 0x2bfb350>
+&gt;&gt;> wave.api()
+Waveform [wave_025_090314360_1]
+---------------------------------------------------
+External Ports ==============
+Provides (Input) Ports ==============
+Port Name     Port Interface
+---------     --------------
+external_in   IDL:BULKIO/dataChar
+
+
+Uses (Output) Ports ==============
+Port Name     Port Interface
+---------     --------------
+external_out  IDL:BULKIO/UsesPortStatisticsProvider
+
+
+Components ==============
+1. Sink
+2. Source (Assembly Controller)
+
+
+Properties ==============
+Property Name    (Data Type)      [Default Value]   Current Value
+-------------    -----------      ---------------   -------------
+sample_size      (long/SL/32t)    None              None
+
+]]></script></div>
+<!--l. 101--><p class="noindent" >Once finished, the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> needs to be removed from the <a 
+href="mainli2.html#glo:domain">Domain</a> by using the
+<span 
+class="ectt-1200">removeApplication() </span>method:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.removeApplication(wave)
+]]></script></div>
+<!--l. 107--><p class="noindent" >
                                                                                          
                                                                                          
-<div class="tabular"> <table id="TBL-30" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-30-1g"><col 
-id="TBL-30-1"></colgroup><colgroup id="TBL-30-2g"><col 
-id="TBL-30-2"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-1-1"  
-class="td11"> <!--l. 54--><p class="noindent" ><span 
-class="ecbx-1200">Token</span>                                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-1-2"  
-class="td11"> <!--l. 54--><p class="noindent" ><span 
-class="ecbx-1200">Definition</span>                                       </td></tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-2-1"  
-class="td11"> <!--l. 55--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST.NAME@@@</span> </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-2-2"  
-class="td11"> <!--l. 55--><p class="noindent" >Host name returned from gethostname call
-  (multi-homed systems may have issues).       </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-3-1"  
-class="td11"> <!--l. 56--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST.IP@@@</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-3-2"  
-class="td11"> <!--l. 56--><p class="noindent" >Dot notation IP Address of the machine on
-  which the processing is running.                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-4-1"  
-class="td11"> <!--l. 57--><p class="noindent" ><span 
-class="ectt-1200">@@@NAME@@@</span>                      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-4-2"  
-class="td11"> <!--l. 57--><p class="noindent" >Name of the resource given on the command
-  line.                                                      </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-5-1"  
-class="td11"> <!--l. 58--><p class="noindent" ><span 
-class="ectt-1200">@@@INSTANCE@@@</span>                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-5-2"  
-class="td11"> <!--l. 58--><p class="noindent" >Instance name given to the resource on the
-  command line.                                        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-6-1"  
-class="td11"> <!--l. 59--><p class="noindent" ><span 
-class="ectt-1200">@@@PID@@@</span>                       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-6-2"  
-class="td11"> <!--l. 59--><p class="noindent" ><a 
-href="mainap10.html#pid">PID</a> of the running resource.                      </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-7-1"  
-class="td11"> <!--l. 60--><p class="noindent" ><span 
-class="ectt-1200">@@@DOMAIN.NAME@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-7-2"  
-class="td11"> <!--l. 60--><p class="noindent" >Name  of  the  <a 
-href="mainli2.html#glo:domain">Domain</a>  under  which  your
-  resource is running.                                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-8-1"  
-class="td11"> <!--l. 61--><p class="noindent" ><span 
-class="ectt-1200">@@@DOMAIN.PATH@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-8-2"  
-class="td11"> <!--l. 61--><p class="noindent" >The contents of the DOM_PATH parameter
-  on the command line.                               </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-9-1"  
-class="td11"> <!--l. 62--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE_MANAGER.NAME@@@</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-9-2"  
-class="td11"> <!--l. 62--><p class="noindent" >Name of the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> that started the
-  <a 
-href="mainli2.html#glo:device">Device</a> or <a 
-href="mainli2.html#glo:service">Service</a>.                                    </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-10-1"  
-class="td11"> <!--l. 63--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE_MANAGER.INSTANCE@@@</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-10-2"  
-class="td11"> <!--l. 63--><p class="noindent" >Instance name of the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> from
-  the command line.                                   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-11-1"  
-class="td11"> <!--l. 64--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.NAME@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-11-2"  
-class="td11"> <!--l. 64--><p class="noindent" >Name  of  the  <a 
-href="mainli2.html#glo:service">Service</a>  as  specified  on  the
-  command line.                                        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-12-1"  
-class="td11"> <!--l. 65--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.INSTANCE@@@</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-12-2"  
-class="td11"> <!--l. 65--><p class="noindent" >Instance name of the <a 
-href="mainli2.html#glo:service">Service</a> as specified on
-  the command line.                                   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-13-1"  
-class="td11"> <!--l. 66--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.PID@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-13-2"  
-class="td11"> <!--l. 66--><p class="noindent" ><a 
-href="mainap10.html#pid">PID</a> of the running <a 
-href="mainli2.html#glo:service">Service</a>.                       </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-14-1"  
-class="td11"> <!--l. 67--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE.NAME@@@</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-14-2"  
-class="td11"> <!--l. 67--><p class="noindent" >Name  of  the  <a 
-href="mainli2.html#glo:device">Device</a>  as  specified  on  the
-  command line.                                        </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-15-1"  
-class="td11"> <!--l. 68--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE.INSTANCE@@@</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-15-2"  
-class="td11"> <!--l. 68--><p class="noindent" >Instance name of the <a 
-href="mainli2.html#glo:device">Device</a> as specified on
-  the command line.                                   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-16-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-16-1"  
-class="td11"> <!--l. 69--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE.PID@@@</span>                </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-16-2"  
-class="td11"> <!--l. 69--><p class="noindent" ><a 
-href="mainap10.html#pid">PID</a> of the <a 
-href="mainli2.html#glo:device">Device</a>.                                   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-17-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-17-1"  
-class="td11"> <!--l. 70--><p class="noindent" ><span 
-class="ectt-1200">@@@WAVEFORM.NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-17-2"  
-class="td11"> <!--l. 70--><p class="noindent" >Name                      of                      the
-  <a 
-href="mainli2.html#glo:waveformapplication">Waveform</a> from the DOM_PATH command
-  line variable.                                           </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-18-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-18-1"  
-class="td11"> <!--l. 71--><p class="noindent" ><span 
-class="ectt-1200">@@@WAVEFORM.INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-18-2"  
-class="td11"> <!--l. 71--><p class="noindent" >Instance  name  of  the  <a 
-href="mainli2.html#glo:waveformapplication">Waveform</a>  from  the
-  DOM_PATH command line variable.          </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-19-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-19-1"  
-class="td11"> <!--l. 72--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT.NAME@@@</span>            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-19-2"  
-class="td11"> <!--l. 72--><p class="noindent" >Name of the <a 
-href="mainli2.html#glo:component">Component</a> binding parameter
-  as specified on the command line.               </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-20-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-20-1"  
-class="td11"> <!--l. 73--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT.INSTANCE@@@</span>        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-20-2"  
-class="td11"> <!--l. 73--><p class="noindent" >Instance name of the <a 
-href="mainli2.html#glo:component">Component</a> identifier
-  parameter as specified on the command line.  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-30-21-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-21-1"  
-class="td11"> <!--l. 74--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT.PID@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-30-21-2"  
-class="td11"> <!--l. 74--><p class="noindent" ><a 
-href="mainap10.html#pid">PID</a> of the <a 
-href="mainli2.html#glo:component">Component</a>.                             </td></tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.1: </td><td  
-class="content">log4j Configuration File Special Tokens</td></tr></table><!--tex4ht:label?: x15-369001r1 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
-<!--l. 80--><p class="noindent" ><a 
-href="#x15-369002r2">Table 13.2</a> lists the availablity of token definitions for each REDHAWK resource type.
-<div class="table">
-                                                                                         
-                                                                                         
-<!--l. 81--><p class="noindent" ><a 
- id="x15-369002r2"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
-                                                                                         
-                                                                                         
-<div class="tabular"> <table id="TBL-31" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-31-1g"><col 
-id="TBL-31-1"></colgroup><colgroup id="TBL-31-2g"><col 
-id="TBL-31-2"></colgroup><colgroup id="TBL-31-3g"><col 
-id="TBL-31-3"></colgroup><colgroup id="TBL-31-4g"><col 
-id="TBL-31-4"></colgroup><colgroup id="TBL-31-5g"><col 
-id="TBL-31-5"></colgroup><colgroup id="TBL-31-6g"><col 
-id="TBL-31-6"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-1-1"  
-class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Token</span>                   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-1-2"  
-class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Domain </span><br 
-class="newline" /><span 
-class="ecbx-1200">Manager</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-1-3"  
-class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Device </span><br 
-class="newline" /><span 
-class="ecbx-1200">Manager</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-1-4"  
-class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Device</span>    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-1-5"  
-class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Service</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-1-6"  
-class="td11"> <!--l. 84--><p class="noindent" ><span 
-class="ecbx-1200">Component</span>  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-2-1"  
-class="td11"> <!--l. 85--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST.IP@@@</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-2-2"  
-class="td11"> <!--l. 85--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-2-3"  
-class="td11"> <!--l. 85--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-2-4"  
-class="td11"> <!--l. 85--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-2-5"  
-class="td11"> <!--l. 85--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-2-6"  
-class="td11"> <!--l. 85--><p class="noindent" >Y                 </td></tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-3-1"  
-class="td11"> <!--l. 86--><p class="noindent" ><span 
-class="ectt-1200">@@@HOST. </span><br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-3-2"  
-class="td11"> <!--l. 86--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-3-3"  
-class="td11"> <!--l. 86--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-3-4"  
-class="td11"> <!--l. 86--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-3-5"  
-class="td11"> <!--l. 86--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-3-6"  
-class="td11"> <!--l. 86--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-4-1"  
-class="td11"> <!--l. 87--><p class="noindent" ><span 
-class="ectt-1200">@@@NAME@@@</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-4-2"  
-class="td11"> <!--l. 87--><p class="noindent" >Domain <br 
-class="newline" />Manager        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-4-3"  
-class="td11"> <!--l. 87--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-4-4"  
-class="td11"> <!--l. 87--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-4-5"  
-class="td11"> <!--l. 87--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-4-6"  
-class="td11"> <!--l. 87--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-5-1"  
-class="td11"> <!--l. 88--><p class="noindent" ><span 
-class="ectt-1200">@@@INSTANCE@@@</span>      </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-5-2"  
-class="td11"> <!--l. 88--><p class="noindent" >DOMAIN_ <br 
-class="newline" />MANAGER_1 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-5-3"  
-class="td11"> <!--l. 88--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-5-4"  
-class="td11"> <!--l. 88--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-5-5"  
-class="td11"> <!--l. 88--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-5-6"  
-class="td11"> <!--l. 88--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-6-1"  
-class="td11"> <!--l. 89--><p class="noindent" ><span 
-class="ectt-1200">@@@PID@@@</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-6-2"  
-class="td11"> <!--l. 89--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-6-3"  
-class="td11"> <!--l. 89--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-6-4"  
-class="td11"> <!--l. 89--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-6-5"  
-class="td11"> <!--l. 89--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-6-6"  
-class="td11"> <!--l. 89--><p class="noindent" >Y                 </td></tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-7-1"  
-class="td11"> <!--l. 90--><p class="noindent" ><span 
-class="ectt-1200">@@@DOMAIN. </span><br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-7-2"  
-class="td11"> <!--l. 90--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-7-3"  
-class="td11"> <!--l. 90--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-7-4"  
-class="td11"> <!--l. 90--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-7-5"  
-class="td11"> <!--l. 90--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-7-6"  
-class="td11"> <!--l. 90--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-8-1"  
-class="td11"> <!--l. 91--><p class="noindent" ><span 
-class="ectt-1200">@@@DOMAIN. </span><br 
-class="newline" /><span 
-class="ectt-1200">PATH@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-8-2"  
-class="td11"> <!--l. 91--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-8-3"  
-class="td11"> <!--l. 91--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-8-4"  
-class="td11"> <!--l. 91--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-8-5"  
-class="td11"> <!--l. 91--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-8-6"  
-class="td11"> <!--l. 91--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-9-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-9-1"  
-class="td11"> <!--l. 92--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE_MANAGER.</span>
- <br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-9-2"  
-class="td11"> <!--l. 92--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-9-3"  
-class="td11"> <!--l. 92--><p class="noindent" >DEVICE_ <br 
-class="newline" />MANAGER    </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-9-4"  
-class="td11"> <!--l. 92--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-9-5"  
-class="td11"> <!--l. 92--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-9-6"  
-class="td11"> <!--l. 92--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-10-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-10-1"  
-class="td11"> <!--l. 93--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE_MANAGER.</span>
- <br 
-class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-10-2"  
-class="td11"> <!--l. 93--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-10-3"  
-class="td11"> <!--l. 93--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-10-4"  
-class="td11"> <!--l. 93--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-10-5"  
-class="td11"> <!--l. 93--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-10-6"  
-class="td11"> <!--l. 93--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-11-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-11-1"  
-class="td11"> <!--l. 94--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE. </span><br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-11-2"  
-class="td11"> <!--l. 94--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-11-3"  
-class="td11"> <!--l. 94--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-11-4"  
-class="td11"> <!--l. 94--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-11-5"  
-class="td11"> <!--l. 94--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-11-6"  
-class="td11"> <!--l. 94--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-12-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-12-1"  
-class="td11"> <!--l. 95--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE. </span><br 
-class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-12-2"  
-class="td11"> <!--l. 95--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-12-3"  
-class="td11"> <!--l. 95--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-12-4"  
-class="td11"> <!--l. 95--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-12-5"  
-class="td11"> <!--l. 95--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-12-6"  
-class="td11"> <!--l. 95--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-13-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-13-1"  
-class="td11"> <!--l. 96--><p class="noindent" ><span 
-class="ectt-1200">@@@SERVICE.PID@@@</span>   </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-13-2"  
-class="td11"> <!--l. 96--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-13-3"  
-class="td11"> <!--l. 96--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-13-4"  
-class="td11"> <!--l. 96--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-13-5"  
-class="td11"> <!--l. 96--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-13-6"  
-class="td11"> <!--l. 96--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-14-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-14-1"  
-class="td11"> <!--l. 97--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE. </span><br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-14-2"  
-class="td11"> <!--l. 97--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-14-3"  
-class="td11"> <!--l. 97--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-14-4"  
-class="td11"> <!--l. 97--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-14-5"  
-class="td11"> <!--l. 97--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-14-6"  
-class="td11"> <!--l. 97--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-15-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-15-1"  
-class="td11"> <!--l. 98--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE. </span><br 
-class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-15-2"  
-class="td11"> <!--l. 98--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-15-3"  
-class="td11"> <!--l. 98--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-15-4"  
-class="td11"> <!--l. 98--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-15-5"  
-class="td11"> <!--l. 98--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-15-6"  
-class="td11"> <!--l. 98--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-16-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-16-1"  
-class="td11"> <!--l. 99--><p class="noindent" ><span 
-class="ectt-1200">@@@DEVICE. </span><br 
-class="newline" /><span 
-class="ectt-1200">PID@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-16-2"  
-class="td11"> <!--l. 99--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-16-3"  
-class="td11"> <!--l. 99--><p class="noindent" >Y                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-16-4"  
-class="td11"> <!--l. 99--><p class="noindent" >Y            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-16-5"  
-class="td11"> <!--l. 99--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-16-6"  
-class="td11"> <!--l. 99--><p class="noindent" >N                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-17-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-17-1"  
-class="td11"> <!--l. 100--><p class="noindent" ><span 
-class="ectt-1200">@@@WAVEFORM. </span><br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-17-2"  
-class="td11"> <!--l. 100--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-17-3"  
-class="td11"> <!--l. 100--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-17-4"  
-class="td11"> <!--l. 100--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-17-5"  
-class="td11"> <!--l. 100--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-17-6"  
-class="td11"> <!--l. 100--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-18-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-18-1"  
-class="td11"> <!--l. 101--><p class="noindent" ><span 
-class="ectt-1200">@@@WAVEFORM. </span><br 
-class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-18-2"  
-class="td11"> <!--l. 101--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-18-3"  
-class="td11"> <!--l. 101--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-18-4"  
-class="td11"> <!--l. 101--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-18-5"  
-class="td11"> <!--l. 101--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-18-6"  
-class="td11"> <!--l. 101--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-19-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-19-1"  
-class="td11"> <!--l. 102--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT. </span><br 
-class="newline" /><span 
-class="ectt-1200">NAME@@@</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-19-2"  
-class="td11"> <!--l. 102--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-19-3"  
-class="td11"> <!--l. 102--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-19-4"  
-class="td11"> <!--l. 102--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-19-5"  
-class="td11"> <!--l. 102--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-19-6"  
-class="td11"> <!--l. 102--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-20-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-20-1"  
-class="td11"> <!--l. 103--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT. </span><br 
-class="newline" /><span 
-class="ectt-1200">INSTANCE@@@</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-20-2"  
-class="td11"> <!--l. 103--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-20-3"  
-class="td11"> <!--l. 103--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-20-4"  
-class="td11"> <!--l. 103--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-20-5"  
-class="td11"> <!--l. 103--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-20-6"  
-class="td11"> <!--l. 103--><p class="noindent" >Y                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-31-21-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-21-1"  
-class="td11"> <!--l. 104--><p class="noindent" ><span 
-class="ectt-1200">@@@COMPONENT. </span><br 
-class="newline" /><span 
-class="ectt-1200">PID@@@</span>              </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-21-2"  
-class="td11"> <!--l. 104--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-21-3"  
-class="td11"> <!--l. 104--><p class="noindent" >N                 </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-21-4"  
-class="td11"> <!--l. 104--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-21-5"  
-class="td11"> <!--l. 104--><p class="noindent" >N            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-31-21-6"  
-class="td11"> <!--l. 104--><p class="noindent" >Y                 </td>
-</tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.2: </td><td  
-class="content">Availability of Tokens</td></tr></table><!--tex4ht:label?: x15-369002r2 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
 <h4 class="subsectionHead"><span class="titlemark">13.2.2   </span> <a 
- id="x15-37000013.2.2"></a>Log Configuration Example - Simple Appender with a Named Logger</h4>
-<!--l. 113--><p class="noindent" >In the following example, the root most logger passes logging messages with a severity level <span 
-class="ectt-1200">INFO</span>
-or less. Those messages are sent to the appenders called: <span 
-class="ectt-1200">CONSOLE </span>and <span 
-class="ectt-1200">FILE</span>. The <span 
-class="ectt-1200">CONSOLE</span>
-appender messages are displayed in the console of the running application. The <span 
-class="ectt-1200">FILE </span>appender
-writes log messages to a file called <span 
-class="ectt-1200">allmsgs.out</span>.
-<!--l. 115--><p class="noindent" >If the resource uses a named logger, <span 
-class="ectt-1200">EDET_cpp_impl1_i</span>, then log messages with a severity of
+ id="x15-37800013.2.2"></a>Starting a Domain from within a Python session</h4>
+<!--l. 109--><p class="noindent" >Normally, the REDHAWK Python package is used to either interact with a running <a 
+href="mainli2.html#glo:domain">Domain</a>, or to
+launch some Sandbox <a 
+href="mainli2.html#glo:component">Components</a>, as seen in Chapter <a 
+href="mainch11.html#x13-26400011">11<!--tex4ht:ref: chap:Sandbox --></a>. However, sometimes it may be required
+to launch a <a 
+href="mainli2.html#glo:domain">Domain</a> from a Python script.
+<!--l. 112--><p class="noindent" >To help in such a scenario, the REDHAWK Python package includes some helper functions. The
 <span 
-class="ectt-1200">DEBUG </span>or less are diverted to a file called <span 
-class="ectt-1200">edet_log.out</span>.
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-# Set root logger default levels and appender
-log4j.rootLogger=INFO, CONSOLE, FILE
+class="ectt-1200">kickDomain </span>feature allows for an easy way to launch <a 
+href="mainli2.html#glo:domain">Domain</a> and <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> from within a
+Python script. With no arguments, the function launches and returns the <a 
+href="mainli2.html#glo:domainmanager">Domain Manager</a> that is
+installed in <span 
+class="ectt-1200">$SDRROOT</span>. Additionally, all <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> in <span 
+class="ectt-1200">$SDRROOT/dev/nodes </span>are
+started.
+<!--l. 117--><p class="noindent" >Other arguments to the function exist to control different aspects to how the <a 
+href="mainli2.html#glo:domain">Domain</a> is started. A
+list of specific <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> to start can be passed if the user does not want to start all
+available. If the <span 
+class="ectt-1200">$SDRROOT </span>that the user wishes to use is not in the standard location, a path can be
+supplied to direct the function to the desired place in the file system. Standard out and logging to
+a file can also be set.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain = redhawk.kickDomain()
+INFO:DomainManager - Starting Domain Manager
+INFO:DeviceManager - Starting Device Manager with
+     /nodes/DevMgr_localhost.localdomain/DeviceManager.dcd.xml
+INFO:DomainManager - Starting ORB!
+INFO:DeviceManager_impl - Connecting to Domain Manager
+     MY_DOMAIN/MY_DOMAIN
+INFO:DeviceManager - Starting ORB!
+&gt;&gt;> INFO:DCE:9d9bcc38-d654-43b1-8b74-1dc024318b6f:Registering
+     Device
+INFO:DeviceManager_impl - Registering device GPP_localhost_
+     localdomain on
+     Device Manager DevMgr_localhost.localdomain
+INFO:DeviceManager_impl - Initializing device GPP_localhost_
+     localdomain on
+     Device Manager DevMgr_localhost.localdomain
+INFO:DeviceManager_impl - Registering device GPP_localhost_
+     localdomain on
+     Domain Manager
 
-# Console Appender
-log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
-log4j.appender.STDERR=org.apache.log4j.ConsoleAppender
-log4j.appender.STDERR.Threshold=ERROR
-log4j.appender.STDERR.Target=System.err
-
-# Default Log Appender
-log4j.appender.FILE=org.apache.log4j.FileAppender
-log4j.appender.FILE.Append=true
-log4j.appender.FILE.File=allmsgs.out
-
-# Edet Appender
-log4j.appender.edetLog=org.apache.log4j.FileAppender
-log4j.appender.edetLog.Append=true
-log4j.appender.edetLog.File=edet_log.out
-
-# Appender layout
-log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
-log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601}:
-     %p:%c - %m [%F:%L]%n
-log4j.appender.STDERR.layout=org.apache.log4j.PatternLayout
-log4j.appender.STDERR.layout.ConversionPattern=%d{ISO8601}:
-     %p:%c - %m [%F:%L]%n
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601}:
-     %p:%c - %m [%F:%L]%n
-log4j.appender.edetLog.layout=org.apache.log4j.PatternLayout
-log4j.appender.edetLog.layout.ConversionPattern=%d{ISO8601}:
-     %p:%c - %m [%F:%L]%n
-log4j.appender.NULL.layout=org.apache.log4j.PatternLayout
-log4j.appender.NULL.layout.ConversionPattern=%n
-
-log4j.category.EDET_cpp_impl1_i=DEBUG, edetLog
-log4j.additivity.EDET_cpp_impl1_i=false
+&gt;&gt;> domain
+<ossie.utils.redhawk.core.Domain object at 0x2da6710>
 ]]></script></div>
+<!--l. 147--><p class="noindent" >The ability to search for <a 
+href="mainli2.html#glo:domain">Domains</a> is also available through the scan function which searches the
                                                                                          
                                                                                          
-<!--l. 159--><p class="noindent" >
+<a 
+href="mainli2.html#glo:namingservice">Naming Service</a>.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> redhawk.scan()
+['MY_DOMAIN']
+]]></script></div>
+<!--l. 154--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.3   </span> <a 
- id="x15-37100013.2.3"></a>Log Configuration Example - Configuring a Component with Token Macros</h4>
-<!--l. 160--><p class="noindent" >The logging configuration information for <a 
-href="mainli2.html#glo:component">Component</a> <span 
-class="ectt-1200">MEGA_WORKER </span>is configured from
-<span 
-class="ectt-1200">$SDRROOT/dom/logcfg/component.log4j.cfg</span>. Prior to configuring the underlying
-logging library, the configuration information is processed for the context macros (in this
-example, <span 
-class="ectt-1200">@@@WAVEFORM.NAME@@@</span>, <span 
-class="ectt-1200">@@@COMPONENT.NAME@@@ </span>and <span 
-class="ectt-1200">@@@COMPONENT.PID@@@</span>).
-The root most logger passes logging messages with a severity level <span 
-class="ectt-1200">INFO </span>or less, to the
-appenders called: <span 
-class="ectt-1200">CONSOLE </span>and <span 
-class="ectt-1200">FILE</span>. The <span 
-class="ectt-1200">CONSOLE </span>appender messages are displayed in
-the console of the running application. For the <span 
-class="ectt-1200">FILE </span>appender, the destination file is:
-<span 
-class="ectt-1200">/data/logdir/MY_EXAMPLE_1/MEGA_WORKER_1.212.log</span>.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-Waveform: MY_EXAMPLE
-Component: MEGA_WORKER
- property: LOGGING_CONFIG_URI = "sca://logcfg/component.log4j.cfg"
-
- \$SDRROOT/
-            dev/
-               ...
-            deps/
-               ..
-            dom/
-                ...
-               logcfg/
-                        component.log4j.cfg
-
-  /data/logdir/
-
+ id="x15-37900013.2.3"></a>Domain State</h4>
+<!--l. 156--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy tracks the current state of the <a 
+href="mainli2.html#glo:domain">Domain</a>. For aspects of the <a 
+href="mainli2.html#glo:domain">Domain</a> state that
+may take a long time to process, scanning is deferred until the first access. If the <a 
+href="mainap11.html#odm">ODM</a> Channel is
+available, <a 
+href="mainli2.html#glo:device">Devices</a>, <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a>, and <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> are tracked as they are added to and removed
+from the <a 
+href="mainli2.html#glo:domain">Domain</a>. Otherwise, the <a 
+href="mainli2.html#glo:domain">Domain</a> is re-scanned on access to ensure that the state is
+accurate.
+<!--l. 161--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.1   </span> <a 
+ id="x15-38000013.2.3.1"></a>Applications</h5>
+<!--l. 164--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
+href="mainli2.html#glo:waveformapplication">Waveforms</a> currently running via the <span 
+class="ectt-1200">apps </span>attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.apps
+[<ossie.utils.redhawk.core.App object at 0x<hex address&gt;&gt;, ...]
 ]]></script></div>
+<!--l. 171--><p class="noindent" >The <span 
+class="ectt-1200">App </span>class supports many of the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> interfaces, such as <a 
+href="mainli2.html#glo:property">Properties</a>, <span 
+class="ectt-1200">connect() </span>and
+<span 
+class="ectt-1200">api()</span>.
+<!--l. 173--><p class="noindent" >The <a 
+href="mainli2.html#glo:component">Components</a> within the <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> are available via the <span 
+class="ectt-1200">comps </span>attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> app = domain.apps[0]
+&gt;&gt;> app.comps
+[<ossie.utils.redhawk.component.Component object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 181--><p class="noindent" >The REDHAWK module <a 
+href="mainli2.html#glo:component"><span 
+class="ectt-1200">Component</span></a> class supports the same interfaces as <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
+href="mainli2.html#glo:component">Components</a>,
+as seen in Chapter <a 
+href="mainch11.html#x13-26400011">11<!--tex4ht:ref: chap:Sandbox --></a>. Much like in the Sandbox, <a 
+href="mainli2.html#glo:port">Ports</a>, <a 
+href="mainli2.html#glo:property">Properties</a>, and any other feature of a
                                                                                          
                                                                                          
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-# Set root logger default levels and appender
-log4j.rootLogger=INFO, CONSOLE, FILE
+<a 
+href="mainli2.html#glo:component">Component</a> is equally accessible from the Python environment, regardless of how the <a 
+href="mainli2.html#glo:component">Component</a>
+was deployed.
+<!--l. 184--><p class="noindent" >For example, if one were to want to plot the output of a <a 
+href="mainli2.html#glo:component">Component</a> running on the
+Domain:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> from ossie.utils import redhawk, sb
+&gt;&gt;> dom=redhawk.attach()
+&gt;&gt;> for app in dom.apps:
+...  if app.name == "my_app":
+...   break
 
-# Console Appender
-log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+&gt;&gt;> for comp in app.comps:
+...  if comp.name == "my_comp":
+...   break
 
-# File Appender
-log4j.appender.FILE=org.apache.log4j.FileAppender
-log4j.appender.FILE.File=/data/logdir/@@@WAVEFORM.NAME@@@/@@@COMPONENT.NAME@@@.@@@COMPONENT.PID@@@.log
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601}: %p:%c - %m [%F:%L]%n
-
+&gt;&gt;> plot = sb.LinePlot()
+&gt;&gt;> plot.start()
+&gt;&gt;> comp.connect(plot)
 ]]></script></div>
-When the <a 
-href="mainli2.html#glo:waveformapplication">Waveform</a> <span 
-class="ectt-1200">MY_EXAMPLE </span>is deployed on the <a 
-href="mainli2.html#glo:domain">Domain</a>, the <a 
-href="mainli2.html#glo:component">Component</a> is launched with the
-following logging configuration:
-<!--l. 199--><p class="noindent" ><span 
-class="ectt-1200">MEGA_WORKER "....." LOGGING_CONFIG_URI sca://logcfg/component.log4j.cfg?fs=</span>
-<br 
-class="newline" /><span 
-class="ectt-1200">IOR:010</span><span 
-class="ectt-1200">&#x2026;</span>
 <!--l. 202--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.2   </span> <a 
+ id="x15-38100013.2.3.2"></a>Device Managers</h5>
+<!--l. 204--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy provides a list of <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a> registered with the <a 
+href="mainli2.html#glo:domain">Domain</a> via the <span 
+class="ectt-1200">devMgrs</span>
+attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.devMgrs
+[<ossie.utils.redhawk.core.DeviceManager object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 211--><p class="noindent" >Each <a 
+href="mainli2.html#glo:devicemanager">Device Manager</a> maintains a list of its <a 
+href="mainli2.html#glo:device">Devices</a>, accessible via the <span 
+class="ectt-1200">devs </span>attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.devMgrs[0].devs
+[<ossie.utils.redhawk.device.ExecutableDevice object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+                                                                                         
+                                                                                         
+<!--l. 218--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.3   </span> <a 
+ id="x15-38200013.2.3.3"></a>Devices</h5>
+<!--l. 220--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> proxy provides a list of all <a 
+href="mainli2.html#glo:device">Devices</a> registered with the <a 
+href="mainli2.html#glo:domain">Domain</a> via the <span 
+class="ectt-1200">devices</span>
+attribute:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> domain.devices
+[<ossie.utils.redhawk.device.ExecutableDevice object at 0x<hex address&gt;&gt;, ...]
+]]></script></div>
+<!--l. 227--><p class="noindent" >The <a 
+href="mainli2.html#glo:device">Device</a> list is the concatenation of the <a 
+href="mainli2.html#glo:device">Devices</a> for all <a 
+href="mainli2.html#glo:devicemanager">Device Managers</a>.
+<!--l. 229--><p class="noindent" >The REDHAWK module <a 
+href="mainli2.html#glo:device"><span 
+class="ectt-1200">Device</span></a> class supports the same interfaces as <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> <a 
+href="mainli2.html#glo:device">Devices</a>.
+<!--l. 231--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.4   </span> <a 
+ id="x15-38300013.2.3.4"></a>Event Channels</h5>
+<!--l. 233--><p class="noindent" ><a 
+href="mainli2.html#glo:eventchannel">Event Channels</a> can be accessed through the eventChannels member of the <a 
+href="mainli2.html#glo:domain">Domain</a> object. Each of
+the returned objects contains the name of the channel and a reference to the channel
+object.
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> evt = dom.eventChannels
+&gt;&gt;> evt[0].name
+ODM_Channel
+&gt;&gt;> evt[0].ref
+<CosEventChannelAdmin._objref_EventChannel object at 0x1608550>
+]]></script></div>
+<!--l. 244--><p class="noindent" ><a 
+href="mainli2.html#glo:eventchannel">Event Channels</a> can be created through the Event Channel Manager:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> channel = dom.eventChannelMgr.create("TestChan")
+]]></script></div>
+<!--l. 250--><p class="noindent" >Subscribers and publishers to event channels can also be created in the Python <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>. They can
+be created as entities in the Python environment, with the constructor argument being the channel
+that they are to publish or subscribe to.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> from ossie.events import Subscriber, Publisher
+&gt;&gt;> def my_callback(data):
+        print data
+&gt;&gt;> sub=Subscriber(evt[0], dataArrivedCB=callback)
+&gt;&gt;> pub=Publisher(evt[0])
+&gt;&gt;> pub.push(data)
+]]></script></div>
+<!--l. 262--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.5   </span> <a 
+ id="x15-38400013.2.3.5"></a>Managing Allocations</h5>
+<!--l. 264--><p class="noindent" >The <a 
+href="mainli2.html#glo:domain">Domain</a> has an Allocation Manager that allows the developer to offload some of the
+bookeeping tasks associated with capacity allocation. Interactions with the Allocation Manager are
+exercised through requests and responses. The Allocation Manager responds to requests by
+searching through all available <a 
+href="mainli2.html#glo:device">Devices</a> to find Devices that can satisfy the request. An example of
+interactions with the Allocation Manager follows:
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> am = dom.allocationMgr
+&gt;&gt;> from ossie.utils import allocations
+&gt;&gt;> prop =  allocations.createProps({'s_prop':{'s_prop::a':'hello','s_prop::b':5}})
+&gt;&gt;> request = am.createRequest('request id', prop)
+&gt;&gt;> response = am.allocate([request])
+&gt;&gt;> am.listAllocations(CF.AllocationManager.LOCAL_ALLOCATIONS, 100)
+[...]
+&gt;&gt;> am.deallocate([response[0].allocationID])
+]]></script></div>
+<!--l. 280--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">13.2.3.6   </span> <a 
+ id="x15-38500013.2.3.6"></a>Managing Connections</h5>
+<!--l. 282--><p class="noindent" >While it is simple to establish point-to-point connections, sometimes it is desirable for a connection
+to be established as <a 
+href="mainli2.html#glo:domain">Domain</a> objects come and go. To manage these types of connections, the
+<a 
+href="mainli2.html#glo:domain">Domain</a> contains a Connection Manager. Helpers have been created to make it easy to create
+endpoints from Python objects connected to <a 
+href="mainli2.html#glo:domain">Domain</a> objects.
+                                                                                         
+                                                                                         
+<div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
+&gt;&gt;> from ossie.utils import rhconnection
+&gt;&gt;> endpoint_1 = rhconnection.makeEndPoint(dom.apps[0], dom.apps[0].ports[0].name)
+&gt;&gt;> endpoint_2 = rhconnection.makeEndPoint(dom.apps[1], )
+&gt;&gt;> cm = dom.connectionMgr
+&gt;&gt;> cm.connect(endpoint_1, endpoint_2)
+]]></script></div>
+<!--l. 294--><p class="noindent" >
 <h4 class="subsectionHead"><span class="titlemark">13.2.4   </span> <a 
- id="x15-37200013.2.4"></a>Logging with Event Channels for Components, Devices and Services</h4>
-<!--l. 204--><p class="noindent" >For REDHAWK resources, the underlying logging functionality has been extended to include
-support for publishing log messages to a specified <a 
-href="mainli2.html#glo:eventchannel">Event Channel</a>. To include this capability, add
-the <span 
-class="ectt-1200">org.ossie.logging.RH_LogEventAppender </span>in your log4j configuration file. This appender
-responds to the following configuration options (all options are string values unless otherwise
-noted):
-<div class="table">
-                                                                                         
-                                                                                         
-<!--l. 207--><p class="noindent" ><a 
- id="x15-372001r3"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
-                                                                                         
-                                                                                         
-<div class="tabular"> <table id="TBL-32" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-32-1g"><col 
-id="TBL-32-1"></colgroup><colgroup id="TBL-32-2g"><col 
-id="TBL-32-2"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-1-1"  
-class="td11"> <!--l. 211--><p class="noindent" ><span 
-class="ecbx-1200">Appender Option</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-1-2"  
-class="td11"> <!--l. 211--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                                                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-2-1"  
-class="td11"> <!--l. 212--><p class="noindent" ><span 
-class="ectt-1200">EVENT_CHANNEL</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-2-2"  
-class="td11"> <!--l. 212--><p class="noindent" ><a 
-href="mainli2.html#glo:eventchannel">Event  Channel</a>  name  where  logging  messages  are
-  published.                                                             </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-3-1"  
-class="td11"> <!--l. 213--><p class="noindent" ><span 
-class="ectt-1200">NAME_CONTEXT</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-3-2"  
-class="td11"> <!--l. 213--><p class="noindent" >Directory  in  <span 
-class="ectt-1200">omniNames </span>to  lookup  <a 
-href="mainli2.html#glo:eventchannel">Event  Channel</a>
-  (<a 
-href="mainli2.html#glo:domain">Domain</a> name - <span 
-class="ectt-1200">REDHAWK_DEV</span>).                                </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-4-1"  
-class="td11"> <!--l. 214--><p class="noindent" ><span 
-class="ectt-1200">PRODUCER_ID</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-4-2"  
-class="td11"> <!--l. 214--><p class="noindent" >Identifier  of  the  resource  producing  the  log  message
-  (resource name).                                                    </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-5-1"  
-class="td11"> <!--l. 215--><p class="noindent" ><span 
-class="ectt-1200">PRODUCER_NAME</span>         </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-5-2"  
-class="td11"> <!--l. 215--><p class="noindent" >Name of the resource producing the log message.          </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-6-1"  
-class="td11"> <!--l. 216--><p class="noindent" ><span 
-class="ectt-1200">PRODUCER_FQN</span>          </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-6-2"  
-class="td11"> <!--l. 216--><p class="noindent" >Fully      qualified      name      of      the      resource
-  (<a 
-href="mainli2.html#glo:domain">Domain</a>-name/<a 
-href="mainli2.html#glo:waveformapplication">Waveform</a>-name/resource-name).          </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-7-1"  
-class="td11"> <!--l. 217--><p class="noindent" ><span 
-class="ectt-1200">RETRIES</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-7-2"  
-class="td11"> <!--l. 217--><p class="noindent" >Number  of  times  to  retry  connecting  to  the  <a 
-href="mainli2.html#glo:eventchannel">Event
-  Channel</a>. (Integer)                                                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-32-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-8-1"  
-class="td11"> <!--l. 218--><p class="noindent" ><span 
-class="ectt-1200">THRESHOLD</span>             </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-32-8-2"  
-class="td11"> <!--l. 218--><p class="noindent" >log4cxx  log  level;  <span 
-class="ectt-1200">FATAL</span>,  <span 
-class="ectt-1200">WARN</span>,  <span 
-class="ectt-1200">ERROR</span>,  <span 
-class="ectt-1200">INFO</span>,  <span 
-class="ectt-1200">DEBUG</span>,
-  <span 
-class="ectt-1200">TRACE</span>.                                                                 </td>
-</tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.3: </td><td  
-class="content">RH_LogEventAppender Configuration Options</td></tr></table><!--tex4ht:label?: x15-372001r3 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
-<!--l. 224--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The <span 
-class="ectt-1200">NAME_CONTEXT </span>option, is required for C++ resources to maintain backwards compatablity.
-For REDHAWK 2.0 and greater resources developed in Python or JAVA, the <span 
-class="ectt-1200">EVENT_CHANNEL </span>is
-acquired using the EventChannelManager interface that is available to resources with domain
-awareness and ignores the <span 
-class="ectt-1200">NAME_CONTEXT </span>option. </p></div></div>
-<!--l. 228--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> Eventable logging is currently not supported for the Domain Manager and Device Manager. The
-following messages may occur during start up of these <a 
-href="mainli2.html#glo:service">Services</a> with configurations that use eventable
-logging. <div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-log4cxx: Could not instantiate class [org.ossie.logging.RH_LogEventAppender].
-log4cxx: Class not found: org.ossie.logging.RH_LogEventAppender
-log4cxx: Could not instantiate appender named "pse".
-]]></script></div>
-</p></div></div>
-<!--l. 237--><p class="noindent" >In the following example, a <a 
-href="mainli2.html#glo:component">Component</a> configured with this log4j properties file publishes log
-messages with a severity of <span 
-class="ectt-1200">ERROR </span>or less to the <a 
-href="mainli2.html#glo:eventchannel">Event Channel</a> <span 
-class="ectt-1200">ERROR_LOG_CHANNEL </span>in the
-<a 
-href="mainli2.html#glo:domain">Domain</a>, <span 
-class="ectt-1200">REDHAWK_DEV</span>. The threshold level for the appender supersedes the rootLogger&#8217;s logging
-level.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-log4j.rootLogger=INFO,stdout,pse
-
-# Direct log messages to stdout
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender
-log4j.appender.stdout.Target=System.out
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
-
-# Direct error messages to an event channel
-log4j.appender.pse=org.ossie.logging.RH_LogEventAppender
-log4j.appender.pse.Threshold=ERROR
-log4j.appender.pse.event_channel=ERROR_LOG_CHANNEL
-log4j.appender.pse.name_context=@@@DOMAIN.NAME@@@
-log4j.appender.pse.producer_id=@@@COMPONENT.INSTANCE@@@
-log4j.appender.pse.producer_name=@@@COMPONENT.NAME@@
-log4j.appender.pse.producer_FQN=@@@DOMAIN.NAME@@@.@@@WAVEFORM.NAME@@@.@@@COMPONENT.NAME@@@
-log4j.appender.pse.layout=org.apache.log4j.PatternLayout
-log4j.appender.pse.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c:%L - %m%n
-
-]]></script>
-                                                                                         
-                                                                                         
-</div>
-<h4 class="subsectionHead"><span class="titlemark">13.2.5   </span> <a 
- id="x15-37300013.2.5"></a>Synchronous Logging for C++ Devices and Components</h4>
-<!--l. 264--><p class="noindent" >For C++ Devices and Components, the REDHAWK Core Framework libraries provide a
-Synchronous Rolling File Appender that will allow atomic write operations to a common file. To
-include this capability, add the <span 
-class="ectt-1200">org.ossie.logging.RH_SyncRollingAppender </span>in your log4j
-configuration file. This appender responds to the following configuration options (all options are
-string values unless otherwise noted):
-<div class="table">
-                                                                                         
-                                                                                         
-<!--l. 266--><p class="noindent" ><a 
- id="x15-373001r4"></a><hr class="float"><div class="float" 
-><table class="float"><tr class="float"><td class="float" 
->
-                                                                                         
-                                                                                         
-<div class="tabular"> <table id="TBL-33" class="tabular" 
-cellspacing="0" cellpadding="0" rules="groups" 
-><colgroup id="TBL-33-1g"><col 
-id="TBL-33-1"></colgroup><colgroup id="TBL-33-2g"><col 
-id="TBL-33-2"></colgroup><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-1-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-1-1"  
-class="td11"> <!--l. 270--><p class="noindent" ><span 
-class="ecbx-1200">Appender Option</span>       </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-1-2"  
-class="td11"> <!--l. 270--><p class="noindent" ><span 
-class="ecbx-1200">Description</span>                                                  </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-2-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-2-1"  
-class="td11"> <!--l. 271--><p class="noindent" ><span 
-class="ectt-1200">Retries</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-2-2"  
-class="td11"> <!--l. 271--><p class="noindent" >Number  of  retries  when  waiting  for  the  lock  fails.
-  (Integer)                                                               </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-3-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-3-1"  
-class="td11"> <!--l. 272--><p class="noindent" ><span 
-class="ectt-1200">WaitOnLock</span>            </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-3-2"  
-class="td11"> <!--l. 272--><p class="noindent" >Time in milliseconds to wait when attempting to take
-  ownership of the lock. (Integer)                                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-4-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-4-1"  
-class="td11"> <!--l. 273--><p class="noindent" ><span 
-class="ectt-1200">MaxFileSize</span>           </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-4-2"  
-class="td11"> <!--l. 273--><p class="noindent" >Maximum file size before rolling to the next file.           </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-5-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-5-1"  
-class="td11"> <!--l. 274--><p class="noindent" ><span 
-class="ectt-1200">MaxBackupIndex</span>        </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-5-2"  
-class="td11"> <!--l. 274--><p class="noindent" >Maximum number of files to keep. (Integer)                 </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-6-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-6-1"  
-class="td11"> <!--l. 275--><p class="noindent" ><span 
-class="ectt-1200">File</span>                  </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-6-2"  
-class="td11"> <!--l. 275--><p class="noindent" >Full local file system path.                                       </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-7-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-7-1"  
-class="td11"> <!--l. 276--><p class="noindent" ><span 
-class="ectt-1200">Cleanup</span>               </td><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-7-2"  
-class="td11"> <!--l. 276--><p class="noindent" >Clean up synchronization resources when the process
-  ends. (Value is True or False.)                                   </td>
-</tr><tr 
-class="hline"><td><hr></td><td><hr></td></tr><tr  
- style="vertical-align:baseline;" id="TBL-33-8-"><td  style="white-space:nowrap; text-align:left; vertical-align:middle;" id="TBL-33-8-1"  
-class="td11">                       </td></tr></table></div>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;13.4: </td><td  
-class="content">RH_SyncRollingAppender Configuration Options</td></tr></table><!--tex4ht:label?: x15-373001r4 -->
-                                                                                         
-                                                                                         
-</td></tr></table></div><hr class="endfloat" />
-</div>
-<!--l. 282--><p class="noindent" >In the following example, a <a 
-href="mainli2.html#glo:component">Component</a> configured with this log4j properties file publishes a log
-message to the file <span 
-class="ectt-1200">MP_RedhawkTest</span>.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-log4j.rootLogger=INFO,stdout,mp
-
-# Direct log messages to stdout
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender
-log4j.appender.stdout.Target=System.out
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
-
-log4j.appender.mp=org.ossie.logging.RH_SyncRollingAppender
-log4j.appender.mp.Retries=2
-log4j.appender.mp.WaitOnLock=30
-log4j.appender.mp.MaxFileSize=5MB
-log4j.appender.mp.MaxBackupIndex=10
-log4j.appender.mp.File=MP_RedhawkTest
-log4j.appender.mp.Cleanup=False
-log4j.appender.mp.layout=org.apache.log4j.PatternLayout
-log4j.appender.mp.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c:%L - %m%n
-]]></script></div>
-<!--l. 305--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first"> The synchronous appender only works for single GPP systems. The synchronization resources
-used require all the processes to reside on the same host. </p></div></div>
-<h3 class="sectionHead"><span class="titlemark">13.3   </span> <a 
- id="x15-37400013.3"></a><span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>Resolution</h3>
-<!--l. 313--><p class="noindent" >For all REDHAWK resources, the command line argument <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>provides the
-location of the logging configuration file to load for that resource. This section details how each
-resource type receives this parameter.
-      <ul class="itemize1">
-      <li class="itemize"><a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a>: The <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a> is started via <span 
-class="ectt-1200">nodeBooter </span>with the <span 
-class="ectt-1200">-D </span>option.
-      The additional <span 
-class="ectt-1200">nodeBooter </span>command line argument <span 
-class="ectt-1200">-logcfgfile </span>is passed to the
-      <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a> as <span 
-class="ectt-1200">LOGGING_CONFIG_URI</span>. The following lines describe acceptable
-                                                                                         
-                                                                                         
-      parameter values and their resolution:
-           <ul class="itemize2">
-           <li class="itemize"><span 
-class="ectt-1200">sca://path/to/config/file</span>: $SDRROOT/dom/path/to/config/file
-           </li>
-           <li class="itemize"><span 
-class="ectt-1200">file:///absolute/path/to/config/file</span>: /absolute/path/to/config/file</li></ul>
-      </li>
-      <li class="itemize"><a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>: The <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a> is started via <span 
-class="ectt-1200">nodeBooter </span>with the <span 
-class="ectt-1200">-d </span>option. The
-      additional <span 
-class="ectt-1200">nodeBooter </span>command line argument <span 
-class="ectt-1200">-logcfgfile </span>is passed to the <a 
-href="mainli2.html#glo:devicemanager">Device
-      Manager</a> as <span 
-class="ectt-1200">LOGGING_CONFIG_URI</span>. The following lines describe acceptable parameter values
-      and their resolution:
-           <ul class="itemize2">
-           <li class="itemize"><span 
-class="ectt-1200">sca://path/to/config/file</span>: $SDRROOT/dev/path/to/config/file
-           </li>
-           <li class="itemize"><span 
-class="ectt-1200">file:///absolute/path/to/config/file</span>: /absolute/path/to/config/file</li></ul>
-      </li>
-      <li class="itemize"><a 
-href="mainli2.html#glo:device">Device</a>: A <a 
-href="mainli2.html#glo:device">Device</a> is started by the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>. If the <a 
-href="mainli2.html#glo:device">Device</a> has a
-      <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>property with <span 
-class="ecbx-1200">Pass on command line </span>enabled, you can set the value
-      via the <a 
-href="mainli2.html#glo:node">Node</a>&#8217;s <span 
-class="ectt-1200">dcd.xml </span>file. This value is passed to the <a 
-href="mainli2.html#glo:device">Device</a> at startup; otherwise, the
-      <a 
-href="mainli2.html#glo:device">Device</a> receives the value from the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>&#8217;s <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>command line
-      argument.
-      </li>
-      <li class="itemize"><a 
-href="mainli2.html#glo:service">Service</a>: A <a 
-href="mainli2.html#glo:service">Service</a> is started by the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>. If the <a 
-href="mainli2.html#glo:service">Service</a> has a
-      <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>property with <span 
-class="ecbx-1200">Pass on command line </span>enabled, you can set the value
-      via the <a 
-href="mainli2.html#glo:node">Node</a>&#8217;s <span 
-class="ectt-1200">dcd.xml </span>file. This value is passed to the <a 
-href="mainli2.html#glo:service">Service</a> at startup; otherwise, the
-      <a 
-href="mainli2.html#glo:service">Service</a> receives the value from the <a 
-href="mainli2.html#glo:devicemanager">Device Manager</a>&#8217;s <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>command line
-      argument.
-      </li>
-      <li class="itemize"><a 
-href="mainli2.html#glo:component">Component</a>: When a <a 
-href="mainli2.html#glo:component">Component</a> is deployed by the <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a>, the <span 
-class="ectt-1200">LOGGING_CONFIG_URI</span>
-      command line parameter is resolved by the following sequence: (each step in the sequence can
-      override the value from the prior step)
-           <ul class="itemize2">
-           <li class="itemize">The  <a 
-href="mainli2.html#glo:component">Component</a>  defines  a  <span 
-class="ectt-1200">LOGGING_CONFIG_URI  </span>property  with  <span 
-class="ecbx-1200">Pass  on</span>
-           <span 
-class="ecbx-1200">command line </span>enabled.
-                                                                                         
-                                                                                         
-           </li>
-           <li class="itemize">The <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s componentplacement in a <span 
-class="ectt-1200">Waveform </span>contains a simpleref with
-           id = <span 
-class="ectt-1200">LOGGING_CONFIG_URI</span>. Normally, only defined properties are passed to the
-           component during deployment, the <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>is passed reguardless of
-           being defined.
-           </li>
-           <li class="itemize">The <a 
-href="mainli2.html#glo:component">Component</a>&#8217;s componentplacement contains a <span 
-class="ectt-1200">&#x003C;loggingconfig&#x003E; </span>element.
-           </li>
-           <li class="itemize">The <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a>&#8217;s is configured with a plugin library and the <span 
-class="ectt-1200">-useloglib</span>
-           option was provided when the <a 
-href="mainli2.html#glo:domainmanager">Domain Manager</a> was started. Refer to <a 
-href="mainap9.html#x28-586000I">Appendix
-           I</a> for details.
-           </li>
-           <li class="itemize">If  this  process  does  not  provide  a  value,  then  the  <a 
-href="mainli2.html#glo:domainmanager">Domain  Manager</a>&#8217;s
-           <span 
-class="ectt-1200">LOGGING_CONFIG_URI </span>command line is used.</li></ul>
-      </li></ul>
-<!--l. 346--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">13.4   </span> <a 
- id="x15-37500013.4"></a>Logging Within A Resource</h3>
-<!--l. 347--><p class="noindent" >Resource code generated using the REDHAWK code generators provides all the necessary
-prerequisites for establishing and configuring the logging capability.
-<!--l. 349--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">13.4.1   </span> <a 
- id="x15-37600013.4.1"></a>C++</h4>
-<!--l. 350--><p class="noindent" >For C++ implementations, the generated REDHAWK code contains macro definitions that define
-a logger object with the class name for your resource. For example, for <a 
-href="mainli2.html#glo:component">Component</a> <span 
-class="ectt-1200">SigGen</span>, the
-logger is <span 
-class="ectt-1200">SigGen_i</span>.
-<!--l. 352--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">13.4.1.1   </span> <a 
- id="x15-37700013.4.1.1"></a>Setup</h5>
-<!--l. 353--><p class="noindent" >The following example describes how to define and declare the <span 
-class="ectt-1200">SigGen_i </span>logger.
-                                                                                         
-                                                                                         
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-SigGen.h
-
-  ENABLE_LOGGING;                  // this macro defines a logging object ..
-
-
-SigGen.cpp
-
-  PREPARE_LOGGING( SigGen_i )    // this macro declares the logging object
-]]></script></div>
-<!--l. 366--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">13.4.1.2   </span> <a 
- id="x15-37800013.4.1.2"></a>Use</h5>
-<!--l. 368--><p class="noindent" >To add logging messages within your resource&#8217;s code, the following macros are available. These
-macros use the predefined class logger as the input parameter.
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">LOG_FATAL(&#x003C;component_class_name&#x003E;, message text )</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">LOG_ERROR(&#x003C;component_class_name&#x003E;, message text )</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">LOG_WARN(&#x003C;component_class_name&#x003E;, message text )</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">LOG_INFO(&#x003C;component_class_name&#x003E;, message text )</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">LOG_DEBUG(&#x003C;component_class_name&#x003E;, message text )</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">LOG_TRACE(&#x003C;component_class_name&#x003E;, message text )</span></li></ul>
-<!--l. 379--><p class="noindent" >The following example adds <span 
-class="ectt-1200">DEBUG</span>-level logging messages to the predefined logger <span 
-class="ectt-1200">SigGen_i</span>.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-  ....
-
-  LOG_DEBUG(SigGen_i, "serviceFunction() example log message");
-]]></script>
-                                                                                         
-                                                                                         
-</div>
-<!--l. 386--><p class="noindent" >In addition to the resource&#8217;s predefined logger, you can request a new logger object using the
-rh_logger interface and named logger macros.
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="ectt-1200">RH_FATAL(logger_object, message text)</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">RH_ERROR(logger_object, message text)</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">RH_WARN(logger_object, message text)</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">RH_INFO(logger_object, message text)</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">RH_DEBUG(logger_object, message text)</span>
-      </li>
-      <li class="itemize"><span 
-class="ectt-1200">RH_TRACE(logger_object, message text)</span></li></ul>
-<!--l. 397--><p class="noindent" >The following example creates a new logger object (<span 
-class="ectt-1200">myLogger</span>) and adds
-<span 
-class="ectt-1200">DEBUG</span>-level logging messages to <span 
-class="ectt-1200">myLogger </span>using the rh_logger interface.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-
-  // local named logger
-  LOGGER   myLogger = rh_logger::getLogger("AnotherLogger");
-
-
-  .......
-
-  RH_DEBUG(myLogger, "serviceFunction() example log message");
-
-]]></script></div>
-<!--l. 411--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">13.4.2   </span> <a 
- id="x15-37900013.4.2"></a>Java</h4>
-                                                                                         
-                                                                                         
-<!--l. 412--><p class="noindent" >For Java implementations, the log4j logger module must be imported for use before the logging
-capability can be established and configured.
-<!--l. 414--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">13.4.2.1   </span> <a 
- id="x15-38000013.4.2.1"></a>Setup</h5>
-<!--l. 416--><p class="noindent" >The following example describes how to import the log4j logger module.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-
-component.java
-import org.apache.log4j.Logger;
-
-class MyComponent {
-
-       public final static Logger logger =
-             Logger.getLogger(component.class.getName());
-             // gets logger object based on the class name...
-
-       ......
-
-]]></script></div>
-<!--l. 433--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">13.4.2.2   </span> <a 
- id="x15-38100013.4.2.2"></a>Use</h5>
-<!--l. 434--><p class="noindent" >The following example describes how to enable the logger with <span 
-class="ectt-1200">DEBUG</span>-level logging messages.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-
-  void someMethod() {
-
-       logger.debug("serviceFunction() example log message")
-
-    };
-
-]]></script></div>
-<!--l. 446--><p class="noindent" >Log4j supports the following severity levels for logging and enables you to programmatically
-                                                                                         
-                                                                                         
-change the severity level of the logger object.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: java"><![CDATA[
-
-         logger.fatal(...)
-         logger.warn(...)
-         logger.error(...)
-         logger.info(...)
-         logger.debug(...)
-         logger.trace(...)
-
-
-         logger.setLevel(Level.WARN)
-
-]]></script></div>
-<!--l. 463--><p class="noindent" >
-<h4 class="subsectionHead"><span class="titlemark">13.4.3   </span> <a 
- id="x15-38200013.4.3"></a>Python</h4>
-<!--l. 464--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">13.4.3.1   </span> <a 
- id="x15-38300013.4.3.1"></a>Setup</h5>
-<!--l. 466--><p class="noindent" >All REDHAWK resources inherit from the Resource class, which defines the <span 
-class="ectt-1200">_log </span>data
-member.
-<!--l. 468--><p class="noindent" >
-<h5 class="subsubsectionHead"><span class="titlemark">13.4.3.2   </span> <a 
- id="x15-38400013.4.3.2"></a>Use</h5>
-<!--l. 469--><p class="noindent" >An example logging method call for Python is:
+ id="x15-38600013.2.4"></a>Using the Sandbox</h4>
+<!--l. 296--><p class="noindent" >As shown briefly in section <a 
+href="#x15-38000013.2.3.1">13.2.3.1<!--tex4ht:ref: subsubsec:apps --></a>, <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> and <a 
+href="mainli2.html#glo:domain">Domain</a> objects are interoperable and can be
+connected together. This allows for inspection of different parts of the domain and more
+sophisticated testing of <a 
+href="mainli2.html#glo:component">Components</a>.
+<!--l. 299--><p class="noindent" >For example, to use a <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> plot to view the data coming from a device, enter the following
+commands:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-self._log.debug("process() example log message")
+&gt;&gt;> from ossie.utils import sb
+&gt;&gt;> plot = sb.LinePlot()
+&gt;&gt;> domain.devices[1].connect(plot)
+&gt;&gt;> plot.start()
 ]]></script></div>
-<!--l. 474--><p class="noindent" >REDHAWK has extended the Python logging support to include the trace method
-functionality. As with the other logging capabilities, you can programatically change the logging
-                                                                                         
-                                                                                         
-level.
+<!--l. 308--><p class="noindent" >Use the following commands to capture an approximately one second cut from a <a 
+href="mainli2.html#glo:waveformapplication">Waveform</a> to a
+file:
 <div class="minipage"><script type="syntaxhighlighter" class="brush: python"><![CDATA[
-
-         self._log.fatal(...)
-         self._log.warn(...)
-         self._log.error(...)
-         self._log.info(...)
-         self._log.debug(...)
-         self._log.trace(...)
-
-         self._log.setLevel(logging.WARN)
-
+&gt;&gt;> import time
+&gt;&gt;> sink = sb.FileSink("/data/tuner_out.dat")
+&gt;&gt;> domain.apps[0].connect(sink, usesPortName="tuner_out")
+&gt;&gt;> sink.start()
+&gt;&gt;> time.sleep(1.0)
+&gt;&gt;> sink.stop()
 ]]></script></div>
-<!--l. 489--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">13.5   </span> <a 
- id="x15-38500013.5"></a>Adjusting Logging at Runtime</h3>
-<!--l. 491--><p class="noindent" >The logging level for the root logger of a <a 
-href="mainli2.html#glo:component">Component</a>/<a 
-href="mainli2.html#glo:device">Device</a> can be adjusted at runtime in the
-IDE. The following procedure explains how to adjust the logging level.
-<!--l. 494--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x15-385002x1">Right-click the running <a 
-href="mainli2.html#glo:component">Component</a> or <a 
-href="mainli2.html#glo:device">Device</a> and select <span 
-class="ecbx-1200">Logging </span><span 
-class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Log Level</span>.
-      <!--l. 496--><p class="noindent" >The Set Debug Level dialog displays the current logging level. <hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x15-385003r1"></a> <a 
- id="x15-3850011"></a><img 
-src="images/SetDebugLevel.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;13.1: </td><td  
-class="content">Set Debug Level</td></tr></table><!--tex4ht:label?: x15-385003r1 -->
-      <!--l. 502--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x15-385005x2">Select the new logging level you want to use and click <span 
-class="ecbx-1200">OK</span>.
-      <!--l. 505--><p class="noindent" >The new log level is used.</li></ol>
-<!--l. 508--><p class="noindent" >After a <a 
-href="mainli2.html#glo:component">Component</a> or <a 
-href="mainli2.html#glo:device">Device</a> has been launched, its logging configuration can also be dynamically
-modified.
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x15-385007x1">Right-click the running <a 
-href="mainli2.html#glo:component">Component</a> or <a 
-href="mainli2.html#glo:device">Device</a> and select <span 
-class="ecbx-1200">Logging </span><span 
-class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Edit Log Config</span>.
-      If this is the first time you have used the editor, a warning is displayed.
+<!--l. 319--><p class="noindent" >When the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> exits, any connections made between <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a> objects and <a 
+href="mainli2.html#glo:domain">Domain</a> objects are
+broken to limit interference with normal domain operation.
+<!--l. 321--><p class="noindent" >For more details on using the <a 
+href="mainli2.html#glo:Sandbox">Sandbox</a>, refer to <a 
+href="mainch11.html#x13-26400011">Chapter 11</a>.
                                                                                          
                                                                                          
-      </li>
-      <li 
-  class="enumerate" id="x15-385009x2">If a warning is displayed, click <span 
-class="ecbx-1200">Yes</span>. The Edit Log Config editor is displayed. <hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x15-385010r2"></a> <a 
- id="x15-3850082"></a><img 
-src="images/logconfigeditor.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;13.2: </td><td  
-class="content">Edit Log Config Editor</td></tr></table><!--tex4ht:label?: x15-385010r2 -->
-      <!--l. 519--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      <!--l. 522--><p class="noindent" >The editor shows the resource&#8217;s logging configuration. Saving changes to the editor performs
-      a live update of the resource&#8217;s logging configuration.</li></ol>
-<!--l. 525--><p class="noindent" ><div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">  Changing the logging configuration for a running <a 
-href="mainli2.html#glo:application">Application</a> instance can affect the
-DomainManager process. When changing the logging configuration for an <a 
-href="mainli2.html#glo:application">Application</a>, restrict the
-configuration to an <a 
-href="mainli2.html#glo:application">Application</a>&#8217;s logging instance, <span 
-class="ectt-1200">Application_impl</span>; as in the following example.
-<div class="minipage"><script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
-
-log4j.logger.Application_impl=TRACE,applogonly
-log4j.appender.applogonly=org.apache.log4j.FileAppender
-log4j.appender.applogonly.layout=org.apache.log4j.PatternLayout
-log4j.appender.applogonly.layout.ConversionPattern=%d {yyyy-MM-dd HH:mm:ss} %-5p %c:%L - %m%n
-log4j.appender.applogonly.File=/tmp/applog.out
-log4j.appender.applogonly.Append=true
-]]></script></div>
-</p></div></div>
-<!--l. 538--><p class="noindent" >
-<h3 class="sectionHead"><span class="titlemark">13.6   </span> <a 
- id="x15-38600013.6"></a>Viewing Logging Events</h3>
-<!--l. 540--><p class="noindent" >A live view of events logged by <a 
-href="mainli2.html#glo:component">Components</a> or <a 
-href="mainli2.html#glo:device">Devices</a> can be displayed in the IDE. The
-<a 
-href="mainli2.html#glo:component">Component</a> or <a 
-href="mainli2.html#glo:device">Device</a> provides logging events to an event channel, and the IDE displays them as it
-receives them. To view the log:
-<!--l. 543--><p class="noindent" >
-      <ol  class="enumerate1" >
-      <li 
-  class="enumerate" id="x15-386002x1">Right-click the running <a 
-href="mainli2.html#glo:component">Component</a> or <a 
-href="mainli2.html#glo:device">Device</a> and select <span 
-class="ecbx-1200">Logging </span><span 
-class="cmmi-12">&#x003E; </span><span 
-class="ecbx-1200">Tail Log</span>. The
-      Specify logging details dialog is displayed.
-      <!--l. 546--><p class="noindent" ><hr class="figure"><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
-><a 
- id="x15-386003r3"></a> <a 
- id="x15-3860011"></a><img 
-src="images/loggingdetails.png" alt="PIC"  
->
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;13.3: </td><td  
-class="content">Edit Log Config Editor</td></tr></table><!--tex4ht:label?: x15-386003r3 -->
-      <!--l. 551--><p class="noindent" ></td></tr></table></div><hr class="endfigure">
-      </li>
-      <li 
-  class="enumerate" id="x15-386005x2">Select the logging level.
-                                                                                         
-                                                                                         
-      </li>
-      <li 
-  class="enumerate" id="x15-386007x3">If desired, specify the logger to which the IDE should attach. Leave the field blank to attach
-      to the root logger.
-      </li>
-      <li 
-  class="enumerate" id="x15-386009x4">Click OK.
-      <!--l. 557--><p class="noindent" >A new Console view displays logging events as they are received.
-      </li>
-      <li 
-  class="enumerate" id="x15-386011x5">To no longer view events, click the Stop icon on the Console toolbar.</li></ol>
                                                                                          
                                                                                          
 <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
@@ -1441,7 +501,7 @@ href="mainch12.html#tailmainch12.html" >prev-tail</a>] [<a
 href="mainch13.html" >front</a>] [<a 
 href="main.html#mainch13.html" >up</a>] </p></div>
 <!--l. 1--><p class="noindent" ><a 
- id="tailmainch13.html"></a>  
+ id="tailmainch13.html"></a>   
  
 <div class=license>  
 <hr> 
